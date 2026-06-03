@@ -6996,22 +6996,110 @@
         "_llm": "qwen-plus"
       },
       "signals": {
-        "hf_upvotes": 4,
+        "hf_upvotes": 5,
         "citations": 0,
         "venue": ""
       },
       "scores": {
         "relevance": 8.3,
         "content": 18.0,
-        "heat": 6.1,
+        "heat": 6.8,
         "quality": 0.0,
         "base": 26.3,
-        "bonus": 6.1,
-        "total": 32.4
+        "bonus": 6.8,
+        "total": 33.1
       },
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2606.03159.jpg"
+    },
+    {
+      "arxiv_id": "2606.03985",
+      "title": "Humanoid-GPT: Scaling Data and Structure for Zero-Shot Motion Tracking",
+      "abstract": "We introduce Humanoid-GPT, a GPT-style Transformer with causal attention trained on a billion-scale motion corpus for whole-body control. Unlike prior shallow MLP trackers constrained by scarce data and an agility-generalization trade-off, Humanoid-GPT is pre-trained on a 2B-frame retargeted corpus that unifies all major mocap datasets with large-scale in-house recordings. Scaling both data and model capacity yields a single generative Transformer that tracks highly dynamic behaviors while achieving unprecedented zero-shot generalization to unseen motions and control tasks. Extensive experiments and scaling analyses show that our model establishes a new performance frontier, demonstrating robust zero-shot generalization to unseen tasks while simultaneously tracking highly dynamic and complex motions.",
+      "authors": [
+        "Zekun Qi",
+        "Xuchuan Chen",
+        "Dairu Liu",
+        "Chenghuai Lin",
+        "Yunrui Lian",
+        "Sikai Liang",
+        "Zhikai Zhang",
+        "Yu Guan",
+        "Jilong Wang",
+        "Wenyao Zhang",
+        "Xinqiang Yu",
+        "He Wang",
+        "Li Yi"
+      ],
+      "categories": [],
+      "published": "2026-06-02T00:00:00.000Z",
+      "updated": "2026-06-02T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2606.03985",
+      "pdf_url": "https://arxiv.org/pdf/2606.03985",
+      "hf_upvotes": 6,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.1284,
+        "world_model": 0.0556,
+        "whole_body_control": 0.1726,
+        "dexterous_manipulation": 0.0606,
+        "sim2real_data": 0.0941,
+        "hardware_unitree": 0.024
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.1726,
+      "analysis": {
+        "tldr": "用10亿帧动作数据预训练一个GPT式Transformer模型，输入传感器信号（如IMU+关节角），输出全身关节运动序列，不微调就能泛化到没见过的动作和控制任务。",
+        "org": "银河通用",
+        "country": "CN",
+        "org_type": "company",
+        "claim": "扩大动作数据规模和模型容量可突破传统浅层运动追踪器的零样本泛化瓶颈，使单一生成式Transformer实现高动态动作跟踪与跨任务零样本迁移。",
+        "method_components": [
+          "model",
+          "dataset",
+          "simulator"
+        ],
+        "input": "IMU信号+关节角度+时间序列指令（隐含）",
+        "output": "全身关节角度轨迹（60+维，每帧）",
+        "robot_dependency": "仿真人体模型（未提具体硬件，依赖mocap重定向流程）",
+        "data_dependency": "完全不依赖真实机器人在线数据；仅依赖离线mocap重定向数据（含自建2B帧）",
+        "sim2real_status": "sim-only",
+        "generalization": [
+          "cross-task",
+          "cross-motion"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 5,
+        "evidence": 7,
+        "reproducibility_score": 3,
+        "significance": 68,
+        "significance_reason": "数据规模和零样本泛化能力有实质性提升，但仍是‘动作预测即next-token’范式的工程放大（非新范式），无真机部署、无跨机体验证、无控制闭环实验，显著弱于H2O/WholeBodyVLA等具备实时闭环、多机体适配或具身策略生成能力的里程碑工作。",
+        "one_sentence_verdict": "显著贡献：在纯动作跟踪子任务上通过数据与模型缩放取得扎实进步，但未进入具身智能核心闭环（感知-决策-执行），暂未突破仿真到真实、任务到控制的鸿沟。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 26,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 5.2,
+        "content": 15.0,
+        "heat": 12.4,
+        "quality": 0.0,
+        "base": 20.2,
+        "bonus": 12.4,
+        "total": 32.6
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2606.03985.jpg"
     },
     {
       "arxiv_id": "2606.02486",
@@ -7272,94 +7360,6 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2606.01027.jpg"
-    },
-    {
-      "arxiv_id": "2606.03985",
-      "title": "Humanoid-GPT: Scaling Data and Structure for Zero-Shot Motion Tracking",
-      "abstract": "We introduce Humanoid-GPT, a GPT-style Transformer with causal attention trained on a billion-scale motion corpus for whole-body control. Unlike prior shallow MLP trackers constrained by scarce data and an agility-generalization trade-off, Humanoid-GPT is pre-trained on a 2B-frame retargeted corpus that unifies all major mocap datasets with large-scale in-house recordings. Scaling both data and model capacity yields a single generative Transformer that tracks highly dynamic behaviors while achieving unprecedented zero-shot generalization to unseen motions and control tasks. Extensive experiments and scaling analyses show that our model establishes a new performance frontier, demonstrating robust zero-shot generalization to unseen tasks while simultaneously tracking highly dynamic and complex motions.",
-      "authors": [
-        "Zekun Qi",
-        "Xuchuan Chen",
-        "Dairu Liu",
-        "Chenghuai Lin",
-        "Yunrui Lian",
-        "Sikai Liang",
-        "Zhikai Zhang",
-        "Yu Guan",
-        "Jilong Wang",
-        "Wenyao Zhang",
-        "Xinqiang Yu",
-        "He Wang",
-        "Li Yi"
-      ],
-      "categories": [],
-      "published": "2026-06-02T00:00:00.000Z",
-      "updated": "2026-06-02T00:00:00.000Z",
-      "url": "https://arxiv.org/abs/2606.03985",
-      "pdf_url": "https://arxiv.org/pdf/2606.03985",
-      "hf_upvotes": 6,
-      "source": "hf_daily",
-      "route_scores": {
-        "vla": 0.1284,
-        "world_model": 0.0556,
-        "whole_body_control": 0.1726,
-        "dexterous_manipulation": 0.0606,
-        "sim2real_data": 0.0941,
-        "hardware_unitree": 0.024
-      },
-      "best_route": "whole_body_control",
-      "relevance_raw": 0.1726,
-      "analysis": {
-        "tldr": "用10亿帧动作数据预训练一个GPT式Transformer模型，输入传感器信号（如IMU+关节角），输出全身关节运动序列，不微调就能泛化到没见过的动作和控制任务。",
-        "org": "银河通用",
-        "country": "CN",
-        "org_type": "company",
-        "claim": "扩大动作数据规模和模型容量可突破传统浅层运动追踪器的零样本泛化瓶颈，使单一生成式Transformer实现高动态动作跟踪与跨任务零样本迁移。",
-        "method_components": [
-          "model",
-          "dataset",
-          "simulator"
-        ],
-        "input": "IMU信号+关节角度+时间序列指令（隐含）",
-        "output": "全身关节角度轨迹（60+维，每帧）",
-        "robot_dependency": "仿真人体模型（未提具体硬件，依赖mocap重定向流程）",
-        "data_dependency": "完全不依赖真实机器人在线数据；仅依赖离线mocap重定向数据（含自建2B帧）",
-        "sim2real_status": "sim-only",
-        "generalization": [
-          "cross-task",
-          "cross-motion"
-        ],
-        "reproducibility": "project-page",
-        "tags": [
-          "multimodal-fusion",
-          "dataset",
-          "benchmark"
-        ],
-        "novelty": 5,
-        "evidence": 7,
-        "reproducibility_score": 3,
-        "significance": 68,
-        "significance_reason": "数据规模和零样本泛化能力有实质性提升，但仍是‘动作预测即next-token’范式的工程放大（非新范式），无真机部署、无跨机体验证、无控制闭环实验，显著弱于H2O/WholeBodyVLA等具备实时闭环、多机体适配或具身策略生成能力的里程碑工作。",
-        "one_sentence_verdict": "显著贡献：在纯动作跟踪子任务上通过数据与模型缩放取得扎实进步，但未进入具身智能核心闭环（感知-决策-执行），暂未突破仿真到真实、任务到控制的鸿沟。",
-        "_llm": "qwen-plus"
-      },
-      "signals": {
-        "hf_upvotes": 10,
-        "citations": 0,
-        "venue": ""
-      },
-      "scores": {
-        "relevance": 5.2,
-        "content": 15.0,
-        "heat": 9.0,
-        "quality": 0.0,
-        "base": 20.2,
-        "bonus": 9.0,
-        "total": 29.2
-      },
-      "grade": "D",
-      "read_priority": "C",
-      "thumb": "assets/thumbs/2606.03985.jpg"
     },
     {
       "arxiv_id": "2606.02307",
