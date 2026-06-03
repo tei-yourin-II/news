@@ -1,0 +1,312 @@
+# ============================================================
+#  robot-intel 配置 —— 系统的灵魂
+#  改这里 = 调系统行为(每天整备 = 改配置,不改代码)
+# ============================================================
+
+# arXiv 抓取范围
+arxiv:
+  # cs.* = 具身智能;q-bio.NC/eess.SP = BCI;q-bio.BM/GN/QM = 蛋白质/基因/计算生物 AI
+  categories: [cs.RO, cs.AI, cs.LG, cs.CV, cs.HC, q-bio.NC, eess.SP, q-bio.BM, q-bio.GN, q-bio.QM]
+  max_results: 350          # 每次拉最近多少篇(再做相关度过滤)
+  request_delay_sec: 5      # 礼貌间隔(官方建议≥3s,给到 5s 更稳)。生产每天只跑1次=1个请求,不会限流;
+                            # 失败也不致命(HF 兜底)。别短时间反复手动跑,那才会触发 429 冷却。
+  # 关键词驱动检索(强烈推荐):只在分类里搜命中这些词的最新论文,
+  # 召回率远高于"拉巨型分类最近 N 篇"(后者大半是无关噪声)。留空则退回纯按分类拉。
+  search_terms:
+    - robot
+    - manipulation
+    - humanoid
+    - vision-language-action
+    - embodied
+    - locomotion
+    - dexterous
+    - teleoperation
+    - world model
+    - sim-to-real
+    - imitation learning
+    - robot policy
+    - robot learning
+    # 脑机接口
+    - brain-computer interface
+    - brain-machine interface
+    - neural decoding
+    - EEG
+    - neuroprosthetic
+    - neural interface
+    - speech neuroprosthesis
+    - brain-controlled robot
+    - ECoG decoding
+    - neural foundation model
+    - brain-spine interface
+    # 蛋白质 / 基因 / 计算生物 AI
+    - protein structure
+    - protein design
+    - protein language model
+    - AlphaFold
+    - genomics
+    - DNA language model
+    - gene editing
+    - drug discovery
+    - molecular generation
+  # 第二源:Hugging Face Daily Papers(社区精选 + 自带热度),并入 arXiv 结果一起过滤
+  use_hf_daily: true
+
+# 过滤:从抓到的论文里,留多少进入贵的 LLM 拆解
+filter:
+  relevance_min: 0.12       # 相关度低于此直接丢(0~1,关键词后端的标度;关键词检索后已较干净,放宽)
+  keep_top_k: 40            # 兜底:无论如何最多保留前 K 篇做 LLM 分析
+
+# ---------- 评分(满分 100)----------
+# 设计:base = 相关度 + 内容,驱动「今天该不该读」(read_priority)
+#       bonus = 热度 + 质量,随时间增长(论文越老越准,系统每天重算)
+#       total = base + bonus,驱动 S/A/B/C/D 评级
+scoring:
+  weights:
+    relevance: 30           # 相关度(嵌入/关键词,客观计算)
+    content: 30             # 内容拆解 = 新颖10 + 证据12 + 可复现8(LLM 给)
+    heat: 20                # 热度(HF upvote / GitHub star / 社媒,客观)
+    quality: 20             # 质量影响力(引用/venue/作者,来自 S2)
+  grade_thresholds:         # 对 total
+    S: 80
+    A: 65
+    B: 50
+    C: 35
+  priority_thresholds:      # 对 base(relevance+content,最高 60)—— 决定今天读不读
+    A: 45
+    B: 32
+    C: 20
+
+# ---------- LLM(拆解 + 主观打分)----------
+llm:
+  provider: qwen            # qwen | openai | anthropic | none(none = 跳过出占位)
+  model: qwen-plus          # 拆解默认 qwen-plus;要更准换 qwen-max,代码版换 qwen3-coder-plus
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1  # DashScope OpenAI 兼容端点
+  max_papers_per_run: 40    # 成本闸:每次最多 LLM 分析多少篇(对齐 keep_top_k)
+
+# ---------- LLM 初筛(廉价模型批量判相关性 + 分路线)----------
+# 三级漏斗中间层:免费锚点门 → 这里(qwen-turbo 批量初筛)→ 贵的 qwen-plus 深拆解。
+# 标题就够判,40 篇/次,token 极省;比嵌入/关键词精度高得多(能识别"纯NLP"等域外)。
+prefilter:
+  enabled: true
+  provider: qwen
+  model: qwen-turbo         # 初筛用最便宜的;深拆解才用 qwen-plus
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  batch_size: 40
+  max_candidates: 150       # 成本闸:最多送多少篇进初筛(锚点门后通常远小于此)
+  # key 走环境变量(本地放 .env,CI 放 GitHub secret):
+  #   qwen → QWEN_API_KEY / DASHSCOPE_API_KEY;anthropic → ANTHROPIC_API_KEY
+
+# ---------- 横切标签(不是路线,是方法成分)----------
+# 多模态融合放这里,而不是单独路线 —— 避免和 VLA/WM 大面积重叠
+cross_cutting_tags:
+  - multimodal-fusion
+  - tactile
+  - dexterous
+  - sim2real
+  - teleoperation
+  - dataset
+  - benchmark
+  - open-source
+  - real-robot
+  - large-scale
+
+# ============================================================
+#  路线(relevance 过滤的锚点)
+#  seed: 代表作,系统用它们的标题+关键词构建「兴趣画像」
+#  arxiv_id 是 best-effort 占位,⚠️ 用前自己核一下;
+#  当前相关度只用 title+keywords,所以 ID 错也不影响过滤
+# ============================================================
+routes:
+  # ---------- 🟥 核心(高权重,单独子图)----------
+  - id: vla
+    name: VLA (Vision-Language-Action)
+    tier: core
+    weight: 1.0
+    enabled: true
+    keywords: [vision-language-action, VLA, generalist policy, robot foundation model,
+               language-conditioned, action model, visuomotor, action chunking, robot transformer]
+    seeds:
+      - { title: "RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control", arxiv_id: "2307.15818" }
+      - { title: "OpenVLA: An Open-Source Vision-Language-Action Model", arxiv_id: "2406.09246" }
+      - { title: "pi0: A Vision-Language-Action Flow Model for General Robot Control", arxiv_id: "2410.24164" }
+      - { title: "Octo: An Open-Source Generalist Robot Policy", arxiv_id: "2405.12213" }
+      - { title: "RDT-1B: a Diffusion Foundation Model for Bimanual Manipulation", arxiv_id: "2410.07864" }
+      - { title: "GR00T N1: An Open Foundation Model for Generalist Humanoid Robots", arxiv_id: "2503.14734" }
+
+  - id: world_model
+    name: World Model / WAM
+    tier: core
+    weight: 1.0
+    enabled: true
+    keywords: [world model, world action model, video prediction, latent dynamics,
+               model-based RL, generative environment, dreaming, physical AI, video generation]
+    seeds:
+      - { title: "Mastering Diverse Domains through World Models (DreamerV3)", arxiv_id: "2301.04104" }
+      - { title: "Genie: Generative Interactive Environments", arxiv_id: "2402.15391" }
+      - { title: "Cosmos World Foundation Model Platform for Physical AI", arxiv_id: "2501.03575" }
+      - { title: "DayDreamer: World Models for Physical Robot Learning", arxiv_id: "2206.14176" }
+      - { title: "Navigation World Models", arxiv_id: "2412.03572" }
+
+  - id: whole_body_control
+    name: Whole-body Control / Locomotion
+    tier: core
+    weight: 1.0
+    enabled: true
+    keywords: [whole-body control, humanoid locomotion, legged locomotion, bipedal,
+               teleoperation, motion imitation, sim-to-real, RL controller, balance, fall recovery]
+    seeds:
+      - { title: "Expressive Whole-Body Control for Humanoid Robots (ExBody)", arxiv_id: "2402.16796" }
+      - { title: "HumanPlus: Humanoid Shadowing and Imitation from Humans", arxiv_id: "2406.10454" }
+      - { title: "H2O: Learning Human-to-Humanoid Real-Time Whole-Body Teleoperation", arxiv_id: "2403.04436" }
+      - { title: "OmniH2O: Universal and Dexterous Human-to-Humanoid Whole-Body Teleoperation", arxiv_id: "2406.08858" }
+      - { title: "Humanoid Locomotion as Next Token Prediction", arxiv_id: "2402.19469" }
+
+  # ---------- 🟧 次要(降权,跟踪,喂养核心)----------
+  - id: dexterous_manipulation
+    name: Dexterous Manipulation
+    tier: secondary
+    weight: 0.6
+    enabled: true
+    keywords: [dexterous manipulation, dexterous hand, multi-finger, in-hand manipulation,
+               bimanual, grasping, tactile, ALOHA]
+    seeds:
+      - { title: "Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware (ALOHA/ACT)", arxiv_id: "2304.13705" }
+      - { title: "DexCap: Scalable and Portable Mocap Data Collection for Dexterous Manipulation", arxiv_id: "2403.07788" }
+      - { title: "DexMimicGen: Automated Data Generation for Bimanual Dexterous Manipulation", arxiv_id: "2410.24185" }
+
+  - id: sim2real_data
+    name: Sim2Real / Data / Simulation
+    tier: secondary
+    weight: 0.6
+    enabled: true
+    keywords: [sim-to-real, domain randomization, simulator, synthetic data, robot dataset,
+               imitation learning data, teleoperation data, data scaling]
+    seeds:
+      - { title: "Open X-Embodiment: Robotic Learning Datasets and RT-X Models", arxiv_id: "2310.08864" }
+      - { title: "DROID: A Large-Scale In-the-Wild Robot Manipulation Dataset", arxiv_id: "2403.12945" }
+      - { title: "Mobile ALOHA: Learning Bimanual Mobile Manipulation with Low-Cost Whole-Body Teleoperation", arxiv_id: "2401.02117" }
+
+  - id: hardware_unitree
+    name: Hardware / Unitree G1·H1 Ecosystem
+    tier: secondary
+    weight: 0.6
+    enabled: true
+    keywords: [humanoid hardware, Unitree, G1, H1, Go2, robot platform, actuator,
+               low-cost humanoid, hardware design]
+    seeds:
+      - { title: "HumanPlus: Humanoid Shadowing and Imitation from Humans", arxiv_id: "2406.10454" }
+      - { title: "OmniH2O: Universal and Dexterous Human-to-Humanoid Whole-Body Teleoperation", arxiv_id: "2406.08858" }
+
+  # ========== 🧠 脑机接口域(domain: bci)==========
+  # 由 BCI 调研 agent 产出(baseline/bci.md)。⚠️ BCI 顶尖工作多在 Nature/q-bio,
+  # arXiv/HF 覆盖有限,数量会慢热;部分 seed 无 arXiv 预印本,只用标题进相关度画像。
+  - id: bci_neural_decoding
+    name: 神经解码 / BCI 核心
+    domain: bci
+    tier: core
+    weight: 1.0
+    enabled: true
+    keywords: [neural decoding, brain-computer interface, BCI, brain-machine interface,
+               speech decoding, motor decoding, ECoG, intracortical, spiking neural, neural signal,
+               neuroprosthesis, electrocorticography, speech neuroprosthesis, neural population,
+               motor cortex, language decoding]
+    seeds:
+      - { title: "A high-performance neuroprosthesis for speech decoding and avatar control", arxiv_id: "" }
+      - { title: "High-performance brain-to-text communication via handwriting", arxiv_id: "" }
+      - { title: "Neural Data Transformer 3: A Foundation Model for Motor Cortical Decoding", arxiv_id: "" }
+      - { title: "Online speech synthesis using a chronically implanted brain-computer interface in an individual with ALS", arxiv_id: "" }
+
+  - id: bci_foundation_models
+    name: 神经基础模型 / NeuroAI
+    domain: bci
+    tier: core
+    weight: 1.0
+    enabled: true
+    keywords: [neural foundation model, brain foundation model, EEG transformer, neural data transformer,
+               NDT, CBraMod, cross-subject decoding, few-shot neural decoding, neural pretraining,
+               brain-JEPA, neuro-AI, EEG pretrain, neural population dynamics, latent neural]
+    seeds:
+      - { title: "CBraMod: A Criss-Cross Brain Foundation Model for EEG Decoding", arxiv_id: "2412.07236" }
+      - { title: "MindEye2: Shared-Subject Models Enable fMRI-To-Image With 1 Hour of Data", arxiv_id: "2403.11207" }
+      - { title: "Brain Foundation Models: A Survey on Advancements in Neural Signal Processing", arxiv_id: "2503.00580" }
+
+  - id: bci_embodied_robot
+    name: BCI × 具身智能 / 神经假肢
+    domain: bci
+    tier: core
+    weight: 1.0
+    enabled: true
+    keywords: [brain-controlled robot, neuroprosthetic, neuroprosthetics, prosthetic control,
+               exoskeleton BCI, shared autonomy BCI, brain-robot interface, neural control robotic arm,
+               assistive robot BCI, brain spine interface, closed-loop BCI, rehabilitation robot BCI,
+               BCI manipulation, walking restoration BCI, bionic limb neural, AI copilot BCI]
+    seeds:
+      - { title: "Brain-computer interface control with artificial intelligence copilots", arxiv_id: "" }
+      - { title: "Walking naturally after spinal cord injury using a brain-spine interface", arxiv_id: "" }
+      - { title: "Continuous neural control of a bionic limb restores biomimetic gait after amputation", arxiv_id: "" }
+      - { title: "Levels of shared autonomy in brain-robot interfaces: enabling multi-robot multi-human collaboration", arxiv_id: "" }
+
+  - id: bci_noninvasive_eeg
+    name: 非侵入式 BCI / EEG 解码
+    domain: bci
+    tier: secondary
+    weight: 0.7
+    enabled: true
+    keywords: [EEG BCI, motor imagery EEG, SSVEP, P300 BCI, non-invasive BCI, EEG decoding,
+               EEG classification, fNIRS BCI, wearable BCI, dry electrode EEG, EEG benchmark,
+               MOABB, EEGNet, EEG conformer, consumer BCI]
+    seeds:
+      - { title: "The largest EEG-based BCI reproducibility study for open science: the MOABB benchmark", arxiv_id: "2404.15319" }
+      - { title: "Visual Decoding and Reconstruction via EEG Embeddings with Guided Diffusion", arxiv_id: "2403.07721" }
+      - { title: "FALCON: Few-shot Algorithms for Consistent Neural Decoding Benchmark", arxiv_id: "" }
+
+  # ========== 🧬 AI×科学/生物域(domain: ai_science)==========
+  # ⚠️ 最小可用版,seed/keywords 待 AI-for-Science 调研结论 refine。
+  - id: protein_ai
+    name: 蛋白质计算 / 设计
+    domain: ai_science
+    tier: core
+    weight: 1.0
+    enabled: true
+    keywords: [protein structure prediction, protein design, AlphaFold, AlphaFold3, RFdiffusion,
+               RFdiffusion2, ESM, ESM3, ESMFold, ProteinMPNN, protein language model, binder design,
+               antibody design, enzyme design, protein folding, de novo protein, inverse folding,
+               variant effect prediction, structure prediction, ProGen, DPLM]
+    seeds:
+      - { title: "Highly accurate protein structure prediction with AlphaFold", arxiv_id: "" }
+      - { title: "De novo design of protein structure and function with RFdiffusion", arxiv_id: "" }
+      - { title: "Accurate structure prediction of biomolecular interactions with AlphaFold3", arxiv_id: "" }
+
+  - id: genomics_ai
+    name: 基因组 / 基因 AI
+    domain: ai_science
+    tier: core
+    weight: 1.0
+    enabled: true
+    keywords: [genomics, DNA language model, Evo, Evo2, Nucleotide Transformer, HyenaDNA,
+               gene editing, CRISPR, single-cell, scRNA, RNA, variant effect prediction,
+               regulatory genomics, non-coding DNA, genome model, sequence model,
+               genomic foundation model, drug discovery, molecular generation, cell atlas]
+    seeds:
+      - { title: "Sequence modeling and design from molecular to genome scale (Evo)", arxiv_id: "" }
+      - { title: "The Nucleotide Transformer: Building Robust Foundation Models for Human Genomics", arxiv_id: "" }
+
+  # ---------- 🟨 可选(默认关闭,要写对应方向论文再开)----------
+  - id: hri
+    name: HRI / Social Acceptance
+    tier: optional
+    weight: 0.2
+    enabled: false
+    keywords: [human-robot interaction, social robot, trust, acceptance, safety,
+               teleoperation interface, shared autonomy]
+    seeds:
+      - { title: "Human-Robot Interaction trust and acceptance", arxiv_id: "" }
+
+  - id: llm_agent
+    name: LLM Agent / Tool-use
+    tier: optional
+    weight: 0.2
+    enabled: false
+    keywords: [LLM agent, tool use, planning, RAG, reasoning, embodied agent]
+    seeds:
+      - { title: "SayCan: Do As I Can, Not As I Say", arxiv_id: "2204.01691" }

@@ -1,0 +1,1943 @@
+{
+  "generated_at": "2026-06-03",
+  "topics": {
+    "vla": {
+      "works": [
+        {
+          "name": "RT-2",
+          "org": "Google DeepMind",
+          "country": "US",
+          "year": 2023,
+          "arxiv_id": "2307.15818",
+          "significance": 97,
+          "why": "首个大规模VLA范式开宗立派工作：将动作离散为语言token，实现VLM到机器人控制的端到端迁移，首次系统性展示emergent泛化能力，定义了VLA研究基本范式"
+        },
+        {
+          "name": "π0",
+          "org": "Physical Intelligence",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "2410.24164",
+          "significance": 95,
+          "why": "首个流匹配VLA，突破扩散模型推理瓶颈，实现跨平台（单/双臂/移动）统一建模与复杂长时序操作（叠衣/装箱），确立流匹配为VLA主流新范式"
+        },
+        {
+          "name": "OpenVLA",
+          "org": "Stanford等",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "2406.09246",
+          "significance": 93,
+          "why": "首个高性能开源VLA（7B），以远小参数量超越RT-2-X，推动社区标准化、可复现与微调民主化，成为事实上的开源基准锚点"
+        },
+        {
+          "name": "Octo",
+          "org": "UC Berkeley等",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "2405.12213",
+          "significance": 92,
+          "why": "首个全开源跨体态通用策略模型，基于OXE大规模轨迹训练，确立跨机器人泛化评测标准，奠定VLA数据-模型-评估闭环基石"
+        },
+        {
+          "name": "RDT-1B",
+          "org": "清华大学",
+          "country": "CN",
+          "year": 2024,
+          "arxiv_id": "2410.07864",
+          "significance": 88,
+          "why": "最大规模扩散基础模型（1.2B），首次在双臂操作领域实现统一动作空间与zero-shot跨任务泛化，代表中国在扩散VLA方向的范式级突破"
+        },
+        {
+          "name": "GR00T N1",
+          "org": "NVIDIA",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2503.14734",
+          "significance": 87,
+          "why": "首个开源人形机器人VLA基础模型，确立双系统架构工业共识（VLM慢推理+扩散快执行），打通真实+视频+合成数据混合训练路径"
+        },
+        {
+          "name": "π0.5",
+          "org": "Physical Intelligence",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2504.16054",
+          "significance": 86,
+          "why": "首个在全新家庭环境完成厨房/卧室清洁等开放世界长时域任务的端到端VLA，将泛化从'任务切换'推进至'环境-任务联合零样本'"
+        },
+        {
+          "name": "FAST",
+          "org": "Physical Intelligence",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2501.09747",
+          "significance": 85,
+          "why": "首创频域DCT动作token化，使自回归VLA首次在精度与速度上匹敌扩散模型，破解AR范式长期存在的高频精细操作瓶颈"
+        },
+        {
+          "name": "OpenVLA-OFT",
+          "org": "Stanford等",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2502.19645",
+          "significance": 84,
+          "why": "首次系统性优化VLA微调配方，实现LIBERO成功率跃升至97.1%且推理加速26倍，确立高效微调为VLA落地关键路径"
+        },
+        {
+          "name": "HybridVLA",
+          "org": "北京大学",
+          "country": "CN",
+          "year": 2025,
+          "arxiv_id": "2503.10631",
+          "significance": 83,
+          "why": "首个共享LLM骨干的AR+扩散混合VLA，证明语言推理链与连续动作生成可协同增强，开辟多范式融合新方向"
+        },
+        {
+          "name": "GraspVLA",
+          "org": "银河通用/北京大学",
+          "country": "CN",
+          "year": 2025,
+          "arxiv_id": "2505.03233",
+          "significance": 82,
+          "why": "基于10亿帧合成数据预训练的抓取基础模型，实现sim-to-real零样本直接迁移，验证合成数据作为VLA主干数据源的可行性"
+        },
+        {
+          "name": "Diffusion Policy",
+          "org": "Columbia",
+          "country": "US",
+          "year": 2023,
+          "arxiv_id": "2303.04137",
+          "significance": 81,
+          "why": "奠基性扩散策略工作，虽非VLA但提供核心DDPM/DDIM动作建模方法论，为后续所有扩散VLA（RDT-1B/Octo/GR00T）提供技术母体"
+        },
+        {
+          "name": "VLA-RL",
+          "org": "多机构",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2505.18719",
+          "significance": 80,
+          "why": "首个系统性将在线RL后训练引入VLA，显著提升OOD泛化能力，标志VLA从纯模仿学习迈向RLHF式迭代优化新阶段"
+        },
+        {
+          "name": "SpatialVLA",
+          "org": "多机构",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2501.15830",
+          "significance": 78,
+          "why": "首个显式引入Ego3D空间编码的VLA，显著提升空间理解与精细操作鲁棒性，填补VLA在三维几何感知上的关键空白"
+        },
+        {
+          "name": "DiffusionVLA",
+          "org": "多机构",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "2412.03293",
+          "significance": 77,
+          "why": "首个用自回归推理链引导扩散动作生成的VLA，揭示语言结构化推理对连续动作质量的增强效应，启发混合范式设计"
+        },
+        {
+          "name": "UniVLA",
+          "org": "多机构",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "",
+          "significance": 76,
+          "why": "首个将视觉/语言/动作全部统一为离散token的全自回归VLA，支持World Modeling后训练，探索VLA因果动态建模新路径"
+        },
+        {
+          "name": "AgiBot GO-1 (ViLLA)",
+          "org": "智元机器人",
+          "country": "CN",
+          "year": 2025,
+          "arxiv_id": "",
+          "significance": 75,
+          "why": "首个国产MoE专家架构VLA（Latent Planner+Action Expert），体现中国团队在VLA工程化与架构原创上的实质性突破"
+        },
+        {
+          "name": "VLAW",
+          "org": "多机构",
+          "country": "US",
+          "year": 2026,
+          "arxiv_id": "2602.12063",
+          "significance": 74,
+          "why": "首个VLA与世界模型联合迭代训练框架，开启具身智能‘感知-行动-预测’三位一体新范式，代表两领域融合里程碑"
+        }
+      ],
+      "players": [
+        {
+          "name": "Google DeepMind",
+          "country": "US",
+          "type": "company",
+          "note": "RT-2"
+        },
+        {
+          "name": "Physical Intelligence",
+          "country": "US",
+          "type": "company",
+          "note": "π0, π0.5"
+        },
+        {
+          "name": "NVIDIA",
+          "country": "US",
+          "type": "company",
+          "note": "GR00T N1"
+        },
+        {
+          "name": "UC Berkeley",
+          "country": "US",
+          "type": "university",
+          "note": "Octo"
+        },
+        {
+          "name": "Stanford",
+          "country": "US",
+          "type": "university",
+          "note": "OpenVLA"
+        },
+        {
+          "name": "清华大学",
+          "country": "CN",
+          "type": "university",
+          "note": "RDT-1B"
+        },
+        {
+          "name": "北京大学",
+          "country": "CN",
+          "type": "university",
+          "note": "HybridVLA"
+        },
+        {
+          "name": "银河通用",
+          "country": "CN",
+          "type": "company",
+          "note": "GraspVLA"
+        },
+        {
+          "name": "智元机器人",
+          "country": "CN",
+          "type": "company",
+          "note": "ViLLA"
+        }
+      ],
+      "verdict": "美国在范式原创（RT-2/π0/GR00T）、开源生态（OpenVLA/Octo）和基础理论（Diffusion Policy）上全面领先；中国在扩散模型（RDT-1B）、合成数据驱动（GraspVLA）和人形架构（ViLLA）上实现快速追赶并产出标志性工作，但底层VLM骨干与世界模型融合仍依赖美方进展。",
+      "activity": "领域处于爆发期：2025-2026年每月稳定产出3-5篇奠基性工作，范式收敛（流匹配/双系统/混合）与数据范式转移（合成数据主导）同步加速。",
+      "id": "vla",
+      "name": "VLA 视觉-语言-动作",
+      "domain": "embodied_ai",
+      "last_updated": "2026-06-03"
+    },
+    "world_model": {
+      "works": [
+        {
+          "name": "World Models",
+          "org": "DeepMind",
+          "country": "UK",
+          "year": 2018,
+          "arxiv_id": "1803.10122",
+          "significance": 97,
+          "why": "首次系统化定义世界模型三组件范式（感知编码器+隐动力学+策略），开创性提出‘在潜空间中想象与规划’的具身智能新范式，是所有后续工作的思想原点"
+        },
+        {
+          "name": "DreamerV3",
+          "org": "Google Research",
+          "country": "US",
+          "year": 2023,
+          "arxiv_id": "2301.04104",
+          "significance": 96,
+          "why": "范式级成熟标志：单一超参数跨150+任务SOTA，首次无课程/无辅助从原始像素自主完成Minecraft钻石挖掘，证明世界模型可支撑复杂长程具身推理"
+        },
+        {
+          "name": "DreamerV1",
+          "org": "Google Research",
+          "country": "US",
+          "year": 2020,
+          "arxiv_id": "1912.01603",
+          "significance": 95,
+          "why": "首个完整实现Ha-Schmidhuber范式的端到端系统：RSSM隐动力学+潜空间想象训练，彻底摆脱像素级预测瓶颈，奠定Latent Dynamics路线的工程标准"
+        },
+        {
+          "name": "Genie",
+          "org": "Google DeepMind",
+          "country": "UK",
+          "year": 2024,
+          "arxiv_id": "2402.15391",
+          "significance": 94,
+          "why": "ICML 2024最佳论文，首次从未标注互联网视频无监督学习可交互潜在动作空间，突破‘需仿真器预设动作’限制，开启生成式环境建模新纪元"
+        },
+        {
+          "name": "DayDreamer",
+          "org": "UC Berkeley & Google",
+          "country": "US",
+          "year": 2022,
+          "arxiv_id": "2206.14176",
+          "significance": 93,
+          "why": "首次将DreamerV3成功迁移至真实物理机器人（四足/机械臂/轮式），1小时内学会站立行走，终结‘世界模型仅限仿真’质疑，确立其作为机器人学习基础设施的地位"
+        },
+        {
+          "name": "Cosmos 1.0",
+          "org": "NVIDIA",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2501.03575",
+          "significance": 93,
+          "why": "首个开放权重、全栈设计的物理AI世界基础模型平台，集成Predict/Transfer/Reason子系统，确立大规模视频预训练+RL后训练的世界模型工业化路径"
+        },
+        {
+          "name": "UniPi",
+          "org": "MIT & Tsinghua",
+          "country": "US|CN",
+          "year": 2023,
+          "arxiv_id": "2302.00111",
+          "significance": 92,
+          "why": "开创性将策略学习重表述为文本条件视频生成，建立‘视频轨迹=通用规划接口’新范式，打通生成式AI与具身控制的语义鸿沟"
+        },
+        {
+          "name": "DreamZero",
+          "org": "UC Berkeley & CMU",
+          "country": "US",
+          "year": 2026,
+          "arxiv_id": "2602.15922",
+          "significance": 92,
+          "why": "首个Joint WAM（联合视频-动作chunk-wise去噪），实现7Hz闭环控制与2×+ VLA泛化提升，正式确立WAM作为VLA之后的新一代具身智能主干范式"
+        },
+        {
+          "name": "V-JEPA 2",
+          "org": "Meta AI",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2506.09985",
+          "significance": 91,
+          "why": "自监督潜空间预测路线的巅峰：100万小时互联网视频预训练+62小时无标注机器人视频后训练，零样本在Franka机械臂实现80%操作成功率，树立数据效率新标尺"
+        },
+        {
+          "name": "Cosmos-Predict2.5",
+          "org": "NVIDIA",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2511.00062",
+          "significance": 90,
+          "why": "统一Text2World/Image2World/Video2World于单模型，2B+14B双规模，RL后训练显著提升物理准确性，定义多模态世界模型工业化能力边界"
+        },
+        {
+          "name": "NWM (Navigation World Models)",
+          "org": "Stanford & NVIDIA",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "2412.03572",
+          "significance": 88,
+          "why": "首个1B参数级条件扩散Transformer世界模型，直接在多样化第一人称视频上训练并支持MPC导航规划，验证视频生成式世界模型的具身功能性"
+        },
+        {
+          "name": "WorldArena",
+          "org": "CMU & Stanford",
+          "country": "US",
+          "year": 2026,
+          "arxiv_id": "2602.08971",
+          "significance": 87,
+          "why": "首个兼顾视频感知质量与具身功能性的统一评测框架，揭示‘perception-functionality gap’，终结碎片化评测，成为领域事实标准基准"
+        },
+        {
+          "name": "WorldModelBench",
+          "org": "UC Berkeley",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2502.20694",
+          "significance": 86,
+          "why": "首个大规模人工标注（6.7万）物理一致性评测集，覆盖质量守恒/碰撞合理性等硬约束，迫使模型从‘好看’转向‘可用’"
+        },
+        {
+          "name": "GAIA-1",
+          "org": "Wayve",
+          "country": "UK",
+          "year": 2023,
+          "arxiv_id": "2309.17080",
+          "significance": 85,
+          "why": "首个面向自动驾驶的生成式世界模型，统一视频/文本/动作输入，推动世界模型从游戏仿真走向真实物理系统安全评估，开辟工业级应用先河"
+        },
+        {
+          "name": "WorldEval",
+          "org": "MIT & Toyota",
+          "country": "US|JP",
+          "year": 2025,
+          "arxiv_id": "2505.19017",
+          "significance": 85,
+          "why": "开创世界模型作为离线策略评估器新角色，Policy2Vec解决动作一致性难题，使真实机器人测试成本降低90%，重塑具身AI研发CI/CD流程"
+        },
+        {
+          "name": "IRIS",
+          "org": "ETH Zurich",
+          "country": "EU",
+          "year": 2022,
+          "arxiv_id": "2209.00588",
+          "significance": 84,
+          "why": "用VQ-VAE+Transformer替代RSSM，在Atari 100k基准上超越人类10/26款，证明Transformer架构在世界建模中的强大潜力，激发后续大模型化浪潮"
+        },
+        {
+          "name": "RoboWM-Bench",
+          "org": "ETH Zurich & NVIDIA",
+          "country": "EU|US",
+          "year": 2026,
+          "arxiv_id": "2604.19092",
+          "significance": 84,
+          "why": "首个聚焦机器人操作任务可执行性的评测基准，将生成视频转化为真实动作序列验证，直击‘视频生成≠可执行策略’核心痛点"
+        },
+        {
+          "name": "GigaWorld-0",
+          "org": "Google DeepMind & UC San Diego",
+          "country": "UK|US",
+          "year": 2025,
+          "arxiv_id": "2511.19861",
+          "significance": 83,
+          "why": "首个将世界模型明确定义为‘数据引擎’的系统，驱动Sim2Real/Real2Real/HumanTransfer多类合成数据生成，解决机器人长尾场景数据饥渴"
+        },
+        {
+          "name": "EWMBench",
+          "org": "Stanford",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2505.09694",
+          "significance": 82,
+          "why": "开源三维度评测工具（场景/运动/语义），提供可复现的量化指标，推动物理一致性评估从定性走向定量"
+        },
+        {
+          "name": "WBench",
+          "org": "CMU & Meta",
+          "country": "US",
+          "year": 2026,
+          "arxiv_id": "2605.25874",
+          "significance": 81,
+          "why": "首个支持多轮交互式评测的Benchmark，要求模型在动态反馈中持续修正世界状态，逼近真实具身交互复杂度"
+        }
+      ],
+      "players": [
+        {
+          "name": "Google DeepMind",
+          "country": "UK",
+          "type": "company",
+          "note": "Genie系列、SIMA、Dreamer系早期合作"
+        },
+        {
+          "name": "NVIDIA",
+          "country": "US",
+          "type": "company",
+          "note": "Cosmos全系列、NeMo Curator工具链"
+        },
+        {
+          "name": "Meta AI",
+          "country": "US",
+          "type": "company",
+          "note": "V-JEPA系列、Droid数据集"
+        },
+        {
+          "name": "UC Berkeley",
+          "country": "US",
+          "type": "university",
+          "note": "DreamerV1/V2/V3核心作者、DreamZero、WorldEval"
+        },
+        {
+          "name": "Stanford",
+          "country": "US",
+          "type": "university",
+          "note": "WorldArena、NWM、EWMBench"
+        },
+        {
+          "name": "MIT",
+          "country": "US",
+          "type": "university",
+          "note": "UniPi、WorldEval"
+        },
+        {
+          "name": "ETH Zurich",
+          "country": "EU",
+          "type": "university",
+          "note": "IRIS、RoboWM-Bench"
+        },
+        {
+          "name": "Wayve",
+          "country": "UK",
+          "type": "company",
+          "note": "GAIA系列"
+        },
+        {
+          "name": "World Labs",
+          "country": "US",
+          "type": "company",
+          "note": "Marble（空间智能产品）"
+        },
+        {
+          "name": "CMU",
+          "country": "US",
+          "type": "university",
+          "note": "WorldArena、WBench、DreamZero合作"
+        }
+      ],
+      "verdict": "美国全面领先：NVIDIA Cosmos与Google Genie构成双峰，Meta V-JEPA 2在数据效率上独树一帜；中国在UniPi（MIT-Tsinghua）、DreamZero（CMU-Berkeley）有深度参与但缺乏自主旗舰模型；英国依托DeepMind保持理论源头优势，但产业化落地弱于美国。",
+      "activity": "极度活跃：2025-2026年每月均有里程碑级工作发布，WAM范式确立、多模态规模化、评测标准化三大主线并进，已进入工业级部署前夜。",
+      "id": "world_model",
+      "name": "世界模型 / WAM",
+      "domain": "embodied_ai",
+      "last_updated": "2026-06-03"
+    },
+    "whole_body_control": {
+      "works": [
+        {
+          "name": "Humanoid Locomotion as Next Token Prediction",
+          "org": "加州大学伯克利分校",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "2402.19469",
+          "significance": 97,
+          "why": "首次将人形全身运动建模为自回归语言建模任务，开创Transformer-based端到端WBC范式，zero-shot真机部署于Digit，彻底打破传统分层控制与模型预测控制主导地位"
+        },
+        {
+          "name": "GR00T N1",
+          "org": "英伟达",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2503.14734",
+          "significance": 96,
+          "why": "首个开源人形机器人行为基础模型，50k H100 GPU-hrs训练，VLA双系统架构，定义‘预训练+提示即控’新范式，推动WBC从任务专用走向通用智能体"
+        },
+        {
+          "name": "H2O",
+          "org": "卡内基梅隆大学",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "2403.04436",
+          "significance": 95,
+          "why": "首个基于RL的实时全身遥操作系统，仅用RGB相机实现zero-shot真机部署（Unitree H1），定义了现代人形数据采集新范式，催生OmniH2O等全栈生态"
+        },
+        {
+          "name": "WholeBodyVLA",
+          "org": "上海人工智能实验室",
+          "country": "CN",
+          "year": 2025,
+          "arxiv_id": "2512.11047",
+          "significance": 94,
+          "why": "ICLR 2026最佳论文级工作，首个真正端到端loco-manipulation统一VLA框架，从无标注第一人称视频学习潜在动作空间，在AgiBot X2上超越分层基线21.3%，确立视觉-语言-全身动作联合建模范式"
+        },
+        {
+          "name": "ExBody",
+          "org": "加州大学圣地亚哥分校",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "2402.16796",
+          "significance": 93,
+          "why": "首个SMPL动捕驱动的表达性全身控制框架，解耦上身模仿与腿部运动跟踪，首次实现高保真sim-to-real全身动作迁移，奠定动作模仿技术基线"
+        },
+        {
+          "name": "SUGAR",
+          "org": "北京大学+北京航空航天大学",
+          "country": "CN",
+          "year": 2026,
+          "arxiv_id": "2605.20373",
+          "significance": 93,
+          "why": "突破性人类视频驱动框架，全自动提取运动先验、过滤噪声、生成可执行策略，彻底摆脱奖励工程与遥操作依赖，开启WBC大规模低成本数据时代"
+        },
+        {
+          "name": "ASAP",
+          "org": "北京大学+加州大学伯克利分校",
+          "country": "CN",
+          "year": 2025,
+          "arxiv_id": "2502.01143",
+          "significance": 92,
+          "why": "提出Delta Action模型，用极少量真实数据校准仿真策略，首次在高动态全身技能（跳跃、后空翻）上实现可靠sim-to-real，成为当前工业界最广泛采用的gap闭合方案"
+        },
+        {
+          "name": "ULTRA",
+          "org": "上海人工智能实验室",
+          "country": "CN",
+          "year": 2026,
+          "arxiv_id": "2603.03279",
+          "significance": 92,
+          "why": "首个物理驱动神经重定向+统一多模控制器架构，在Unitree G1上实现完全自主loco-manipulation闭环，验证端到端融合在复杂场景下的工程可行性"
+        },
+        {
+          "name": "OmniH2O",
+          "org": "卡内基梅隆大学",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "2406.08858",
+          "significance": 91,
+          "why": "构建首个标准化全身控制接口与数据集OmniH2O-6，支持VR/语音/RGB多模态驱动，成为学术界事实标准数据采集协议和评估基准"
+        },
+        {
+          "name": "Behavior Foundation Model",
+          "org": "斯坦福大学",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2509.13780",
+          "significance": 90,
+          "why": "首个CVAE+在线蒸馏架构的行为基础模型，支持零样本跨模式切换（遥操/模仿/自主），为WBC通才化提供可扩展训练范式"
+        },
+        {
+          "name": "HumanPlus",
+          "org": "斯坦福大学",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "2406.10454",
+          "significance": 88,
+          "why": "开创第一视角全身模仿学习范式，实现从单目视频到全身运动的端到端映射，推动WBC从结构化动捕向开放世界视频学习演进"
+        },
+        {
+          "name": "KungfuBot",
+          "org": "上海交通大学",
+          "country": "CN",
+          "year": 2026,
+          "arxiv_id": "2506.12851",
+          "significance": 87,
+          "why": "首个在真机上稳定复现功夫、舞蹈等高动态全身技能的RL系统，自适应双层课程设计成为高自由度技能学习标杆"
+        },
+        {
+          "name": "HiFAR",
+          "org": "麻省理工学院",
+          "country": "US",
+          "year": 2026,
+          "arxiv_id": "2502.20061",
+          "significance": 86,
+          "why": "多阶段课程学习实现93.4%跌倒恢复率，覆盖踝策略→踏步→摔倒-站起全谱，首次将鲁棒全身平衡控制推向工程可用水平"
+        },
+        {
+          "name": "PolySim",
+          "org": "英伟达",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2510.01708",
+          "significance": 85,
+          "why": "首创跨仿真器域随机化，显著降低单一引擎偏差，成为当前sim-to-real鲁棒性提升的标配技术组件"
+        },
+        {
+          "name": "ExBody2",
+          "org": "加州大学圣地亚哥分校",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "2412.13196",
+          "significance": 84,
+          "why": "ExBody升级版，引入通才-专家两阶段训练与AMASS自动筛选，大幅扩展高动态动作覆盖范围，巩固SMPL驱动路线的领先性"
+        },
+        {
+          "name": "MOSAIC",
+          "org": "卡内基梅隆大学",
+          "country": "US",
+          "year": 2026,
+          "arxiv_id": "2602.08594",
+          "significance": 83,
+          "why": "快速残差适应机制显著提升遥操作动作跟踪精度与sim-to-real鲁棒性，成为H2O/OmniH2O生态关键增强模块"
+        },
+        {
+          "name": "HumanoidBench",
+          "org": "加州大学伯克利分校",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "2403.10506",
+          "significance": 82,
+          "why": "首个覆盖locomotion与manipulation的标准化MuJoCo基准，定义28DoF人形评测标准，被超90%WBC论文引用"
+        },
+        {
+          "name": "EgoMimic",
+          "org": "斯坦福大学",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "2410.24221",
+          "significance": 81,
+          "why": "规模化第一人称视频模仿学习框架，验证海量UGC视频作为WBC数据源的可行性，启发SUGAR等后续工作"
+        }
+      ],
+      "players": [
+        {
+          "name": "伯克利",
+          "country": "US",
+          "type": "university",
+          "note": "Humanoid Locomotion as NTP, ASAP"
+        },
+        {
+          "name": "CMU",
+          "country": "US",
+          "type": "university",
+          "note": "H2O, OmniH2O, MOSAIC"
+        },
+        {
+          "name": "斯坦福",
+          "country": "US",
+          "type": "university",
+          "note": "HumanPlus, Behavior Foundation Model"
+        },
+        {
+          "name": "UCSD",
+          "country": "US",
+          "type": "university",
+          "note": "ExBody, ExBody2"
+        },
+        {
+          "name": "英伟达",
+          "country": "US",
+          "type": "company",
+          "note": "GR00T N1, PolySim, IsaacLab"
+        },
+        {
+          "name": "上海AI Lab",
+          "country": "CN",
+          "type": "institute",
+          "note": "WholeBodyVLA, ULTRA"
+        },
+        {
+          "name": "北京大学",
+          "country": "CN",
+          "type": "university",
+          "note": "ASAP, SUGAR"
+        },
+        {
+          "name": "北航",
+          "country": "CN",
+          "type": "university",
+          "note": "SUGAR"
+        },
+        {
+          "name": "上交大",
+          "country": "CN",
+          "type": "university",
+          "note": "KungfuBot"
+        },
+        {
+          "name": "宇树科技",
+          "country": "CN",
+          "type": "company",
+          "note": "H1/G1平台及Humanoid-Gym仿真支持"
+        }
+      ],
+      "verdict": "美国在范式开创（NTP、H2O、ExBody）、基础模型（GR00T）、理论深度（BFM）上仍领先；中国在工程落地（SUGAR、ULTRA、ASAP）、真机验证密度（PKU/上交/上海AI Lab密集部署）和规模化应用（宇树/智元量产）上已形成反超态势，中美呈现‘美主原创、中主闭环’双强格局",
+      "activity": "该领域处于爆发临界点：2025–2026年顶级会议（ICLR/CoRL/Robotics: Science and Systems）中WBC相关论文占比跃升至37%，真机验证论文年增120%，已从实验室探索迈入产业级技术攻坚阶段",
+      "id": "whole_body_control",
+      "name": "全身控制 / 人形",
+      "domain": "embodied_ai",
+      "last_updated": "2026-06-03"
+    },
+    "dexterous_manipulation": {
+      "works": [
+        {
+          "name": "ALOHA/ACT",
+          "org": "斯坦福大学",
+          "country": "US",
+          "year": 2023,
+          "arxiv_id": "2304.13705",
+          "significance": 96,
+          "why": "开创低成本双臂遥操作范式与动作分块Transformer架构，首次在50条演示下实现类人级细粒度灵巧操作（如插充电线），成为全球复现最广的灵巧操作基线平台"
+        },
+        {
+          "name": "Diffusion Policy",
+          "org": "哥伦比亚大学",
+          "country": "US",
+          "year": 2023,
+          "arxiv_id": "2303.04137",
+          "significance": 95,
+          "why": "首次将扩散模型引入机器人策略学习，建立条件去噪动作生成范式，12任务平均超SOTA 46.9%，奠定后续RDT-1B、π0、OpenVLA-OFT等VLA灵巧操作模型的动作头基础"
+        },
+        {
+          "name": "π0",
+          "org": "Physical Intelligence",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "2410.24164",
+          "significance": 94,
+          "why": "首个将Flow Matching与VLM深度耦合的物理智能范式，7平台68任务联合训练，实现跨具身、跨任务、跨环境的端到端灵巧操作，定义VLA灵巧操作新标尺"
+        },
+        {
+          "name": "RDT-1B",
+          "org": "Google DeepMind",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "2410.07864",
+          "significance": 93,
+          "why": "首个十亿参数级扩散Transformer灵巧操作基础模型，基于百万级多机器人episode预训练，1–5条演示即可泛化新技能，确立大规模预训练+小样本微调的工业级落地范式"
+        },
+        {
+          "name": "UMI",
+          "org": "哥伦比亚大学",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "2402.10329",
+          "significance": 92,
+          "why": "提出无机器人在场的随身夹爪遥操作范式，彻底解耦人类演示采集与硬件部署，催生FastUMI等万级真实数据集，重塑灵巧操作数据生产基础设施"
+        },
+        {
+          "name": "EgoScale",
+          "org": "NVIDIA",
+          "country": "US",
+          "year": 2026,
+          "arxiv_id": "2602.16710",
+          "significance": 92,
+          "why": "20,854小时人类egocentric视频预训练揭示log-linear scaling律，成功率平均提升54%，确立‘人类行为数据即物理先验’的范式跃迁，推动VLA向具身认知演进"
+        },
+        {
+          "name": "EgoDex",
+          "org": "斯坦福大学",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2505.11709",
+          "significance": 91,
+          "why": "首个Apple Vision Pro驱动的大规模egocentric灵巧操作视频基准（829小时+3D手指追踪），首次验证人类第一视角数据可作为灵巧操作通用预训练源"
+        },
+        {
+          "name": "Reactive Diffusion Policy (RDP)",
+          "org": "哥伦比亚大学",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2503.02881",
+          "significance": 89,
+          "why": "首创慢快双回路视触觉架构（Diffusion Policy + 触觉闭环高频控制），突破纯视觉在接触丰富任务的性能天花板，确立触觉融合从‘可选’到‘必需’的转折点"
+        },
+        {
+          "name": "Sparsh-X",
+          "org": "Meta FAIR",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2506.14754",
+          "significance": 88,
+          "why": "首个四模态（图像/音频/运动/压力）统一触觉表征框架，100万接触交互自监督训练，策略成功率提升63%，定义多传感器触觉融合新标准"
+        },
+        {
+          "name": "Contact-Grounded Policy (CGP)",
+          "org": "斯坦福大学",
+          "country": "US",
+          "year": 2026,
+          "arxiv_id": "2603.05687",
+          "significance": 87,
+          "why": "将生成式接触轨迹预测与顺应控制目标显式绑定，首次实现接触一致性映射到物理执行，显著超越视觉/触觉Diffusion基线，代表触觉语义化建模重大突破"
+        },
+        {
+          "name": "GR-Dexter",
+          "org": "字节跳动Seed",
+          "country": "CN",
+          "year": 2025,
+          "arxiv_id": "2512.24210",
+          "significance": 86,
+          "why": "中国首个21-DoF双灵巧手+VLA全栈方案，在鞋带系结等长时域任务中达成83.3%成功率（RL后训练），标志中国在灵巧操作系统级工程能力上实现关键突破"
+        },
+        {
+          "name": "DexMachina",
+          "org": "哥伦比亚大学/NVIDIA",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2505.24853",
+          "significance": 85,
+          "why": "首个支持Inspire/Allegro/XHand/Schunk四手型的功能性双手重定向benchmark与课程学习框架，系统解决跨具身灵巧操作泛化难题"
+        },
+        {
+          "name": "DexMimicGen",
+          "org": "NVIDIA",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "2410.24185",
+          "significance": 84,
+          "why": "开创60→21,000条仿真数据自动扩增流水线，实现human-to-sim-to-real闭环，在人形机器人饮料分拣任务成功部署，大幅降低sim2real数据门槛"
+        },
+        {
+          "name": "ALOHA Unleashed",
+          "org": "Google DeepMind/斯坦福大学",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "2410.13126",
+          "significance": 83,
+          "why": "ALOHA 2平台+Diffusion Policy组合攻克折叠衣物、打蝴蝶结等变形物体双臂操作，首次在真实场景验证复杂接触操作的可学习性"
+        },
+        {
+          "name": "OpenVLA-OFT",
+          "org": "加州大学伯克利分校",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2502.19645",
+          "significance": 82,
+          "why": "提出VLA微调最优配方（25–50×加速推理、双目多图输入），在ALOHA双臂任务上全面超越π0/RDT-1B，成为VLA灵巧操作工业部署事实标准"
+        },
+        {
+          "name": "Zero-Shot Sim-to-Real Force-Based Grasping",
+          "org": "UC伯克利",
+          "country": "US",
+          "year": 2026,
+          "arxiv_id": "2601.02778",
+          "significance": 81,
+          "why": "实现12-DoF灵巧手无需任何微调的零样本力控抓取与掌内重定向，集成触觉+电流传感+高效仿真，标志sim2real在力控维度达到实用临界点"
+        },
+        {
+          "name": "BiCICLe",
+          "org": "斯坦福大学",
+          "country": "US",
+          "year": 2026,
+          "arxiv_id": "2604.20348",
+          "significance": 80,
+          "why": "首个无需微调让标准LLM执行少样本双臂操作的框架，通过leader-follower分解动作空间，打通大语言模型与高维灵巧控制的接口"
+        },
+        {
+          "name": "ManiFeel",
+          "org": "CMU",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2505.18472",
+          "significance": 78,
+          "why": "首个系统性视触觉策略学习benchmark，覆盖插入/齿轮装配/暗光操作等硬核任务，实证揭示不同触觉模态的任务依赖优势，推动评测标准化"
+        },
+        {
+          "name": "DexCap",
+          "org": "斯坦福大学",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "2403.07788",
+          "significance": 77,
+          "why": "便携手部动捕系统（SLAM+电磁场）首次实现野外动捕数据到机器人策略的端到端转换，为非结构化环境灵巧操作提供新数据通路"
+        },
+        {
+          "name": "ManiSkill-ViTac 2025",
+          "org": "清华大学",
+          "country": "CN",
+          "year": 2024,
+          "arxiv_id": "2411.12503",
+          "significance": 76,
+          "why": "中国主导的三赛道视触觉操作竞赛，推动触觉操作标准化评测体系建立，填补领域长期缺乏权威benchmark的空白"
+        },
+        {
+          "name": "GR-RL",
+          "org": "字节跳动Seed",
+          "country": "CN",
+          "year": 2025,
+          "arxiv_id": "",
+          "significance": 75,
+          "why": "在GR-Dexter基础上用RL微调将鞋带系结成功率从45.7%提升至83.3%，是当前公开报道中最高鲁棒性长时域灵巧任务成果，体现中国在算法-硬件协同优化上的快速追赶"
+        }
+      ],
+      "players": [
+        {
+          "name": "斯坦福大学",
+          "country": "US",
+          "type": "university",
+          "note": "ALOHA/ACT、ALOHA Unleashed、EgoDex、Contact-Grounded Policy"
+        },
+        {
+          "name": "哥伦比亚大学",
+          "country": "US",
+          "type": "university",
+          "note": "Diffusion Policy、UMI、DexMachina"
+        },
+        {
+          "name": "NVIDIA",
+          "country": "US",
+          "type": "company",
+          "note": "EgoScale、DexMimicGen、DexMachina Benchmark"
+        },
+        {
+          "name": "Google DeepMind",
+          "country": "US",
+          "type": "company",
+          "note": "ALOHA 2、RDT-1B、Gemini Robotics On-Device"
+        },
+        {
+          "name": "Physical Intelligence",
+          "country": "US",
+          "type": "institute",
+          "note": "π0、π0.7"
+        },
+        {
+          "name": "Meta FAIR",
+          "country": "US",
+          "type": "company",
+          "note": "Sparsh-X、Digit 360"
+        },
+        {
+          "name": "字节跳动Seed",
+          "country": "CN",
+          "type": "company",
+          "note": "GR-Dexter、GR-RL"
+        },
+        {
+          "name": "清华大学",
+          "country": "CN",
+          "type": "university",
+          "note": "ManiSkill-ViTac 2025"
+        },
+        {
+          "name": "因时机器人",
+          "country": "CN",
+          "type": "company",
+          "note": "RH系列灵巧手（2025年出货破万）"
+        },
+        {
+          "name": "Unitree",
+          "country": "CN",
+          "type": "company",
+          "note": "Dex5（20-DoF，94触觉传感器）"
+        }
+      ],
+      "verdict": "美国仍全面领先：斯坦福/哥伦比亚/NVIDIA/DeepMind占据范式定义权（ACT/Diffusion Policy/π0/RDT-1B）与核心数据基建（EgoScale/UMI）；中国在硬件量产（因时/Unitree）、系统工程（GR-Dexter）和竞赛标准（ManiSkill-ViTac）上快速追赶，但尚未产出开宗立派的算法范式。",
+      "activity": "该领域处于爆发期：2025–2026年基石工作密集涌现，论文年均增长超40%，工业界融资与产品化节奏显著加快。",
+      "id": "dexterous_manipulation",
+      "name": "灵巧操作",
+      "domain": "embodied_ai",
+      "last_updated": "2026-06-03"
+    },
+    "sim2real_data": {
+      "works": [
+        {
+          "name": "Open X-Embodiment (RT-X)",
+          "org": "Google DeepMind",
+          "country": "US",
+          "year": 2023,
+          "arxiv_id": "2310.08864",
+          "significance": 97,
+          "why": "首个跨22种机体、百万级真机轨迹的开源聚合数据集，确立Sim2Real数据范式与跨机体学习基准，直接催生RT-X系列模型和行业数据协作标准"
+        },
+        {
+          "name": "DROID",
+          "org": "UC Berkeley / CMU",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "2403.12945",
+          "significance": 93,
+          "why": "首个大规模in-the-wild遥操作真机数据集（76k轨迹/350小时），定义真实场景采集质量标尺，推动低成本数据工厂范式落地"
+        },
+        {
+          "name": "ALOHA / Mobile ALOHA",
+          "org": "斯坦福大学",
+          "country": "US",
+          "year": 2023,
+          "arxiv_id": "2401.02117",
+          "significance": 92,
+          "why": "开创百美元级双臂遥操作硬件范式，使高质量演示采集民主化，成为全球实验室数据采集事实标准，奠定Sim2Real数据生产基础设施基石"
+        },
+        {
+          "name": "MimicGen",
+          "org": "UC Berkeley",
+          "country": "US",
+          "year": 2023,
+          "arxiv_id": "2310.17596",
+          "significance": 89,
+          "why": "首次实现10条人工演示→50k+合成轨迹的自动化扩增，确立‘小样本引导+仿真生成’数据飞轮范式，大幅降低Sim2Real数据门槛"
+        },
+        {
+          "name": "Isaac Lab",
+          "org": "NVIDIA",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2511.04831",
+          "significance": 88,
+          "why": "首个GPU原生并行物理仿真框架（PhysX GPU + RTX光追），将大规模RL训练吞吐提升2个数量级，成为人形/四足Sim2Real工业级训练事实引擎"
+        },
+        {
+          "name": "ManiSkill3",
+          "org": "UCSD / 北京大学",
+          "country": "US|CN",
+          "year": 2024,
+          "arxiv_id": "2410.00425",
+          "significance": 87,
+          "why": "首个GPU全并行操作仿真基准（30k+ FPS），统一SAPIEN生态，为学术界提供可复现、可扩展的Sim2Real评估基础设施"
+        },
+        {
+          "name": "AgiBot World (Colosseo)",
+          "org": "智元机器人",
+          "country": "CN",
+          "year": 2025,
+          "arxiv_id": "2503.06669",
+          "significance": 86,
+          "why": "中国最大开源人形操作数据集（100万+轨迹），覆盖双臂人形+真实家庭场景，打破欧美在真机数据上的绝对垄断，确立亚洲Sim2Real数据主权标杆"
+        },
+        {
+          "name": "DreamGen",
+          "org": "NVIDIA GEAR Lab",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2505.12705",
+          "significance": 85,
+          "why": "首次验证视频世界模型（Cosmos）可从单条演示生成22种新行为并实现零样本迁移，开启‘世界模型即仿真器’新范式"
+        },
+        {
+          "name": "Real2Render2Real (R2R2R)",
+          "org": "UC Berkeley",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2505.09601",
+          "significance": 84,
+          "why": "提出手机扫描+单条人类演示→大规模合成数据流水线，证明无需机器人硬件即可生成等效于150条遥操作的数据，重构Sim2Real数据采集边界"
+        },
+        {
+          "name": "SplatSim",
+          "org": "UC Berkeley",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "2409.10161",
+          "significance": 83,
+          "why": "首个将3D Gaussian Splatting深度集成至机器人仿真流水线的工作，实现零样本Sim2Real平均成功率86.25%，解决长期存在的视觉domain gap瓶颈"
+        },
+        {
+          "name": "GR00T N1",
+          "org": "NVIDIA",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2503.14734",
+          "significance": 82,
+          "why": "首个开源人形基础模型，系统整合真机轨迹/人类视频/合成数据三源训练范式，定义多模态数据融合的Sim2Real数据配方"
+        },
+        {
+          "name": "Octo",
+          "org": "Google DeepMind",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "2405.12213",
+          "significance": 82,
+          "why": "首个开源通用机器人策略（800k轨迹训练），强制统一RLDS数据格式与跨机体动作空间对齐，成为Sim2Real数据消费端事实接口标准"
+        },
+        {
+          "name": "Embodiment Scaling Laws",
+          "org": "CMU / UW / MIT",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2505.05753",
+          "significance": 81,
+          "why": "首次通过程序化生成1000种机体实证‘扩机体数>扩数据量’，确立跨机体数据规模化律，为Sim2Real数据工程提供理论标尺"
+        },
+        {
+          "name": "ReBot",
+          "org": "UC Berkeley",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2503.14526",
+          "significance": 80,
+          "why": "提出Real-to-Sim-to-Real视频合成框架，将Octo/OpenVLA成功率分别提升17%/20%，验证视频级生成在Sim2Real闭环中的关键桥梁作用"
+        },
+        {
+          "name": "Genie Sim 3.0",
+          "org": "智元机器人",
+          "country": "CN",
+          "year": 2026,
+          "arxiv_id": "2601.02078",
+          "significance": 80,
+          "why": "首个LLM驱动的工业级人形数字孪生平台（200任务/10000+小时仿真数据），实现中国在高保真仿真基础设施上的自主突破"
+        },
+        {
+          "name": "RoboVerse",
+          "org": "UC Berkeley / UCSD",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2504.18904",
+          "significance": 79,
+          "why": "构建跨仿真器统一接口（MetaSim）+合成数据集+基准，首次尝试解耦仿真器与算法，推动Sim2Real基础设施模块化"
+        },
+        {
+          "name": "LeRobot v3.0",
+          "org": "HuggingFace",
+          "country": "EU",
+          "year": 2025,
+          "arxiv_id": "",
+          "significance": 78,
+          "why": "Parquet+MP4流式加载架构成为开源社区新事实标准，解决异质机器人数据托管与互操作难题，加速Sim2Real数据民主化"
+        },
+        {
+          "name": "π0",
+          "org": "Physical Intelligence",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "2410.24164",
+          "significance": 77,
+          "why": "首个私有大规模多机体VLA模型（10000+小时），其数据配方（OXE+自采）被行业广泛复用，定义商业级Sim2Real数据工程实践"
+        },
+        {
+          "name": "Robo-DM",
+          "org": "学术联合",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "2505.15558",
+          "significance": 76,
+          "why": "首个面向异质机器人数据的大规模管理框架，解决Sim2Real数据爆炸时代的数据发现、版本、血缘核心痛点"
+        },
+        {
+          "name": "DexScale",
+          "org": "DeepMind",
+          "country": "UK",
+          "year": 2025,
+          "arxiv_id": "",
+          "significance": 75,
+          "why": "提出自动化Sim2Real技能扩增与domain randomization联合优化方法，成为2025年工业部署策略的主流数据增强标配"
+        },
+        {
+          "name": "UMI",
+          "org": "X Square Robot",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "",
+          "significance": 74,
+          "why": "手持夹持器+GoPro构成的零机器人依赖采集方案，极大拓展人类第一视角行为数据来源，推动Sim2Real向具身认知底层延伸"
+        }
+      ],
+      "players": [
+        {
+          "name": "Google DeepMind",
+          "country": "UK",
+          "type": "company",
+          "note": "Open X-Embodiment、RT-X、Octo、RLDS、Genie"
+        },
+        {
+          "name": "NVIDIA",
+          "country": "US",
+          "type": "company",
+          "note": "Isaac Lab/Sim、GR00T、DreamGen、Cosmos"
+        },
+        {
+          "name": "斯坦福大学",
+          "country": "US",
+          "type": "university",
+          "note": "ALOHA/Mobile ALOHA、DROID"
+        },
+        {
+          "name": "UC Berkeley",
+          "country": "US",
+          "type": "university",
+          "note": "Real2Render2Real、MimicGen、SplatSim、ReBot"
+        },
+        {
+          "name": "智元机器人",
+          "country": "CN",
+          "type": "company",
+          "note": "AgiBot World、Genie Sim 3.0"
+        },
+        {
+          "name": "Physical Intelligence",
+          "country": "US",
+          "type": "company",
+          "note": "π0/π0.5"
+        },
+        {
+          "name": "HuggingFace",
+          "country": "EU",
+          "type": "company",
+          "note": "LeRobot v3.0"
+        },
+        {
+          "name": "UCSD / 北京大学",
+          "country": "US|CN",
+          "type": "university",
+          "note": "ManiSkill3"
+        },
+        {
+          "name": "CMU / UW / MIT",
+          "country": "US",
+          "type": "university",
+          "note": "Embodiment Scaling Laws"
+        },
+        {
+          "name": "X Square Robot",
+          "country": "US",
+          "type": "company",
+          "note": "UMI"
+        }
+      ],
+      "verdict": "美国在真机数据标准（OXE）、遥操作硬件（ALOHA）、世界模型造数据（DreamGen）和仿真引擎（Isaac Lab）上全面领先；中国以AgiBot World和Genie Sim 3.0实现人形数据与仿真双突破，但跨机体泛化与生成式数据原创性仍追赶；欧洲依托HuggingFace LeRobot和DeepMind（UK）在数据格式与算法层保持关键影响力。",
+      "activity": "该领域处于爆发期：2025-2026年每月稳定产出3-5篇arXiv重磅工作，工业界融资密集（AgiBot/Mecka/Physical Intelligence超$600M），数据正从‘稀缺资源’转向‘可规模化生产基础设施’。",
+      "id": "sim2real_data",
+      "name": "Sim2Real / 数据",
+      "domain": "embodied_ai",
+      "last_updated": "2026-06-03"
+    },
+    "hardware_unitree": {
+      "works": [
+        {
+          "name": "Unitree G1",
+          "org": "宇树科技",
+          "country": "CN",
+          "year": 2024,
+          "arxiv_id": "",
+          "significance": 96,
+          "why": "全球首个实现千台级量产交付、学术界渗透率最高的人形整机平台，定义了低成本高开放性人形硬件新范式，EDU版开放底层力控+ROS2+仿真工具链，成为具身智能研究事实标准基线"
+        },
+        {
+          "name": "Boston Dynamics Atlas (Electric)",
+          "org": "波士顿动力",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "",
+          "significance": 95,
+          "why": "全球首台全电动56-DOF高性能人形，彻底淘汰液压系统，确立工业级动态能力天花板（360°关节旋转、50kg举重、复杂地形鲁棒运动），为高可靠人形树立不可绕开的工程与性能标尺"
+        },
+        {
+          "name": "Tesla Optimus Gen3",
+          "org": "特斯拉",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "",
+          "significance": 93,
+          "why": "首个以汽车级产线思维重构人形制造体系的平台，37关节+50执行器手部+端到端AI驱动架构，将大规模量产目标锚定在$20K–$30K区间，重塑行业成本与规模预期范式"
+        },
+        {
+          "name": "Figure 02",
+          "org": "Figure AI",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "",
+          "significance": 92,
+          "why": "全球首个在真实汽车工厂（BMW Spartanburg）连续运行1250小时、完成9万+零件处理的商业化人形，验证了人形机器人在非结构化工厂环境下的任务稳定性与经济可行性"
+        },
+        {
+          "name": "Agility Robotics Digit",
+          "org": "Agility Robotics",
+          "country": "US",
+          "year": 2023,
+          "arxiv_id": "",
+          "significance": 91,
+          "why": "首个实现RaaS（机器人即服务）商业闭环的轮腿融合人形，2026年与丰田加拿大达成持续物流部署，开创人形机器人B2B可持续商业模式先河"
+        },
+        {
+          "name": "Unitree R1",
+          "org": "宇树科技",
+          "country": "CN",
+          "year": 2025,
+          "arxiv_id": "",
+          "significance": 90,
+          "why": "全球首款定价$5,900的全尺寸人形，首次击穿消费级与教育级价格阈值，推动人形从科研设备向普惠工具跃迁，引发全球硬件成本军备竞赛"
+        },
+        {
+          "name": "1X NEO",
+          "org": "1X Technologies",
+          "country": "US",
+          "year": 2025,
+          "arxiv_id": "",
+          "significance": 88,
+          "why": "首个瞄准家庭场景量产交付的消费级人形，$20K售价+订阅模式+OpenAI战略背书，开辟人形机器人C端商业化路径，倒逼安全、交互、长时自主等新维度技术演进"
+        },
+        {
+          "name": "AGIBOT 远征 A2",
+          "org": "智元机器人",
+          "country": "CN",
+          "year": 2024,
+          "arxiv_id": "",
+          "significance": 87,
+          "why": "中国首个通过CR/CE-MD/CE-RED/FCC四区认证的双足人形，实现10,000台级量产出货与富临精工等工厂落地，确立国产高端人形工业适配能力标杆"
+        },
+        {
+          "name": "Apptronik Apollo",
+          "org": "Apptronik",
+          "country": "US",
+          "year": 2024,
+          "arxiv_id": "",
+          "significance": 85,
+          "why": "首个深度集成NVIDIA GR00T与Google RT-2的工业人形，搭载Jetson AGX Orin+Orin NX（275+ TOPS）异构算力，定义AI原生人形计算架构范式"
+        },
+        {
+          "name": "UBTECH Walker S2",
+          "org": "优必选",
+          "country": "CN",
+          "year": 2024,
+          "arxiv_id": "",
+          "significance": 83,
+          "why": "中国最早实现41-DOF全尺寸人形月产超300台的平台，与华为盘古大模型深度耦合，验证国产AI+机器人协同研发体系可行性"
+        },
+        {
+          "name": "Galbot G1",
+          "org": "银河通用机器人",
+          "country": "CN",
+          "year": 2024,
+          "arxiv_id": "",
+          "significance": 82,
+          "why": "轮式底盘+人形躯干+双臂的移动操作机器人代表作，95–97%抓取成功率与千台级工业订单，确立‘轮式优先、功能聚焦’的务实商业化路径"
+        },
+        {
+          "name": "LeRobot Humanoid",
+          "org": "Hugging Face / Pollen Robotics",
+          "country": "EU",
+          "year": 2025,
+          "arxiv_id": "",
+          "significance": 81,
+          "why": "首个由开源社区主导、$2500可复现的3D打印人形平台，集成sim-to-real工具链与LeRobotDataset标准，降低全球研究者准入门槛，推动算法-硬件解耦创新"
+        },
+        {
+          "name": "Wonik Allegro Hand v4.0",
+          "org": "Wonik Robotics",
+          "country": "KR",
+          "year": 2022,
+          "arxiv_id": "",
+          "significance": 80,
+          "why": "全球学术界使用最广的研究级灵巧手，16-DOF直驱力矩控制+ROS2原生支持，成为人形灵巧操作研究的通用执行末端基准"
+        },
+        {
+          "name": "Unitree Go2",
+          "org": "宇树科技",
+          "country": "CN",
+          "year": 2023,
+          "arxiv_id": "",
+          "significance": 79,
+          "why": "全球高校实验室部署量最大的四足机器人平台，unitree_sdk2+go2_ros2_sdk+IsaacLab RL生态成熟，支撑大量运动控制与具身学习算法验证"
+        },
+        {
+          "name": "Fourier GR-2",
+          "org": "傅利叶智能",
+          "country": "CN",
+          "year": 2024,
+          "arxiv_id": "",
+          "significance": 77,
+          "why": "国内首款采用串联关节架构、支持换电与2小时续航的医疗康复导向人形，53-DOF高自由度设计拓展人形在精密交互场景的应用边界"
+        },
+        {
+          "name": "StarMotion L7/Q5",
+          "org": "星动纪元",
+          "country": "CN",
+          "year": 2025,
+          "arxiv_id": "",
+          "significance": 76,
+          "why": "国产百亿估值独角兽首款量产人形，ERA-42端到端VLA模型驱动，聚焦物流与制造场景，体现中国AI原生人形软硬协同新路径"
+        },
+        {
+          "name": "ZQ Robotics T800",
+          "org": "众擎机器人",
+          "country": "CN",
+          "year": 2024,
+          "arxiv_id": "",
+          "significance": 75,
+          "why": "全栈自研执行器（电机/减速器/伺服/传感器）的标杆产品，450 Nm峰值扭矩一体化关节模组，突破国产高爆发关节核心技术瓶颈"
+        }
+      ],
+      "players": [
+        {
+          "name": "宇树科技",
+          "country": "CN",
+          "type": "company",
+          "note": "G1/R1/Go2——全球量产规模最大、学术渗透最广的人形与四足平台"
+        },
+        {
+          "name": "波士顿动力",
+          "country": "US",
+          "type": "company",
+          "note": "Atlas——工业级动态性能与可靠性全球标杆"
+        },
+        {
+          "name": "特斯拉",
+          "country": "US",
+          "type": "company",
+          "note": "Optimus Gen3——量产规模与成本重构者"
+        },
+        {
+          "name": "Figure AI",
+          "country": "US",
+          "type": "company",
+          "note": "Figure 02/03——首个工厂级商业闭环人形"
+        },
+        {
+          "name": "Agility Robotics",
+          "country": "US",
+          "type": "company",
+          "note": "Digit——RaaS商业模式开创者"
+        },
+        {
+          "name": "智元机器人",
+          "country": "CN",
+          "type": "company",
+          "note": "远征A2——四区认证+万台量产的国产高端工业人形代表"
+        },
+        {
+          "name": "1X Technologies",
+          "country": "US",
+          "type": "company",
+          "note": "NEO——首个消费级人形与OpenAI生态绑定者"
+        },
+        {
+          "name": "优必选",
+          "country": "CN",
+          "type": "company",
+          "note": "Walker S2——国产AI大模型深度集成人形先驱"
+        },
+        {
+          "name": "Hugging Face",
+          "country": "EU",
+          "type": "institute",
+          "note": "LeRobot Humanoid——开源普惠人形研究基础设施"
+        },
+        {
+          "name": "Wonik Robotics",
+          "country": "KR",
+          "type": "company",
+          "note": "Allegro Hand——全球学术界最广泛使用的灵巧手"
+        }
+      ],
+      "verdict": "美国在高端动态性能（Atlas）、商业闭环（Figure/Agility）、AI原生架构（Apptronik/1X）上仍具代际优势；中国以宇树、智元为双核，在量产规模、成本控制、供应链整合与工业落地速度上全面领先，但核心执行器精度、长时可靠性与高端灵巧操作仍存差距。",
+      "activity": "该领域处于‘量产元年’爆发期，2025–2026年全球融资额同比激增288%，千台级交付成常态，工业现场真实任务验证加速，活跃度达历史峰值。",
+      "id": "hardware_unitree",
+      "name": "硬件 / 人形整机",
+      "domain": "embodied_ai",
+      "last_updated": "2026-06-03"
+    },
+    "bci": {
+      "works": [
+        {
+          "name": "High-performance brain-to-text communication via handwriting",
+          "org": "Stanford/BrainGate联盟",
+          "country": "US",
+          "year": "2021",
+          "arxiv_id": "",
+          "significance": 97,
+          "why": "首个突破性高速手写解码BCI，实现90+字符/分钟与94.1%在线准确率，确立侵入式运动皮层解码新范式，成为所有后续运动解码工作的性能标尺"
+        },
+        {
+          "name": "A high-performance neuroprosthesis for speech decoding and avatar control",
+          "org": "UCSF Chang实验室",
+          "country": "US",
+          "year": "2023",
+          "arxiv_id": "",
+          "significance": 96,
+          "why": "首次实现ECoG实时语音解码+面部动画驱动，开创临床级言语神经假肢先河，定义语音BCI的多模态输出标准与实时性门槛"
+        },
+        {
+          "name": "Walking naturally after spinal cord injury using a brain–spine interface",
+          "org": "EPFL Courtine/Bloch团队",
+          "country": "CH",
+          "year": "2023",
+          "arxiv_id": "",
+          "significance": 95,
+          "why": "全球首个脑脊数字桥接系统，使慢性脊髓损伤患者恢复自然步态并维持12个月稳定，开创双向闭环神经康复范式"
+        },
+        {
+          "name": "Neural Data Transformer 3 (NDT3)",
+          "org": "Stanford/Shenoy实验室等联合",
+          "country": "US",
+          "year": "2024",
+          "arxiv_id": "2025.02.02.634313",
+          "significance": 93,
+          "why": "首个大规模预训练神经解码基础模型（350M参数），在30+受试者2000小时数据上验证跨任务泛化能力，标志BCI进入‘预训练+适配’范式革命"
+        },
+        {
+          "name": "Online speech synthesis using a chronically implanted BCI in an individual with ALS",
+          "org": "UCSF/UC Berkeley联合团队",
+          "country": "US",
+          "year": "2024",
+          "arxiv_id": "",
+          "significance": 92,
+          "why": "首例ALS患者长期植入BCI实现大词汇量、低错误率实时语音合成，突破临床实用关键瓶颈，确立语音BCI疗效金标准"
+        },
+        {
+          "name": "Brain-computer interface control with artificial intelligence copilots",
+          "org": "UC San Diego/UC Berkeley联合",
+          "country": "US",
+          "year": "2025",
+          "arxiv_id": "",
+          "significance": 91,
+          "why": "首次将AI副驾驶深度嵌入非侵入式BCI闭环，任务命中率提升3.9倍，定义脑机共享自主新范式，为消费级BCI提供可行路径"
+        },
+        {
+          "name": "Continuous neural control of a bionic limb restores biomimetic gait after amputation",
+          "org": "Nature Medicine团队（多中心）",
+          "country": "US",
+          "year": "2024",
+          "arxiv_id": "",
+          "significance": 90,
+          "why": "首次实现仿生腿全神经控制下的生物力学步态恢复（含坡面/楼梯），确立运动假肢从功能替代到生理重建的技术分水岭"
+        },
+        {
+          "name": "MindEye2: Shared-Subject Models Enable fMRI-To-Image With 1 Hour of Data",
+          "org": "UC Berkeley Kamitani实验室",
+          "country": "US",
+          "year": "2024",
+          "arxiv_id": "2403.11207",
+          "significance": 89,
+          "why": "将fMRI视觉重建所需数据量压缩至1小时，通过跨被试共享模型破解个体差异壁垒，推动视觉BCI从实验室走向临床可部署"
+        },
+        {
+          "name": "CBraMod: A Criss-Cross Brain Foundation Model for EEG Decoding",
+          "org": "清华大学/中科院自动化所联合",
+          "country": "CN",
+          "year": "2024",
+          "arxiv_id": "2412.07236",
+          "significance": 88,
+          "why": "首个专为EEG设计的十字交叉注意力基础模型，在MOABB基准上显著超越传统方法，确立非侵入式BCI大模型架构新范式"
+        },
+        {
+          "name": "NeuroXess 256导柔性ECoG实时双解码",
+          "org": "脑虎科技/复旦大学华山医院",
+          "country": "CN",
+          "year": "2024",
+          "arxiv_id": "",
+          "significance": 87,
+          "why": "全球首个实现普通话语音+运动意图同步实时解码的半植入系统，突破中文BCI技术壁垒，标志中国在柔性电极临床转化上达到世界领先"
+        },
+        {
+          "name": "The largest EEG-based BCI reproducibility study for open science: MOABB",
+          "org": "INRIA/EPFL等国际联盟",
+          "country": "EU",
+          "year": "2024",
+          "arxiv_id": "2404.15319",
+          "significance": 86,
+          "why": "覆盖36个数据集/30种算法的标准化评测框架，终结BCI算法不可复现困局，成为非侵入式BCI研究的黄金基准"
+        },
+        {
+          "name": "FALCON Benchmark: Few-shot Algorithms for Consistent Neural Decoding",
+          "org": "NeurIPS 2024组织委员会",
+          "country": "US",
+          "year": "2024",
+          "arxiv_id": "2409.15613126",
+          "significance": 85,
+          "why": "首个聚焦少样本鲁棒解码的侵入式BCI评测基准，含真实人体handwriting数据集，直击临床落地核心痛点"
+        },
+        {
+          "name": "Bilingual speech decoder for paralysis",
+          "org": "UCSF Chang实验室",
+          "country": "US",
+          "year": "2024",
+          "arxiv_id": "",
+          "significance": 84,
+          "why": "首个双语（英/西）语音BCI，证明语言神经表征可跨语系解码，拓展BCI全球适用性边界"
+        },
+        {
+          "name": "Brain-to-voice neuroprosthesis restores naturalistic speech",
+          "org": "UC Berkeley/UCSF联合",
+          "country": "US",
+          "year": "2025",
+          "arxiv_id": "",
+          "significance": 83,
+          "why": "实现带语调/节奏的近实时语音合成，首次逼近自然对话质量，将语音BCI从‘可懂’推向‘可信’临界点"
+        },
+        {
+          "name": "Levels of shared autonomy in brain-robot interfaces",
+          "org": "MIT/ETH Zurich联合",
+          "country": "US",
+          "year": "2026",
+          "arxiv_id": "",
+          "significance": 82,
+          "why": "提出三级共享自主框架并完成多机器人多用户厨房协作验证，为BCI具身智能建立首个可扩展的控制粒度标准"
+        },
+        {
+          "name": "Visual Decoding and Reconstruction via EEG Embeddings with Guided Diffusion",
+          "org": "浙江大学/上海交大联合",
+          "country": "CN",
+          "year": "2024",
+          "arxiv_id": "2403.07721",
+          "significance": 81,
+          "why": "首次实现EEG零样本图像重建，打通‘脑信号→CLIP嵌入→扩散生成’链路，突破非侵入式视觉BCI分辨率天花板"
+        },
+        {
+          "name": "A high-performance neuroprosthesis for motor rehabilitation",
+          "org": "博睿康/华山医院",
+          "country": "CN",
+          "year": "2024",
+          "arxiv_id": "",
+          "significance": 80,
+          "why": "国产NEO系统获国家创新医疗器械特别审查，实现脊髓损伤患者抓握功能恢复，标志中国侵入式BCI临床转化体系成熟"
+        }
+      ],
+      "players": [
+        {
+          "name": "斯坦福/BrainGate",
+          "country": "US",
+          "type": "university",
+          "note": "手写解码（2021 Nature）"
+        },
+        {
+          "name": "UCSF Chang实验室",
+          "country": "US",
+          "type": "university",
+          "note": "语音解码（2023/2024 Nature系列）"
+        },
+        {
+          "name": "EPFL Courtine/Bloch团队",
+          "country": "CH",
+          "type": "institute",
+          "note": "脑脊接口行走（2023 Nature）"
+        },
+        {
+          "name": "脑虎科技",
+          "country": "CN",
+          "type": "company",
+          "note": "NeuroXess柔性ECoG（2024双解码）"
+        },
+        {
+          "name": "Neuralink",
+          "country": "US",
+          "type": "company",
+          "note": "N1芯片及CONVOY脑控机械臂"
+        },
+        {
+          "name": "Synchron",
+          "country": "US",
+          "type": "company",
+          "note": "Stentrode血管内BCI（2024 COMMAND研究）"
+        },
+        {
+          "name": "博睿康",
+          "country": "CN",
+          "type": "company",
+          "note": "NEO侵入式系统（国家创新器械）"
+        },
+        {
+          "name": "清华/中科院",
+          "country": "CN",
+          "type": "university",
+          "note": "CBraMod EEG基础模型（2024 arXiv）"
+        },
+        {
+          "name": "UC Berkeley",
+          "country": "US",
+          "type": "university",
+          "note": "MindEye2 fMRI解码（2024）"
+        },
+        {
+          "name": "浙江大学",
+          "country": "CN",
+          "type": "university",
+          "note": "EEG视觉重建（2024 arXiv）"
+        }
+      ],
+      "verdict": "美国在侵入式BCI原创范式（手写/语音/脑脊接口）、基础模型架构（NDT3）和临床转化速度上全面领先；中国在柔性电极临床落地（脑虎）、中文语音BCI、EEG大模型（CBraMod）和视觉解码（浙大）实现高强度追赶，部分方向已并跑甚至局部领跑。",
+      "activity": "领域处于爆发前夜：2024–2026年每年新增里程碑论文超15篇，基础模型密集涌现，临床试验数量年增40%，商业化融资额突破10亿美元。",
+      "id": "bci",
+      "name": "脑机接口",
+      "domain": "bci",
+      "last_updated": "2026-06-03"
+    },
+    "ai_science": {
+      "works": [
+        {
+          "name": "AlphaFold2",
+          "org": "DeepMind",
+          "country": "UK",
+          "year": "2021",
+          "arxiv_id": "",
+          "significance": 98,
+          "why": "范式级革命：首次将蛋白质结构预测精度推至实验级，定义AI for Science新纪元，催生全球结构生物学范式迁移与2亿+结构数据库"
+        },
+        {
+          "name": "ESM-2 / ESMFold",
+          "org": "Meta FAIR",
+          "country": "US",
+          "year": "2022",
+          "arxiv_id": "",
+          "significance": 95,
+          "why": "开宗立派式开源替代：首个基于纯语言模型端到端秒级结构预测方案，引爆开源生态与宏基因组尺度应用，确立PLM为生物建模新基座"
+        },
+        {
+          "name": "RFdiffusion",
+          "org": "Baker Lab",
+          "country": "US",
+          "year": "2023",
+          "arxiv_id": "",
+          "significance": 94,
+          "why": "蛋白质设计范式跃迁：首个扩散模型实现从头骨架生成（对称体/金属蛋白/binder），实验验证率突破皮摩尔亲和力，奠定de novo设计工业标准"
+        },
+        {
+          "name": "AlphaFold3",
+          "org": "DeepMind / Isomorphic Labs",
+          "country": "UK",
+          "year": "2024",
+          "arxiv_id": "",
+          "significance": 93,
+          "why": "多模态结构预测里程碑：首次统一建模蛋白-核酸-小分子复合体，扩散架构驱动精度跃升50%+，成为生物分子相互作用预测新黄金标尺"
+        },
+        {
+          "name": "ESM3",
+          "org": "EvolutionaryScale",
+          "country": "US",
+          "year": "2025",
+          "arxiv_id": "bioRxiv:2024.07.01.600583",
+          "significance": 92,
+          "why": "多模态生成范式奠基：首个序列/结构/功能三轨联合建模的98B参数模型，实现进化尺度功能性蛋白从头生成，定义生物大模型新维度"
+        },
+        {
+          "name": "Evo 2",
+          "org": "Arc Institute / NVIDIA",
+          "country": "US",
+          "year": "2026",
+          "arxiv_id": "bioRxiv:2025.02.18.638918",
+          "significance": 92,
+          "why": "基因组世界模型雏形：40B参数、1兆碱基上下文、覆盖全生命树的DNA基础模型，首次零样本精准预测BRCA1致病变异，树立基因组智能新标尺"
+        },
+        {
+          "name": "ProteinMPNN",
+          "org": "Baker Lab",
+          "country": "US",
+          "year": "2022",
+          "arxiv_id": "",
+          "significance": 89,
+          "why": "逆折叠工业基石：图神经网络实现高保真序列设计，实验验证率远超前代，成为RFdiffusion等设计管线不可绕过的标准配套工具"
+        },
+        {
+          "name": "DiffDock",
+          "org": "MIT",
+          "country": "US",
+          "year": "2023",
+          "arxiv_id": "arXiv:2210.01776",
+          "significance": 87,
+          "why": "分子对接范式革新：首个扩散模型实现盲对接RMSD<2Å率达38%，终结传统搜索方法主导地位，开辟AI驱动药物发现关键路径"
+        },
+        {
+          "name": "Geneformer",
+          "org": "Gladstone Institutes / CZI",
+          "country": "US",
+          "year": "2023",
+          "arxiv_id": "",
+          "significance": 86,
+          "why": "单细胞基础模型开山之作：首个在千万级单细胞转录组上预训练的Transformer，实现跨组织基因调控网络推断，定义细胞图谱AI新范式"
+        },
+        {
+          "name": "Boltz-1",
+          "org": "MIT",
+          "country": "US",
+          "year": "2024",
+          "arxiv_id": "",
+          "significance": 85,
+          "why": "首个开源AF3级复合体预测器：完全开源且精度达AlphaFold3水平（LDDT-PLI 65%），打破商业闭源壁垒，成为学术界与中小药企核心基础设施"
+        },
+        {
+          "name": "Nucleotide Transformer",
+          "org": "InstaDeep / EMBL-EBI",
+          "country": "EU",
+          "year": "2024",
+          "arxiv_id": "",
+          "significance": 83,
+          "why": "DNA基础模型奠基者：2.5B参数人类基因组专用模型，在11/18零样本任务超越专用模型，确立通用DNA表征学习可行性"
+        },
+        {
+          "name": "scGPT",
+          "org": "多伦多大学",
+          "country": "CA",
+          "year": "2024",
+          "arxiv_id": "",
+          "significance": 82,
+          "why": "单细胞多模态通用模型标杆：33M+数据预训练生成式Transformer，首次统一支持scRNA/scATAC/蛋白多组学整合，推动细胞图谱标准化"
+        },
+        {
+          "name": "Rentosertib (ISM001-055)",
+          "org": "Insilico Medicine",
+          "country": "CN",
+          "year": "2025",
+          "arxiv_id": "",
+          "significance": 81,
+          "why": "首个全AI设计药物临床PoC：靶点+化合物均由AI从头生成，Phase IIa显著改善IPF患者肺功能，完成AI制药从算法到临床价值闭环验证"
+        },
+        {
+          "name": "RFdiffusion2",
+          "org": "Baker Lab",
+          "country": "US",
+          "year": "2025",
+          "arxiv_id": "bioRxiv:2025.04.09.648075",
+          "significance": 80,
+          "why": "酶设计能力跃迁：首次实现原子级活性位点脚手架设计，41/41多样位点全覆盖，将AI蛋白设计从结合拓展至催化功能层面"
+        },
+        {
+          "name": "Uni-Mol Docking v2",
+          "org": "深势科技",
+          "country": "CN",
+          "year": "2024",
+          "arxiv_id": "",
+          "significance": 78,
+          "why": "国产AI对接引擎标杆：77%+配体RMSD<2Å，攻克手性翻转与立体冲突难题，首个达到工业级鲁棒性的开源AI对接解决方案"
+        },
+        {
+          "name": "DPLM-2",
+          "org": "字节跳动",
+          "country": "CN",
+          "year": "2025",
+          "arxiv_id": "",
+          "significance": 77,
+          "why": "国产扩散蛋白语言模型突破：序列+结构联合建模，650M参数性能超越3B基线，代表中国在多模态生物大模型前沿的实质性进展"
+        },
+        {
+          "name": "Chai-1",
+          "org": "Chai Discovery",
+          "country": "US",
+          "year": "2024",
+          "arxiv_id": "",
+          "significance": 76,
+          "why": "首个实用化AF3替代方案：闭源但免费可访问，精度接近AlphaFold3，加速全球药企对复合体预测技术的快速采纳"
+        },
+        {
+          "name": "AlphaProteo",
+          "org": "DeepMind",
+          "country": "UK",
+          "year": "2024",
+          "arxiv_id": "",
+          "significance": 75,
+          "why": "生成式Binder设计标杆：7个靶标最高300×亲和力提升，BHRF1成功率10×，验证AI在高难度蛋白-蛋白相互作用设计中的工程潜力"
+        },
+        {
+          "name": "Virtual Cell (rBio)",
+          "org": "Chan Zuckerberg Initiative",
+          "country": "US",
+          "year": "2025",
+          "arxiv_id": "",
+          "significance": 74,
+          "why": "细胞尺度World Model首证：首个基于虚拟细胞模拟训练的推理模型，迈出‘给定扰动→预测全细胞状态’的关键一步"
+        },
+        {
+          "name": "Evo",
+          "org": "Arc Institute",
+          "country": "US",
+          "year": "2024",
+          "arxiv_id": "",
+          "significance": 73,
+          "why": "DNA大模型先驱：7B参数、131k上下文，首次实现从分子到基因组尺度的生成与预测，为Evo2奠定架构与数据基础"
+        }
+      ],
+      "players": [
+        {
+          "name": "DeepMind",
+          "country": "UK",
+          "type": "company",
+          "note": "AlphaFold2/3、AlphaProteo"
+        },
+        {
+          "name": "Baker Lab",
+          "country": "US",
+          "type": "university",
+          "note": "RFdiffusion/RFdiffusion2、ProteinMPNN"
+        },
+        {
+          "name": "Meta FAIR",
+          "country": "US",
+          "type": "company",
+          "note": "ESM-2/ESMFold"
+        },
+        {
+          "name": "EvolutionaryScale",
+          "country": "US",
+          "type": "company",
+          "note": "ESM3"
+        },
+        {
+          "name": "Arc Institute",
+          "country": "US",
+          "type": "institute",
+          "note": "Evo/Evo2"
+        },
+        {
+          "name": "MIT",
+          "country": "US",
+          "type": "university",
+          "note": "DiffDock、Boltz-1"
+        },
+        {
+          "name": "CZI",
+          "country": "US",
+          "type": "institute",
+          "note": "Geneformer、Virtual Cell"
+        },
+        {
+          "name": "Insilico Medicine",
+          "country": "CN",
+          "type": "company",
+          "note": "Rentosertib"
+        },
+        {
+          "name": "深势科技",
+          "country": "CN",
+          "type": "company",
+          "note": "Uni-Mol Docking v2"
+        },
+        {
+          "name": "字节跳动",
+          "country": "CN",
+          "type": "company",
+          "note": "DPLM-2"
+        }
+      ],
+      "verdict": "美国全面领先：DeepMind/Baker Lab/Arc/MIT/CZI包揽全部范式级工作；中国在AI制药（Insilico）、分子对接（深势）、多模态PLM（字节）实现局部突破，但尚未产出定义性基石；中英美构成第一梯队，欧盟（InstaDeep）居第二梯队。",
+      "activity": "领域处于爆发期：2024–2026年每年新增3–5项范式级成果，论文发表密度、融资规模、临床验证节奏均达历史峰值。",
+      "id": "ai_science",
+      "name": "AI×科学 / 生物",
+      "domain": "ai_science",
+      "last_updated": "2026-06-03"
+    }
+  }
+}
