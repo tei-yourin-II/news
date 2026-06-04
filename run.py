@@ -8,6 +8,7 @@ arXiv 拉取 → 相关度过滤 → 质量/热度信号 → LLM 拆解打分 �
 import os
 os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")  # 静音 HF tokenizers fork 警告
 
+import re
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
 
@@ -115,7 +116,7 @@ def main():
 
     # 4.5) 刷新老论文的免费信号(热度/引用),让 bonus 随时间长上来。
     #      只重算信号 + 总分,不重跑贵的 LLM(复用已存的 content/analysis)。
-    refreshed = _refresh_recent(state, hf_up, weights, gt, pt, days=30, cap=40)
+    refreshed = _refresh_recent(state, hf_up, weights, gt, pt, oc.get("mailto", ""), days=30, cap=40)
     if refreshed:
         print(f"刷新了 {refreshed} 篇老论文的热度/质量")
 
@@ -167,20 +168,24 @@ def _gather_candidates(ac, oc):
     terms = ac.get("search_terms") or []
     by_id = {}
 
-    # a) OpenAlex —— 主力,失败不致命交给 HF 兜底
+    # a) OpenAlex —— 主力,逐源(arXiv / bioRxiv)拉取,单源失败不致命,靠 HF 兜底
     if oc.get("enabled", True):
-        try:
-            since = (datetime.now(timezone.utc)
-                     - timedelta(days=oc.get("days", 7))).strftime("%Y-%m-%d")
-            oa = fetch_openalex.fetch_recent(
-                terms, oc.get("source_id", "S4306400194"), since,
-                oc.get("mailto", ""), oc.get("per_page", 200),
-                oc.get("terms_per_query", 12), oc.get("max_pages", 2))
-            for p in oa:
-                by_id[p["arxiv_id"]] = p
-            print(f"  OpenAlex 锁 arXiv 源检索 → {len(oa)} 篇")
-        except Exception as e:
-            print(f"  OpenAlex 抓取失败(跳过,靠 HF 兜底): {e}")
+        since = (datetime.now(timezone.utc)
+                 - timedelta(days=oc.get("days", 7))).strftime("%Y-%m-%d")
+        sources = oc.get("sources") or [{"id": oc.get("source_id", "S4306400194"), "kind": "arxiv"}]
+        for s in sources:
+            try:
+                oa = fetch_openalex.fetch_recent(
+                    terms, s["id"], since, oc.get("mailto", ""), oc.get("per_page", 200),
+                    oc.get("terms_per_query", 12), oc.get("max_pages", 2), s.get("kind", "arxiv"))
+                added = 0
+                for p in oa:
+                    if p["arxiv_id"] not in by_id:
+                        by_id[p["arxiv_id"]] = p
+                        added += 1
+                print(f"  OpenAlex[{s.get('kind','arxiv')}] {s['id']} → {len(oa)} 篇(新增 {added})")
+            except Exception as e:
+                print(f"  OpenAlex[{s.get('kind')}] {s['id']} 抓取失败(跳过): {e}")
 
     # b) HF Daily Papers —— 兜底,直接拿全字段元数据
     if ac.get("use_hf_daily"):
@@ -195,15 +200,27 @@ def _gather_candidates(ac, oc):
     return list(by_id.values())
 
 
-def _refresh_recent(state, hf_up, weights, gt, pt, days=30, cap=40):
-    """给近 N 天的老论文重算热度/质量信号 + 总分(不动 LLM 拆解)。"""
+def _doi_of(p):
+    """老论文(HF 来的)可能没存 doi:arXiv 号 → 10.48550/arxiv.xxx;否则 key 本身就是 DOI(bioRxiv)。"""
+    if p.get("doi"):
+        return p["doi"]
+    aid = p.get("arxiv_id", "")
+    return f"10.48550/arxiv.{aid}" if re.match(r"^\d{4}\.\d{4,5}$", aid) else aid
+
+
+def _refresh_recent(state, hf_up, weights, gt, pt, mailto, days=30, cap=40):
+    """给近 N 天的老论文重算热度/质量信号 + 总分(不动 LLM 拆解)。
+       引用/venue 走 OpenAlex DOI 批量(一发请求),替掉 Semantic Scholar 的逐篇限流。"""
     cutoff = (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y-%m-%d")
     recent = [p for p in state.get("papers", [])
               if (p.get("published", "")[:10] >= cutoff) and p.get("analysis")]
     recent = recent[:cap]
+    if not recent:
+        return 0
+    qmap = fetch_openalex.fetch_quality_batch([_doi_of(p) for p in recent], mailto)
     n = 0
     for p in recent:
-        q = quality.fetch_quality(p["arxiv_id"])
+        q = qmap.get(_doi_of(p), {"citations": 0, "influential_citations": 0, "venue": ""})
         up = hf_up.get(p["arxiv_id"], p.get("signals", {}).get("hf_upvotes", 0))
         heat01 = signals.heat_score(up)
         quality01 = quality.quality_score(q)

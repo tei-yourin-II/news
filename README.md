@@ -45,11 +45,13 @@ cd docs && python -m http.server 8731      # 本地预览
 
 ## 取数为何用 OpenAlex
 arXiv 老 API(`export.arxiv.org/api/query`)从云 IP(尤其 GitHub Actions)几乎必 **429**。
-改用 **OpenAlex 锁 arXiv 源**(`primary_location.source.id:S4306400194`)做关键词×日期检索:
-为轮询而生、带 `mailto` 进礼貌池实测无 429,拿到的就是 arXiv 预印本本身,且**白送被引用数/机构/abstract**。
-HF Daily 降为兜底。配置见 `config.yaml: openalex`。
+改用 **OpenAlex 锁预印本源**(`primary_location.source.id`)做关键词×日期检索:
+为轮询而生、带 `mailto` 进礼貌池实测无 429,拿到的就是预印本本身,且**白送被引用数/venue/机构/abstract**。
+- **多源**:arXiv(`S4306400194`,主力,key=arXiv号能抓图)+ **bioRxiv**(`S4306402567`,补脑机/蛋白冷门域,key=DOID自动跳过抓图)。要 medRxiv 在 `config.yaml: openalex.sources` 解开即可。
+- **引用/venue 也走 OpenAlex**(DOI 批量,一发请求)→ 已**彻底移除 Semantic Scholar** 的逐篇限流。
+HF Daily 降为兜底。
 
 ## 待办
-- 产品/公司配图;**bioRxiv 源**补脑机/蛋白冷门域(Nature/bioRxiv 上的顶尖工作 arXiv 覆盖不到)
+- 产品/公司配图
 - cron 失败/缩水时的**通知**(HF-only 缩退时能察觉)
-- 最小**冒烟测试**防回归(如 generated_at、源 schema)
+- 最小**冒烟测试**防回归(如 generated_at、源 schema、arxiv_id 抽取)
