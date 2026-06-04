@@ -6,6 +6,7 @@
 import json
 import os
 from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timezone
 
 from pipeline import config
 
@@ -63,7 +64,8 @@ def main():
     with ThreadPoolExecutor(max_workers=3) as ex:
         results = list(ex.map(gen, ["embodied", "bci", "llm"]))
     companies = [c for r in results for c in r]
-    out = {"generated_at": "2026-06-03", "axes": AXES, "companies": companies}
+    out = {"generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+           "axes": AXES, "companies": companies}
     json.dump(out, open("docs/dynamics.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     print(f"dynamics.json: 共 {len(companies)} 家")
 

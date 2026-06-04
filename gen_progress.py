@@ -7,6 +7,7 @@
 import json
 import os
 from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timezone
 
 from pipeline import config
 
@@ -54,7 +55,7 @@ def gen(args):
 def main():
     with ThreadPoolExecutor(max_workers=4) as ex:
         out = dict(ex.map(gen, TOPICS))
-    json.dump({"generated_at": "2026-06-03", "topics": out},
+    json.dump({"generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d"), "topics": out},
               open("docs/progress.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     print(f"progress.json: {len(out)} 领域")
 

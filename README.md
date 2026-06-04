@@ -10,7 +10,7 @@
 - 点卡片 → 右抽屉看完整详情
 
 ## 三级漏斗(论文打分)
-`双源抓取(arXiv关键词检索 + HF Daily,互为兜底)`
+`双源抓取(OpenAlex锁arXiv源 主力 + HF Daily 兜底)`
 → `免费锚点门(领域关键词必命中)`
 → `LLM 初筛(qwen-turbo 批量判相关性+分路线)`
 → `qwen-plus 深拆解 + 分量分(对标基石校准,自吹不算)`
@@ -43,7 +43,13 @@ cd docs && python -m http.server 8731      # 本地预览
 路线/关键词/检索词/打分权重/LLM 选型全在 `config.yaml`——改配置即调系统,不改代码。
 领域分 `domain`:embodied_ai / bci / ai_science(+ llm_base 走动态)。
 
+## 取数为何用 OpenAlex
+arXiv 老 API(`export.arxiv.org/api/query`)从云 IP(尤其 GitHub Actions)几乎必 **429**。
+改用 **OpenAlex 锁 arXiv 源**(`primary_location.source.id:S4306400194`)做关键词×日期检索:
+为轮询而生、带 `mailto` 进礼貌池实测无 429,拿到的就是 arXiv 预印本本身,且**白送被引用数/机构/abstract**。
+HF Daily 降为兜底。配置见 `config.yaml: openalex`。
+
 ## 待办
-- 企业/基模动态接 **RSS 每日活水**(PR Times / 36氪 / The Robot Report)
-- **领域进展门控更新**(大突破才动基石榜,LLM 判定)
-- 产品/公司配图;bioRxiv 源补脑机/蛋白冷门域
+- 产品/公司配图;**bioRxiv 源**补脑机/蛋白冷门域(Nature/bioRxiv 上的顶尖工作 arXiv 覆盖不到)
+- cron 失败/缩水时的**通知**(HF-only 缩退时能察觉)
+- 最小**冒烟测试**防回归(如 generated_at、源 schema)

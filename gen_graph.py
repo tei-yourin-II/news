@@ -6,6 +6,7 @@
 """
 import json
 import re
+from datetime import datetime, timezone
 from pathlib import Path
 
 from pipeline import config, store
@@ -79,7 +80,8 @@ def main():
     except Exception as e:
         print(f"  跳过相似边(无嵌入库): {e}")
 
-    OUT.write_text(json.dumps({"generated_at": "2026-06-03", "nodes": nodes, "links": links},
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    OUT.write_text(json.dumps({"generated_at": today, "nodes": nodes, "links": links},
                               ensure_ascii=False, indent=2), encoding="utf-8")
     from collections import Counter
     print(f"graph.json: {len(nodes)} 节点 {len(links)} 边")

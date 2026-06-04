@@ -11,7 +11,7 @@ os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")  # 静音 HF tokenizers
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
 
-from pipeline import (analyze, config, export, fetch_arxiv, notion_sync,
+from pipeline import (analyze, config, export, fetch_openalex, notion_sync,
                       prefilter, quality, relevance, scoring, signals, store)
 
 
@@ -20,10 +20,11 @@ def main():
     routes = config.enabled_routes(cfg)
     print(f"启用路线: {[r['id'] for r in routes]}")
 
-    # 1) 抓候选论文(arXiv 关键词检索 + HF Daily Papers 第二源,失败不崩)
+    # 1) 抓候选论文(OpenAlex 锁 arXiv 源做主力 + HF Daily 兜底,失败不崩)
     ac = cfg["arxiv"]
+    oc = cfg.get("openalex", {})
     try:
-        papers = _gather_candidates(ac)
+        papers = _gather_candidates(ac, oc)
         print(f"候选论文共 {len(papers)} 篇(已合并去重)")
     except Exception as e:
         print(f"抓取失败,跳过本次新增: {e}")
@@ -98,11 +99,13 @@ def main():
         a = analyses[i] if i < len(to_llm) else analyze._stub(p)
         up = p.get("hf_upvotes") or hf_up.get(p["arxiv_id"], 0)
         heat01 = signals.heat_score(up)
-        # 新论文引用≈0,跳过 S2(贵+限流);质量分靠下面每日 _refresh 随论文变老再补
-        quality01 = 0.0
+        # 引用数:OpenAlex 已白送 cited_by_count → 直接用(免 S2 调用);新论文通常≈0,
+        # 靠下面每日 _refresh 随论文变老再补。无该字段(HF 兜底来的)则 0。
+        cites = p.get("cited_by_count", 0)
+        quality01 = quality.quality_score({"citations": cites}) if cites else 0.0
         sc = scoring.compute(p, a, heat01, quality01, weights)
         p["analysis"] = a
-        p["signals"] = {"hf_upvotes": up, "citations": 0, "venue": ""}
+        p["signals"] = {"hf_upvotes": up, "citations": cites, "venue": ""}
         p["scores"] = sc
         p["grade"] = scoring.grade(sc["total"], gt)
         p["read_priority"] = scoring.priority(sc["base"], pt)
@@ -155,29 +158,31 @@ def _load_anchors(routes):
     return out
 
 
-def _gather_candidates(ac):
-    """组装候选池,按 arxiv_id 去重。两源互为兜底:
-       a) arXiv 关键词检索(召回高,但会被限流)—— 失败不致命;
-       b) HF Daily Papers 直取全字段(不依赖 arXiv,稳定)。
+def _gather_candidates(ac, oc):
+    """组装候选池,按 arxiv_id 去重。两源:
+       a) OpenAlex 锁 arXiv 源(关键词×日期检索)—— 主力,为轮询而生,实测无 429,顺带拿被引用;
+       b) HF Daily Papers 直取全字段 —— 兜底,自带社区热度。
+    (arXiv 老 API export.arxiv.org/api/query 从云 IP 几乎必 429,已退役。)
     """
-    delay = ac.get("request_delay_sec", 3)
     terms = ac.get("search_terms") or []
     by_id = {}
 
-    # a) arXiv —— best-effort,429/限流时不阻断,交给 HF 兜底
-    try:
-        if terms:
-            arx = fetch_arxiv.fetch_by_terms(terms, ac["categories"], ac["max_results"], delay)
-            print(f"  arXiv 关键词检索 → {len(arx)} 篇")
-        else:
-            arx = fetch_arxiv.fetch_recent(ac["categories"], ac["max_results"], delay)
-            print(f"  arXiv 分类拉取 → {len(arx)} 篇")
-        for p in arx:
-            by_id[p["arxiv_id"]] = p
-    except Exception as e:
-        print(f"  arXiv 抓取失败(跳过,靠 HF 兜底): {e}")
+    # a) OpenAlex —— 主力,失败不致命交给 HF 兜底
+    if oc.get("enabled", True):
+        try:
+            since = (datetime.now(timezone.utc)
+                     - timedelta(days=oc.get("days", 7))).strftime("%Y-%m-%d")
+            oa = fetch_openalex.fetch_recent(
+                terms, oc.get("source_id", "S4306400194"), since,
+                oc.get("mailto", ""), oc.get("per_page", 200),
+                oc.get("terms_per_query", 12), oc.get("max_pages", 2))
+            for p in oa:
+                by_id[p["arxiv_id"]] = p
+            print(f"  OpenAlex 锁 arXiv 源检索 → {len(oa)} 篇")
+        except Exception as e:
+            print(f"  OpenAlex 抓取失败(跳过,靠 HF 兜底): {e}")
 
-    # b) HF Daily Papers —— 直接拿全字段元数据,不碰 arXiv
+    # b) HF Daily Papers —— 兜底,直接拿全字段元数据
     if ac.get("use_hf_daily"):
         hf = signals.fetch_hf_papers()
         added = 0

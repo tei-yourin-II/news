@@ -5,6 +5,8 @@
 import json
 import time
 import urllib.parse
+from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 import urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -34,13 +36,23 @@ def fetch(q):
         title = (it.findtext("title") or "").strip()
         src = it.find("{http://www.w3.org/2005/Atom}source")
         source = (it.findtext("source") or (src.text if src is not None else "") or "").strip()
+        pub = (it.findtext("pubDate") or "").strip()
         out.append({
             "title": title,
             "link": (it.findtext("link") or "").strip(),
-            "date": (it.findtext("pubDate") or "")[:16],
+            "date": pub[:16],
+            "ts": _to_ts(pub),   # 可排序时间戳(ISO),供前端按最新排序
             "source": source,
         })
     return out[:6]
+
+
+def _to_ts(pub):
+    """RFC822 pubDate → ISO 字符串(可字典序排序);解析失败回退空串。"""
+    try:
+        return parsedate_to_datetime(pub).astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M")
+    except Exception:
+        return ""
 
 
 def main():
@@ -56,7 +68,9 @@ def main():
                 item["domain"] = dom
                 news.append(item)
             time.sleep(1)   # 礼貌
-    OUT.write_text(json.dumps({"generated_at": "2026-06-03", "news": news},
+    news.sort(key=lambda n: n.get("ts", ""), reverse=True)  # 最新在前
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    OUT.write_text(json.dumps({"generated_at": today, "news": news},
                               ensure_ascii=False, indent=2), encoding="utf-8")
     from collections import Counter
     print(f"news.json: {len(news)} 条", dict(Counter(n["domain"] for n in news)))

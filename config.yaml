@@ -48,8 +48,21 @@ arxiv:
     - gene editing
     - drug discovery
     - molecular generation
-  # 第二源:Hugging Face Daily Papers(社区精选 + 自带热度),并入 arXiv 结果一起过滤
+  # 兜底源:Hugging Face Daily Papers(社区精选 + 自带热度),并入主力结果一起过滤
   use_hf_daily: true
+
+# ---------- 主力取数:OpenAlex 锁 arXiv 源 ----------
+# arXiv 老 API(export.arxiv.org/api/query)从云 IP(GitHub Actions)几乎必 429,已退役。
+# OpenAlex 是为轮询而生的开放目录,带 mailto 进礼貌池后实测无 429,
+# 锁定 arXiv 源(S4306400194)拿到的就是 arXiv 预印本本身,且白送 abstract / 被引用数 / 机构。
+openalex:
+  enabled: true
+  source_id: S4306400194        # arXiv 在 OpenAlex 里的 source id(别改)
+  mailto: liangfenmmd@gmail.com  # 进礼貌池(polite pool),换成你的邮箱
+  days: 7                        # 抓最近几天(run.py 按 seen 去重,宽窗无害=补漏过的天)
+  per_page: 200                  # 每页(OpenAlex 上限 200)
+  terms_per_query: 12            # 每次 OR 多少个 search_terms(避免 query 过长)
+  max_pages: 2                   # 每批关键词最多翻几页
 
 # 过滤:从抓到的论文里,留多少进入贵的 LLM 拆解
 filter:

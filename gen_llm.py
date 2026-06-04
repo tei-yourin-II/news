@@ -5,6 +5,7 @@
 """
 import json
 import os
+from datetime import datetime, timezone
 
 from pipeline import config
 
@@ -26,7 +27,7 @@ def main():
         response_format={"type": "json_object"},
         messages=[{"role": "system", "content": SYS}, {"role": "user", "content": md}])
     d = json.loads(r.choices[0].message.content)
-    d["generated_at"] = "2026-06-03"
+    d["generated_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     json.dump(d, open("docs/llm_base.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     print(f"llm_base.json: {len(d.get('vendors', []))} 厂商")
 
