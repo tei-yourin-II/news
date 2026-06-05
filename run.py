@@ -16,6 +16,27 @@ from pipeline import (analyze, config, export, fetch_openalex, notion_sync,
                       prefilter, quality, relevance, scoring, signals, store)
 
 
+def _select_with_floor(papers, dom_fn, floor, total):
+    """按相关度选 total 篇,但先给每个领域兜底 floor[d] 篇,避免论文多的领域(具身)
+    把冷门域(ai_science/bci)挤出候选池。papers 须已按相关度降序。其余名额按全局相关度填。"""
+    if not floor:
+        return papers[:total]
+    by = {}
+    for p in papers:
+        by.setdefault(dom_fn(p), []).append(p)   # 各域内已是相关度序
+    picked, seen = [], set()
+    for d, n in floor.items():                     # 先占各域保底名额
+        for p in by.get(d, [])[:n]:
+            if id(p) not in seen:
+                seen.add(id(p)); picked.append(p)
+    for p in papers:                               # 剩余名额按全局相关度填(具身仍占多数)
+        if len(picked) >= total:
+            break
+        if id(p) not in seen:
+            seen.add(id(p)); picked.append(p)
+    return picked[:total]
+
+
 def main():
     cfg = config.load_config()
     routes = config.enabled_routes(cfg)
@@ -52,10 +73,17 @@ def main():
     print(f"相关度后端: {backend}")
     fc = cfg["filter"]
     papers.sort(key=lambda p: p["relevance_raw"], reverse=True)
+    # 领域保底:防止具身论文数量碾压把 ai_science/bci 挤出候选池
+    route_dom = {r["id"]: r.get("domain", "embodied_ai") for r in cfg["routes"]}
+    dom_fn = lambda p: route_dom.get(p.get("best_route"), "embodied_ai")
+    floor = fc.get("domain_floor") or {}
     pf = cfg.get("prefilter", {})
     if pf.get("enabled"):
         # 锚点门(score_papers 已把域外压到 ≤0.05)后,交 LLM 做精筛 + 分路线
-        cand = [p for p in papers if p["relevance_raw"] >= 0.06][:pf.get("max_candidates", 150)]
+        pool = [p for p in papers if p["relevance_raw"] >= 0.06]
+        cand = _select_with_floor(pool, dom_fn, floor, pf.get("max_candidates", 150))
+        from collections import Counter
+        print(f"  候选池领域分布: {dict(Counter(dom_fn(p) for p in cand))}")
         verdicts = prefilter.classify(cand, routes, pf, pf.get("batch_size", 40))
         survivors = []
         for p in cand:
@@ -68,9 +96,11 @@ def main():
                 rs[v["route"]] = max(rs.get(v["route"], 0.0), 0.5)
             survivors.append(p)
         print(f"锚点门 → {len(cand)} 候选; LLM 初筛 → {len(survivors)} 相关")
-        survivors = survivors[:fc["keep_top_k"]]
+        survivors.sort(key=lambda p: p["relevance_raw"], reverse=True)
+        survivors = _select_with_floor(survivors, dom_fn, floor, fc["keep_top_k"])
     else:
-        survivors = [p for p in papers if p["relevance_raw"] >= fc["relevance_min"]][:fc["keep_top_k"]]
+        pool = [p for p in papers if p["relevance_raw"] >= fc["relevance_min"]]
+        survivors = _select_with_floor(pool, dom_fn, floor, fc["keep_top_k"])
     print(f"进入深拆解 → {len(survivors)} 篇")
 
     # 4) 信号 + LLM 拆解 + 打分

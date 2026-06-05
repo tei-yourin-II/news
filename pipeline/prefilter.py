@@ -8,27 +8,48 @@ import os
 from .analyze import _OPENAI_COMPAT, _resolve_key, _parse_json
 
 
+# 领域人话描述(初筛员据此判断在不在范围内);键对齐 config 各路线的 domain 字段
+_DOMAIN_DESC = {
+    "embodied_ai": "具身智能:机器人/人形/VLA/操作抓取/运动控制/仿真与机器人数据/机器人硬件",
+    "bci": "脑机接口:神经解码/脑机接口/神经假肢/EEG/神经基础模型/脑控机器人",
+    "ai_science": "AI×科学/生物:蛋白质结构预测与设计(AlphaFold/ESM/RFdiffusion)、"
+                  "基因组/DNA语言模型、单细胞、药物发现/分子生成、酶设计等用 AI 做科学的工作",
+}
+
+
 def _route_menu(routes):
-    return "\n".join(f"  - {r['id']}: {r['name']}" for r in routes)
+    # 按 domain 分组列路线,让初筛员看清每个领域下有哪些细分
+    by_dom = {}
+    for r in routes:
+        by_dom.setdefault(r.get("domain", "embodied_ai"), []).append(r)
+    out = []
+    for dom, rs in by_dom.items():
+        out.append(f"  【{_DOMAIN_DESC.get(dom, dom).split(':')[0]}】")
+        out += [f"    - {r['id']}: {r['name']}" for r in rs]
+    return "\n".join(out)
 
 
 def _prompt(routes, batch):
+    doms = []
+    for d in dict.fromkeys(r.get("domain", "embodied_ai") for r in routes):
+        doms.append("- " + _DOMAIN_DESC.get(d, d))
+    domain_block = "\n".join(doms)
     menu = _route_menu(routes)
     lines = "\n".join(f"{i}. {p['title']}" for i, p in enumerate(batch))
-    return f"""你是「具身智能 + 脑机接口」情报系统的初筛员。判断下面每篇论文是否属于这两个领域:
-- 具身智能:机器人/人形/VLA/操作抓取/运动控制/仿真与机器人数据/机器人硬件
-- 脑机接口:神经解码/脑机接口/神经假肢/EEG/神经基础模型/脑控机器人
+    return f"""你是一个科技情报系统的初筛员。本系统覆盖以下领域,判断每篇论文是否属于其中之一:
+{domain_block}
 
-⚠️ 严格:纯 NLP/纯 LLM 文本任务/纯 CV/纯理论/推荐系统/多语言/水印/agent 框架等与机器人和神经接口**无关**的,一律 relevant=false。
+⚠️ 与上述领域**都无关**的(如纯 NLP/纯文本任务/纯 CV/纯理论/推荐系统/多语言/水印/通用 agent 框架),relevant=false。
+✅ 注意:AI 用于蛋白质/基因组/药物/分子等科学问题的论文**属于「AI×科学/生物」**,要保留,别因为"不是机器人"就拒。
 
-可选路线 id:
+可选路线 id(按领域分组):
 {menu}
   - none: 不相关
 
 论文列表:
 {lines}
 
-只输出 JSON: {{"results":[{{"i":0,"relevant":true,"route":"vla"}}, ...]}}。每篇都要有一项,relevant=false 时 route 填 none。不要 markdown。"""
+只输出 JSON: {{"results":[{{"i":0,"relevant":true,"route":"protein_ai"}}, ...]}}。每篇都要有一项,relevant=false 时 route 填 none。不要 markdown。"""
 
 
 def classify(papers, routes, cfg, batch_size=40):

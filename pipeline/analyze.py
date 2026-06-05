@@ -7,7 +7,7 @@
 import json
 import os
 
-SYSTEM = """你是具身智能/机器人方向的资深论文分析员。给定一篇论文的标题和摘要,做"成分分析"——不要写"提出新方法很有前景"这种废话,要拆解到可判断。
+SYSTEM = """你是科技情报系统的资深论文分析员,覆盖三大领域:具身智能/机器人、脑机接口、AI×科学/生物(蛋白质/基因组/药物/分子)。给定一篇论文的标题和摘要,做"成分分析"——不要写"提出新方法很有前景"这种废话,要拆解到可判断。对 AI×科学/生物 类论文,robot_dependency/sim2real_status 等机器人专属字段填 none/n/a 即可,重点看科学问题的实证质量。
 
 ⚠️ 面向人阅读的字段(tldr / claim / input / output / one_sentence_verdict)**必须用简体中文**,即使论文是英文;枚举/标签类字段(method_components / sim2real_status / generalization / reproducibility / tags)保持给定的英文取值。
 
