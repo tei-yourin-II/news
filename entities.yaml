@@ -1,0 +1,108 @@
+# 机构实体归一字典(解决关系图的核心病:同一机构裂成多个节点 + 复合机构吞掉合作边)
+# 用法见 pipeline/entities.py。canonical 名 -> 国家 + 别名(跨语言/缩写/带实验室后缀)。
+# 匹配:把 org 原始串按分隔符拆成片段,每个片段去噪声后缀后查此表(精确或子串)。
+
+# 整条/片段命中即丢弃的噪声"机构"(无情报量,不建节点)
+drop:
+  - 未知
+  - unknown
+  - n/a
+  - none
+  - 多机构
+  - 多家机构
+  - 学术联合
+  - 国际联盟
+  - 联合团队
+  - 联合
+  - 国际
+  - NeurIPS组织委员会
+  - NeurIPS 2024组织委员会
+  - Nature Medicine团队
+  - 多中心
+
+# 规范机构:canonical -> {country, aliases}
+# country 取值: US CN JP EU UK KR Other
+orgs:
+  NVIDIA:        {country: US, aliases: [英伟达, NVIDIA GEAR Lab, NVIDIA GEAR, GEAR Lab, Isaac Sim, 英伟达GEAR]}
+  Stanford:      {country: US, aliases: [斯坦福, 斯坦福大学, Stanford University, Shenoy实验室, BrainGate]}
+  UC Berkeley:   {country: US, aliases: [伯克利, UC伯克利, 加州大学伯克利分校, Berkeley, UCB, Kamitani实验室]}
+  UC San Diego:  {country: US, aliases: [UCSD, 加州大学圣地亚哥分校, San Diego, UC San Diego]}
+  UCSF:          {country: US, aliases: [加州大学旧金山分校, Chang实验室, UCSF Chang]}
+  CMU:           {country: US, aliases: [卡内基梅隆大学, 卡内基梅隆, Carnegie Mellon]}
+  MIT:           {country: US, aliases: [麻省理工学院, 麻省理工, Massachusetts Institute]}
+  Google DeepMind: {country: UK, aliases: [DeepMind, Google DeepMind, Isomorphic Labs, 谷歌DeepMind, 谷歌 DeepMind]}
+  Google:        {country: US, aliases: [Google Research, 谷歌, 谷歌Research, Google Brain, 普林斯顿/谷歌Research]}
+  Meta:          {country: US, aliases: [Meta AI, Meta FAIR, FAIR, 脸书, Facebook]}
+  Physical Intelligence: {country: US, aliases: [Physical Intelligence, PI]}
+  Columbia:      {country: US, aliases: [哥伦比亚大学, 哥伦比亚, Columbia University]}
+  Princeton:     {country: US, aliases: [普林斯顿大学, 普林斯顿, Princeton University]}
+  UPenn:         {country: US, aliases: [宾夕法尼亚大学, 宾大, University of Pennsylvania]}
+  Georgia Tech:  {country: US, aliases: [佐治亚理工学院, 佐治亚理工, Georgia Institute]}
+  University of Washington: {country: US, aliases: [华盛顿大学, UW, Baker Lab, 贝克实验室]}
+  University of Michigan: {country: US, aliases: [密歇根大学, 密西根大学]}
+  Purdue:        {country: US, aliases: [普渡大学, 普渡]}
+  Brown:         {country: US, aliases: [布朗大学]}
+  Rochester:     {country: US, aliases: [罗切斯特大学]}
+  Arc Institute: {country: US, aliases: [Arc Institute]}
+  EvolutionaryScale: {country: US, aliases: [EvolutionaryScale]}
+  Chai Discovery: {country: US, aliases: [Chai Discovery]}
+  Insilico Medicine: {country: US, aliases: [Insilico Medicine, Insilico]}
+  CZI:           {country: US, aliases: [Chan Zuckerberg Initiative, Gladstone Institutes, Gladstone]}
+  EMBL-EBI:      {country: EU, aliases: [EMBL-EBI, InstaDeep]}
+  HuggingFace:   {country: US, aliases: [HuggingFace, Hugging Face]}
+  Wayve:         {country: UK, aliases: [Wayve]}
+  PAL Robotics:  {country: EU, aliases: [PAL Robotics]}
+  # —— 中国 ——
+  智元机器人:     {country: CN, aliases: [智元, 智元机器人, AgiBot]}
+  银河通用:       {country: CN, aliases: [银河通用, Galbot]}
+  X Square Robot: {country: CN, aliases: [X Square Robot, 自变量]}
+  字节跳动:       {country: CN, aliases: [字节, 字节跳动, 字节跳动Seed, ByteDance, ByteDance Seed, Seed]}
+  商汤科技:       {country: CN, aliases: [商汤, 商汤科技, SenseTime]}
+  深势科技:       {country: CN, aliases: [深势科技, 深势, DP Technology]}
+  脑虎科技:       {country: CN, aliases: [脑虎科技, 脑虎]}
+  博睿康:         {country: CN, aliases: [博睿康, NeuraMatrix]}
+  清华大学:       {country: CN, aliases: [清华, 清华大学, Tsinghua]}
+  北京大学:       {country: CN, aliases: [北大, 北京大学, Peking University, PKU]}
+  上海交通大学:   {country: CN, aliases: [上海交通大学, 上海交大, 上交, SJTU]}
+  浙江大学:       {country: CN, aliases: [浙江大学, 浙大, Zhejiang University]}
+  复旦大学:       {country: CN, aliases: [复旦大学, 复旦, Fudan]}
+  中科院自动化所: {country: CN, aliases: [中国科学院自动化所, 中科院自动化所, 自动化所, CASIA]}
+  上海AI实验室:   {country: CN, aliases: [上海人工智能实验室, 上海AI Lab, Shanghai AI Lab]}
+  华中科技大学:   {country: CN, aliases: [华中科技大学, 华中科大, HUST]}
+  南方科技大学:   {country: CN, aliases: [南方科技大学, 南科大, SUSTech]}
+  哈尔滨工业大学: {country: CN, aliases: [哈尔滨工业大学, 哈工大, HIT]}
+  中山大学:       {country: CN, aliases: [中山大学, 中大]}
+  中国科学技术大学: {country: CN, aliases: [中国科学技术大学, 中科大, USTC]}
+  香港科技大学:   {country: CN, aliases: [香港科技大学, 港科大, HKUST]}
+  中南大学:       {country: CN, aliases: [中南大学]}
+  西南交通大学:   {country: CN, aliases: [西南交通大学, 西南交大]}
+  北京航空航天大学: {country: CN, aliases: [北京航空航天大学, 北航, Beihang]}
+  # —— 日本 ——
+  东京大学:       {country: JP, aliases: [东京大学, 东大, University of Tokyo]}
+  东京工业大学:   {country: JP, aliases: [东京工业大学, 东工大, Tokyo Tech]}
+  # —— 韩国 ——
+  KAIST:         {country: KR, aliases: [KAIST, 韩国科学技术院, 韩国科学技术院（KAIST）]}
+  首尔国立大学:   {country: KR, aliases: [首尔国立大学, 首尔大学, SNU]}
+  # —— 欧洲 ——
+  ETH Zurich:    {country: EU, aliases: [ETH Zurich, 苏黎世联邦理工学院, 苏黎世联邦理工, ETH]}
+  EPFL:          {country: EU, aliases: [EPFL, 洛桑联邦理工, Courtine, Bloch团队]}
+  TU Delft:      {country: EU, aliases: [代尔夫特理工大学, 代尔夫特理工, Delft]}
+  INRIA:         {country: EU, aliases: [INRIA, 法国国家信息与自动化研究所]}
+  CNRS:          {country: EU, aliases: [CNRS, 法国国家科学研究中心]}
+  TU Munich:     {country: EU, aliases: [慕尼黑工业大学, 慕尼黑工大, TUM]}
+  LMU Munich:    {country: EU, aliases: [慕尼黑大学, LMU]}
+  Max Planck:    {country: EU, aliases: [马克斯·普朗克智能系统研究所, 马普所, Max Planck, MPI]}
+  DLR:           {country: EU, aliases: [德国宇航中心, DLR, 德国宇航中心(DLR)]}
+  University of Bonn: {country: EU, aliases: [波恩大学, Bonn]}
+  University of Magdeburg: {country: EU, aliases: [马格德堡大学, Magdeburg]}
+  TU Berlin:     {country: EU, aliases: [柏林工大, 柏林工业大学, TU Berlin]}
+  University of Grenoble: {country: EU, aliases: [格勒诺布尔大学, Grenoble]}
+  Pompeu Fabra:  {country: EU, aliases: [庞培法布拉大学, Pompeu Fabra]}
+  # —— 英国 ——
+  University of Edinburgh: {country: UK, aliases: [爱丁堡大学, Edinburgh]}
+  # —— 其他 ——
+  University of Toronto: {country: Other, aliases: [多伦多大学, 多伦多, University of Toronto]}
+  University of Montreal: {country: Other, aliases: [蒙特利尔大学, 蒙特利尔, Mila, Montreal]}
+  Ben-Gurion:    {country: Other, aliases: [本古里安大学, Ben-Gurion]}
+  NIMHANS:       {country: Other, aliases: [印度国家心理健康研究所, NIMHANS]}
+  Toyota:        {country: JP, aliases: [Toyota, 丰田, TRI]}

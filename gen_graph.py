@@ -6,10 +6,12 @@
 """
 import json
 import re
+from collections import Counter
 from datetime import datetime, timezone
+from itertools import combinations
 from pathlib import Path
 
-from pipeline import config, store
+from pipeline import config, entities, store
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "docs" / "graph.json"
@@ -27,11 +29,17 @@ def main():
     papers = store.load()["papers"]
 
     nodes, links, seen = [], [], set()
+    node_by = {}                       # id -> node dict(便于回填 count)
+    org_papers = Counter()             # canonical org -> 论文数(节点权重)
+    collab = Counter()                 # frozenset({orgA,orgB}) -> 共同论文数
 
     def add_node(nid, **attr):
         if nid not in seen:
             seen.add(nid)
-            nodes.append({"id": nid, **attr})
+            n = {"id": nid, **attr}
+            nodes.append(n)
+            node_by[nid] = n
+        return node_by[nid]
 
     for p in papers:
         a = p.get("analysis", {})
@@ -39,17 +47,26 @@ def main():
         dom = route_dom.get(p.get("best_route"), "embodied_ai")
         add_node(pid, type="paper", label=p["title"], domain=dom,
                  sig=a.get("significance", 0), country=_clean(a.get("country")))
-        org, co = _clean(a.get("org")), _clean(a.get("country"))
         rid = p.get("best_route")
         if rid:
             add_node("route:" + rid, type="route", label=route_name.get(rid, rid), domain=route_dom.get(rid, "embodied_ai"))
             links.append({"source": pid, "target": "route:" + rid, "type": "route"})
-        if org:
-            add_node("org:" + org, type="org", label=org, country=co)
-            links.append({"source": pid, "target": "org:" + org, "type": "by"})
-            if co:
+
+        # —— 实体归一:一条 org 串 → 多个规范机构,每个连一条 by 边(复合机构=合作)——
+        resolved = entities.resolve(a.get("org"))
+        canon_orgs = []
+        for canon, co in resolved:
+            oid = "org:" + canon
+            add_node(oid, type="org", label=canon, country=co, domain=dom)
+            links.append({"source": pid, "target": oid, "type": "by"})
+            org_papers[oid] += 1
+            canon_orgs.append(oid)
+            if co and co != "unknown":
                 add_node("co:" + co, type="country", label=co)
-                links.append({"source": "org:" + org, "target": "co:" + co, "type": "in"})
+                links.append({"source": oid, "target": "co:" + co, "type": "in"})
+        # 同一篇论文的多机构 → 两两合作边(权重=共同论文数)
+        for x, y in combinations(sorted(set(canon_orgs)), 2):
+            collab[frozenset((x, y))] += 1
 
     # 论文—相似论文(同域 top-k 余弦)
     try:
@@ -80,10 +97,18 @@ def main():
     except Exception as e:
         print(f"  跳过相似边(无嵌入库): {e}")
 
+    # —— 机构↔机构 合作边(共著论文数为权重)——
+    for pair, w in collab.items():
+        a, b = tuple(pair)
+        links.append({"source": a, "target": b, "type": "collab", "w": w})
+    # 机构节点权重 = 论文数(驱动前端节点大小/标签显示)
+    for oid, n in org_papers.items():
+        if oid in node_by:
+            node_by[oid]["count"] = n
+
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     OUT.write_text(json.dumps({"generated_at": today, "nodes": nodes, "links": links},
                               ensure_ascii=False, indent=2), encoding="utf-8")
-    from collections import Counter
     print(f"graph.json: {len(nodes)} 节点 {len(links)} 边")
     print("  节点类型:", dict(Counter(n["type"] for n in nodes)))
     print("  边类型:", dict(Counter(l["type"] for l in links)))

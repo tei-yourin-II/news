@@ -2,6 +2,8 @@
 import json
 from pathlib import Path
 
+from pipeline import entities
+
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "docs" / "data.json"
 
@@ -43,6 +45,7 @@ def export(state, routes, generated_at):
 def _slim(p, rid_domain=None):
     a = p.get("analysis", {})
     rid_domain = rid_domain or {}
+    _orgs = list(entities.resolve(a.get("org")))
     best = p.get("best_route")
     novelty = a.get("novelty", 0) or 0
     verdict = a.get("one_sentence_verdict", "")
@@ -62,8 +65,9 @@ def _slim(p, rid_domain=None):
         "scores": p.get("scores", {}),
         "grade": p.get("grade"), "read_priority": p.get("read_priority"),
         "tldr": a.get("tldr", ""),
-        "org": a.get("org", ""),
-        "country": a.get("country", ""),
+        "org": _orgs[0][0] if _orgs else a.get("org", ""),       # 规范主机构
+        "orgs": [o for o, _ in _orgs],                            # 规范全机构(合作)
+        "country": _orgs[0][1] if (_orgs and _orgs[0][1] != "unknown") else a.get("country", ""),
         "org_type": a.get("org_type", ""),
         "novelty": novelty,
         "significance": sig,
