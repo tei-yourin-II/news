@@ -44,15 +44,25 @@
   .fitem .fs{display:block; font-size:10.5px; color:var(--mut); margin-top:3px;}
   .ngroup{margin-bottom:18px;}
   .ngroup h3{font-size:13.5px; margin:0 0 9px; display:flex; align-items:center; gap:7px;}
-  .ncard{background:var(--card); border:1px solid var(--line); border-radius:11px; padding:12px 14px;}
-  .ncard .nh{display:flex; align-items:baseline; gap:8px; margin-bottom:5px;}
+  /* 今日要闻:独立面板带,与下方"代表玩家"清晰分区 */
+  .feedband{grid-column:1/-1; background:var(--panel); border:1px solid var(--line);
+            border-radius:13px; padding:14px 16px 15px; margin-bottom:8px;}
+  .feedband h3{margin:0 0 11px;}
+  .feed{gap:7px;}
+  /* 分节分隔:代表玩家 · 实力横评 */
+  .secdiv{grid-column:1/-1; display:flex; align-items:center; gap:12px; margin:20px 2px 16px;}
+  .secdiv .st{font-size:12px; font-weight:650; color:var(--mut2); white-space:nowrap; letter-spacing:.02em;}
+  .secdiv .sub{font-size:11px; color:var(--mut); white-space:nowrap;}
+  .secdiv::after{content:""; flex:1; height:1px; background:var(--line);}
+  .ncard{background:var(--card); border:1px solid var(--line); border-radius:11px; padding:14px 15px;}
+  .ncard .nh{display:flex; align-items:baseline; gap:8px; margin-bottom:7px;}
   .ncard .nm{font-size:14px; font-weight:650;}
   .ncard .sc{margin-left:auto; font-weight:750; font-variant-numeric:tabular-nums;}
   .ncard .st{font-size:10.5px; padding:1px 7px; border-radius:5px; border:1px solid var(--line2); color:var(--mut2);}
   .ncard{cursor:pointer; transition:.12s;}
   .ncard:hover{border-color:var(--line2); background:var(--card2);}
   .ncard .pos{font-size:12px; color:var(--mut2); margin-bottom:8px;}
-  .sxg{display:grid; grid-template-columns:1fr 1fr; gap:3px 12px; margin-bottom:8px;}
+  .sxg{display:grid; grid-template-columns:1fr 1fr; gap:6px 14px; margin:2px 0 10px;}
   .sxg.big{grid-template-columns:1fr; gap:6px;}
   .sx{display:flex; align-items:center; gap:6px;}
   .sx .sl{font-size:10.5px; color:var(--mut); min-width:30px; white-space:nowrap;}
@@ -90,6 +100,8 @@
 
   /* ===== 三栏主体 ===== */
   .body{flex:1; min-height:0; display:grid; grid-template-columns:minmax(0,1fr) 372px;}
+  .body.full{grid-template-columns:1fr;}
+  .body.full #list{display:block;}
   .col{min-height:0; overflow:auto; padding:14px 16px;}
   .col.left{border-right:1px solid var(--line);}
   .col.right{background:var(--panel);}
@@ -98,7 +110,7 @@
 
   /* 论文卡片:自适应网格(列数随视口,卡片高度随内容/图比例) */
   #list, .list{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
-        gap:11px; align-items:start;}
+        gap:13px; align-items:start;}
   .pcard{background:var(--card); border:1px solid var(--line); border-radius:11px; padding:12px 14px;
          cursor:pointer; transition:.12s; position:relative; overflow:hidden;}
   .pcard:hover{border-color:var(--line2); background:var(--card2);}
@@ -142,6 +154,52 @@
   .wk .wf{font-size:11px;} .wk .wo{font-size:10.5px; color:var(--mut); white-space:nowrap; max-width:96px; overflow:hidden; text-overflow:ellipsis;}
   .wmore{font-size:11px; color:var(--mut); padding:3px 4px 0; cursor:pointer;}
   .wmore:hover{color:var(--accent);}
+
+  /* ===== 全景视图(跨领域着陆页)===== */
+  .ovwrap{max-width:1180px; margin:0 auto;}
+  /* 行业定调 hero */
+  .ovhero{margin:2px 0 22px;}
+  .ovhero-t{font-size:11px; color:var(--mut); text-transform:uppercase; letter-spacing:.08em; margin:0 0 10px; font-weight:600;}
+  .ovhero-g{display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:11px;}
+  .hcard{position:relative; background:linear-gradient(150deg,#16131a,#121216 60%); border:1px solid #34303c;
+         border-radius:13px; padding:15px 17px; cursor:pointer; transition:.13s; overflow:hidden;}
+  .hcard:hover{border-color:#4a4452; transform:translateY(-1px);}
+  .hcard .rank{position:absolute; top:10px; right:13px; font-size:11px; font-weight:700; color:var(--gold); opacity:.85;}
+  .hcard .hsig{display:flex; align-items:baseline; gap:4px; margin-bottom:6px;}
+  .hcard .hsig b{font-size:25px; line-height:1; font-weight:780; font-variant-numeric:tabular-nums;}
+  .hcard .hsig small{font-size:10px; color:var(--mut);}
+  .hcard .htt{font-size:13.5px; font-weight:600; line-height:1.42; margin-bottom:6px;}
+  .hcard .hmeta{font-size:11px; color:var(--mut); display:flex; gap:7px; align-items:center; flex-wrap:wrap;}
+  .hcard .hdom{padding:1px 7px; border:1px solid var(--line2); border-radius:5px; color:var(--mut2);}
+  /* 领域卡网格 */
+  .ovgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(360px,1fr)); gap:13px;}
+  .ovcard{background:var(--card); border:1px solid var(--line); border-radius:13px; padding:15px 16px; display:flex; flex-direction:column;}
+  .ovcard .ovh{display:flex; align-items:center; gap:9px; margin-bottom:3px;}
+  .ovcard .ovname{font-size:15px; font-weight:680; cursor:pointer;}
+  .ovcard .ovname:hover{color:var(--accent);}
+  .ovbadge{font-size:11px; font-weight:650; padding:2px 9px; border-radius:20px; white-space:nowrap;}
+  .bk-heavy{background:rgba(224,137,74,.16); color:var(--heavy); border:1px solid rgba(224,137,74,.4);}
+  .bk-notable{background:rgba(214,168,74,.14); color:var(--notable); border:1px solid rgba(214,168,74,.35);}
+  .bk-worth{background:rgba(111,154,140,.13); color:#7fa898; border:1px solid rgba(111,154,140,.3);}
+  .bk-calm{background:var(--card2); color:var(--mut); border:1px solid var(--line2);}
+  .ovcard .ovmeta{font-size:11px; color:var(--mut); margin-bottom:12px; font-variant-numeric:tabular-nums;}
+  .ovsec{font-size:10px; color:var(--mut); text-transform:uppercase; letter-spacing:.05em; margin:0 0 6px;}
+  .ovanchor{display:flex; gap:10px; align-items:flex-start; padding:10px 11px; background:var(--card2);
+            border:1px solid var(--line); border-radius:10px; cursor:pointer; margin-bottom:11px; transition:.12s;}
+  .ovanchor:hover{border-color:var(--line2);}
+  .ovanchor .as{font-size:20px; font-weight:780; line-height:1; font-variant-numeric:tabular-nums; min-width:30px;}
+  .ovanchor .at{font-size:12.5px; font-weight:600; line-height:1.4;}
+  .ovanchor .am{font-size:10.5px; color:var(--mut); margin-top:3px; display:flex; gap:6px; flex-wrap:wrap; align-items:center;}
+  .ovrecent{display:flex; flex-direction:column; gap:1px; margin-bottom:11px;}
+  .ovrow{display:flex; align-items:center; gap:8px; padding:4px 5px; border-radius:6px; cursor:pointer; font-size:12px;}
+  .ovrow:hover{background:var(--card2);}
+  .ovrow .rs{font-weight:700; font-variant-numeric:tabular-nums; min-width:23px; text-align:right;}
+  .ovrow .rt{flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:var(--mut2);}
+  .ovrow .rf{font-size:11px;}
+  .ovempty{font-size:11.5px; color:var(--mut); padding:7px 5px;}
+  .oventer{margin-top:auto; align-self:flex-start; font-size:11.5px; color:var(--mut2); background:var(--card2);
+           border:1px solid var(--line2); border-radius:7px; padding:5px 12px; transition:.12s;}
+  .oventer:hover{border-color:#6a6a72; color:var(--fg);}
 
   /* 抽屉 */
   #drawer{position:fixed; top:0; right:0; width:min(500px,94vw); height:100vh; background:#0c0c10;
@@ -193,7 +251,7 @@
   <span class="brand">🛰️ 情报台 <span>具身·脑机·AI科学</span></span>
   <div class="domnav" id="domnav"></div>
   <div class="modeseg" id="modeseg">
-    <button data-m="papers" class="on">📄 论文</button><button data-m="news">📰 动态</button><button data-m="graph">🕸 图谱</button>
+    <button data-m="overview" class="on">🌐 全景</button><button data-m="papers">📄 论文</button><button data-m="news">📰 动态</button><button data-m="graph">🕸 图谱</button>
   </div>
   <span class="grow"></span>
   <span class="stat" id="stat">加载中…</span>
@@ -274,7 +332,7 @@ Promise.all([
   init();
 });
 let GRAPH={nodes:[],links:[]}, KG=null, NEWS=[];
-let mode='papers';
+let mode='overview';
 
 function init(){
   // 顶栏领域
@@ -304,6 +362,8 @@ function init(){
     <h4>右栏</h4><p>当前领域各细分的:进展量·峰值分量·代表玩家(按国)·横向"谁更屌"评估。点细分名→筛左侧论文。</p>
     <h4>左栏分数</h4><p>今日优先(base/60)=该不该今天读;总分(/100)含热度质量,随时间长。</p>`;
   document.getElementById('stat').textContent=`${DATA.count||0} 篇 · ${DATA.generated_at||''}`;
+  const hm=(location.hash||'').replace('#','');
+  if(['overview','papers','news','graph'].includes(hm)) mode=hm;
   syncDom();
 }
 
@@ -322,7 +382,13 @@ function syncDom(){
   if(curDomain==='llm_base' && mode==='papers') mode='news';  // 基模没论文
   document.querySelectorAll('#modeseg button').forEach(b=>b.classList.toggle('on',b.dataset.m===mode));
   document.getElementById('subbar').style.display=(mode==='papers')?'':'none';
-  document.getElementById('leftTitle').textContent=DOMAINS[curDomain]+' · '+({papers:'论文',news:'动态',graph:'图谱'}[mode]);
+  // 全景=跨领域全宽,收起右栏 dashboard 与领域细分条
+  const ov=(mode==='overview');
+  document.querySelector('.body').classList.toggle('full',ov);
+  document.querySelector('.col.right').style.display=ov?'none':'';
+  document.getElementById('leftTitle').textContent=ov?'全景 · 全行业突破总览'
+    :DOMAINS[curDomain]+' · '+({papers:'论文',news:'动态',graph:'图谱'}[mode]);
+  if(ov){ renderOverview(); return; }
   if(mode==='news') renderNews(); else if(mode==='graph') renderGraph(); else renderList();
   renderDash();
 }
@@ -342,7 +408,7 @@ function newsFeed(){
   const cd=CDOMAIN_MAP[curDomain];
   const ns=NEWS.filter(n=>n.domain===cd).slice(0,12);
   if(!ns.length) return '';
-  return `<div class="ngroup" style="grid-column:1/-1"><h3>📰 最新动态 <span class="mut" style="font-size:11px">RSS·每日</span></h3>
+  return `<div class="feedband"><h3>📰 今日要闻 <span class="mut" style="font-size:11px">RSS·每日 · ${ns.length} 条</span></h3>
     <div class="feed">${ns.map(n=>`<a class="fitem" href="${esc(n.link)}" target="_blank">
       <span class="ft">${esc(n.title)}</span><span class="fs">${esc(n.source||'')} · ${esc((n.date||'').slice(0,11))}</span></a>`).join('')}</div></div>`;
 }
@@ -355,7 +421,9 @@ function renderNews(){
   document.getElementById('stat').textContent=`${DOMAINS[curDomain]} · 动态 · ${cs.length} 家 · ${ncount} 条`;
   if(!cs.length){ list.innerHTML=feed||'<div class="empty">该领域动态待补。</div>'; return; }
   const by={}; cs.forEach(c=>{(by[c.country]??=[]).push(c);});
-  list.innerHTML=feed+['CN','US','JP','EU','UK'].filter(c=>by[c]).map(co=>
+  const secdiv=`<div class="secdiv"><span class="st">🏆 代表玩家 · 实力横评</span>
+    <span class="sub">${cs.length} 家 · 综合实力分 + 多维强项 + 近期动态</span></div>`;
+  list.innerHTML=feed+secdiv+['CN','US','JP','EU','UK'].filter(c=>by[c]).map(co=>
     `<div class="ngroup" style="grid-column:1/-1">
        <h3>${CO[co]||''} ${CONAME[co]||co} <span class="mut" style="font-size:11.5px">${by[co].length} 家</span></h3>
        <div class="list">${by[co].map(compCard).join('')}</div></div>`).join('');
@@ -481,6 +549,91 @@ function card(p){
       ${p.signals?.hf_upvotes?`<span>· HF▲${p.signals.hf_upvotes}</span>`:''}</div>
   </div>`;
 }
+
+// ===== 全景:跨领域「有没有突破 + 谁在定调」总览 =====
+const OV_DOMAINS=['embodied_ai','bci','ai_science'];   // 有论文库的领域(llm_base 走发布单列)
+function daysSince(d){ const t=Date.parse((d||'').slice(0,10)); return isNaN(t)?9999:(Date.now()-t)/864e5; }
+function bkTier(peak){ return peak>=85?'heavy':peak>=75?'notable':peak>=60?'worth':'calm'; }
+function bkLabel(peak,n){ return peak>=85?'🔥 重大突破':peak>=75?'⚡ 显著进展':peak>=60?'稳步推进':(n?'近期平静':'暂无新作'); }
+
+function renderOverview(){
+  const list=document.getElementById('list');
+  const all=DATA.papers||[];
+  // 各领域分组
+  const byDom={}; all.forEach(p=>{(byDom[p.domain]??=[]).push(p);});
+  // —— 行业 hero:近30天分量最高的 3 篇(定调之作);不足则放宽到全库 ——
+  const recent=all.filter(p=>daysSince(p.published)<=30).sort((a,b)=>(b.significance||0)-(a.significance||0));
+  const heroPool=(recent.length>=3?recent:[...all].sort((a,b)=>(b.significance||0)-(a.significance||0)));
+  const hero=heroPool.slice(0,3);
+  const heroFresh=recent.length>=3;
+  const heroHtml=`<div class="ovhero">
+    <div class="ovhero-t">${heroFresh?'近期行业定调 · 最具突破性的论文(近30天)':'行业标杆 · 库内最具突破性的论文'}</div>
+    <div class="ovhero-g">${hero.map((p,i)=>{
+      const tier=p.tier||(p.significance>=75?'heavy':'notable');
+      return `<div class="hcard" onclick="openDrawer('${p.arxiv_id}')">
+        <span class="rank">#${i+1}</span>
+        <div class="hsig" style="color:${tierColor(tier)}"><b>${p.significance||0}</b><small>/100 分量</small></div>
+        <div class="htt">${esc(p.title)}</div>
+        <div class="hmeta"><span class="hdom">${DOMAINS[p.domain]||'—'}</span>
+          ${coOf(p)?CO[coOf(p)]:''} ${orgOf(p)?esc(orgOf(p)):''}
+          <span>· ${esc((p.published||'').slice(0,10))}</span></div>
+      </div>`;}).join('')}</div></div>`;
+
+  // —— 领域卡 ——
+  const cards=OV_DOMAINS.map(dom=>{
+    const ps=(byDom[dom]||[]).slice().sort((a,b)=>(b.significance||0)-(a.significance||0));
+    if(!ps.length) return '';
+    const recent30=ps.filter(p=>daysSince(p.published)<=30);
+    const peak30=recent30.reduce((m,p)=>Math.max(m,p.significance||0),0);
+    const tier=bkTier(peak30);
+    const anchor=ps[0];                                   // 定调之作=库内分量最高
+    const fresh=recent30.filter(p=>p.arxiv_id!==anchor.arxiv_id && (p.significance||0)>=68)
+                        .sort((a,b)=>(b.significance||0)-(a.significance||0)).slice(0,3);
+    const aTier=anchor.tier||(anchor.significance>=75?'heavy':'notable');
+    return `<div class="ovcard">
+      <div class="ovh"><span class="ovname" onclick="gotoDomain('${dom}')">${DOMAINS[dom]}</span>
+        <span class="ovbadge bk-${tier}">${bkLabel(peak30,recent30.length)}</span></div>
+      <div class="ovmeta">库内 ${ps.length} 篇 · 近30天 +${recent30.length} · 峰值分量 ${peak30||'—'}</div>
+      <div class="ovsec">定调之作</div>
+      <div class="ovanchor" onclick="openDrawer('${anchor.arxiv_id}')">
+        <span class="as" style="color:${tierColor(aTier)}">${anchor.significance||0}</span>
+        <span><span class="at">${esc(anchor.title)}</span>
+          <span class="am">${coOf(anchor)?CO[coOf(anchor)]:''} ${orgOf(anchor)?esc(orgOf(anchor)):''}
+            <span>· ${esc((anchor.published||'').slice(0,10))}</span></span></span></div>
+      <div class="ovsec">近期突破</div>
+      ${fresh.length?`<div class="ovrecent">${fresh.map(p=>`
+        <div class="ovrow" onclick="openDrawer('${p.arxiv_id}')">
+          <span class="rs" style="color:${tierColor(p.tier||'worth')}">${p.significance||0}</span>
+          <span class="rt">${esc(p.title)}</span>
+          ${coOf(p)?`<span class="rf">${CO[coOf(p)]}</span>`:''}</div>`).join('')}</div>`
+        :'<div class="ovempty">近30天暂无显著突破(分量≥68)</div>'}
+      <button class="oventer" onclick="gotoDomain('${dom}')">进入 ${DOMAINS[dom]} →</button>
+    </div>`;}).join('');
+
+  // —— LLM 基模:看发布不看论文,单独一张卡 ——
+  let llmCard='';
+  if(LLMB&&LLMB.vendors&&LLMB.vendors.length){
+    const top=LLMB.vendors.slice().sort((a,b)=>(b.score||0)-(a.score||0)).slice(0,3);
+    llmCard=`<div class="ovcard">
+      <div class="ovh"><span class="ovname" onclick="gotoDomain('llm_base')">${DOMAINS.llm_base}</span>
+        <span class="ovbadge bk-notable">看发布</span></div>
+      <div class="ovmeta">${LLMB.vendors.length} 家大厂旗舰 · 横向格局</div>
+      <div class="ovsec">领跑者</div>
+      <div class="ovrecent">${top.map(v=>`
+        <div class="ovrow" onclick="gotoDomain('llm_base')">
+          <span class="rs" style="color:${tierColor(v.score>=80?'heavy':'notable')}">${v.score||'-'}</span>
+          <span class="rt">${esc(v.name)} · ${esc(v.flagship||'')}</span>
+          ${v.country&&CO[v.country]?`<span class="rf">${CO[v.country]}</span>`:''}</div>`).join('')}</div>
+      <button class="oventer" onclick="gotoDomain('llm_base')">进入 ${DOMAINS.llm_base} →</button>
+    </div>`;
+  }
+
+  document.getElementById('stat').textContent=`全景 · ${all.length} 篇 · ${DATA.generated_at||''}`;
+  list.innerHTML=`<div class="ovwrap">${heroHtml}<div class="ovgrid">${cards}${llmCard}</div></div>`;
+}
+function gotoDomain(dom){ curDomain=dom; F.route=null; mode=(dom==='llm_base')?'news':'papers'; syncDom();
+  document.querySelector('.col.left').scrollTop=0; }
+window.gotoDomain=gotoDomain;
 
 function renderDash(){
   const dash=document.getElementById('dash');
