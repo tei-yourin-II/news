@@ -57,6 +57,7 @@ def _slim(p, rid_domain=None):
         "authors": p.get("authors", [])[:6], "published": p.get("published", ""),
         "url": p.get("url"), "pdf_url": p.get("pdf_url"),
         "source": p.get("source", "daily"),
+        "venue": p.get("venue", ""),
         "thumb": p.get("thumb", ""),
         "best_route": best,
         "domain": rid_domain.get(best, "embodied_ai"),

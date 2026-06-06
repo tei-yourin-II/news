@@ -333,3 +333,19 @@ routes:
     keywords: [LLM agent, tool use, planning, RAG, reasoning, embodied agent]
     seeds:
       - { title: "SayCan: Do As I Can, Not As I Say", arxiv_id: "2204.01691" }
+
+# ---------- 会议重磅种子(CVPR/ICRA 等顶会论文,按 arxiv id 精准回填)----------
+# 这些跨年/弱关键词的会议重磅 daily 抓不到(只抓最近7天+关键词);在此列 id 由 backfill_seeds.py
+# 抓真实元数据→走相关度+LLM拆解→入库(source=conference,带 venue 标签+顶会质量信号)。
+# 看到该追的会议论文,往这里加一行 id+venue 即可,重跑 backfill_seeds.py(幂等)。
+seeds:
+  - {id: "2512.08924", venue: "CVPR 2026 Best Paper"}      # D4RT 动态场景重建
+  - {id: "2601.02427", venue: "CVPR 2026 Honorable Mention"} # NitroGen 通用游戏智能体
+  - {id: "2604.04913", venue: "CVPR 2026"}                  # Delta Tokens 世界模型
+  - {id: "2511.16624", venue: "CVPR 2026"}                  # SAM 3D
+  - {id: "2602.20160", venue: "CVPR 2026"}                  # tttLRM 3D 重建
+  - {id: "2512.16913", venue: "CVPR 2026"}                  # Depth Any Panoramas
+  - {id: "2512.08269", venue: "CVPR 2026"}                  # EgoX 自我中心视频
+  - {id: "2601.10611", venue: "CVPR 2026"}                  # Molmo2 VLM
+  - {id: "2604.07457", venue: "ICRA 2026"}                  # CMP 全身 loco-manipulation
+  - {id: "2510.00491", venue: "ICRA 2026"}                  # 人手→机械臂技能迁移

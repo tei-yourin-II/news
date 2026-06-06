@@ -128,6 +128,9 @@
        border:1px solid var(--line2); white-space:nowrap;}
   .otype{font-size:10px; color:var(--mut); border:1px solid var(--line); border-radius:4px; padding:0 5px;}
   .pcard h3{margin:0 0 5px; font-size:13.5px; font-weight:600; line-height:1.4;}
+  .venue{display:inline-block; font-size:10.5px; font-weight:600; color:var(--gold);
+         background:rgba(214,168,74,.1); border:1px solid rgba(214,168,74,.32);
+         border-radius:5px; padding:1px 7px; margin:0 0 6px;}
   .pcard .tldr{font-size:12px; color:var(--mut2); line-height:1.5;}
   .pcard .foot{display:flex; gap:9px; align-items:center; margin-top:8px; font-size:11px; color:var(--mut); flex-wrap:wrap;}
   .badge{padding:1px 6px; border-radius:5px; font-size:10.5px; font-weight:700; color:#0a0a0c;}
@@ -544,6 +547,7 @@ function card(p){
       <span class="badge" style="background:${GRADE[g]}" title="等级${g}·今日优先${p.read_priority||'-'}">${g}</span>
     </div>
     <h3>${esc(p.title)}</h3>
+    ${p.venue?`<div class="venue">🏆 ${esc(p.venue)}</div>`:''}
     <div class="tldr">${esc(p.tldr||p.claim||'')}</div>
     <div class="foot">${esc((p.published||'').slice(0,10))}<span>·</span>优先${s.base||0}<span>·</span>总分${s.total||0}
       ${p.signals?.hf_upvotes?`<span>· HF▲${p.signals.hf_upvotes}</span>`:''}</div>
@@ -573,6 +577,7 @@ function renderOverview(){
       return `<div class="hcard" onclick="openDrawer('${p.arxiv_id}')">
         <span class="rank">#${i+1}</span>
         <div class="hsig" style="color:${tierColor(tier)}"><b>${p.significance||0}</b><small>/100 分量</small></div>
+        ${p.venue?`<div class="venue" style="margin-bottom:5px">🏆 ${esc(p.venue)}</div>`:''}
         <div class="htt">${esc(p.title)}</div>
         <div class="hmeta"><span class="hdom">${DOMAINS[p.domain]||'—'}</span>
           ${coOf(p)?CO[coOf(p)]:''} ${orgOf(p)?esc(orgOf(p)):''}
@@ -726,6 +731,7 @@ function openDrawer(id){
   d.innerHTML=`<span class="close" onclick="closeDrawer()">✕</span>
     ${p.thumb?`<img src="${esc(p.thumb)}" style="width:100%;border-radius:10px;margin:0 0 12px;display:block" onerror="this.remove()">`:''}
     <h2>${esc(p.title)}</h2>
+    ${p.venue?`<div class="venue" style="margin-bottom:8px">🏆 ${esc(p.venue)}</div>`:''}
     <div class="mut" style="font-size:12px">${co?CO[co]+' '+(CONAME[co]||'')+' · ':''}${o?'🏛️ '+esc(o)+' · ':''}${OTYPE[p.org_type]||''}</div>
     <div class="sigbig"><span class="n" style="color:${tierColor(p.tier)}">${p.significance||0}</span>
       <span class="x"><b style="color:${tierColor(p.tier)}">分量分</b> / 100<br>${esc(p.significance_reason||'')}</span></div>

@@ -69,6 +69,10 @@ def _user_content(paper):
     base = (f"标题: {paper['title']}\n\n"
             f"作者: {authors or '(未提供)'}\n\n"
             f"摘要: {paper['abstract']}")
+    venue = paper.get("_venue")
+    if venue:
+        base += (f"\n\n【发表信息】本文为 {venue} 论文。顶会接收/获奖是强质量信号,"
+                 "significance 应据此抬高一档,但仍按实质证据打分,别只因顶会给满分。")
     anchors = paper.get("_anchors")
     if anchors:
         base += (f"\n\n【该领域基石参照(分量分标尺,衡量本文水平用)】:\n{anchors}\n"
