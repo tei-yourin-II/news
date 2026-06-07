@@ -40,6 +40,15 @@
           "why": "首个全开源跨体态通用策略模型，基于OXE大规模轨迹训练，确立跨机器人泛化评测标准，奠定VLA数据-模型-评估闭环基石"
         },
         {
+          "name": "Molmo2: Open Weights and Data for Vision-Language Models with Video Understanding and Grounding",
+          "org": "艾伦人工智能研究所",
+          "country": "US",
+          "year": "2026",
+          "arxiv_id": "2601.10611",
+          "significance": 90,
+          "why": "首次在完全开源、零闭源蒸馏前提下实现像素级视频指代与复杂时序跟踪，确立了视频-语言-动作联合接地的新技术基线，填补了VLA领域在原生视频理解与细粒度动作对齐上的关键空白。"
+        },
+        {
           "name": "RDT-1B",
           "org": "清华大学",
           "country": "CN",
@@ -222,7 +231,7 @@
           "note": "ViLLA"
         }
       ],
-      "verdict": "美国在范式原创（RT-2/π0/GR00T）、开源生态（OpenVLA/Octo）和基础理论（Diffusion Policy）上全面领先；中国在扩散模型（RDT-1B）、合成数据驱动（GraspVLA）和人形架构（ViLLA）上实现快速追赶并产出标志性工作，但底层VLM骨干与世界模型融合仍依赖美方进展。",
+      "verdict": "美国在范式原创（RT-2/π0/GR00T）、开源生态（OpenVLA/Octo/Molmo2）和基础理论（Diffusion Policy）上全面领先；中国在扩散模型（RDT-1B）、合成数据驱动（GraspVLA）和人形架构（ViLLA）上实现快速追赶并产出标志性工作，但底层VLM骨干与世界模型融合仍依赖美方进展。",
       "activity": "领域处于爆发期：2025-2026年每月稳定产出3-5篇奠基性工作，范式收敛（流匹配/双系统/混合）与数据范式转移（合成数据主导）同步加速。",
       "id": "vla",
       "name": "VLA 视觉-语言-动作",
@@ -745,6 +754,15 @@
           "why": "首次将扩散模型引入机器人策略学习，建立条件去噪动作生成范式，12任务平均超SOTA 46.9%，奠定后续RDT-1B、π0、OpenVLA-OFT等VLA灵巧操作模型的动作头基础"
         },
         {
+          "name": "RealDexUMI: A Wearable Universal Manipulation Interface for Dexterous Robot Learning",
+          "org": "Beyond实验室",
+          "country": "CN",
+          "year": "2026",
+          "arxiv_id": "2606.06033",
+          "significance": 94,
+          "why": "RealDexUMI首次实现穿戴式、端到端传感器-执行器完全对齐的灵巧操作接口，消除了长期存在的‘采集-部署域偏移’这一范式级瓶颈，使人类示范数据可直接零适配迁移到任意同构灵巧手，重构了数据驱动灵巧操作的学习闭环。"
+        },
+        {
           "name": "π0",
           "org": "Physical Intelligence",
           "country": "US",
@@ -752,6 +770,15 @@
           "arxiv_id": "2410.24164",
           "significance": 94,
           "why": "首个将Flow Matching与VLM深度耦合的物理智能范式，7平台68任务联合训练，实现跨具身、跨任务、跨环境的端到端灵巧操作，定义VLA灵巧操作新标尺"
+        },
+        {
+          "name": "DexFuture: Hierarchical Future-State Visuomotor Targeting for Bimanual Dexterous Tool Use",
+          "org": "加州大学圣地亚哥分校",
+          "country": "US",
+          "year": "2026",
+          "arxiv_id": "2606.05699",
+          "significance": 93,
+          "why": "首次实现无演示依赖、60Hz闭环的双手机器人工具操作，将灵巧操作从‘模仿-重放’或‘慢速在线优化’范式跃迁至‘未来状态主动靶向+分层实时跟踪’新范式，具备可扩展的层级抽象与跨任务泛化潜力。"
         },
         {
           "name": "RDT-1B",
@@ -978,7 +1005,7 @@
           "note": "Dex5（20-DoF，94触觉传感器）"
         }
       ],
-      "verdict": "美国仍全面领先：斯坦福/哥伦比亚/NVIDIA/DeepMind占据范式定义权（ACT/Diffusion Policy/π0/RDT-1B）与核心数据基建（EgoScale/UMI）；中国在硬件量产（因时/Unitree）、系统工程（GR-Dexter）和竞赛标准（ManiSkill-ViTac）上快速追赶，但尚未产出开宗立派的算法范式。",
+      "verdict": "美国仍全面领先：斯坦福/哥伦比亚/NVIDIA/DeepMind占据范式定义权（ACT/Diffusion Policy/π0/RDT-1B/DexFuture）与核心数据基建（EgoScale/UMI）；中国在硬件量产（因时/Unitree）、系统工程（GR-Dexter）、竞赛标准（ManiSkill-ViTac）及**新型数据采集范式**（RealDexUMI）上形成四维突破，其中RealDexUMI与DexFuture共同标志中国从范式共创迈向范式并立——前者定义‘如何采集真对齐数据’，后者定义‘如何规划双手机器人未来状态’。",
       "activity": "该领域处于爆发期：2025–2026年基石工作密集涌现，论文年均增长超40%，工业界融资与产品化节奏显著加快。",
       "id": "dexterous_manipulation",
       "name": "灵巧操作",
