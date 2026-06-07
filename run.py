@@ -125,9 +125,11 @@ def main():
     for p in survivors:
         p.pop("_anchors", None)  # 临时字段,别写进 store
 
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     records = []
     for i, p in enumerate(survivors):
         a = analyses[i] if i < len(to_llm) else analyze._stub(p)
+        p["first_seen"] = p.get("first_seen") or today  # 入库日(今日精选的时效基准)
         up = p.get("hf_upvotes") or hf_up.get(p["arxiv_id"], 0)
         heat01 = signals.heat_score(up)
         # 引用数:OpenAlex 已白送 cited_by_count → 直接用(免 S2 调用);新论文通常≈0,

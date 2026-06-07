@@ -9,6 +9,7 @@
 import run
 import fetch_thumbs
 import progress_update
+import pick_daily
 import gen_news
 import gen_graph
 
@@ -21,15 +22,17 @@ def _safe(name, fn):
 
 
 def main():
-    print("=== [1/5] 论文管线 ===")
+    print("=== [1/6] 论文管线 ===")
     run.main()
-    print("=== [2/5] 领域进展门控(大突破才动基石榜)===")
+    print("=== [2/6] 领域进展门控(大突破才动基石榜)===")
     _safe("门控", progress_update.main)
-    print("=== [3/5] 新论文配图 ===")
+    print("=== [3/6] 新论文配图 ===")
     _safe("配图", fetch_thumbs.main)
-    print("=== [4/5] 企业/基模 RSS 新闻 ===")
+    print("=== [4/6] 今日精选(时效窗严选 1-3 篇 + 深度解析)===")
+    _safe("精选", pick_daily.main)
+    print("=== [5/6] 企业/基模 RSS 新闻 ===")
     _safe("新闻", gen_news.main)
-    print("=== [5/5] 重建知识图谱 ===")
+    print("=== [6/6] 重建知识图谱 ===")
     _safe("图谱", gen_graph.main)
 
 

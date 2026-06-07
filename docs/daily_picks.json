@@ -1,0 +1,103 @@
+{
+  "picks_by_date": {
+    "2026-06-07": [
+      {
+        "arxiv_id": "2606.06033",
+        "title": "RealDexUMI: A Wearable Universal Manipulation Interface for Dexterous Robot Learning",
+        "published": "2026-06-04",
+        "first_seen": "2026-06-07",
+        "url": "https://arxiv.org/abs/2606.06033",
+        "pdf_url": "https://arxiv.org/pdf/2606.06033",
+        "thumb": "assets/thumbs/2606.06033.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "BeingBeyond",
+        "country": "CN",
+        "significance": 93,
+        "significance_reason": "达到RDT-1B（93分）档位：首次实现‘采集-部署’端到端末端执行器同构（shared hand + shared sensing），实证覆盖8个高难度真实灵巧任务、跨3种本体迁移、有明确消融（隐含于‘zero-gap’设计对比现有retargeting pipeline）、全真机验证；虽未开源代码/模型，但硬件设计完整公开、数据协议清晰、结果可复现性强，实质性推进了灵巧操作数据采集范式。",
+        "tier": "heavy",
+        "tldr": "提出了一种可穿戴的通用灵巧操作接口RealDexUMI，用轻量级灵巧手+掌侧同构手套+在手视觉+指尖触觉传感器，实现人类手指动作到机器人手的零延迟、零重定向映射，采集到的数据与部署时的感知-动作完全对齐，在8个真实机器人灵巧任务上平均成功率88.75%，且能泛化到新初始位姿和三种不同机械手本体。",
+        "deep": {
+          "hook": "人类戴手套直接‘变成’机器人手——零重定向、零传感错位的真机灵巧操作接口",
+          "why_now": "紧接RT-2、OpenVLA等视觉语言模型对具身数据质量的高要求，以及DexDiffuser、DexPilot等在sim2real中暴露的retargeting gap痛点；RealDexUMI是首个用硬件同构闭环（shared hand + shared sensing）正面击穿‘采集-部署不一致’这一根本瓶颈的工作。",
+          "problem": "现有灵巧操作数据采集范式存在双重失配：一是人类示范经运动学重定向（retargeting）后丢失接触细节与力觉时序；二是采集时用RGB/IMU，部署时用机器人本体传感器（如指尖触觉），导致感知模态错位。二者叠加造成‘数据好但策略跑不起来’的顽疾。",
+          "method": "核心是‘末端执行器同构’：人类佩戴的掌侧同构手套只输出关节角度，驱动的是**同一型号**的轻量灵巧手（即人戴的手套控制的机器人手，和最终部署时执行任务的机器人手是同一个硬件+同一套传感器）；在手相机与6通道指尖触觉阵列也完全复用，确保采集时看到/摸到的，就是部署时看到/摸到的。",
+          "results": "在8个真实机器人灵巧任务（含bimanual、long-horizon、contact-rich）上平均成功率88.75%；泛化至未见初始位姿；跨3种不同机械手本体（即训练用Hand-A，部署换Hand-B/C仍有效）；全真机验证，无仿真环节；消融隐含于‘zero-gap’设计对比——作者明确指出其相较传统retargeting pipeline消除映射误差源。",
+          "limitations": "未开源代码与模型，复现依赖硬件采购与标定；所有任务均在固定桌面场景下完成，未测试动态环境、遮挡或物体形变鲁棒性；触觉传感器为6通道（非逐指高密阵列），未报告触觉信号在策略中的具体贡献权重。",
+          "significance_take": "范式级推进：它不是又一个更好的retargeting算法，而是用硬件设计绕过retargeting——把‘如何把人手动作转成机器人动作’这个40年老问题，转化为‘让人和机器人共用一只手’的新工程命题，重新定义了dexterous data collection的可信边界。",
+          "who_should_read": "做真实灵巧操作的数据工程师、teleoperation系统开发者、以及怀疑‘纯视觉模仿学习能否落地’的研究者，能拿走一套可复现的端到端同构硬件协议与部署验证范式。",
+          "verdict": "必读——它用物理同构而非算法补丁，首次让‘人类示范→机器人执行’的保真度不再取决于数学近似精度，而取决于硬件一致性，这是通往可扩展灵巧智能的基础设施转折点。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2606.06139",
+        "title": "MotionDisco: Motion Discovery for Extreme Humanoid Loco-Manipulation",
+        "published": "2026-06-04",
+        "first_seen": "2026-06-07",
+        "url": "https://arxiv.org/abs/2606.06139",
+        "pdf_url": "https://arxiv.org/pdf/2606.06139",
+        "thumb": "assets/thumbs/2606.06139.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "卡内基梅隆大学",
+        "country": "US",
+        "significance": 87,
+        "significance_reason": "首次实现全自动（无teleop/retargeting）、长时序、接触密集人形loco-manipulation技能发现与真机部署，证据扎实：多任务ablation、仿真→真机闭环、视频可验证；但未开源代码/模型，且未证明跨机体泛化（仅单平台部署），略逊于GRAIL/WholeBodyVLA级的通用资产驱动范式。",
+        "tier": "heavy",
+        "tldr": "用大语言模型引导的进化搜索 + 运动学动力学轨迹优化，从零发现复杂人形机器人长时序接触密集型运动（如边走边搬多重物体），不依赖人类示教或动作重定向，最后用强化学习策略部署到真实人形机器人上。",
+        "deep": {
+          "hook": "首个全自动发现并真机部署长时序人形loco-manipulation技能的框架，全程无需人类示教或重定向",
+          "why_now": "紧随GRAIL、WholeBodyVLA等通用具身智能范式之后，首次将‘纯自动技能发现’从单步操作（如抓取）推向接触密集、多阶段、全身协同的长时序任务，直击当前具身智能‘依赖人类先验’的核心瓶颈",
+          "problem": "现有loco-manipulation方法严重依赖人类遥操作、动作重定向或预定义行为模板，难以泛化到新任务/新物体组合；而纯搜索方法因接触组合爆炸（随任务长度和物体数指数增长）在长时序下完全失效。",
+          "method": "用LLM将自然语言任务分解为可执行的‘接触事件序列’（如‘左脚踩地→右手抓箱→右膝顶箱→左脚跨椅’），再通过进化搜索在该结构化空间中采样候选序列；对每个序列，调用轻量级顺序运动学-动力学轨迹优化器（含接触力可行性剪枝）生成可行轨迹；最后用RL策略在仿真中跟踪这些轨迹，并迁移到真机。",
+          "results": "在仿真中完成多项长时序任务（如‘边走边搬两箱绕过椅子’‘单手托盘+双脚跨障’）；消融实验证明LLM引导比随机/规则搜索成功率显著更高；所有发现轨迹均成功部署至真实人形机器人（视频可验证），且sim2real闭环完整。",
+          "limitations": "仅在单一真机平台（CMU自研人形）验证，未测试跨机体泛化；未开源代码/模型，复现门槛极高；所有任务场景仍为结构化室内环境，未报告在动态扰动、非结构化地形或未见物体上的泛化表现。",
+          "significance_take": "显著推进‘自动化技能发现’路线——不是增量改进，而是首次证明：LLM+进化搜索+轻量轨迹优化的组合，能在无任何人类运动先验下，突破接触组合爆炸，生成端到端可行的全身长时序行为，为脱离人类示范的具身智能提供新路径。",
+          "who_should_read": "做具身技能学习、运动规划或sim2real迁移的工程师与研究者，能直接借鉴其LLM结构化搜索+动力学剪枝的双阶段解耦设计。",
+          "verdict": "必读——它用扎实的真机部署和清晰的消融，确立了‘全自动长时序loco-manipulation发现’这一新基线，虽未开源但方法论极具启发性。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2606.05699",
+        "title": "DexFuture: Hierarchical Future-State Visuomotor Targeting for Bimanual Dexterous Tool Use",
+        "published": "2026-06-04",
+        "first_seen": "2026-06-07",
+        "url": "https://arxiv.org/abs/2606.05699",
+        "pdf_url": "https://arxiv.org/pdf/2606.05699",
+        "thumb": "assets/thumbs/2606.05699.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "加州大学圣地亚哥分校",
+        "country": "US",
+        "significance": 87,
+        "significance_reason": "在真实双手机器人平台上实现90%真值性能、60Hz实时闭环、跨多个工具操作任务泛化，且明确击败DexWM+CEM等强基线250倍速度，填补了‘高质量未来目标在线生成’这一关键空白；虽未开源代码/模型，但实验完整、消融清晰、对比基准扎实，属显著推进SOTA的重磅工作，但尚未达ALOHA/ACT级范式开创性。",
+        "tier": "heavy",
+        "tldr": "提出一个分层系统DexFuture，用视觉-本体感知历史预测未来多步的手-工具-物体协同目标轨迹，再由底层策略实时跟踪，首次在双手机器人灵巧工具操作任务中实现接近真值参考性能的实时控制（60Hz），大幅超越无参考基线且比传统世界模型规划快250倍。",
+        "deep": {
+          "hook": "首次在真机双手机器人上，60Hz实时生成手-工具-物体协同未来目标，达真值90%性能",
+          "why_now": "接续DexWM、ACT、ALOHA等具身学习工作，直击‘未来状态在线生成’这一被长期忽视的瓶颈；恰逢社区从单臂模仿转向双手机器人灵巧操作（OakInk2发布半年）、世界模型规划速度瓶颈凸显（CEM慢成共识）之际。",
+          "problem": "双手机器人灵巧工具操作需同时建模双手+工具+物体的高维接触动力学，但现有方法要么依赖演示提供的真值未来状态（不实用），要么用世界模型+CEM在线规划（极慢、难实时），缺乏一种能快速、动态一致地生成未来目标轨迹的机制。",
+          "method": "提出分层架构：高层用‘历史RGB+本体+几何序列’输入，经结构化视觉-运动嵌入+horizon-conditioned Transformer，直接输出多步手/工具/物体6D目标轨迹；底层策略则以这些目标为条件，用per-link Transformer生成关节动作——彻底解耦‘未来该去哪’和‘现在怎么动’。",
+          "results": "在OakInk2真实双手机器人平台验证：达真值参考性能的90%（对比无参考基线仅7%）；运行频率60Hz；比DexWM+CEM快约250倍；消融实验证明分层设计与结构化嵌入缺一不可。",
+          "limitations": "未开源代码/模型，复现门槛高；所有实验限于OakInk2定义的4个工具任务（锤子/剪刀/镊子/刮刀），未测试跨工具泛化或新物体零样本；未报告失败案例分析或接触不稳定时的鲁棒性表现。",
+          "significance_take": "显著推进SOTA而非范式级：它不是首个用Transformer做具身控制（ACT早做），也不是首个双手机器人系统（ALOHA已做），但首次将‘未来目标生成’从‘依赖演示’或‘离线规划’中解耦出来，确立了一种可实时、可扩展的分层目标驱动新范式。",
+          "who_should_read": "做双手机器人、工具操作、世界模型落地的研究者/工程师，能直接借鉴其分层目标接口设计与结构化嵌入思路。",
+          "verdict": "必读——它是当前唯一在真机上把‘未来目标在线生成’做到实时+高质量+跨任务验证的工作，填补了具身智能控制链中关键一环。",
+          "_llm": "qwen-plus"
+        }
+      }
+    ]
+  },
+  "featured_ids": [
+    "2606.05699",
+    "2606.06033",
+    "2606.06139"
+  ],
+  "latest": "2026-06-07",
+  "generated_at": "2026-06-07 08:19 UTC"
+}

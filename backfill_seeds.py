@@ -70,8 +70,10 @@ def main():
     weights = cfg["scoring"]["weights"]
     gt, pt = cfg["scoring"]["grade_thresholds"], cfg["scoring"]["priority_thresholds"]
     hf_up = signals.fetch_hf_upvotes()
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     records = []
     for p, a in zip(papers, analyses):
+        p["first_seen"] = p.get("first_seen") or today  # 回填日=今日精选可见(会议重磅当天可入选)
         up = hf_up.get(p["arxiv_id"], 0)
         heat01 = signals.heat_score(up)
         cites = p.get("cited_by_count", 0)
