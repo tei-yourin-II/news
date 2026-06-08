@@ -109,8 +109,9 @@
   .scoredetail summary::before{content:"▸ "; }
   .scoredetail[open] summary::before{content:"▾ "; }
 
-  /* 论文卡片:自适应网格(列数随视口,卡片高度随内容/图比例) */
-  #list, .list{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  /* #list 是块容器;只有论文/玩家网格(.list)才是栅格 */
+  #list{display:block;}
+  .list{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
         gap:13px; align-items:start;}
   .pcard{background:var(--card); border:1px solid var(--line); border-radius:11px; padding:12px 14px;
          cursor:pointer; transition:.12s; position:relative; overflow:hidden;}
@@ -169,29 +170,47 @@
   .prow .psig{font-weight:700; width:26px; flex:none; text-align:right; font-variant-numeric:tabular-nums;}
   .prow .ptit{color:var(--mut2); line-height:1.4; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
 
-  /* ===== 精选着陆带:本周具身 Top15 + 今日精选(全景顶部,最显眼)===== */
-  .featwrap{max-width:1180px; margin:0 auto 22px;}
-  .feat{background:linear-gradient(150deg,#16131a,#101015 62%); border:1px solid #34303c;
-        border-radius:14px; padding:16px 18px; margin-bottom:14px;}
-  .feat-h{display:flex; align-items:baseline; gap:10px; margin:0 0 12px;}
-  .feat-h .ttl{font-size:16px; font-weight:760; letter-spacing:.01em;}
-  .feat-h .wkrange{font-size:12px; color:var(--gold); font-variant-numeric:tabular-nums; font-weight:600;}
-  .feat-h .sub{font-size:11px; color:var(--mut);}
-  .feat-h .more{margin-left:auto; font-size:11.5px; color:var(--mut); cursor:pointer;
-        border:1px solid var(--line2); border-radius:7px; padding:3px 11px;}
-  .feat-h .more:hover{color:var(--fg); border-color:var(--accent);}
-  .wkgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:7px 18px;}
-  .wkitem{display:flex; align-items:baseline; gap:9px; padding:6px 7px; border-radius:7px; cursor:pointer;
-          transition:.1s; border:1px solid transparent;}
-  .wkitem:hover{background:var(--card2); border-color:var(--line2);}
-  .wkitem .wr{font-size:12px; font-weight:700; color:var(--gold); width:22px; flex:none; text-align:right;
-              font-variant-numeric:tabular-nums; opacity:.85;}
-  .wkitem .wsig{font-size:13.5px; font-weight:750; width:26px; flex:none; text-align:right; font-variant-numeric:tabular-nums;}
-  .wkitem .wtt{flex:1; min-width:0; font-size:12.5px; line-height:1.4; color:var(--fg);
+  /* ===== 首页精选:本周具身 Top15 + 今日精选 ===== */
+  .featwrap{max-width:1200px; margin:0 auto;}
+  .feat{margin-bottom:30px;}
+  /* 周报 hero 头 */
+  .feat-h{display:flex; align-items:center; gap:13px; margin:0 0 16px; padding-bottom:13px;
+          border-bottom:1px solid var(--line);}
+  .feat-h .ic{font-size:22px; line-height:1;}
+  .feat-h .ttl{font-size:20px; font-weight:800; letter-spacing:.01em;}
+  .feat-h .wkrange{font-size:12.5px; color:var(--gold); font-weight:700; font-variant-numeric:tabular-nums;
+        background:rgba(214,168,74,.12); border:1px solid rgba(214,168,74,.34); border-radius:20px; padding:3px 12px;}
+  .feat-h .sub{font-size:12px; color:var(--mut);}
+  .feat-h .more{margin-left:auto; font-size:12px; color:var(--mut); cursor:pointer;
+        border:1px solid var(--line2); border-radius:8px; padding:5px 13px; transition:.12s;}
+  .feat-h .more:hover{color:var(--fg); border-color:var(--accent); background:var(--card);}
+  /* Top15:两列卡片 */
+  .wkgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(500px,1fr)); gap:9px 16px;}
+  .wkitem{display:flex; align-items:center; gap:13px; padding:11px 14px; border-radius:11px; cursor:pointer;
+          background:var(--card); border:1px solid var(--line); transition:.13s;}
+  .wkitem:hover{border-color:var(--line2); background:var(--card2); transform:translateY(-1px);}
+  .wkitem .wr{font-size:15px; font-weight:800; color:var(--gold); width:26px; flex:none; text-align:center;
+              font-variant-numeric:tabular-nums;}
+  .wkitem .wsig{display:flex; flex-direction:column; align-items:center; width:34px; flex:none; line-height:1;}
+  .wkitem .wsig b{font-size:17px; font-weight:800; font-variant-numeric:tabular-nums;}
+  .wkitem .wsig small{font-size:8.5px; color:var(--mut); margin-top:2px;}
+  .wkitem .wmid{flex:1; min-width:0;}
+  .wkitem .wtt{font-size:13.5px; font-weight:550; line-height:1.4; color:var(--fg);
                overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
-  .wkitem .wv{flex:none; font-size:10px; font-weight:600; color:var(--gold); background:rgba(214,168,74,.13);
-              border:1px solid rgba(214,168,74,.32); border-radius:5px; padding:1px 6px; white-space:nowrap;}
-  .wkitem .wflag{flex:none; font-size:11px;}
+  .wkitem .wsub{font-size:11px; color:var(--mut); margin-top:3px; display:flex; gap:7px; align-items:center;}
+  .wkitem .wv{flex:none; font-size:10.5px; font-weight:650; color:var(--gold); background:rgba(214,168,74,.13);
+              border:1px solid rgba(214,168,74,.32); border-radius:6px; padding:2px 8px; white-space:nowrap;}
+  /* 今日精选:卡片 */
+  .pkgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:13px;}
+  .pkc{background:var(--card); border:1px solid var(--line); border-radius:13px; padding:14px 16px;
+       cursor:pointer; transition:.13s; border-left:3px solid var(--line2);}
+  .pkc:hover{border-color:var(--line2); background:var(--card2); transform:translateY(-1px);}
+  .pkc .pkm{display:flex; align-items:center; gap:8px; margin-bottom:8px; font-size:11px; color:var(--mut);}
+  .pkc .pkm b{font-size:16px; font-weight:800; font-variant-numeric:tabular-nums;}
+  .pkc .pkhk{font-size:14px; font-weight:680; line-height:1.45; color:var(--fg);
+             display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;}
+  .pkc .pkvd{font-size:11.5px; color:var(--mut2); line-height:1.55; margin-top:7px;
+             display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;}
   @media(max-width:760px){ .wkgrid{grid-template-columns:1fr;} }
 
   /* 右栏 dashboard 卡片 */
@@ -307,7 +326,9 @@
     .tabs button{flex:0 0 auto;}
     .grp.search{width:100%;}
     .searchbox{min-width:0;}
-    #list, .list{grid-template-columns:repeat(auto-fill,minmax(260px,1fr));}
+    .list{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));}
+    .wkgrid{grid-template-columns:1fr;}
+    .dashgrid{grid-template-columns:1fr;}
   }
 </style>
 </head>
@@ -607,7 +628,7 @@ function renderList(){
   const list=document.getElementById('list');
   updatePaperMeta(ps.length,all.length);
   if(!ps.length){ list.innerHTML=`<div class="empty">没有匹配的论文。<br><button class="clear-btn" onclick="resetFilters()">清空筛选</button></div>`; return; }
-  list.innerHTML=ps.map(card).join('');
+  list.innerHTML=`<div class="list">${ps.map(card).join('')}</div>`;
 }
 function card(p){
   const g=p.grade||'D', s=p.scores||{}, o=orgOf(p), co=coOf(p), sig=p.significance||0;
@@ -757,30 +778,33 @@ function renderPanoramaLLM(){
   document.getElementById('list').innerHTML=`<div class="panowrap"><div class="psec"><h3>🏆 大厂基模 · 横向格局</h3>${renderLLMBase()}</div></div>`;
 }
 
-// ===== 精选着陆带:本周具身 Top15(对齐参考图) + 今日精选 =====
+// ===== 首页精选:本周具身 Top15(对齐参考图) + 今日精选 =====
 function renderFeatured(){
   let html='';
   // —— 本周具身 Top15 ——
   const wp=WEEKLY.picks||[];
   if(wp.length){
     const wk=WEEKLY.week||{};
-    const shown=weeklyExpanded?wp:wp.slice(0,8);
+    const shown=weeklyExpanded?wp:wp.slice(0,10);
     const rows=shown.map((p,i)=>{
       const tier=p.tier||(p.significance>=75?'heavy':p.significance>=60?'notable':'worth');
       const flag=(CO[(p.country||'').toUpperCase()])||'';
+      const org=orgOf(p);
       return `<div class="wkitem" onclick="openWeeklyDrawer(${i})">
         <span class="wr">${p.rank||i+1}</span>
-        <span class="wsig" style="color:${tierColor(tier)}">${p.significance||0}</span>
-        ${flag?`<span class="wflag">${flag}</span>`:''}
-        <span class="wtt">${esc(p.title)}</span>
+        <span class="wsig" style="color:${tierColor(tier)}"><b>${p.significance||0}</b><small>分量</small></span>
+        <span class="wmid">
+          <div class="wtt">${esc(p.title)}</div>
+          <div class="wsub">${flag?flag+' ':''}${org?esc(org):'<span class="mut">—</span>'}<span class="mut">· ${DOMAINS[p.domain]||''}</span></div>
+        </span>
         ${p.venue?`<span class="wv">🏆 ${esc(p.venue)}</span>`:''}</div>`;}).join('');
     const vCount=WEEKLY.venue_count||0;
     html+=`<div class="feat">
       <div class="feat-h">
-        <span class="ttl">📅 本周具身 Top${wp.length}</span>
+        <span class="ic">📅</span><span class="ttl">本周具身 Top${wp.length}</span>
         <span class="wkrange">${esc((wk.label)||'')}</span>
         <span class="sub">综合各大学会 · 顶会 ${vCount} 篇</span>
-        ${wp.length>8?`<span class="more" onclick="event.stopPropagation();toggleWeekly()">${weeklyExpanded?'收起 ▲':'展开全部 ▾'}</span>`:''}
+        ${wp.length>10?`<span class="more" onclick="event.stopPropagation();toggleWeekly()">${weeklyExpanded?'收起 ▲':`展开全部 ${wp.length} ▾`}</span>`:''}
       </div>
       <div class="wkgrid">${rows}</div></div>`;
   }
@@ -790,18 +814,18 @@ function renderFeatured(){
   if(dates.length){
     const latest=dates[0], today=pbd[latest]||[];
     if(today.length){
-      const cards=today.map(pk=>{
-        const i=today.indexOf(pk), d=pk.deep||{};
-        const flag=(CO[(pk.country||'').toUpperCase()])||'';
-        return `<div class="wkitem" onclick="openPickDrawer('${latest}',${i})">
-          <span class="wsig" style="color:${tierColor(pk.tier)}">${pk.significance||0}</span>
-          ${flag?`<span class="wflag">${flag}</span>`:''}
-          <span class="wtt">${esc(d.hook||pk.title)}</span>
-          <span class="wv" style="color:var(--mut);background:none;border-color:var(--line2)">${DOMAINS[pk.domain]||''}</span></div>`;}).join('');
+      const cards=today.map((pk,i)=>{
+        const d=pk.deep||{}, flag=(CO[(pk.country||'').toUpperCase()])||'', org=orgOf(pk);
+        return `<div class="pkc" style="border-left-color:${tierColor(pk.tier)}" onclick="openPickDrawer('${latest}',${i})">
+          <div class="pkm"><b style="color:${tierColor(pk.tier)}">${pk.significance||0}</b>
+            <span style="color:var(--mut2)">分量</span>${flag?'· '+flag:''}${org?' '+esc(org):''}
+            <span style="margin-left:auto">${DOMAINS[pk.domain]||''}</span></div>
+          <div class="pkhk">${esc(d.hook||pk.title)}</div>
+          <div class="pkvd">${esc(d.verdict||pk.tldr||'')}</div></div>`;}).join('');
       html+=`<div class="feat">
-        <div class="feat-h"><span class="ttl">📌 今日精选</span>
+        <div class="feat-h"><span class="ic">📌</span><span class="ttl">今日精选</span>
           <span class="wkrange">${latest}</span><span class="sub">时效窗严选 · 深度解析</span></div>
-        <div class="wkgrid">${cards}</div></div>`;
+        <div class="pkgrid">${cards}</div></div>`;
     }
   }
   return html;
