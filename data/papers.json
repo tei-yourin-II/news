@@ -8405,7 +8405,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "bioRxiv (Cold Spring Harbor Laboratory)"
       },
       "scores": {
         "relevance": 17.8,
@@ -8683,7 +8683,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 17.3,
@@ -8860,7 +8860,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 22.0,
@@ -8951,7 +8951,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 19.8,
@@ -9465,7 +9465,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 19.4,
@@ -9934,7 +9934,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "Humanoids"
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 19.9,
@@ -10031,7 +10031,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 16.9,
@@ -10305,7 +10305,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 17.6,
@@ -10398,7 +10398,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 19.6,
@@ -10807,7 +10807,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 19.1,
@@ -21413,6 +21413,93 @@
       "read_priority": "C"
     },
     {
+      "arxiv_id": "2606.06292",
+      "doi": "10.48550/arxiv.2606.06292",
+      "source_kind": "arxiv",
+      "title": "Synthetic Data Generation and Vision-based Wrinkle and Keypoint Detection for Bimanual Cloth Manipulation",
+      "abstract": "Robotic manipulation of textiles remains challenging because continuous deformation and self-occlusions hinder the robust visual perception required to estimate the cloth's state. To address the lack of annotated real-world data, we developed a Blender-based synthetic pipeline exporting auto-annotated keypoints, and combined manually labeled renders with real-world data to train a wrinkle detector. We present a perception framework integrating a CNN for permutation-invariant keypoint detection and a YOLOv8-OpenCV pipeline to extract grasping points from structural wrinkles. A proposed bimanual algorithm uses this system to stretch fully folded garments via wrinkles, transitioning to keypoint-based ironing once corners emerge. The keypoint model achieves a Mean Position Error (MPE) of 1.7615 pixels. The perception system transfers to physical fabrics without fine-tuning, outperforming baselines that fail in high-occlusion states or yield false positives on severe folds.",
+      "authors": [
+        "Ariel Herrera",
+        "Xueyang Kang",
+        "Atal Anil Kumar"
+      ],
+      "categories": [],
+      "published": "2026-06-04",
+      "updated": "2026-06-04",
+      "url": "https://arxiv.org/abs/2606.06292",
+      "pdf_url": "https://arxiv.org/pdf/2606.06292",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4707,
+        "world_model": 0.396,
+        "whole_body_control": 0.3801,
+        "dexterous_manipulation": 0.5,
+        "sim2real_data": 0.2472,
+        "hardware_unitree": 0.1562,
+        "bci_neural_decoding": 0.1085,
+        "bci_foundation_models": 0.1006,
+        "bci_embodied_robot": 0.249,
+        "bci_noninvasive_eeg": 0.144,
+        "protein_ai": 0.2072,
+        "genomics_ai": 0.1695
+      },
+      "best_route": "dexterous_manipulation",
+      "relevance_raw": 0.4707,
+      "first_seen": "2026-06-08",
+      "analysis": {
+        "tldr": "用Blender生成带自动标注关键点的布料合成图像，结合少量真实数据训练出能同时检测皱纹和关键点的视觉模型，并在不微调的情况下直接迁移到真实布料上，支撑双手机器人完成从拉展折叠衣物到基于关键点熨烫的全流程操作。",
+        "org": "未知",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "仅依赖合成数据+极少量真实标注即可构建跨域鲁棒的布料状态感知系统，支撑无需在线微调的sim2real双手机器人布料操作闭环。",
+        "method_components": [
+          "model",
+          "dataset",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "RGB图像（合成渲染图或真实布料照片）",
+        "output": "布料皱纹区域掩码 + 关键点坐标（如角点、褶皱顶点） + 抓取点位置",
+        "robot_dependency": "none",
+        "data_dependency": "极低：仅需少量手动标注的合成渲染图+零真实标注关键点（MPE评估用真实图像但未说明是否用于训练）",
+        "sim2real_status": "multi-embodiment",
+        "generalization": [
+          "cross-scene",
+          "cross-task"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "sim2real",
+          "multimodal-fusion"
+        ],
+        "novelty": 6,
+        "evidence": 8,
+        "reproducibility_score": 3,
+        "significance": 68,
+        "significance_reason": "解决了布料操作中长期存在的视觉感知瓶颈（自遮挡/大形变），实证显示模型零微调迁移至真实布料并支持多阶段任务（拉展→熨烫），但未披露机器人本体细节、未开源代码/模型、无消融实验、未与主流基线（如ClothSim, DexCloth）定量对比，属扎实且具工程落地价值的显著贡献，但未达基石级范式突破或大规模通用性。",
+        "one_sentence_verdict": "显著贡献：真推进了布料视觉感知的sim2real鲁棒性，但因缺乏开源、消融和跨平台验证，属于高质量工程整合而非范式突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 14.1,
+        "content": 17.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 31.1,
+        "bonus": 0.0,
+        "total": 31.1
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2606.06292.jpg"
+    },
+    {
       "arxiv_id": "2606.02486",
       "title": "Intercepting the Future: Latent-Space Predictive World Model for Dynamic VLA Manipulation",
       "abstract": "Vision-Language-Action (VLA) models generalize across static manipulation but fail when objects move during task execution. They map the current observation to an action and assume the scene is stationary between observation and execution, so at any non-trivial object speed the resulting latency exceeds the time available to grasp. We close this gap with AHEAD (Anticipatory Horizon Extrapolation with Adaptive Dynamics), a predict-then-act wrapper that augments a frozen VLA with a motion-aware latent world model. A small world model trained on manipulation video forecasts future patch tokens in the VLA's feature space, conditioned on per-token velocity and acceleration from optical flow. A language-and-motion saliency mask concentrates prediction on task-relevant patches, and the model rolls forward for an adaptive horizon, halting when prediction uncertainty crosses a threshold. The frozen action decoder then receives the predicted future tokens in place of the current ones. AHEAD adds 4.9M parameters to a frozen 7B OpenVLA and reaches 79 to 97% success across 20 dynamic simulation scenarios where the strongest baseline reaches 31 to 58%. On a physical UFactory xArm 7, AHEAD succeeds on 29/30 to 30/30 on three conveyor and rolling-ball tasks, 23/30 on paddle interception, and 19/30 on projectile catching where every baseline scores 0/30.",
@@ -27528,6 +27615,87 @@
       "thumb": "assets/thumbs/2605.30989.jpg"
     },
     {
+      "arxiv_id": "2606.01595",
+      "doi": "10.48550/arxiv.2606.01595",
+      "source_kind": "arxiv",
+      "title": "Uncertainty-Calibrated Diffusion for Reliable 3D Molecular Graph Generation",
+      "abstract": "Bayesian inference provides a principled framework for modeling epistemic uncertainty in neural networks by treating predictions as distributions rather than deterministic values. Meanwhile, diffusion-based models for 3D molecular graph generation operate on fragile geometric structures governed by strict chemical constraints, making inference highly sensitive to uncertainty miscalibration. A largely overlooked issue is that epistemic uncertainty arising from the learned denoiser interacts with the aleatoric uncertainty intentionally injected during reverse diffusion, leading to systematic variance inflation and a mismatch between the true distribution and the simulated distribution. This effect is particularly detrimental for high-precision molecular generation, where even small deviations can violate chemical validity. In this work, we provide a theoretical and empirical analysis of how epistemic uncertainty propagates through diffusion inference and degrades sampling quality. Building on this investigation, we propose UCD (Uncertainty-Calibrated Diffusion), a simple yet effective method that calibrates the reverse diffusion process to account for epistemic uncertainty. Extensive experiments on standard 3D molecular benchmarks demonstrate that UCD consistently improves sampling quality across diverse baseline methods, establishing new state-of-the-art performance for 3D molecular diffusion. The code is available at https://github.com/jiuguaiwf/UCD.",
+      "authors": [
+        "Fang Wan",
+        "Jingxiang Qu",
+        "Yi Liu"
+      ],
+      "categories": [],
+      "published": "2026-06-01",
+      "updated": "2026-06-01",
+      "url": "https://arxiv.org/abs/2606.01595",
+      "pdf_url": "https://arxiv.org/pdf/2606.01595",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1394,
+        "world_model": 0.2125,
+        "whole_body_control": 0.1115,
+        "dexterous_manipulation": 0.0857,
+        "sim2real_data": 0.1581,
+        "hardware_unitree": 0.0,
+        "bci_neural_decoding": 0.0907,
+        "bci_foundation_models": 0.0603,
+        "bci_embodied_robot": 0.0597,
+        "bci_noninvasive_eeg": 0.1478,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2114
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.2414,
+      "first_seen": "2026-06-08",
+      "analysis": {
+        "tldr": "这篇论文发现3D分子生成扩散模型中，神经网络自身的认知不确定性（epistemic uncertainty）与扩散过程人为注入的随机噪声（aleatoric uncertainty）会相互干扰，导致采样方差被系统性高估、化学有效性下降；为此提出一个轻量级校准机制UCD，在反向扩散每一步动态调整噪声尺度，从而提升生成分子的几何精度和化学合理性。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "在3D分子图扩散生成中，未校准的认知不确定性会与反向扩散噪声耦合，引发系统性方差膨胀和化学无效性；通过显式建模并校准该认知不确定性，可显著提升生成质量且不增加模型复杂度。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "分子图的初始噪声3D坐标与原子类型（或空图）",
+        "output": "满足化学约束的3D分子结构（原子坐标+键连接）",
+        "robot_dependency": "none",
+        "data_dependency": "无真实机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "code-only",
+        "tags": [
+          "multimodal-fusion"
+        ],
+        "novelty": 7,
+        "evidence": 8,
+        "reproducibility_score": 5,
+        "significance": 68,
+        "significance_reason": "首次明确揭示并量化了扩散模型中认知不确定性与反向噪声的耦合失配问题，并给出可插拔、理论可解释的校准方案；实证覆盖QM9/GEOM-DRUGS等主流基准，在多个基线（GeoLDM、DiffLinker、EDM）上稳定提升FCD、Validity、Novelty等核心指标，但未突破任务范式（仍是条件/无条件3D生成），也未解决构象系综、动力学可采样性等更高阶科学问题，尚未见于真实药物发现闭环验证。",
+        "one_sentence_verdict": "显著贡献——它不是新范式，但精准定位并修复了当前主流3D分子扩散模型中一个被广泛忽视却实质性损害生成可靠性的系统性缺陷，证据扎实、方法简洁、效果可复现。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 7.2,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 27.2,
+        "bonus": 0.0,
+        "total": 27.2
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2606.01595.jpg"
+    },
+    {
       "arxiv_id": "2606.01626",
       "doi": "10.48550/arxiv.2606.01626",
       "source_kind": "arxiv",
@@ -30528,6 +30696,94 @@
       "thumb": "assets/thumbs/2606.05847.jpg"
     },
     {
+      "arxiv_id": "2606.03435",
+      "doi": "10.48550/arxiv.2606.03435",
+      "source_kind": "arxiv",
+      "title": "CP-Agent: Context-Aware Multimodal Reasoning for Cellular Morphological Profiling under Chemical Perturbations",
+      "abstract": "Cell Painting combines multiplexed fluorescent staining, high-content imaging, and quantitative analysis to generate high-dimensional phenotypic readouts to support diverse downstream tasks such as mechanism-of-action (MoA) inference, toxicity prediction, and construction of drug-disease atlases. However, existing workflows are slow, costly and difficult to interpret. Approaches for drug screening modeling predominantly focus on molecular representation learning, while neglecting actual experimental context (e.g., cell line, dosing schedule, etc.), limiting generalization and MoA resolution. We introduce CP-Agent, an agentic multimodal large language model (MLLM) capable of generating mechanism-relevant, human-interpretable rationales for cell morphological changes under drug perturbations. At its core, CP-Agent leverages a context-aware alignment module, CP-CLIP, that jointly embeds high-content images and experimental metadata to enable robust treatment and MoA discrimination (achieving a maximum F1-score of 0.896). By integrating CP-CLIP outputs with agentic tool usage and reasoning, CP-Agent compiles rationales into a structured report to guide experimental design and hypothesis refinement. These capabilities highlight CP-Agent's potential to accelerate drug discovery by enabling more interpretable, scalable, and context-aware phenotypic screening -- streamlining iterative cycles of hypothesis generation in drug discovery.",
+      "authors": [
+        "Yuxin Zhang",
+        "Li Yiyao",
+        "Ping Shu Ho",
+        "Simon See",
+        "Zhenqin Wu",
+        "Kevin Tsia"
+      ],
+      "categories": [],
+      "published": "2026-06-02",
+      "updated": "2026-06-02",
+      "url": "https://arxiv.org/abs/2606.03435",
+      "pdf_url": "https://arxiv.org/pdf/2606.03435",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.3137,
+        "world_model": 0.24,
+        "whole_body_control": 0.172,
+        "dexterous_manipulation": 0.1541,
+        "sim2real_data": 0.152,
+        "hardware_unitree": 0.0443,
+        "bci_neural_decoding": 0.1655,
+        "bci_foundation_models": 0.2189,
+        "bci_embodied_robot": 0.135,
+        "bci_noninvasive_eeg": 0.1591,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.3092
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3254,
+      "first_seen": "2026-06-08",
+      "venue": "ICLR 2026",
+      "analysis": {
+        "tldr": "这篇论文提出了CP-Agent，一个能结合细胞成像图和实验元数据（如细胞系、剂量等）进行多模态推理的AI代理，自动生成可解释的药物作用机制（MoA）分析报告，用于提升细胞形态学表型筛选的可解释性和上下文适应性。",
+        "org": "香港大学",
+        "country": "HK",
+        "org_type": "university",
+        "claim": "通过上下文感知的多模态对齐（CP-CLIP）与具身式工具调用推理，CP-Agent能在化学扰动下生成机制相关、人类可读的细胞形态变化归因报告，显著提升表型分析的可解释性与实验指导能力。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "高内涵显微图像（Cell Painting图像）+ 实验元数据（细胞系、处理时间、浓度、染料组合等）",
+        "output": "结构化文本报告，含机制归因、关键形态特征变化、潜在MoA假设及实验优化建议",
+        "robot_dependency": "none",
+        "data_dependency": "完全依赖公开/自建Cell Painting图像数据集（如BBBC021、LUAD等），无真实机器人或自动化实验平台闭环反馈",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 5,
+        "reproducibility_score": 3,
+        "significance": 48,
+        "significance_reason": "虽首次将LLM代理范式引入Cell Painting分析并强调上下文对齐，但未开源模型/代码，未在跨实验室、跨平台真实扰动数据上验证泛化性；F1=0.896仅在单个MoA分类任务上达成，未证明其报告真能驱动下游实验成功（如预测新靶点或缩短发现周期），也未与主流基线（如CP-Learn、Phenograph、DeepProfiler）做消融对比；属扎实的领域应用拓展，但未触及机制解析本质瓶颈（如亚细胞定位因果推断、扰动时空动力学建模）。",
+        "one_sentence_verdict": "工程整合：将多模态对齐+LLM代理流程迁移到细胞表型分析，提升了报告可解释性，但缺乏真实实验闭环验证、开源不足、未突破MoA解析的底层不确定性瓶颈。",
+        "_llm": "qwen-plus",
+        "venue": "ICLR 2026"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": "ICLR 2026"
+      },
+      "scores": {
+        "relevance": 9.8,
+        "content": 14.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 23.8,
+        "bonus": 0.0,
+        "total": 23.8
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2606.03435.jpg"
+    },
+    {
       "arxiv_id": "2606.06041",
       "doi": "10.48550/arxiv.2606.06041",
       "source_kind": "arxiv",
@@ -30850,6 +31106,100 @@
       "scores": {
         "relevance": 14.6,
         "content": 9.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 23.6,
+        "bonus": 0.0,
+        "total": 23.6
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
+      "arxiv_id": "10.64898/2026.06.03.729973",
+      "doi": "10.64898/2026.06.03.729973",
+      "source_kind": "biorxiv",
+      "title": "Genotypic and multi-environment phenotypic evaluation of the lima bean USDA National Plant Germplasm System collection",
+      "abstract": "Lima bean (Phaseolus lunatus L.) is an economically and agronomically important grain legume. Lima beans (or limas) show a range of climatic adaptations with independent domestications in the Andes (large-seeded) and Mesoamerica (small- or medium-seeded). We generated and integrated genotypic and comprehensive field- and laboratory-based phenotypic information for the available accessions in the USDA National Plant Germplasm System collection across multiple environments to inform germplasm utilization in breeding. A total of 810 accessions were genotyped using short-read, low-coverage sequencing. Accession geographic origin and domestication explained population structure. A partially overlapping subset of the panel (n=141-308) was field-evaluated across two years in each of Davis, CA, Central Ferry, WA, and Coachella Valley, CA (the latter was fall-planted for evaluation of photoperiod-sensitive accessions) to assess trait performance in contrasting environments. Agronomic traits such as determinacy and flowering time, and seed traits such as seed coat color and hundred-seed weight, were scored. Macronutrient traits (protein, starch, fat, and ash content) were measured on dry (mature) harvested grain via near-infrared spectroscopy. Genome-wide association analyses identified loci significantly associated with descriptive, agronomic, and seed traits, including orthologs of known genes in common bean and novel candidate regions. Genomic predictive abilities were moderate to high for key traits. Finally, we established a conditional core collection that was constrained to include 211 extensively phenotyped accessions and for which 91 supplemental accessions were selected to maximize genetic diversity from among the genotyped accessions. Overall, these resources provide a foundation to support genomics-assisted breeding of limas.",
+      "authors": [
+        "Jaclyn A. Adaskaveg",
+        "Jenna Hershberger",
+        "Andrew Farmer",
+        "R. Varma Penmetsa",
+        "Iván García‐López",
+        "Julian Garcia-Abadillo",
+        "Xiangming Zhou",
+        "Bao-Lam Huynh",
+        "Philip Roberts",
+        "Emmalea G. Ernest",
+        "Marilyn L. Warburton",
+        "Diego Jarquin",
+        "Sarah Dohle",
+        "Antonia Palkovic",
+        "Travis Allen Parker",
+        "Paul Gepts",
+        "Christine H. Diepenbrock"
+      ],
+      "categories": [],
+      "published": "2026-06-06",
+      "updated": "2026-06-06",
+      "url": "https://doi.org/10.64898/2026.06.03.729973",
+      "pdf_url": "https://doi.org/10.64898/2026.06.03.729973",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0278,
+        "world_model": 0.1048,
+        "whole_body_control": 0.0372,
+        "dexterous_manipulation": 0.0671,
+        "sim2real_data": 0.016,
+        "hardware_unitree": 0.0471,
+        "bci_neural_decoding": 0.0414,
+        "bci_foundation_models": 0.0881,
+        "bci_embodied_robot": 0.0019,
+        "bci_noninvasive_eeg": 0.0499,
+        "protein_ai": 0.1627,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.1856,
+      "first_seen": "2026-06-08",
+      "analysis": {
+        "tldr": "这篇论文对美国农业部保存的810份利马豆种质资源进行了全基因组低深度测序，并在多个地理环境（加州、华盛顿州）连续两年开展田间表型观测和实验室营养成分分析，结合全基因组关联分析（GWAS）和基因组预测，构建了一个包含211个深度表型+91个遗传多样性补充的条件核心种质库。",
+        "org": "USDA-ARS",
+        "country": "US",
+        "org_type": "institute",
+        "claim": "整合多环境表型与低成本全基因组数据，可系统解析利马豆农艺与种子性状的遗传基础，并支撑高效、多样化的种质利用与育种决策。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "利马豆种质的地理来源、低覆盖度全基因组测序数据、多地点多年度田间表型记录（如开花期、结荚习性、百粒重）、实验室近红外营养成分检测值",
+        "output": "群体遗传结构图谱、GWAS显著位点列表（含已知同源基因与新候选区）、各性状基因组预测准确率、条件核心种质库（302份）及其选育依据",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖机器人数据",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 4,
+        "evidence": 9,
+        "reproducibility_score": 5,
+        "significance": 48,
+        "significance_reason": "属高质量作物种质资源深度表型化与基因组整合的典范工作，但未提出新算法/模型/技术范式，也未解决长期悬而未决的理论或方法瓶颈；其价值在于扎实的资源构建与实证分析，对标AI×科学领域基石论文（如AlphaFold2/ESM系列）差距巨大，更接近农业基因组学中稳健的‘资源型基建’而非‘方法论突破’。",
+        "one_sentence_verdict": "工程整合：将经典植物遗传学方法规模化落地，产出高可用种质资源图谱与核心子集，但无算法/模型/范式创新，不属于真突破或概念包装，是值得引用的扎实农业数据工程。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 5.6,
+        "content": 18.0,
         "heat": 0.0,
         "quality": 0.0,
         "base": 23.6,
@@ -31772,6 +32122,86 @@
       "thumb": "assets/thumbs/2606.02902.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.06.01.729334",
+      "doi": "10.64898/2026.06.01.729334",
+      "source_kind": "biorxiv",
+      "title": "Identification of Beneficial Bacterial Strains for Tomato Growth Promotion and Biocontrol of Bacterial Canker Caused by <i>Clavibacter michiganensis</i>",
+      "abstract": "ABSTRACT Bacterial canker of tomato, caused by Clavibacter michiganensis ( Cm ), remains difficult to control due to lack of effective management options. In this study, a collection of over 500 bacterial isolates was screened in vitro for antagonistic activity against Cm and plant growth–promoting (PGP) traits. Based on these results, 32 candidates were evaluated in planta , leading to the identification of three highly effective strains: Pantoea agglomerans SO16PY and two Pseudomonas marginalis sensu lato strains, IRDA16 and SO16PC, which consistently enhanced tomato vegetative growth. Notably, P. agglomerans SO16PY delayed disease onset in Cm -inoculated plants by up to 7 days and significantly reduced wilting severity, lowering the disease severity score from 85% to 45%. Strains IRDA16 and SO16PC also restricted disease development, reducing severity scores to 67.5% and 57.5%, respectively. Whole-genome sequencing and comparative genomics revealed that strains IRDA16 and SO16PC form a distinct, specialized rhizosphere lineage within the Pseudomonas marginalis group, exhibiting average nucleotide identity (ANI ≈ 96%) and digital DNA-DNA hybridization (dDDH ≈ 69.5%) values near species delineation thresholds. Genome mining identified diverse biosynthetic gene clusters (BGCs) encoding non-ribosomal peptide synthetases (NRPS), the lipopeptide viscosin, and terpenes, which likely drive the biostimulant and antagonistic traits of this novel Pseudomonas lineage. Together, these findings characterize promising bacterial candidates with dual biostimulant and biocontrol capacities while uncovering a genomically distinct Pseudomonas lineage optimized for beneficial plant–microbe interactions in sustainable agriculture. IMPORTANCE Clavibacter michiganensis ( Cm ) is a major bacterial pathogen of tomato and poses a significant economic threat to global production. It is classified as an A2 quarantine pathogen by the European and Mediterranean Plant Protection Organization (EPPO). Current management strategies rely largely on chemical control, including copper-based compounds (e.g., Bordeaux mixture, copper oxychloride), mancozeb, and antibiotics like streptomycin. However, these approaches raise increasing concerns related to environmental contamination, phytotoxicity, and the development of resistant pathogen populations. As a sustainable alternative, plant growth–promoting bacteria (PGPR) have emerged as promising biocontrol agents. In this study, we identified bacterial strains exhibiting antagonistic activity against Cm both in vitro and in planta . Notably, these strains also enhanced tomato growth parameters, demonstrating their dual functionality. Given the environmental drawbacks associated with chemical inputs, the use of such beneficial microorganisms represents a promising strategy for advancing sustainable and ecofriendly tomato production systems.",
+      "authors": [
+        "Nasim Sedighian",
+        "Marie‐Christine Groleau",
+        "Éric Déziel"
+      ],
+      "categories": [],
+      "published": "2026-06-04",
+      "updated": "2026-06-04",
+      "url": "https://doi.org/10.64898/2026.06.01.729334",
+      "pdf_url": "https://doi.org/10.64898/2026.06.01.729334",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1104,
+        "world_model": 0.046,
+        "whole_body_control": 0.031,
+        "dexterous_manipulation": 0.0038,
+        "sim2real_data": 0.0,
+        "hardware_unitree": 0.0319,
+        "bci_neural_decoding": 0.0285,
+        "bci_foundation_models": 0.0,
+        "bci_embodied_robot": 0.0895,
+        "bci_noninvasive_eeg": 0.0356,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2137
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.2137,
+      "first_seen": "2026-06-08",
+      "analysis": {
+        "tldr": "从500多个细菌分离株中筛选出3株既能促进番茄生长又能抑制细菌性溃疡病（由密歇根棒杆菌引起）的菌株，并通过基因组分析发现其中两株属于一个新界定的、具有特殊生物合成能力的假单胞菌谱系。",
+        "org": "加拿大农业与农业食品部（IRDA）",
+        "country": "CA",
+        "org_type": "institute",
+        "claim": "Pantoea agglomerans SO16PY 和两个新界定的 Pseudomonas marginalis sensu lato 菌株（IRDA16、SO16PC）具备双重功能：显著促进番茄生长并有效抑制 Clavibacter michiganensis 引起的细菌性溃疡病，且其基因组特征支持其生态适应性与作用机制。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "500+株细菌分离物的体外拮抗活性与促生性状表型数据、番茄植株体内接种实验数据、全基因组测序数据",
+        "output": "3株高效功能菌株的鉴定结果、疾病严重度评分变化、基因组分类学定位（ANI/dDDH）、生物合成基因簇（BGC）注释",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 5,
+        "evidence": 7,
+        "reproducibility_score": 3,
+        "significance": 45,
+        "significance_reason": "属扎实的农业微生物应用研究：完成从大规模筛选→体内验证→基因组解析的完整链条，但未构建新模型/算法/平台，未开源代码或菌株资源，未跨作物/病原验证，也未开展田间试验或机制深度验证（如突变体回补、代谢物直接验证），贡献限于特定病害-作物系统的候选菌株与初步基因组洞察，远未达ESM/AlphaFold级范式突破或方法论革新。",
+        "one_sentence_verdict": "扎实增量：完成了高质量的表型筛选与基因组表征闭环，但缺乏机制深度、可复现性支撑和广义适用性证据，暂未构成方法论或范式突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 6.4,
+        "content": 15.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 21.4,
+        "bonus": 0.0,
+        "total": 21.4
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "2606.06049",
       "doi": "10.48550/arxiv.2606.06049",
       "source_kind": "arxiv",
@@ -32534,6 +32964,85 @@
       "grade": "D",
       "read_priority": "D",
       "thumb": "assets/thumbs/2606.05925.jpg"
+    },
+    {
+      "arxiv_id": "2606.05952",
+      "doi": "10.48550/arxiv.2606.05952",
+      "source_kind": "arxiv",
+      "title": "Learning of Robot Safety Policies via Adversarial Synthetic Scenarios",
+      "abstract": "In this work, we propose an agentic gamification framework for hazard-informed learning of robot safety policies through synthetic scenarios. We model scenario generation as an adversarial game between two agents: a Red Team that explores the space of potential failures by constructing hazardous situations, and a Blue Team that incrementally refines safety policies to prevent them. This iterative process enables efficient discovery of high-risk edge cases that are unlikely to be captured through random simulation or manual enumeration. By combining classical risk modeling with adversarial scenario generation and modern learning paradigms, this work provides a scalable pathway for embedding safety into Physical AI systems operating in complex real-world environments. The paper describes ongoing work. The contribution is a problem formulation and a proposed solution architecture.",
+      "authors": [
+        "Nikolai Dorofeev",
+        "Alexey Odinokov",
+        "Rostislav Yavorskiy"
+      ],
+      "categories": [],
+      "published": "2026-06-04",
+      "updated": "2026-06-04",
+      "url": "https://arxiv.org/abs/2606.05952",
+      "pdf_url": "https://arxiv.org/pdf/2606.05952",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.41,
+        "world_model": 0.4595,
+        "whole_body_control": 0.5,
+        "dexterous_manipulation": 0.1332,
+        "sim2real_data": 0.2745,
+        "hardware_unitree": 0.1201,
+        "bci_neural_decoding": 0.1559,
+        "bci_foundation_models": 0.1743,
+        "bci_embodied_robot": 0.2741,
+        "bci_noninvasive_eeg": 0.0709,
+        "protein_ai": 0.1166,
+        "genomics_ai": 0.2314
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.4595,
+      "first_seen": "2026-06-08",
+      "analysis": {
+        "tldr": "这篇论文提出一个对抗式合成场景框架，用红队（制造危险场景）和蓝队（训练安全策略）博弈的方式，自动生成高风险边缘案例来训练机器人安全策略，目前仅停留在问题定义和架构设计阶段，没有实验、代码或真实数据验证。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "通过红蓝对抗的合成场景生成机制，可高效发现传统随机仿真或人工枚举难以覆盖的高风险边缘案例，从而提升物理AI系统的安全性。",
+        "method_components": [
+          "simulator",
+          "policy",
+          "benchmark"
+        ],
+        "input": "抽象的环境状态与故障模式空间（无具体传感器/模态输入）",
+        "output": "安全策略（未定义具体形式，如动作掩码、约束模块或运行时干预信号）",
+        "robot_dependency": "none",
+        "data_dependency": "完全不依赖真实机器人数据",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "none",
+        "tags": [],
+        "novelty": 4,
+        "evidence": 2,
+        "reproducibility_score": 0,
+        "significance": 25,
+        "significance_reason": "纯概念性框架，无任何实证（无仿真结果、无基线对比、无消融、无真实平台验证），未提供可复现组件；相比所列基石工作（全部含真机/大规模仿真/多任务验证/开源），本文连方法实现都未完成，仅属安全方向的初步问题建模尝试。",
+        "one_sentence_verdict": "概念包装：仅有对抗式安全训练的idea和框图，零实验支撑，零可复现要素，当前阶段对具身智能安全实践无实质推进。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 13.8,
+        "content": 6.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 19.8,
+        "bonus": 0.0,
+        "total": 19.8
+      },
+      "grade": "D",
+      "read_priority": "D",
+      "thumb": "assets/thumbs/2606.05952.jpg"
     }
   ]
 }

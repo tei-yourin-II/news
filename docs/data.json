@@ -1,104 +1,90 @@
 {
-  "generated_at": "2026-06-07 08:42 UTC",
-  "count": 420,
+  "generated_at": "2026-06-08 04:53 UTC",
+  "count": 425,
   "routes": [
     {
       "id": "vla",
       "name": "VLA (Vision-Language-Action)",
       "tier": "core",
       "domain": "embodied_ai",
-      "count": 261
+      "count": 264
     },
     {
       "id": "world_model",
       "name": "World Model / WAM",
       "tier": "core",
       "domain": "embodied_ai",
-      "count": 280
+      "count": 284
     },
     {
       "id": "whole_body_control",
       "name": "Whole-body Control / Locomotion",
       "tier": "core",
       "domain": "embodied_ai",
-      "count": 254
+      "count": 257
     },
     {
       "id": "dexterous_manipulation",
       "name": "Dexterous Manipulation",
       "tier": "secondary",
       "domain": "embodied_ai",
-      "count": 202
+      "count": 204
     },
     {
       "id": "sim2real_data",
       "name": "Sim2Real / Data / Simulation",
       "tier": "secondary",
       "domain": "embodied_ai",
-      "count": 219
+      "count": 222
     },
     {
       "id": "hardware_unitree",
       "name": "Hardware / Unitree G1·H1 Ecosystem",
       "tier": "secondary",
       "domain": "embodied_ai",
-      "count": 144
+      "count": 145
     },
     {
       "id": "bci_neural_decoding",
       "name": "神经解码 / BCI 核心",
       "tier": "core",
       "domain": "bci",
-      "count": 188
+      "count": 190
     },
     {
       "id": "bci_foundation_models",
       "name": "神经基础模型 / NeuroAI",
       "tier": "core",
       "domain": "bci",
-      "count": 192
+      "count": 194
     },
     {
       "id": "bci_embodied_robot",
       "name": "BCI × 具身智能 / 神经假肢",
       "tier": "core",
       "domain": "bci",
-      "count": 203
+      "count": 205
     },
     {
       "id": "bci_noninvasive_eeg",
       "name": "非侵入式 BCI / EEG 解码",
       "tier": "secondary",
       "domain": "bci",
-      "count": 134
+      "count": 135
     },
     {
       "id": "protein_ai",
       "name": "蛋白质计算 / 设计",
       "tier": "core",
       "domain": "ai_science",
-      "count": 168
+      "count": 173
     },
     {
       "id": "genomics_ai",
       "name": "基因组 / 基因 AI",
       "tier": "core",
       "domain": "ai_science",
-      "count": 209
-    },
-    {
-      "id": "hri",
-      "name": "HRI / Social Acceptance",
-      "tier": "optional",
-      "domain": "embodied_ai",
-      "count": 0
-    },
-    {
-      "id": "llm_agent",
-      "name": "LLM Agent / Tool-use",
-      "tier": "optional",
-      "domain": "embodied_ai",
-      "count": 0
+      "count": 215
     }
   ],
   "edges": [
@@ -720,11 +706,6 @@
     {
       "source": "2602.12063",
       "target": "route:vla",
-      "weight": 1.0
-    },
-    {
-      "source": "cs-sim2real_data-20",
-      "target": "route:sim2real_data",
       "weight": 1.0
     },
     {
@@ -7713,6 +7694,51 @@
       "weight": 0.277
     },
     {
+      "source": "2606.06292",
+      "target": "route:vla",
+      "weight": 0.471
+    },
+    {
+      "source": "2606.06292",
+      "target": "route:world_model",
+      "weight": 0.396
+    },
+    {
+      "source": "2606.06292",
+      "target": "route:whole_body_control",
+      "weight": 0.38
+    },
+    {
+      "source": "2606.06292",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.5
+    },
+    {
+      "source": "2606.06292",
+      "target": "route:sim2real_data",
+      "weight": 0.247
+    },
+    {
+      "source": "2606.06292",
+      "target": "route:hardware_unitree",
+      "weight": 0.156
+    },
+    {
+      "source": "2606.06292",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.249
+    },
+    {
+      "source": "2606.06292",
+      "target": "route:protein_ai",
+      "weight": 0.207
+    },
+    {
+      "source": "2606.06292",
+      "target": "route:genomics_ai",
+      "weight": 0.17
+    },
+    {
       "source": "2606.02486",
       "target": "route:vla",
       "weight": 0.301
@@ -10188,6 +10214,26 @@
       "weight": 0.374
     },
     {
+      "source": "2606.01595",
+      "target": "route:world_model",
+      "weight": 0.212
+    },
+    {
+      "source": "2606.01595",
+      "target": "route:sim2real_data",
+      "weight": 0.158
+    },
+    {
+      "source": "2606.01595",
+      "target": "route:protein_ai",
+      "weight": 0.5
+    },
+    {
+      "source": "2606.01595",
+      "target": "route:genomics_ai",
+      "weight": 0.211
+    },
+    {
       "source": "2606.01626",
       "target": "route:vla",
       "weight": 0.441
@@ -11528,6 +11574,56 @@
       "weight": 0.425
     },
     {
+      "source": "2606.03435",
+      "target": "route:vla",
+      "weight": 0.314
+    },
+    {
+      "source": "2606.03435",
+      "target": "route:world_model",
+      "weight": 0.24
+    },
+    {
+      "source": "2606.03435",
+      "target": "route:whole_body_control",
+      "weight": 0.172
+    },
+    {
+      "source": "2606.03435",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.154
+    },
+    {
+      "source": "2606.03435",
+      "target": "route:sim2real_data",
+      "weight": 0.152
+    },
+    {
+      "source": "2606.03435",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.166
+    },
+    {
+      "source": "2606.03435",
+      "target": "route:bci_foundation_models",
+      "weight": 0.219
+    },
+    {
+      "source": "2606.03435",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.159
+    },
+    {
+      "source": "2606.03435",
+      "target": "route:protein_ai",
+      "weight": 0.5
+    },
+    {
+      "source": "2606.03435",
+      "target": "route:genomics_ai",
+      "weight": 0.309
+    },
+    {
       "source": "2606.06041",
       "target": "route:vla",
       "weight": 0.489
@@ -11616,6 +11712,16 @@
       "source": "10.64898/2026.05.31.728572",
       "target": "route:genomics_ai",
       "weight": 0.326
+    },
+    {
+      "source": "10.64898/2026.06.03.729973",
+      "target": "route:protein_ai",
+      "weight": 0.163
+    },
+    {
+      "source": "10.64898/2026.06.03.729973",
+      "target": "route:genomics_ai",
+      "weight": 0.5
     },
     {
       "source": "2606.01170",
@@ -12008,6 +12114,16 @@
       "weight": 0.307
     },
     {
+      "source": "10.64898/2026.06.01.729334",
+      "target": "route:protein_ai",
+      "weight": 0.5
+    },
+    {
+      "source": "10.64898/2026.06.01.729334",
+      "target": "route:genomics_ai",
+      "weight": 0.214
+    },
+    {
       "source": "2606.06049",
       "target": "route:vla",
       "weight": 0.338
@@ -12371,6 +12487,46 @@
       "source": "2606.05925",
       "target": "route:genomics_ai",
       "weight": 0.455
+    },
+    {
+      "source": "2606.05952",
+      "target": "route:vla",
+      "weight": 0.41
+    },
+    {
+      "source": "2606.05952",
+      "target": "route:world_model",
+      "weight": 0.46
+    },
+    {
+      "source": "2606.05952",
+      "target": "route:whole_body_control",
+      "weight": 0.5
+    },
+    {
+      "source": "2606.05952",
+      "target": "route:sim2real_data",
+      "weight": 0.275
+    },
+    {
+      "source": "2606.05952",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.156
+    },
+    {
+      "source": "2606.05952",
+      "target": "route:bci_foundation_models",
+      "weight": 0.174
+    },
+    {
+      "source": "2606.05952",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.274
+    },
+    {
+      "source": "2606.05952",
+      "target": "route:genomics_ai",
+      "weight": 0.231
     }
   ],
   "papers": [
@@ -18960,59 +19116,6 @@
       }
     },
     {
-      "arxiv_id": "cs-sim2real_data-20",
-      "title": "UMI",
-      "authors": [],
-      "published": "2024-01-01",
-      "url": "https://www.google.com/search?q=UMI",
-      "pdf_url": "https://www.google.com/search?q=UMI",
-      "source": "cornerstone",
-      "venue": "",
-      "thumb": "",
-      "best_route": "sim2real_data",
-      "domain": "embodied_ai",
-      "routes": [
-        "sim2real_data"
-      ],
-      "tags": [
-        "基石"
-      ],
-      "scores": {
-        "relevance": 28.0,
-        "content": 22.2,
-        "heat": 0.0,
-        "quality": 14.8,
-        "base": 50.2,
-        "bonus": 14.8,
-        "total": 65.0
-      },
-      "grade": "A",
-      "read_priority": "A",
-      "tldr": "手持夹持器+GoPro构成的零机器人依赖采集方案，极大拓展人类第一视角行为数据来源，推动Sim2Real向具身认知底层延伸",
-      "org": "X Square Robot",
-      "orgs": [
-        "X Square Robot"
-      ],
-      "country": "CN",
-      "org_type": "unknown",
-      "novelty": 7,
-      "significance": 74,
-      "significance_reason": "领域基石/里程碑(深度检索标尺)",
-      "tier": "notable",
-      "verdict": "领域基石",
-      "claim": "手持夹持器+GoPro构成的零机器人依赖采集方案，极大拓展人类第一视角行为数据来源，推动Sim2Real向具身认知底层延伸",
-      "input": "",
-      "output": "",
-      "sim2real_status": "",
-      "reproducibility": "",
-      "method_components": [],
-      "signals": {
-        "hf_upvotes": 0,
-        "citations": 0,
-        "venue": ""
-      }
-    },
-    {
       "arxiv_id": "cs-ai_science-18",
       "title": "Virtual Cell (rBio)",
       "authors": [],
@@ -20243,7 +20346,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "bioRxiv (Cold Spring Harbor Laboratory)"
       }
     },
     {
@@ -20474,7 +20577,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       }
     },
     {
@@ -20623,7 +20726,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       }
     },
     {
@@ -20701,7 +20804,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       }
     },
     {
@@ -21127,7 +21230,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       }
     },
     {
@@ -21450,7 +21553,7 @@
       "url": "https://arxiv.org/abs/2606.03536",
       "pdf_url": "https://arxiv.org/pdf/2606.03536",
       "source": "daily",
-      "venue": "",
+      "venue": "Humanoids",
       "thumb": "",
       "best_route": "whole_body_control",
       "domain": "embodied_ai",
@@ -21584,7 +21687,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       }
     },
     {
@@ -21814,7 +21917,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       }
     },
     {
@@ -21890,7 +21993,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       }
     },
     {
@@ -22188,7 +22291,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       }
     },
     {
@@ -22788,7 +22891,7 @@
       "url": "https://arxiv.org/abs/2605.29298",
       "pdf_url": "https://arxiv.org/pdf/2605.29298",
       "source": "daily",
-      "venue": "",
+      "venue": "ICRA 2026",
       "thumb": "assets/thumbs/2605.29298.jpg",
       "best_route": "dexterous_manipulation",
       "domain": "embodied_ai",
@@ -22844,7 +22947,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": "ICRA 2026"
       }
     },
     {
@@ -25609,7 +25712,7 @@
       "url": "https://arxiv.org/abs/2606.01847",
       "pdf_url": "https://arxiv.org/pdf/2606.01847",
       "source": "daily",
-      "venue": "",
+      "venue": "ICML 2026",
       "thumb": "assets/thumbs/2606.01847.jpg",
       "best_route": "vla",
       "domain": "embodied_ai",
@@ -25663,7 +25766,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": "ICML 2026"
       }
     },
     {
@@ -27314,7 +27417,7 @@
       "url": "https://arxiv.org/abs/2606.00439",
       "pdf_url": "https://arxiv.org/pdf/2606.00439",
       "source": "daily",
-      "venue": "",
+      "venue": "CVPR 2026",
       "thumb": "assets/thumbs/2606.00439.jpg",
       "best_route": "world_model",
       "domain": "embodied_ai",
@@ -27369,7 +27472,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "CVPR 2026"
       }
     },
     {
@@ -27896,7 +27999,7 @@
       "url": "https://arxiv.org/abs/2606.05407",
       "pdf_url": "https://arxiv.org/pdf/2606.05407",
       "source": "daily",
-      "venue": "",
+      "venue": "CoRL 2026",
       "thumb": "assets/thumbs/2606.05407.jpg",
       "best_route": "dexterous_manipulation",
       "domain": "embodied_ai",
@@ -27955,7 +28058,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "CoRL 2026"
       }
     },
     {
@@ -28489,7 +28592,7 @@
       "url": "https://arxiv.org/abs/2606.01036",
       "pdf_url": "https://arxiv.org/pdf/2606.01036",
       "source": "daily",
-      "venue": "",
+      "venue": "ICML 2026",
       "thumb": "assets/thumbs/2606.01036.jpg",
       "best_route": "whole_body_control",
       "domain": "embodied_ai",
@@ -28547,7 +28650,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "ICML 2026"
       }
     },
     {
@@ -28777,7 +28880,7 @@
       "url": "https://arxiv.org/abs/2606.01313",
       "pdf_url": "https://arxiv.org/pdf/2606.01313",
       "source": "daily",
-      "venue": "",
+      "venue": "ICML 2026",
       "thumb": "assets/thumbs/2606.01313.jpg",
       "best_route": "world_model",
       "domain": "embodied_ai",
@@ -28829,7 +28932,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "ICML 2026"
       }
     },
     {
@@ -29205,7 +29308,7 @@
       "url": "https://arxiv.org/abs/2606.04569",
       "pdf_url": "https://arxiv.org/pdf/2606.04569",
       "source": "daily",
-      "venue": "",
+      "venue": "ICRA",
       "thumb": "assets/thumbs/2606.04569.jpg",
       "best_route": "sim2real_data",
       "domain": "embodied_ai",
@@ -29260,7 +29363,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "ICRA"
       }
     },
     {
@@ -29408,7 +29511,7 @@
       "url": "https://arxiv.org/abs/2606.03985",
       "pdf_url": "https://arxiv.org/pdf/2606.03985",
       "source": "hf_daily",
-      "venue": "",
+      "venue": "CVPR 2026",
       "thumb": "assets/thumbs/2606.03985.jpg",
       "best_route": "whole_body_control",
       "domain": "embodied_ai",
@@ -29456,7 +29559,7 @@
       "signals": {
         "hf_upvotes": 26,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": "CVPR 2026"
       }
     },
     {
@@ -30396,7 +30499,7 @@
       "url": "https://arxiv.org/abs/2605.31236",
       "pdf_url": "https://arxiv.org/pdf/2605.31236",
       "source": "daily",
-      "venue": "",
+      "venue": "ICML 2026",
       "thumb": "assets/thumbs/2605.31236.jpg",
       "best_route": "protein_ai",
       "domain": "ai_science",
@@ -30450,7 +30553,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "ICML 2026"
       }
     },
     {
@@ -30884,6 +30987,76 @@
       }
     },
     {
+      "arxiv_id": "2606.06292",
+      "title": "Synthetic Data Generation and Vision-based Wrinkle and Keypoint Detection for Bimanual Cloth Manipulation",
+      "authors": [
+        "Ariel Herrera",
+        "Xueyang Kang",
+        "Atal Anil Kumar"
+      ],
+      "published": "2026-06-04",
+      "url": "https://arxiv.org/abs/2606.06292",
+      "pdf_url": "https://arxiv.org/pdf/2606.06292",
+      "source": "daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2606.06292.jpg",
+      "best_route": "dexterous_manipulation",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "hardware_unitree",
+        "bci_embodied_robot",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset",
+        "sim2real",
+        "multimodal-fusion"
+      ],
+      "scores": {
+        "relevance": 14.1,
+        "content": 17.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 31.1,
+        "bonus": 0.0,
+        "total": 31.1
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "用Blender生成带自动标注关键点的布料合成图像，结合少量真实数据训练出能同时检测皱纹和关键点的视觉模型，并在不微调的情况下直接迁移到真实布料上，支撑双手机器人完成从拉展折叠衣物到基于关键点熨烫的全流程操作。",
+      "org": "未知",
+      "orgs": [],
+      "country": "unknown",
+      "org_type": "unknown",
+      "novelty": 6,
+      "significance": 68,
+      "significance_reason": "解决了布料操作中长期存在的视觉感知瓶颈（自遮挡/大形变），实证显示模型零微调迁移至真实布料并支持多阶段任务（拉展→熨烫），但未披露机器人本体细节、未开源代码/模型、无消融实验、未与主流基线（如ClothSim, DexCloth）定量对比，属扎实且具工程落地价值的显著贡献，但未达基石级范式突破或大规模通用性。",
+      "tier": "notable",
+      "verdict": "显著贡献：真推进了布料视觉感知的sim2real鲁棒性，但因缺乏开源、消融和跨平台验证，属于高质量工程整合而非范式突破。",
+      "claim": "仅依赖合成数据+极少量真实标注即可构建跨域鲁棒的布料状态感知系统，支撑无需在线微调的sim2real双手机器人布料操作闭环。",
+      "input": "RGB图像（合成渲染图或真实布料照片）",
+      "output": "布料皱纹区域掩码 + 关键点坐标（如角点、褶皱顶点） + 抓取点位置",
+      "sim2real_status": "multi-embodiment",
+      "reproducibility": "project-page",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
       "arxiv_id": "2606.02486",
       "title": "Intercepting the Future: Latent-Space Predictive World Model for Dynamic VLA Manipulation",
       "authors": [
@@ -30963,7 +31136,7 @@
       "url": "https://arxiv.org/abs/2605.29318",
       "pdf_url": "https://arxiv.org/pdf/2605.29318",
       "source": "hf_daily",
-      "venue": "",
+      "venue": "CVPR 2026",
       "thumb": "assets/thumbs/2605.29318.jpg",
       "best_route": "vla",
       "domain": "embodied_ai",
@@ -31015,7 +31188,7 @@
       "signals": {
         "hf_upvotes": 1,
         "citations": 0,
-        "venue": ""
+        "venue": "CVPR 2026"
       }
     },
     {
@@ -31176,7 +31349,7 @@
       "url": "https://arxiv.org/abs/2606.00313",
       "pdf_url": "https://arxiv.org/pdf/2606.00313",
       "source": "daily",
-      "venue": "",
+      "venue": "ICRA 2026",
       "thumb": "assets/thumbs/2606.00313.jpg",
       "best_route": "whole_body_control",
       "domain": "embodied_ai",
@@ -31230,7 +31403,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "ICRA 2026"
       }
     },
     {
@@ -32813,7 +32986,7 @@
       "url": "https://arxiv.org/abs/2605.31562",
       "pdf_url": "https://arxiv.org/pdf/2605.31562",
       "source": "daily",
-      "venue": "",
+      "venue": "ICLR 2026",
       "thumb": "assets/thumbs/2605.31562.jpg",
       "best_route": "genomics_ai",
       "domain": "ai_science",
@@ -32866,7 +33039,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "ICLR 2026"
       }
     },
     {
@@ -34175,7 +34348,7 @@
       "url": "https://arxiv.org/abs/2606.04206",
       "pdf_url": "https://arxiv.org/pdf/2606.04206",
       "source": "daily",
-      "venue": "",
+      "venue": "ICML 2026",
       "thumb": "assets/thumbs/2606.04206.jpg",
       "best_route": "dexterous_manipulation",
       "domain": "embodied_ai",
@@ -34230,7 +34403,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "ICML 2026"
       }
     },
     {
@@ -34322,7 +34495,7 @@
       "url": "https://arxiv.org/abs/2606.01063",
       "pdf_url": "https://arxiv.org/pdf/2606.01063",
       "source": "daily",
-      "venue": "",
+      "venue": "CVPR 2026",
       "thumb": "assets/thumbs/2606.01063.jpg",
       "best_route": "bci_embodied_robot",
       "domain": "bci",
@@ -34377,7 +34550,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "CVPR 2026"
       }
     },
     {
@@ -34598,7 +34771,7 @@
       "url": "https://arxiv.org/abs/2605.30740",
       "pdf_url": "https://arxiv.org/pdf/2605.30740",
       "source": "daily",
-      "venue": "",
+      "venue": "PPSN 2026",
       "thumb": "assets/thumbs/2605.30740.jpg",
       "best_route": "dexterous_manipulation",
       "domain": "embodied_ai",
@@ -34652,7 +34825,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "PPSN 2026"
       }
     },
     {
@@ -34802,7 +34975,7 @@
       "url": "https://arxiv.org/abs/2606.01628",
       "pdf_url": "https://arxiv.org/pdf/2606.01628",
       "source": "daily",
-      "venue": "",
+      "venue": "ICML 2026",
       "thumb": "assets/thumbs/2606.01628.jpg",
       "best_route": "protein_ai",
       "domain": "ai_science",
@@ -34860,7 +35033,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "ICML 2026"
       }
     },
     {
@@ -35004,7 +35177,7 @@
       "url": "https://arxiv.org/abs/2606.03268",
       "pdf_url": "https://arxiv.org/pdf/2606.03268",
       "source": "daily",
-      "venue": "",
+      "venue": "CoRL 2026",
       "thumb": "assets/thumbs/2606.03268.jpg",
       "best_route": "dexterous_manipulation",
       "domain": "embodied_ai",
@@ -35060,7 +35233,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "CoRL 2026"
       }
     },
     {
@@ -35415,7 +35588,7 @@
       "url": "https://arxiv.org/abs/2606.06245",
       "pdf_url": "https://arxiv.org/pdf/2606.06245",
       "source": "daily",
-      "venue": "",
+      "venue": "CoRL",
       "thumb": "assets/thumbs/2606.06245.jpg",
       "best_route": "vla",
       "domain": "embodied_ai",
@@ -35466,7 +35639,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "CoRL"
       }
     },
     {
@@ -35545,7 +35718,7 @@
       "url": "https://arxiv.org/abs/2606.03556",
       "pdf_url": "https://arxiv.org/pdf/2606.03556",
       "source": "daily",
-      "venue": "",
+      "venue": "RA-L 2026",
       "thumb": "assets/thumbs/2606.03556.jpg",
       "best_route": "vla",
       "domain": "embodied_ai",
@@ -35596,7 +35769,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "RA-L 2026"
       }
     },
     {
@@ -35799,6 +35972,68 @@
         "simulator",
         "policy",
         "ui"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "2606.01595",
+      "title": "Uncertainty-Calibrated Diffusion for Reliable 3D Molecular Graph Generation",
+      "authors": [
+        "Fang Wan",
+        "Jingxiang Qu",
+        "Yi Liu"
+      ],
+      "published": "2026-06-01",
+      "url": "https://arxiv.org/abs/2606.01595",
+      "pdf_url": "https://arxiv.org/pdf/2606.01595",
+      "source": "daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2606.01595.jpg",
+      "best_route": "protein_ai",
+      "domain": "ai_science",
+      "routes": [
+        "world_model",
+        "sim2real_data",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "multimodal-fusion"
+      ],
+      "scores": {
+        "relevance": 7.2,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 27.2,
+        "bonus": 0.0,
+        "total": 27.2
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "这篇论文发现3D分子生成扩散模型中，神经网络自身的认知不确定性（epistemic uncertainty）与扩散过程人为注入的随机噪声（aleatoric uncertainty）会相互干扰，导致采样方差被系统性高估、化学有效性下降；为此提出一个轻量级校准机制UCD，在反向扩散每一步动态调整噪声尺度，从而提升生成分子的几何精度和化学合理性。",
+      "org": "unknown",
+      "orgs": [],
+      "country": "unknown",
+      "org_type": "unknown",
+      "novelty": 7,
+      "significance": 68,
+      "significance_reason": "首次明确揭示并量化了扩散模型中认知不确定性与反向噪声的耦合失配问题，并给出可插拔、理论可解释的校准方案；实证覆盖QM9/GEOM-DRUGS等主流基准，在多个基线（GeoLDM、DiffLinker、EDM）上稳定提升FCD、Validity、Novelty等核心指标，但未突破任务范式（仍是条件/无条件3D生成），也未解决构象系综、动力学可采样性等更高阶科学问题，尚未见于真实药物发现闭环验证。",
+      "tier": "notable",
+      "verdict": "显著贡献——它不是新范式，但精准定位并修复了当前主流3D分子扩散模型中一个被广泛忽视却实质性损害生成可靠性的系统性缺陷，证据扎实、方法简洁、效果可复现。",
+      "claim": "在3D分子图扩散生成中，未校准的认知不确定性会与反向扩散噪声耦合，引发系统性方差膨胀和化学无效性；通过显式建模并校准该认知不确定性，可显著提升生成质量且不增加模型复杂度。",
+      "input": "分子图的初始噪声3D坐标与原子类型（或空图）",
+      "output": "满足化学约束的3D分子结构（原子坐标+键连接）",
+      "sim2real_status": "n/a",
+      "reproducibility": "code-only",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark"
       ],
       "signals": {
         "hf_upvotes": 0,
@@ -36589,7 +36824,7 @@
       "url": "https://arxiv.org/abs/2606.04853",
       "pdf_url": "https://arxiv.org/pdf/2606.04853",
       "source": "daily",
-      "venue": "",
+      "venue": "ICRA 2026",
       "thumb": "assets/thumbs/2606.04853.jpg",
       "best_route": "vla",
       "domain": "embodied_ai",
@@ -36640,7 +36875,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "ICRA 2026"
       }
     },
     {
@@ -37128,7 +37363,7 @@
       "url": "https://arxiv.org/abs/2606.02280",
       "pdf_url": "https://arxiv.org/pdf/2606.02280",
       "source": "daily",
-      "venue": "",
+      "venue": "ICML",
       "thumb": "assets/thumbs/2606.02280.jpg",
       "best_route": "sim2real_data",
       "domain": "embodied_ai",
@@ -37181,7 +37416,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "ICML"
       }
     },
     {
@@ -38267,6 +38502,81 @@
       }
     },
     {
+      "arxiv_id": "2606.03435",
+      "title": "CP-Agent: Context-Aware Multimodal Reasoning for Cellular Morphological Profiling under Chemical Perturbations",
+      "authors": [
+        "Yuxin Zhang",
+        "Li Yiyao",
+        "Ping Shu Ho",
+        "Simon See",
+        "Zhenqin Wu",
+        "Kevin Tsia"
+      ],
+      "published": "2026-06-02",
+      "url": "https://arxiv.org/abs/2606.03435",
+      "pdf_url": "https://arxiv.org/pdf/2606.03435",
+      "source": "daily",
+      "venue": "ICLR 2026",
+      "thumb": "assets/thumbs/2606.03435.jpg",
+      "best_route": "protein_ai",
+      "domain": "ai_science",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "bci_neural_decoding",
+        "bci_foundation_models",
+        "bci_noninvasive_eeg",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "multimodal-fusion",
+        "dataset",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 9.8,
+        "content": 14.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 23.8,
+        "bonus": 0.0,
+        "total": 23.8
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "这篇论文提出了CP-Agent，一个能结合细胞成像图和实验元数据（如细胞系、剂量等）进行多模态推理的AI代理，自动生成可解释的药物作用机制（MoA）分析报告，用于提升细胞形态学表型筛选的可解释性和上下文适应性。",
+      "org": "香港大学",
+      "orgs": [
+        "香港大学"
+      ],
+      "country": "HK",
+      "org_type": "university",
+      "novelty": 6,
+      "significance": 48,
+      "significance_reason": "虽首次将LLM代理范式引入Cell Painting分析并强调上下文对齐，但未开源模型/代码，未在跨实验室、跨平台真实扰动数据上验证泛化性；F1=0.896仅在单个MoA分类任务上达成，未证明其报告真能驱动下游实验成功（如预测新靶点或缩短发现周期），也未与主流基线（如CP-Learn、Phenograph、DeepProfiler）做消融对比；属扎实的领域应用拓展，但未触及机制解析本质瓶颈（如亚细胞定位因果推断、扰动时空动力学建模）。",
+      "tier": "worth",
+      "verdict": "工程整合：将多模态对齐+LLM代理流程迁移到细胞表型分析，提升了报告可解释性，但缺乏真实实验闭环验证、开源不足、未突破MoA解析的底层不确定性瓶颈。",
+      "claim": "通过上下文感知的多模态对齐（CP-CLIP）与具身式工具调用推理，CP-Agent能在化学扰动下生成机制相关、人类可读的细胞形态变化归因报告，显著提升表型分析的可解释性与实验指导能力。",
+      "input": "高内涵显微图像（Cell Painting图像）+ 实验元数据（细胞系、处理时间、浓度、染料组合等）",
+      "output": "结构化文本报告，含机制归因、关键形态特征变化、潜在MoA假设及实验优化建议",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": "ICLR 2026"
+      }
+    },
+    {
       "arxiv_id": "2606.06041",
       "title": "Sample-efficient Low-level Motion Planning for Robotic Manipulation Tasks via Zero-shot Transfer Learning",
       "authors": [
@@ -38522,6 +38832,71 @@
         "model",
         "dataset",
         "simulator",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "10.64898/2026.06.03.729973",
+      "title": "Genotypic and multi-environment phenotypic evaluation of the lima bean USDA National Plant Germplasm System collection",
+      "authors": [
+        "Jaclyn A. Adaskaveg",
+        "Jenna Hershberger",
+        "Andrew Farmer",
+        "R. Varma Penmetsa",
+        "Iván García‐López",
+        "Julian Garcia-Abadillo"
+      ],
+      "published": "2026-06-06",
+      "url": "https://doi.org/10.64898/2026.06.03.729973",
+      "pdf_url": "https://doi.org/10.64898/2026.06.03.729973",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "genomics_ai",
+      "domain": "ai_science",
+      "routes": [
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 5.6,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 23.6,
+        "bonus": 0.0,
+        "total": 23.6
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "这篇论文对美国农业部保存的810份利马豆种质资源进行了全基因组低深度测序，并在多个地理环境（加州、华盛顿州）连续两年开展田间表型观测和实验室营养成分分析，结合全基因组关联分析（GWAS）和基因组预测，构建了一个包含211个深度表型+91个遗传多样性补充的条件核心种质库。",
+      "org": "USDA-ARS",
+      "orgs": [
+        "USDA-ARS"
+      ],
+      "country": "US",
+      "org_type": "institute",
+      "novelty": 4,
+      "significance": 48,
+      "significance_reason": "属高质量作物种质资源深度表型化与基因组整合的典范工作，但未提出新算法/模型/技术范式，也未解决长期悬而未决的理论或方法瓶颈；其价值在于扎实的资源构建与实证分析，对标AI×科学领域基石论文（如AlphaFold2/ESM系列）差距巨大，更接近农业基因组学中稳健的‘资源型基建’而非‘方法论突破’。",
+      "tier": "worth",
+      "verdict": "工程整合：将经典植物遗传学方法规模化落地，产出高可用种质资源图谱与核心子集，但无算法/模型/范式创新，不属于真突破或概念包装，是值得引用的扎实农业数据工程。",
+      "claim": "整合多环境表型与低成本全基因组数据，可系统解析利马豆农艺与种子性状的遗传基础，并支撑高效、多样化的种质利用与育种决策。",
+      "input": "利马豆种质的地理来源、低覆盖度全基因组测序数据、多地点多年度田间表型记录（如开花期、结荚习性、百粒重）、实验室近红外营养成分检测值",
+      "output": "群体遗传结构图谱、GWAS显著位点列表（含已知同源基因与新候选区）、各性状基因组预测准确率、条件核心种质库（302份）及其选育依据",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "dataset",
         "benchmark"
       ],
       "signals": {
@@ -38886,7 +39261,7 @@
       "url": "https://arxiv.org/abs/2606.00383",
       "pdf_url": "https://arxiv.org/pdf/2606.00383",
       "source": "daily",
-      "venue": "",
+      "venue": "ICRA 2026",
       "thumb": "assets/thumbs/2606.00383.jpg",
       "best_route": "dexterous_manipulation",
       "domain": "embodied_ai",
@@ -38938,7 +39313,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "ICRA 2026"
       }
     },
     {
@@ -39264,6 +39639,68 @@
       "claim": "DRL驱动的分子生成在药物发现中存在系统性公平性风险，其根源在于数据集构建策略与奖励函数设计，而非模型本身；当前缺乏统一的公平性定义与可操作的度量框架。",
       "input": "文献数据（2017年以来的论文记录，含数据集描述、奖励函数设定、评估指标）",
       "output": "公平性定义分类体系、公平性度量指标清单、数据/奖励选择与观测到的偏差之间的映射关系",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "dataset",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "10.64898/2026.06.01.729334",
+      "title": "Identification of Beneficial Bacterial Strains for Tomato Growth Promotion and Biocontrol of Bacterial Canker Caused by <i>Clavibacter michiganensis</i>",
+      "authors": [
+        "Nasim Sedighian",
+        "Marie‐Christine Groleau",
+        "Éric Déziel"
+      ],
+      "published": "2026-06-04",
+      "url": "https://doi.org/10.64898/2026.06.01.729334",
+      "pdf_url": "https://doi.org/10.64898/2026.06.01.729334",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "protein_ai",
+      "domain": "ai_science",
+      "routes": [
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 6.4,
+        "content": 15.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 21.4,
+        "bonus": 0.0,
+        "total": 21.4
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "从500多个细菌分离株中筛选出3株既能促进番茄生长又能抑制细菌性溃疡病（由密歇根棒杆菌引起）的菌株，并通过基因组分析发现其中两株属于一个新界定的、具有特殊生物合成能力的假单胞菌谱系。",
+      "org": "加拿大农业与农业食品部",
+      "orgs": [
+        "加拿大农业与农业食品部"
+      ],
+      "country": "CA",
+      "org_type": "institute",
+      "novelty": 5,
+      "significance": 45,
+      "significance_reason": "属扎实的农业微生物应用研究：完成从大规模筛选→体内验证→基因组解析的完整链条，但未构建新模型/算法/平台，未开源代码或菌株资源，未跨作物/病原验证，也未开展田间试验或机制深度验证（如突变体回补、代谢物直接验证），贡献限于特定病害-作物系统的候选菌株与初步基因组洞察，远未达ESM/AlphaFold级范式突破或方法论革新。",
+      "tier": "worth",
+      "verdict": "扎实增量：完成了高质量的表型筛选与基因组表征闭环，但缺乏机制深度、可复现性支撑和广义适用性证据，暂未构成方法论或范式突破。",
+      "claim": "Pantoea agglomerans SO16PY 和两个新界定的 Pseudomonas marginalis sensu lato 菌株（IRDA16、SO16PC）具备双重功能：显著促进番茄生长并有效抑制 Clavibacter michiganensis 引起的细菌性溃疡病，且其基因组特征支持其生态适应性与作用机制。",
+      "input": "500+株细菌分离物的体外拮抗活性与促生性状表型数据、番茄植株体内接种实验数据、全基因组测序数据",
+      "output": "3株高效功能菌株的鉴定结果、疾病严重度评分变化、基因组分类学定位（ANI/dDDH）、生物合成基因簇（BGC）注释",
       "sim2real_status": "n/a",
       "reproducibility": "project-page",
       "method_components": [
@@ -39886,6 +40323,70 @@
         "model",
         "benchmark",
         "simulator"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "2606.05952",
+      "title": "Learning of Robot Safety Policies via Adversarial Synthetic Scenarios",
+      "authors": [
+        "Nikolai Dorofeev",
+        "Alexey Odinokov",
+        "Rostislav Yavorskiy"
+      ],
+      "published": "2026-06-04",
+      "url": "https://arxiv.org/abs/2606.05952",
+      "pdf_url": "https://arxiv.org/pdf/2606.05952",
+      "source": "daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2606.05952.jpg",
+      "best_route": "whole_body_control",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "sim2real_data",
+        "bci_neural_decoding",
+        "bci_foundation_models",
+        "bci_embodied_robot",
+        "genomics_ai"
+      ],
+      "tags": [],
+      "scores": {
+        "relevance": 13.8,
+        "content": 6.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 19.8,
+        "bonus": 0.0,
+        "total": 19.8
+      },
+      "grade": "D",
+      "read_priority": "D",
+      "tldr": "这篇论文提出一个对抗式合成场景框架，用红队（制造危险场景）和蓝队（训练安全策略）博弈的方式，自动生成高风险边缘案例来训练机器人安全策略，目前仅停留在问题定义和架构设计阶段，没有实验、代码或真实数据验证。",
+      "org": "unknown",
+      "orgs": [],
+      "country": "unknown",
+      "org_type": "unknown",
+      "novelty": 4,
+      "significance": 25,
+      "significance_reason": "纯概念性框架，无任何实证（无仿真结果、无基线对比、无消融、无真实平台验证），未提供可复现组件；相比所列基石工作（全部含真机/大规模仿真/多任务验证/开源），本文连方法实现都未完成，仅属安全方向的初步问题建模尝试。",
+      "tier": "",
+      "verdict": "概念包装：仅有对抗式安全训练的idea和框图，零实验支撑，零可复现要素，当前阶段对具身智能安全实践无实质推进。",
+      "claim": "通过红蓝对抗的合成场景生成机制，可高效发现传统随机仿真或人工枚举难以覆盖的高风险边缘案例，从而提升物理AI系统的安全性。",
+      "input": "抽象的环境状态与故障模式空间（无具体传感器/模态输入）",
+      "output": "安全策略（未定义具体形式，如动作掩码、约束模块或运行时干预信号）",
+      "sim2real_status": "n/a",
+      "reproducibility": "none",
+      "method_components": [
+        "simulator",
+        "policy",
+        "benchmark"
       ],
       "signals": {
         "hf_upvotes": 0,
