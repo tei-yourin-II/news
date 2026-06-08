@@ -12,8 +12,9 @@ import re
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
 
-from pipeline import (analyze, config, export, fetch_openalex, notion_sync,
-                      prefilter, quality, relevance, scoring, signals, store)
+from pipeline import (analyze, config, export, fetch_arxiv, fetch_openalex,
+                      notion_sync, prefilter, quality, relevance, scoring,
+                      signals, store, venue)
 
 
 def _select_with_floor(papers, dom_fn, floor, total):
@@ -125,6 +126,13 @@ def main():
     for p in survivors:
         p.pop("_anchors", None)  # 临时字段,别写进 store
 
+    # 4.1) 会议归属富化:OpenAlex 对 arXiv 预印本只给 "arXiv",真正的「录用到 CoRL/RSS」
+    #      藏在 arXiv comment 里。对入库的 arXiv 论文小批量拉 comment → 正则识别顶会顶刊。
+    venues = _detect_venues(survivors)
+    if venues:
+        print(f"  会议识别:{len(venues)} 篇命中顶会顶刊 "
+              f"({', '.join(sorted({v for v in venues.values()}))[:120]})")
+
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     records = []
     for i, p in enumerate(survivors):
@@ -136,9 +144,13 @@ def main():
         # 靠下面每日 _refresh 随论文变老再补。无该字段(HF 兜底来的)则 0。
         cites = p.get("cited_by_count", 0)
         quality01 = quality.quality_score({"citations": cites}) if cites else 0.0
+        ven = venues.get(p["arxiv_id"], "")
+        if ven:
+            p["venue"] = ven
+            a["venue"] = ven
         sc = scoring.compute(p, a, heat01, quality01, weights)
         p["analysis"] = a
-        p["signals"] = {"hf_upvotes": up, "citations": cites, "venue": ""}
+        p["signals"] = {"hf_upvotes": up, "citations": cites, "venue": ven}
         p["scores"] = sc
         p["grade"] = scoring.grade(sc["total"], gt)
         p["read_priority"] = scoring.priority(sc["base"], pt)
@@ -158,6 +170,25 @@ def main():
     _finish(state, routes)
     notion_sync.sync(records)
     print(f"完成。新增 {len(records)} 篇,库内共 {len(state['papers'])} 篇。")
+
+
+def _detect_venues(papers):
+    """对一批论文识别会议归属。arXiv 论文(纯数字号)批量拉 comment 后正则识别;
+    comment 拉取失败(429/网络)只是少了 comment,不阻断——退回用 abstract 兜底识别。
+    返回 {arxiv_id: 规范会议名}(只含命中的)。"""
+    arxiv_ids = [p["arxiv_id"] for p in papers if re.match(r"^\d{4}\.\d{4,5}$", p["arxiv_id"])]
+    comments = {}
+    if arxiv_ids:
+        try:
+            comments = fetch_arxiv.fetch_comments(arxiv_ids)
+        except Exception as e:
+            print(f"  会议识别:comment 拉取失败(退回 abstract 兜底): {e}")
+    out = {}
+    for p in papers:
+        v = venue.detect(comments.get(p["arxiv_id"], ""), p.get("abstract", ""))
+        if v:
+            out[p["arxiv_id"]] = v
+    return out
 
 
 def _load_anchors(routes):

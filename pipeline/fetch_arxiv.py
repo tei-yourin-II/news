@@ -62,6 +62,17 @@ def fetch_by_ids(arxiv_ids, delay=3, retries=4, chunk=80):
     return out
 
 
+def fetch_comments(arxiv_ids, delay=3, retries=4, chunk=80):
+    """按 arXiv ID 批量取 comment 字段(作者自报的会议归属藏在这里)。
+    返回 {arxiv_id: comment}。id_list 小批量,实测不触发 429(同 fetch_by_ids)。"""
+    out = {}
+    for p in fetch_by_ids(arxiv_ids, delay, retries, chunk):
+        c = p.get("comment")
+        if c:
+            out[p["arxiv_id"]] = c
+    return out
+
+
 def _parse(raw):
     root = ET.fromstring(raw)
     out = []
@@ -82,6 +93,7 @@ def _parse(raw):
             "abstract": " ".join(e.findtext(f"{ATOM}summary", "").split()),
             "authors": authors,
             "categories": cats,
+            "comment": " ".join(e.findtext(f"{ARXIV_NS}comment", "").split()),  # 会议归属常在此
             "published": e.findtext(f"{ATOM}published", ""),
             "updated": e.findtext(f"{ATOM}updated", ""),
             "url": f"https://arxiv.org/abs/{arxiv_id}",

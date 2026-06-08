@@ -6660,59 +6660,6 @@
       "thumb": "assets/thumbs/2602.12063.jpg"
     },
     {
-      "arxiv_id": "cs-sim2real_data-20",
-      "title": "UMI",
-      "authors": [],
-      "published": "2024-01-01",
-      "updated": "2024-01-01",
-      "url": "https://www.google.com/search?q=UMI",
-      "pdf_url": "https://www.google.com/search?q=UMI",
-      "best_route": "sim2real_data",
-      "route_scores": {
-        "sim2real_data": 1.0
-      },
-      "relevance_raw": 1.0,
-      "source": "cornerstone",
-      "analysis": {
-        "tldr": "手持夹持器+GoPro构成的零机器人依赖采集方案，极大拓展人类第一视角行为数据来源，推动Sim2Real向具身认知底层延伸",
-        "claim": "手持夹持器+GoPro构成的零机器人依赖采集方案，极大拓展人类第一视角行为数据来源，推动Sim2Real向具身认知底层延伸",
-        "org": "X Square Robot",
-        "country": "US",
-        "org_type": "unknown",
-        "significance": 74,
-        "significance_reason": "领域基石/里程碑(深度检索标尺)",
-        "novelty": 7,
-        "evidence": 0,
-        "reproducibility_score": 0,
-        "method_components": [],
-        "input": "",
-        "output": "",
-        "sim2real_status": "",
-        "reproducibility": "",
-        "tags": [
-          "基石"
-        ],
-        "one_sentence_verdict": "领域基石",
-        "_llm": "cornerstone"
-      },
-      "signals": {
-        "hf_upvotes": 0,
-        "citations": 0,
-        "venue": ""
-      },
-      "scores": {
-        "relevance": 28.0,
-        "content": 22.2,
-        "heat": 0.0,
-        "quality": 14.8,
-        "base": 50.2,
-        "bonus": 14.8,
-        "total": 65.0
-      },
-      "grade": "A",
-      "read_priority": "A"
-    },
-    {
       "arxiv_id": "cs-ai_science-18",
       "title": "Virtual Cell (rBio)",
       "authors": [],
@@ -9981,12 +9928,13 @@
         "significance": 78,
         "significance_reason": "首次在真机G1上系统验证了基于短示例的、内容解耦的全身风格迁移可行性，有125次实机成功率96%、消融了接触/抖动正则、支持强度调节；但未开源代码模型，未覆盖多机型部署或开放任务泛化（如语言指令驱动），也未与H2O/GR00T等基座模型对齐架构范式，属显著贡献而非里程碑。",
         "one_sentence_verdict": "显著贡献：真机验证扎实、风格-内容解耦设计合理、物理可执行性明确提升，但缺乏开源和开放接口，尚未构成新范式",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "Humanoids"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": "Humanoids"
       },
       "scores": {
         "relevance": 19.9,
@@ -9998,7 +9946,8 @@
         "total": 39.9
       },
       "grade": "C",
-      "read_priority": "B"
+      "read_priority": "B",
+      "venue": "Humanoids"
     },
     {
       "arxiv_id": "2606.06033",
@@ -11627,12 +11576,13 @@
         "significance": 78,
         "significance_reason": "首次系统性打通‘单臂硬件→双臂策略’的闭环：含真实人机协同数据采集、基于物理约束的合成流水线、5个具挑战性的双臂任务验证、跨机体零样本+少样本提升显著；但未开源代码/模型，且未在标准基准（如 RDT-1B/UMI）上横向对比，也未覆盖灵巧操作（dexterous）或触觉等维度，强于一般增量但未达ALOHA/ACT级范式突破。",
         "one_sentence_verdict": "工程整合——将现有技术（手部估计、inpainting、分割）严谨组装成可落地的单臂→双臂迁移管线，在真实双臂机器人上验证了可行性与泛化性，但缺乏开源和更广基准验证，尚未构成新范式。",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "ICRA 2026"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": "ICRA 2026"
       },
       "scores": {
         "relevance": 18.2,
@@ -11645,7 +11595,8 @@
       },
       "grade": "C",
       "read_priority": "B",
-      "thumb": "assets/thumbs/2605.29298.jpg"
+      "thumb": "assets/thumbs/2605.29298.jpg",
+      "venue": "ICRA 2026"
     },
     {
       "arxiv_id": "2606.03476",
@@ -15019,12 +14970,13 @@
         "significance": 58,
         "significance_reason": "修正SE(3)建模的几何缺陷是重要问题，方法设计严谨（左不变SDE+切空间score+exp retract），但实验规模小（仅CALVIN ABC→D单基准+少量真实任务），性能提升微弱（+7.3%平均任务长度非成功率），无跨机体/跨场景泛化验证，未开源代码或模型，远未达RT-2/π0/Octo等基石工作的系统性、开放性与任务广度。",
         "one_sentence_verdict": "显著贡献——它精准识别并修复了扩散策略中一个被广泛忽视的几何漏洞，理论扎实、实现正确，但实证薄弱、工程闭环不完整，属于高质量方法论补丁而非范式突破。",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "ICML 2026"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": "ICML 2026"
       },
       "scores": {
         "relevance": 17.6,
@@ -15037,7 +14989,8 @@
       },
       "grade": "C",
       "read_priority": "B",
-      "thumb": "assets/thumbs/2606.01847.jpg"
+      "thumb": "assets/thumbs/2606.01847.jpg",
+      "venue": "ICML 2026"
     },
     {
       "arxiv_id": "2606.06218",
@@ -17124,12 +17077,13 @@
         "significance": 68,
         "significance_reason": "在世界模型架构上提出可条件查询的概率接口+自回归训练范式，确实在物体发现和物理关系推理上比DreamerV1/V3更细粒度，但未在真实机器人上验证、无跨机体/跨任务泛化实验、未开源代码或模型，且所有结果均基于可控合成环境，未解决长期开放难题（如遮挡鲁棒性、非刚体建模、真实传感器噪声），属显著贡献但未达基石级。",
         "one_sentence_verdict": "显著贡献：推进了世界模型的结构化理解能力，但仍是纯仿真、窄任务、不可复现的扎实增量，暂时不用看真机落地",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "CVPR 2026"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "CVPR 2026"
       },
       "scores": {
         "relevance": 16.4,
@@ -17142,7 +17096,8 @@
       },
       "grade": "D",
       "read_priority": "B",
-      "thumb": "assets/thumbs/2606.00439.jpg"
+      "thumb": "assets/thumbs/2606.00439.jpg",
+      "venue": "CVPR 2026"
     },
     {
       "arxiv_id": "2606.03963",
@@ -17819,12 +17774,13 @@
         "significance": 84,
         "significance_reason": "实质性推进了灵巧操作中‘自由度预留’这一长期挑战，首次将条件化扩散策略与手指级动作掩码（opposition space）结合，在真实硬件上完成多物体顺序抓取（非单次抓取），性能超越多个学习型基线；但未达ALOHA/ACT级系统性范式突破（如端到端闭环、跨任务泛化架构、大规模人类行为数据驱动），也未开源代码/模型，复现门槛高。",
         "one_sentence_verdict": "工程整合：在Diffusion Policy框架下做出扎实的灵巧手动作约束创新，实机验证充分，但缺乏开源与更大规模泛化证据，尚未构成新范式。",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "CoRL 2026"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "CoRL 2026"
       },
       "scores": {
         "relevance": 15.0,
@@ -17837,7 +17793,8 @@
       },
       "grade": "D",
       "read_priority": "B",
-      "thumb": "assets/thumbs/2606.05407.jpg"
+      "thumb": "assets/thumbs/2606.05407.jpg",
+      "venue": "CoRL 2026"
     },
     {
       "arxiv_id": "10.64898/2026.05.28.728275",
@@ -18516,12 +18473,13 @@
         "significance": 68,
         "significance_reason": "首次系统揭示主流具身奖励模型因负样本缺失导致的安全性与真实性失效，并用跨平台真实bad data验证改进效果；但未开源数据/模型/代码，无新算法或训练框架，也未构建可复现的基准测试套件，属于强问题意识+初步实证的显著贡献，未达基石级（如GR00T/H2O等需真机多任务端到端闭环+大规模开源+范式迁移）。",
         "one_sentence_verdict": "显著贡献：精准诊断了具身奖励建模的根本性数据缺陷，并用真实bad data验证了修正方向，但缺乏可复现工具链和规模化落地证据，尚属问题驱动型推进而非范式突破。",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "ICML 2026"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "ICML 2026"
       },
       "scores": {
         "relevance": 15.4,
@@ -18534,7 +18492,8 @@
       },
       "grade": "D",
       "read_priority": "B",
-      "thumb": "assets/thumbs/2606.01036.jpg"
+      "thumb": "assets/thumbs/2606.01036.jpg",
+      "venue": "ICML 2026"
     },
     {
       "arxiv_id": "10.64898/2026.05.27.728222",
@@ -18853,12 +18812,13 @@
         "significance": 42,
         "significance_reason": "属扎实增量：改进了开放词汇导航中的不确定性建模方式，有合理动机和消融（摘要未提但论文正文应含），但在仿真环境、单任务（导航）、无真实机体验证、无跨机体/跨用户泛化证据；远未达World Models级范式突破，也未解决长期开放难题（如sim2real gap、具身常识构建），且SOTA提升来自方法组合而非原理跃迁。",
         "one_sentence_verdict": "工程整合：将概率图建模、多世界采样、记忆校准三者串联用于导航，提升了仿真指标，但未触及具身智能核心瓶颈，也未验证到真实系统。",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "ICML 2026"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "ICML 2026"
       },
       "scores": {
         "relevance": 15.2,
@@ -18871,7 +18831,8 @@
       },
       "grade": "D",
       "read_priority": "B",
-      "thumb": "assets/thumbs/2606.01313.jpg"
+      "thumb": "assets/thumbs/2606.01313.jpg",
+      "venue": "ICML 2026"
     },
     {
       "arxiv_id": "2606.04718",
@@ -19408,12 +19369,13 @@
         "significance": 52,
         "significance_reason": "填补了地下无GNSS探索的开源仿真基准空白，几何验证扎实（IoU 0.95），但仅提供单智能体PPO基线、无跨机体/跨任务泛化实验、无真实机器人迁移验证，属于扎实但窄口径的增量工作；显著弱于ManiSkill3（87）、Isaac Lab（88）等通用仿真基座，也未达到MimicGen（89）或Crazyflow（89）级的方法论创新或工程深度。",
         "one_sentence_verdict": "扎实增量：首个高保真地下矿道RL探索仿真基准，但仅限仿真、单任务、无泛化验证，暂不具备范式突破或系统级影响力。",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "ICRA"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "ICRA"
       },
       "scores": {
         "relevance": 11.9,
@@ -19426,7 +19388,8 @@
       },
       "grade": "D",
       "read_priority": "B",
-      "thumb": "assets/thumbs/2606.04569.jpg"
+      "thumb": "assets/thumbs/2606.04569.jpg",
+      "venue": "ICRA"
     },
     {
       "arxiv_id": "2606.03603",
@@ -19683,12 +19646,13 @@
         "significance": 68,
         "significance_reason": "数据规模和零样本泛化能力有实质性提升，但仍是‘动作预测即next-token’范式的工程放大（非新范式），无真机部署、无跨机体验证、无控制闭环实验，显著弱于H2O/WholeBodyVLA等具备实时闭环、多机体适配或具身策略生成能力的里程碑工作。",
         "one_sentence_verdict": "显著贡献：在纯动作跟踪子任务上通过数据与模型缩放取得扎实进步，但未进入具身智能核心闭环（感知-决策-执行），暂未突破仿真到真实、任务到控制的鸿沟。",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "CVPR 2026"
       },
       "signals": {
         "hf_upvotes": 26,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": "CVPR 2026"
       },
       "scores": {
         "relevance": 5.2,
@@ -19701,7 +19665,8 @@
       },
       "grade": "D",
       "read_priority": "C",
-      "thumb": "assets/thumbs/2606.03985.jpg"
+      "thumb": "assets/thumbs/2606.03985.jpg",
+      "venue": "CVPR 2026"
     },
     {
       "arxiv_id": "2606.05645",
@@ -20906,12 +20871,13 @@
         "significance": 48,
         "significance_reason": "首次将结构预测模型作为可微分模块用于多态蛋白设计，思路新颖，但所有验证均停留在in silico层面（无湿实验验证、无结构解析、无功能测试），未超越ProteinMPNN/RFdiffusion等已建立范式的工程深度与实证强度，属于扎实但窄域的算法拓展，尚未触及‘设计出可用新蛋白’这一核心门槛。",
         "one_sentence_verdict": "工程整合——把现有结构预测模型当可微算子拼接使用，有技术巧思，但缺乏真实功能验证，目前只是纸上蓝图。",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "ICML 2026"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "ICML 2026"
       },
       "scores": {
         "relevance": 15.7,
@@ -20924,7 +20890,8 @@
       },
       "grade": "D",
       "read_priority": "C",
-      "thumb": "assets/thumbs/2605.31236.jpg"
+      "thumb": "assets/thumbs/2605.31236.jpg",
+      "venue": "ICML 2026"
     },
     {
       "arxiv_id": "2606.03682",
@@ -21587,12 +21554,13 @@
         "significance": 42,
         "significance_reason": "属计算力学/仿真底层方法改进，对具身智能中软体交互有潜在价值，但未在真实机器人上验证、未接入感知-决策闭环、未展示跨物体泛化能力，也未与主流机器人仿真框架（如Isaac Gym、Mujoco、SAPIEN）深度集成；相比RT-2等里程碑工作，它解决的是子模块精度与效率问题，而非具身智能核心挑战（如语言驱动动作生成、跨任务策略泛化、真实世界部署），属于扎实的仿真技术增量，但离‘具身智能领域显著推进’尚远。",
         "one_sentence_verdict": "工程整合：把RKPM+Hessian模态用于降阶软体仿真，在数值效率和精度上有实证提升，但未进入真实机器人闭环，也未证明对高层具身任务的实际增益，属于高质量仿真工具层改进。",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "CVPR 2026"
       },
       "signals": {
         "hf_upvotes": 1,
         "citations": 0,
-        "venue": ""
+        "venue": "CVPR 2026"
       },
       "scores": {
         "relevance": 8.4,
@@ -21605,7 +21573,8 @@
       },
       "grade": "D",
       "read_priority": "C",
-      "thumb": "assets/thumbs/2605.29318.jpg"
+      "thumb": "assets/thumbs/2605.29318.jpg",
+      "venue": "CVPR 2026"
     },
     {
       "arxiv_id": "10.64898/2026.05.27.728082",
@@ -21844,12 +21813,13 @@
         "significance": 48,
         "significance_reason": "解决了特定构型（双阿克曼）机器人在位姿控制下的sim2real落差问题，方法务实有效（实机零调参部署），但任务窄（单机体/单任务/无跨场景泛化）、未开源代码模型、未建立新基准或数据集，远未达基石级工作（如GR00T/H2O）的通用性、规模或范式突破性。",
         "one_sentence_verdict": "工程整合——把已有DRL框架适配到难控机器人并用跨仿真器误差建模缓解sim2real gap，有实机验证但封闭、窄域、不可复现，属于扎实的落地尝试而非范式创新。",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "ICRA 2026"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "ICRA 2026"
       },
       "scores": {
         "relevance": 14.9,
@@ -21862,7 +21832,8 @@
       },
       "grade": "D",
       "read_priority": "C",
-      "thumb": "assets/thumbs/2606.00313.jpg"
+      "thumb": "assets/thumbs/2606.00313.jpg",
+      "venue": "ICRA 2026"
     },
     {
       "arxiv_id": "10.64898/2026.05.26.727917",
@@ -23198,7 +23169,8 @@
         "significance": 25,
         "significance_reason": "纯综述，无新模型/代码/数据/实验，未解决任何具体技术瓶颈（如 compounding error 或 sim2real），分类框架未经实证检验，对工程落地或理论突破均无直接推动；相比 World Models（97）、DreamerV3（96）等基石工作，它只是二手整理，分量远低于最低档（40分门槛）。",
         "one_sentence_verdict": "暂时不用看——是文献归类手册，不是研究推进，无法替代原始论文，也不构成独立技术贡献。",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": ""
       },
       "signals": {
         "hf_upvotes": 0,
@@ -23215,7 +23187,8 @@
         "total": 29.9
       },
       "grade": "D",
-      "read_priority": "C"
+      "read_priority": "C",
+      "venue": ""
     },
     {
       "arxiv_id": "2606.04463",
@@ -23890,12 +23863,13 @@
         "significance": 48,
         "significance_reason": "虽在转录组表征任务上验证了数据质量与架构适配的重要性，并击败了多个大模型，但属生物信息学子领域内扎实的工程改进；未开新范式（如AlphaFold之于结构预测），未解决长期开放难题，未跨模态泛化，且评估仅限于下游分类/聚类等标准指标，无临床或湿实验验证，与ESM-2/AlphaFold2等90+分基石相比差距显著。",
         "one_sentence_verdict": "扎实增量——在转录组表征学习中确认了‘小精数据+定制架构’优于‘大杂数据+通用架构’，但未突破领域瓶颈，也未建立新评估范式或真实世界闭环。",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "ICLR 2026"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "ICLR 2026"
       },
       "scores": {
         "relevance": 13.3,
@@ -23908,7 +23882,8 @@
       },
       "grade": "D",
       "read_priority": "C",
-      "thumb": "assets/thumbs/2605.31562.jpg"
+      "thumb": "assets/thumbs/2605.31562.jpg",
+      "venue": "ICLR 2026"
     },
     {
       "arxiv_id": "10.64898/2026.05.27.728283",
@@ -25573,12 +25548,13 @@
         "significance": 52,
         "significance_reason": "虽首次系统构建DLO专用可微分仿真+结构化基准，填补领域空白，但无真实机器人实验、无跨机体/跨材料泛化验证、无SOTA算法对比消融、未开源代码或模型，仅展示若干策略在仿真内可行，属扎实但窄域的增量贡献，远未达ALOHA/ACT等基石级工作（需真机多任务+部署验证+开源生态）的分量。",
         "one_sentence_verdict": "扎实增量：解决了DLO仿真建模与基准缺失的明确痛点，但停留在仿真验证层面，缺乏实证强度与开放性，暂不具备推动产业落地或范式迁移的能力。",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "ICML 2026"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "ICML 2026"
       },
       "scores": {
         "relevance": 12.1,
@@ -25591,7 +25567,8 @@
       },
       "grade": "D",
       "read_priority": "C",
-      "thumb": "assets/thumbs/2606.04206.jpg"
+      "thumb": "assets/thumbs/2606.04206.jpg",
+      "venue": "ICML 2026"
     },
     {
       "arxiv_id": "2606.01935",
@@ -25740,12 +25717,13 @@
         "significance": 32,
         "significance_reason": "纯仿真闭环ToM框架，无真实机器人验证，无跨机体/跨任务泛化实验，未开源代码或模型，仅对比VLM基线且无消融分析；相比标尺中所有90+分神经接口/脑机里程碑（解决临床刚需、真机长期部署、跨被试鲁棒性），本文属窄领域概念延伸，贡献限于ToM子方向的流程设计包装。",
         "one_sentence_verdict": "概念包装：提出了‘触发式干预’这一合理直觉，但无真机验证、无数据/代码开源、无机制消融，本质是MindPower的仿真闭环延展，尚未构成可落地的具身智能进展。",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "CVPR 2026"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "CVPR 2026"
       },
       "scores": {
         "relevance": 16.0,
@@ -25758,7 +25736,8 @@
       },
       "grade": "D",
       "read_priority": "C",
-      "thumb": "assets/thumbs/2606.01063.jpg"
+      "thumb": "assets/thumbs/2606.01063.jpg",
+      "venue": "CVPR 2026"
     },
     {
       "arxiv_id": "2605.29731",
@@ -26091,12 +26070,13 @@
         "significance": 42,
         "significance_reason": "方法有合理分层设计（感知→VLM修正→LLM约束→运动学验证），但全在仿真中验证（50 hinge任务无平台细节）、无真实机器人结果、无开源证据、无消融实验描述、未与ALOHA/ACT等基石方法对比（只比‘best baseline’，未说明是谁），属扎实但窄的仿真增量，未触及服务机器人落地核心瓶颈（如sim2real gap、真实传感器噪声、长程任务闭环）。",
         "one_sentence_verdict": "扎实增量：架构有逻辑性，但纯仿真、无开源、无真机、无消融、未对标领域基石，属于可复现性极低的窄域方法改进，暂时不用看",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "PPSN 2026"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "PPSN 2026"
       },
       "scores": {
         "relevance": 16.8,
@@ -26109,7 +26089,8 @@
       },
       "grade": "D",
       "read_priority": "C",
-      "thumb": "assets/thumbs/2605.30740.jpg"
+      "thumb": "assets/thumbs/2605.30740.jpg",
+      "venue": "PPSN 2026"
     },
     {
       "arxiv_id": "2606.01884",
@@ -26344,12 +26325,13 @@
         "significance": 38,
         "significance_reason": "属计算生物学/生成AI交叉的纯算法改进，无湿实验验证、无自动化合成闭环、无真实物理交互，对比AlphaFold2/RFdiffusion等基石工作，既未解决结构预测根本难题，也未推动闭环设计-合成-测试范式，仅在已有生成流程中替换耦合机制，提升有限且未证明下游可用性。",
         "one_sentence_verdict": "暂时不用看——纯仿真端到端生成的耦合机制微调，无真实世界具身验证，无跨模态控制接口，对具身智能/机器人领域零相关性",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "ICML 2026"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "ICML 2026"
       },
       "scores": {
         "relevance": 13.7,
@@ -26362,7 +26344,8 @@
       },
       "grade": "D",
       "read_priority": "C",
-      "thumb": "assets/thumbs/2606.01628.jpg"
+      "thumb": "assets/thumbs/2606.01628.jpg",
+      "venue": "ICML 2026"
     },
     {
       "arxiv_id": "10.64898/2026.06.01.729266",
@@ -26601,12 +26584,13 @@
         "significance": 48,
         "significance_reason": "技术路线合理（MANO+retargeting+contact-guided annealing），但仅在3×3=9种窄场景开盖任务验证，无跨任务泛化（如抓取/旋转/装配）、无用户/环境变化测试，无消融分离retargeting与annealing贡献，未开源代码/数据，显著弱于EgoDex（91分，多模态真机+跨用户+大规模数据+开源）、UMI（92分，端到端teleop pipeline+全开源）、ALOHA（96分，硬件/数据/算法全栈开源+多任务部署），属扎实但封闭的增量工作。",
         "one_sentence_verdict": "扎实增量：方法链路完整且在真机验证，但封闭性高、泛化验证窄、无开源，暂无法推动社区实质性进步",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "CoRL 2026"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "CoRL 2026"
       },
       "scores": {
         "relevance": 16.5,
@@ -26619,7 +26603,8 @@
       },
       "grade": "D",
       "read_priority": "C",
-      "thumb": "assets/thumbs/2606.03268.jpg"
+      "thumb": "assets/thumbs/2606.03268.jpg",
+      "venue": "CoRL 2026"
     },
     {
       "arxiv_id": "2606.01473",
@@ -27108,12 +27093,13 @@
         "significance": 42,
         "significance_reason": "方法有启发性（隐空间多路径+零token推理），但仅在两个纯仿真benchmark（LIBERO/CALVIN）上验证，无真实机器人实验，无跨任务/跨机体泛化证据，无开源代码或模型，未与RT-2/Octo/π0等基石模型做同条件对比，仅报告相对基线提升且未说明基线是否为SOTA；属扎实但窄的算法改进，未触及VLA核心瓶颈（如具身因果建模、世界模型耦合、sim2real gap）。",
         "one_sentence_verdict": "工程整合：将CoT思想隐式化、低开销化，但缺乏实证广度与开放性，目前仅是仿真benchmark上的增量改进，暂时不用看",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "CoRL"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "CoRL"
       },
       "scores": {
         "relevance": 15.3,
@@ -27126,7 +27112,8 @@
       },
       "grade": "D",
       "read_priority": "C",
-      "thumb": "assets/thumbs/2606.06245.jpg"
+      "thumb": "assets/thumbs/2606.06245.jpg",
+      "venue": "CoRL"
     },
     {
       "arxiv_id": "2606.02307",
@@ -27272,12 +27259,13 @@
         "significance": 32,
         "significance_reason": "属安全分析类工作，问题有意义但贡献窄：仅提出一种更现实的攻击设定和两阶段patch生成法，无新模型/架构/数据/基准，未开源代码，真实实验仅泛泛提及，无消融、无跨机体/跨任务鲁棒性验证，远未达RT-2等基石级工作的范式或工程影响力。",
         "one_sentence_verdict": "暂时不用看——是特定威胁模型下的对抗性分析小改进，缺乏开源、可复现性和系统性实证，对VLA模型构建或部署无实质性推进。",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "RA-L 2026"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "RA-L 2026"
       },
       "scores": {
         "relevance": 16.3,
@@ -27290,7 +27278,8 @@
       },
       "grade": "D",
       "read_priority": "C",
-      "thumb": "assets/thumbs/2606.03556.jpg"
+      "thumb": "assets/thumbs/2606.03556.jpg",
+      "venue": "RA-L 2026"
     },
     {
       "arxiv_id": "10.64898/2026.05.26.727927",
@@ -28519,12 +28508,13 @@
         "significance": 68,
         "significance_reason": "解决了具身智能中长期被忽视但实际致命的问题——低成本LiDAR在真实环境（尤其含玻璃/镜面）下的静默失效；实证扎实：真机部署、5种典型失败表面全覆盖、空间可靠性热图可解释、消融隐含在跨条件分离效果中；但未开源、未与主流SLAM系统（如Cartographer、ORB-SLAM3）集成验证、未测试动态场景或长期闭环，尚未达到‘显著推进SOTA’的工程广度，属高质量问题驱动型贡献。",
         "one_sentence_verdict": "显著贡献——直击真实机器人SLAM落地中的关键脆弱点，用轻量可解释方法实现可靠fallback，但缺乏开源与系统级集成，暂未达里程碑级。",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "ICRA 2026"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "ICRA 2026"
       },
       "scores": {
         "relevance": 10.4,
@@ -28537,7 +28527,8 @@
       },
       "grade": "D",
       "read_priority": "C",
-      "thumb": "assets/thumbs/2606.04853.jpg"
+      "thumb": "assets/thumbs/2606.04853.jpg",
+      "venue": "ICRA 2026"
     },
     {
       "arxiv_id": "2606.00550",
@@ -29194,12 +29185,13 @@
         "significance": 38,
         "significance_reason": "纯仿真验证（MuJoCo），无真实机器人实验，无开源代码/模型，未跨机体/用户/传感器，仅在经典控制任务上对比少数基线；理论动机（Lipschitz约束）有启发性但未带来可部署的新架构或数据范式，远低于DROID/ALOHA等基石工作（需真机、多任务、开放数据、跨平台）。",
         "one_sentence_verdict": "暂时不用看——纯仿真小规模验证、无代码、无真机、无跨机体证据，属于理论驱动的中等创新，但缺乏领域推进所需的实证厚度和工程落地锚点。",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "ICML"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "ICML"
       },
       "scores": {
         "relevance": 14.8,
@@ -29212,7 +29204,8 @@
       },
       "grade": "D",
       "read_priority": "C",
-      "thumb": "assets/thumbs/2606.02280.jpg"
+      "thumb": "assets/thumbs/2606.02280.jpg",
+      "venue": "ICML"
     },
     {
       "arxiv_id": "2605.29943",
@@ -31346,12 +31339,13 @@
         "significance": 28,
         "significance_reason": "仅针对3-DOF简化机械臂、纯仿真、无真实硬件验证、无跨机体/任务泛化、无开源代码或数据、未与主流BC基线（如ACT、Diffusion Policy）对比，实质是经典BC+MPC蒸馏的教科书级小实验，远低于ALOHA/ACT等基石工作（90+分档）的范式突破性、规模、鲁棒性与部署深度。",
         "one_sentence_verdict": "暂时不用看：属于方法论验证型小实验，无新架构、无真机、无开源、无泛化证据，对具身智能领域无实质性推进。",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "ICRA 2026"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "ICRA 2026"
       },
       "scores": {
         "relevance": 15.5,
@@ -31364,7 +31358,8 @@
       },
       "grade": "D",
       "read_priority": "C",
-      "thumb": "assets/thumbs/2606.00383.jpg"
+      "thumb": "assets/thumbs/2606.00383.jpg",
+      "venue": "ICRA 2026"
     },
     {
       "arxiv_id": "10.64898/2026.06.01.729343",

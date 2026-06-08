@@ -168,6 +168,31 @@
   .prow .psig{font-weight:700; width:26px; flex:none; text-align:right; font-variant-numeric:tabular-nums;}
   .prow .ptit{color:var(--mut2); line-height:1.4; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
 
+  /* ===== 精选着陆带:本周具身 Top15 + 今日精选(全景顶部,最显眼)===== */
+  .featwrap{max-width:1180px; margin:0 auto 22px;}
+  .feat{background:linear-gradient(150deg,#16131a,#101015 62%); border:1px solid #34303c;
+        border-radius:14px; padding:16px 18px; margin-bottom:14px;}
+  .feat-h{display:flex; align-items:baseline; gap:10px; margin:0 0 12px;}
+  .feat-h .ttl{font-size:16px; font-weight:760; letter-spacing:.01em;}
+  .feat-h .wkrange{font-size:12px; color:var(--gold); font-variant-numeric:tabular-nums; font-weight:600;}
+  .feat-h .sub{font-size:11px; color:var(--mut);}
+  .feat-h .more{margin-left:auto; font-size:11.5px; color:var(--mut); cursor:pointer;
+        border:1px solid var(--line2); border-radius:7px; padding:3px 11px;}
+  .feat-h .more:hover{color:var(--fg); border-color:var(--accent);}
+  .wkgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:7px 18px;}
+  .wkitem{display:flex; align-items:baseline; gap:9px; padding:6px 7px; border-radius:7px; cursor:pointer;
+          transition:.1s; border:1px solid transparent;}
+  .wkitem:hover{background:var(--card2); border-color:var(--line2);}
+  .wkitem .wr{font-size:12px; font-weight:700; color:var(--gold); width:22px; flex:none; text-align:right;
+              font-variant-numeric:tabular-nums; opacity:.85;}
+  .wkitem .wsig{font-size:13.5px; font-weight:750; width:26px; flex:none; text-align:right; font-variant-numeric:tabular-nums;}
+  .wkitem .wtt{flex:1; min-width:0; font-size:12.5px; line-height:1.4; color:var(--fg);
+               overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+  .wkitem .wv{flex:none; font-size:10px; font-weight:600; color:var(--gold); background:rgba(214,168,74,.13);
+              border:1px solid rgba(214,168,74,.32); border-radius:5px; padding:1px 6px; white-space:nowrap;}
+  .wkitem .wflag{flex:none; font-size:11px;}
+  @media(max-width:760px){ .wkgrid{grid-template-columns:1fr;} }
+
   /* 右栏 dashboard 卡片 */
   .dcard{background:var(--card); border:1px solid var(--line); border-radius:11px; padding:12px 13px; margin-bottom:10px;}
   .dcard .dh{display:flex; align-items:baseline; gap:8px; margin-bottom:8px;}
@@ -233,9 +258,6 @@
   .ovrow .rt{flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:var(--mut2);}
   .ovrow .rf{font-size:11px;}
   .ovempty{font-size:11.5px; color:var(--mut); padding:7px 5px;}
-  .oventer{margin-top:auto; align-self:flex-start; font-size:11.5px; color:var(--mut2); background:var(--card2);
-           border:1px solid var(--line2); border-radius:7px; padding:5px 12px; transition:.12s;}
-  .oventer:hover{border-color:#6a6a72; color:var(--fg);}
 
   /* 抽屉 */
   #drawer{position:fixed; top:0; right:0; width:min(500px,94vw); height:100vh; background:#0c0c10;
@@ -363,15 +385,18 @@ Promise.all([
   loadJson('graph.json'),
   loadJson('news.json'),
   loadJson('daily_picks.json'),
-]).then(([d,pg,lb,dy,gr,nw,pk])=>{
+  loadJson('weekly_picks.json'),
+]).then(([d,pg,lb,dy,gr,nw,pk,wk])=>{
   if(d)DATA=d; if(pg)PROGRESS=pg; if(lb)LLMB=lb;
   if(dy){ DYN=dy.companies||[]; AXES=dy.axes||{}; }
   if(gr)GRAPH=gr; if(nw)NEWS=nw.news||[];
   if(pk)PICKS=pk;
+  if(wk)WEEKLY=wk;
   init();
 });
 let GRAPH={nodes:[],links:[]}, KG=null, NEWS=[];
 let PICKS={picks_by_date:{},latest:''}, picksExpanded=false;
+let WEEKLY={picks:[],week:{}}, weeklyExpanded=false;
 let mode='overview';
 
 function init(){
@@ -724,7 +749,6 @@ function renderOverview(){
           <span class="rt">${esc(p.title)}</span>
           ${coOf(p)?`<span class="rf">${CO[coOf(p)]}</span>`:''}</div>`).join('')}</div>`
         :'<div class="ovempty">近30天暂无显著突破(分量≥68)</div>'}
-      <button class="oventer" onclick="gotoDomain('${dom}')">进入 ${DOMAINS[dom]} →</button>
     </div>`;}).join('');
 
   // —— LLM 基模:看发布不看论文,单独一张卡 ——
@@ -741,13 +765,92 @@ function renderOverview(){
           <span class="rs" style="color:${tierColor(v.score>=80?'heavy':'notable')}">${v.score||'-'}</span>
           <span class="rt">${esc(v.name)} · ${esc(v.flagship||'')}</span>
           ${v.country&&CO[v.country]?`<span class="rf">${CO[v.country]}</span>`:''}</div>`).join('')}</div>
-      <button class="oventer" onclick="gotoDomain('llm_base')">进入 ${DOMAINS.llm_base} →</button>
     </div>`;
   }
 
   document.getElementById('stat').textContent=`全景 · ${all.length} 篇 · ${DATA.generated_at||''}`;
-  list.innerHTML=`<div class="ovwrap">${heroHtml}<div class="ovgrid">${cards}${llmCard}</div></div>`;
+  list.innerHTML=`<div class="featwrap">${renderFeatured()}</div>`
+    +`<div class="ovwrap">${heroHtml}<div class="ovgrid">${cards}${llmCard}</div></div>`;
 }
+
+// ===== 精选着陆带:本周具身 Top15(对齐参考图) + 今日精选 =====
+function renderFeatured(){
+  let html='';
+  // —— 本周具身 Top15 ——
+  const wp=WEEKLY.picks||[];
+  if(wp.length){
+    const wk=WEEKLY.week||{};
+    const shown=weeklyExpanded?wp:wp.slice(0,8);
+    const rows=shown.map((p,i)=>{
+      const tier=p.tier||(p.significance>=75?'heavy':p.significance>=60?'notable':'worth');
+      const flag=(CO[(p.country||'').toUpperCase()])||'';
+      return `<div class="wkitem" onclick="openWeeklyDrawer(${i})">
+        <span class="wr">${p.rank||i+1}</span>
+        <span class="wsig" style="color:${tierColor(tier)}">${p.significance||0}</span>
+        ${flag?`<span class="wflag">${flag}</span>`:''}
+        <span class="wtt">${esc(p.title)}</span>
+        ${p.venue?`<span class="wv">🏆 ${esc(p.venue)}</span>`:''}</div>`;}).join('');
+    const vCount=WEEKLY.venue_count||0;
+    html+=`<div class="feat">
+      <div class="feat-h">
+        <span class="ttl">📅 本周具身 Top${wp.length}</span>
+        <span class="wkrange">${esc((wk.label)||'')}</span>
+        <span class="sub">综合各大学会 · 顶会 ${vCount} 篇</span>
+        ${wp.length>8?`<span class="more" onclick="event.stopPropagation();toggleWeekly()">${weeklyExpanded?'收起 ▲':'展开全部 ▾'}</span>`:''}
+      </div>
+      <div class="wkgrid">${rows}</div></div>`;
+  }
+  // —— 今日精选(跨领域最新一期)——
+  const pbd=PICKS.picks_by_date||{};
+  const dates=Object.keys(pbd).sort().reverse();
+  if(dates.length){
+    const latest=dates[0], today=pbd[latest]||[];
+    if(today.length){
+      const cards=today.map(pk=>{
+        const i=today.indexOf(pk), d=pk.deep||{};
+        const flag=(CO[(pk.country||'').toUpperCase()])||'';
+        return `<div class="wkitem" onclick="openPickDrawer('${latest}',${i})">
+          <span class="wsig" style="color:${tierColor(pk.tier)}">${pk.significance||0}</span>
+          ${flag?`<span class="wflag">${flag}</span>`:''}
+          <span class="wtt">${esc(d.hook||pk.title)}</span>
+          <span class="wv" style="color:var(--mut);background:none;border-color:var(--line2)">${DOMAINS[pk.domain]||''}</span></div>`;}).join('');
+      html+=`<div class="feat">
+        <div class="feat-h"><span class="ttl">📌 今日精选</span>
+          <span class="wkrange">${latest}</span><span class="sub">时效窗严选 · 深度解析</span></div>
+        <div class="wkgrid">${cards}</div></div>`;
+    }
+  }
+  return html;
+}
+function toggleWeekly(){ weeklyExpanded=!weeklyExpanded; renderOverview(); }
+window.toggleWeekly=toggleWeekly;
+
+function openWeeklyDrawer(i){
+  const p=(WEEKLY.picks||[])[i]; if(!p)return;
+  const d=p.deep||{};
+  const sec=(t,v)=>v?`<div class="section-t">${t}</div><div style="font-size:13.5px;line-height:1.7">${esc(v)}</div>`:'';
+  const co=(p.country||'').toUpperCase();
+  const dr=document.getElementById('drawer');
+  dr.innerHTML=`<span class="close" onclick="closeDrawer()">✕</span>
+    <div class="mut" style="font-size:12px">📅 本周具身 Top${(WEEKLY.picks||[]).length} · #${p.rank||i+1} · ${esc((WEEKLY.week||{}).label||'')}</div>
+    ${p.thumb?`<img src="${esc(p.thumb)}" style="width:100%;border-radius:10px;margin:8px 0 12px;display:block" onerror="this.remove()">`:''}
+    <h2 style="font-size:16px;margin-top:8px">${esc(p.title)}</h2>
+    ${p.venue?`<div class="venue" style="margin-bottom:8px">🏆 ${esc(p.venue)}</div>`:''}
+    <div class="mut" style="font-size:12px">${CO[co]?CO[co]+' '+(CONAME[co]||'')+' · ':''}${p.org?'🏛️ '+esc(p.org)+' · ':''}${(p.published||'').slice(0,10)} · ${esc(p.arxiv_id)}</div>
+    <div class="sigbig"><span class="n" style="color:${tierColor(p.tier)}">${p.significance||0}</span>
+      <span class="x"><b style="color:${tierColor(p.tier)}">分量分</b> / 100<br>${esc(p.significance_reason||'')}</span></div>
+    <div class="section-t">一句话判断</div><div>⚖️ ${esc(p.one_sentence_verdict||p.tldr||'-')}</div>
+    <div class="section-t">核心主张</div><div>${esc(p.claim||p.tldr||'-')}</div>
+    <dl class="kv"><dt>输入</dt><dd>${esc(p.input||'-')}</dd><dt>输出</dt><dd>${esc(p.output||'-')}</dd>
+      <dt>方法成分</dt><dd>${esc((p.method_components||[]).join(', ')||'-')}</dd></dl>
+    ${sec('💡 新颖性',p.novelty)}${sec('📊 证据',p.evidence)}
+    ${d.method?sec('🔧 深度解析 · 怎么做的',d.method):''}${d.limitations?sec('⚠️ 局限与存疑',d.limitations):''}
+    <div class="section-t">标签</div><div>${(p.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')||'-'}</div>
+    <a class="btn" href="${esc(p.url)}" target="_blank">arXiv ↗</a>
+    ${p.pdf_url?`<a class="btn" href="${esc(p.pdf_url)}" target="_blank">PDF ↗</a>`:''}`;
+  dr.classList.add('open'); document.getElementById('scrim').classList.add('on');
+}
+window.openWeeklyDrawer=openWeeklyDrawer;
 function gotoDomain(dom){ curDomain=dom; F.route=null; mode=(dom==='llm_base')?'news':'papers'; syncDom();
   document.querySelector('.col.left').scrollTop=0; }
 window.gotoDomain=gotoDomain;

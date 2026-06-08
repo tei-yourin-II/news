@@ -10,6 +10,8 @@ import run
 import fetch_thumbs
 import progress_update
 import pick_daily
+import pick_weekly
+import backfill_venues
 import gen_news
 import gen_graph
 
@@ -22,17 +24,21 @@ def _safe(name, fn):
 
 
 def main():
-    print("=== [1/6] 论文管线 ===")
+    print("=== [1/8] 论文管线(入库即识别新论文会议归属)===")
     run.main()
-    print("=== [2/6] 领域进展门控(大突破才动基石榜)===")
+    print("=== [2/8] 领域进展门控(大突破才动基石榜)===")
     _safe("门控", progress_update.main)
-    print("=== [3/6] 新论文配图 ===")
+    print("=== [3/8] 新论文配图 ===")
     _safe("配图", fetch_thumbs.main)
-    print("=== [4/6] 今日精选(时效窗严选 1-3 篇 + 深度解析)===")
+    print("=== [4/8] 会议来源刷新(回填近期论文新冒出的顶会归属)===")
+    _safe("会议刷新", backfill_venues.main)
+    print("=== [5/8] 今日精选(时效窗严选 1-3 篇 + 深度解析)===")
     _safe("精选", pick_daily.main)
-    print("=== [5/6] 企业/基模 RSS 新闻 ===")
+    print("=== [6/8] 本周具身 Top15(滚动 7 天窗口,复用已存分析)===")
+    _safe("周报", pick_weekly.main)
+    print("=== [7/8] 企业/基模 RSS 新闻 ===")
     _safe("新闻", gen_news.main)
-    print("=== [6/6] 重建知识图谱 ===")
+    print("=== [8/8] 重建知识图谱 ===")
     _safe("图谱", gen_graph.main)
 
 

@@ -137,6 +137,13 @@ daily_pick:
   model: qwen-plus          # 只 1-3 篇/天,要更准可换 qwen-max
   base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
 
+# ---------- 周报:本周具身 Top15(对齐参考图「一周论文文库」)----------
+weekly_pick:
+  domains: [embodied_ai]    # 只具身(排除 ai_science / bci)
+  top_n: 15                 # 一周精选篇数(参考图为 15)
+  venue_quota: 4            # 会议配额:顶会论文至少占几席(综合各大学会)
+  deep_n: 15                # --deep 时对前几篇跑长文深析(默认复用已存 analysis,不额外花钱)
+
 # ---------- 横切标签(不是路线,是方法成分)----------
 # 多模态融合放这里,而不是单独路线 —— 避免和 VLA/WM 大面积重叠
 cross_cutting_tags:
