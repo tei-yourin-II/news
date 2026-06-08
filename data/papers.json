@@ -21155,6 +21155,94 @@
       "read_priority": "C"
     },
     {
+      "arxiv_id": "2606.06040",
+      "doi": "10.48550/arxiv.2606.06040",
+      "source_kind": "arxiv",
+      "title": "Gotta Grow Fast: Design and Benchmarking of a Tip Mount for High-Speed Vine Robots",
+      "abstract": "Soft, growing vine robots extend through tip eversion, a mechanism that enables navigation through cluttered environments. However, integrating cameras and other sensors at the tip is uniquely challenging because the material forming the tip is constantly renewed as the robot grows. This continual material turnover, combined with friction between internal layers, added tip weight, and fabric constriction, complicates sensor and tool mounting. These limitations hinder the deployment of vine robots for inspection and search tasks, where rapid growth while carrying tip-mounted sensors is essential. In this work, we present a triangular roller tip mount that reduces internal resistance during growth by rolling rather than sliding against the robot body. The design was refined through iterative failure analysis, enabling, for the first time, consistent eversion on a TPU-coated ripstop nylon vine robot. To quantitatively evaluate mount performance, we introduce a custom testbed that isolates tip mounting effects by measuring tail tension during eversion. Comparative experiments across multiple mount variants, including prior designs, show that our triangular roller mount achieves the lowest tail tension and most repeatable growth performance. These results establish both a validated tip mount design and a repeatable benchmarking framework for advancing sensor and tool integration in soft growing robots. CAD for the mount and testbed is available at: https://sprout-mitll.github.io/tip_mounts/.",
+      "authors": [
+        "Antonio Alvarez Valdivia",
+        "Robert Reeve",
+        "Ankush Dhawan",
+        "Ciera McFarland",
+        "Chad Council",
+        "Margaret McGuinness",
+        "Nathaniel Hanson"
+      ],
+      "categories": [],
+      "published": "2026-06-04",
+      "updated": "2026-06-04",
+      "url": "https://arxiv.org/abs/2606.06040",
+      "pdf_url": "https://arxiv.org/pdf/2606.06040",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.5,
+        "world_model": 0.1284,
+        "whole_body_control": 0.1971,
+        "dexterous_manipulation": 0.1188,
+        "sim2real_data": 0.1136,
+        "hardware_unitree": 0.1263,
+        "bci_neural_decoding": 0.0,
+        "bci_foundation_models": 0.0,
+        "bci_embodied_robot": 0.1052,
+        "bci_noninvasive_eeg": 0.0059,
+        "protein_ai": 0.0901,
+        "genomics_ai": 0.0243
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.2109,
+      "first_seen": "2026-06-08",
+      "analysis": {
+        "tldr": "这篇论文设计了一种三角形滚轮式顶端支架，用于软体藤蔓机器人，解决了传感器在生长尖端安装时因材料持续翻转、层间摩擦和结构约束导致的生长阻力大、不稳定问题，并搭建了可量化评估顶端支架性能的专用测试台。",
+        "org": "MIT Lincoln Laboratory",
+        "country": "US",
+        "org_type": "institute",
+        "claim": "三角形滚轮式顶端支架能显著降低软体藤蔓机器人生长过程中的尾部张力，实现更稳定、更快速、可重复的尖端延伸，且该设计与配套测试方法构成首个可复现的顶端集成性能基准框架。",
+        "method_components": [
+          "hardware",
+          "benchmark",
+          "simulator"
+        ],
+        "input": "藤蔓机器人本体（TPU涂层防撕尼龙）、驱动气压、机械约束条件",
+        "output": "尾部张力测量值、生长速率、生长稳定性（重复性）",
+        "robot_dependency": "TPU-coated ripstop nylon vine robot（定制软体藤蔓平台）",
+        "data_dependency": "完全依赖真实机器人实验数据，无仿真替代；所有结论均来自物理平台实测",
+        "sim2real_status": "real-robot",
+        "generalization": "limited",
+        "reproducibility": "code+model+data",
+        "tags": [
+          "hardware",
+          "benchmark",
+          "open-source",
+          "real-robot"
+        ],
+        "novelty": 7,
+        "evidence": 10,
+        "reproducibility_score": 8,
+        "significance": 68,
+        "significance_reason": "属软体机器人硬件工程关键瓶颈的扎实突破：首次系统解构并量化了顶端负载对生长动力学的影响，提出可复现实验范式并开源全部CAD/测试协议；但仅聚焦单一机器人构型（TPU-尼龙藤蔓）和单一性能维度（尾张力），未跨机体/跨任务验证，也未集成实际感知或闭环控制，尚未形成方法论泛化能力。",
+        "one_sentence_verdict": "显著贡献——解决了软体生长机器人长期存在的顶端集成工程顽疾，提供了首个可复现的硬件基准，但尚未扩展到感知闭环或跨平台应用，属于高价值硬件基础设施级进展。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 6.3,
+        "content": 25.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 31.3,
+        "bonus": 0.0,
+        "total": 31.3
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2606.06040.jpg"
+    },
+    {
       "arxiv_id": "2605.29263",
       "title": "Robust Frequency-Calibrated Virtual EEG Channel Generation from Four Frontal Electrodes for Wearable EEG Augmentation",
       "abstract": "Low-channel wearable electroencephalography (EEG) is attractive for long-term monitoring, but four frontal electrodes provide only a sparse and spatially biased view of distributed scalp activity. We present FAVC-Net, a compact frequency-calibrated virtual-channel network that generates 13 unmeasured EEG channels from Fp1, Fp2, F7, and F8. The model combines shared multi-scale source encoding, source-state embeddings, target-conditioned signed source-block mixing, GATv2-based attention refinement, attention-consistent skip fusion, and weak Welch power spectral density calibration. Rather than treating sparse-to-dense EEG generation as a purely waveform-matching task, the framework jointly emphasizes amplitude fidelity, spectral allocation, channel-frequency texture, and robustness to corrupted wearable inputs. On the PRED+CT dataset, FAVC-Net achieved the best joint waveform-spectral operating point among neural and interpolation baselines. Its time-domain gains were modest, whereas log-spectral distance and PSD KL divergence were reduced by 30.09% and 37.98% relative to the strongest non-FAVC comparator. Under wearable-like source perturbations, the model preserved spectral fidelity and resisted spectral collapse. These results support virtual EEG channel generation as a dual-domain augmentation problem, while emphasizing that generated posterior and parietal channels should be interpreted as frequency-calibrated representations derived from sparse frontal measurements rather than as independent physical recordings.",
@@ -28353,6 +28441,99 @@
       "thumb": "assets/thumbs/2605.30775.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.06.01.729354",
+      "doi": "10.64898/2026.06.01.729354",
+      "source_kind": "biorxiv",
+      "title": "When clades collide: Genomic admixture in blacklegged ticks (Ixodes scapularis) from the Great Plains",
+      "abstract": "Ixodes scapularis ticks transmit a number of pathogens important to human health, including Borrelia burgdorferi , the causative agent of Lyme disease. While I. scapularis is found across the Eastern United States, Lyme disease transmission is largely limited to the Northeast and Upper Midwest and is nearly absent in the South. This indicates that differences in northern versus southern clades of I. scapularis are associated with differences in Lyme disease transmission risk. I. scapularis is undergoing range expansion, including into the Great Plains region of the United States. Determining where I. scapularis populations in the Great Plains originated can inform future risk of Lyme disease transmission in this region. In this study, we use a population genomics framework to characterize diversity, structure, and B. burgdorferi infection rates of I. scapularis populations in the Great Plains region. We generated whole genome sequence data and single nucleotide polymorphism (SNP) datasets from I. scapularis ticks collected in Iowa, Kansas, Nebraska, and South Dakota to compare to publicly available data from across the species range. Our analysis of 200 I. scapularis SNP datasets indicated geographically well-defined populations that correspond to historical northern and southern ancestral clades of I. scapularis . Ticks from South Dakota, Iowa, and northeastern Nebraska are genetically similar populations from the Upper Midwest, while ticks from Kansas are more genetically similar to ticks from the Southeast. Ticks collected in the central eastern region of Nebraska, however, represent an evenly admixed population of both northern and southern genomic backgrounds. Analysis of B. burgdorferi reads from genomic datasets shows ~50% infection rate in ticks from Iowa and northeastern Nebraska, whereas ticks from Kansas show no evidence of B. burgdorferi infection. Of note, evenly admixed ticks from the central eastern region of Nebraska also show no evidence of B. burgdorferi infection. These results provide further evidence that tick genomics may influence traits associated with B. burgdorferi infection status, and thus the potential for Lyme disease transmission. As the range of I. scapularis continues to expand, bringing historically isolated populations into contact, there is a clear need to understand the consequence of genomic admixture for B. burgdorferi transmission potential to inform future risk of Lyme disease in the United States.",
+      "authors": [
+        "Kaylee S. Herzog",
+        "Zach Pella",
+        "Halie Smith",
+        "Dayna McCormick",
+        "Lily Nuss",
+        "Amanda Brinkworth",
+        "Sujata Chaudhari",
+        "Kathryn Duncan",
+        "Kellee Sundstrom",
+        "Sydney Stein",
+        "Holly Black",
+        "Jose E. Pietri",
+        "Ryan C. Smith",
+        "Jeff Hamik",
+        "Roberto Cortinas",
+        "Joseph R. Fauver"
+      ],
+      "categories": [],
+      "published": "2026-06-04",
+      "updated": "2026-06-04",
+      "url": "https://doi.org/10.64898/2026.06.01.729354",
+      "pdf_url": "https://doi.org/10.64898/2026.06.01.729354",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0,
+        "world_model": 0.0122,
+        "whole_body_control": 0.0047,
+        "dexterous_manipulation": 0.0767,
+        "sim2real_data": 0.0276,
+        "hardware_unitree": 0.022,
+        "bci_neural_decoding": 0.1263,
+        "bci_foundation_models": 0.0874,
+        "bci_embodied_robot": 0.0293,
+        "bci_noninvasive_eeg": 0.0783,
+        "protein_ai": 0.1808,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.252,
+      "first_seen": "2026-06-08",
+      "analysis": {
+        "tldr": "通过全基因组测序和SNP分析，发现美国大平原地区黑腿蜱（Ixodes scapularis）存在北方与南方谱系的基因组混合现象，且混合种群（如内布拉斯加州中部东部）几乎不携带伯氏疏螺旋体（B. burgdorferi），而纯北方谱系种群感染率约50%，提示蜱的基因组背景可能决定其传播莱姆病的能力。",
+        "org": "unknown",
+        "country": "US",
+        "org_type": "university",
+        "claim": "黑腿蜱在大平原地区的基因组混合事件与其伯氏疏螺旋体感染状态显著相关，混合种群丧失或大幅降低病原体携带能力。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "黑腿蜱个体的全基因组测序数据及SNP位点矩阵",
+        "output": "群体遗传结构（谱系归属、混合比例）、B. burgdorferi感染状态推断（基于宏基因组比对读段）",
+        "robot_dependency": "none",
+        "data_dependency": "依赖真实野外采集的蜱虫样本DNA测序数据（Iowa/Kansas/Nebraska/South Dakota共200个个体）",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 58,
+        "significance_reason": "提供了高质量实证（200个野生个体WGS+SNP+病原检出）揭示自然种群中基因组混合与病原传播能力的负相关，属扎实的进化流行病学增量；但未解析分子机制（如免疫通路变异）、未建模预测风险、未开发工具或模型，也未超越ESM/AlphaFold级方法论创新，远低于领域基石水平。",
+        "one_sentence_verdict": "扎实增量：用严谨群体基因组学证实蜱谱系混合抑制病原携带，但未触及机制或预测建模，属于重要但非范式突破的生物学发现。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 7.6,
+        "content": 19.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 26.6,
+        "bonus": 0.0,
+        "total": 26.6
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "2606.01950",
       "doi": "10.48550/arxiv.2606.01950",
       "source_kind": "arxiv",
@@ -29456,6 +29637,90 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2605.29943.jpg"
+    },
+    {
+      "arxiv_id": "2606.05248",
+      "doi": "10.48550/arxiv.2606.05248",
+      "source_kind": "arxiv",
+      "title": "Inverse Manipulation through Symbolic Planning and Residual Operator Learning",
+      "abstract": "Inverting a robotic task requires more than reversing symbolic state transitions or rewinding motor trajectories. In robot manipulation tasks, symbolic inverse plans often fail to fully restore the effects of forward executions under continuous interaction dynamics. We present a hybrid framework for inverse manipulation that derives inverse-skill objectives from STRIPS-like operators automatically extracted from demonstrations through soft geometric predicates. For each extracted operator, we construct an inverse restoration objective that preserves preconditions, restores delete effects, and negates add effects. A task planner first attempts to satisfy this objective using available action primitives. Unresolved symbolic predicates then induce a residual operator learning problem solved through Reinforcement Learning (RL). We evaluate the framework on the ManiSkill3 PushCube task. For a forward pushing skill, the symbolic inverse performs a coarse pick-and-place restoration, while a residual Soft Actor-Critic policy refines the cube pose to satisfy the remaining inverse predicates. Our results show that predicate-derived residual control can turn an approximate symbolic inverse into a physically grounded inverse skill.",
+      "authors": [
+        "Yigit Yildirim",
+        "Giuseppe Rauso",
+        "Riccardo Caccavale",
+        "Alberto Finzi"
+      ],
+      "categories": [],
+      "published": "2026-06-03",
+      "updated": "2026-06-03",
+      "url": "https://arxiv.org/abs/2606.05248",
+      "pdf_url": "https://arxiv.org/pdf/2606.05248",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4516,
+        "world_model": 0.41,
+        "whole_body_control": 0.4919,
+        "dexterous_manipulation": 0.5,
+        "sim2real_data": 0.2953,
+        "hardware_unitree": 0.1978,
+        "bci_neural_decoding": 0.1624,
+        "bci_foundation_models": 0.1019,
+        "bci_embodied_robot": 0.3083,
+        "bci_noninvasive_eeg": 0.0789,
+        "protein_ai": 0.1555,
+        "genomics_ai": 0.0883
+      },
+      "best_route": "dexterous_manipulation",
+      "relevance_raw": 0.4919,
+      "first_seen": "2026-06-08",
+      "analysis": {
+        "tldr": "这篇论文提出一种混合方法，先从人类示范中自动提取类似STRIPS的符号操作符并构建逆向恢复目标（保持前提、恢复删除效果、撤销新增效果），再用任务规划器尝试符号级逆操作，对剩余未满足的几何谓词用强化学习训练残差策略来精细调整物体位姿，最终在ManiSkill3 PushCube任务上把粗略的符号逆操作提升为物理可实现的逆操作。",
+        "org": "unknown",
+        "country": "EU",
+        "org_type": "university",
+        "claim": "符号规划导出的逆向目标 + 残差RL策略联合求解，能将不可行的纯符号逆操作转化为物理可执行的逆向操作技能。",
+        "method_components": [
+          "model",
+          "dataset",
+          "policy",
+          "benchmark"
+        ],
+        "input": "演示轨迹（含状态与动作）、软几何谓词定义、前向操作类型（如push）",
+        "output": "逆向操作序列（符号规划输出）+ 残差控制策略（RL输出的连续动作）",
+        "robot_dependency": "ManiSkill3仿真环境中的Franka机械臂",
+        "data_dependency": "依赖合成演示数据（摘要未提真实机器人数据）",
+        "sim2real_status": "sim-only",
+        "generalization": "limited",
+        "reproducibility": "none",
+        "tags": [
+          "sim2real",
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 5,
+        "reproducibility_score": 0,
+        "significance": 38,
+        "significance_reason": "仅在单一仿真任务（PushCube）验证，无真实机器人实验，无跨任务/跨机体泛化，无消融分析，未开源代码或模型，方法本质是符号AI与RL的常规组合，未解决长期开放难题（如通用逆操作建模、sim2real鲁棒性），远低于ALOHA/ACT等基石工作（需真机多任务+强泛化+开源）。",
+        "one_sentence_verdict": "概念包装：提出了符号逆规划+残差RL的合理思路，但缺乏实证深度、泛化验证和开源支撑，停留在方法论示意阶段。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 14.8,
+        "content": 11.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 25.8,
+        "bonus": 0.0,
+        "total": 25.8
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2606.05248.jpg"
     },
     {
       "arxiv_id": "2606.00933",
@@ -31544,6 +31809,95 @@
       "thumb": "assets/thumbs/2606.05660.jpg"
     },
     {
+      "arxiv_id": "2606.03204",
+      "doi": "10.48550/arxiv.2606.03204",
+      "source_kind": "arxiv",
+      "title": "Toward Gripper-Integrated Active Electrosense for Pre-Contact Sensing in Underwater Soft Grippers",
+      "abstract": "Underwater manipulation often occurs under degraded visibility due to turbidity, glare, and gripper occlusion, limiting the reliability of vision-based perception during approach and grasping. In such settings, soft grippers are well suited for compliant interaction, but they typically lack an onboard pre-contact cue that can guide approach and closure when vision is unreliable. This extended abstract explores active electrosense as a lightweight sensing modality that can provide a proximity-like signal prior to contact by measuring perturbations of an applied electric field in conductive media. We instrument an octopus-inspired gripper with a discrete electrode layout and record multi-channel sensing voltages using off-the-shelf hardware. Simulation and tank experiments with a suspended conductive sphere show structured, object-dependent changes in the multi-electrode voltage readout relative to empty-water baselines, with detectability varying across excitation of 5 to 20 V and frequencies from 1 mHz to 1 kHz. These findings motivate systematic investigation of gripper-integrated electrosense as a complementary pre-contact cue for underwater soft manipulation.",
+      "authors": [
+        "Ahsan Tanveer",
+        "Muhammad Hamza",
+        "Waqar Hussain Afridi",
+        "Chen Wang (88408)",
+        "Guangming Xie"
+      ],
+      "categories": [],
+      "published": "2026-06-02",
+      "updated": "2026-06-02",
+      "url": "https://arxiv.org/abs/2606.03204",
+      "pdf_url": "https://arxiv.org/pdf/2606.03204",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.5,
+        "world_model": 0.1638,
+        "whole_body_control": 0.2578,
+        "dexterous_manipulation": 0.2093,
+        "sim2real_data": 0.1444,
+        "hardware_unitree": 0.161,
+        "bci_neural_decoding": 0.115,
+        "bci_foundation_models": 0.0686,
+        "bci_embodied_robot": 0.2149,
+        "bci_noninvasive_eeg": 0.1377,
+        "protein_ai": 0.1514,
+        "genomics_ai": 0.0878
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.2578,
+      "first_seen": "2026-06-08",
+      "venue": "ICRA 2026",
+      "analysis": {
+        "tldr": "这篇论文把电场感应（electrosense）集成到章鱼仿生软抓手内部，让抓手能在水下看不见、摸不着之前就‘感知’到导电物体靠近——靠测量施加电场在水中被物体扰动后各电极的电压变化。",
+        "org": "北京大学",
+        "country": "CN",
+        "org_type": "university",
+        "claim": "主动式电场感知可作为水下软体抓手在视觉失效时的有效预接触传感模态。",
+        "method_components": [
+          "sensor",
+          "simulator",
+          "dataset",
+          "hardware"
+        ],
+        "input": "多电极电压读数（受激发电压5–20 V、频率1 mHz–1 kHz）",
+        "output": "结构化、物体依赖的电压扰动信号（用于判断是否存在/接近导电物体）",
+        "robot_dependency": "自研章鱼仿生软抓手（无商用机器人平台依赖）",
+        "data_dependency": "仅使用水箱实验中悬浮导电球的少量实测数据；无真实抓取任务闭环数据",
+        "sim2real_status": "small-real",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "tactile",
+          "dexterous",
+          "sim2real",
+          "dataset"
+        ],
+        "novelty": 7,
+        "evidence": 5,
+        "reproducibility_score": 3,
+        "significance": 38,
+        "significance_reason": "属前沿传感概念探索：验证了电场扰动在水下可被检测且具物体区分性，但仅用单目标静态悬吊实验，无闭环控制、无抓取任务验证、无跨物体/姿态/场景泛化，未与视觉/触觉等模态融合，也未证明其对实际操作成功率的提升；远未达RT-2/π0等基石级工作的系统性、任务驱动性与实证强度。",
+        "one_sentence_verdict": "概念包装：提出了有物理依据的水下预接触传感新思路，但实证薄弱、任务脱钩、闭环缺失，目前仅为原理可行性演示，暂不具备直接推动水下软体操作范式的能力。",
+        "_llm": "qwen-plus",
+        "venue": "ICRA 2026"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": "ICRA 2026"
+      },
+      "scores": {
+        "relevance": 7.7,
+        "content": 15.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 22.7,
+        "bonus": 0.0,
+        "total": 22.7
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2606.03204.jpg"
+    },
+    {
       "arxiv_id": "2606.03371",
       "doi": "10.48550/arxiv.2606.03371",
       "source_kind": "arxiv",
@@ -31871,6 +32225,89 @@
       "scores": {
         "relevance": 10.4,
         "content": 12.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 22.4,
+        "bonus": 0.0,
+        "total": 22.4
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
+      "arxiv_id": "10.64898/2026.06.02.729668",
+      "doi": "10.64898/2026.06.02.729668",
+      "source_kind": "biorxiv",
+      "title": "Demographic history, geographic distance, and landscape features shape the genetic divergence of wild tigers in northeast India",
+      "abstract": "Habitat fragmentation creates small, isolated populations that are vulnerable to inbreeding, genetic drift, and a high genetic load. For conservation management, it is essential to distinguish contemporary landscape resistance from historical demographic processes as drivers of these genetic patterns, especially for conservation priority regions such as northeast India, which intersects two major tigers conservation landscapes. We studied the genetic structure and landscape connectivity of tigers across four protected areas in northeast India: Kaziranga, Manas, Orang, and Nameri, using faecal samples. From 741 samples collected over two field seasons, we confirmed 654 as tigers. Using methylation-based enrichment and ddRAD-seq of 176 samples, we generated a high-quality dataset of 3091 SNPs across 44 individuals. Population structure analyses identified three genetically distinct clusters: Kaziranga-Nameri, Manas, and Orang. Isolation-by-distance and landscape resistance explained 13% and 17% of the observed genetic divergence, respectively, with human settlements influencing gene flow. Orang's pronounced divergence from Kaziranga, despite geographic proximity and corridors, suggests a post-bottleneck founder effect, as evidenced by its reduced heterozygosity (Ho = 0.21), nucleotide diversity (π = 0.24), and effective population size (Ne = 1.3). These findings reveal that demographic and genetic recovery can decouple: Orang's population has recently grown, yet genome-wide evidence shows ongoing genetic erosion that monitoring has not detected. Similar patterns have been reported in other Indian tiger populations, indicating that such decoupling may be systemic. Target 4 of the Kunming-Montreal Global Biodiversity Framework requires explicit genetic diversity monitoring; this study demonstrates that non-invasive genomics can operationalise that mandate at a conservation-relevant scale.",
+      "authors": [
+        "Vinay Sagar",
+        "Tista Ghosh",
+        "Kritagnya Vadar",
+        "Vaishnavee Kundan Mayekar",
+        "Abishek Harihar",
+        "Uma Ramakrishnan"
+      ],
+      "categories": [],
+      "published": "2026-06-06",
+      "updated": "2026-06-06",
+      "url": "https://doi.org/10.64898/2026.06.02.729668",
+      "pdf_url": "https://doi.org/10.64898/2026.06.02.729668",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0,
+        "world_model": 0.0503,
+        "whole_body_control": 0.0,
+        "dexterous_manipulation": 0.0186,
+        "sim2real_data": 0.0,
+        "hardware_unitree": 0.0,
+        "bci_neural_decoding": 0.027,
+        "bci_foundation_models": 0.0648,
+        "bci_embodied_robot": 0.0,
+        "bci_noninvasive_eeg": 0.0628,
+        "protein_ai": 0.1786,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.2467,
+      "first_seen": "2026-06-08",
+      "analysis": {
+        "tldr": "用非侵入式粪便DNA测序分析印度东北部四个保护区野生老虎种群的遗传分化，发现地理距离和人类聚居地阻碍基因流，而奥朗种群虽数量恢复却存在严重遗传侵蚀，揭示种群数量与遗传健康脱钩的现象。",
+        "org": "Ashoka Trust for Research in Ecology and the Environment",
+        "country": "IN",
+        "org_type": "institute",
+        "claim": "在印度东北虎关键保护区域，当代景观阻力（如人类定居点）与历史种群瓶颈共同塑造遗传分化，且种群数量恢复不等于遗传健康恢复。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "野生老虎粪便样本提取的DNA、地理坐标、土地利用/地貌数据",
+        "output": "3091个SNP位点的基因型矩阵、种群遗传结构图谱、隔离-距离/隔离-阻力模型解释度、有效群体大小与多样性参数估计",
+        "robot_dependency": "none",
+        "data_dependency": "高度依赖野外采集的真实粪便样本（741份，654只确认个体），无仿真或合成数据",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 4,
+        "evidence": 8,
+        "reproducibility_score": 3,
+        "significance": 48,
+        "significance_reason": "扎实的保护基因组学实证工作：大样本非侵入采样、高质量ddRAD-seq SNP数据、多模型归因分析（历史vs当代驱动）、揭示‘数量-遗传’脱钩这一被监测忽视的关键风险；但属领域内稳健推进，未开创新方法（如无新算法/模型）、未跨物种泛化、未建立通用工具链，显著弱于AlphaFold/ESM等计算生物学基石级工作。",
+        "one_sentence_verdict": "扎实增量——为老虎保护提供了高可信度的本地化遗传评估证据，但未突破方法学或范式边界，属于保护生物学中优秀的应用型研究，非计算/模型层面的真突破",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 7.4,
+        "content": 15.0,
         "heat": 0.0,
         "quality": 0.0,
         "base": 22.4,
@@ -33043,6 +33480,85 @@
       "grade": "D",
       "read_priority": "D",
       "thumb": "assets/thumbs/2606.05952.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.06.02.729737",
+      "doi": "10.64898/2026.06.02.729737",
+      "source_kind": "biorxiv",
+      "title": "Population genomics of a biocontrol agent: Insights into post-introduction establishment in parthenium beetle",
+      "abstract": "Biological control agents often experience demographic bottlenecks during introduction, which can reshape genetic diversity and inbreeding pattern influencing establishment and long-term ecological success in the introduced populations. The leaf-feeding beetle Calligrapha (Zygogramma) bicolorata, introduced in multiple countries across the globe to control the weed Parthenium hysterophorus, provides an opportunity to examine how introduction bottleneck and post-introduction breeding practices shape genomic variation and inbreeding patterns. We analyzed whole-genome variation in the introduced beetle population in India by sampling six regions encompassing its current distribution in the country. Using genome-wide variation data, we assessed population structure, genetic diversity, and inbreeding patterns across regions, and inferred historical changes in effective population size to reconstruct post-introduction demographic trajectories. The analyses reveal subtle genetic structure across regions, with overall genetic diversity relatively low compared to other invasive and biocontrol insects. Inbreeding patterns vary among populations, with some regions exhibiting higher cumulative runs of homozygosity than others. Notably, regions subjected to intensive propagation of beetle populations show elevated signature of inbreeding alongside reduced historical effective population size. These results underscore the dynamic genomic consequences of biocontrol introduction and subsequent breeding practices, providing insight into the evolutionary trajectories of introduced biocontrol agents.",
+      "authors": [
+        "Ranjit Kumar Sahoo",
+        "Karthikeyan Vasudevan"
+      ],
+      "categories": [],
+      "published": "2026-06-05",
+      "updated": "2026-06-05",
+      "url": "https://doi.org/10.64898/2026.06.02.729737",
+      "pdf_url": "https://doi.org/10.64898/2026.06.02.729737",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0174,
+        "world_model": 0.0665,
+        "whole_body_control": 0.0303,
+        "dexterous_manipulation": 0.0234,
+        "sim2real_data": 0.0296,
+        "hardware_unitree": 0.0428,
+        "bci_neural_decoding": 0.0424,
+        "bci_foundation_models": 0.0669,
+        "bci_embodied_robot": 0.0071,
+        "bci_noninvasive_eeg": 0.0571,
+        "protein_ai": 0.0837,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.2444,
+      "first_seen": "2026-06-08",
+      "analysis": {
+        "tldr": "这篇论文用全基因组测序分析了印度引进的无性繁殖生物防治甲虫（斑点泽甲）在六个地区的遗传多样性、近交程度和有效群体大小变化，发现人工扩繁强度高的地区近交更严重、历史有效群体更小，揭示了生物防治引种与后续养殖对基因组的动态影响。",
+        "org": "印度国家生物科学研究所",
+        "country": "IN",
+        "org_type": "institute",
+        "claim": "生物防治甲虫在引入后的人工扩繁实践会显著加剧近交并压缩历史有效群体大小，导致区域性基因组差异。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "来自印度六个地区的斑点泽甲全基因组重测序数据（WGS）",
+        "output": "群体结构、遗传多样性（π、He）、近交系数（ROH）、历史Ne动态推断结果",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "none",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 4,
+        "evidence": 5,
+        "reproducibility_score": 0,
+        "significance": 32,
+        "significance_reason": "属应用型群体基因组学研究，方法常规（PCA/ROH/PSMC），样本量小（6个地理群体）、无功能验证、无跨区域预测或干预实验，未建立新模型或数据库，也未解决长期开放问题（如如何优化引种策略）；相比AlphaFold2等基石工作（90+），它属于窄领域描述性分析，贡献限于特定生物防治案例的实证补充。",
+        "one_sentence_verdict": "暂时不用看——是典型的小规模描述性群体基因组分析，无新算法、无开源数据/代码、无机制探索或可推广结论，对AI×生物交叉领域无实质性推动。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 7.3,
+        "content": 9.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 16.3,
+        "bonus": 0.0,
+        "total": 16.3
+      },
+      "grade": "D",
+      "read_priority": "D"
     }
   ]
 }
