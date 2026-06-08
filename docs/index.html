@@ -26,14 +26,12 @@
        flex-wrap:wrap;}
   .brand{font-size:14.5px; font-weight:650; white-space:nowrap; letter-spacing:.01em;}
   .brand span{color:var(--mut); font-weight:400; font-size:11.5px;}
-  .domnav{display:flex; gap:3px; flex-wrap:wrap;}
-  .domnav button{padding:6px 16px; border:none; background:none; color:var(--mut); border-radius:8px;
-                 font-size:13.5px; font-weight:500; transition:.12s;}
-  .domnav button:hover{color:var(--fg); background:var(--card);}
-  .domnav button.on{background:var(--card2); color:var(--fg);}
-  .modeseg{display:flex; border:1px solid var(--line); border-radius:8px; overflow:hidden;}
-  .modeseg button{padding:5px 12px; border:none; background:var(--panel); color:var(--mut); font-size:12.5px;}
-  .modeseg button.on{background:var(--card2); color:var(--fg);}
+  /* 主导航:5 个目的标签(单轴) */
+  .tabs{display:flex; gap:4px; flex-wrap:wrap;}
+  .tabs button{padding:7px 16px; border:1px solid transparent; background:none; color:var(--mut);
+               border-radius:9px; font-size:13.5px; font-weight:550; transition:.12s;}
+  .tabs button:hover{color:var(--fg); background:var(--card);}
+  .tabs button.on{background:var(--card2); color:var(--fg); border-color:var(--line2); font-weight:650;}
   .stat{font-size:11.5px; color:var(--mut);}
   /* 动态板块卡片 */
   .feed{display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:6px;}
@@ -98,15 +96,18 @@
   .chip.on{background:#262630; border-color:#79798a; color:#fff;}
   select{background:var(--card); color:var(--fg); border:1px solid var(--line); border-radius:7px; padding:4px 8px; font-size:12.5px;}
 
-  /* ===== 三栏主体 ===== */
-  .body{flex:1; min-height:0; display:grid; grid-template-columns:minmax(0,1fr) 372px;}
-  .body.full{grid-template-columns:1fr;}
-  .body.full #list{display:block;}
-  .col{min-height:0; overflow:auto; padding:14px 16px;}
-  .col.left{border-right:1px solid var(--line);}
-  .col.right{background:var(--panel);}
+  /* ===== 主体:单列 ===== */
+  .body{flex:1; min-height:0; display:block;}
+  .col{min-height:0; height:100%; overflow:auto; padding:16px 20px;}
   .col h2.coltitle{font-size:11px; color:var(--mut); text-transform:uppercase; letter-spacing:.07em;
-                   margin:0 0 11px; font-weight:600;}
+                   margin:0 0 13px; font-weight:600;}
+  /* 折叠的评分细节(详情抽屉底部) */
+  .scoredetail summary{cursor:pointer; font-size:11.5px; color:var(--mut); list-style:none; padding:4px 0;
+                       border-top:1px solid var(--line); margin-top:14px;}
+  .scoredetail summary:hover{color:var(--fg);}
+  .scoredetail summary::-webkit-details-marker{display:none;}
+  .scoredetail summary::before{content:"▸ "; }
+  .scoredetail[open] summary::before{content:"▾ "; }
 
   /* 论文卡片:自适应网格(列数随视口,卡片高度随内容/图比例) */
   #list, .list{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
@@ -293,11 +294,17 @@
   .clear-btn{border:1px solid var(--line); background:var(--card); color:var(--mut2); border-radius:7px;
              padding:4px 9px; font-size:12px;}
   .clear-btn:hover{border-color:var(--line2); color:var(--fg);}
+  /* 全景:全行业总览 + 单域深度页 */
+  .ovhint{font-size:11.5px; margin:0 0 14px; text-align:center;}
+  .panowrap{max-width:1180px; margin:0 auto;}
+  .psec{margin-bottom:26px;}
+  .psec>h3{font-size:14px; font-weight:680; margin:0 0 12px; display:flex; align-items:baseline; gap:9px;}
+  .psec>h3 .mut{font-size:11px; font-weight:400;}
+  .dashgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:11px;}
+  .secbody{font-size:13.5px; line-height:1.7; color:var(--fg);}
   @media (max-width:900px){
-    .body{grid-template-columns:1fr;}
-    .col.right{border-top:1px solid var(--line);}
-    .domnav{width:100%; overflow-x:auto; flex-wrap:nowrap; padding-bottom:2px;}
-    .domnav button{flex:0 0 auto;}
+    .tabs{width:100%; overflow-x:auto; flex-wrap:nowrap; padding-bottom:2px;}
+    .tabs button{flex:0 0 auto;}
     .grp.search{width:100%;}
     .searchbox{min-width:0;}
     #list, .list{grid-template-columns:repeat(auto-fill,minmax(260px,1fr));}
@@ -307,9 +314,8 @@
 <body>
 <div class="top">
   <span class="brand">🛰️ 情报台 <span>具身·脑机·AI科学</span></span>
-  <div class="domnav" id="domnav"></div>
-  <div class="modeseg" id="modeseg">
-    <button data-m="overview" class="on">🌐 全景</button><button data-m="papers">📄 论文</button><button data-m="news">📰 动态</button><button data-m="graph">🕸 图谱</button>
+  <div class="tabs" id="tabs">
+    <button data-m="home" class="on">🏠 首页</button><button data-m="papers">📄 论文库</button><button data-m="panorama">🌐 全景</button><button data-m="news">📰 动态</button><button data-m="graph">🕸 图谱</button>
   </div>
   <span class="grow"></span>
   <span class="stat" id="stat">加载中…</span>
@@ -317,33 +323,29 @@
 </div>
 
 <div class="subbar" id="subbar">
-  <div class="grp"><span class="lb">细分</span><span id="routeChips" style="display:flex;gap:6px;flex-wrap:wrap"></span></div>
-  <div class="grp search"><span class="lb">搜索</span>
+  <div class="grp" id="domGrp"><span class="lb">领域</span><span id="domChips" style="display:flex;gap:6px;flex-wrap:wrap"></span></div>
+  <div class="grp paperonly" id="routeGrp"><span class="lb">细分</span><span id="routeChips" style="display:flex;gap:6px;flex-wrap:wrap"></span></div>
+  <div class="grp search paperonly"><span class="lb">搜索</span>
     <label class="searchbox"><span>⌕</span><input id="fQuery" type="search" placeholder="标题 / 机构 / 标签 / 摘要"></label></div>
   <span class="grow"></span>
-  <div class="grp"><span class="lb">时间</span>
+  <div class="grp paperonly"><span class="lb">时间</span>
     <select id="fTime"><option value="0">全部</option><option value="7">近7天</option>
       <option value="30">近30天</option><option value="90">近90天</option></select></div>
-  <div class="grp"><span class="lb">国家</span>
+  <div class="grp paperonly"><span class="lb">国家</span>
     <select id="fCountry"><option value="">全部</option></select></div>
-  <div class="grp"><span class="lb">机构</span>
+  <div class="grp paperonly"><span class="lb">机构</span>
     <select id="fOrgType"><option value="">全部</option><option value="company">企业</option>
       <option value="university">高校</option><option value="institute">研究机构</option></select></div>
-  <div class="grp"><span class="lb">排序</span>
+  <div class="grp paperonly"><span class="lb">排序</span>
     <select id="fSort"><option value="significance">分量</option><option value="base">今日优先</option>
       <option value="total">总分</option><option value="heat">热度</option><option value="date">最新</option></select></div>
-  <button class="clear-btn" id="clearFilters" style="display:none">清空筛选</button>
+  <button class="clear-btn paperonly" id="clearFilters" style="display:none">清空筛选</button>
 </div>
 
 <div class="body">
   <div class="col left">
-    <h2 class="coltitle" id="leftTitle">论文</h2>
-    <div id="pickband"></div>
+    <h2 class="coltitle" id="leftTitle">首页</h2>
     <div id="list"></div>
-  </div>
-  <div class="col right">
-    <h2 class="coltitle">领域进展 · 代表玩家 · 横向评估</h2>
-    <div id="dash"></div>
   </div>
 </div>
 
@@ -397,20 +399,17 @@ Promise.all([
 let GRAPH={nodes:[],links:[]}, KG=null, NEWS=[];
 let PICKS={picks_by_date:{},latest:''}, picksExpanded=false;
 let WEEKLY={picks:[],week:{}}, weeklyExpanded=false;
-let mode='overview';
+let mode='home';
+// 各标签允许的领域(领域降为二级筛选器)
+const TAB_DOMAINS={
+  papers:['embodied_ai','bci','ai_science'],
+  panorama:['all','embodied_ai','bci','ai_science','llm_base'],
+  news:['embodied_ai','bci','ai_science','llm_base'],
+  graph:['embodied_ai','bci','ai_science'],
+};
 
 function init(){
-  // 顶栏领域
-  const dn=document.getElementById('domnav');
-  DOMAIN_ORDER.forEach(dom=>{
-    const has = dom==='llm_base' ? true : DATA.routes.some(r=>(r.domain||'embodied_ai')===dom && r.count>0)
-                  || Object.values(PROGRESS.topics).some(t=>t.domain===dom);
-    const b=document.createElement('button'); b.textContent=DOMAINS[dom]; b.dataset.dom=dom;
-    if(!has) b.style.opacity=.4;
-    b.onclick=()=>{curDomain=dom; F.route=null; if(dom==='llm_base')mode='news'; syncDom();};
-    dn.appendChild(b);
-  });
-  document.querySelectorAll('#modeseg button').forEach(b=>b.onclick=()=>setMode(b.dataset.m));
+  document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>setMode(b.dataset.m));
   // 国家下拉
   const cset=[...new Set(DATA.papers.map(coOf).filter(Boolean))];
   const fc=document.getElementById('fCountry');
@@ -424,44 +423,66 @@ function init(){
   document.getElementById('legend').innerHTML=`
     <h4>分量分 (significance 0-100)</h4>
     <p>挑剔的真实价值分,<b>忽略作者自吹</b>。90+里程碑·75+重磅·60+显著·45+值得看。默认按它排序——重磅论文持续霸榜,直到更重的出现。</p>
-    <h4>右栏</h4><p>当前领域各细分的:进展量·峰值分量·代表玩家(按国)·横向"谁更屌"评估。点细分名→筛左侧论文。</p>
-    <h4>左栏分数</h4><p>今日优先(base/60)=该不该今天读;总分(/100)含热度质量,随时间长。</p>`;
-  document.getElementById('stat').textContent=`${DATA.count||0} 篇 · ${DATA.generated_at||''}`;
+    <h4>五个标签</h4><p>🏠首页=本周具身Top15+今日精选;📄论文库=全部论文+筛选;🌐全景=领域进展+代表玩家;📰动态=要闻;🕸图谱=关系网。领域是二级筛选器。</p>
+    <h4>论文分数</h4><p>今日优先(base/60)=该不该今天读;总分(/100)含热度质量,随时间长。</p>`;
   const hm=(location.hash||'').replace('#','');
-  if(['overview','papers','news','graph'].includes(hm)) mode=hm;
+  if(['home','papers','panorama','news','graph'].includes(hm)) mode=hm;
+  if(mode==='panorama') curDomain='all';   // 直链 #panorama 也落「全行业」
   syncDom();
 }
 
 function syncDom(){
-  document.querySelectorAll('#domnav button').forEach(b=>b.classList.toggle('on',b.dataset.dom===curDomain));
-  // 细分 chips(该领域的路线)
+  document.querySelectorAll('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.m===mode));
+  try{ location.hash=mode; }catch(e){}
+  // 领域合法性:切到不支持当前域的标签时回落到该标签首个域
+  const doms=TAB_DOMAINS[mode]||[];
+  if(mode!=='home' && doms.length && !doms.includes(curDomain)) curDomain=doms[0];
+
+  // 二级条:首页隐藏;论文标签显示全部筛选,其它只显示领域 chips
+  document.getElementById('subbar').style.display=(mode==='home')?'none':'';
+  document.querySelectorAll('.paperonly').forEach(el=>el.style.display=(mode==='papers')?'':'none');
+  buildDomChips(doms);
+  if(mode==='papers') buildRouteChips();
+
+  // 标题
+  const T={home:'首页 · 本周具身Top15 / 今日精选', papers:'论文库', panorama:'全景', news:'动态', graph:'图谱'};
+  let title=T[mode]||'';
+  if(mode==='panorama'||mode==='news'||mode==='graph') title+=' · '+(curDomain==='all'?'全行业':DOMAINS[curDomain]);
+  document.getElementById('leftTitle').textContent=title;
+
+  if(mode==='home') renderHome();
+  else if(mode==='papers') renderList();
+  else if(mode==='panorama') renderPanorama();
+  else if(mode==='news') renderNews();
+  else if(mode==='graph') renderGraph();
+}
+
+function buildDomChips(doms){
+  const grp=document.getElementById('domGrp');
+  grp.style.display=(mode==='home'||!doms.length)?'none':'';
+  const dc=document.getElementById('domChips'); dc.innerHTML='';
+  doms.forEach(dom=>{
+    const c=document.createElement('button'); c.className='chip'+(curDomain===dom?' on':'');
+    c.textContent=(dom==='all')?'🌐 全行业':DOMAINS[dom];
+    c.onclick=()=>{ curDomain=dom; F.route=null; syncDom(); };
+    dc.appendChild(c);
+  });
+}
+function buildRouteChips(){
   const rc=document.getElementById('routeChips'); rc.innerHTML='';
   const routes=DATA.routes.filter(r=>(r.domain||'embodied_ai')===curDomain && r.count>0);
-  if(!routes.length) rc.innerHTML='<span class="mut" style="font-size:11.5px">—</span>';
+  if(!routes.length){ rc.innerHTML='<span class="mut" style="font-size:11.5px">—</span>'; return; }
   routes.forEach(r=>{
     const c=document.createElement('button'); c.className='chip'+(F.route===r.id?' on':'');
     c.textContent=`${r.name} ${r.count}`;
     c.onclick=()=>{F.route=F.route===r.id?null:r.id; syncDom();};
     rc.appendChild(c);
   });
-  if(curDomain==='llm_base' && mode==='papers') mode='news';  // 基模没论文
-  document.querySelectorAll('#modeseg button').forEach(b=>b.classList.toggle('on',b.dataset.m===mode));
-  document.getElementById('subbar').style.display=(mode==='papers')?'':'none';
-  // 全景=跨领域全宽,收起右栏 dashboard 与领域细分条
-  const ov=(mode==='overview');
-  document.querySelector('.body').classList.toggle('full',ov);
-  document.querySelector('.col.right').style.display=ov?'none':'';
-  document.getElementById('leftTitle').textContent=ov?'全景 · 全行业突破总览'
-    :DOMAINS[curDomain]+' · '+({papers:'论文',news:'动态',graph:'图谱'}[mode]);
-  document.getElementById('pickband').innerHTML='';  // 仅 papers 模式由 renderList 重新填充
-  if(ov){ renderOverview(); return; }
-  if(mode==='news') renderNews(); else if(mode==='graph') renderGraph(); else renderList();
-  renderDash();
 }
 
 function setMode(m){
-  if(curDomain==='llm_base' && m==='papers') m='news';
-  mode=m; syncDom();
+  if(m==='panorama') curDomain='all';   // 点全景标签默认落「全行业」总览
+  mode=m; syncDom(); document.querySelector('.col.left').scrollTop=0;
 }
 window.setMode=setMode;
 
@@ -480,19 +501,11 @@ function newsFeed(){
 }
 function renderNews(){
   const list=document.getElementById('list');
-  const cs=curCompanies();
   const feed=newsFeed();
   const cd=CDOMAIN_MAP[curDomain];
   const ncount=NEWS.filter(n=>n.domain===cd).length;
-  document.getElementById('stat').textContent=`${DOMAINS[curDomain]} · 动态 · ${cs.length} 家 · ${ncount} 条`;
-  if(!cs.length){ list.innerHTML=feed||'<div class="empty">该领域动态待补。</div>'; return; }
-  const by={}; cs.forEach(c=>{(by[c.country]??=[]).push(c);});
-  const secdiv=`<div class="secdiv"><span class="st">🏆 代表玩家 · 实力横评</span>
-    <span class="sub">${cs.length} 家 · 综合实力分 + 多维强项 + 近期动态</span></div>`;
-  list.innerHTML=feed+secdiv+['CN','US','JP','EU','UK'].filter(c=>by[c]).map(co=>
-    `<div class="ngroup" style="grid-column:1/-1">
-       <h3>${CO[co]||''} ${CONAME[co]||co} <span class="mut" style="font-size:11.5px">${by[co].length} 家</span></h3>
-       <div class="list">${by[co].map(compCard).join('')}</div></div>`).join('');
+  document.getElementById('stat').textContent=`${DOMAINS[curDomain]} · 动态 · ${ncount} 条`;
+  list.innerHTML=feed||`<div class="empty">该领域今日暂无要闻。<br><span class="mut" style="font-size:12px">代表玩家与领域进展请看「🌐 全景」。</span></div>`;
 }
 function compCard(c){
   const ax=AXES[c.domain]||Object.keys(c.strengths||{});
@@ -573,7 +586,6 @@ function renderList(){
   const fot=document.getElementById('fOrgType').value;
   const sk=document.getElementById('fSort').value;
   const q=getQuery();
-  renderPickBand();
   const all=curPapers();
   if(!all.length && LOAD_ISSUES.some(x=>x.startsWith('data.json'))){
     document.getElementById('clearFilters').style.display='none';
@@ -618,78 +630,12 @@ function card(p){
   </div>`;
 }
 
-// ===== 今日精选:时效窗严选 1-3 篇 + 深度解析(论文页顶部带)=====
-function picksForDomain(list){ return (list||[]).filter(pk=>pk.domain===curDomain); }
-function renderPickBand(){
-  const el=document.getElementById('pickband');
-  const pbd=PICKS.picks_by_date||{};
-  const dates=Object.keys(pbd).sort().reverse();
-  if(!dates.length){ el.innerHTML=''; return; }
-  const latest=dates[0];
-  const today=picksForDomain(pbd[latest]);
-  if(!today.length){ el.innerHTML=''; return; }   // 该领域今天没精选 → 不占地方
-  const cards=today.map(pk=>pickCard(pk,latest,pbd[latest].indexOf(pk))).join('');
-  const past=dates.slice(1).filter(d=>picksForDomain(pbd[d]).length);
-  let pastHtml='';
-  if(past.length){
-    const rows=past.map(d=>picksForDomain(pbd[d]).map(pk=>
-      `<div class="prow" onclick="openPickDrawer('${d}',${pbd[d].indexOf(pk)})">
-         <span class="pdate">${d.slice(5)}</span>
-         <span class="psig" style="color:${tierColor(pk.tier)}">${pk.significance}</span>
-         <span class="ptit">${esc((pk.deep&&pk.deep.hook)||pk.title)}</span></div>`).join('')).join('');
-    pastHtml=`<div class="pastwrap" style="display:${picksExpanded?'block':'none'}">${rows}</div>`;
-  }
-  el.innerHTML=`
-   <div class="pickhdr">
-     <span class="pkmark">📌 今日精选</span><span class="pkdate">${latest}</span>
-     <span class="pkdesc">时效窗严选 · 深度解析</span>
-     ${past.length?`<span class="pktoggle" onclick="togglePicks()">往期 ${picksExpanded?'▲':'▾'}</span>`:''}
-   </div>
-   <div class="pickrow">${cards}</div>${pastHtml}`;
-}
-function togglePicks(){ picksExpanded=!picksExpanded; renderPickBand(); }
-function pickCard(pk,date,i){
-  const d=pk.deep||{};
-  return `<div class="pkcard" onclick="openPickDrawer('${date}',${i})" style="border-left:3px solid ${tierColor(pk.tier)}">
-    ${pk.thumb?`<img class="pkthumb" src="${esc(pk.thumb)}" loading="lazy" onerror="this.remove()">`:''}
-    <div class="pkbody">
-      <div class="pkmeta"><span class="psig" style="color:${tierColor(pk.tier)}">${pk.significance}<small>分量</small></span>
-        ${pk.country&&CO[pk.country]?`<span class="flag">${CO[pk.country]}</span>`:''}
-        ${pk.org?`<span class="org">${esc(pk.org)}</span>`:''}
-        ${pk.venue?`<span title="${esc(pk.venue)}">🏆</span>`:''}</div>
-      <div class="pkhook">${esc(d.hook||pk.title)}</div>
-      <div class="pktit">${esc(pk.title)}</div>
-      <div class="pkverdict">${esc(d.verdict||pk.tldr||'')}</div>
-    </div></div>`;
-}
+// 今日精选 → 统一抽屉(薄包装)
 function openPickDrawer(date,i){
   const pk=((PICKS.picks_by_date||{})[date]||[])[i]; if(!pk)return;
-  const d=pk.deep||{};
-  const sec=(t,v)=>v?`<div class="section-t">${t}</div><div style="font-size:13.5px;line-height:1.7">${esc(v)}</div>`:'';
-  const dr=document.getElementById('drawer');
-  dr.innerHTML=`<span class="close" onclick="closeDrawer()">✕</span>
-    <div class="mut" style="font-size:12px">📌 ${date} 今日精选 · ${DOMAINS[pk.domain]||''}</div>
-    ${pk.thumb?`<img src="${esc(pk.thumb)}" style="width:100%;border-radius:10px;margin:8px 0 12px;display:block" onerror="this.remove()">`:''}
-    ${d.hook?`<div style="font-size:16px;font-weight:700;line-height:1.5;margin-bottom:8px">${esc(d.hook)}</div>`:''}
-    <h2 style="font-size:16px">${esc(pk.title)}</h2>
-    ${pk.venue?`<div class="venue" style="margin-bottom:8px">🏆 ${esc(pk.venue)}</div>`:''}
-    <div class="mut" style="font-size:12px">${pk.country?CO[pk.country]+' '+(CONAME[pk.country]||'')+' · ':''}${pk.org?'🏛️ '+esc(pk.org)+' · ':''}${(pk.published||'').slice(0,10)} · ${esc(pk.arxiv_id)}</div>
-    <div class="sigbig"><span class="n" style="color:${tierColor(pk.tier)}">${pk.significance}</span>
-      <span class="x"><b style="color:${tierColor(pk.tier)}">分量分</b> / 100<br>${esc(pk.significance_reason||'')}</span></div>
-    ${sec('⚡ 为什么现在值得读',d.why_now)}
-    ${sec('🎯 解决什么问题',d.problem)}
-    ${sec('🔧 怎么做的',d.method)}
-    ${sec('📊 关键结果与证据',d.results)}
-    ${sec('⚠️ 局限与存疑',d.limitations)}
-    ${sec('🧭 对该路线意味着什么',d.significance_take)}
-    ${sec('👤 谁该读',d.who_should_read)}
-    ${d.verdict?`<div class="section-t">⚖️ 总评</div><div style="font-size:13.5px;line-height:1.7;font-weight:600">${esc(d.verdict)}</div>`:''}
-    ${!d.hook&&!d.method?`<div class="mut" style="margin-top:12px">${esc(pk.tldr||'(深度解析未生成)')}</div>`:''}
-    <a class="btn" href="${esc(pk.url)}" target="_blank">arXiv ↗</a>
-    ${pk.pdf_url?`<a class="btn" href="${esc(pk.pdf_url)}" target="_blank">PDF ↗</a>`:''}`;
-  dr.classList.add('open'); document.getElementById('scrim').classList.add('on');
+  openPaper(pk, {kind:'daily', date});
 }
-window.openPickDrawer=openPickDrawer; window.togglePicks=togglePicks;
+window.openPickDrawer=openPickDrawer;
 
 // ===== 全景:跨领域「有没有突破 + 谁在定调」总览 =====
 const OV_DOMAINS=['embodied_ai','bci','ai_science'];   // 有论文库的领域(llm_base 走发布单列)
@@ -697,7 +643,24 @@ function daysSince(d){ const t=Date.parse((d||'').slice(0,10)); return isNaN(t)?
 function bkTier(peak){ return peak>=85?'heavy':peak>=75?'notable':peak>=60?'worth':'calm'; }
 function bkLabel(peak,n){ return peak>=85?'🔥 重大突破':peak>=75?'⚡ 显著进展':peak>=60?'稳步推进':(n?'近期平静':'暂无新作'); }
 
-function renderOverview(){
+// ===== 首页:本周具身 Top15 + 今日精选(精选只在这一处)=====
+function renderHome(){
+  const html=renderFeatured();
+  document.getElementById('stat').textContent=`${DATA.count||0} 篇 · ${DATA.generated_at||''}`;
+  document.getElementById('list').innerHTML=html
+    ? `<div class="featwrap">${html}</div>`
+    : '<div class="empty">精选数据生成中…(daily.py 跑完会出现本周 Top15 + 今日精选)</div>';
+}
+
+// ===== 全景 =====
+function renderPanorama(){
+  if(curDomain==='all') return renderPanoramaAll();
+  if(curDomain==='llm_base'){ renderPanoramaLLM(); return; }
+  renderPanoramaDomain(curDomain);
+}
+
+// 全行业:跨领域「有没有突破 + 谁在定调」总览
+function renderPanoramaAll(){
   const list=document.getElementById('list');
   const all=DATA.papers||[];
   // 各领域分组
@@ -768,9 +731,30 @@ function renderOverview(){
     </div>`;
   }
 
-  document.getElementById('stat').textContent=`全景 · ${all.length} 篇 · ${DATA.generated_at||''}`;
-  list.innerHTML=`<div class="featwrap">${renderFeatured()}</div>`
-    +`<div class="ovwrap">${heroHtml}<div class="ovgrid">${cards}${llmCard}</div></div>`;
+  document.getElementById('stat').textContent=`全行业 · ${all.length} 篇 · ${DATA.generated_at||''}`;
+  list.innerHTML=`<div class="ovwrap"><div class="ovhint mut">点领域名进入该领域的「进展 + 代表玩家」深度页 ↓</div>${heroHtml}<div class="ovgrid">${cards}${llmCard}</div></div>`;
+}
+
+// 单领域深度页:领域进展(基石进度) + 代表玩家(实力横评) + 近期突破
+function renderPanoramaDomain(dom){
+  const list=document.getElementById('list');
+  const all=(DATA.papers||[]).filter(p=>(p.domain||'embodied_ai')===dom);
+  const recent=all.filter(p=>daysSince(p.published)<=30).sort((a,b)=>(b.significance||0)-(a.significance||0)).slice(0,6);
+  const cs=curCompanies();
+  document.getElementById('stat').textContent=`${DOMAINS[dom]} · 全景 · ${all.length} 篇 · ${cs.length} 家玩家`;
+  const recentHtml=recent.length?`<div class="psec"><h3>⚡ 近期突破 <span class="mut">近30天分量最高</span></h3>
+    <div class="ovrecent">${recent.map(p=>`<div class="ovrow" onclick="openDrawer('${p.arxiv_id}')">
+      <span class="rs" style="color:${tierColor(p.tier||(p.significance>=75?'heavy':'notable'))}">${p.significance||0}</span>
+      <span class="rt">${esc(p.title)}</span>
+      ${coOf(p)?`<span class="rf">${CO[coOf(p)]}</span>`:''}</div>`).join('')}</div></div>`:'';
+  const progHtml=`<div class="psec"><h3>📈 领域进展 <span class="mut">基石标尺 · 谁更屌</span></h3>${dashHtml(dom)}</div>`;
+  const playersHtml=cs.length?`<div class="psec"><h3>🏆 代表玩家 <span class="mut">${cs.length} 家 · 实力横评</span></h3>
+    <div class="list">${cs.map(compCard).join('')}</div></div>`:'';
+  list.innerHTML=`<div class="panowrap">${recentHtml}${progHtml}${playersHtml}</div>`;
+}
+function renderPanoramaLLM(){
+  document.getElementById('stat').textContent=`${DOMAINS.llm_base} · 看发布`;
+  document.getElementById('list').innerHTML=`<div class="panowrap"><div class="psec"><h3>🏆 大厂基模 · 横向格局</h3>${renderLLMBase()}</div></div>`;
 }
 
 // ===== 精选着陆带:本周具身 Top15(对齐参考图) + 今日精选 =====
@@ -822,49 +806,32 @@ function renderFeatured(){
   }
   return html;
 }
-function toggleWeekly(){ weeklyExpanded=!weeklyExpanded; renderOverview(); }
+// 首页本周 Top15 展开/收起
+function toggleWeekly(){ weeklyExpanded=!weeklyExpanded; renderHome(); }
 window.toggleWeekly=toggleWeekly;
 
+// 本周精选 → 统一抽屉(薄包装)
 function openWeeklyDrawer(i){
   const p=(WEEKLY.picks||[])[i]; if(!p)return;
-  const d=p.deep||{};
-  const sec=(t,v)=>v?`<div class="section-t">${t}</div><div style="font-size:13.5px;line-height:1.7">${esc(v)}</div>`:'';
-  const co=(p.country||'').toUpperCase();
-  const dr=document.getElementById('drawer');
-  dr.innerHTML=`<span class="close" onclick="closeDrawer()">✕</span>
-    <div class="mut" style="font-size:12px">📅 本周具身 Top${(WEEKLY.picks||[]).length} · #${p.rank||i+1} · ${esc((WEEKLY.week||{}).label||'')}</div>
-    ${p.thumb?`<img src="${esc(p.thumb)}" style="width:100%;border-radius:10px;margin:8px 0 12px;display:block" onerror="this.remove()">`:''}
-    <h2 style="font-size:16px;margin-top:8px">${esc(p.title)}</h2>
-    ${p.venue?`<div class="venue" style="margin-bottom:8px">🏆 ${esc(p.venue)}</div>`:''}
-    <div class="mut" style="font-size:12px">${CO[co]?CO[co]+' '+(CONAME[co]||'')+' · ':''}${p.org?'🏛️ '+esc(p.org)+' · ':''}${(p.published||'').slice(0,10)} · ${esc(p.arxiv_id)}</div>
-    <div class="sigbig"><span class="n" style="color:${tierColor(p.tier)}">${p.significance||0}</span>
-      <span class="x"><b style="color:${tierColor(p.tier)}">分量分</b> / 100<br>${esc(p.significance_reason||'')}</span></div>
-    <div class="section-t">一句话判断</div><div>⚖️ ${esc(p.one_sentence_verdict||p.tldr||'-')}</div>
-    <div class="section-t">核心主张</div><div>${esc(p.claim||p.tldr||'-')}</div>
-    <dl class="kv"><dt>输入</dt><dd>${esc(p.input||'-')}</dd><dt>输出</dt><dd>${esc(p.output||'-')}</dd>
-      <dt>方法成分</dt><dd>${esc((p.method_components||[]).join(', ')||'-')}</dd></dl>
-    ${sec('💡 新颖性',p.novelty)}${sec('📊 证据',p.evidence)}
-    ${d.method?sec('🔧 深度解析 · 怎么做的',d.method):''}${d.limitations?sec('⚠️ 局限与存疑',d.limitations):''}
-    <div class="section-t">标签</div><div>${(p.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')||'-'}</div>
-    <a class="btn" href="${esc(p.url)}" target="_blank">arXiv ↗</a>
-    ${p.pdf_url?`<a class="btn" href="${esc(p.pdf_url)}" target="_blank">PDF ↗</a>`:''}`;
-  dr.classList.add('open'); document.getElementById('scrim').classList.add('on');
+  openPaper(p, {kind:'weekly', rank:p.rank||i+1, total:(WEEKLY.picks||[]).length, week:(WEEKLY.week||{}).label||''});
 }
 window.openWeeklyDrawer=openWeeklyDrawer;
-function gotoDomain(dom){ curDomain=dom; F.route=null; mode=(dom==='llm_base')?'news':'papers'; syncDom();
+
+// 进领域 → 该域全景深度页;基模也走全景
+function gotoDomain(dom){ curDomain=dom; F.route=null; mode='panorama'; syncDom();
   document.querySelector('.col.left').scrollTop=0; }
 window.gotoDomain=gotoDomain;
 
-function renderDash(){
-  const dash=document.getElementById('dash');
-  if(curDomain==='llm_base'){ dash.innerHTML=renderLLMBase(); return; }
-  const topics=Object.values(PROGRESS.topics).filter(t=>t.domain===curDomain);
-  if(!topics.length){ dash.innerHTML='<div class="empty">该领域 dashboard 调研生成中…</div>'; return; }
-  // 用 live 论文给每个 topic 补"进展量/峰值分量"
+// 领域进展卡(返回 HTML,供全景域页拼装)
+function dashHtml(dom){
+  if(dom==='llm_base') return renderLLMBase();
+  const topics=Object.values(PROGRESS.topics).filter(t=>t.domain===dom);
+  if(!topics.length) return '<div class="empty">该领域进展调研生成中…</div>';
   const byRoute={};
-  curPapers().forEach(p=>{ const r=p.best_route; (byRoute[r]??={n:0,peak:0}); byRoute[r].n++;
+  (DATA.papers||[]).filter(p=>(p.domain||'embodied_ai')===dom).forEach(p=>{
+    const r=p.best_route; (byRoute[r]??={n:0,peak:0}); byRoute[r].n++;
     byRoute[r].peak=Math.max(byRoute[r].peak,p.significance||0); });
-  dash.innerHTML=topics.map(t=>{
+  return `<div class="dashgrid">`+topics.map(t=>{
     const live=byRoute[t.id]||{n:0,peak:0};
     const works=(t.works||[]);
     const wrows=works.slice(0,6).map(w=>{
@@ -882,9 +849,10 @@ function renderDash(){
       <div class="works">${wrows||'<span class="mut" style="font-size:11px">—</span>'}</div>${more}
       ${t.verdict?`<div class="verdict"><b>⚖️ 谁更屌:</b> ${esc(t.verdict)}</div>`:''}
     </div>`;
-  }).join('');
+  }).join('')+`</div>`;
 }
-function pickRoute(rid){ const r=DATA.routes.find(x=>x.id===rid); if(r){curDomain=r.domain||'embodied_ai';} F.route=rid; syncDom();
+// 点细分名 → 跳论文库并按该路线筛选
+function pickRoute(rid){ const r=DATA.routes.find(x=>x.id===rid); if(r){curDomain=r.domain||'embodied_ai';} F.route=rid; mode='papers'; syncDom();
   document.querySelector('.col.left').scrollTop=0; }
 window.pickRoute=pickRoute;
 
@@ -939,36 +907,70 @@ function renderGraph(){
   new ResizeObserver(()=>{ if(KG){KG.width(el.clientWidth).height(el.clientHeight);} }).observe(el);
 }
 
+// 论文列表/图谱/全景 → 统一抽屉(薄包装,按 id 查库)
 function openDrawer(id){
   const p=DATA.papers.find(x=>x.arxiv_id===id); if(!p)return;
-  const s=p.scores||{}, g=p.grade||'D', o=orgOf(p), co=coOf(p);
-  const d=document.getElementById('drawer');
-  d.innerHTML=`<span class="close" onclick="closeDrawer()">✕</span>
-    ${p.thumb?`<img src="${esc(p.thumb)}" style="width:100%;border-radius:10px;margin:0 0 12px;display:block" onerror="this.remove()">`:''}
-    <h2>${esc(p.title)}</h2>
-    ${p.venue?`<div class="venue" style="margin-bottom:8px">🏆 ${esc(p.venue)}</div>`:''}
-    <div class="mut" style="font-size:12px">${co?CO[co]+' '+(CONAME[co]||'')+' · ':''}${o?'🏛️ '+esc(o)+' · ':''}${OTYPE[p.org_type]||''}</div>
-    <div class="sigbig"><span class="n" style="color:${tierColor(p.tier)}">${p.significance||0}</span>
-      <span class="x"><b style="color:${tierColor(p.tier)}">分量分</b> / 100<br>${esc(p.significance_reason||'')}</span></div>
-    <div class="mut" style="font-size:12px">${esc((p.published||'').slice(0,10))} · ${esc(p.arxiv_id)} · ${DOMAINS[p.domain]||''}</div>
-    <div style="margin-top:12px; font-size:13.5px; line-height:1.6">${esc(p.tldr||'-')}</div>
+  openPaper(p, {kind:'paper'});
+}
+window.openDrawer=openDrawer;
+
+// ===== 统一详情抽屉:先讲人话,评分折叠到底部 =====
+// 接受 普通论文 / 今日精选 / 本周精选(字段同源:export 已平铺 analysis;精选另带 deep)
+function openPaper(p, ctx){
+  ctx=ctx||{};
+  const dp=p.deep||{};
+  const s=p.scores||{}, co=coOf(p), o=orgOf(p);
+  const tcol=tierColor(p.tier);
+  const sec=(t,v)=>v?`<div class="section-t">${t}</div><div class="secbody">${esc(v)}</div>`:'';
+  // 来源徽标
+  let badge='';
+  if(ctx.kind==='daily') badge=`📌 ${ctx.date||''} 今日精选 · ${DOMAINS[p.domain]||''}`;
+  else if(ctx.kind==='weekly') badge=`📅 本周具身 Top${ctx.total||''} · #${ctx.rank||''} · ${ctx.week||''}`;
+  else badge=`${DOMAINS[p.domain]||''}`;
+  // 讲人话的总评/主张(精选优先用 deep)
+  const verdict=dp.verdict||p.one_sentence_verdict||p.verdict||'';
+  const method=dp.method||((p.method_components||[]).join(' · '));
+  const results=dp.results||p.evidence||'';
+  // 评分细节(普通论文才有完整 scores;折叠)
+  const hasScore=s.total!=null||s.relevance!=null;
+  const scoreBlock=hasScore?`<details class="scoredetail"><summary>评分细节</summary>
     <div class="sgrid">
       <div><b style="color:var(--rel)">${s.relevance||0}</b><span>相关/30</span></div>
       <div><b style="color:var(--con)">${s.content||0}</b><span>内容/30</span></div>
       <div><b style="color:var(--heat)">${s.heat||0}</b><span>热度/20</span></div>
       <div><b style="color:var(--qual)">${s.quality||0}</b><span>质量/20</span></div></div>
     <div class="mut" style="font-size:12px">今日优先 <b>${s.base||0}</b>/60 · 总分 <b>${s.total||0}</b>/100 · 新颖度 ${p.novelty||0}/10</div>
-    <div class="section-t">一句话判断</div><div>⚖️ ${esc(p.verdict||'-')}</div>
-    <div class="section-t">核心主张</div><div>${esc(p.claim||'-')}</div>
-    <dl class="kv"><dt>输入</dt><dd>${esc(p.input||'-')}</dd><dt>输出</dt><dd>${esc(p.output||'-')}</dd>
-      <dt>方法成分</dt><dd>${esc((p.method_components||[]).join(', ')||'-')}</dd>
-      <dt>Sim2Real</dt><dd>${esc(p.sim2real_status||'-')}</dd><dt>可复现</dt><dd>${esc(p.reproducibility||'-')}</dd></dl>
-    <div class="section-t">标签</div><div>${(p.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')||'-'}</div>
-    <a class="btn" href="${esc(p.url)}" target="_blank">arXiv ↗</a>
-    ${p.pdf_url?`<a class="btn" href="${esc(p.pdf_url)}" target="_blank">PDF ↗</a>`:''}`;
+   </details>`:'';
+  const d=document.getElementById('drawer');
+  d.innerHTML=`<span class="close" onclick="closeDrawer()">✕</span>
+    <div class="mut" style="font-size:12px">${esc(badge)}</div>
+    ${p.thumb?`<img src="${esc(p.thumb)}" style="width:100%;border-radius:10px;margin:8px 0 12px;display:block" onerror="this.remove()">`:''}
+    ${dp.hook?`<div style="font-size:16px;font-weight:700;line-height:1.5;margin:8px 0 6px">${esc(dp.hook)}</div>`:''}
+    <h2 style="font-size:17px;margin-top:${dp.hook?'4px':'8px'}">${esc(p.title)}</h2>
+    ${p.venue?`<div class="venue" style="margin-bottom:8px">🏆 ${esc(p.venue)}</div>`:''}
+    <div class="mut" style="font-size:12px">${CO[co]?CO[co]+' '+(CONAME[co]||'')+' · ':''}${o?'🏛️ '+esc(o)+' · ':''}${OTYPE[p.org_type]?OTYPE[p.org_type]+' · ':''}${esc((p.published||'').slice(0,10))} · ${esc(p.arxiv_id)}</div>
+    <div class="sigbig"><span class="n" style="color:${tcol}">${p.significance||0}</span>
+      <span class="x"><b style="color:${tcol}">分量分</b> / 100<br>${esc(p.significance_reason||'')}</span></div>
+    ${verdict?`<div class="section-t">⚖️ 一句话判断</div><div class="secbody" style="font-weight:600">${esc(verdict)}</div>`:''}
+    ${sec('🎯 核心主张',p.claim||p.tldr)}
+    ${sec('⚡ 为什么现在值得读',dp.why_now)}
+    ${sec('🧩 解决什么问题',dp.problem)}
+    ${sec('🔧 方法',method)}
+    ${sec('📊 关键结果与证据',results)}
+    ${sec('⚠️ 局限与存疑',dp.limitations)}
+    ${sec('🧭 对该路线意味着什么',dp.significance_take)}
+    ${sec('👤 谁该读',dp.who_should_read)}
+    ${(p.input||p.output)?`<dl class="kv"><dt>输入</dt><dd>${esc(p.input||'-')}</dd><dt>输出</dt><dd>${esc(p.output||'-')}</dd>
+      ${p.sim2real_status?`<dt>Sim2Real</dt><dd>${esc(p.sim2real_status)}</dd>`:''}${p.reproducibility?`<dt>可复现</dt><dd>${esc(p.reproducibility)}</dd>`:''}</dl>`:''}
+    ${(p.tags&&p.tags.length)?`<div class="section-t">标签</div><div>${p.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>`:''}
+    ${scoreBlock}
+    <div style="margin-top:14px">
+      <a class="btn" href="${esc(p.url)}" target="_blank">arXiv ↗</a>
+      ${p.pdf_url?`<a class="btn" href="${esc(p.pdf_url)}" target="_blank">PDF ↗</a>`:''}</div>`;
   d.classList.add('open'); document.getElementById('scrim').classList.add('on');
   document.querySelectorAll('.pcard').forEach(c=>c.classList.remove('sel'));
 }
+window.openPaper=openPaper;
 function closeDrawer(){document.getElementById('drawer').classList.remove('open');document.getElementById('scrim').classList.remove('on');}
 window.openDrawer=openDrawer; window.closeDrawer=closeDrawer;
 </script>
