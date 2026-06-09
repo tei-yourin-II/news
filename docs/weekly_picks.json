@@ -1,18 +1,18 @@
 {
   "week": {
-    "start": "2026-06-02",
-    "end": "2026-06-08",
-    "label": "06.02~06.08"
+    "start": "2026-06-03",
+    "end": "2026-06-09",
+    "label": "06.03~06.09"
   },
   "count": 15,
   "venue_count": 4,
   "venues": [
-    "CVPR 2026",
+    "CoRL",
     "CoRL 2026",
-    "Humanoids",
+    "ICRA",
     "ICRA 2026"
   ],
-  "generated_at": "2026-06-08 05:26 UTC",
+  "generated_at": "2026-06-09 05:03 UTC",
   "picks": [
     {
       "rank": 1,
@@ -136,46 +136,6 @@
     },
     {
       "rank": 4,
-      "arxiv_id": "2606.03784",
-      "title": "Revisiting Embodied Chain-of-Thought for Generalizable Robot Manipulation",
-      "published": "2026-06-02",
-      "url": "https://arxiv.org/abs/2606.03784",
-      "pdf_url": "https://arxiv.org/pdf/2606.03784",
-      "thumb": "assets/thumbs/2606.03784.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "智元",
-      "country": "CN",
-      "org_type": "company",
-      "significance": 88,
-      "significance_reason": "构建迄今最大规模真机具身CoT数据集（2592小时），首次系统证伪‘显式CoT推理必须出现在inference阶段’这一主流假设，并提出可扩展、可部署的ERVLA范式；实测超越OpenVLA（93分档）在LIBERO-Plus（86.9% vs ~82%），逼近RDT-1B（88分档）水平，且在VLABench和真实机器人上验证跨任务/场景/用户泛化，证据链完整。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "real-robot",
-        "large-scale",
-        "open-source",
-        "dataset",
-        "benchmark"
-      ],
-      "tldr": "这篇论文发现让机器人在推理时显式生成‘思维链’（如语言描述动作）效果不好，容易出错；于是改用‘隐式思维链’——把大量带推理过程的机器人操作数据喂给模型训练，但测试时直接输出动作，不强制生成语言推理，从而提升泛化性和稳定性。",
-      "claim": "显式、自回归式的具身思维链（embodied CoT）在真实机器人操作中不可靠，而将其作为训练阶段的表征塑造监督信号（而非测试时必经步骤），能显著提升VLA模型的泛化性与部署鲁棒性。",
-      "method_components": [
-        "model",
-        "dataset",
-        "benchmark"
-      ],
-      "input": "RGB图像+语言指令",
-      "output": "动作块（6-DoF end-effector control序列）",
-      "novelty": 7,
-      "evidence": 11,
-      "one_sentence_verdict": "真突破：不是微调或刷榜，而是通过大规模真机数据反证主流范式缺陷，并提出更鲁棒的训练-推理解耦新范式，具备工程落地能力。",
-      "deep": {}
-    },
-    {
-      "rank": 5,
       "arxiv_id": "2606.05407",
       "title": "MoDex: A Diffusion Policy for Sequential Multi-Object Dexterous Grasping",
       "published": "2026-06-03",
@@ -216,7 +176,7 @@
       "deep": {}
     },
     {
-      "rank": 6,
+      "rank": 5,
       "arxiv_id": "2606.06139",
       "title": "MotionDisco: Motion Discovery for Extreme Humanoid Loco-Manipulation",
       "published": "2026-06-04",
@@ -254,7 +214,7 @@
       "deep": {}
     },
     {
-      "rank": 7,
+      "rank": 6,
       "arxiv_id": "2606.05699",
       "title": "DexFuture: Hierarchical Future-State Visuomotor Targeting for Bimanual Dexterous Tool Use",
       "published": "2026-06-04",
@@ -293,47 +253,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
-      "arxiv_id": "2606.04269",
-      "title": "Instant-Fold: In-Context Imitation Learning for Deformable Object Manipulation",
-      "published": "2026-06-02",
-      "url": "https://arxiv.org/abs/2606.04269",
-      "pdf_url": "https://arxiv.org/pdf/2606.04269",
-      "thumb": "assets/thumbs/2606.04269.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "帝国理工学院",
-      "country": "UK",
-      "org_type": "university",
-      "significance": 87,
-      "significance_reason": "达到RDP（89）与UMI（92）之间的水平：首次在DOM领域实现真正免微调、单示教、多模式零样本sim2real，且在真实Panda上完成6类折叠任务（含非刚性拓扑变化），有消融验证表征学习与flow-matching设计贡献，但未开源数据集、无跨机体测试、benchmark规模小于RDT-1B/ALOHA级工业级覆盖。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "sim2real",
-        "teleoperation",
-        "dataset",
-        "benchmark"
-      ],
-      "tldr": "用单次人类示范（比如视频）直接推理并执行多种布料/软体物体折叠方式（如对折、三折、翻转顺序不同），不微调模型，纯靠上下文学习，在仿真中训练后零样本迁移到真实机器人上完成折叠任务。",
-      "claim": "仅凭单次人类示范，无需梯度更新，即可在变形物体操作中实现跨模式、跨顺序的零样本泛化，并从仿真直接部署到真实机器人。",
-      "method_components": [
-        "model",
-        "dataset",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "单段人类示范视频（含RGB+可能的手部轨迹）+ 当前机器人视角RGB图像序列",
-      "output": "机器人末端执行器的连续动作序列（6D位姿+夹爪开合）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "真突破：解决了DOM领域长期存在的‘单示教→多模式→零样本sim2real’核心鸿沟，证据扎实（真机6任务+消融+跨材质），虽未达ALOHA级系统规模，但范式清晰、可复现性强、落地明确。",
-      "deep": {}
-    },
-    {
-      "rank": 9,
+      "rank": 7,
       "arxiv_id": "2606.04708",
       "title": "VISTA: Vision-Grounded and Physics-Validated Adaptation of UMI data for VLA Training",
       "published": "2026-06-03",
@@ -373,46 +293,47 @@
       "deep": {}
     },
     {
-      "rank": 10,
-      "arxiv_id": "2606.03536",
-      "title": "Bionic Human-Motion Style Transfer for Physically Executable Whole-Body Control of Humanoid Robots",
-      "published": "2026-06-02",
-      "url": "https://arxiv.org/abs/2606.03536",
-      "pdf_url": "https://arxiv.org/pdf/2606.03536",
-      "thumb": "",
-      "venue": "Humanoids",
+      "rank": 8,
+      "arxiv_id": "2606.08548",
+      "title": "OASIS: From Simulation Data Collection to Real-World Humanoid Loco-Manipulation",
+      "published": "2026-06-07",
+      "url": "https://arxiv.org/abs/2606.08548",
+      "pdf_url": "https://arxiv.org/pdf/2606.08548",
+      "thumb": "assets/thumbs/2606.08548.jpg",
+      "venue": "",
       "domain": "embodied_ai",
       "best_route": "whole_body_control",
-      "org": "智元",
+      "org": "西安电子科技大学",
       "country": "CN",
-      "org_type": "company",
-      "significance": 78,
-      "significance_reason": "首次在真机G1上系统验证了基于短示例的、内容解耦的全身风格迁移可行性，有125次实机成功率96%、消融了接触/抖动正则、支持强度调节；但未开源代码模型，未覆盖多机型部署或开放任务泛化（如语言指令驱动），也未与H2O/GR00T等基座模型对齐架构范式，属显著贡献而非里程碑。",
+      "org_type": "university",
+      "significance": 82,
+      "significance_reason": "实证扎实：真机多任务（≥5个loco-manipulation任务）、跨场景泛化、与真实遥操作数据严格对比、消融验证域随机化关键性；但未开源代码/模型，且仿真资产重建+策略设计属工程级整合而非范式突破，略逊于GRAIL/H2O等定义新架构或统一表征的工作。",
       "tier": "heavy",
       "grade": "C",
       "tags": [
-        "dexterous",
         "sim2real",
-        "real-robot"
+        "dataset",
+        "benchmark",
+        "multimodal-fusion"
       ],
-      "tldr": "用一段人类动作短片段（比如走路姿态）作为风格参考，自动把它迁移到机器人各种不同任务动作（如挥手、转身、蹲起）上，生成既保留原动作功能、又带有人类风格且能在真机Unitree G1上稳定执行的全身运动轨迹。",
-      "claim": "短时人类动作示例可作为可复用的仿生风格源，驱动物理可执行的、内容无关的全身运动风格迁移。",
+      "tldr": "用3D生成模型从真实图片自动重建物体资产，在仿真中批量采集并域随机化增强人形机器人 locomanipluation（行走+操作）轨迹，训练出的视觉运动策略在真实人形机器人上零样本部署效果反而超过用真实遥操作数据训练的策略。",
+      "claim": "仅依赖高质量仿真数据（经自动资产重建+域随机化增强）训练的分层视觉运动策略，在真实人形机器人上零样本迁移性能可超越基于真实遥操作数据训练的策略。",
       "method_components": [
+        "simulator",
         "model",
         "dataset",
-        "simulator",
         "policy",
-        "hardware"
+        "benchmark"
       ],
-      "input": "短时人类动作片段（MoCap或视频估计）+ 目标动作内容（如轨迹/关键帧/语义标签）",
-      "output": "物理可行的全身关节轨迹（G1兼容）",
+      "input": "RGB-D图像+语言任务指令（隐含于benchmark任务定义中，如'拿起红色杯子放到蓝色盒子旁'）",
+      "output": "全身关节动作序列（loco-manipulation轨迹）",
       "novelty": 7,
       "evidence": 9,
-      "one_sentence_verdict": "显著贡献：真机验证扎实、风格-内容解耦设计合理、物理可执行性明确提升，但缺乏开源和开放接口，尚未构成新范式",
+      "one_sentence_verdict": "工程整合：在仿真数据生成、域增强和分层策略设计上完成高质量闭环，实证优于真实数据训练，但未提出新学习范式或通用表征，属于当前sim2real humanoid领域的顶尖工程实现。",
       "deep": {}
     },
     {
-      "rank": 11,
+      "rank": 9,
       "arxiv_id": "2606.05015",
       "title": "Generalization of World Models under Environmental Variability for Vision-based Quadrotor Navigation",
       "published": "2026-06-03",
@@ -452,7 +373,7 @@
       "deep": {}
     },
     {
-      "rank": 12,
+      "rank": 10,
       "arxiv_id": "2606.06491",
       "title": "TempoVLA: Learning Speed-Controllable Vision-Language-Action Policies",
       "published": "2026-06-04",
@@ -489,7 +410,7 @@
       "deep": {}
     },
     {
-      "rank": 13,
+      "rank": 11,
       "arxiv_id": "2606.06493",
       "title": "HANDOFF: Humanoid Agentic Task-Space Whole-Body Control via Distilled Complementary Teachers",
       "published": "2026-06-04",
@@ -528,44 +449,45 @@
       "deep": {}
     },
     {
-      "rank": 14,
-      "arxiv_id": "2606.03985",
-      "title": "Humanoid-GPT: Scaling Data and Structure for Zero-Shot Motion Tracking",
-      "published": "2026-06-02",
-      "url": "https://arxiv.org/abs/2606.03985",
-      "pdf_url": "https://arxiv.org/pdf/2606.03985",
-      "thumb": "assets/thumbs/2606.03985.jpg",
-      "venue": "CVPR 2026",
+      "rank": 12,
+      "arxiv_id": "2606.06218",
+      "title": "TAM: Torque Adaptation Module for Robust Motion Transfer in Manipulation",
+      "published": "2026-06-04",
+      "url": "https://arxiv.org/abs/2606.06218",
+      "pdf_url": "https://arxiv.org/pdf/2606.06218",
+      "thumb": "assets/thumbs/2606.06218.jpg",
+      "venue": "",
       "domain": "embodied_ai",
-      "best_route": "whole_body_control",
-      "org": "银河通用",
-      "country": "CN",
+      "best_route": "dexterous_manipulation",
+      "org": "英伟达",
+      "country": "US",
       "org_type": "company",
-      "significance": 68,
-      "significance_reason": "数据规模和零样本泛化能力有实质性提升，但仍是‘动作预测即next-token’范式的工程放大（非新范式），无真机部署、无跨机体验证、无控制闭环实验，显著弱于H2O/WholeBodyVLA等具备实时闭环、多机体适配或具身策略生成能力的里程碑工作。",
-      "tier": "notable",
-      "grade": "D",
+      "significance": 83,
+      "significance_reason": "在ALOHA/ACT（96）等里程碑之后，TAM首次实现跨策略类型（RL/BC/MPC）、跨动作空间（joint/EE/torque）、零真实数据微调的即插即用式sim2real扭矩校正，实机多任务验证扎实（box push/flip/ball-on-plate），性能超越RMA和在线系统辨识，属显著推进SOTA且工程落地路径清晰的重磅工作。",
+      "tier": "heavy",
+      "grade": "C",
       "tags": [
-        "multimodal-fusion",
-        "dataset",
-        "benchmark"
+        "sim2real",
+        "real-robot",
+        "multimodal-fusion"
       ],
-      "tldr": "用10亿帧动作数据预训练一个GPT式Transformer模型，输入传感器信号（如IMU+关节角），输出全身关节运动序列，不微调就能泛化到没见过的动作和控制任务。",
-      "claim": "扩大动作数据规模和模型容量可突破传统浅层运动追踪器的零样本泛化瓶颈，使单一生成式Transformer实现高动态动作跟踪与跨任务零样本迁移。",
+      "tldr": "提出一个即插即用的扭矩自适应模块TAM，不改原有策略，仅靠机器人本体感知历史（关节位置/速度/力矩）实时修正下发扭矩，让在仿真中训练的多种策略（RL/BC/MPC）零样本迁移到真实Franka机械臂上执行动态操作任务。",
+      "claim": "仅依赖本体感知历史的轻量级扭矩适配模块TAM，可零样本泛化到未见过的真实机器人和不同动作空间策略，无需重训策略、无需真实机器人数据微调，即可显著提升动态接触操作的sim2real鲁棒性。",
       "method_components": [
         "model",
-        "dataset",
-        "simulator"
+        "simulator",
+        "policy",
+        "benchmark"
       ],
-      "input": "IMU信号+关节角度+时间序列指令（隐含）",
-      "output": "全身关节角度轨迹（60+维，每帧）",
-      "novelty": 5,
-      "evidence": 7,
-      "one_sentence_verdict": "显著贡献：在纯动作跟踪子任务上通过数据与模型缩放取得扎实进步，但未进入具身智能核心闭环（感知-决策-执行），暂未突破仿真到真实、任务到控制的鸿沟。",
+      "input": "机器人本体感知历史（关节位置、速度、力矩序列）",
+      "output": "残差扭矩修正量（叠加到原始策略输出的扭矩指令上）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：不是从零定义新范式（如ACT），但将sim2real扭矩自适应做到高度解耦、即插即用、免真实数据，是当前具身智能部署链路上关键一环的实质性突破。",
       "deep": {}
     },
     {
-      "rank": 15,
+      "rank": 13,
       "arxiv_id": "2606.04853",
       "title": "Teaching Robots to Say 'I Don't Know' : SENTINEL for Uncertainty-Aware SLAM",
       "published": "2026-06-03",
@@ -600,6 +522,77 @@
       "novelty": 7,
       "evidence": 9,
       "one_sentence_verdict": "显著贡献——直击真实机器人SLAM落地中的关键脆弱点，用轻量可解释方法实现可靠fallback，但缺乏开源与系统级集成，暂未达里程碑级。",
+      "deep": {}
+    },
+    {
+      "rank": 14,
+      "arxiv_id": "2606.04569",
+      "title": "MineXplore: An Open-Source Reinforcement Learning Exploration Benchmark for GNSS-Denied Underground Environment",
+      "published": "2026-06-03",
+      "url": "https://arxiv.org/abs/2606.04569",
+      "pdf_url": "https://arxiv.org/pdf/2606.04569",
+      "thumb": "assets/thumbs/2606.04569.jpg",
+      "venue": "ICRA",
+      "domain": "embodied_ai",
+      "best_route": "sim2real_data",
+      "org": "unknown",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 52,
+      "significance_reason": "填补了地下无GNSS探索的开源仿真基准空白，几何验证扎实（IoU 0.95），但仅提供单智能体PPO基线、无跨机体/跨任务泛化实验、无真实机器人迁移验证，属于扎实但窄口径的增量工作；显著弱于ManiSkill3（87）、Isaac Lab（88）等通用仿真基座，也未达到MimicGen（89）或Crazyflow（89）级的方法论创新或工程深度。",
+      "tier": "worth",
+      "grade": "D",
+      "tags": [
+        "benchmark",
+        "open-source",
+        "sim2real"
+      ],
+      "tldr": "开源了一个基于真实铜矿隧道数据构建的MuJoCo仿真环境MineXplore，用于测试强化学习智能体在无GNSS、低光照、复杂环形拓扑下的探索能力，并用PPO验证了其可训练性。",
+      "claim": "MineXplore是首个开源的、几何保真度高、面向无GNSS地下矿道探索任务的GPU兼容RL训练基准。",
+      "method_components": [
+        "simulator",
+        "benchmark",
+        "dataset"
+      ],
+      "input": "LiDAR点云+IMU+里程计+局部视觉（隐含于MuJoCo传感器配置）",
+      "output": "六自由度导航动作（连续控制空间）",
+      "novelty": 6,
+      "evidence": 7,
+      "one_sentence_verdict": "扎实增量：首个高保真地下矿道RL探索仿真基准，但仅限仿真、单任务、无泛化验证，暂不具备范式突破或系统级影响力。",
+      "deep": {}
+    },
+    {
+      "rank": 15,
+      "arxiv_id": "2606.06245",
+      "title": "MPCoT: Reward-Guided Multi-Path Latent Reasoning for Test-Time Scalable Vision-Language-Action",
+      "published": "2026-06-04",
+      "url": "https://arxiv.org/abs/2606.06245",
+      "pdf_url": "https://arxiv.org/pdf/2606.06245",
+      "thumb": "assets/thumbs/2606.06245.jpg",
+      "venue": "CoRL",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "unknown",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 42,
+      "significance_reason": "方法有启发性（隐空间多路径+零token推理），但仅在两个纯仿真benchmark（LIBERO/CALVIN）上验证，无真实机器人实验，无跨任务/跨机体泛化证据，无开源代码或模型，未与RT-2/Octo/π0等基石模型做同条件对比，仅报告相对基线提升且未说明基线是否为SOTA；属扎实但窄的算法改进，未触及VLA核心瓶颈（如具身因果建模、世界模型耦合、sim2real gap）。",
+      "tier": "worth",
+      "grade": "D",
+      "tags": [
+        "multimodal-fusion"
+      ],
+      "tldr": "提出MPCoT框架，在视觉-语言-动作（VLA）模型推理时不做文本推理链，而是在隐空间并行生成M条动作假设路径，用K步共享权重的隐式优化进行筛选和融合，全程不输出任何推理token，仍保持原有8步动作接口，靠训练时设计的多源奖励（专家一致性+世界模型进展+成功反馈）来监督路径质量。",
+      "claim": "在不增加推理延迟、不暴露文本推理链的前提下，通过隐空间多路径奖励引导的软聚合，可显著提升VLA模型在长视野、高不确定性任务中的鲁棒性与成功率。",
+      "method_components": [
+        "model",
+        "benchmark"
+      ],
+      "input": "RGB图像序列+语言指令",
+      "output": "8步离散/连续动作块（与原始VLA接口完全兼容）",
+      "novelty": 7,
+      "evidence": 5,
+      "one_sentence_verdict": "工程整合：将CoT思想隐式化、低开销化，但缺乏实证广度与开放性，目前仅是仿真benchmark上的增量改进，暂时不用看",
       "deep": {}
     }
   ]

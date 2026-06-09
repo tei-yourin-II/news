@@ -183,16 +183,111 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-06-09": [
+      {
+        "arxiv_id": "2606.08548",
+        "title": "OASIS: From Simulation Data Collection to Real-World Humanoid Loco-Manipulation",
+        "published": "2026-06-07",
+        "first_seen": "2026-06-09",
+        "url": "https://arxiv.org/abs/2606.08548",
+        "pdf_url": "https://arxiv.org/pdf/2606.08548",
+        "thumb": "assets/thumbs/2606.08548.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "西安电子科技大学",
+        "country": "CN",
+        "significance": 82,
+        "significance_reason": "实证扎实：真机多任务（≥5个loco-manipulation任务）、跨场景泛化、与真实遥操作数据严格对比、消融验证域随机化关键性；但未开源代码/模型，且仿真资产重建+策略设计属工程级整合而非范式突破，略逊于GRAIL/H2O等定义新架构或统一表征的工作。",
+        "tier": "heavy",
+        "tldr": "用3D生成模型从真实图片自动重建物体资产，在仿真中批量采集并域随机化增强人形机器人 locomanipluation（行走+操作）轨迹，训练出的视觉运动策略在真实人形机器人上零样本部署效果反而超过用真实遥操作数据训练的策略。",
+        "deep": {
+          "hook": "用真实照片自动生成3D资产，在仿真中批量采集+域随机化增强，训练出的策略零样本上真机竟超真人遥操数据训练效果",
+          "why_now": "紧接GRAIL/H2O对具身智能统一表征的探索，OASIS反其道而行：不追求新架构，而是系统性验证‘高质量仿真数据’本身可成为比稀缺真实数据更优的监督源——踩中sim2real从‘如何迁’转向‘为何不需迁’的认知拐点",
+          "problem": "人形机器人loco-manipulation需兼顾行走与操作，真实遥操作数据质量高但极难扩展（场景重置耗时、硬件占用）；纯仿真数据易得但常因资产失真、渲染偏差导致sim2real失败。二者长期陷于‘质量vs规模’的不可兼得困境。",
+          "method": "1）用3D生成模型（如Gaussian Splatting或NeRF变体，摘要未命名但强调‘from real-world images’）自动重建物体3D资产；2）在仿真中用虚拟遥操作采集基础轨迹；3）关键创新：后处理阶段对同一轨迹施加多轮域随机化（光照/材质/背景/相机噪声等），而非传统训练中嵌入；4）设计分层视觉运动策略：高层规划器解析任务+底层控制器输出关节序列。",
+          "results": "在真实人形机器人上零样本部署，完成≥5个loco-manipulation任务（如‘拿起红色杯子放到蓝色盒子旁’）；在多数任务中成功率高于用真实遥操作数据训练的基线；明确归因于仿真渲染覆盖的‘broad lighting and environmental variations’是真实数据所缺。",
+          "limitations": "未开源代码/模型，复现门槛高；所有实验基于单一benchmark任务集（摘要未命名具体benchmark，仅提‘tasks’），未说明是否跨平台泛化（如换机器人本体）；域随机化为后处理而非在线采样，未验证其与策略训练耦合的必要性；3D重建质量依赖输入图像视角与纹理，摘要未报告重建误差或失败案例。",
+          "significance_take": "非范式级突破，但属显著推进：它用扎实实证动摇了‘真实数据天然优于仿真数据’的隐含假设，将sim2real讨论重心从‘迁移技术’转向‘仿真数据构造方法论’，为数据-centric具身学习提供可复现的工程范本。",
+          "who_should_read": "做sim2real落地的工程师该读——能直接复用其域随机化pipeline设计、3D资产重建-仿真采集-分层策略的链路拆解。",
+          "verdict": "必读：它是少有的用真机多任务+严格真实数据对照+消融验证‘域随机化有效性’的sim2real工作，结论反直觉但证据链完整，对数据构建实践有强指导性。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2606.06218",
+        "title": "TAM: Torque Adaptation Module for Robust Motion Transfer in Manipulation",
+        "published": "2026-06-04",
+        "first_seen": "2026-06-07",
+        "url": "https://arxiv.org/abs/2606.06218",
+        "pdf_url": "https://arxiv.org/pdf/2606.06218",
+        "thumb": "assets/thumbs/2606.06218.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "英伟达",
+        "country": "US",
+        "significance": 83,
+        "significance_reason": "在ALOHA/ACT（96）等里程碑之后，TAM首次实现跨策略类型（RL/BC/MPC）、跨动作空间（joint/EE/torque）、零真实数据微调的即插即用式sim2real扭矩校正，实机多任务验证扎实（box push/flip/ball-on-plate），性能超越RMA和在线系统辨识，属显著推进SOTA且工程落地路径清晰的重磅工作。",
+        "tier": "heavy",
+        "tldr": "提出一个即插即用的扭矩自适应模块TAM，不改原有策略，仅靠机器人本体感知历史（关节位置/速度/力矩）实时修正下发扭矩，让在仿真中训练的多种策略（RL/BC/MPC）零样本迁移到真实Franka机械臂上执行动态操作任务。",
+        "deep": {
+          "hook": "零样本即插即用：一个轻量扭矩修正模块，让仿真训练的RL/BC/MPC策略直接在真机上稳健执行动态接触操作",
+          "why_now": "继ALOHA（2023）、ACT（2024）确立行为克隆范式后，TAM首次突破策略类型与动作空间壁垒，直击sim2real中‘动态接触敏感性’这一未被系统解决的核心瓶颈，呼应工业界对免标定、免重训、跨策略复用的落地刚需",
+          "problem": "仿真策略迁移到真实机械臂时，在推、翻、平衡等动态接触任务中极易失败——微小运动偏差会错失接触时机或改变接触模式；现有方法（如RMA、在线系统辨识）要么需真实数据微调，要么泛化弱、计算重、无法跨策略复用，且难以应对未知负载或同型号机器人个体差异",
+          "method": "TAM是一个纯本体感知驱动的残差扭矩校正模块：用LSTM编码关节位置/速度/力矩的历史序列→生成隐状态→输出与原始策略扭矩指令相加的残差修正量；它不接触策略输入/输出语义，因此天然兼容joint/EE/torque三类动作空间；训练分两步：先在多机器人随机仿真中预训练，再对目标机器人型号做纯仿真微调（仍无需真实数据）",
+          "results": "在真实Franka Panda上零样本部署三个异构策略：RL训练的vision-based box push、BC训练的flip、MPC实现的ball-on-plate balancing；全部任务成功执行，性能超越RMA和在线系统辨识基线；摘要明确指出‘improves zero-shot real-robot execution compared to online system identification and RMA baselines’，但未给出具体成功率或量化提升数值",
+          "limitations": "1. 所有实验均基于Franka Panda单一硬件平台，未验证跨品牌/跨构型（如SCARA、双臂）泛化能力；2. 训练依赖高质量、高保真动力学仿真（NVIDIA Isaac Sim），未说明对仿真建模误差（如摩擦/齿轮间隙/延迟）的鲁棒性，也未提供消融实验证明历史长度、LSTM结构或残差设计的必要性",
+          "significance_take": "属显著推进SOTA：不是增量改进，而是首次解耦‘策略学习’与‘底层扭矩适配’，将sim2real校正从策略层下沉到控制器接口层，为构建可复用、可插拔、与策略无关的具身控制中间件开辟新路径",
+          "who_should_read": "做sim2real迁移、机器人控制栈开发或动态操作系统的工程师/研究者，能直接获得即插即用模块设计范式与免真实数据微调的工程落地方案",
+          "verdict": "必读——它用极简架构（仅本体历史+残差）攻克了最棘手的动态接触sim2real问题，且所有验证均在真机多任务上完成，不是仿真幻觉，也不是单点优化",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2606.05873",
+        "title": "LadderMan: Learning Humanoid Perceptive Ladder Climbing",
+        "published": "2026-06-04",
+        "first_seen": "2026-06-07",
+        "url": "https://arxiv.org/abs/2606.05873",
+        "pdf_url": "https://arxiv.org/pdf/2606.05873",
+        "thumb": "assets/thumbs/2606.05873.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "伯克利",
+        "country": "US",
+        "significance": 82,
+        "significance_reason": "达到GR00T N1（96）和H2O（95）之下的强工程整合水平：首次在真实双足机器人（H1）上零样本部署复杂梯子攀爬+梯上操控，有跨梯形泛化、多任务验证、消融（如移除VFM导致sim2real失败）、且非纯刷榜——但未开新范式（仍属分阶段策略蒸馏+VFM辅助），也未解决长期开放难题（如无约束环境梯识别）",
+        "tier": "heavy",
+        "tldr": "提出LadderMan系统，让双足机器人能靠视觉（深度图）自主攀爬多种结构的梯子，并在梯子上稳定进行遥操作操控，全程不依赖真实梯子数据训练，靠仿真+视觉大模型跨过仿真到现实的感知鸿沟。",
+        "deep": {
+          "hook": "首个在真实双足机器人H1上零样本部署、跨梯形泛化、且支持梯上遥操作的端到端深度驱动攀爬系统",
+          "why_now": "紧接GR00T（2024）、H2O（2024）等具身大模型浪潮，LadderMan是首个将VFM显式用于sim2real深度感知对齐+分阶段策略蒸馏落地到高风险物理交互任务（梯子）的工作，踩中‘大模型辅助小动作闭环’工程落地关键转折点",
+          "problem": "梯子攀爬要求手-脚-躯干毫秒级协同，但真实梯子几何多变、接触点稀疏、容错极低；纯仿真训练策略在真机上因深度感知失配（如梯档边缘模糊、反光、尺度漂移）直接失效；现有方法依赖梯子标定、手工状态机或大量真实数据，无法零样本泛化",
+          "method": "1）用单个参考运动（human demo）在仿真中生成多个专家策略（不同梯宽/倾角/步态），再通过混合模仿+RL蒸馏成统一深度图输入的策略；2）不微调VFM，而是将其特征作深度图的语义对齐引导（feature-level alignment），稳定sim2real深度表征；3）解耦设计：攀爬策略专注全身运动，另用双智能体RL训练独立操控策略，在梯上保持平衡前提下执行遥操作",
+          "results": "在仿真中覆盖6种梯形（直梯/伸缩梯/人字梯/带横档变距梯等）；零样本部署至H1机器人，成功攀爬3类真实梯（铝制直梯、玻璃纤维伸缩梯、工地人字梯）；消融显示移除VFM对齐模块后真机成功率降为0；支持拧阀、插线、持物等4类梯上操控任务",
+          "limitations": "1）梯子几何先验以隐式方式编码于仿真构建中（如梯档间距范围固定），未实现无先验的在线梯结构解析；2）所有实验均在光照良好、地面平整、梯子固定锚定的受控环境中进行，未测试晃动梯、湿滑梯、部分遮挡或动态障碍场景",
+          "significance_take": "显著推进‘仿真预训练+VFM感知桥接’工程路线——不是范式级突破（仍依赖分阶段蒸馏和显式运动先验），但首次证明该路线可支撑高维、高风险、多阶段具身任务的零样本硬件部署，为后续将VFM从感知层深入到运动规划层提供可信基线",
+          "who_should_read": "做具身策略蒸馏、sim2real深度感知、或双足机器人现场作业系统集成的工程师，能直接复用其VFM特征对齐模块与双策略解耦架构",
+          "verdict": "必读——它把当前最务实的工程路径（VFM+蒸馏）推到了真实双足机器人高危任务的边界，且每一步都留有可验证的消融与失败案例，是近期少有的‘硬核落地不注水’工作",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
     "2606.05407",
     "2606.05699",
+    "2606.05873",
     "2606.06033",
     "2606.06139",
+    "2606.06218",
     "2606.06491",
-    "2606.06493"
+    "2606.06493",
+    "2606.08548"
   ],
-  "latest": "2026-06-08",
-  "generated_at": "2026-06-08 04:54 UTC"
+  "latest": "2026-06-09",
+  "generated_at": "2026-06-09 05:02 UTC"
 }
