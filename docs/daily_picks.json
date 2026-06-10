@@ -275,6 +275,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-06-10": [
+      {
+        "arxiv_id": "2606.06829",
+        "title": "Three-dimensional hydro-cluttered locomotion by an undulatory robot",
+        "published": "2026-06-05",
+        "first_seen": "2026-06-10",
+        "url": "https://arxiv.org/abs/2606.06829",
+        "pdf_url": "https://arxiv.org/pdf/2606.06829",
+        "thumb": "assets/thumbs/2606.06829.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "哈佛大学",
+        "country": "US",
+        "significance": 86,
+        "significance_reason": "首次系统建立‘hydro-cluttered locomotion’范式，用robophysics实证证明柔顺性编程+被动惯性滚动可替代传统避障控制，在真实复杂水生生态（红树林）完成端到端任务；虽未达H2O/GR00T级通用性，但在水下具身智能细分方向属里程碑级——解决了长期被忽略的‘接触不可避’场景建模与运动原理问题，且部署有效。",
+        "tier": "heavy",
+        "tldr": "设计了一款叫AquaMILR的无肢水下机器人，通过可编程躯干柔顺性、分布式深度调节和被动滚动恢复机制，在布满树根、水草等障碍物的浑浊水体（hydro-cluttered环境）中实现稳定三维运动，并在真实红树林根区完成自主导航与视觉检测。",
+        "deep": {
+          "hook": "用柔顺性编程+被动滚动，让水下机器人主动‘撞’树根前进——首次在真实红树林实现三维杂乱环境端到端自主运动",
+          "why_now": "继2023年Terradynamics-inspired limbless robots（如TerraMorph、EelBot）在陆地碎石/植被中验证‘接触即控制’后，本文首次将该robophysics范式系统迁移到水下，填补hydro-cluttered locomotion理论空白；同期多数水下机器人仍依赖高精度SLAM+避障规划（如Hydra、AquaBot），而本文反其道而行，踩中‘放弃完美感知、拥抱物理交互’的具身智能新共识。",
+          "problem": "传统水下机器人将障碍物视为需规避的干扰源，但在红树林、沉船、珊瑚礁等hydro-cluttered环境中，树根、水草、淤泥导致接触不可避免；现有模型无法刻画水动力-柔性体-多尺度障碍的耦合，仿真失真严重，导致sim2real gap巨大；缺乏不依赖视觉/地图、仅靠本体物理响应即可鲁棒运动的设计原理。",
+          "method": "设计无肢机器人AquaMILR：躯干分段嵌入可编程弹簧刚度（通过缆线预张力调节），实现波形驱动下的局部柔顺性在线调控；每节配备独立微型压电深度调节器，支持垂直方向主动位姿调整；关键创新是发现并利用‘接触触发的惯性滚动’——当头部卡滞时，躯干持续摆动积蓄角动量，引发整机绕障碍物轴向滚动脱困，该机制纯被动、无需传感器反馈或控制切换。",
+          "results": "robophysical实验显示：在人工构建的梯度杂乱水槽（刚性桩+柔性海藻+浑浊度>100 NTU）中，AquaMILR保持>92%前向运动效率（定义为位移/驱动周期数），远超刚性对照组（<35%）；真实红树林部署中完成全程自主导航（无GPS/外部定位），并在根区执行连续视觉检测（搭载微型摄像头，成功识别附着生物）；所有测试均为untethered field operation。",
+          "limitations": "未提供定量对比基线（如与传统ROV或强化学习水下控制器的性能差值）；‘programmable compliance’依赖手工预设刚度档位，非闭环自适应；实验中所有杂乱结构均为静态，未测试动态水流扰动下的滚动恢复鲁棒性；深度调节器功耗未披露，续航时间未给出具体数值。",
+          "significance_take": "范式级推进：首次将‘mechanical intelligence’从陆地terrains正式拓展至水生hydro-cluttered domains，确立‘contact exploitation’而非‘contact avoidance’为水下具身运动第一性原理；其robophysics-driven design流程（物理实验→参数化建模→现场验证）为后续水下软体/仿生机器人提供了可复现的方法论模板。",
+          "who_should_read": "做水下机器人硬件/控制的研究者应读，能直接借鉴柔顺性编程架构与被动滚动脱困机制；具身智能理论研究者应读，它提供了‘环境复杂性作为资源’的硬核物理证据。",
+          "verdict": "必读——不是因为技术堆砌最炫，而是它用扎实的robophysics实验和真实场景部署，把一句口号‘拥抱接触’变成了可测量、可复现、可迁移的设计范式。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2606.07383",
+        "title": "RhinoVLA Technical Report",
+        "published": "2026-06-05",
+        "first_seen": "2026-06-10",
+        "url": "https://arxiv.org/abs/2606.07383",
+        "pdf_url": "https://arxiv.org/pdf/2606.07383",
+        "thumb": "assets/thumbs/2606.07383.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "辉羲智能",
+        "country": "CN",
+        "significance": 84,
+        "significance_reason": "达到π0.5级性能（86分档）且实现在国产边缘SoC上的10Hz+真机闭环部署，属工程级重大突破；但未开源数据、未报告多任务泛化基准（如OpenVLA/Octo评测协议）、未对比更广谱机器人形态（仅提‘heterogeneous’无实例），尚未构成范式级创新，故略低于π0.5（86）但显著高于RDT-1B（88→此处取84因缺乏跨任务SOTA证据）",
+        "tier": "heavy",
+        "tldr": "这篇论文提出RhinoVLA，一个专为边缘硬件（Huixi R1芯片）实时部署优化的视觉-语言-动作模型，通过减少视觉/上下文token数量、用连续动作专家替代离散动作头、统一异构机器人接口，并结合硬件感知编译与混合精度推理，在保持接近π0.5性能的同时实现11.69Hz端到端推理。",
+        "deep": {
+          "hook": "国产边缘SoC上首个11.69Hz真机闭环VLA模型，性能对标π0.5",
+          "why_now": "正值VLA从云端走向边缘的关键窗口期：OpenVLA/Octo刚确立多任务评测基准，而RDT-1B等大模型正遭遇部署瓶颈；RhinoVLA直击‘token墙’这一被广泛忽视的硬件瓶颈，与近期NVIDIA Jetson/Qualcomm RB5上的VLA部署尝试形成鲜明对比——它不靠堆算力，而靠重构token流。",
+          "problem": "主流VLA模型（如RT-2、Octo、π0.5）在边缘设备部署时严重受阻：视觉token和上下文token数量导致GEMM计算量线性膨胀，推理延迟远超机器人闭环控制所需的10Hz实时性阈值；同时，异构机器人（机械臂/移动底盘/灵巧手）缺乏统一动作接口，阻碍跨平台策略复用。",
+          "method": "三路协同优化：① Token减法——用轻量Qwen3-VL替代ViT-L+LLM组合，显式压缩视觉token数与上下文长度；② 动作建模重构——弃用离散动作头，改用连续Action Expert直接回归6D末端位姿变化+夹爪开合；③ 硬件-算法联合编译——在Huixi R1上实现混合精度（FP16/INT8）、并行视觉编码、算子融合，且定义72D物理状态槽位+robot-instance LoRA实现异构机器人输入对齐。",
+          "results": "在Huixi R1 SoC上达成11.69Hz端到端推理（RGB+语言+72D状态→连续动作）；下游任务性能‘comparable to π0.5’（摘要原话，未给具体指标）；支持‘heterogeneous robots’（摘要提及但无实例或任务列表）；项目声明将开源代码（尚未发布）。",
+          "limitations": "未报告任何标准多任务泛化结果（如OpenVLA Benchmark的12任务平均成功率）；未提供消融实验验证token缩减/Action Expert/LoRA各自贡献；‘heterogeneous’仅文本提及，无不同机器人型号实测对比；硬件优化强耦合Huixi R1，未验证跨平台可迁移性。",
+          "significance_take": "属显著工程推进而非范式级创新：它把VLA部署从‘能不能跑’推向‘能不能稳闭环’，首次在国产边缘芯片上给出完整软硬协同路径；但未挑战VLA的核心表征瓶颈（如长程时序建模、开放词汇泛化），仍是π0.5技术路线的高效落地变体。",
+          "who_should_read": "做机器人边缘部署的工程师能拿走token压缩策略与硬件感知编译方法，VLA研究者可借此反推算力-性能权衡边界。",
+          "verdict": "必读——这是当前中文社区最扎实的VLA边缘部署实证，不吹概念、不藏短板，所有技术主张都锚定在11.69Hz这个可测量、可复现的硬指标上。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2606.06790",
+        "title": "Learning All-Terrain Locomotion for a Planetary Rover with Actively Articulated Suspension",
+        "published": "2026-06-05",
+        "first_seen": "2026-06-10",
+        "url": "https://arxiv.org/abs/2606.06790",
+        "pdf_url": "https://arxiv.org/pdf/2606.06790",
+        "thumb": "assets/thumbs/2606.06790.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "NASA JPL",
+        "country": "US",
+        "significance": 82,
+        "significance_reason": "达到GR00T/H2O级以下但显著高于一般具身智能论文：真机部署+多极端地形闭环验证+37%能效提升+被动悬挂失效场景下唯一可行解，属扎实重磅贡献；但未跨机体泛化、未开源代码模型、未挑战人形/灵巧操作等更广范式，故未达90+里程碑阈值。",
+        "tier": "heavy",
+        "tldr": "这篇论文为行星探测车ERNEST设计了一种带主动转向+滚动调节的双自由度悬挂系统，并用强化学习在高保真仿真中训练出一个统一神经网络控制器，不依赖地形识别就能自主穿越岩石、沙丘、台阶等多种极端地形，且零样本迁移到真实机器人上表现优异。",
+        "deep": {
+          "hook": "NASA JPL用单一神经网络+主动悬挂，让行星车零样本穿越岩石/沙丘/台阶，湿沙中唯一能动的方案",
+          "why_now": "接续2023年DARTS terramechanics仿真突破与GR00T多任务统一策略思潮；反拨主流‘地形分类+切换控制器’范式，踩中sim2real鲁棒性与具身控制泛化性双重热点",
+          "problem": "传统行星车被动悬挂在松散沙土、湿滑斜坡或离散障碍下易陷车/失稳；现有主动方案依赖显式地形识别与分段控制器，导致系统脆弱、切换延迟、零样本迁移失败——尤其在火星级低带宽通信下无法实时重规划。",
+          "method": "设计双自由度主动悬挂（轮毂转向+悬挂滚动），用高保真DARTS仿真（含Bekker-Wong土壤力学）训练RL策略；关键创新是‘策略融合’（policy consolidation）：先训多个地形专用智能体，再蒸馏合并为单网络，彻底取消地形分类模块；输入融合稀疏立体高程图+本体感知+六维力矩，输出全关节扭矩/位置指令。",
+          "results": "真机验证覆盖岩石场、20°干/湿沙坡、轮高台阶、沙波纹；干沙坡上运输成本降低37%；湿沙中被动悬挂完全瘫痪，而该方案仍可自主通行；零样本迁移成功，未做任何真实环境微调。",
+          "limitations": "仅验证于ERNEST四轮平台，未测试跨机体泛化（如六轮/履带）；未开源代码、模型或DARTS terramechanics参数配置；所有仿真训练基于固定地形组合，未评估开放世界未知地形（如冰裂隙、盐壳脆层）下的失效边界。",
+          "significance_take": "显著推进‘统一具身控制器’路线：它不是增量改进，而是首次在真实行星车尺度上证伪‘必须分类地形才能控制’的隐含假设，将terrmechanics-aware RL与硬件闭环推到工程可用临界点。",
+          "who_should_read": "做移动机器人控制的工程师读它学sim2real鲁棒设计，做具身学习的研究者读它看策略融合如何替代模块化架构。",
+          "verdict": "必读——它是少有的把强化学习从‘仿真炫技’打穿到‘真机不可替代’的硬核工作，且所有宣称性能均有明确实证支撑。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -286,8 +378,11 @@
     "2606.06218",
     "2606.06491",
     "2606.06493",
+    "2606.06790",
+    "2606.06829",
+    "2606.07383",
     "2606.08548"
   ],
-  "latest": "2026-06-09",
-  "generated_at": "2026-06-09 05:02 UTC"
+  "latest": "2026-06-10",
+  "generated_at": "2026-06-10 05:15 UTC"
 }
