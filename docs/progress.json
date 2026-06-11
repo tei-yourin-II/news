@@ -49,6 +49,15 @@
           "why": "首次在完全开源、零闭源蒸馏前提下实现像素级视频指代与复杂时序跟踪，突破VLA中‘动作接地’从离散token到连续空间的关键范式瓶颈，将视频-语言-动作闭环的感知粒度从帧/区域级推进至亚像素级，且数据自主性彻底摆脱对GPT-4V等黑盒标注器的依赖。"
         },
         {
+          "name": "vla.cpp: A Unified Inference Runtime for Vision-Language-Action Models",
+          "org": "Fai ModelOpt Tech",
+          "country": "US",
+          "year": "2026",
+          "arxiv_id": "2606.08094",
+          "significance": 89,
+          "why": "首次实现VLA模型跨硬件（含嵌入式）的统一、低延迟、高鲁棒性推理范式，打破‘VLA=云端大模型+专用GPU’的隐性范式绑定，为具身智能从实验室走向边缘部署建立基础设施级新基线"
+        },
+        {
           "name": "RDT-1B",
           "org": "清华大学",
           "country": "CN",
@@ -56,6 +65,15 @@
           "arxiv_id": "2410.07864",
           "significance": 88,
           "why": "最大规模扩散基础模型（1.2B），首次在双臂操作领域实现统一动作空间与zero-shot跨任务泛化，代表中国在扩散VLA方向的范式级突破"
+        },
+        {
+          "name": "LEGS: Fine-Tuning Teleop-Free VLAs for Humanoid Loco-manipulation in an Embodied Gaussian Splatting World",
+          "org": "斯坦福",
+          "country": "US",
+          "year": "2026",
+          "arxiv_id": "2606.01458",
+          "significance": 87,
+          "why": "首次将3D高斯泼溅与VLA训练深度耦合，实现完全免遥操作的具身全身协调loco-manipulation，开辟了‘神经渲染驱动的合成世界闭环训练’新范式，显著降低真实世界数据依赖并提升策略泛化性。"
         },
         {
           "name": "GR00T N1",
@@ -231,7 +249,7 @@
           "note": "ViLLA"
         }
       ],
-      "verdict": "美国在范式原创（RT-2/π0/GR00T/Molmo2）、开源生态（OpenVLA/Octo）和基础理论（Diffusion Policy）上全面领先；中国在扩散模型（RDT-1B）、合成数据驱动（GraspVLA）和人形架构（ViLLA）上实现快速追赶并产出标志性工作，但底层VLM骨干与世界模型融合仍依赖美方进展。",
+      "verdict": "美国在范式原创（RT-2/π0/GR00T/Molmo2）、开源生态（OpenVLA/Octo）和基础理论（Diffusion Policy）上全面领先；中国在扩散模型（RDT-1B）、合成数据驱动（GraspVLA/ViLLA/LEGS）、人形架构（ViLLA）及边缘化VLA部署范式（vla.cpp）上实现快速追赶并产出标志性工作，但底层VLM骨干与世界模型融合仍依赖美方进展。",
       "activity": "领域处于爆发期：2025-2026年每月稳定产出3-5篇奠基性工作，范式收敛（流匹配/双系统/混合）与数据范式转移（合成数据主导）同步加速。",
       "id": "vla",
       "name": "VLA 视觉-语言-动作",
@@ -1060,6 +1078,15 @@
           "why": "首个GPU原生并行物理仿真框架（PhysX GPU + RTX光追），将大规模RL训练吞吐提升2个数量级，成为人形/四足Sim2Real工业级训练事实引擎"
         },
         {
+          "name": "SIMPLE: Simulation-Based Policy Learning and Evaluation for Humanoid Loco-manipulation",
+          "org": "智元",
+          "country": "CN",
+          "year": "2026",
+          "arxiv_id": "2606.08278",
+          "significance": 87,
+          "why": "首次实现高保真接触动力学（MuJoCo）与实时光栅化渲染（IsaacSim）的紧耦合仿真框架，并通过自动规划+低延迟VR双管道生成人形全身loco-manipulation真值数据，在跨任务泛化性、零样本迁移验证严谨性和系统级工程整合深度上达到范式级门槛，填补了人形具身智能在‘可验证仿真-真机闭环’中的关键空白。"
+        },
+        {
           "name": "ManiSkill3",
           "org": "UCSD / 北京大学",
           "country": "US|CN",
@@ -1266,7 +1293,7 @@
           "note": "UMI"
         }
       ],
-      "verdict": "美国在真机数据标准（OXE）、遥操作硬件（ALOHA）、世界模型造数据（DreamGen）、可微分仿真引擎（Crazyflow）和通用仿真平台（Isaac Lab）上全面领先；中国以AgiBot World和Genie Sim 3.0实现人形数据与仿真双突破，但跨机体泛化与生成式数据原创性仍追赶；欧洲依托HuggingFace LeRobot和DeepMind（UK）在数据格式与算法层保持关键影响力。",
+      "verdict": "美国在真机数据标准（OXE）、遥操作硬件（ALOHA）、世界模型造数据（DreamGen）、可微分仿真引擎（Crazyflow）和通用仿真平台（Isaac Lab）上全面领先；中国以AgiBot World和Genie Sim 3.0实现人形数据与仿真双突破，但跨机体泛化与生成式数据原创性仍追赶；欧洲依托HuggingFace LeRobot和DeepMind（UK）在数据格式与算法层保持关键影响力；新增SIMPLE——首个经严格零样本真机验证的高保真人形loco-manipulation仿真-数据-评估一体化范式，标志人形具身智能进入‘可信仿真驱动部署’新阶段。",
       "activity": "该领域处于爆发期：2025-2026年每月稳定产出3-5篇arXiv重磅工作，工业界融资密集（AgiBot/Mecka/Physical Intelligence超$600M），数据正从‘稀缺资源’转向‘可规模化生产基础设施’。",
       "id": "sim2real_data",
       "name": "Sim2Real / 数据",

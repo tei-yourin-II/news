@@ -367,6 +367,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-06-11": [
+      {
+        "arxiv_id": "2606.12403",
+        "title": "World Pilot: Steering Vision-Language-Action Models with World-Action Priors",
+        "published": "2026-06-10",
+        "first_seen": "2026-06-11",
+        "url": "https://arxiv.org/abs/2606.12403",
+        "pdf_url": "https://arxiv.org/pdf/2606.12403",
+        "thumb": "assets/thumbs/2606.12403.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "未知",
+        "country": "unknown",
+        "significance": 85,
+        "significance_reason": "达到并略超RDT-1B（88）和GR00T N1（87）量级：首次系统性解耦世界模型（WAM）与动作策略，证明仅靠视频预训练的世界模型潜空间即可提供有效场景演化先验；在LIBERO-Plus OOD零样本基准上刷新SOTA（84.7%），且在四个真实机器人任务中全面领先，含形变物体等长期难点；但未开源代码/模型，复现门槛高，且WAM未在真实机器人数据上动作对齐，泛化机制仍偏黑箱。",
+        "tier": "heavy",
+        "tldr": "提出World Pilot框架，在视觉-语言-动作（VLA）模型中引入世界-动作先验（WAM），通过潜空间场景演化引导和动作轨迹先验双路径增强决策，显著提升零样本跨分布操作任务成功率，尤其在视角、几何、形变、姿态变化下鲁棒性突出。",
+        "deep": {
+          "hook": "用纯视频预训练的世界模型潜空间，不微调、不交互，就能给VLA模型注入物理演化先验，零样本跨分布操作SOTA",
+          "why_now": "继RT-2、VoxPoser、GR00T后，具身智能正从‘语义驱动’转向‘世界模型驱动’；本文首次系统解耦WAM与策略，回应了近期对‘世界模型是否必须动作对齐才能有用’的争议，踩中‘轻量级世界先验’这一新范式萌芽期。",
+          "problem": "现有VLA模型（如RT-2）依赖静态图文预训练，缺乏对接触动力学、场景连续演化的建模能力，导致在视角/几何/形变等分布外（OOD）任务中泛化骤降；引入世界模型常需真实机器人动作数据微调，成本高、难扩展。",
+          "method": "提出World Pilot框架：1）用纯视频预训练的世界模型（WAM）提取输入图像序列的‘场景演化潜表示’，经Latent Steering注入VLA感知层，引导视觉特征关注动态变化区域；2）WAM同时生成‘动作轨迹先验’，经Action Steering作为运动提示输入动作生成器；二者完全解耦于VLA主干，且WAM无需任何机器人动作数据微调。",
+          "results": "在LIBERO-Plus OOD零样本基准上Total success率达84.7%（SOTA）；在四个真实机器人任务（含形变物体操作）中全部领先；提升最显著于视角、几何、形变、姿态变化场景——摘要明确点出这四类shift，但未给出具体数值提升幅度。",
+          "limitations": "1）WAM仅在视频数据上预训练，未在真实机器人动作数据上对齐，其潜空间是否真编码物理演化存疑；2）未开源代码/模型，仅提供项目页，复现门槛极高；3）所有实证结果均未报告消融实验（如单独移除Latent或Action Steering的影响），双路径贡献不可分。",
+          "significance_take": "范式级推进：首次证明‘视频预训练世界模型的潜空间本身即含有效动作先验’，打破‘世界模型必须动作微调才有用’的隐含假设，为低成本构建轻量级具身先验开辟新路径。",
+          "who_should_read": "做VLA架构设计、世界模型蒸馏、sim2real迁移的研究者，能直接获得可插拔的双路径先验注入范式与OOD鲁棒性验证方法。",
+          "verdict": "必读——它用极简设定（零动作微调WAM）撬动了VLA泛化瓶颈，虽黑箱机制待解，但实证强度与范式启发性远超当前多数增量工作。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2606.08094",
+        "title": "vla.cpp: A Unified Inference Runtime for Vision-Language-Action Models",
+        "published": "2026-06-06",
+        "first_seen": "2026-06-11",
+        "url": "https://arxiv.org/abs/2606.08094",
+        "pdf_url": "https://arxiv.org/pdf/2606.08094",
+        "thumb": "assets/thumbs/2606.08094.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "Fai ModelOpt Tech",
+        "country": "US",
+        "significance": 85,
+        "significance_reason": "虽未提出新VLA模型，但在部署范式上实质性突破：首次将flow-matching/diffusion类VLA推理压缩至嵌入式可行范围，完成从‘能跑’到‘能实时闭环’的关键跨越；实测覆盖消费GPU→边缘模块→真机ALOHA三级硬件，且开源全栈（含benchmark scaffold），工程深度与实证强度接近GR00T N1（87分档）下沿，但模型广度与训练规模不及OpenVLA/RT-2等基石工作。",
+        "tier": "heavy",
+        "tldr": "这篇论文把原本依赖Python/PyTorch和高端GPU的视觉-语言-动作（VLA）模型，用C++重写成轻量、跨硬件的推理运行时vla.cpp，支持7种VLA架构，在嵌入式设备（8GB内存）上也能跑通BitVLA并保持100%成功率，还做了硬件级性能分析和真实机械臂上的低延迟重规划压力测试。",
+        "deep": {
+          "hook": "首个支持flow-matching/diffusion类VLA模型的嵌入式级C++推理引擎，真机重规划延迟压至亚秒级",
+          "why_now": "正值VLA从仿真走向真实机器人部署的关键拐点：RT-2/CoRT/OpenVLA等模型已验证能力上限，但90%以上工作仍卡在PyTorch+GPU部署范式；vla.cpp直击‘模型能训不能跑’的工程断层，与GR00T N1、RoboGen等强调硬件闭环的近期工作形成互补而非重复",
+          "problem": "现有VLA模型依赖Python/PyTorch栈和高端GPU，无法在边缘设备（如8GB内存嵌入式模块）上实时闭环；部署时需为每种架构定制推理逻辑，缺乏统一接口；更关键的是，社区长期误判瓶颈为显存带宽，忽视计算单元利用率低下这一根本症结",
+          "method": "基于llama.cpp构建轻量C++运行时，专为VLA特有的‘缓存视觉语言前缀 + 多步求解动作专家’推理模式设计；提出IMMA ladder GEMM优化——一种面向batch-1、低并行度VLA计算的定制矩阵乘法调度策略；所有模型打包为自包含bundle（含权重、tokenizer、action head配置），通过统一request/response协议调用",
+          "results": "在LIBERO-Object上复现SOTA checkpoint精度（200 episode中仅差1 episode）；BitVLA在8GB嵌入式模块上100%成功率运行；同一bundle无缝运行于消费级GPU、Jetson AGX Orin、ALOHA机械臂三类硬件；IMMA ladder GEMM使BitVLA单步延迟降低4.5倍；ALOHA真机测试中实现<800ms重规划响应（对移动目标）",
+          "limitations": "仅验证7种VLA架构中的主流代表（如BitVLA、Flamingo-VLA），未覆盖RT-2或OpenVLA的完整训练流程适配；所有实测基于sim2real微调后的checkpoint，未报告原始预训练模型在边缘端的量化损失；benchmark scaffold虽开源，但ALOHA压力测试场景未公开具体运动轨迹与干扰模式，复现可比性存疑",
+          "significance_take": "范式级推进：它不改变VLA建模本身，而是首次将‘推理即服务’（inference-as-a-service）落地为跨硬件、低延迟、可验证的系统契约——这标志着VLA正从‘算法竞赛’转向‘闭环基础设施竞赛’，其意义类似llama.cpp之于LLM部署",
+          "who_should_read": "机器人系统工程师读它能直接拿走可部署的bundle封装规范和IMMA优化模板；VLA算法研究员读它可明确下一代模型设计必须预留的runtime接口契约（如prefix caching粒度、solver step hook点）",
+          "verdict": "必读——这是首篇把VLA从‘论文模型’拽进‘机器人控制循环’的工程锚点，不读就可能在部署阶段掉队半年",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2606.09827",
+        "title": "MemoryVLA++: Temporal Modeling via Memory and Imagination in Vision-Language-Action Models",
+        "published": "2026-06-08",
+        "first_seen": "2026-06-11",
+        "url": "https://arxiv.org/abs/2606.09827",
+        "pdf_url": "https://arxiv.org/pdf/2606.09827",
+        "thumb": "assets/thumbs/2606.09827.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "腾讯AI Lab",
+        "country": "CN",
+        "significance": 85,
+        "significance_reason": "达到π0.5（86分）档位：首次在VLA框架中系统性闭环集成记忆检索+潜空间世界模型+扩散动作生成，并在真实机器人（3平台）、长时序（Libero-Plus）、强依赖任务（如‘打开抽屉后拿杯子’）上给出扎实多任务消融与跨机体泛化结果；但世界模型为轻量denoising latent predictor，非自回归物理仿真，且真实数据未开源，未达π0（95）级范式颠覆或RT-2（97）级基础架构重构。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出MemoryVLA++，给视觉-语言-动作（VLA）模型加了三样人脑式能力：工作记忆（缓存当前感知）、记忆银行（存取过往交互的细节和语义）、世界模型（在隐空间去噪式想象未来状态），最终让机器人在长时序、依赖历史和预测的任务中动作更连贯；在5个仿真基准和3类真实机器人任务（跨3种机器人）上验证，尤其在需记忆或想象的任务上提升26%–28%。",
+        "deep": {
+          "hook": "给VLA模型装上‘人脑三件套’：工作记忆+记忆银行+潜空间世界模型，真机长时序任务提升26%–28%",
+          "why_now": "继RT-2（2023）、OpenVLA（2024）后，VLA领域正从‘单帧感知-动作映射’转向‘时序闭环建模’；本文是首个在真实机器人上系统闭环集成记忆检索+隐式世界模型+扩散动作生成的完整方案，踩中具身智能‘时序因果建模’核心瓶颈。",
+          "problem": "现有VLA模型多为帧到动作的瞬时映射，无法处理需回溯历史（如‘打开抽屉后拿杯子’）或预判状态演化（如‘推杯子前先估摩擦’）的长时序任务；纯RNN/Transformer时序建模易遗忘、难泛化，且缺乏与物理世界的显式交互想象机制。",
+          "method": "用预训练VLM将当前观测编码为‘工作记忆’token；该token检索‘感知-认知记忆银行’（存低层图像patch+高层语义标签，支持冗余感知驱动的增量更新）；再输入轻量denoising世界模型，在latent空间预测未来状态去噪轨迹；最后用记忆引导的扩散专家生成时序连贯动作序列——全程端到端可微，无手工状态机或规则。",
+          "results": "在5个仿真基准（Libero, SimplerEnv, Mikasa-Robo, Calvin, Libero-Plus）和3类真实机器人任务（跨UR5、Franka、TurtleBot3平台）验证；真实机器人上，通用任务+9%，记忆依赖任务+26%，想象依赖任务+28%；消融显示三模块缺一不可，且跨机体泛化有效。",
+          "limitations": "世界模型仅为latent space denoising predictor，非自回归物理仿真，未验证长期rollout稳定性；真实机器人数据未开源，仅提供project page；记忆银行更新机制依赖人工设计的‘冗余感知’判定，未量化其对噪声鲁棒性的影响。",
+          "significance_take": "显著推进VLA的时序建模范式——不是简单加LSTM或attention，而是仿生级模块化闭环：记忆负责‘查历史’，世界模型负责‘想未来’，扩散负责‘做动作’；为后续‘神经符号混合时序推理’提供可插拔架构基底。",
+          "who_should_read": "做VLA/具身时序建模的工程师读它能直接复用记忆银行+latent world model接口设计；做机器人部署的研究者可借鉴其sim2real跨机体泛化实证路径。",
+          "verdict": "必读——它是当前唯一在真机长时序任务上同时验证记忆检索、潜空间想象、扩散动作三者闭环协同的SOTA工作，且所有组件均面向工程落地设计，非纯理论拼凑。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -381,8 +473,11 @@
     "2606.06790",
     "2606.06829",
     "2606.07383",
-    "2606.08548"
+    "2606.08094",
+    "2606.08548",
+    "2606.09827",
+    "2606.12403"
   ],
-  "latest": "2026-06-10",
-  "generated_at": "2026-06-10 05:15 UTC"
+  "latest": "2026-06-11",
+  "generated_at": "2026-06-11 05:26 UTC"
 }
