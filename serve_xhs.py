@@ -25,6 +25,24 @@ config.load_env()                                   # 读 .env(含 XHS_PASSWORD 
 PASSWORD = (os.environ.get("XHS_PASSWORD") or "").strip()
 COOKIE = "xhs_auth"
 
+# 端口/绑定:Railway 等托管会注入 PORT → 自动公网模式(0.0.0.0);本地无 PORT → 只听 127.0.0.1
+_ARGV_PORT = next((a for a in sys.argv[1:] if a.isdigit()), None)
+PORT = int(os.environ.get("PORT") or _ARGV_PORT or 8731)
+HOST = os.environ.get("XHS_HOST") or ("0.0.0.0" if os.environ.get("PORT") else "127.0.0.1")
+EXPOSED = HOST == "0.0.0.0"                          # 对外可达
+NEEDS_SETUP = EXPOSED and not PASSWORD               # 公网却没设密码 = 危险,锁死
+
+NOTICE_HTML = """<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>需要配置</title>
+<style>body{margin:0;height:100vh;display:flex;align-items:center;justify-content:center;
+background:#0d0f14;font-family:-apple-system,"PingFang SC",sans-serif;color:#eee;text-align:center;padding:24px}
+.b{max-width:420px}.b h1{font-size:19px}.b code{background:#222;padding:2px 7px;border-radius:5px;color:#ffd84d}</style>
+</head><body><div class="b"><h1>⚠️ 部署到公网必须先设密码</h1>
+<p>检测到对外开放(0.0.0.0)但未设置 <code>XHS_PASSWORD</code>。<br>
+为避免别人调用你的生成接口(烧 LLM 额度),已暂时锁定。</p>
+<p>请在托管(Railway)的环境变量里加 <code>XHS_PASSWORD</code>(和 <code>QWEN_API_KEY</code>)后重启。</p>
+</div></body></html>"""
+
 LOGIN_HTML = """<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>登录 · 小红书工作台</title>
 <style>body{margin:0;height:100vh;display:flex;align-items:center;justify-content:center;
@@ -91,6 +109,8 @@ class Handler(SimpleHTTPRequestHandler):
         self.wfile.write(body)
 
     def do_POST(self):
+        if NEEDS_SETUP:
+            self._json(403, {"error": "服务器未设 XHS_PASSWORD,已锁定"}); return
         u = urlparse(self.path)
         if u.path == "/api/login":
             n = int(self.headers.get("Content-Length", 0) or 0)
@@ -106,6 +126,15 @@ class Handler(SimpleHTTPRequestHandler):
 
     def do_GET(self):
         u = urlparse(self.path)
+        # ---- 公网裸奔保护:没设密码就锁死 ----
+        if NEEDS_SETUP:
+            if u.path.startswith("/api/"):
+                self._json(403, {"error": "服务器未设 XHS_PASSWORD,已锁定"})
+            else:
+                body = NOTICE_HTML.encode("utf-8")
+                self.send_response(403); self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.send_header("Content-Length", str(len(body))); self.end_headers(); self.wfile.write(body)
+            return
         # ---- 鉴权门:未登录时 /api/* 给 401,页面给登录页 ----
         if not self._authed():
             if u.path.startswith("/api/"):
@@ -130,14 +159,14 @@ class Handler(SimpleHTTPRequestHandler):
 
 
 def main():
-    port = int(sys.argv[1]) if len(sys.argv) > 1 else 8731
-    host = os.environ.get("XHS_HOST", "127.0.0.1")   # 要手机/外网访问时设 0.0.0.0(务必先设 XHS_PASSWORD)
-    srv = ThreadingHTTPServer((host, port), Handler)
-    print(f"小红书工作台: http://localhost:{port}/xhs_preview.html  (Ctrl+C 退出)")
-    if PASSWORD:
-        print(f"🔒 已启用密码登录(XHS_PASSWORD 已设);未登录访问会跳登录页,/api/* 返回 401。")
+    srv = ThreadingHTTPServer((HOST, PORT), Handler)
+    print(f"小红书工作台: http://{'localhost' if HOST=='127.0.0.1' else HOST}:{PORT}/xhs_preview.html  (Ctrl+C 退出)")
+    if NEEDS_SETUP:
+        print(f"⛔ 公网模式({HOST})但未设 XHS_PASSWORD —— 已锁定!请在环境变量设 XHS_PASSWORD 后重启。")
+    elif PASSWORD:
+        print(f"🔒 已启用密码登录;未登录访问跳登录页,/api/* 返回 401。绑定 {HOST}:{PORT}")
     else:
-        print(f"⚠️  未设 XHS_PASSWORD —— 当前 OPEN 模式(仅 {host} 可达)。要对外开放务必先在 .env 设密码。")
+        print(f"⚠️  未设密码,但仅 {HOST} 本地可达(OPEN 模式,开发用)。")
     print(f"生成端点: POST /api/login(密码) → GET /api/gen?id=ARXIV_ID&force=0|1")
     try:
         srv.serve_forever()
