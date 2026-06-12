@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>小红书排版预览 · 自动分页 3:4 · RealDexUMI</title>
+<style>
+  :root{ --ink:#1f1f1f; --sub:#6b6b6b; --line:#ececec; --red:#ff2e4d; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#e9e9ec;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+       color:var(--ink);padding:28px 12px 90px}
+  .head{max-width:1100px;margin:0 auto 18px;color:#444;font-size:13px;line-height:1.7}
+  .head b{color:#111}
+  .slides{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
+  /* 论文选择器 */
+  .picker{max-width:1100px;margin:0 auto 18px;display:flex;gap:10px;flex-wrap:wrap}
+  .pk{background:#fff;border:1px solid #e3e3e6;border-radius:12px;padding:9px 13px;cursor:pointer;
+      max-width:230px;transition:border-color .12s,box-shadow .12s}
+  .pk:hover{border-color:#ffb3bd}
+  .pk.on{border-color:var(--red);box-shadow:0 4px 14px rgba(255,46,77,.18)}
+  .pk .t{font-size:13px;font-weight:700;color:#1f1f1f;line-height:1.4;
+      display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .pk .m{font-size:11px;color:#999;margin-top:5px;display:flex;gap:8px;align-items:center}
+  .pk .rdy{color:#1a9c54;font-weight:700}
+  .pk .no{color:#c98a00;font-weight:700}
+
+  /* ===== 每页固定 3:4(360×480) ===== */
+  .slide{width:360px;height:480px;background:#fff;border-radius:18px;overflow:hidden;
+         box-shadow:0 8px 26px rgba(0,0,0,.13);display:flex;flex-direction:column;position:relative}
+  .slide .pgno{position:absolute;top:12px;right:14px;font-size:11px;color:#bbb;z-index:3}
+
+  /* 封面页 */
+  .cover{position:relative;width:100%;height:100%;background:#0d0f14;overflow:hidden}
+  .cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
+  .cover .grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,10,15,.2),rgba(8,10,15,.88))}
+  .cover .tag{position:absolute;top:18px;left:18px;font-size:12px;letter-spacing:.5px;color:#fff;
+        background:rgba(255,255,255,.16);backdrop-filter:blur(4px);padding:5px 12px;border-radius:999px;
+        border:1px solid rgba(255,255,255,.25)}
+  .cover .series{position:absolute;top:54px;left:18px;font-size:23px;font-weight:900;letter-spacing:2px;
+        color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.55)}
+  .cover .series em{font-style:normal;color:#ffd84d}
+  .cover .ctxt{position:absolute;left:30px;right:30px;bottom:28px;color:#fff}
+  .cover .ctxt .big{font-size:31px;font-weight:900;line-height:1.22;letter-spacing:.5px;
+        text-shadow:0 2px 18px rgba(0,0,0,.5)}
+  .cover .ctxt .big em{font-style:normal;color:#ffd84d}
+  .cover .ctxt .sm{margin-top:12px;font-size:13px;opacity:.92;font-weight:500}
+
+  /* 内容页 */
+  .scontent{flex:1;padding:24px 30px 8px;overflow:hidden}
+  .sfoot{height:30px;flex:0 0 30px;display:flex;align-items:center;padding:0 30px;
+         border-top:1px solid var(--line);font-size:11px;color:#9a9a9a;gap:8px}
+  .sfoot b{color:#555}
+
+  .lead{font-size:16px;font-weight:700;color:#111;line-height:1.7;margin:2px 0 4px}
+  .p{font-size:14.5px;line-height:1.85;color:#2a2a2a;margin:9px 0}
+  .sec{font-size:16px;font-weight:800;margin:6px 0 4px}
+  .li{font-size:14px;line-height:1.8;color:#2a2a2a;margin:5px 0}
+  .num{font-size:14px;line-height:1.9;color:#2a2a2a;margin:5px 0}
+  .num b,.p b,.li b{color:var(--red)}
+  .card{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:#fafafa;margin:6px 0}
+  .card .row{font-size:13px;line-height:1.95;color:#444}
+  .card .row b{color:#111}
+  .tags{font-size:13px;line-height:1.95;color:#2b6cb0;font-weight:600;margin:6px 0}
+
+  /* 隐藏的内容源(供分页器测量) */
+  #source{display:none}
+
+  /* 导出条 */
+  .exportbar{position:fixed;right:18px;bottom:18px;display:flex;flex-direction:column;gap:10px;z-index:50}
+  .exportbar button{font-family:inherit;font-size:14px;font-weight:700;color:#fff;background:var(--red);
+        border:none;padding:12px 18px;border-radius:999px;cursor:pointer;box-shadow:0 6px 18px rgba(255,46,77,.4)}
+  .exportbar button:active{transform:scale(.96)}
+  .exportbar button.ghost{background:#1f1f1f;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+  .exportbar .hint{font-size:11px;color:#888;text-align:center;max-width:160px;line-height:1.5}
+  /* 全文文本面板 */
+  .textwrap{max-width:760px;margin:28px auto 0;background:#fff;border-radius:16px;padding:18px 20px;
+            box-shadow:0 6px 20px rgba(0,0,0,.08)}
+  .textwrap .thd{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+  .textwrap .thd b{font-size:15px}
+  .textwrap .thd .cpbtn{font-family:inherit;font-size:13px;font-weight:700;color:#fff;background:var(--red);
+            border:none;padding:8px 16px;border-radius:999px;cursor:pointer}
+  .textwrap .thd .cpbtn:active{transform:scale(.96)}
+  .textwrap textarea{width:100%;height:340px;border:1px solid var(--line);border-radius:10px;
+            padding:14px;font-family:inherit;font-size:14px;line-height:1.85;color:#222;resize:vertical;background:#fafafa}
+  .textwrap .tip{font-size:12px;color:#999;margin-top:8px}
+</style>
+</head>
+<body>
+
+  <div class="head">
+    <b>小红书 3:4 自动分页预览（JSON 驱动）</b> · 每页 360×480(导出 ×3 = 1080×1440)<br>
+    点下方任一论文 → 载入它的小红书排版（已生成的可直接看/导出；没生成的提示先跑 <code>gen_xhs.py</code>）。
+  </div>
+
+  <!-- 论文选择器(读 daily_picks.json) -->
+  <div class="picker" id="picker"></div>
+
+  <!-- 渲染结果(分页器写到这里) -->
+  <div class="slides" id="slides"></div>
+
+  <!-- 全文文本(可复制) -->
+  <div class="textwrap">
+    <div class="thd"><b>📋 正文全文（粘贴到小红书文字区）</b>
+      <button class="cpbtn" onclick="copyText()">复制全文</button></div>
+    <textarea id="fulltext" readonly></textarea>
+    <div class="tip">已去掉 ** 强调标记，纯文本。标题/正文/标签一并复制；图片用上面的「导出全部分页」。</div>
+  </div>
+
+  <!-- 导出条 -->
+  <div class="exportbar">
+    <button onclick="exportAll()">⬇️ 导出全部分页</button>
+    <button class="ghost" onclick="exportOne(0)">⬇️ 只导出封面</button>
+    <button class="ghost" onclick="regenCurrent()">🔄 重新生成当前</button>
+    <div class="hint">每页 3:4 单独成图，连番命名。存相册即可逐张发小红书</div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script>
+  var SLIDES = document.getElementById('slides');
+
+  // ===== 兜底数据:fetch 不到 xhs_sample.json 时用它(保证页面永远能渲染) =====
+  var DATA = {
+    arxiv_id:"2606.06033", thumb:"assets/thumbs/2606.06033.jpg",
+    cover:{tag:"具身智能 · 灵巧操作", series:"每日论文精选",
+      title_lines:["人戴上","「机器人的手」","去示范"], subtitle:"采到的数据，直接能拿去训练"},
+    blocks:[{type:"lead",text:"（未找到 xhs_sample.json，先跑 gen_xhs.py 生成）"}]
+  };
+
+  // ===== 渲染原语:type → 固定样式;**…** → <b>(颜色由 CSS 所有,LLM 不碰色) =====
+  function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function inline(s){ return esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>'); }
+
+  function createBlock(b){
+    var el = document.createElement('div');
+    if (b.type==='card'){
+      el.className='card';
+      el.innerHTML=(b.rows||[]).map(function(r){return '<div class="row">'+inline(r)+'</div>';}).join('');
+    } else if (b.type==='tags'){
+      el.className='tags';
+      el.textContent=(b.items||[]).map(function(t){return '#'+t;}).join(' ');
+    } else {
+      el.className=(['lead','p','num','li','sec'].indexOf(b.type)>=0)?b.type:'p';
+      el.innerHTML=inline(b.text||'');
+    }
+    return el;
+  }
+
+  function coverSlide(){
+    var c=DATA.cover||{}, lines=c.title_lines||[];
+    var thumb = DATA.thumb || ('assets/thumbs/'+(DATA.arxiv_id||'')+'.jpg');
+    var s=document.createElement('div'); s.className='slide';
+    s.innerHTML =
+      '<div class="cover">'+
+        '<img src="'+thumb+'" alt="">'+
+        '<div class="grad"></div>'+
+        '<div class="tag">'+esc(c.tag||'')+'</div>'+
+        '<div class="series">'+esc(c.series||'每日论文精选').replace('精选','<em>精选</em>')+'</div>'+
+        '<div class="ctxt">'+
+          '<div class="big">'+lines.map(esc).join('<br>')+'</div>'+
+          '<div class="sm">'+esc(c.subtitle||'')+'</div>'+
+        '</div>'+
+      '</div>';
+    return s;
+  }
+  function contentSlide(){
+    var foot = (DATA.cover&&DATA.cover.tag?DATA.cover.tag+' ｜ ':'')+'arxiv '+(DATA.arxiv_id||'');
+    var s=document.createElement('div'); s.className='slide';
+    s.innerHTML='<div class="scontent"></div><div class="sfoot"><b>'+esc(foot)+'</b></div>';
+    return s;
+  }
+
+  // 贪心分页:逐块塞入,溢出退回开新页。关键:slide 先挂 DOM 再测高,否则 clientHeight=0。
+  // 只对「内容页」做分页/孤儿处理 —— 封面单独处理,不进这里(修掉了 cover 无 .scontent 的崩溃)。
+  function paginate(contentPages){
+    var nodes = (DATA.blocks||[]).map(createBlock);
+    var cur=contentSlide(); SLIDES.appendChild(cur); contentPages.push(cur);
+    var area=cur.querySelector('.scontent');
+    nodes.forEach(function(node){
+      area.appendChild(node);
+      if (area.scrollHeight > area.clientHeight && area.children.length>1){
+        area.removeChild(node);
+        cur=contentSlide(); SLIDES.appendChild(cur); contentPages.push(cur);
+        area=cur.querySelector('.scontent'); area.appendChild(node);
+      }
+    });
+    // 孤儿:页尾若是 .sec 标题,挪到下一页开头(只在内容页之间)
+    for (var i=0;i<contentPages.length-1;i++){
+      var a=contentPages[i].querySelector('.scontent');
+      var last=a.lastElementChild;
+      if (last && last.classList.contains('sec')){
+        a.removeChild(last);
+        var na=contentPages[i+1].querySelector('.scontent');
+        na.insertBefore(last, na.firstChild);
+      }
+    }
+  }
+
+  function render(){
+    SLIDES.innerHTML='';
+    var cover=coverSlide(); SLIDES.appendChild(cover);
+    var contentPages=[]; paginate(contentPages);
+    var all=[cover].concat(contentPages);
+    all.forEach(function(s,i){
+      var n=document.createElement('div'); n.className='pgno'; n.textContent=(i+1)+'/'+all.length; s.appendChild(n);
+    });
+    return all;
+  }
+
+  // ===== 全文文本(去掉 ** 标记,可复制粘贴) =====
+  function strip(s){ return (s||'').replace(/\*\*(.+?)\*\*/g,'$1'); }
+  function buildText(){
+    var c=DATA.cover||{}, out=[];
+    var title=(c.title_lines||[]).map(strip).join(' ');
+    if(title) out.push(title);
+    if(c.subtitle) out.push(strip(c.subtitle));
+    out.push('');
+    (DATA.blocks||[]).forEach(function(b){
+      if(b.type==='sec'){ out.push(''); out.push(strip(b.text)); }
+      else if(b.type==='card'){ out.push(''); (b.rows||[]).forEach(function(r){out.push(strip(r));}); }
+      else if(b.type==='tags'){ out.push(''); out.push((b.items||[]).map(function(t){return '#'+t;}).join(' ')); }
+      else out.push(strip(b.text));
+    });
+    return out.join('\n');
+  }
+  function syncText(){ var t=document.getElementById('fulltext'); if(t) t.value=buildText(); }
+  function copyText(){
+    var t=document.getElementById('fulltext');
+    t.select(); t.setSelectionRange(0,99999);
+    (navigator.clipboard ? navigator.clipboard.writeText(t.value) : Promise.reject())
+      .then(function(){ flash('已复制全文 ✓'); })
+      .catch(function(){ try{document.execCommand('copy'); flash('已复制全文 ✓');}catch(e){ alert('复制失败,请手动选中'); } });
+  }
+  function flash(msg){
+    var b=event&&event.target; if(!b) return; var old=b.textContent; b.textContent=msg;
+    setTimeout(function(){ b.textContent=old; },1200);
+  }
+
+  // ===== 状态:STORE=已生成库(by_id), ROWS=可选论文清单(daily+weekly) =====
+  var RENDERED=[]; var CUR={id:''}; var STORE={by_id:{}}; var ROWS=[];
+  function loadData(d){ DATA=d; if(d&&d.arxiv_id) CUR.id=d.arxiv_id; RENDERED=render(); syncText(); }
+  function qparam(k){ return new URLSearchParams(location.search).get(k)||''; }
+
+  // 调本地服务器只生成这一篇(点击/URL 触发,不批量预跑)。force=1 强制重生成。
+  function genRemote(id,force){
+    return fetch('/api/gen?id='+encodeURIComponent(id)+(force?'&force=1':''),{cache:'no-store'})
+      .then(function(r){
+        if(r.status===401){ location.reload(); throw new Error('未登录,正在跳转登录'); }  // Cookie 失效→回登录页
+        return r.json().then(function(j){ if(!r.ok) throw new Error(j.error||r.status); return j; }); })
+      .then(function(xhs){ STORE.by_id[id]=xhs; return xhs; });
+  }
+  function isReady(id){ return !!(STORE.by_id[id]&&STORE.by_id[id].cover); }
+
+  function buildPicker(){
+    var box=document.getElementById('picker'); box.innerHTML='';
+    if(!ROWS.length){ box.innerHTML='<div style="color:#999;font-size:13px">没有可选论文(先跑 pick_daily/pick_weekly)</div>'; return; }
+    ROWS.forEach(function(r){
+      var el=document.createElement('div'); el.className='pk'; el.dataset.id=r.id;
+      function badge(){ return isReady(r.id)?'<span class="rdy">✓ 已生成</span>':'<span class="no">未生成 · 点我生成</span>'; }
+      function paint(){ el.innerHTML='<div class="t">'+esc(r.title||'')+'</div>'+
+        '<div class="m">'+esc(r.label)+' · '+esc(r.org||'')+' · '+badge()+'</div>'; }
+      paint(); r.paint=paint; r.el=el;
+      el.addEventListener('click',function(){ selectRow(r); });
+      box.appendChild(el);
+    });
+  }
+  function markOn(id){ document.querySelectorAll('.pk').forEach(function(x){
+      x.classList.toggle('on', x.dataset.id===id); }); }
+
+  function selectRow(r){
+    CUR.id=r.id; markOn(r.id);
+    if(isReady(r.id)){ loadData(STORE.by_id[r.id]); return; }
+    if(r.el){ r.el.querySelector('.m').innerHTML=esc(r.label)+' · <span class="no">⏳ 生成中…</span>'; }
+    genRemote(r.id,false).then(function(xhs){ if(r.paint)r.paint(); loadData(xhs); })
+      .catch(function(e){ if(r.paint)r.paint(); alert('生成失败: '+e.message+'\n(需用 serve_xhs.py 启动,普通 http.server 没有 /api/gen)'); });
+  }
+
+  // 重新生成当前这篇(改了 prompt / 想换个说法时用,force=1)
+  function regenCurrent(){
+    if(!CUR.id){ alert('先选一篇'); return; }
+    var btn=event&&event.target, old=btn&&btn.textContent; if(btn) btn.textContent='⏳ 生成中…';
+    genRemote(CUR.id,true).then(function(xhs){ loadData(xhs);
+        var r=ROWS.filter(function(x){return x.id===CUR.id;})[0]; if(r&&r.paint)r.paint();
+      }).then(function(){ if(btn) btn.textContent=old; })
+      .catch(function(e){ if(btn) btn.textContent=old; alert('生成失败: '+e.message); });
+  }
+
+  function collectRows(daily,weekly){
+    var rows=[];
+    if(daily&&daily.picks_by_date){
+      Object.keys(daily.picks_by_date).sort().reverse().forEach(function(date){
+        (daily.picks_by_date[date]||[]).forEach(function(p){
+          rows.push({id:p.arxiv_id,title:p.title,org:p.org,label:'每日 '+date}); });
+      });
+    }
+    if(weekly&&weekly.picks){
+      (weekly.picks||[]).slice(0,5).forEach(function(p){            // 本周榜首取前5
+        if(rows.some(function(x){return x.id===p.arxiv_id;})) return;
+        rows.push({id:p.arxiv_id,title:p.title,org:p.org,label:'本周 #'+(p.rank||'')}); });
+    }
+    return rows;
+  }
+
+  window.addEventListener('load', function(){
+    Promise.all([
+      fetch('xhs_store.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).catch(function(){return null;}),
+      fetch('daily_picks.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).catch(function(){return null;}),
+      fetch('weekly_picks.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).catch(function(){return null;})
+    ]).then(function(res){
+      STORE=(res[0]&&res[0].by_id)?res[0]:{by_id:{}};
+      ROWS=collectRows(res[1],res[2]);
+      buildPicker();
+      var wantId=qparam('id');                       // 从详情页跳来:?id=ARXIV
+      if(wantId){
+        var r=ROWS.filter(function(x){return x.id===wantId;})[0]
+              || {id:wantId,title:wantId,org:'',label:'指定',el:null,paint:null};
+        selectRow(r);
+      } else if(ROWS.length){
+        var ready=ROWS.filter(function(x){return isReady(x.id);})[0];
+        if(ready){ selectRow(ready); } else { loadData(DATA); }  // 没有已生成的就先显示兜底
+      } else { loadData(DATA); }
+    });
+  });
+
+  function nameId(){ return (DATA.arxiv_id||'paper'); }
+  function capture(el, idx){
+    return html2canvas(el, {scale:3, useCORS:true, backgroundColor:'#ffffff', logging:false})
+      .then(function(canvas){
+        var a=document.createElement('a');
+        a.download='xhs_'+nameId()+'_p'+(idx+1)+'.png';
+        a.href=canvas.toDataURL('image/png'); a.click();
+      });
+  }
+  function exportOne(idx){
+    if (typeof html2canvas==='undefined'){ alert('html2canvas 没加载(可能没联网)'); return; }
+    if (!RENDERED[idx]){ alert('还没渲染好'); return; }
+    capture(RENDERED[idx], idx);
+  }
+  async function exportAll(){
+    if (typeof html2canvas==='undefined'){ alert('html2canvas 没加载(可能没联网)'); return; }
+    for (var i=0;i<RENDERED.length;i++){
+      await capture(RENDERED[i], i);
+      await new Promise(function(r){ setTimeout(r,400); });  // 间隔,避免浏览器拦截批量下载
+    }
+  }
+  </script>
+
+</body>
+</html>

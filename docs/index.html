@@ -957,7 +957,9 @@ function openPaper(p, ctx){
     ${scoreBlock}
     <div style="margin-top:14px">
       <a class="btn" href="${esc(p.url)}" target="_blank">arXiv ↗</a>
-      ${p.pdf_url?`<a class="btn" href="${esc(p.pdf_url)}" target="_blank">PDF ↗</a>`:''}</div>`;
+      ${p.pdf_url?`<a class="btn" href="${esc(p.pdf_url)}" target="_blank">PDF ↗</a>`:''}
+      <a class="btn" style="background:#ff2e4d;color:#fff;border-color:#ff2e4d"
+         href="xhs_preview.html?id=${encodeURIComponent(p.arxiv_id)}" target="_blank">📕 生成小红书 ↗</a></div>`;
   d.classList.add('open'); document.getElementById('scrim').classList.add('on');
   document.querySelectorAll('.pcard').forEach(c=>c.classList.remove('sel'));
 }
