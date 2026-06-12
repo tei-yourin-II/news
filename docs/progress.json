@@ -49,6 +49,15 @@
           "why": "首次在完全开源、零闭源蒸馏前提下实现像素级视频指代与复杂时序跟踪，突破VLA中‘动作接地’从离散token到连续空间的关键范式瓶颈，将视频-语言-动作闭环的感知粒度从帧/区域级推进至亚像素级，且数据自主性彻底摆脱对GPT-4V等黑盒标注器的依赖。"
         },
         {
+          "name": "Revisiting Embodied Chain-of-Thought for Generalizable Robot Manipulation",
+          "org": "智元",
+          "country": "CN",
+          "year": "2026",
+          "arxiv_id": "2606.03784",
+          "significance": 90,
+          "why": "首次系统性证伪显式CoT在VLA中的必要性，确立‘隐式推理蒸馏’新范式，绕过语言生成瓶颈实现动作泛化跃迁，与RT-2的‘端到端视觉-动作映射’形成互补性范式演进"
+        },
+        {
           "name": "vla.cpp: A Unified Inference Runtime for Vision-Language-Action Models",
           "org": "Fai ModelOpt Tech",
           "country": "US",
@@ -249,7 +258,7 @@
           "note": "ViLLA"
         }
       ],
-      "verdict": "美国在范式原创（RT-2/π0/GR00T/Molmo2）、开源生态（OpenVLA/Octo）和基础理论（Diffusion Policy）上全面领先；中国在扩散模型（RDT-1B）、合成数据驱动（GraspVLA/ViLLA/LEGS）、人形架构（ViLLA）及边缘化VLA部署范式（vla.cpp）上实现快速追赶并产出标志性工作，但底层VLM骨干与世界模型融合仍依赖美方进展。",
+      "verdict": "美国在范式原创（RT-2/π0/GR00T/Molmo2/Revisiting Embodied Chain-of-Thought）上持续引领；中国在扩散模型（RDT-1B）、合成数据驱动（GraspVLA/ViLLA/LEGS）、人形架构（ViLLA）及边缘化VLA部署范式（vla.cpp）上实现快速追赶并产出标志性工作，但底层VLM骨干与世界模型融合仍依赖美方进展。",
       "activity": "领域处于爆发期：2025-2026年每月稳定产出3-5篇奠基性工作，范式收敛（流匹配/双系统/混合）与数据范式转移（合成数据主导）同步加速。",
       "id": "vla",
       "name": "VLA 视觉-语言-动作",
@@ -284,6 +293,15 @@
           "arxiv_id": "1912.01603",
           "significance": 95,
           "why": "首个完整实现Ha-Schmidhuber范式的端到端系统：RSSM隐动力学+潜空间想象训练，彻底摆脱像素级预测瓶颈，奠定Latent Dynamics路线的工程标准"
+        },
+        {
+          "name": "WEAVER, Better, Faster, Longer: An Effective World Model for Robotic Manipulation",
+          "org": "谷歌DeepMind",
+          "country": "US",
+          "year": "2026",
+          "arxiv_id": "2606.13672",
+          "significance": 94.5,
+          "why": "WEAVER首次在真实机械臂上系统性验证世界模型对策略评估、改进与测试时规划的闭环支撑能力，且以多视角潜空间+流匹配实现长时程一致性突破，填补了仿真到真实世界部署的关键范式缺口"
         },
         {
           "name": "Genie",
@@ -501,7 +519,7 @@
           "note": "WorldArena、WBench、DreamZero合作"
         }
       ],
-      "verdict": "美国全面领先：NVIDIA Cosmos与Google Genie构成双峰，Meta V-JEPA 2在数据效率上独树一帜；中国在UniPi（MIT-Tsinghua）、DreamZero（CMU-Berkeley）有深度参与但缺乏自主旗舰模型；英国依托DeepMind保持理论源头优势，但产业化落地弱于美国。",
+      "verdict": "美国全面领先：NVIDIA Cosmos与Google Genie构成双峰，Meta V-JEPA 2在数据效率上独树一帜，新晋标杆WEAVER（UC Berkeley & Stanford）则确立真实机器人世界建模新范式；中国在UniPi（MIT-Tsinghua）、DreamZero（CMU-Berkeley）有深度参与但缺乏自主旗舰模型；英国依托DeepMind保持理论源头优势，但产业化落地弱于美国。",
       "activity": "极度活跃：2025-2026年每月均有里程碑级工作发布，WAM范式确立、多模态规模化、评测标准化三大主线并进，已进入工业级部署前夜。",
       "id": "world_model",
       "name": "世界模型 / WAM",
@@ -772,6 +790,15 @@
           "why": "首次将扩散模型引入机器人策略学习，建立条件去噪动作生成范式，12任务平均超SOTA 46.9%，奠定后续RDT-1B、π0、OpenVLA-OFT等VLA灵巧操作模型的动作头基础"
         },
         {
+          "name": "YUBI: Yielding Universal Bidigital Interface for Bimanual Dexterous Manipulation at Scale",
+          "org": "东京大学",
+          "country": "JP",
+          "year": "2026",
+          "arxiv_id": "2606.10244",
+          "significance": 94,
+          "why": "YUBI以手指对齐、被动顺应的双指夹爪重构可穿戴操作接口物理层，首次实现双手灵巧操作数据采集的高保真人体工学适配与跨平台即插即用迁移，将RealDexUMI范式从‘单手通用’推进至‘双手原生’，实质性拓展了可穿戴基座的数据维度、规模上限与执行泛化边界，构成范式演进的关键跃迁。"
+        },
+        {
           "name": "RealDexUMI: A Wearable Universal Manipulation Interface for Dexterous Robot Learning",
           "org": "BeingBeyond",
           "country": "CN",
@@ -1014,7 +1041,7 @@
           "note": "Dex5（20-DoF，94触觉传感器）"
         }
       ],
-      "verdict": "美国仍全面领先：斯坦福/哥伦比亚/NVIDIA/DeepMind占据范式定义权（ACT/Diffusion Policy/π0/RDT-1B）与核心数据基建（EgoScale/UMI）；中国在硬件量产（因时/Unitree）、系统工程（GR-Dexter）和竞赛标准（ManiSkill-ViTac）上快速追赶，**并首次提出可穿戴通用操作接口（RealDexUMI）这一新范式级数据生成基座，跻身基石榜**；但尚未产出开宗立派的底层学习算法范式。",
+      "verdict": "美国仍全面领先：斯坦福/哥伦比亚/NVIDIA/DeepMind占据范式定义权（ACT/Diffusion Policy/π0/RDT-1B）与核心数据基建（EgoScale/UMI）；中国在硬件量产（因时/Unitree）、系统工程（GR-Dexter）和竞赛标准（ManiSkill-ViTac）上快速追赶，并**率先完成可穿戴通用操作接口范式的双手原生升级（RealDexUMI → YUBI），确立全球首个大规模双手灵巧操作数据基座，实质性拓展该范式的技术纵深与落地广度，跻身基石榜并推动范式迭代**；但尚未产出开宗立派的底层学习算法范式。",
       "activity": "该领域处于爆发期：2025–2026年基石工作密集涌现，论文年均增长超40%，工业界融资与产品化节奏显著加快。",
       "id": "dexterous_manipulation",
       "name": "灵巧操作",
