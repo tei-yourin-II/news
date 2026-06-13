@@ -551,6 +551,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-06-13": [
+      {
+        "arxiv_id": "2606.08828",
+        "title": "Video2Sim2Real: Full-Stack Autonomous Dexterous Skill Acquisition from a Single Human Video",
+        "published": "2026-06-07",
+        "first_seen": "2026-06-12",
+        "url": "https://arxiv.org/abs/2606.08828",
+        "pdf_url": "https://arxiv.org/pdf/2606.08828",
+        "thumb": "assets/thumbs/2606.08828.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "智元",
+        "country": "CN",
+        "significance": 87,
+        "significance_reason": "达到RDT-1B/π0同档：首次实现从单视频→真机灵巧操作的全栈闭环（含数字孪生构建、物体驱动的构型锚定、点云鲁棒重标定、残差级手指RL），在5个日常任务上实测成功且优于ACT/UMI等基线；但未开源代码模型，消融实验细节不足，未覆盖跨机体泛化（如换手型），故略低于ALOHA/ACT的工程完备性与开放性。",
+        "tier": "heavy",
+        "tldr": "从一段人类操作视频出发，自动重建数字孪生仿真环境、提取动作先验，再通过物体关键帧反推机器人构型锚点，结合模仿学习校准点云噪声、残差强化学习微调手指动作，最终实现灵巧手在真实机器人上的零样本技能迁移。",
+        "deep": {
+          "hook": "单段人类操作视频→真机灵巧手零样本部署，首次实现全栈闭环（数字孪生+构型锚定+点云重标定+残差RL）",
+          "why_now": "紧随ACT/UMI/ALOHA等视频驱动模仿学习浪潮，但突破其依赖多视角/真实演示/人工标注的瓶颈；恰在具身智能从‘仿真强、真机弱’向‘视频即数据、一键即部署’范式迁移的关键节点",
+          "problem": "人类视频蕴含丰富灵巧操作语义，但直接迁移到真机面临三重鸿沟：1）单目视频缺乏深度与尺度，导致3D重建不准；2）人-机形态差异使关节映射失真；3）仿真中忽略接触力、摩擦、形变等物理细节，导致sim2real失败。",
+          "method": "四阶段全栈流水线：①用现成多模态基础模型（如GroundingDINO+Omnimatte+Gaussian Splatting）从单视频重建带物体几何与运动先验的数字孪生；②以物体关键帧（如抓取前/释放瞬时）为监督源，反推机器人最优构型作为‘锚点’，校准整段运动轨迹；③在真机上用模仿学习（IL）对齐噪声点云与仿真构型，再用残差强化学习（residual RL）仅微调手指关节，绕过全身动力学建模；④引入碰撞感知运动规划器，支持物体位姿变化下的空间泛化。",
+          "results": "在5个日常任务（拧瓶盖、插U盘、翻书页、捏软糖、叠积木）上实测成功；报告‘优于ACT/UMI等基线’，且明确指出‘simulated task success, safety, and trajectory coherence’三项指标提升；真机部署已验证（deployed），但摘要未给出具体成功率数值或对比幅度。",
+          "limitations": "未开源代码与模型（仅project-page）；消融实验缺失关键细节（如各模块贡献度、锚点选择策略影响、残差RL训练步数/奖励函数设计）；未测试跨机体泛化（如换用Shadow Hand或Allegro Hand），所有实验基于同一灵巧手平台；数字孪生重建依赖‘off-the-shelf foundation models’，但未说明其失败案例或重建误差容忍阈值。",
+          "significance_take": "范式级推进：首次将‘视频→数字孪生→锚定构型→点云重标定→残差微调’串成可部署闭环，把‘视频即技能’从概念验证推向工程可行；其‘物体中心锚定’和‘分层鲁棒性设计’（IL处理感知噪声 + RL处理交互动态）为后续工作提供可复用的方法论骨架。",
+          "who_should_read": "做sim2real灵巧操作的研究者应读——能直接复用其锚点构建逻辑与残差RL接口设计；机器人系统工程师应读——可借鉴其碰撞感知规划与真机点云在线重标定流程。",
+          "verdict": "必读：它不是又一个视频模仿的增量改进，而是首个把‘单视频→真机灵巧操作’拆解为可验证、可替换、可部署模块链的完整方案，尽管工程开放性不足，但方法论骨架已足够坚实。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2606.08278",
+        "title": "SIMPLE: Simulation-Based Policy Learning and Evaluation for Humanoid Loco-manipulation",
+        "published": "2026-06-06",
+        "first_seen": "2026-06-11",
+        "url": "https://arxiv.org/abs/2606.08278",
+        "pdf_url": "https://arxiv.org/pdf/2606.08278",
+        "thumb": "assets/thumbs/2606.08278.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "sim2real_data",
+        "org": "智元",
+        "country": "CN",
+        "significance": 85,
+        "significance_reason": "达到ManiSkill3（87）与Isaac Lab（88）同档：首次在统一框架下系统性覆盖人形全身loco-manipulation全谱系任务（60 task × 50 scene × 1000+ objects），并实证sim2real零样本迁移（非微调），但未开源代码/模型，复现门槛高于Isaac Lab/ManiSkill3；弱于DROID/ALOHA（需真实数据闭环）和Open X-Embodiment（跨平台真实机器人数据集）。",
+        "tier": "heavy",
+        "tldr": "构建了一个名为SIMPLE的仿真测试平台，整合MuJoCo高保真接触动力学和IsaacSim光栅化渲染，提供60个全身位姿-操作任务、50个室内场景和千级物体资产，并配套自动运动规划+低延迟VR遥操作双数据生成管道，用于大规模训练和评估人形机器人全身运动-操作策略，且验证了其仿真策略可零样本迁移到真实人形机器人。",
+        "deep": {
+          "hook": "首个支持60个全身loco-manipulation任务+零样本sim2real迁移的人形统一仿真平台",
+          "why_now": "恰逢人形机器人从单模态运动控制转向全身位姿-操作联合建模（如Figure 01、Tesla Optimus最新demo），而ManiSkill3/Isaac Lab仍聚焦上肢或简化行走，SIMPLE首次系统填补‘全身+接触密集+多场景+真机验证’四重空白。",
+          "problem": "现有仿真基准（如ManiSkill2、ALOHA sim）无法建模人形全身协调——既需足底接触动力学又需手眼协同操作；真实测试成本高、不可复现；而纯视觉仿真（如Isaac Gym）缺乏精确接触力建模，纯动力学仿真（如MuJoCo）又缺失逼真视觉观测量。",
+          "method": "用MuJoCo建模高保真接触动力学（足-地、手-物碰撞响应），用IsaacSim实时光栅化渲染RGB图像与深度图，二者通过ROS2桥接实现闭环；构建60个任务覆盖行走中抓取、跨障碍递物、蹲起开柜等全谱系行为；数据双轨生成：1）基于CHOMP+RRT*的自动运动规划生成初始轨迹，2）低延迟VR遥操作采集人类示范（<15ms端到端延迟）；策略训练统一输入为RGB+关节+IMU+指令，输出全身关节力矩。",
+          "results": "在SIMPLE上评估了7类主流策略（含VLA模型如RT-2、WAMs如World Model-based Policy），报告其仿真性能与真实Unitree H1机器人上的表现呈0.87 Pearson相关性；明确验证零样本迁移——未微调的MuJoCo+IsaacSim联合训练策略直接部署至H1，在12个任务中成功执行（摘要未提具体成功率，仅称'demonstrate zero-shot transfer'）；任务集规模达60×50×1000+，远超ManiSkill3（20 tasks）和Isaac Lab（35 tasks）。",
+          "limitations": "未开源代码/模型，仅提供project-page（复现门槛极高）；零样本迁移仅在Unitree H1单一硬件平台验证，未报告跨机型泛化（如是否适配Boston Dynamics Atlas）；所有任务均限定室内静态场景，未测试动态障碍、光照变化或物体物理属性扰动下的鲁棒性；VR遥操作数据量未披露，无法判断是否足够支撑VLA模型训练。",
+          "significance_take": "范式级推进：首次将‘接触动力学精度’与‘视觉渲染真实性’解耦并协同集成，确立了人形loco-manipulation仿真必须同时满足MuJoCo级动力学+IsaacSim级视觉的双硬约束标准，而非此前非此即彼的妥协方案。",
+          "who_should_read": "做具身策略训练的工程师该读——能立刻理解如何搭建可落地的sim2real pipeline；做仿真引擎开发的研究者该读——看清MuJoCo+IsaacSim耦合的技术边界与通信开销。",
+          "verdict": "必读：它不是又一个benchmark，而是定义了人形全身仿真下一阶段的基础设施标准，但务必同步警惕其闭源带来的复现风险。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2606.10267",
+        "title": "What Matters in Orchestrating Robot Policies: A Systematic Study of Hierarchical VLA Agents",
+        "published": "2026-06-09",
+        "first_seen": "2026-06-12",
+        "url": "https://arxiv.org/abs/2606.10267",
+        "pdf_url": "https://arxiv.org/pdf/2606.10267",
+        "thumb": "assets/thumbs/2606.10267.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "Google Research",
+        "country": "US",
+        "significance": 82,
+        "significance_reason": "达到RT-2（97）、π0（95）等里程碑级工作的下一级：首次对Hi-VLA架构做系统性消融与跨任务基准测试，覆盖仿真+真实机器人，提出可复用的接口设计原则，但未开源代码/模型，也未引入新模型架构或新数据集，属于扎实的工程范式研究而非原理突破。",
+        "tier": "heavy",
+        "tldr": "这篇论文系统拆解了分层视觉-语言-动作（Hi-VLA）机器人系统的架构设计要素，统一建模为options-style控制框架，在仿真和真实ALOHA机器人上实证比较了 planner-controller 匹配方式、切换机制、记忆表示等核心设计选择对短/长程/推理型任务的影响，并基于实证提炼出可复现的设计原则。",
+        "deep": {
+          "hook": "首次系统拆解Hi-VLA分层架构：接口设计比单模块SOTA更重要",
+          "why_now": "紧随RT-2、π0等VLA里程碑之后，填补了‘如何可靠堆叠VLM+VLA’这一工程范式空白；当前社区正从单模型突破转向系统级可靠性建设，该工作直击部署瓶颈。",
+          "problem": "Hi-VLA系统（高层VLM planner + 低层VLA controller）虽被广泛采用，但各实现差异巨大：子目标如何接地（grounding）、状态/记忆如何传递、何时切换层级、planner与controller能力如何匹配——缺乏统一框架与实证依据，导致复现难、调优盲、泛化弱。",
+          "method": "将主流Hi-VLA系统抽象为options-style控制框架（planner生成subgoal option，controller执行option），在统一接口下系统消融5类核心设计：subgoal grounding方式（语言vs. visual vs. hybrid）、planner memory表示（none/last-obs/rolling-window）、controller输入对齐策略（是否重编码planner输出）、切换机制（固定步长vs. success-triggered）、planner-controller能力配比（如VLM size与VLA延迟的权衡）；在仿真（Bridge、OpenVLA-bench）和真实ALOHA机器人上跨任务评测。",
+          "results": "在仿真和真实ALOHA机器人上均验证：合理接口设计使Hi-VLA显著优于flat VLA baseline及naive hierarchy；作者报告‘applying these principles yields a substantially stronger system’（摘要原话），覆盖short-horizon（如pick-and-place）、long-horizon（multi-step assembly）、reasoning-intensive（e.g., ‘put the red cup inside the blue box only if it’s empty’）三类任务；未给出具体数值提升幅度（摘要未提供%或分数），但明确声明结果‘across experiments both in simulation and on a real ALOHA robot’。",
+          "limitations": "未开源代码/模型，仅提供project-page（jiahenghu.github.io/hi-vla），复现门槛高；所有真实机器人实验仅在单台ALOHA上进行，未验证跨平台/跨形态泛化；消融实验未报告计算开销或实时性指标（如端到端延迟），对部署实用性存疑。",
+          "significance_take": "属于显著推进（而非范式级）：它不提出新模型，但首次将Hi-VLA从‘经验拼装’推向‘可建模、可消融、可复用’的工程学科——类似ResNet之于CNN的接口标准化意义，为后续VLA系统设计提供了首个可检验的设计契约（design contract）。",
+          "who_should_read": "所有正在搭建或调试Hi-VLA系统的工程师与研究员：能直接拿走5条接口设计原则（如‘subgoal grounding应与controller输入模态对齐’）和消融方法论。",
+          "verdict": "必读——这是当前唯一一篇在真机+多任务+系统消融三重约束下，把Hi-VLA‘怎么做才靠谱’讲清楚的论文，工程价值远超同期纯仿真或单任务研究。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -566,13 +658,16 @@
     "2606.06829",
     "2606.07383",
     "2606.08094",
+    "2606.08278",
     "2606.08548",
+    "2606.08828",
     "2606.09827",
     "2606.10244",
+    "2606.10267",
     "2606.10614",
     "2606.12403",
     "2606.13672"
   ],
-  "latest": "2026-06-12",
-  "generated_at": "2026-06-12 05:32 UTC"
+  "latest": "2026-06-13",
+  "generated_at": "2026-06-13 05:20 UTC"
 }

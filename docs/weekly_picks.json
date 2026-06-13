@@ -1,17 +1,17 @@
 {
   "week": {
-    "start": "2026-06-06",
-    "end": "2026-06-12",
-    "label": "06.06~06.12"
+    "start": "2026-06-07",
+    "end": "2026-06-13",
+    "label": "06.07~06.13"
   },
   "count": 15,
-  "venue_count": 4,
+  "venue_count": 3,
   "venues": [
     "CoRL",
     "ICML 2026",
     "RSS 2026"
   ],
-  "generated_at": "2026-06-12 05:33 UTC",
+  "generated_at": "2026-06-13 05:21 UTC",
   "picks": [
     {
       "rank": 1,
@@ -205,45 +205,6 @@
     },
     {
       "rank": 6,
-      "arxiv_id": "2606.08094",
-      "title": "vla.cpp: A Unified Inference Runtime for Vision-Language-Action Models",
-      "published": "2026-06-06",
-      "url": "https://arxiv.org/abs/2606.08094",
-      "pdf_url": "https://arxiv.org/pdf/2606.08094",
-      "thumb": "assets/thumbs/2606.08094.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "Fai ModelOpt Tech",
-      "country": "US",
-      "org_type": "company",
-      "significance": 85,
-      "significance_reason": "虽未提出新VLA模型，但在部署范式上实质性突破：首次将flow-matching/diffusion类VLA推理压缩至嵌入式可行范围，完成从‘能跑’到‘能实时闭环’的关键跨越；实测覆盖消费GPU→边缘模块→真机ALOHA三级硬件，且开源全栈（含benchmark scaffold），工程深度与实证强度接近GR00T N1（87分档）下沿，但模型广度与训练规模不及OpenVLA/RT-2等基石工作。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "sim2real",
-        "real-robot",
-        "open-source",
-        "large-scale"
-      ],
-      "tldr": "这篇论文把原本依赖Python/PyTorch和高端GPU的视觉-语言-动作（VLA）模型，用C++重写成轻量、跨硬件的推理运行时vla.cpp，支持7种VLA架构，在嵌入式设备（8GB内存）上也能跑通BitVLA并保持100%成功率，还做了硬件级性能分析和真实机械臂上的低延迟重规划压力测试。",
-      "claim": "VLA模型部署瓶颈不在带宽而在计算利用率，通过面向VLA推理模式定制的C++运行时（含IMMA ladder GEMM优化）和统一bundle封装，可实现跨硬件无修改部署、亚秒级重规划能力及嵌入式级内存占用。",
-      "method_components": [
-        "model",
-        "simulator",
-        "benchmark",
-        "hardware"
-      ],
-      "input": "RGB图像+自然语言指令",
-      "output": "机器人关节动作序列（离散或连续动作块）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合——它没发明新VLA，但把现有SOTA VLA真正塞进了机器人身体里，并用硬核系统优化证明了低延迟闭环重规划的可行性。",
-      "deep": {}
-    },
-    {
-      "rank": 7,
       "arxiv_id": "2606.09827",
       "title": "MemoryVLA++: Temporal Modeling via Memory and Imagination in Vision-Language-Action Models",
       "published": "2026-06-08",
@@ -283,46 +244,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
-      "arxiv_id": "2606.08278",
-      "title": "SIMPLE: Simulation-Based Policy Learning and Evaluation for Humanoid Loco-manipulation",
-      "published": "2026-06-06",
-      "url": "https://arxiv.org/abs/2606.08278",
-      "pdf_url": "https://arxiv.org/pdf/2606.08278",
-      "thumb": "assets/thumbs/2606.08278.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "sim2real_data",
-      "org": "智元",
-      "country": "CN",
-      "org_type": "company",
-      "significance": 85,
-      "significance_reason": "达到ManiSkill3（87）与Isaac Lab（88）同档：首次在统一框架下系统性覆盖人形全身loco-manipulation全谱系任务（60 task × 50 scene × 1000+ objects），并实证sim2real零样本迁移（非微调），但未开源代码/模型，复现门槛高于Isaac Lab/ManiSkill3；弱于DROID/ALOHA（需真实数据闭环）和Open X-Embodiment（跨平台真实机器人数据集）。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "sim2real",
-        "benchmark",
-        "dataset",
-        "simulator"
-      ],
-      "tldr": "构建了一个名为SIMPLE的仿真测试平台，整合MuJoCo高保真接触动力学和IsaacSim光栅化渲染，提供60个全身位姿-操作任务、50个室内场景和千级物体资产，并配套自动运动规划+低延迟VR遥操作双数据生成管道，用于大规模训练和评估人形机器人全身运动-操作策略，且验证了其仿真策略可零样本迁移到真实人形机器人。",
-      "claim": "SIMPLE是一个可扩展、可复现、具备真实感动力学与视觉渲染的人形全身位姿-操作（loco-manipulation）统一仿真测试平台，其上训练的策略具备跨仿真到真实人形机器人的零样本迁移能力。",
-      "method_components": [
-        "simulator",
-        "benchmark",
-        "dataset",
-        "policy"
-      ],
-      "input": "多模态观测（RGB图像、关节状态、IMU、任务指令）",
-      "output": "全身关节力矩/动作序列",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合——它不是新算法或新范式，而是首个将高保真接触动力学、光栅化渲染、大规模任务/场景/物体、双模数据生成、主流VLA/WAM策略评测全部集成并实证sim2real零样本迁移的人形仿真基座，显著降低人形策略研发门槛。",
-      "deep": {}
-    },
-    {
-      "rank": 9,
+      "rank": 7,
       "arxiv_id": "2606.11129",
       "title": "WorldOlympiad: Can Your World Model Survive a Triathlon?",
       "published": "2026-06-09",
@@ -358,7 +280,7 @@
       "deep": {}
     },
     {
-      "rank": 10,
+      "rank": 8,
       "arxiv_id": "2606.08548",
       "title": "OASIS: From Simulation Data Collection to Real-World Humanoid Loco-Manipulation",
       "published": "2026-06-07",
@@ -398,7 +320,7 @@
       "deep": {}
     },
     {
-      "rank": 11,
+      "rank": 9,
       "arxiv_id": "2606.10267",
       "title": "What Matters in Orchestrating Robot Policies: A Systematic Study of Hierarchical VLA Agents",
       "published": "2026-06-09",
@@ -437,7 +359,7 @@
       "deep": {}
     },
     {
-      "rank": 12,
+      "rank": 10,
       "arxiv_id": "2606.10025",
       "title": "GHOST: Hierarchical Sub-Goal Policies for Generalizing Robot Manipulation",
       "published": "2026-06-08",
@@ -477,7 +399,7 @@
       "deep": {}
     },
     {
-      "rank": 13,
+      "rank": 11,
       "arxiv_id": "2606.09009",
       "title": "Scaling by Diversified Experience for Vision-Language-Action Models",
       "published": "2026-06-08",
@@ -516,7 +438,7 @@
       "deep": {}
     },
     {
-      "rank": 14,
+      "rank": 12,
       "arxiv_id": "2606.09499",
       "title": "Targeting World Models to Compromise Robot Learning Pipelines",
       "published": "2026-06-08",
@@ -555,41 +477,119 @@
       "deep": {}
     },
     {
-      "rank": 15,
-      "arxiv_id": "2606.08253",
-      "title": "Mind Your Steps: A General Learning Framework for Accurate Humanoid Foothold Tracking",
-      "published": "2026-06-06",
-      "url": "https://arxiv.org/abs/2606.08253",
-      "pdf_url": "https://arxiv.org/pdf/2606.08253",
-      "thumb": "assets/thumbs/2606.08253.jpg",
-      "venue": "RSS 2026",
+      "rank": 13,
+      "arxiv_id": "2606.08530",
+      "title": "GEAR-VLA: Learning Geometry-Aware Action Representations for Generalizable Robotic Manipulation",
+      "published": "2026-06-07",
+      "url": "https://arxiv.org/abs/2606.08530",
+      "pdf_url": "https://arxiv.org/pdf/2606.08530",
+      "thumb": "assets/thumbs/2606.08530.jpg",
+      "venue": "",
       "domain": "embodied_ai",
-      "best_route": "whole_body_control",
-      "org": "马克斯·普朗克智能系统研究所",
-      "country": "EU",
-      "org_type": "institute",
-      "significance": 72,
-      "significance_reason": "实证扎实：在真实TORQUE机器人上完成多地形（斜坡、碎石、不平地面）、多任务（导航+后续操作准备）验证，对比了velocity-command baseline和stage-based foothold tracker，含消融（目标表征设计、采样策略），但未开源数据/完整仿真环境，且未挑战极端动态扰动或长期部署可靠性；显著优于传统staged pipeline，但未达到H2O/GR00T级范式突破或全栈整合深度。",
-      "tier": "notable",
+      "best_route": "vla",
+      "org": "未知（作者单位未在摘要中披露；arXiv ID 41832/35492 等疑似ORCID或非机构标识；无明确高校/企业署名线索）",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 78,
+      "significance_reason": "实证扎实：真机跨本体（AgileX/LDT-01）、零样本LIBERO-Plus、大规模通用抓取（212新物体/6360试次）均验证泛化性；但未突破VLA范式（仍是VLM+动作头架构），3D对齐与canonicalization属工程级改进，未解决根本性的具身因果建模或在线自适应问题；显著优于OpenVLA/Octo等但未达RT-2/π0级范式跃迁",
+      "tier": "heavy",
       "grade": "C",
       "tags": [
         "sim2real",
-        "real-robot",
-        "multimodal-fusion"
+        "multimodal-fusion",
+        "benchmark"
       ],
-      "tldr": "提出一个轻量级3D足底位置跟踪框架，让类人机器人能根据高层规划器给出的目标脚位，在仿真和真实机器人上鲁棒地执行精确落脚，解决速度指令控制无法保证落脚精度、而现有显式足底跟踪方法依赖强假设或任务耦合的问题。",
-      "claim": "通过动态目标采样与鲁棒目标表征，可训练出不依赖特定地形、不绑定下游任务、可即插即用的通用3D足底跟踪策略，并在真实类人机器人上实现高精度落脚。",
+      "tldr": "提出GEAR-VLA框架，通过几何感知的动作表征（含3D空间对齐、 embodiment canonicalization 和 coarse-to-fine 动作解耦）提升VLA模型在新物体、新背景、新机器人本体上的泛化能力，并在多个仿真和真实机器人基准上验证了零样本跨本体操作性能。",
+      "claim": "统一的几何感知动作表征（而非端到端轨迹拟合）是实现跨本体、跨场景、跨物体泛化操作的关键，可通过3D空间对齐、embodiment canonicalization与梯度解耦的连续动作专家协同实现。",
       "method_components": [
         "model",
         "simulator",
-        "policy",
         "benchmark"
       ],
-      "input": "当前机器人本体状态（关节/IMU/足底接触估计）+ 目标脚部6D位姿",
-      "output": "关节力矩或关节位置控制指令（低层运动输出）",
-      "novelty": 6,
+      "input": "RGB图像+自然语言指令",
+      "output": "连续动作向量（6D位姿+夹爪开合）",
+      "novelty": 7,
       "evidence": 9,
-      "one_sentence_verdict": "显著贡献：工程整合——将足底跟踪解耦为通用低层控制器，实证跨场景泛化与真机部署能力，但未开新范式，也未解决长期开放难题如自监督接触建模或零样本地形适应。",
+      "one_sentence_verdict": "工程整合：在VLA框架内系统性嵌入几何与本体意识，实证充分且开源完整，是当前泛化操作方向最扎实的工程推进之一，但未重构底层表征范式",
+      "deep": {}
+    },
+    {
+      "rank": 14,
+      "arxiv_id": "2606.10382",
+      "title": "UMI-Bench 1.0: An Open and Reproducible Real-World Benchmark for Tabletop Robotic Manipulation with UMI Data",
+      "published": "2026-06-09",
+      "url": "https://arxiv.org/abs/2606.10382",
+      "pdf_url": "https://arxiv.org/pdf/2606.10382",
+      "thumb": "assets/thumbs/2606.10382.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "未知（作者单位未在摘要中披露，无机构署名线索；虽有UMI相关工作背景，但本论文未提及其归属实验室或公司）",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 78,
+      "significance_reason": "它是首个严格对齐UMI数据采集-训练-部署全链路的真实机器人benchmark，提供跨任务/场景的标准化评测协议与完整开源实现，填补了UMI生态缺乏可复现实机验证工具的关键空白；但未提出新算法或新硬件，属关键基础设施级贡献，略低于ALOHA/ACT等定义范式的里程碑工作（96分），但显著强于纯仿真benchmark或单任务验证。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "benchmark",
+        "real-robot",
+        "open-source",
+        "dataset"
+      ],
+      "tldr": "这篇论文发布了一个名为UMI-Bench 1.0的开源真实机器人基准测试套件，专门用于标准化评估基于UMI（通用操控接口）范式的桌面级机械臂操控策略在真实硬件上的泛化能力，包含统一的数据采集、场景重置、策略执行和结果分析协议。",
+      "claim": "UMI-Bench 1.0是首个专为UMI风格操控策略设计的、端到端可复现的真实机器人基准，能系统评估其从UMI数据训练到物理部署的闭环可靠性。",
+      "method_components": [
+        "benchmark",
+        "dataset",
+        "hardware"
+      ],
+      "input": "UMI格式的腕部视角图像+关节/末端位姿动作序列（隐含于UMI数据协议）",
+      "output": "任务成功率、重置稳定性、策略鲁棒性等量化指标（如pick-and-place完成率、失败模式分布）",
+      "novelty": 7,
+      "evidence": 10,
+      "one_sentence_verdict": "工程整合——构建了UMI范式下首个端到端可复现的真实机器人评测基座，解决了该方向长期缺乏标准化实机验证的痛点，但本身不包含新模型或新学习范式",
+      "deep": {}
+    },
+    {
+      "rank": 15,
+      "arxiv_id": "2606.09919",
+      "title": "Co-GLANCE: Uncertainty-Aware Active Perception for Heterogeneous Robot Teaming",
+      "published": "2026-06-07",
+      "url": "https://arxiv.org/abs/2606.09919",
+      "pdf_url": "https://arxiv.org/pdf/2606.09919",
+      "thumb": "assets/thumbs/2606.09919.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "UT Austin",
+      "country": "US",
+      "org_type": "university",
+      "significance": 78,
+      "significance_reason": "真机部署+跨机体调度+统计保证的不确定性量化+开源数据与代码，显著推进了异构机器人主动感知的实用性边界；但未开新范式（如RT-2级动作生成），也未解决长期开放难题（如通用具身推理），属扎实重磅增量，尚未达基石级（RT-2/π0/Octo等90+分档）",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "teleoperation",
+        "dataset",
+        "open-source",
+        "real-robot",
+        "multimodal-fusion"
+      ],
+      "tldr": "提出Co-GLANCE系统，让无人机和地面机器人组成的异构团队能实时识别视野中的遮挡不确定性，并自动调度最合适的机器人去补拍关键视角，所有计算都在机器人端完成，不依赖云端大模型，同时用共形预测+选择性拒绝给出统计可验证的不确定性估计。",
+      "claim": "通过蒸馏VLM语义能力并融合共形预测与选择性拒绝，首次实现异构机器人团队在真实户外场景中端到端、实时、统计可验证的不确定性驱动主动感知。",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark",
+        "hardware",
+        "policy"
+      ],
+      "input": "多机器人RGB图像流（含不同视角）、机器人类型与位姿信息",
+      "output": "遮挡分割图、机器人分配决策、检测框及对应不确定性置信区间",
+      "novelty": 8,
+      "evidence": 11,
+      "one_sentence_verdict": "工程整合：将VLM蒸馏、共形预测、多机体协同决策三者稳健落地到真实异构机器人系统，证据扎实、开源完整，但核心思想组合而非原创范式突破",
       "deep": {}
     }
   ]
