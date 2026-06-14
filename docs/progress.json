@@ -13,6 +13,15 @@
           "why": "首个大规模VLA范式开宗立派工作：将动作离散为语言token，实现VLM到机器人控制的端到端迁移，首次系统性展示emergent泛化能力，定义了VLA研究基本范式"
         },
         {
+          "name": "DAM-VLA: Decoupled Asynchronous Multimodal Vision Language Action model",
+          "org": "Intuitive Surgical",
+          "country": "US",
+          "year": "2026",
+          "arxiv_id": "2606.12105",
+          "significance": 96,
+          "why": "首次系统性解耦多模态采样频率并实现物理真实性的异步表征更新，从根本上重构VLA的时序建模范式，突破同步时钟强耦合这一长期隐性假设，且在真实接触操作中实现质变级性能跃迁（41%→95%）与硬实时保障（100Hz）"
+        },
+        {
           "name": "π0",
           "org": "Physical Intelligence",
           "country": "US",
@@ -20,6 +29,15 @@
           "arxiv_id": "2410.24164",
           "significance": 95,
           "why": "首个流匹配VLA，突破扩散模型推理瓶颈，实现跨平台（单/双臂/移动）统一建模与复杂长时序操作（叠衣/装箱），确立流匹配为VLA主流新范式"
+        },
+        {
+          "name": "CHORUS: Decentralized Multi-Embodiment Collaboration with One VLA Policy",
+          "org": "斯坦福",
+          "country": "US",
+          "year": "2026",
+          "arxiv_id": "2606.12352",
+          "significance": 94,
+          "why": "首次实现跨形态机器人在无通信、无专用微调、仅靠身份提示的去中心化协同范式，本质突破了VLA从单体智能到群体涌现智能的范式边界，且与RT-2/π0同属‘统一策略+提示工程’架构演进主脉，但拓展至多 embodiment 协同维度。"
         },
         {
           "name": "OpenVLA",
@@ -258,7 +276,7 @@
           "note": "ViLLA"
         }
       ],
-      "verdict": "美国在范式原创（RT-2/π0/GR00T/Molmo2/Revisiting Embodied Chain-of-Thought）上持续引领；中国在扩散模型（RDT-1B）、合成数据驱动（GraspVLA/ViLLA/LEGS）、人形架构（ViLLA）及边缘化VLA部署范式（vla.cpp）上实现快速追赶并产出标志性工作，但底层VLM骨干与世界模型融合仍依赖美方进展。",
+      "verdict": "美国在范式原创（RT-2/π0/GR00T/Molmo2/Revisiting Embodied Chain-of-Thought/CHORUS/DAM-VLA）上持续引领；中国在扩散模型（RDT-1B）、合成数据驱动（GraspVLA/ViLLA/LEGS）、人形架构（ViLLA）及边缘化VLA部署范式（vla.cpp）上实现快速追赶并产出标志性工作，但底层VLM骨干、世界模型融合及多模态时序范式（如DAM-VLA）仍依赖美方进展。",
       "activity": "领域处于爆发期：2025-2026年每月稳定产出3-5篇奠基性工作，范式收敛（流匹配/双系统/混合）与数据范式转移（合成数据主导）同步加速。",
       "id": "vla",
       "name": "VLA 视觉-语言-动作",
@@ -799,6 +817,15 @@
           "why": "首次将扩散模型引入机器人策略学习，建立条件去噪动作生成范式，12任务平均超SOTA 46.9%，奠定后续RDT-1B、π0、OpenVLA-OFT等VLA灵巧操作模型的动作头基础"
         },
         {
+          "name": "FTP-1: A Generalist Foundation Tactile Policy Across Tactile Sensors for Contact-Rich Manipulation",
+          "org": "智元",
+          "country": "CN",
+          "year": "2026",
+          "arxiv_id": "2606.13102",
+          "significance": 94,
+          "why": "首次实现跨异构触觉传感器的零样本泛化，突破触觉策略长期受制于硬件绑定的范式瓶颈，将触觉智能从‘专用传感器驱动’升维为‘通用触觉感知-动作联合建模’，与Dexterous Point Policy共同构成灵巧操作‘视觉-触觉’双基座重构"
+        },
+        {
           "name": "YUBI: Yielding Universal Bidigital Interface for Bimanual Dexterous Manipulation at Scale",
           "org": "东京大学",
           "country": "JP",
@@ -824,6 +851,15 @@
           "arxiv_id": "2410.24164",
           "significance": 94,
           "why": "首个将Flow Matching与VLM深度耦合的物理智能范式，7平台68任务联合训练，实现跨具身、跨任务、跨环境的端到端灵巧操作，定义VLA灵巧操作新标尺"
+        },
+        {
+          "name": "LUCID: Learning Embodiment-Agnostic Intent Models from Unstructured Human Videos for Scalable Dexterous Robot Skill Acquisition",
+          "org": "卡内基梅隆大学",
+          "country": "US",
+          "year": "2026",
+          "arxiv_id": "2606.11628",
+          "significance": 93,
+          "why": "LUCID首次实现从无标注、非专业、多源异构互联网视频中解耦人类操作意图并泛化至任意机器人本体，彻底摆脱对真实机器人演示数据与触觉/力觉传感器的依赖，确立‘意图-本体解耦’新范式，与FTP-1（跨模态触觉基座）、YUBI（双手协同接口）、Dexterous Point Policy（人类行为中心建模）共同构成‘感知-意图-执行’全栈解耦的第四支柱。"
         },
         {
           "name": "RDT-1B",
@@ -1050,7 +1086,7 @@
           "note": "Dex5（20-DoF，94触觉传感器）"
         }
       ],
-      "verdict": "中国在硬件量产（因时/Unitree）、系统工程（GR-Dexter）和竞赛标准（ManiSkill-ViTac）上快速追赶，并率先完成可穿戴通用操作接口范式的双手原生升级（RealDexUMI → YUBI），确立全球首个大规模双手灵巧操作数据基座；同时，本土团队提出Dexterous Point Policy，开创‘单目视频→关键点运动学直驱’新范式，首次绕过真实机器人演示依赖，将灵巧操作的数据门槛降至消费级视频层级，推动该领域从‘机器人中心’转向‘人类行为中心’建模，跻身基石榜并引发范式级重构。",
+      "verdict": "当前横评需补充：中国在触觉基础模型方向实现关键跃迁——FTP-1首次打破触觉传感器硬件壁垒，确立全球首个跨模态触觉通用策略基座；与此同时，LUCID开创性提出‘本体无关意图建模’范式，首次从海量无约束互联网视频中零样本蒸馏可迁移操作意图，与FTP-1/YUBI/Dexterous Point Policy共同构建‘多源人类行为-触觉-意图-本体’四维联合建模新框架，推动灵巧操作从‘单模态演示依赖’全面转向‘跨域意图驱动’新纪元。",
       "activity": "该领域处于爆发期：2025–2026年基石工作密集涌现，论文年均增长超40%，工业界融资与产品化节奏显著加快。",
       "id": "dexterous_manipulation",
       "name": "灵巧操作",
