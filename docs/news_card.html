@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>速报出图 · 小红书图片排版 — 情报台</title>
+<style>
+  :root{
+    --paper:#f4f1ea; --card:#fffdf8; --ink:#1c1b18; --ink2:#43403a; --mut:#8a857c;
+    --line:#e1dccf; --line2:#cfc8b8; --accent:#9a3b2e; --accent2:#c2502f;
+    --jp:#c0392b; --cn:#b8860b; --us:#3a6ea5; --red:#ff2e4d;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:#2a2622; color:#eee; padding:18px 0 28px;
+       font:14px/1.6 "PingFang SC","Hiragino Sans",-apple-system,Segoe UI,sans-serif;}
+  .serif{font-family:"Songti SC","Noto Serif JP",Georgia,"Times New Roman",serif;}
+  a{color:inherit;}
+  button{font:inherit; cursor:pointer; color:inherit;}
+
+  .topbar{max-width:760px; margin:0 auto 14px; padding:0 16px; display:flex; align-items:center; gap:10px 14px; flex-wrap:wrap;}
+  .topbar .back{color:#cfc8bb; text-decoration:none; font-size:13px;}
+  .seg{display:flex; gap:3px; background:rgba(255,255,255,.08); padding:3px; border-radius:10px;}
+  .seg button{padding:5px 14px; border:0; background:transparent; color:#cfc8bb; border-radius:8px; font-size:13px; font-weight:600;}
+  .seg button.on{background:#f4f1ea; color:#1c1b18;}
+  .topbar select{background:rgba(255,255,255,.1); color:#f4f1ea; border:1px solid rgba(255,255,255,.2);
+                 border-radius:8px; padding:5px 9px; font-size:12.5px;}
+  .topbar .tip{width:100%; font-size:12px; color:#9a948a; margin-top:2px;}
+
+  .slides{max-width:760px; margin:0 auto; padding:0 16px; display:flex; flex-wrap:wrap; gap:16px; justify-content:center;}
+  /* 3:4 画布:360×480(导出 ×3 = 1080×1440) */
+  .slide{width:360px; height:480px; background:var(--paper); color:var(--ink); position:relative;
+         overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.35); border-radius:4px;}
+
+  /* —— 封面:报纸头版 —— */
+  .cv{width:100%; height:100%; padding:30px 28px; display:flex; flex-direction:column; position:relative;}
+  .cv .mast{font-size:11px; letter-spacing:.34em; text-transform:uppercase; color:var(--mut); font-weight:600;}
+  .cv .rule{height:3px; background:var(--ink); margin:9px 0 0;}
+  .cv .rule.thin{height:1px; background:var(--line2); margin:7px 0 0;}
+  .cv .ribbon{display:inline-block; align-self:flex-start; margin:18px 0 0; background:var(--accent);
+              color:#fff; font-size:12px; font-weight:700; letter-spacing:.06em; padding:4px 12px; border-radius:3px;}
+  .cv .big{font-size:33px; font-weight:800; line-height:1.22; margin:16px 0 0; letter-spacing:-.01em;}
+  .cv .sub{font-size:14.5px; color:var(--ink2); margin-top:12px; line-height:1.55;}
+  .cv .spacer{flex:1;}
+  .cv .foot{font-size:12px; color:var(--mut); display:flex; justify-content:space-between; align-items:flex-end;}
+  .cv .foot .date{font-size:15px; font-weight:700; color:var(--ink);}
+  .cv .watermark{position:absolute; right:-10px; bottom:46px; font-size:120px; font-weight:800;
+                 color:rgba(154,59,46,.06); line-height:1; pointer-events:none;}
+
+  /* —— 内容页 —— */
+  .ct{width:100%; height:100%; padding:24px 26px 0; display:flex; flex-direction:column;}
+  .ct .chead{display:flex; align-items:baseline; gap:8px; border-bottom:2px solid var(--ink); padding-bottom:7px; flex:0 0 auto;}
+  .ct .chead .s1{font-size:13px; font-weight:800;} .ct .chead .s2{font-size:11px; color:var(--mut); margin-left:auto;}
+  .scontent{flex:1 1 auto; overflow:hidden; padding-top:12px;}
+  .scontent .lead{font-size:14.5px; line-height:1.6; color:var(--ink2); margin:0 0 11px; font-weight:500;}
+  .scontent .sec{font-size:15px; font-weight:800; margin:13px 0 7px; color:var(--ink);
+                 border-left:4px solid var(--accent); padding-left:9px;}
+  .scontent .sec:first-child{margin-top:0;}
+  .scontent .li,.scontent .p,.scontent .num{font-size:12.7px; line-height:1.5; color:var(--ink2); margin:6px 0; padding-left:2px;}
+  .scontent b{color:var(--accent); font-weight:700;}
+  .scontent .tags{font-size:12px; color:var(--us); margin-top:12px; line-height:1.7;}
+  .ct .sfoot{flex:0 0 auto; border-top:1px solid var(--line2); padding:7px 0 9px; font-size:10.5px;
+             color:var(--mut); display:flex; justify-content:space-between;}
+  .pgno{position:absolute; right:12px; bottom:9px; font-size:10px; color:var(--mut); font-variant-numeric:tabular-nums;}
+
+  .exportbar{position:fixed; right:18px; bottom:18px; display:flex; flex-direction:column; gap:10px; z-index:50;}
+  .exportbar button{font-size:14px; font-weight:700; color:#fff; background:var(--accent2); border:0;
+                    border-radius:11px; padding:13px 16px; box-shadow:0 8px 22px rgba(0,0,0,.4);}
+  .exportbar button.ghost{background:#1f1f1f;}
+  .exportbar .hint{font-size:11px; color:#999; text-align:center; max-width:170px; line-height:1.5;}
+  .empty{max-width:760px; margin:40px auto; text-align:center; color:#bbb; font-size:14px; line-height:1.8;}
+  .empty code{background:#1f1f1f; color:#ffd84d; padding:2px 8px; border-radius:5px;}
+
+  #imgsink{position:fixed; inset:0; background:rgba(20,16,12,.95); z-index:80; display:none; overflow:auto; padding:14px;}
+  #imgsink.on{display:block;}
+  #imgsink .bar{position:sticky; top:0; display:flex; justify-content:space-between; align-items:center;
+                padding:6px 4px 12px; color:#fff;}
+  #imgsink .x{font-size:22px; padding:2px 10px; cursor:pointer;}
+  #imgsink img{display:block; width:100%; max-width:380px; margin:0 auto 14px; border-radius:8px;}
+  @media(max-width:760px){
+    .exportbar{position:sticky; right:auto; bottom:auto; flex-direction:row; justify-content:center; margin:18px auto 0; max-width:360px;}
+    .exportbar .hint{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="back" href="news.html">← 业界动态</a>
+  <div class="seg" id="seg">
+    <button data-k="daily" class="on">📅 日报</button>
+    <button data-k="weekly">📆 周报</button>
+  </div>
+  <select id="dateSel"></select>
+  <div class="tip">3:4 小红书图片 · 每页 360×480(导出 ×3 = 1080×1440)。改文案不用重导,渲染永远最新。</div>
+</div>
+
+<div class="slides" id="slides"></div>
+<div class="empty" id="empty" style="display:none"></div>
+
+<div class="exportbar">
+  <button onclick="exportAll()">⬇️ 导出全部</button>
+  <button class="ghost" onclick="exportOne(0)">⬇️ 只导出封面</button>
+  <div class="hint">导出 1080×1440 PNG,存相册去小红书发</div>
+</div>
+
+<div id="imgsink"><div class="bar"><b>长按每张图 → 存储图像</b>
+  <span class="x" onclick="document.getElementById('imgsink').classList.remove('on')">✕</span></div>
+  <div id="imgsink-body"></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script>
+  const SLIDES=document.getElementById('slides');
+  const REGFLAG={jp:'🇯🇵',cn:'🇨🇳',us:'🇺🇸'};
+  let REPORTS={daily:{},weekly:{}}, kind='daily', curDate='', DATA=null, RENDERED=[];
+
+  const esc=s=>String(s==null?'':s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  const inline=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
+  const qp=k=>new URLSearchParams(location.search).get(k)||'';
+
+  function coverSlide(){
+    const c=DATA.cover||{}, s=document.createElement('div'); s.className='slide';
+    s.innerHTML=`<div class="cv">
+      <div class="mast">情报台 · INDUSTRY WIRE</div><div class="rule"></div><div class="rule thin"></div>
+      <div class="ribbon">${esc(c.series||'行业速报')}</div>
+      <div class="big serif">${(c.title_lines||[]).map(esc).join('<br>')}</div>
+      ${c.subtitle?`<div class="sub">${esc(c.subtitle)}</div>`:''}
+      <div class="spacer"></div>
+      <div class="rule thin"></div>
+      <div class="foot" style="margin-top:9px">
+        <span class="date">${esc(DATA.period_label||DATA.date||'')}</span>
+        <span>🇯🇵日本 · 🇨🇳中国 · 🇺🇸欧美 三地聚合</span></div>
+      <div class="watermark serif">${DATA.kind==='weekly'?'周':'日'}</div></div>`;
+    return s;
+  }
+  function contentSlide(){
+    const s=document.createElement('div'); s.className='slide';
+    s.innerHTML=`<div class="ct"><div class="chead"><span class="s1">${esc(DATA.cover?.series||'行业速报')}</span>
+      <span class="s2">${esc(DATA.period_label||DATA.date||'')}</span></div>
+      <div class="scontent"></div>
+      <div class="sfoot"><span>情报台 · 具身/脑机/基模</span><span>RSS 聚合 · 不编造</span></div></div>`;
+    return s;
+  }
+  function createBlock(b){
+    const el=document.createElement('div');
+    if(b.type==='tags'){ el.className='tags'; el.textContent=(b.items||[]).map(t=>'#'+t).join('  '); }
+    else{ el.className=['lead','sec','li','p','num'].includes(b.type)?b.type:'p'; el.innerHTML=inline(b.text||''); }
+    return el;
+  }
+  function paginate(pages){
+    const nodes=(DATA.blocks||[]).map(createBlock);
+    let cur=contentSlide(); SLIDES.appendChild(cur); pages.push(cur);
+    let area=cur.querySelector('.scontent');
+    nodes.forEach(node=>{
+      area.appendChild(node);
+      if(area.scrollHeight>area.clientHeight && area.children.length>1){
+        area.removeChild(node);
+        cur=contentSlide(); SLIDES.appendChild(cur); pages.push(cur);
+        area=cur.querySelector('.scontent'); area.appendChild(node);
+      }
+    });
+    // 孤儿:页尾是 sec 标题 → 挪到下一页开头
+    for(let i=0;i<pages.length-1;i++){
+      const a=pages[i].querySelector('.scontent'), last=a.lastElementChild;
+      if(last && last.classList.contains('sec')){
+        a.removeChild(last);
+        const na=pages[i+1].querySelector('.scontent'); na.insertBefore(last,na.firstChild);
+      }
+    }
+  }
+  function render(){
+    SLIDES.innerHTML='';
+    if(!DATA){ document.getElementById('empty').style.display=''; return []; }
+    document.getElementById('empty').style.display='none';
+    const cover=coverSlide(); SLIDES.appendChild(cover);
+    const pages=[]; paginate(pages);
+    const all=[cover].concat(pages);
+    all.forEach((s,i)=>{ const n=document.createElement('div'); n.className='pgno'; n.textContent=(i+1)+'/'+all.length; s.appendChild(n); });
+    return all;
+  }
+
+  function buildDates(){
+    const map=REPORTS[kind]||{}, dates=Object.keys(map).sort().reverse();
+    const sel=document.getElementById('dateSel'); sel.innerHTML='';
+    if(!dates.length){ sel.style.display='none'; DATA=null; RENDERED=render(); showEmpty(); return; }
+    sel.style.display='';
+    if(!curDate||!map[curDate]) curDate=dates[0];
+    dates.forEach(d=>{ const o=document.createElement('option'); o.value=d;
+      o.textContent=(map[d].period_label||d)+(d===dates[0]?' · 最新':''); if(d===curDate)o.selected=true; sel.appendChild(o); });
+    DATA=map[curDate]; RENDERED=render();
+  }
+  function showEmpty(){
+    document.getElementById('empty').innerHTML=`还没有${kind==='daily'?'日报':'周报'}。<br>
+      本地生成:<code>python3 gen_news_report.py --${kind} --force</code>(需 QWEN_API_KEY)`;
+  }
+
+  document.querySelectorAll('#seg button').forEach(b=>b.onclick=()=>{
+    kind=b.dataset.k; document.querySelectorAll('#seg button').forEach(x=>x.classList.toggle('on',x===b));
+    curDate=''; buildDates();
+  });
+  document.getElementById('dateSel').onchange=e=>{ curDate=e.target.value; DATA=(REPORTS[kind]||{})[curDate]; RENDERED=render(); };
+
+  fetch('news_reports.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{
+    REPORTS={daily:j.daily||{}, weekly:j.weekly||{}};
+    kind=qp('kind')==='weekly'?'weekly':'daily';
+    curDate=qp('date')||'';
+    document.querySelectorAll('#seg button').forEach(x=>x.classList.toggle('on',x.dataset.k===kind));
+    buildDates();
+  }).catch(()=>{ DATA=null; render(); document.getElementById('empty').style.display='';
+    document.getElementById('empty').innerHTML='没读到 news_reports.json。<br>先跑 <code>python3 gen_news_report.py --force</code>'; });
+
+  // ===== 导出(html2canvas,与论文出图一致)=====
+  function isMobile(){ return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)||(window.matchMedia&&matchMedia('(pointer:coarse)').matches); }
+  function fname(){ return (DATA?(DATA.kind+'_'+(DATA.date||'')):'report'); }
+  function capture(el,idx){
+    return html2canvas(el,{scale:3,useCORS:true,backgroundColor:'#f4f1ea',logging:false}).then(canvas=>{
+      const url=canvas.toDataURL('image/png');
+      if(isMobile()){ const img=new Image(); img.src=url; document.getElementById('imgsink-body').appendChild(img); }
+      else{ const a=document.createElement('a'); a.download='speibao_'+fname()+'_p'+(idx+1)+'.png'; a.href=url; a.click(); }
+    });
+  }
+  function exportOne(idx){
+    if(typeof html2canvas==='undefined'){ alert('html2canvas 没加载(可能没联网)'); return; }
+    if(!RENDERED[idx]){ alert('还没渲染好'); return; }
+    if(isMobile()){ document.getElementById('imgsink-body').innerHTML=''; document.getElementById('imgsink').classList.add('on'); }
+    capture(RENDERED[idx],idx);
+  }
+  async function exportAll(){
+    if(typeof html2canvas==='undefined'){ alert('html2canvas 没加载(可能没联网)'); return; }
+    if(!RENDERED.length){ alert('还没渲染好'); return; }
+    if(isMobile()){ document.getElementById('imgsink-body').innerHTML=''; document.getElementById('imgsink').classList.add('on'); }
+    for(let i=0;i<RENDERED.length;i++){ await capture(RENDERED[i],i); await new Promise(r=>setTimeout(r,250)); }
+  }
+  window.exportOne=exportOne; window.exportAll=exportAll;
+</script>
+</body>
+</html>

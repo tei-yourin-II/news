@@ -13,6 +13,7 @@ import pick_daily
 import pick_weekly
 import backfill_venues
 import gen_news
+import gen_news_report
 import gen_graph
 
 
@@ -36,9 +37,11 @@ def main():
     _safe("精选", pick_daily.main)
     print("=== [6/8] 本周具身 Top15(滚动 7 天窗口,复用已存分析)===")
     _safe("周报", pick_weekly.main)
-    print("=== [7/8] 企业/基模 RSS 新闻 ===")
+    print("=== [7/9] 企业/基模 RSS 新闻(中/日/欧美三端点)===")
     _safe("新闻", gen_news.main)
-    print("=== [8/8] 重建知识图谱 ===")
+    print("=== [8/9] 业界动态 日报(每天)+ 周报(仅周一)===")
+    _safe("速报", gen_news_report.main)
+    print("=== [9/9] 重建知识图谱 ===")
     _safe("图谱", gen_graph.main)
 
 

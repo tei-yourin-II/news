@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>业界动态 · 日报/周报 — 情报台</title>
+<style>
+  /* ===== 编辑部 / 报刊风:与暗色研究台明确区分,亮底衬线刊头,适合「读新闻」 ===== */
+  :root{
+    --paper:#f4f1ea; --card:#fffdf8; --ink:#1c1b18; --ink2:#4a4742; --mut:#8a857c;
+    --line:#e4dfd4; --line2:#d6d0c2; --accent:#9a3b2e; --accent2:#c2502f;
+    --jp:#c0392b; --cn:#b8860b; --us:#3a6ea5;
+    --chip:#efeadf; --chipon:#1c1b18;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{font:15px/1.6 "PingFang SC","Hiragino Sans",-apple-system,Segoe UI,Roboto,sans-serif;
+       background:var(--paper); color:var(--ink); -webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  button{font:inherit; cursor:pointer; color:inherit;}
+  .serif{font-family:"Songti SC","Noto Serif JP",Georgia,"Times New Roman",serif;}
+  ::selection{background:#e7c9a8;}
+
+  /* ===== 刊头 ===== */
+  .masthead{max-width:1180px; margin:0 auto; padding:30px 26px 14px;}
+  .mh-top{display:flex; align-items:flex-end; gap:14px; flex-wrap:wrap;
+          border-bottom:3px double var(--ink); padding-bottom:14px;}
+  .mh-title{font-size:38px; font-weight:800; letter-spacing:-.01em; line-height:1;}
+  .mh-title .sub{display:block; font-size:13px; font-weight:500; color:var(--mut);
+                 letter-spacing:.28em; margin-top:9px; text-transform:uppercase;}
+  .mh-meta{margin-left:auto; text-align:right; font-size:12.5px; color:var(--mut); line-height:1.5;}
+  .mh-meta b{color:var(--ink2); font-weight:600;}
+  .mh-meta a.tolab{display:inline-block; margin-top:7px; padding:5px 12px; border:1px solid var(--line2);
+                   border-radius:20px; font-size:12px; color:var(--ink2); text-decoration:none; transition:.15s; background:var(--card);}
+  .mh-meta a.tolab:hover{border-color:var(--ink); background:var(--ink); color:var(--card);}
+
+  /* ===== 速报带(日报/周报)===== */
+  .reportband{max-width:1180px; margin:18px auto 0; padding:0 26px;}
+  .rb-card{background:var(--card); border:1px solid var(--line2); border-radius:16px; overflow:hidden;
+           box-shadow:0 10px 34px -22px rgba(40,30,20,.5);}
+  .rb-bar{display:flex; align-items:center; gap:10px 14px; flex-wrap:wrap; padding:13px 18px;
+          background:linear-gradient(180deg,#1c1b18,#2a2622); color:#f4f1ea;}
+  .rb-seg{display:flex; gap:3px; background:rgba(255,255,255,.08); padding:3px; border-radius:10px;}
+  .rb-seg button{padding:5px 15px; border:0; background:transparent; color:#cfc8bb; border-radius:8px; font-size:13px; font-weight:600;}
+  .rb-seg button.on{background:#f4f1ea; color:#1c1b18;}
+  .rb-bar .rb-label{font-weight:700; font-size:14px;}
+  .rb-bar select{margin-left:auto; background:rgba(255,255,255,.1); color:#f4f1ea; border:1px solid rgba(255,255,255,.18);
+                 border-radius:8px; padding:5px 9px; font-size:12.5px;}
+  .rb-bar .rb-copy{background:var(--accent2); color:#fff; border:0; border-radius:8px; padding:6px 14px; font-size:12.5px; font-weight:600;}
+  .rb-bar .rb-copy:hover{filter:brightness(1.08);}
+  .rb-body{padding:20px 26px 22px;}
+  .rb-cover{margin-bottom:14px; padding-bottom:14px; border-bottom:1px dashed var(--line2);}
+  .rb-cover .ser{font-size:11px; letter-spacing:.2em; color:var(--accent); font-weight:700; text-transform:uppercase;}
+  .rb-cover .big{font-size:27px; font-weight:800; line-height:1.25; margin:7px 0 5px;}
+  .rb-cover .subt{font-size:14px; color:var(--mut);}
+  .rb-lead{font-size:15px; color:var(--ink2); line-height:1.7; margin-bottom:12px;}
+  .rb-sec{font-size:16px; font-weight:800; margin:16px 0 8px; padding-left:2px;}
+  .rb-li{font-size:14px; line-height:1.7; color:var(--ink2); margin:5px 0; padding-left:4px;}
+  .rb-li b, .rb-lead b{color:var(--accent); font-weight:700;}
+  .rb-tags{display:flex; flex-wrap:wrap; gap:7px; margin-top:16px; padding-top:13px; border-top:1px dashed var(--line2);}
+  .rb-tag{font-size:12px; color:var(--ink2); background:var(--chip); padding:3px 11px; border-radius:14px;}
+  .rb-src{margin-top:16px;}
+  .rb-src summary{cursor:pointer; font-size:12.5px; color:var(--mut); list-style:none;}
+  .rb-src summary::-webkit-details-marker{display:none;}
+  .rb-src summary::before{content:"▸ "; } .rb-src[open] summary::before{content:"▾ "; }
+  .rb-src a{display:block; font-size:12px; color:var(--mut); text-decoration:none; padding:3px 0; border-bottom:1px solid var(--line);}
+  .rb-src a:hover{color:var(--accent);}
+  .rb-empty{padding:26px; text-align:center; color:var(--mut); font-size:13.5px;}
+  .rb-empty code{background:#e9e4d8; padding:2px 7px; border-radius:5px;}
+
+  /* ===== 实时动态筛选条 ===== */
+  .sechead{max-width:1180px; margin:34px auto 0; padding:0 26px;
+           display:flex; align-items:baseline; gap:10px; border-bottom:2px solid var(--ink); padding-bottom:8px;}
+  .sechead .h{font-size:18px; font-weight:800;} .sechead .s{font-size:12px; color:var(--mut);}
+  .toolbar{position:sticky; top:0; z-index:10; background:rgba(244,241,234,.93);
+           backdrop-filter:saturate(1.4) blur(8px); border-bottom:1px solid var(--line2); margin-top:14px;}
+  .toolbar-in{max-width:1180px; margin:0 auto; padding:11px 26px; display:flex; align-items:center; gap:10px 20px; flex-wrap:wrap;}
+  .pgroup{display:flex; align-items:center; gap:7px; flex-wrap:wrap;}
+  .pgroup>.lab{font-size:11px; color:var(--mut); letter-spacing:.08em; text-transform:uppercase;}
+  .pill{padding:5px 13px; border:1px solid var(--line2); border-radius:20px; background:var(--card);
+        font-size:13px; color:var(--ink2); transition:.13s; white-space:nowrap; display:inline-flex; align-items:center; gap:5px;}
+  .pill:hover{border-color:var(--ink2);}
+  .pill.on{background:var(--chipon); color:var(--card); border-color:var(--chipon);}
+  .pill .ct{font-size:11px; opacity:.7; font-variant-numeric:tabular-nums;}
+  .searchbox{margin-left:auto; display:flex; align-items:center; gap:7px; padding:6px 12px;
+             border:1px solid var(--line2); border-radius:20px; background:var(--card); min-width:200px;}
+  .searchbox input{border:0; outline:0; background:transparent; font:inherit; font-size:13px; width:100%; color:var(--ink);}
+  .searchbox span{color:var(--mut); font-size:13px;}
+
+  /* ===== 主体 ===== */
+  .wrap{max-width:1180px; margin:0 auto; padding:22px 26px 70px;}
+  .regionsec{margin-bottom:34px;}
+  .rs-head{display:flex; align-items:baseline; gap:12px; margin:0 0 14px; padding-bottom:7px; border-bottom:2px solid var(--ink);}
+  .rs-flag{font-size:21px;} .rs-name{font-size:21px; font-weight:800;}
+  .rs-en{font-size:11px; color:var(--mut); letter-spacing:.18em; text-transform:uppercase;}
+  .rs-count{margin-left:auto; font-size:12px; color:var(--mut); font-variant-numeric:tabular-nums;}
+  .rs-bar{height:3px; border-radius:2px;}
+  .cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:13px;}
+  .card{display:flex; flex-direction:column; background:var(--card); border:1px solid var(--line);
+        border-radius:11px; padding:14px 16px 13px; text-align:left; transition:.14s; position:relative; overflow:hidden;}
+  .card::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--rc,var(--line2)); opacity:0; transition:.14s;}
+  .card:hover{border-color:var(--line2); box-shadow:0 6px 22px -12px rgba(40,30,20,.4); transform:translateY(-1px);}
+  .card:hover::before{opacity:1;}
+  .card .tags{display:flex; align-items:center; gap:6px; margin-bottom:8px; flex-wrap:wrap;}
+  .badge{font-size:10.5px; padding:2px 8px; border-radius:5px; font-weight:600; letter-spacing:.02em;}
+  .badge.dom{background:var(--chip); color:var(--ink2);} .badge.reg{color:#fff;}
+  .card .ttl{font-size:15px; font-weight:650; line-height:1.45; color:var(--ink); margin:0;}
+  .card .ttl.serif{font-size:16.5px; font-weight:700;}
+  .card .foot{display:flex; align-items:center; gap:8px; margin-top:11px; padding-top:9px;
+              border-top:1px dashed var(--line2); font-size:11.5px; color:var(--mut);}
+  .card .src{font-weight:600; color:var(--ink2); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:60%;}
+  .card .when{margin-left:auto; white-space:nowrap; font-variant-numeric:tabular-nums;}
+  .cards.featured{grid-template-columns:1.4fr 1fr 1fr;}
+  @media(max-width:900px){ .cards.featured{grid-template-columns:1fr 1fr;} }
+  .empty{text-align:center; color:var(--mut); padding:60px 20px; font-size:14px;}
+  .foot-note{max-width:1180px; margin:0 auto; padding:0 26px 50px; color:var(--mut); font-size:12px; line-height:1.7;}
+
+  /* ===== 详情抽屉 ===== */
+  #scrim{position:fixed; inset:0; background:rgba(28,24,18,.34); opacity:0; pointer-events:none; transition:.2s; z-index:40;}
+  #scrim.on{opacity:1; pointer-events:auto;}
+  #drawer{position:fixed; top:0; right:0; height:100%; width:min(440px,92vw); background:var(--card);
+          box-shadow:-14px 0 50px -20px rgba(40,30,20,.5); transform:translateX(102%); transition:.24s cubic-bezier(.4,0,.2,1);
+          z-index:41; overflow:auto; padding:26px 26px 40px;}
+  #drawer.open{transform:none;}
+  #drawer .close{position:absolute; top:16px; right:18px; font-size:20px; color:var(--mut); background:none; border:0;}
+  #drawer .dbadges{display:flex; gap:7px; flex-wrap:wrap; margin:6px 0 14px;}
+  #drawer h2{font-size:21px; line-height:1.4; margin:8px 0 14px; font-weight:750;}
+  #drawer .meta{font-size:13px; color:var(--mut); line-height:2;}
+  #drawer .meta b{color:var(--ink2);}
+  #drawer .open-link{display:block; margin-top:20px; text-align:center; padding:12px; border-radius:10px;
+                     background:var(--ink); color:var(--card); text-decoration:none; font-weight:650; font-size:14px;}
+  #drawer .open-link:hover{background:var(--accent);}
+  #drawer .hint{margin-top:14px; font-size:12px; color:var(--mut); line-height:1.6;}
+
+  @media(max-width:640px){
+    .mh-title{font-size:29px;} .toolbar-in{padding:10px 16px;} .wrap{padding:18px 16px 60px;}
+    .masthead,.reportband,.sechead{padding-left:16px; padding-right:16px;} .searchbox{margin-left:0; width:100%;}
+    .cards,.cards.featured{grid-template-columns:1fr;} .rb-body{padding:18px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="mh-top">
+    <div class="mh-title serif">情报台 · 业界动态<span class="sub">Industry Wire · Embodied / BCI / Foundation Models</span></div>
+    <div class="mh-meta">
+      <div>更新于 <b id="genDate">—</b></div>
+      <div id="totalLine">RSS 活水 · 每日刷新</div>
+      <a class="tolab" href="index.html">← 研究台 · 论文库 / 全景 / 图谱</a>
+    </div>
+  </div>
+</header>
+
+<!-- 速报:日报 / 周报(自动生成、按日期留存) -->
+<section class="reportband">
+  <div class="rb-card">
+    <div class="rb-bar">
+      <div class="rb-seg" id="rpSeg">
+        <button data-k="daily" class="on">📅 日报</button>
+        <button data-k="weekly">📆 周报</button>
+      </div>
+      <span class="rb-label" id="rpLabel">—</span>
+      <select id="rpDate"></select>
+      <a class="rb-copy" id="rpImg" style="text-decoration:none;background:#1f1f1f">🖼️ 出图</a>
+      <button class="rb-copy" id="rpCopy">📋 复制文案</button>
+    </div>
+    <div class="rb-body" id="rpBody"></div>
+  </div>
+</section>
+
+<div class="sechead">
+  <span class="h">📡 实时动态</span>
+  <span class="s">Google News RSS · 中 / 日 / 欧美三端点 · 点卡片看详情</span>
+</div>
+
+<div class="toolbar">
+  <div class="toolbar-in">
+    <div class="pgroup"><span class="lab">地区</span><span id="regionPills"></span></div>
+    <div class="pgroup"><span class="lab">领域</span><span id="domainPills"></span></div>
+    <label class="searchbox"><span>⌕</span><input id="q" type="search" placeholder="搜标题 / 媒体源…"></label>
+  </div>
+</div>
+
+<main class="wrap" id="wrap"></main>
+<div class="foot-note" id="footNote"></div>
+
+<div id="scrim" onclick="closeDrawer()"></div>
+<aside id="drawer"></aside>
+
+<script>
+const REGIONS = {
+  jp: {flag:'🇯🇵', name:'日本',     en:'JAPAN',        color:'var(--jp)'},
+  cn: {flag:'🇨🇳', name:'中国',     en:'CHINA',        color:'var(--cn)'},
+  us: {flag:'🇺🇸', name:'欧美 / 全球', en:'US & GLOBAL', color:'var(--us)'},
+};
+const REGION_ORDER = ['jp','cn','us'];
+const DOMAINS = {embodied:'具身智能', bci:'脑机接口', llm:'大模型基座'};
+const DOM_ORDER = ['embodied','bci','llm'];
+
+const esc = s => String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const inline = s => esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
+const strip = s => String(s==null?'':s).replace(/\*\*(.+?)\*\*/g,'$1');
+let NEWS=[], REPORTS={daily:{},weekly:{}}, curRegion='all', curDomain='all', rpKind='daily', rpCur='';
+
+function fmtDate(n){
+  const t = Date.parse(n.ts||n.date||'');
+  if(isNaN(t)) return esc((n.date||'').slice(0,11));
+  const d=new Date(t), days=Math.floor((Date.now()-t)/864e5);
+  if(days<=0) return '今天'; if(days===1) return '昨天'; if(days<7) return days+' 天前';
+  return (d.getMonth()+1)+'月'+d.getDate()+'日';
+}
+function regionOf(n){ return REGIONS[n.region] ? n.region : 'us'; }
+
+async function load(){
+  try{
+    const j = await (await fetch('news.json',{cache:'no-store'})).json();
+    NEWS = (j.news||[]).filter(n=>n.title);
+    document.getElementById('genDate').textContent = j.generated_at || '—';
+  }catch(e){
+    document.getElementById('wrap').innerHTML =
+      `<div class="empty"><b>没读到 news.json。</b><br>请在终端 <code>cd robot-intel/docs && python3 -m http.server 8731</code>,再开 <code>http://localhost:8731/news.html</code></div>`;
+  }
+  try{ REPORTS = await (await fetch('news_reports.json',{cache:'no-store'})).json(); }
+  catch(e){ REPORTS = {daily:{}, weekly:{}}; }
+  buildPills(); renderFeed(); updateStrap(); initReports();
+}
+
+/* ---------- 速报:日报 / 周报 ---------- */
+function initReports(){
+  document.querySelectorAll('#rpSeg button').forEach(b=>b.onclick=()=>{
+    rpKind=b.dataset.k; document.querySelectorAll('#rpSeg button').forEach(x=>x.classList.toggle('on',x===b));
+    rpCur=''; buildDateSelect(); renderReport();
+  });
+  document.getElementById('rpDate').onchange = e=>{ rpCur=e.target.value; renderReport(); };
+  document.getElementById('rpCopy').onclick = copyReport;
+  buildDateSelect(); renderReport();
+}
+function buildDateSelect(){
+  const map = REPORTS[rpKind]||{};
+  const dates = Object.keys(map).sort().reverse();
+  const sel = document.getElementById('rpDate'); sel.innerHTML='';
+  if(!dates.length){ sel.style.display='none'; return; }
+  sel.style.display='';
+  if(!rpCur || !map[rpCur]) rpCur = dates[0];
+  dates.forEach(d=>{
+    const o=document.createElement('option'); o.value=d;
+    o.textContent = (map[d].period_label||d) + (d===dates[0]?' · 最新':'');
+    if(d===rpCur) o.selected=true; sel.appendChild(o);
+  });
+}
+function curReport(){ return (REPORTS[rpKind]||{})[rpCur]; }
+function renderReport(){
+  const body=document.getElementById('rpBody'), lab=document.getElementById('rpLabel');
+  const r=curReport();
+  const img=document.getElementById('rpImg');
+  if(!r){
+    lab.textContent='';
+    body.innerHTML=`<div class="rb-empty">还没有${rpKind==='daily'?'日报':'周报'}。<br>
+      本地生成:<code>python3 gen_news_report.py --${rpKind} --force</code>(需 QWEN_API_KEY);线上由每日任务自动产出。</div>`;
+    document.getElementById('rpCopy').style.display='none'; img.style.display='none'; return;
+  }
+  document.getElementById('rpCopy').style.display='';
+  img.style.display=''; img.href=`news_card.html?kind=${rpKind}&date=${encodeURIComponent(rpCur)}`;
+  lab.textContent = (r.kind==='daily'?'日报 · ':'周报 · ') + (r.period_label||r.date);
+  const c=r.cover||{};
+  let h=`<div class="rb-cover"><div class="ser">${esc(c.series||'')}</div>
+    <div class="big serif">${(c.title_lines||[]).map(esc).join('<br>')}</div>
+    ${c.subtitle?`<div class="subt">${esc(c.subtitle)}</div>`:''}</div>`;
+  (r.blocks||[]).forEach(b=>{
+    if(b.type==='lead') h+=`<div class="rb-lead">${inline(b.text)}</div>`;
+    else if(b.type==='sec') h+=`<div class="rb-sec">${esc(b.text)}</div>`;
+    else if(b.type==='li'||b.type==='num'||b.type==='p') h+=`<div class="rb-li">${inline(b.text)}</div>`;
+    else if(b.type==='tags') h+=`<div class="rb-tags">${(b.items||[]).map(t=>`<span class="rb-tag">#${esc(t)}</span>`).join('')}</div>`;
+  });
+  const srcs=r.sources||[];
+  if(srcs.length) h+=`<details class="rb-src"><summary>溯源 · ${srcs.length} 条原始动态</summary>
+    ${srcs.map(s=>`<a href="${esc(s.link)}" target="_blank" rel="noopener">${REGIONS[s.region]?.flag||''} ${esc(s.title)} <span style="opacity:.7">— ${esc(s.source)}</span></a>`).join('')}</details>`;
+  body.innerHTML=h;
+}
+function reportText(){
+  const r=curReport(); if(!r) return '';
+  const c=r.cover||{}, out=[];
+  out.push((c.title_lines||[]).map(strip).join(' '));
+  if(c.subtitle) out.push(strip(c.subtitle)); out.push('');
+  (r.blocks||[]).forEach(b=>{
+    if(b.type==='tags') out.push('\n'+(b.items||[]).map(t=>'#'+t).join(' '));
+    else if(b.type==='sec') out.push('\n'+strip(b.text));
+    else out.push(strip(b.text));
+  });
+  return out.join('\n').replace(/\n{3,}/g,'\n\n').trim();
+}
+function copyReport(){
+  const t=reportText(); if(!t) return;
+  navigator.clipboard.writeText(t).then(()=>{
+    const b=document.getElementById('rpCopy'), o=b.textContent;
+    b.textContent='✓ 已复制'; setTimeout(()=>b.textContent=o,1400);
+  }).catch(()=>alert('复制失败,请手动选择'));
+}
+
+/* ---------- 实时动态 ---------- */
+function counts(key){
+  const m={all:0};
+  NEWS.forEach(n=>{ const k=key==='region'?regionOf(n):(n.domain||'llm'); m[k]=(m[k]||0)+1; m.all++; });
+  return m;
+}
+function buildPills(){
+  const rc=counts('region'), dc=counts('domain');
+  const rp=document.getElementById('regionPills'); rp.innerHTML='';
+  rp.appendChild(pill('🌐 全部', rc.all, curRegion==='all', ()=>{curRegion='all';renderFeed();}));
+  REGION_ORDER.forEach(k=>{ if(rc[k]) rp.appendChild(pill(`${REGIONS[k].flag} ${REGIONS[k].name}`, rc[k], curRegion===k, ()=>{curRegion=k;renderFeed();})); });
+  const dp=document.getElementById('domainPills'); dp.innerHTML='';
+  dp.appendChild(pill('全部', dc.all, curDomain==='all', ()=>{curDomain='all';renderFeed();}));
+  DOM_ORDER.forEach(k=>{ if(dc[k]) dp.appendChild(pill(DOMAINS[k], dc[k], curDomain===k, ()=>{curDomain=k;renderFeed();})); });
+}
+function pill(label,count,on,onclick){
+  const b=document.createElement('button'); b.className='pill'+(on?' on':'');
+  b.innerHTML=`${esc(label)} <span class="ct">${count}</span>`; b.onclick=onclick; return b;
+}
+function filtered(){
+  const q=(document.getElementById('q').value||'').trim().toLowerCase();
+  return NEWS.filter(n=>{
+    if(curRegion!=='all' && regionOf(n)!==curRegion) return false;
+    if(curDomain!=='all' && (n.domain||'llm')!==curDomain) return false;
+    if(q && !((n.title||'').toLowerCase().includes(q) || (n.source||'').toLowerCase().includes(q))) return false;
+    return true;
+  }).sort((a,b)=>String(b.ts||'').localeCompare(String(a.ts||'')));
+}
+function cardHTML(n,i,lead){
+  const reg=REGIONS[regionOf(n)], dom=DOMAINS[n.domain]||n.domain||'';
+  return `<button class="card${lead?' lead':''}" onclick="openCard(${i})" style="--rc:${reg.color}">
+    <div class="tags"><span class="badge reg" style="background:${reg.color}">${reg.flag} ${esc(reg.name)}</span>
+      ${dom?`<span class="badge dom">${esc(dom)}</span>`:''}</div>
+    <div class="ttl${lead?' serif':''}">${esc(n.title)}</div>
+    <div class="foot"><span class="src">${esc(n.source||'—')}</span><span class="when">${fmtDate(n)}</span></div>
+  </button>`;
+}
+let VIEW=[];
+function renderFeed(){
+  buildPills();
+  const wrap=document.getElementById('wrap'); VIEW=filtered();
+  if(!VIEW.length){ wrap.innerHTML=`<div class="empty">该筛选下暂无动态。<br><span style="font-size:12.5px">换个地区/领域,或清空搜索。</span></div>`; return; }
+  if(curRegion==='all'){
+    let html='';
+    REGION_ORDER.forEach(rk=>{
+      const idxs=VIEW.map((n,i)=>[n,i]).filter(([n])=>regionOf(n)===rk);
+      if(!idxs.length) return; const R=REGIONS[rk];
+      html+=`<section class="regionsec">
+        <div class="rs-head"><span class="rs-flag">${R.flag}</span><span class="rs-name">${esc(R.name)}</span>
+          <span class="rs-en">${R.en}</span><span class="rs-count">${idxs.length} 条</span></div>
+        <div class="rs-bar" style="background:${R.color}"></div>
+        <div class="cards featured" style="margin-top:13px">${idxs.map(([n,i],k)=>cardHTML(n,i,k===0)).join('')}</div></section>`;
+    });
+    wrap.innerHTML=html;
+  }else{
+    const R=REGIONS[curRegion];
+    wrap.innerHTML=`<section class="regionsec">
+      <div class="rs-head"><span class="rs-flag">${R.flag}</span><span class="rs-name">${esc(R.name)}</span>
+        <span class="rs-en">${R.en}</span><span class="rs-count">${VIEW.length} 条</span></div>
+      <div class="cards" style="margin-top:13px">${VIEW.map((n,i)=>cardHTML(n,i,false)).join('')}</div></section>`;
+  }
+}
+
+/* ---------- 卡片详情抽屉 ---------- */
+function openCard(i){
+  const n=VIEW[i]; if(!n) return;
+  const reg=REGIONS[regionOf(n)], dom=DOMAINS[n.domain]||'';
+  const d=document.getElementById('drawer');
+  d.innerHTML=`<button class="close" onclick="closeDrawer()">✕</button>
+    <div class="dbadges"><span class="badge reg" style="background:${reg.color}">${reg.flag} ${esc(reg.name)}</span>
+      ${dom?`<span class="badge dom">${esc(dom)}</span>`:''}</div>
+    <h2 class="serif">${esc(n.title)}</h2>
+    <div class="meta"><div>媒体源 · <b>${esc(n.source||'—')}</b></div>
+      <div>时间 · <b>${esc((n.date||'').slice(0,16)||fmtDate(n))}</b></div>
+      <div>领域 · <b>${esc(dom||'—')}</b> ｜ 地区 · <b>${reg.flag} ${esc(reg.name)}</b></div></div>
+    <a class="open-link" href="${esc(n.link)}" target="_blank" rel="noopener">阅读原文 ↗</a>
+    <div class="hint">这条动态会进入当天「日报」自动汇编。整篇日报/周报可在页面顶部一键复制成小红书文案。</div>`;
+  d.classList.add('open'); document.getElementById('scrim').classList.add('on');
+}
+function closeDrawer(){ document.getElementById('drawer').classList.remove('open'); document.getElementById('scrim').classList.remove('on'); }
+window.openCard=openCard; window.closeDrawer=closeDrawer;
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeDrawer(); });
+
+function updateStrap(){
+  const jp=NEWS.filter(n=>n.region==='jp').length, cn=NEWS.filter(n=>n.region==='cn').length, us=NEWS.filter(n=>regionOf(n)==='us').length;
+  document.getElementById('totalLine').textContent=`共 ${NEWS.length} 条 · 日 ${jp} / 中 ${cn} / 欧美 ${us}`;
+  document.getElementById('footNote').innerHTML=
+    `数据源 · Google News RSS(中文 CN / 日文 JP / 英文 US 三端点),按地区与领域去重聚合。<br>
+     日报每日 09:00(北京)自动汇编当日动态,周报每周一汇编近 7 天,均按日期留存。本页(业界动态)与 <a href="index.html" style="color:var(--accent)">研究台</a>(论文库/全景/图谱)分流。`;
+}
+
+document.getElementById('q').addEventListener('input', renderFeed);
+load();
+</script>
+</body>
+</html>
