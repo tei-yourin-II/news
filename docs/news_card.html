@@ -5,72 +5,86 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>速报出图 · 小红书图片排版 — 情报台</title>
 <style>
+  /* ===== 深色终端科技风:与论文周报贴共用同一套视觉语言 ===== */
   :root{
-    --paper:#f4f1ea; --card:#fffdf8; --ink:#1c1b18; --ink2:#43403a; --mut:#8a857c;
-    --line:#e1dccf; --line2:#cfc8b8; --accent:#9a3b2e; --accent2:#c2502f;
-    --jp:#c0392b; --cn:#b8860b; --us:#3a6ea5; --red:#ff2e4d;
+    --bg:#070b14; --slide:#0a1020; --panel:#0f1830; --ink:#eaf2fb; --ink2:#aebdd2; --mut:#5f7193;
+    --line:rgba(148,178,224,.13); --line2:rgba(148,178,224,.26);
+    --cy:#22d3ee; --cy2:#38bdf8; --cyd:#0e7490;
+    --jp:#fb7185; --cn:#fbbf24; --us:#38bdf8;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,"Roboto Mono",monospace;
   }
   *{box-sizing:border-box;}
-  body{margin:0; background:#2a2622; color:#eee; padding:18px 0 28px;
-       font:14px/1.6 "PingFang SC","Hiragino Sans",-apple-system,Segoe UI,sans-serif;}
-  .serif{font-family:"Songti SC","Noto Serif JP",Georgia,"Times New Roman",serif;}
+  body{margin:0; background:radial-gradient(1200px 600px at 50% -10%,#0d1830,#070b14 60%); color:#dfe8f3;
+       padding:18px 0 28px; font:14px/1.6 "PingFang SC","Hiragino Sans",-apple-system,Segoe UI,sans-serif;}
+  .mono{font-family:var(--mono);}
   a{color:inherit;}
   button{font:inherit; cursor:pointer; color:inherit;}
 
   .topbar{max-width:760px; margin:0 auto 14px; padding:0 16px; display:flex; align-items:center; gap:10px 14px; flex-wrap:wrap;}
-  .topbar .back{color:#cfc8bb; text-decoration:none; font-size:13px;}
-  .seg{display:flex; gap:3px; background:rgba(255,255,255,.08); padding:3px; border-radius:10px;}
-  .seg button{padding:5px 14px; border:0; background:transparent; color:#cfc8bb; border-radius:8px; font-size:13px; font-weight:600;}
-  .seg button.on{background:#f4f1ea; color:#1c1b18;}
-  .topbar select{background:rgba(255,255,255,.1); color:#f4f1ea; border:1px solid rgba(255,255,255,.2);
+  .topbar .back{color:#9fb2cf; text-decoration:none; font-size:13px;}
+  .seg{display:flex; gap:3px; background:rgba(255,255,255,.06); padding:3px; border-radius:10px; border:1px solid var(--line);}
+  .seg button{padding:5px 14px; border:0; background:transparent; color:#9fb2cf; border-radius:8px; font-size:13px; font-weight:600;}
+  .seg button.on{background:var(--cy); color:#04141b;}
+  .topbar select{background:rgba(255,255,255,.06); color:#dfe8f3; border:1px solid var(--line2);
                  border-radius:8px; padding:5px 9px; font-size:12.5px;}
-  .topbar .tip{width:100%; font-size:12px; color:#9a948a; margin-top:2px;}
+  .topbar .tip{width:100%; font-size:12px; color:var(--mut); margin-top:2px;}
 
   .slides{max-width:760px; margin:0 auto; padding:0 16px; display:flex; flex-wrap:wrap; gap:16px; justify-content:center;}
   /* 3:4 画布:360×480(导出 ×3 = 1080×1440) */
-  .slide{width:360px; height:480px; background:var(--paper); color:var(--ink); position:relative;
-         overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.35); border-radius:4px;}
+  .slide{width:360px; height:480px; background:var(--slide); color:var(--ink); position:relative;
+         overflow:hidden; box-shadow:0 14px 40px rgba(0,0,0,.55); border-radius:6px;
+         border:1px solid var(--line2);
+         background-image:
+           linear-gradient(rgba(148,178,224,.045) 1px,transparent 1px),
+           linear-gradient(90deg,rgba(148,178,224,.045) 1px,transparent 1px);
+         background-size:30px 30px;}
 
-  /* —— 封面:报纸头版 —— */
-  .cv{width:100%; height:100%; padding:30px 28px; display:flex; flex-direction:column; position:relative;}
-  .cv .mast{font-size:11px; letter-spacing:.34em; text-transform:uppercase; color:var(--mut); font-weight:600;}
-  .cv .rule{height:3px; background:var(--ink); margin:9px 0 0;}
-  .cv .rule.thin{height:1px; background:var(--line2); margin:7px 0 0;}
-  .cv .ribbon{display:inline-block; align-self:flex-start; margin:18px 0 0; background:var(--accent);
-              color:#fff; font-size:12px; font-weight:700; letter-spacing:.06em; padding:4px 12px; border-radius:3px;}
-  .cv .big{font-size:33px; font-weight:800; line-height:1.22; margin:16px 0 0; letter-spacing:-.01em;}
-  .cv .sub{font-size:14.5px; color:var(--ink2); margin-top:12px; line-height:1.55;}
+  /* —— 封面 —— */
+  .cv{width:100%; height:100%; padding:30px 28px; display:flex; flex-direction:column; position:relative;
+      background:radial-gradient(620px 300px at 78% -8%,rgba(34,211,238,.16),transparent 62%);}
+  .cv .mast{font-family:var(--mono); font-size:11px; letter-spacing:.26em; text-transform:uppercase;
+            color:var(--cy); font-weight:600; display:flex; justify-content:space-between; align-items:center;}
+  .cv .mast .dt{color:var(--ink2); letter-spacing:.1em;}
+  .cv .rule{height:2px; margin:10px 0 0; background:linear-gradient(90deg,var(--cy),transparent 78%);
+            box-shadow:0 0 12px rgba(34,211,238,.5);}
+  .cv .ribbon{display:inline-flex; align-items:center; gap:7px; align-self:flex-start; margin:22px 0 0;
+              color:var(--cy); font-size:12.5px; font-weight:700; letter-spacing:.08em;}
+  .cv .ribbon::before{content:""; width:4px; height:15px; background:var(--cy); border-radius:1px; box-shadow:0 0 10px var(--cy);}
+  .cv .big{font-size:33px; font-weight:800; line-height:1.24; margin:15px 0 0; letter-spacing:-.01em; color:#f4f9ff;}
+  .cv .sub{font-size:14.5px; color:var(--ink2); margin-top:13px; line-height:1.55;}
   .cv .spacer{flex:1;}
   .cv .foot{font-size:12px; color:var(--mut); display:flex; justify-content:space-between; align-items:flex-end;}
-  .cv .foot .date{font-size:15px; font-weight:700; color:var(--ink);}
-  .cv .watermark{position:absolute; right:-10px; bottom:46px; font-size:120px; font-weight:800;
-                 color:rgba(154,59,46,.06); line-height:1; pointer-events:none;}
+  .cv .foot .date{font-family:var(--mono); font-size:16px; font-weight:700; color:var(--cy); letter-spacing:.04em;}
+  .cv .watermark{position:absolute; right:-6px; bottom:40px; font-size:128px; font-weight:800;
+                 color:rgba(34,211,238,.06); line-height:1; pointer-events:none; font-family:var(--mono);}
 
   /* —— 内容页 —— */
   .ct{width:100%; height:100%; padding:24px 26px 0; display:flex; flex-direction:column;}
-  .ct .chead{display:flex; align-items:baseline; gap:8px; border-bottom:2px solid var(--ink); padding-bottom:7px; flex:0 0 auto;}
-  .ct .chead .s1{font-size:13px; font-weight:800;} .ct .chead .s2{font-size:11px; color:var(--mut); margin-left:auto;}
-  .scontent{flex:1 1 auto; overflow:hidden; padding-top:12px;}
-  .scontent .lead{font-size:14.5px; line-height:1.6; color:var(--ink2); margin:0 0 11px; font-weight:500;}
-  .scontent .sec{font-size:15px; font-weight:800; margin:13px 0 7px; color:var(--ink);
-                 border-left:4px solid var(--accent); padding-left:9px;}
+  .ct .chead{display:flex; align-items:baseline; gap:8px; border-bottom:1px solid var(--line2); padding-bottom:8px; flex:0 0 auto;}
+  .ct .chead .s1{font-size:13px; font-weight:800; color:var(--ink);}
+  .ct .chead .s1::before{content:"▸ "; color:var(--cy);}
+  .ct .chead .s2{font-family:var(--mono); font-size:10.5px; color:var(--mut); margin-left:auto; letter-spacing:.04em;}
+  .scontent{flex:1 1 auto; overflow:hidden; padding-top:13px;}
+  .scontent .lead{font-size:14.5px; line-height:1.6; color:var(--ink); margin:0 0 11px; font-weight:600;}
+  .scontent .sec{font-size:15px; font-weight:800; margin:13px 0 7px; color:#f4f9ff;
+                 border-left:3px solid var(--cy); padding-left:9px;}
   .scontent .sec:first-child{margin-top:0;}
   .scontent .li,.scontent .p,.scontent .num{font-size:12.7px; line-height:1.5; color:var(--ink2); margin:6px 0; padding-left:2px;}
-  .scontent b{color:var(--accent); font-weight:700;}
-  .scontent .tags{font-size:12px; color:var(--us); margin-top:12px; line-height:1.7;}
-  .ct .sfoot{flex:0 0 auto; border-top:1px solid var(--line2); padding:7px 0 9px; font-size:10.5px;
-             color:var(--mut); display:flex; justify-content:space-between;}
-  .pgno{position:absolute; right:12px; bottom:9px; font-size:10px; color:var(--mut); font-variant-numeric:tabular-nums;}
+  .scontent b{color:var(--cy); font-weight:700;}
+  .scontent .tags{font-family:var(--mono); font-size:11.5px; color:var(--cy2); margin-top:12px; line-height:1.8; opacity:.9;}
+  .ct .sfoot{flex:0 0 auto; border-top:1px solid var(--line); padding:8px 0 10px; font-size:10px;
+             color:var(--mut); display:flex; justify-content:space-between; font-family:var(--mono); letter-spacing:.03em;}
+  .pgno{position:absolute; right:13px; bottom:9px; font-size:10px; color:var(--mut); font-family:var(--mono); font-variant-numeric:tabular-nums;}
 
   .exportbar{position:fixed; right:18px; bottom:18px; display:flex; flex-direction:column; gap:10px; z-index:50;}
-  .exportbar button{font-size:14px; font-weight:700; color:#fff; background:var(--accent2); border:0;
-                    border-radius:11px; padding:13px 16px; box-shadow:0 8px 22px rgba(0,0,0,.4);}
-  .exportbar button.ghost{background:#1f1f1f;}
-  .exportbar .hint{font-size:11px; color:#999; text-align:center; max-width:170px; line-height:1.5;}
-  .empty{max-width:760px; margin:40px auto; text-align:center; color:#bbb; font-size:14px; line-height:1.8;}
-  .empty code{background:#1f1f1f; color:#ffd84d; padding:2px 8px; border-radius:5px;}
+  .exportbar button{font-size:14px; font-weight:700; color:#04141b; background:var(--cy); border:0;
+                    border-radius:11px; padding:13px 16px; box-shadow:0 8px 22px rgba(34,211,238,.32);}
+  .exportbar button.ghost{background:#16233f; color:#dfe8f3; box-shadow:0 8px 22px rgba(0,0,0,.4);}
+  .exportbar .hint{font-size:11px; color:var(--mut); text-align:center; max-width:170px; line-height:1.5;}
+  .empty{max-width:760px; margin:40px auto; text-align:center; color:#9fb2cf; font-size:14px; line-height:1.8;}
+  .empty code{background:#0f1830; color:var(--cy); padding:2px 8px; border-radius:5px; font-family:var(--mono);}
 
-  #imgsink{position:fixed; inset:0; background:rgba(20,16,12,.95); z-index:80; display:none; overflow:auto; padding:14px;}
+  #imgsink{position:fixed; inset:0; background:rgba(4,8,16,.96); z-index:80; display:none; overflow:auto; padding:14px;}
   #imgsink.on{display:block;}
   #imgsink .bar{position:sticky; top:0; display:flex; justify-content:space-between; align-items:center;
                 padding:6px 4px 12px; color:#fff;}
@@ -110,7 +124,6 @@
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script>
   const SLIDES=document.getElementById('slides');
-  const REGFLAG={jp:'🇯🇵',cn:'🇨🇳',us:'🇺🇸'};
   let REPORTS={daily:{},weekly:{}}, kind='daily', curDate='', DATA=null, RENDERED=[];
 
   const esc=s=>String(s==null?'':s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
@@ -120,16 +133,16 @@
   function coverSlide(){
     const c=DATA.cover||{}, s=document.createElement('div'); s.className='slide';
     s.innerHTML=`<div class="cv">
-      <div class="mast">情报台 · INDUSTRY WIRE</div><div class="rule"></div><div class="rule thin"></div>
+      <div class="mast"><span>情报台 · INTEL WIRE</span><span class="dt">${esc(DATA.period_label||DATA.date||'')}</span></div>
+      <div class="rule"></div>
       <div class="ribbon">${esc(c.series||'行业速报')}</div>
-      <div class="big serif">${(c.title_lines||[]).map(esc).join('<br>')}</div>
+      <div class="big">${(c.title_lines||[]).map(esc).join('<br>')}</div>
       ${c.subtitle?`<div class="sub">${esc(c.subtitle)}</div>`:''}
       <div class="spacer"></div>
-      <div class="rule thin"></div>
-      <div class="foot" style="margin-top:9px">
+      <div class="foot">
         <span class="date">${esc(DATA.period_label||DATA.date||'')}</span>
         <span>🇯🇵日本 · 🇨🇳中国 · 🇺🇸欧美 三地聚合</span></div>
-      <div class="watermark serif">${DATA.kind==='weekly'?'周':'日'}</div></div>`;
+      <div class="watermark">${DATA.kind==='weekly'?'W':'D'}</div></div>`;
     return s;
   }
   function contentSlide(){
@@ -137,7 +150,7 @@
     s.innerHTML=`<div class="ct"><div class="chead"><span class="s1">${esc(DATA.cover?.series||'行业速报')}</span>
       <span class="s2">${esc(DATA.period_label||DATA.date||'')}</span></div>
       <div class="scontent"></div>
-      <div class="sfoot"><span>情报台 · 具身/脑机/基模</span><span>RSS 聚合 · 不编造</span></div></div>`;
+      <div class="sfoot"><span>情报台 · 具身 / 脑机 / 基模</span><span>GOOGLE NEWS RSS</span></div></div>`;
     return s;
   }
   function createBlock(b){
@@ -212,7 +225,7 @@
   function isMobile(){ return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)||(window.matchMedia&&matchMedia('(pointer:coarse)').matches); }
   function fname(){ return (DATA?(DATA.kind+'_'+(DATA.date||'')):'report'); }
   function capture(el,idx){
-    return html2canvas(el,{scale:3,useCORS:true,backgroundColor:'#f4f1ea',logging:false}).then(canvas=>{
+    return html2canvas(el,{scale:3,useCORS:true,backgroundColor:'#0a1020',logging:false}).then(canvas=>{
       const url=canvas.toDataURL('image/png');
       if(isMobile()){ const img=new Image(); img.src=url; document.getElementById('imgsink-body').appendChild(img); }
       else{ const a=document.createElement('a'); a.download='speibao_'+fname()+'_p'+(idx+1)+'.png'; a.href=url; a.click(); }

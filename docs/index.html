@@ -775,6 +775,7 @@ function renderFeatured(){
         <span class="ic">📅</span><span class="ttl">本周具身 Top${wp.length}</span>
         <span class="wkrange">${esc((wk.label)||'')}</span>
         <span class="sub">综合各大学会 · 顶会 ${vCount} 篇</span>
+        <a class="more" href="paper_card.html" title="把本周入选论文做成小红书图片(封面+逐篇)" style="text-decoration:none">🖼️ 周论文贴</a>
         ${wp.length>10?`<span class="more" onclick="event.stopPropagation();toggleWeekly()">${weeklyExpanded?'收起 ▲':`展开全部 ${wp.length} ▾`}</span>`:''}
       </div>
       <div class="wkgrid">${rows}</div></div>`;
