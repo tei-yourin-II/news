@@ -122,6 +122,7 @@
   <div class="head">
     <b>小红书 3:4 自动分页预览（JSON 驱动）</b> · 每页 360×480(导出 ×3 = 1080×1440)<br>
     点下方任一论文 → 载入它的小红书排版（已生成的可直接看/导出；没生成的提示先跑 <code>gen_xhs.py</code>）。
+    <div id="staticNote" style="display:none; margin-top:8px; color:#9bb8db; font-size:12.5px; line-height:1.6;">🔒 当前为线上只读预览，<b>「生成 / 重新生成」需在本地运行</b> <code>python3 serve_xhs.py</code>（默认端口 8731，再开 localhost:8731/xhs_preview.html）。线上可直接查看与导出已生成内容。</div>
   </div>
 
   <!-- 论文选择器(读 daily_picks.json) -->
@@ -142,7 +143,7 @@
   <div class="exportbar">
     <button onclick="exportAll()">⬇️ 导出全部分页</button>
     <button class="ghost" onclick="exportOne(0)">⬇️ 只导出封面</button>
-    <button class="ghost" onclick="regenCurrent()">🔄 重新生成当前</button>
+    <button class="ghost" id="regenBtn" onclick="regenCurrent()">🔄 重新生成当前</button>
     <div class="hint">每页 3:4 单独成图，连番命名。存相册即可逐张发小红书</div>
   </div>
 
@@ -276,6 +277,8 @@
 
   // ===== 状态:STORE=已生成库(by_id), ROWS=可选论文清单(daily+weekly) =====
   var RENDERED=[]; var CUR={id:''}; var STORE={by_id:{}}; var ROWS=[];
+  // 静态托管(github.io / file://)没有后端 /api/gen → 关掉生成入口,只读浏览
+  var STATIC = location.protocol==='file:' || /\.github\.io$/i.test(location.hostname);
   function loadData(d){ DATA=d; if(d&&d.arxiv_id) CUR.id=d.arxiv_id; RENDERED=render(); syncText(); }
   function qparam(k){ return new URLSearchParams(location.search).get(k)||''; }
 
@@ -294,7 +297,7 @@
     if(!ROWS.length){ box.innerHTML='<div style="color:#999;font-size:13px">没有可选论文(先跑 pick_daily/pick_weekly)</div>'; return; }
     ROWS.forEach(function(r){
       var el=document.createElement('div'); el.className='pk'; el.dataset.id=r.id;
-      function badge(){ return isReady(r.id)?'<span class="rdy">✓ 已生成</span>':'<span class="no">未生成 · 点我生成</span>'; }
+      function badge(){ return isReady(r.id)?'<span class="rdy">✓ 已生成</span>':'<span class="no">'+(STATIC?'未生成 · 仅本地可生成':'未生成 · 点我生成')+'</span>'; }
       function paint(){ el.innerHTML='<div class="t">'+esc(r.title||'')+'</div>'+
         '<div class="m">'+esc(r.label)+' · '+esc(r.org||'')+' · '+badge()+'</div>'; }
       paint(); r.paint=paint; r.el=el;
@@ -308,6 +311,7 @@
   function selectRow(r){
     CUR.id=r.id; markOn(r.id);
     if(isReady(r.id)){ loadData(STORE.by_id[r.id]); return; }
+    if(STATIC){ if(r.el){ r.el.querySelector('.m').innerHTML=esc(r.label)+' · <span class="no">🔒 此篇未生成 · 生成功能仅本地可用</span>'; } return; }
     if(r.el){ r.el.querySelector('.m').innerHTML=esc(r.label)+' · <span class="no">⏳ 生成中…</span>'; }
     genRemote(r.id,false).then(function(xhs){ if(r.paint)r.paint(); loadData(xhs); })
       .catch(function(e){ if(r.paint)r.paint(); alert('生成失败: '+e.message+'\n(需用 serve_xhs.py 启动,普通 http.server 没有 /api/gen)'); });
@@ -315,6 +319,7 @@
 
   // 重新生成当前这篇(改了 prompt / 想换个说法时用,force=1)
   function regenCurrent(){
+    if(STATIC){ alert('「重新生成」需在本地运行 serve_xhs.py（端口 8731）。\n线上为只读预览,无后端可调用。'); return; }
     if(!CUR.id){ alert('先选一篇'); return; }
     var btn=event&&event.target, old=btn&&btn.textContent; if(btn) btn.textContent='⏳ 生成中…';
     genRemote(CUR.id,true).then(function(xhs){ loadData(xhs);
@@ -347,6 +352,11 @@
     ]).then(function(res){
       STORE=(res[0]&&res[0].by_id)?res[0]:{by_id:{}};
       ROWS=collectRows(res[1],res[2]);
+      if(STATIC){
+        var sn=document.getElementById('staticNote'); if(sn) sn.style.display='';
+        var rb=document.getElementById('regenBtn');
+        if(rb){ rb.disabled=true; rb.style.opacity='.4'; rb.style.cursor='not-allowed'; rb.title='生成功能需本地 serve_xhs.py'; }
+      }
       buildPicker();
       var wantId=qparam('id');                       // 从详情页跳来:?id=ARXIV
       if(wantId){
