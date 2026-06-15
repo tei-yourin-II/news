@@ -5,16 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>速报出图 · 小红书图片排版 — 情报台</title>
 <style>
-  /* ===== 深色终端科技风:与论文周报贴共用同一套视觉语言 ===== */
+  /* ===== 新闻速报贴:电讯速报 Newswire 风(暖琥珀+速报红),与论文帖冷钢蓝刻意区分 ===== */
   :root{
     --bg:#08090b; --slide:#0d0f13; --panel:#15181d; --ink:#eef2f6; --ink2:#a8b2bf; --mut:#646e7e;
     --line:rgba(168,178,196,.11); --line2:rgba(168,178,196,.22);
-    --cy:#7fa8cc; --cy2:#9bbbd9; --cyd:#3d566e;
+    --cy:#f6b340; --cy2:#ffd27a; --cyd:#7a5212;   /* 新闻帖识别色:暖琥珀(与论文帖冷钢蓝区分) */
+    --hot:#ff5d3b;                                 /* 速报标:警示橙红 */
     --jp:#fb7185; --cn:#fbbf24; --us:#38bdf8;
     --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,"Roboto Mono",monospace;
   }
   *{box-sizing:border-box;}
-  body{margin:0; background:radial-gradient(1200px 600px at 50% -10%,#16191e,#08090b 62%); color:#dbe2ea;
+  body{margin:0; background:radial-gradient(1200px 600px at 50% -10%,#1b1612,#08070a 62%); color:#dbe2ea;
        padding:18px 0 28px; font:14px/1.6 "PingFang SC","Hiragino Sans",-apple-system,Segoe UI,sans-serif;}
   .mono{font-family:var(--mono);}
   a{color:inherit;}
@@ -39,23 +40,32 @@
            linear-gradient(90deg,rgba(168,178,196,.04) 1px,transparent 1px);
          background-size:30px 30px;}
 
-  /* —— 封面 —— */
-  .cv{width:100%; height:100%; padding:30px 28px; display:flex; flex-direction:column; position:relative;
-      background:radial-gradient(600px 300px at 80% -10%,rgba(127,168,204,.06),transparent 60%);}
-  .cv .mast{font-family:var(--mono); font-size:11px; letter-spacing:.26em; text-transform:uppercase;
-            color:var(--cy); font-weight:600; display:flex; justify-content:space-between; align-items:center;}
+  /* —— 封面:电讯速报 Newswire —— */
+  .cv{width:100%; height:100%; padding:30px 28px; display:flex; flex-direction:column; position:relative; overflow:hidden;
+      background:radial-gradient(620px 340px at 84% -14%,rgba(246,179,64,.12),transparent 62%);}
+  .cv .mast{font-family:var(--mono); font-size:11px; letter-spacing:.24em; text-transform:uppercase;
+            color:var(--cy); font-weight:700; display:flex; justify-content:space-between; align-items:center; z-index:1;}
   .cv .mast .dt{color:var(--ink2); letter-spacing:.1em;}
-  .cv .rule{height:2px; margin:10px 0 0; background:linear-gradient(90deg,var(--cy),transparent 78%);}
-  .cv .ribbon{display:inline-flex; align-items:center; gap:7px; align-self:flex-start; margin:22px 0 0;
-              color:var(--cy); font-size:12.5px; font-weight:700; letter-spacing:.08em;}
-  .cv .ribbon::before{content:""; width:4px; height:15px; background:var(--cy); border-radius:1px;}
-  .cv .big{font-size:33px; font-weight:800; line-height:1.24; margin:15px 0 0; letter-spacing:-.01em; color:#f4f9ff;}
-  .cv .sub{font-size:14.5px; color:var(--ink2); margin-top:13px; line-height:1.55;}
+  /* 电讯条带:虚线胶带感 */
+  .cv .ticker{height:6px; margin:12px 0 0; border-radius:2px; z-index:1;
+              background:repeating-linear-gradient(90deg,var(--cy) 0 15px,transparent 15px 23px);}
+  /* 速报标 + 今日条数 */
+  .cv .flash{display:flex; align-items:center; gap:12px; margin:30px 0 0; z-index:1;}
+  .cv .flash .tag{font-size:15px; font-weight:800; letter-spacing:.16em; color:#1a1206;
+                  background:var(--hot); padding:5px 13px 4px; border-radius:4px; box-shadow:0 5px 16px rgba(255,93,59,.32);}
+  .cv .flash .cnt{font-family:var(--mono); font-size:13px; color:var(--ink2); letter-spacing:.04em;}
+  .cv .flash .cnt b{color:var(--cy); font-size:19px; font-weight:800; margin:0 1px;}
+  .cv .big{font-size:28px; font-weight:800; line-height:1.26; margin:18px 0 0; letter-spacing:-.005em; color:#f7f4ee; z-index:1;}
+  .cv .big em{font-style:normal; color:var(--cy);}                 /* 数字/金额自动高亮 */
+  .cv .sub{font-size:13.5px; color:var(--ink2); margin-top:14px; line-height:1.55; z-index:1;}
   .cv .spacer{flex:1;}
-  .cv .foot{font-size:12px; color:var(--mut); display:flex; justify-content:space-between; align-items:flex-end;}
-  .cv .foot .date{font-family:var(--mono); font-size:16px; font-weight:700; color:var(--cy); letter-spacing:.04em;}
-  .cv .watermark{position:absolute; right:-6px; bottom:40px; font-size:128px; font-weight:800;
-                 color:rgba(168,178,196,.05); line-height:1; pointer-events:none; font-family:var(--mono);}
+  .cv .foot{font-size:12px; color:var(--mut); display:flex; justify-content:space-between; align-items:center;
+            border-top:1px solid var(--line); padding-top:12px; z-index:1;}
+  .cv .foot .flags{font-size:15px; letter-spacing:.14em;}
+  .cv .foot .dl{font-family:var(--mono); letter-spacing:.04em;}
+  .cv .wm{position:absolute; right:-8px; bottom:64px; font-size:104px; font-weight:800; line-height:.9;
+          color:rgba(246,179,64,.06); letter-spacing:-.02em; pointer-events:none;
+          font-family:"PingFang SC","Hiragino Sans",sans-serif; writing-mode:vertical-rl;}
 
   /* —— 内容页 —— */
   .ct{width:100%; height:100%; padding:24px 26px 0; display:flex; flex-direction:column;}
@@ -99,10 +109,7 @@
 
 <div class="topbar">
   <a class="back" href="news.html">← 业界动态</a>
-  <div class="seg" id="seg">
-    <button data-k="daily" class="on">📅 日报</button>
-    <button data-k="weekly">📆 周报</button>
-  </div>
+  <div class="brand" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--cy);letter-spacing:.04em;">📰 每日速报</div>
   <select id="dateSel"></select>
   <div class="tip">3:4 小红书图片 · 每页 360×480(导出 ×3 = 1080×1440)。改文案不用重导,渲染永远最新。</div>
 </div>
@@ -123,25 +130,27 @@
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script>
   const SLIDES=document.getElementById('slides');
-  let REPORTS={daily:{},weekly:{}}, kind='daily', curDate='', DATA=null, RENDERED=[];
+  let REPORTS={daily:{}}, kind='daily', curDate='', DATA=null, RENDERED=[];  // 只做每日,不再有周报
 
   const esc=s=>String(s==null?'':s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
   const inline=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
   const qp=k=>new URLSearchParams(location.search).get(k)||'';
 
+  // 数字/金额自动高亮(esc 后再包 em,安全)
+  const hlNum=line=>esc(line).replace(/(\d[\d.,]*\s*[亿万兆%]?(?:日元|美元|元)?)/g,'<em>$1</em>');
   function coverSlide(){
     const c=DATA.cover||{}, s=document.createElement('div'); s.className='slide';
+    const n=(DATA.blocks||[]).filter(b=>b.type==='li').length;   // 今日条数
+    const date=esc(DATA.period_label||DATA.date||'');
     s.innerHTML=`<div class="cv">
-      <div class="mast"><span>情报台 · INTEL WIRE</span><span class="dt">${esc(DATA.period_label||DATA.date||'')}</span></div>
-      <div class="rule"></div>
-      <div class="ribbon">${esc(c.series||'行业速报')}</div>
-      <div class="big">${(c.title_lines||[]).map(esc).join('<br>')}</div>
+      <div class="mast"><span>情报台 · INTEL WIRE</span><span class="dt">${date}</span></div>
+      <div class="ticker"></div>
+      <div class="flash"><span class="tag">速报</span>${n?`<span class="cnt">今日 <b>${n}</b> 条</span>`:''}</div>
+      <div class="big">${(c.title_lines||[]).map(hlNum).join('<br>')}</div>
       ${c.subtitle?`<div class="sub">${esc(c.subtitle)}</div>`:''}
       <div class="spacer"></div>
-      <div class="foot">
-        <span class="date">${esc(DATA.period_label||DATA.date||'')}</span>
-        <span>🇯🇵日本 · 🇨🇳中国 · 🇺🇸欧美 三地聚合</span></div>
-      <div class="watermark">${DATA.kind==='weekly'?'W':'D'}</div></div>`;
+      <div class="foot"><span class="flags">🇯🇵 🇨🇳 🇺🇸</span><span class="dl">三地聚合 · ${date}</span></div>
+      <div class="wm">速报</div></div>`;
     return s;
   }
   function contentSlide(){
@@ -202,21 +211,15 @@
     DATA=map[curDate]; RENDERED=render();
   }
   function showEmpty(){
-    document.getElementById('empty').innerHTML=`还没有${kind==='daily'?'日报':'周报'}。<br>
-      本地生成:<code>python3 gen_news_report.py --${kind} --force</code>(需 QWEN_API_KEY)`;
+    document.getElementById('empty').innerHTML=`还没有日报。<br>
+      本地生成:<code>python3 gen_news_report.py --daily --force</code>(需 QWEN_API_KEY)`;
   }
 
-  document.querySelectorAll('#seg button').forEach(b=>b.onclick=()=>{
-    kind=b.dataset.k; document.querySelectorAll('#seg button').forEach(x=>x.classList.toggle('on',x===b));
-    curDate=''; buildDates();
-  });
   document.getElementById('dateSel').onchange=e=>{ curDate=e.target.value; DATA=(REPORTS[kind]||{})[curDate]; RENDERED=render(); };
 
   fetch('news_reports.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{
-    REPORTS={daily:j.daily||{}, weekly:j.weekly||{}};
-    kind=qp('kind')==='weekly'?'weekly':'daily';
+    REPORTS={daily:j.daily||{}};
     curDate=qp('date')||'';
-    document.querySelectorAll('#seg button').forEach(x=>x.classList.toggle('on',x.dataset.k===kind));
     buildDates();
   }).catch(()=>{ DATA=null; render(); document.getElementById('empty').style.display='';
     document.getElementById('empty').innerHTML='没读到 news_reports.json。<br>先跑 <code>python3 gen_news_report.py --force</code>'; });
