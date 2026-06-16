@@ -1,16 +1,17 @@
 {
   "week": {
-    "start": "2026-06-09",
-    "end": "2026-06-15",
-    "label": "06.09~06.15"
+    "start": "2026-06-10",
+    "end": "2026-06-16",
+    "label": "06.10~06.16"
   },
   "count": 15,
-  "venue_count": 2,
+  "venue_count": 3,
   "venues": [
+    "ACL 2026",
     "ICML 2026",
     "ICRA 2026"
   ],
-  "generated_at": "2026-06-15 06:20 UTC",
+  "generated_at": "2026-06-16 06:31 UTC",
   "picks": [
     {
       "rank": 1,
@@ -93,44 +94,6 @@
     },
     {
       "rank": 3,
-      "arxiv_id": "2606.10614",
-      "title": "Dexterous Point Policy: Learning Point-based Dexterous Hand Policies from Human Demonstrations",
-      "published": "2026-06-09",
-      "url": "https://arxiv.org/abs/2606.10614",
-      "pdf_url": "https://arxiv.org/pdf/2606.10614",
-      "thumb": "assets/thumbs/2606.10614.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "KAIST",
-      "country": "KR",
-      "org_type": "university",
-      "significance": 94,
-      "significance_reason": "达到RealDexUMI（94分）同档：首次实现纯人类视频→真灵巧手零样本部署，且在多任务、多物体、新类别上强泛化，成功率达75%（远超VLA基线），实证扎实（6个真实任务+消融+跨域测试），但未开源数据/仿真环境，略逊于RealDexUMI的全栈开源与穿戴式接口创新。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "dexterous",
-        "teleoperation",
-        "sim2real",
-        "real-robot"
-      ],
-      "tldr": "这篇论文用人类手部视频直接训练灵巧手操作策略，不依赖任何真实机器人演示数据，通过统一的3D关键点（手腕+指尖）表征对齐人与机器人的运动学结构，让模型在真实多指灵巧手上完成抓取、放置和工具使用等任务，成功率75%（对比SOTA VLA仅1%）。",
-      "claim": "仅用人类演示视频中的3D关键点（手腕+指尖+物体）即可学习可部署于真实灵巧手的泛化性操作策略，无需任何机器人端演示数据。",
-      "method_components": [
-        "model",
-        "dataset",
-        "benchmark"
-      ],
-      "input": "从人类演示视频中提取的3D关键点序列（含手腕、5指尖、任务物体中心）",
-      "output": "未来若干步的3D关键点动作序列（即手部目标位姿）",
-      "novelty": 8,
-      "evidence": 11,
-      "one_sentence_verdict": "真突破：首次关闭人类视频到真实灵巧手的embodiment gap，无机器人数据、真机部署、多任务高成功率、强泛化，证据链完整。",
-      "deep": {}
-    },
-    {
-      "rank": 4,
       "arxiv_id": "2606.12105",
       "title": "DAM-VLA: Decoupled Asynchronous Multimodal Vision Language Action model",
       "published": "2026-06-10",
@@ -167,7 +130,7 @@
       "deep": {}
     },
     {
-      "rank": 5,
+      "rank": 4,
       "arxiv_id": "2606.11628",
       "title": "LUCID: Learning Embodiment-Agnostic Intent Models from Unstructured Human Videos for Scalable Dexterous Robot Skill Acquisition",
       "published": "2026-06-10",
@@ -208,6 +171,44 @@
       "deep": {}
     },
     {
+      "rank": 5,
+      "arxiv_id": "2606.13677",
+      "title": "Mana: Dexterous Manipulation of Articulated Tools",
+      "published": "2026-06-11",
+      "url": "https://arxiv.org/abs/2606.13677",
+      "pdf_url": "https://arxiv.org/pdf/2606.13677",
+      "thumb": "assets/thumbs/2606.13677.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "伯克利",
+      "country": "US",
+      "org_type": "university",
+      "significance": 92,
+      "significance_reason": "在铰接工具这一长期未解的高复杂度场景上，首次实现零样本sim-to-real、跨工具类型（4种异构铰接结构）、跨任务（抓取+在手操作）的灵巧控制，且无需任何真实数据或人类演示；方法论层面将机器人操作与计算机动画深度耦合，开辟了新的建模范式；虽未开源全部数据与仿真资产，但代码已公开并复现了核心pipeline。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "dexterous",
+        "sim2real",
+        "multimodal-fusion"
+      ],
+      "tldr": "提出Mana框架，把灵巧手操作铰接式工具（如剪刀、钳子）的问题重新建模为动画生成问题，用少量人工标注的功能性交互点（鼠标点几下）自动生成抓取关键帧，再通过运动规划和强化学习合成完整操作轨迹，实现了零样本仿真到真实机械手的迁移。",
+      "claim": "将铰接式工具的灵巧操作建模为可程序化生成的动画问题，能以极低人工成本（<1分钟/工具）实现零样本sim-to-real迁移。",
+      "method_components": [
+        "model",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "input": "工具CAD模型+用户鼠标点击指定的功能性交互区域（如剪刀刃口接触点、钳子夹持面）",
+      "output": "灵巧手关节空间轨迹（含多指协同与接触力序列）",
+      "novelty": 8,
+      "evidence": 10,
+      "one_sentence_verdict": "真突破：解决了铰接工具灵巧操作中‘功能意图到物理执行’的映射断层，证据扎实（真机部署+多工具+零样本+无演示），是继ALOHA/ACT之后在dexterous manipulation方向最具范式意义的新支点。",
+      "deep": {}
+    },
+    {
       "rank": 6,
       "arxiv_id": "2606.12403",
       "title": "World Pilot: Steering Vision-Language-Action Models with World-Action Priors",
@@ -245,6 +246,43 @@
     },
     {
       "rank": 7,
+      "arxiv_id": "2606.17046",
+      "title": "Geometric Action Model for Robot Policy Learning",
+      "published": "2026-06-15",
+      "url": "https://arxiv.org/abs/2606.17046",
+      "pdf_url": "https://arxiv.org/pdf/2606.17046",
+      "thumb": "assets/thumbs/2606.17046.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "苏黎世联邦理工学院",
+      "country": "EU",
+      "org_type": "university",
+      "significance": 82,
+      "significance_reason": "首次将几何基础模型（GFM）显式用于端到端动作生成，且在多个真机接触操作任务（如堆叠、插拔、开门）上系统性超越OpenVLA/Octo等主流VLA基线，有消融验证几何token预测对接触鲁棒性的关键作用，但未开源代码/模型，也未证明跨机体泛化到非Franka平台，尚未达RT-2级范式突破，属扎实重磅推进。",
+      "tier": "heavy",
+      "grade": "B",
+      "tags": [
+        "multimodal-fusion",
+        "sim2real",
+        "real-robot"
+      ],
+      "tldr": "这篇论文提出Geometric Action Model（GAM），让机器人策略直接复用预训练的几何基础模型（GFM）作为统一骨干，把GFM中间层拆开：浅层编码视觉/本体感知输入，中间插入一个因果未来预测器来生成语言+动作历史条件下的未来几何token，再送入深层GFM解码出动作；核心是用最小改动把2D主导的VLAs升级为显式建模3D几何的动作策略，在仿真和真机任务上比现有大模型基线更准、更快、更鲁棒。",
+      "claim": "通过在预训练几何基础模型（GFM）中间层进行轻量拆分与因果未来预测器注入，可构建一个语言驱动、显式建模3D几何演化的机器人操作策略，无需从头训练即可超越现有VLAs/WAMs在接触密集操作中的性能。",
+      "method_components": [
+        "model",
+        "simulator",
+        "benchmark"
+      ],
+      "input": "RGB-D图像+语言指令+本体感知+历史动作序列",
+      "output": "机器人末端6D位姿动作序列（含抓取状态）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合——在已有几何基础模型上做出精巧架构改造，实证显著提升真机接触操作性能，但未开源且未挑战更广义具身泛化，属于高质量工程级整合而非理论或范式突破。",
+      "deep": {}
+    },
+    {
+      "rank": 8,
       "arxiv_id": "2606.13232",
       "title": "WT-UMI: Tactile-based Whole-Body Manipulation via Force-Supervised Contact-Aware Planning",
       "published": "2026-06-11",
@@ -284,7 +322,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
+      "rank": 9,
       "arxiv_id": "2606.12352",
       "title": "CHORUS: Decentralized Multi-Embodiment Collaboration with One VLA Policy",
       "published": "2026-06-10",
@@ -322,7 +360,46 @@
       "deep": {}
     },
     {
-      "rank": 9,
+      "rank": 10,
+      "arxiv_id": "2606.12728",
+      "title": "EquiDexFlow: Contact-Grounded SE(3)-Equivariant Dexterous Grasp Generative Flows",
+      "published": "2026-06-10",
+      "url": "https://arxiv.org/abs/2606.12728",
+      "pdf_url": "https://arxiv.org/pdf/2606.12728",
+      "thumb": "assets/thumbs/2606.12728.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "马里兰大学",
+      "country": "US",
+      "org_type": "university",
+      "significance": 87,
+      "significance_reason": "首次实现SE(3)等变+物理约束内建（接触面投影+摩擦锥强制）的端到端灵巧抓取生成，在真实硬件上完成多物体、多朝向开环抓取，且提供严格数学证明与200次旋转下的实证等变性验证；虽未覆盖跨机体泛化或大规模人类演示学习，但相比ALOHA/ACT等系统级闭环控制框架，它在‘物理可信抓取生成’这一子问题上达到新高度，属重磅突破而非单纯工程整合。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "dexterous",
+        "multimodal-fusion",
+        "open-source",
+        "real-robot",
+        "benchmark"
+      ],
+      "tldr": "提出一个SE(3)等变的生成流模型EquiDexFlow，直接从物体点云联合生成手腕位姿、手指关节角、指尖接触点、表面法向量和接触力，所有输出天然满足物理约束（如Coulomb摩擦锥和表面接触），无需后验校验，并在真实Allegro/LEAP手上完成开环抓取全部6个测试物体（含非对称物体在两种朝向下的成功）。",
+      "claim": "SE(3)-等变生成流模型可端到端联合预测满足物理接触约束的完整灵巧手抓取参数，且该等变性可被严格证明并实证验证，生成结果无需后处理即可直接部署到真实机器人。",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark"
+      ],
+      "input": "物体点云",
+      "output": "手腕SE(3)位姿、16自由度手指关节角、指尖接触位置、表面法向量、三维接触力",
+      "novelty": 8,
+      "evidence": 11,
+      "one_sentence_verdict": "真突破：首个将SE(3)等变性、接触几何与摩擦物理约束全内置于生成流模型的设计，并在真实灵巧手上验证了零摩擦违规与朝向鲁棒性",
+      "deep": {}
+    },
+    {
+      "rank": 11,
       "arxiv_id": "2606.13675",
       "title": "Improving Robotic Generalist Policies via Flow Reversal Steering",
       "published": "2026-06-11",
@@ -359,7 +436,7 @@
       "deep": {}
     },
     {
-      "rank": 10,
+      "rank": 12,
       "arxiv_id": "2606.12604",
       "title": "EgoEngine: From Egocentric Human Videos to High-Fidelity Dexterous Robot Demonstrations",
       "published": "2026-06-10",
@@ -400,118 +477,38 @@
       "deep": {}
     },
     {
-      "rank": 11,
-      "arxiv_id": "2606.11129",
-      "title": "WorldOlympiad: Can Your World Model Survive a Triathlon?",
-      "published": "2026-06-09",
-      "url": "https://arxiv.org/abs/2606.11129",
-      "pdf_url": "https://arxiv.org/pdf/2606.11129",
-      "thumb": "assets/thumbs/2606.11129.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "未知（作者单位未在摘要中披露，无机构署名线索；Zhao/Yu/Zhuang等为常见中文姓名，但无法确认归属清华/浙大/港科广/中科院等具体单位）",
-      "country": "CN",
-      "org_type": "unknown",
-      "significance": 78,
-      "significance_reason": "首次将世界模型评测从‘视觉保真’升维到‘物理-几何-交互’三重可验证维度，实证揭示SOTA模型在三大基础能力上存在系统性缺陷；虽未提出新模型，但其诊断框架和测试协议具备范式牵引力，证据扎实（覆盖3大下游场景+多模型评测+细粒度归因），但尚未开源代码与完整数据，复现门槛高，且未驱动模型架构改进。",
-      "tier": "heavy",
-      "grade": "B",
-      "tags": [
-        "benchmark",
-        "dataset"
-      ],
-      "tldr": "这篇论文提出了WorldOlympiad基准，专门用来系统评测视频生成式世界模型在物理合理性、三维几何一致性、长时序交互可控性三个硬维度上的真实能力，不是看画面好不好看，而是看它生成的视频是否真的‘遵守物理定律’‘有稳定3D结构’‘能按复杂指令持续互动’。",
-      "claim": "现有视频世界模型评测严重忽视物理真实性、几何一致性和长时序交互保真度，WorldOlympiad通过三轨解耦评估首次实现对这三类根本性缺陷的可解释、可量化诊断。",
-      "method_components": [
-        "benchmark",
-        "dataset",
-        "simulator"
-      ],
-      "input": "视频序列（含对应动作指令或游戏/机器人控制信号）",
-      "output": "生成视频的三维度评分（物理合规性/几何一致性/交互连贯性）及细粒度失败归因",
-      "novelty": 8,
-      "evidence": 9,
-      "one_sentence_verdict": "重磅——它不是新模型，而是给整个视频世界模型领域装上了第一台‘三合一CT机’，用可解释指标戳破了当前SOTA的物理幻觉泡沫。",
-      "deep": {}
-    },
-    {
-      "rank": 12,
-      "arxiv_id": "2606.10267",
-      "title": "What Matters in Orchestrating Robot Policies: A Systematic Study of Hierarchical VLA Agents",
-      "published": "2026-06-09",
-      "url": "https://arxiv.org/abs/2606.10267",
-      "pdf_url": "https://arxiv.org/pdf/2606.10267",
-      "thumb": "assets/thumbs/2606.10267.jpg",
-      "venue": "",
+      "rank": 13,
+      "arxiv_id": "2606.11906",
+      "title": "When Does Language Matter? Multilingual Instructions Reveal Step-wise Language Sensitivity in Vision-Language-Action Models",
+      "published": "2026-06-10",
+      "url": "https://arxiv.org/abs/2606.11906",
+      "pdf_url": "https://arxiv.org/pdf/2606.11906",
+      "thumb": "assets/thumbs/2606.11906.jpg",
+      "venue": "ACL 2026",
       "domain": "embodied_ai",
       "best_route": "vla",
-      "org": "Google Research",
-      "country": "US",
-      "org_type": "company",
-      "significance": 82,
-      "significance_reason": "达到RT-2（97）、π0（95）等里程碑级工作的下一级：首次对Hi-VLA架构做系统性消融与跨任务基准测试，覆盖仿真+真实机器人，提出可复用的接口设计原则，但未开源代码/模型，也未引入新模型架构或新数据集，属于扎实的工程范式研究而非原理突破。",
-      "tier": "heavy",
+      "org": "哈尔滨工业大学",
+      "country": "CN",
+      "org_type": "university",
+      "significance": 68,
+      "significance_reason": "首次系统揭示VLA模型语言敏感性的时序非均匀性，并提出步级干预机制，在LIBERO多语言扩展上验证有效；但未涉及真实机器人、未开源代码/模型、未与主流VLA（如OpenVLA/Octo）做联合消融，贡献扎实但边界清晰，属显著增量而非范式突破。",
+      "tier": "notable",
       "grade": "C",
       "tags": [
         "multimodal-fusion",
-        "benchmark",
-        "real-robot",
-        "sim2real"
+        "benchmark"
       ],
-      "tldr": "这篇论文系统拆解了分层视觉-语言-动作（Hi-VLA）机器人系统的架构设计要素，统一建模为options-style控制框架，在仿真和真实ALOHA机器人上实证比较了 planner-controller 匹配方式、切换机制、记忆表示等核心设计选择对短/长程/推理型任务的影响，并基于实证提炼出可复现的设计原则。",
-      "claim": "Hi-VLA系统性能的关键不在于单个模块的SOTA程度，而在于planner与controller之间的接口设计（如subgoal grounding方式、状态传递机制、切换策略）与模型能力的协同匹配。",
-      "method_components": [
-        "model",
-        "benchmark",
-        "simulator",
-        "hardware"
-      ],
-      "input": "RGB图像+自然语言指令+历史观测/记忆（可选）",
-      "output": "动作序列（低层VLA输出）或子目标语言描述（高层planner输出）",
-      "novelty": 6,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合——它不是新模型，而是首次把Hi-VLA从‘拼凑式实验’推进到‘可分析、可复现、可迁移的系统工程’，证据扎实但开源不足",
-      "deep": {}
-    },
-    {
-      "rank": 13,
-      "arxiv_id": "2606.11901",
-      "title": "DuoBench: A Reproducible Benchmark for Bimanual Manipulation in Simulation and the Real World",
-      "published": "2026-06-10",
-      "url": "https://arxiv.org/abs/2606.11901",
-      "pdf_url": "https://arxiv.org/pdf/2606.11901",
-      "thumb": "assets/thumbs/2606.11901.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "弗莱堡大学",
-      "country": "EU",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "显著推进SOTA：首个覆盖多协调模式、含真实遥操作数据、支持细粒度失败归因的双臂基准；真机验证虽限于部分任务，但配套3D资产、完整recipe和全开源使复现门槛极低；实证揭示了现有VLA/IL策略在双臂场景下的共性瓶颈，而非刷榜式评测——但未提出新算法，也未实现跨机体泛化或部署级鲁棒性，故未达90+里程碑级。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "benchmark",
-        "dataset",
-        "open-source",
-        "real-robot",
-        "sim2real"
-      ],
-      "tldr": "构建了一个开源、可复现的双臂操作基准DuoBench，包含11个仿真+部分真实世界任务、3D可打印实物、人类遥操作数据集、分阶段失败分析框架，并在FR3 Duo平台上系统评测了现有双臂模仿学习和VLA策略的短板。",
-      "claim": "当前双臂操作策略在早期交互、并行执行和sim2real迁移上存在系统性缺陷，需一个可复现、细粒度、跨仿真与真实世界的基准来诊断和推动方法演进。",
+      "tldr": "这篇论文发现视觉-语言-动作（VLA）模型在非英语指令下性能暴跌30–50%，并首次揭示这种语言敏感性不是均匀分布在整个任务中，而是集中在某些关键步骤；据此提出一种按步骤调整语言表征的推理时干预方法，显著提升了多语言鲁棒性。",
+      "claim": "VLA模型的语言鲁棒性本质是步级（step-wise）控制问题，而非整体指令理解问题；针对性地对高语言敏感步骤做表征对齐，可有效缓解多语言性能崩塌。",
       "method_components": [
         "benchmark",
-        "dataset",
-        "simulator",
-        "hardware"
+        "model"
       ],
-      "input": "RGB图像+关节状态+任务指令（部分任务含语言）",
-      "output": "双臂关节控制序列/动作块",
+      "input": "多语言自然语言指令+RGB视频帧序列（来自LIBERO）",
+      "output": "动作序列（离散/连续动作块）",
       "novelty": 7,
-      "evidence": 10,
-      "one_sentence_verdict": "工程整合：把双臂操作从零散实验推向标准化诊断工具，证据扎实、开源完备、问题定位精准，但本质是高质量基础设施建设，非算法突破。",
+      "evidence": 8,
+      "one_sentence_verdict": "显著贡献：真发现了VLA语言鲁棒性的关键结构性缺陷（步级敏感），并给出可验证的修复路径，但限于仿真benchmark、无真机、无开源，尚未达到基石模型量级",
       "deep": {}
     },
     {
