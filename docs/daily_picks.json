@@ -1011,6 +1011,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-06-18": [
+      {
+        "arxiv_id": "2606.17055",
+        "title": "T-Rex: Tactile-Reactive Dexterous Manipulation",
+        "published": "2026-06-15",
+        "first_seen": "2026-06-18",
+        "url": "https://arxiv.org/abs/2606.17055",
+        "pdf_url": "https://arxiv.org/pdf/2606.17055",
+        "thumb": "assets/thumbs/2606.17055.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "斯坦福",
+        "country": "US",
+        "significance": 94,
+        "significance_reason": "对标FTP-1（94分）——同为跨传感器、接触密集型灵巧操作的触觉通用策略，但T-Rex更进一步：①首次将触觉建模嵌入VLA范式并保持其多模态能力；②100小时真机触觉数据规模远超FTP-1（未公开数据量，但FTP-1依赖多平台仿真+少量真实数据）；③12项任务覆盖力控+软体变形，实证强度与YUBI/RealDexUMI相当；④消融明确验证时序VQ-VAE与MoT的必要性；唯开源程度略逊（仅code，无data/model）。",
+        "tier": "heavy",
+        "tldr": "构建了首个大规模（100小时）以基础运动原语驱动的触觉-rich机器人操作数据集，提出可变采样率的MoT架构和时序触觉VQ-VAE编码器，让现有VLA模型能实时响应高频触觉信号，在12个需精细力控和软体物操作的任务上比最强基线平均成功率提升超30%。",
+        "deep": {
+          "hook": "首个100小时真机触觉数据集+时序VQ-VAE+MoT架构，让VLA模型真正实时响应触觉信号",
+          "why_now": "继FTP-1、YUBI、RealDexUMI后，触觉操作进入‘高频信号实时闭环’攻坚期；T-Rex是首篇将触觉建模深度耦合进VLA范式且在真机上验证多任务力控/软体操作的论文，踩中具身智能从‘视觉主导’向‘多模态闭环’跃迁的关键节点",
+          "problem": "现有VLA模型对触觉信号处理能力薄弱：要么完全忽略，要么用静态编码器（如单帧触觉图），无法建模毫秒级力/形变变化；同时缺乏大规模、任务对齐、高保真真机触觉数据，导致触觉策略泛化差、仿真到真实迁移失败",
+          "method": "①构建100小时真机触觉-rich数据集，以基础运动原语（如press/roll/squeeze）为采集单元，提升数据效率与可复现性；②提出时序触觉VQ-VAE编码器，将高频触觉序列压缩为离散时序token；③设计可变采样率Mixture-of-Transformers（MoT），让不同子模块按需处理视觉/语言/触觉token流，不破坏原有VLA多模态结构",
+          "results": "在12项需精细力控与软体物操作的任务上（含YUBI/RealDexUMI重叠任务），比最强基线平均成功率提升超30%；消融实验证明时序VQ-VAE与MoT缺一不可；全部实验在真实机器人平台完成（非仿真）",
+          "limitations": "①仅开源代码，未公开100小时触觉数据集与预训练模型，复现实质受限；②未报告各任务具体成功率数值或方差，‘超30%’无基线对照细节（如基线是FTP-1还是RT-1？是否同任务划分？）；③MoT架构复杂度未量化，推理延迟未测量，‘实时响应’缺乏毫秒级时序指标支撑",
+          "significance_take": "范式级推进：首次证明触觉不应作为辅助通道，而应作为与视觉/语言平权的时序模态嵌入VLA主干——不是加个触觉头，而是重构其时间感知能力；为后续触觉-VLA统一架构立下新基准",
+          "who_should_read": "做VLA、触觉感知、灵巧操作的工程师和研究者，能直接复用其运动原语采集范式、时序VQ-VAE设计及MoT接口协议",
+          "verdict": "必读——它把触觉从‘事后反馈’变成‘动作生成的时序驱动力’，且所有结论均基于真机多任务验证，不是又一篇仿真吹票",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2606.17054",
+        "title": "Human Universal Grasping",
+        "published": "2026-06-15",
+        "first_seen": "2026-06-18",
+        "url": "https://arxiv.org/abs/2606.17054",
+        "pdf_url": "https://arxiv.org/pdf/2606.17054",
+        "thumb": "assets/thumbs/2606.17054.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "纽约大学",
+        "country": "US",
+        "significance": 92,
+        "significance_reason": "达到ALOHA/ACT级分量：首次构建百万级真实人类抓取视频数据集（非动作捕捉、非实验室摆拍），提出面向抓取的flow-matching建模范式，完成从人类抓取分布→机器人零样本部署的全链路验证（含多机体、多环境、多视角真实测试），且全部开源；相比LUCID（93分，仅从无结构视频学习意图）更聚焦抓取物理可行性，相比Dexterous Point Policy（95分，需机器人真机演示）更彻底摆脱对机器人数据的依赖，属具身智能中‘人类先验驱动’范式的标志性落地。",
+        "tier": "heavy",
+        "tldr": "用人类日常抓取的100万帧RGB-D数据训练了一个flow-matching模型HUG，输入单张RGB-D图就能生成符合人体自然习惯的完整手部姿态（手腕位姿+MANO手型），再迁移到多种机器人手上实现零样本抓取，在90个未见物体的仿真+30个真实物体跨相机/跨机器人/跨家庭环境测试中大幅超越现有方法。",
+        "deep": {
+          "hook": "用100万帧真实人类抓取视频，训练出首个零样本跨机器人抓取模型HUG",
+          "why_now": "继LUCID（意图理解）、Dexterous Point Policy（真机驱动）之后，HUG首次以纯人类先验+flow-matching实现全链路sim2real零样本抓取，踩中‘人类行为即最优具身先验’这一正在爆发的范式拐点",
+          "problem": "现有机器人抓取方法严重依赖机器人自身采集的抓取数据（成本高、泛化差）或合成仿真（物理失真）；人类抓取蕴含丰富物理可行性与任务适应性先验，但此前缺乏大规模、真实、egocentric、可参数化建模的抓取数据集与对应建模范式",
+          "method": "1）构建1M-HUGs数据集：用轻量级智能眼镜在41栋真实建筑中连续采集27.8小时egocentric RGB-D抓取视频（非摆拍、非动捕），覆盖6707个日常物体；2）提出面向抓取的flow-matching模型：联合编码RGB+Depth，直接回归手腕6DoF位姿+MANO手部关节角（共53维），学习人类抓取分布而非单点最优解；3）通过运动学retargeting将人类姿态零样本迁移到Franka、Allegro、Shadow等不同构型机器人手",
+          "results": "在自建仿真基准HUG-Bench（90个未见物体，含5类几何形状+多尺度）上SOTA；在真实世界30个未见物体上，跨相机/跨机器人/跨家庭环境测试，相对SOTA基线提升+23%和+34%（摘要明确给出）",
+          "limitations": "1）所有真实部署结果均未说明具体成功率数值（仅称‘outperforms... by +23% and +34%’），未披露失败案例或抓取稳定性指标（如持握时长、扰动鲁棒性）；2）1M-HUGs数据虽规模大，但未说明标注方式（是否全自动？有无人工校验？MANO拟合误差未量化），且全部采集自纽约大学相关人群，文化/体型/习惯偏差风险未评估",
+          "significance_take": "范式级推进：首次将‘人类抓取分布建模’从概念主张落地为可复现、可部署、可评测的技术栈，确立了‘人类先验→flow建模→retargeting→零样本部署’的新标准流程，比ACT/LUCID更聚焦物理可行性，比DexPoint更彻底摆脱机器人数据依赖",
+          "who_should_read": "做机器人抓取、具身行为建模、human-in-the-loop learning的研究者与工程师，能直接复用其数据集、flow架构设计与跨机体retargeting pipeline",
+          "verdict": "必读——它不是又一个SOTA刷分工作，而是把‘人类是最好老师’这句话第一次焊进了机器人抓取的工程闭环里",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2606.18363",
+        "title": "Guava: An Effective and Universal Harness for Embodied Manipulation",
+        "published": "2026-06-16",
+        "first_seen": "2026-06-18",
+        "url": "https://arxiv.org/abs/2606.18363",
+        "pdf_url": "https://arxiv.org/pdf/2606.18363",
+        "thumb": "assets/thumbs/2606.18363.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "马里兰大学",
+        "country": "US",
+        "significance": 78,
+        "significance_reason": "贡献清晰：首次系统解耦Harness设计空间并提炼三大普适原则；实证扎实——在仿真+真实Panda上验证跨任务/跨物体/长程泛化，且用4B模型对标前沿闭源模型；但未突破ALOHA/ACT级的端到端闭环控制精度或实时性，也未解决触觉/灵巧手等核心瓶颈，属显著推进而非范式革命。",
+        "tier": "heavy",
+        "tldr": "提出一个叫Guava的通用‘驾驭框架’，让大语言模型（甚至小到4B的开源模型）能通过调用外部感知、规划、控制模块来完成具身操作任务，不靠端到端训练，只用不到2000条仿真轨迹就能蒸馏出强泛化能力。",
+        "deep": {
+          "hook": "用不到2000条仿真轨迹，让4B开源LLM在真机Panda上完成跨物体/长程操作——不靠端到端训练，靠‘驾驭框架’Guava",
+          "why_now": "紧接ALOHA/ACT等端到端范式瓶颈期：当大模型调用外部模块成为主流路径（如VoxPoser、RT-2后续工作），Guava首次系统解耦Harness设计空间并验证其对小模型的普适性，踩中‘轻量模型+模块化具身’这一快速演进方向。",
+          "problem": "当前具身操作依赖超大端到端模型（如10B+）或海量真实数据，而小型开源模型难以泛化；单纯用LLM调用工具常因动作抽象低、感知反馈弱、循环机制缺失导致失败——缺乏可复用、可分析、模型无关的‘驾驭接口’设计原则。",
+          "method": "Guava不是新模型，而是三层结构化Harness：①迭代闭环（每步接收多模态观测→LLM推理→输出语义动作→执行→再观测）；②语义动作空间（如'抓取X→移动到Y→放置'，屏蔽底层关节控制）；③统一多模态输入接口（RGB+深度+机器人状态拼接为token序列）。所有能力通过蒸馏获得：用<2K仿真轨迹微调4B模型，不接触真实数据。",
+          "results": "在仿真（Ravens）和真实Panda机械臂上验证：跨任务（Pick-and-Place/Stacking/Reorientation）、跨物体（未见形状/材质）、长程指令（5+子动作）均成功；4B模型性能媲美前沿闭源模型（摘要明确对比对象，但未给具体指标数值）；所有实验基于公开代码与仿真环境。",
+          "limitations": "未报告实时性（如单步延迟）、未测试触觉/灵巧手等关键模态；消融实验仅验证三大原则必要性，未量化各组件贡献；真实世界仅用small-real setup（单任务、固定光照/背景），未验证动态干扰或复杂场景鲁棒性；蒸馏依赖仿真轨迹质量，但未说明轨迹多样性或覆盖度。",
+          "significance_take": "显著推进——它把‘Harness’从经验性工程实践升维为可分析的设计范式：首次提炼出三条可迁移、可验证的普适原则，并证明其能将强泛化能力蒸馏至4B级模型，为开源社区提供可复现、低门槛的具身接口标准。",
+          "who_should_read": "做具身接口/LLM-for-robotics的工程师该读，能直接复用Guava的Harness架构设计与蒸馏流程，避开从零设计动作空间和闭环逻辑。",
+          "verdict": "必读——它是首个把Harness设计空间系统化、可验证、可复现的实证工作，不吹模型、只抠接口，对拒绝‘黑箱端到端’的务实研究者极具参考价值。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -1046,8 +1138,11 @@
     "2606.13677",
     "2606.14218",
     "2606.17046",
-    "2606.17200"
+    "2606.17054",
+    "2606.17055",
+    "2606.17200",
+    "2606.18363"
   ],
-  "latest": "2026-06-17",
-  "generated_at": "2026-06-17 06:06 UTC"
+  "latest": "2026-06-18",
+  "generated_at": "2026-06-18 05:35 UTC"
 }
