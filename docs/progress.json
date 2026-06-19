@@ -31,6 +31,15 @@
           "why": "首个流匹配VLA，突破扩散模型推理瓶颈，实现跨平台（单/双臂/移动）统一建模与复杂长时序操作（叠衣/装箱），确立流匹配为VLA主流新范式"
         },
         {
+          "name": "Qwen-RobotManip Technical Report: Alignment Unlocks Scale for Robotic Manipulation Foundation Models",
+          "org": "阿里通义实验室",
+          "country": "CN",
+          "year": "2026",
+          "arxiv_id": "2606.17846",
+          "significance": 94.5,
+          "why": "首次实现纯开源数据驱动、统一多源异构对齐框架下的跨平台零样本机器人操作泛化，实质性突破了VLA领域长期依赖闭源/仿真数据、平台耦合与指令泛化脆弱的范式瓶颈，且实证显著超越π0.5（当前SOTA标杆），构成可复现、可扩展的新开源基线范式。"
+        },
+        {
           "name": "CHORUS: Decentralized Multi-Embodiment Collaboration with One VLA Policy",
           "org": "斯坦福",
           "country": "US",
@@ -276,7 +285,7 @@
           "note": "ViLLA"
         }
       ],
-      "verdict": "美国在范式原创（RT-2/π0/GR00T/Molmo2/Revisiting Embodied Chain-of-Thought/CHORUS/DAM-VLA）上持续引领；中国在扩散模型（RDT-1B）、合成数据驱动（GraspVLA/ViLLA/LEGS）、人形架构（ViLLA）及边缘化VLA部署范式（vla.cpp）上实现快速追赶并产出标志性工作，但底层VLM骨干、世界模型融合及多模态时序范式（如DAM-VLA）仍依赖美方进展。",
+      "verdict": "美国在范式原创（RT-2/π0/GR00T/Molmo2/Revisiting Embodied Chain-of-Thought/CHORUS/DAM-VLA）及新开源基础范式构建（Qwen-RobotManip）上持续引领；中国在扩散模型（RDT-1B）、合成数据驱动（GraspVLA/ViLLA/LEGS）、人形架构（ViLLA）及边缘化VLA部署范式（vla.cpp）上实现快速追赶并产出标志性工作，但底层VLM骨干、世界模型融合及多模态时序范式（如DAM-VLA）仍高度依赖美方进展，而Qwen-RobotManip标志着中国在VLA对齐范式与开源基础模型构建上取得范式级自主突破。",
       "activity": "领域处于爆发期：2025-2026年每月稳定产出3-5篇奠基性工作，范式收敛（流匹配/双系统/混合）与数据范式转移（合成数据主导）同步加速。",
       "id": "vla",
       "name": "VLA 视觉-语言-动作",
@@ -302,6 +311,15 @@
           "arxiv_id": "2301.04104",
           "significance": 96,
           "why": "范式级成熟标志：单一超参数跨150+任务SOTA，首次无课程/无辅助从原始像素自主完成Minecraft钻石挖掘，证明世界模型可支撑复杂长程具身推理"
+        },
+        {
+          "name": "Current World Models Lack a Persistent State Core",
+          "org": "未知",
+          "country": "unknown",
+          "year": "2026",
+          "arxiv_id": "2606.20545",
+          "significance": 95.5,
+          "why": "首次系统性揭示世界模型‘无持续状态演化’这一根本性范式缺陷，提出首个专用诊断基准WRBench，并实证主流模型集体失效，倒逼架构级重构（如引入隐式ODE状态流、可微分物理记忆体），属范式警醒与方向重校。"
         },
         {
           "name": "DreamerV1",
@@ -537,7 +555,7 @@
           "note": "WorldArena、WBench、DreamZero合作"
         }
       ],
-      "verdict": "美国全面领先：NVIDIA Cosmos与Google Genie构成双峰，Meta V-JEPA 2在数据效率上独树一帜，新晋标杆WEAVER（UC Berkeley & Stanford）则确立真实机器人世界建模新范式；中国在UniPi（MIT-Tsinghua）、DreamZero（CMU-Berkeley）有深度参与但缺乏自主旗舰模型；英国依托DeepMind保持理论源头优势，但产业化落地弱于美国。",
+      "verdict": "美国仍主导但根基受撼：NVIDIA Cosmos与Google Genie双峰被WRBench证实缺乏内在状态连续性；Meta V-JEPA 2的数据效率优势在无观测推演场景下未验证；WEAVER虽立机器人新范式，但亦未解决状态持久性；中国UniPi、DreamZero及英国DeepMind系模型同陷此瓶颈——全球尚无自主突破该核心缺陷的旗舰模型，范式重构窗口已开启。",
       "activity": "极度活跃：2025-2026年每月均有里程碑级工作发布，WAM范式确立、多模态规模化、评测标准化三大主线并进，已进入工业级部署前夜。",
       "id": "world_model",
       "name": "世界模型 / WAM",
