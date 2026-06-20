@@ -1195,6 +1195,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-06-20": [
+      {
+        "arxiv_id": "2606.18955",
+        "title": "Motion-Focused Latent Action Enables Cross-Embodiment VLA Training from Human EgoVideos",
+        "published": "2026-06-17",
+        "first_seen": "2026-06-20",
+        "url": "https://arxiv.org/abs/2606.18955",
+        "pdf_url": "https://arxiv.org/pdf/2606.18955",
+        "thumb": "assets/thumbs/2606.18955.jpg",
+        "venue": "IROS 2026",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "谷歌DeepMind",
+        "country": "US",
+        "significance": 87,
+        "significance_reason": "在VLA范式中首次系统性证明无标注人类视频可替代昂贵机器人动作标注进行预训练，实证覆盖多个仿真机体+2种真实机械臂（Franka+UR5e），多任务（push/pick/place/assemble）+消融验证解耦设计有效性，但未开源代码/模型，且未挑战最复杂长程操作或开放世界交互，略逊于RT-2/π0级范式颠覆性。",
+        "tier": "heavy",
+        "tldr": "用无标注的人类第一视角操作视频（如YouTube上大量存在的做饭、组装视频）训练出一个能泛化到不同机器人手臂的视觉-语言-动作模型，核心是把人类动作隐式编码成跨机体可迁移的动作码本，并通过解耦意图与感知来适配真实机器人，仅用50条真实轨迹就能完成下游任务。",
+        "deep": {
+          "hook": "用无标注人类第一视角视频（如YouTube做饭视频）预训练VLA模型，50条真机轨迹即可适配多机械臂",
+          "why_now": "紧接RT-2、PaLM-E、VoxPoser等VLA范式演进，首次系统验证‘人类ego视频=免费动作先验’的可行性，直击当前VLA最大瓶颈——标注成本与跨机体泛化割裂",
+          "problem": "主流VLA模型依赖海量带精确动作标签的机器人数据（采集难、成本高、难泛化）；人类ego视频虽丰富但无动作标注，传统监督范式无法直接利用；现有跨机体方法多需同构动作空间或强仿真到真实迁移假设",
+          "method": "提出Motion-Focused Latent Action框架：1）用Hybrid Disentangled VQ-VAE从人类视频中学习物理掩码引导的动作码本，隐式建模运动动力学而非像素轨迹；2）预训练VLM backbone仅预测该码本索引，学习动作意图表征；3）下游适配时解耦‘意图预测’（VLM输出）与‘状态感知’（冻结视觉编码器提取真实场景特征），由轻量动作专家映射为具体末端位姿",
+          "results": "在多个仿真机体（Franka、UR5e、Kuka）及2种真实机械臂（Franka Emika、UR5e）上验证；覆盖push/pick/place/assemble四类任务；预训练完全基于无标注人类ego视频；下游仅需50条真实轨迹微调即达SOTA级性能（摘要未给出具体指标名与数值，故不编造）",
+          "limitations": "未开源代码/模型，复现门槛高；所有实证任务均为短程、单步主导操作（无长程规划、无工具链交互、无开放世界动态扰动）；未与RT-2/π0等端到端闭环VLA在同等benchmark（如Open-X Embodiment）上做控制粒度对比；消融实验未报告动作码本维度、VQ-VAE重建误差或意图-感知解耦对hallucination的具体抑制幅度",
+          "significance_take": "显著推进VLA的数据范式——不是增量改进，而是首次将‘人类行为视频’从辅助信号升格为可独立支撑预训练的核心数据源，为低成本构建通用具身智能提供了新基线路径",
+          "who_should_read": "做VLA/具身预训练的研究者应读，能直接获得‘无标注视频→动作先验’的技术路线图与解耦架构设计经验",
+          "verdict": "必读——它用扎实的多机体实证，把一个长期被当作‘理想但不可行’的设想变成了可复现、可适配、有工程闭环的方案",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2606.18426",
+        "title": "VEGA: Learning Navigation VLAs from In-the-Wild Egocentric Video with Geometric Trajectory Supervision",
+        "published": "2026-06-16",
+        "first_seen": "2026-06-20",
+        "url": "https://arxiv.org/abs/2606.18426",
+        "pdf_url": "https://arxiv.org/pdf/2606.18426",
+        "thumb": "assets/thumbs/2606.18426.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "北卡罗来纳大学教堂山分校",
+        "country": "US",
+        "significance": 87,
+        "significance_reason": "首次系统性打通‘互联网视频→单目几何→障碍感知轨迹→VLA策略’全链路，在真实机器人上实现碰撞率下降66.7%、障碍清除提升60%，且发布含500万目标的大规模几何感知导航基准VEGA-Bench；虽未达RT-2级范式颠覆（缺多任务统一架构/跨域泛化证明），但显著超越当前多数纯仿真或小规模真机VLA工作，属强工程驱动的实质性突破。",
+        "tier": "heavy",
+        "tldr": "用互联网上大量无标注的第一人称视角导航视频（如人类走路拍的视频），通过单目几何重建生成障碍物感知的轨迹监督信号，训练出能理解语言/图像/空间目标并输出避障导航动作的视觉语言动作模型（VLA），并在新构建的大规模几何-目标配对基准VEGA-Bench和真实机器人上验证了其显著降低碰撞、提升障碍清除能力。",
+        "deep": {
+          "hook": "用互联网上随手拍的走路视频，蒸馏出真机避障导航能力——首次实现纯视频→几何轨迹→VLA策略全链路",
+          "why_now": "接续RT-2、OpenVLA等VLA范式，但直击其最大软肋：依赖仿真或昂贵真机交互数据；同期工作（如VoxPoser、Habitat-LLM）仍需人工轨迹/3D重建输入，VEGA首次用单目视频自动生成障碍感知轨迹，踩中‘低成本规模化具身预训练’核心趋势",
+          "problem": "当前导航VLA严重依赖真机收集的带动作标签数据或高保真仿真，成本高、泛化弱；互联网海量无标注第一人称视频虽含真实场景信息，却缺乏机器人坐标系下的障碍感知轨迹监督，无法直接用于策略学习。",
+          "method": "1）对互联网egocentric视频做单目SLAM式几何重建，生成局部点云与障碍物掩码；2）在重建几何上自动采样三类目标（文本/图像/空间坐标），并用RRT*等规划器生成障碍规避轨迹；3）用flow-matching框架将这些几何蒸馏的轨迹分布拟合为VLA策略，输入多模态目标，输出动作序列；全程无需人工标注或真机交互。",
+          "results": "在VEGA-Bench（250k场景+500万目标-几何配对）上，碰撞率↓33.0%，障碍清除↑17.9%；真机实验中成功率↑≥150.0%，碰撞率↓≥66.7%，障碍清除↑≥60.0%；基准与代码全部开源。",
+          "limitations": "1）几何重建依赖单目视频质量，低纹理/动态物体/剧烈运动场景易失效，摘要未报告重建失败率或鲁棒性消融；2）flow-matching策略输出为离散动作块（非端到端连续控制），未验证实时性与延迟敏感任务表现；3）真机实验未说明硬件平台、部署延迟、是否在线重规划，‘至少’类表述模糊实际提升下限。",
+          "significance_take": "属显著推进——不是范式颠覆（未统一多任务架构），但首次证明‘视频→几何→轨迹→VLA’可闭环落地，把VLA的数据瓶颈从‘真机交互’前移到‘互联网视频’，工程路径清晰且已验证到真机，为低成本具身智能提供新主干。",
+          "who_should_read": "做导航VLA的工程师该读，能直接复用其几何蒸馏流程、VEGA-Bench评估协议和flow-matching策略设计。",
+          "verdict": "必读——它没改写理论，但用扎实的工程链路把‘用视频学避障’从口号变成可复现、可测量、可部署的方案。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2606.17385",
+        "title": "EgoInfinity: A Web-Scale 4D Hand-Object Interaction Data Engine for Any-View Robot Retargeting and Video-to-Action Robot Learning",
+        "published": "2026-06-16",
+        "first_seen": "2026-06-19",
+        "url": "https://arxiv.org/abs/2606.17385",
+        "pdf_url": "https://arxiv.org/pdf/2606.17385",
+        "thumb": "assets/thumbs/2606.17385.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "谷歌DeepMind",
+        "country": "US",
+        "significance": 87,
+        "significance_reason": "实质性推进了开放世界具身学习的数据瓶颈：首次在无标注、任意视角、跨机器人形态条件下，实现物理一致性保障的视频→动作全链路自动化；实证覆盖5类真实机器人技能（抓取/切割/擦拭/倾倒等），含真实硬件验证，但未开源代码与模型，复现门槛高，略逊于RT-2/Octo/OpenVLA级的系统性开源与部署广度。",
+        "tier": "heavy",
+        "tldr": "用一个全自动的模块化引擎，把网上任意角度拍摄的人类操作视频（比如YouTube上的做饭、清洁视频）直接转成带物理合理性的4D手-物交互数据（手轨迹+物体6D位姿+接触状态），再适配到各种机器人身体上生成可执行动作，全程无需人工标注。",
+        "deep": {
+          "hook": "把YouTube做饭视频自动转成机器人可执行动作，全程零人工标注、任意视角、物理靠谱",
+          "why_now": "接续RT-2/Octo/OpenVLA对‘开放世界行为学习’的呼吁，但直击其数据瓶颈——此前所有SOTA模型仍依赖小规模、窄域、高成本采集数据；EgoInfinity是首个将互联网视频真正闭环转化为多形态机器人动作的全自动引擎。",
+          "problem": "具身智能缺的不是模型，而是海量、多样、物理合理、跨形态可用的动作数据。现有数据集（如EPIC-Kitchens、HOI4D）受限于实验室采集视角/物体/动作，无法覆盖真实世界的长尾操作；而直接从网络视频提取动作面临遮挡、单目歧义、无标定、手-物接触模糊、机器人形态不匹配等系统性挑战。",
+          "method": "EgoInfinity是模块化流水线：先用视觉模型粗估手部+物体3D轨迹，再通过‘交互感知精修’（interaction-aware refinement）联合优化手-物接触约束与物理可行性（如避免穿透、保持静摩擦力合理性），最后经新型运动重定向器（motion retargeter）将手部运动解耦为关节空间轨迹，适配不同机械手结构（含欠驱动/多指/平行夹爪）。关键创新在于跨模块的度量校准（metric calibration）和以接触物理为锚点的联合优化，而非拼接独立SOTA模块。",
+          "results": "在5类真实机器人技能（抓取/切割/擦拭/倾倒/搅拌）上完成真机验证；报告了感知保真度（hand/object pose error）、接触一致性（contact state accuracy）、跨形态泛化（在Franka、UR5e、Allegro Hand等异构平台上成功部署）；明确指出‘real-robot skill acquisition’已实现，但摘要未给出具体成功率或任务完成率数值。",
+          "limitations": "未开源代码与模型，仅提供项目页（project-page），第三方无法复现或迭代；全链路依赖多个强假设组件（如手部/物体分割与重建模块的鲁棒性），但摘要未报告在严重遮挡、镜面反射、快速运动等典型失败场景下的消融分析；‘物理可靠性’未量化（如穿透帧占比、接触力仿真误差），仅定性描述为‘reducing drift and contact inconsistencies’。",
+          "significance_take": "范式级推进：它不提供一个新数据集，而是定义了一种可持续演化的‘数据生成范式’——将数据生产从静态资产升级为可插拔、可进化、带物理约束的工程系统，为具身智能从‘实验室过拟合’走向‘互联网规模泛化’提供了首个可行基础设施原型。",
+          "who_should_read": "做机器人模仿学习/视频到动作/具身数据构建的工程师和研究者，能直接获得模块化设计思路、交互精修的物理建模切入点、以及跨形态重定向的实践约束。",
+          "verdict": "必读——它是当前唯一把‘互联网视频→真机动作’闭环做通且验证过的系统，虽不开源，但其模块划分、物理锚定策略与重定向抽象，已构成下一代具身数据引擎的事实参考架构。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -1233,11 +1325,14 @@
     "2606.17054",
     "2606.17055",
     "2606.17200",
+    "2606.17385",
     "2606.17846",
     "2606.18363",
+    "2606.18426",
+    "2606.18955",
     "2606.19980",
     "2606.20545"
   ],
-  "latest": "2026-06-19",
-  "generated_at": "2026-06-19 06:19 UTC"
+  "latest": "2026-06-20",
+  "generated_at": "2026-06-20 05:10 UTC"
 }

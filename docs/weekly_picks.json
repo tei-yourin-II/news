@@ -1,16 +1,17 @@
 {
   "week": {
-    "start": "2026-06-13",
-    "end": "2026-06-19",
-    "label": "06.13~06.19"
+    "start": "2026-06-14",
+    "end": "2026-06-20",
+    "label": "06.14~06.20"
   },
   "count": 15,
   "venue_count": 3,
   "venues": [
     "Humanoids",
-    "ICML 2026"
+    "ICML 2026",
+    "IROS 2026"
   ],
-  "generated_at": "2026-06-19 06:20 UTC",
+  "generated_at": "2026-06-20 05:11 UTC",
   "picks": [
     {
       "rank": 1,
@@ -91,6 +92,43 @@
     },
     {
       "rank": 3,
+      "arxiv_id": "2606.18955",
+      "title": "Motion-Focused Latent Action Enables Cross-Embodiment VLA Training from Human EgoVideos",
+      "published": "2026-06-17",
+      "url": "https://arxiv.org/abs/2606.18955",
+      "pdf_url": "https://arxiv.org/pdf/2606.18955",
+      "thumb": "assets/thumbs/2606.18955.jpg",
+      "venue": "IROS 2026",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "谷歌DeepMind",
+      "country": "US",
+      "org_type": "company",
+      "significance": 87,
+      "significance_reason": "在VLA范式中首次系统性证明无标注人类视频可替代昂贵机器人动作标注进行预训练，实证覆盖多个仿真机体+2种真实机械臂（Franka+UR5e），多任务（push/pick/place/assemble）+消融验证解耦设计有效性，但未开源代码/模型，且未挑战最复杂长程操作或开放世界交互，略逊于RT-2/π0级范式颠覆性。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "sim2real",
+        "cross-embodiment"
+      ],
+      "tldr": "用无标注的人类第一视角操作视频（如YouTube上大量存在的做饭、组装视频）训练出一个能泛化到不同机器人手臂的视觉-语言-动作模型，核心是把人类动作隐式编码成跨机体可迁移的动作码本，并通过解耦意图与感知来适配真实机器人，仅用50条真实轨迹就能完成下游任务。",
+      "claim": "无需任何机器人动作标注，仅靠无标签人类ego视频即可预训练出具备跨机体泛化能力的VLA模型，且下游微调所需真实机器人数据极少。",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark"
+      ],
+      "input": "RGB第一视角视频帧+自然语言指令",
+      "output": "机器人末端动作序列（6DoF位姿+夹爪开合）",
+      "novelty": 8,
+      "evidence": 9,
+      "one_sentence_verdict": "真突破：它实质性打破了VLA对大规模机器人动作标注数据的强依赖，用人类视频构建动作先验的路径已被扎实验证，是迈向通用具身智能的关键减负步骤。",
+      "deep": {}
+    },
+    {
+      "rank": 4,
       "arxiv_id": "2606.17054",
       "title": "Human Universal Grasping",
       "published": "2026-06-15",
@@ -130,7 +168,7 @@
       "deep": {}
     },
     {
-      "rank": 4,
+      "rank": 5,
       "arxiv_id": "2606.17046",
       "title": "Geometric Action Model for Robot Policy Learning",
       "published": "2026-06-15",
@@ -167,7 +205,7 @@
       "deep": {}
     },
     {
-      "rank": 5,
+      "rank": 6,
       "arxiv_id": "2606.19980",
       "title": "ENPIRE: Agentic Robot Policy Self-Improvement in the Real World",
       "published": "2026-06-18",
@@ -206,7 +244,48 @@
       "deep": {}
     },
     {
-      "rank": 6,
+      "rank": 7,
+      "arxiv_id": "2606.18426",
+      "title": "VEGA: Learning Navigation VLAs from In-the-Wild Egocentric Video with Geometric Trajectory Supervision",
+      "published": "2026-06-16",
+      "url": "https://arxiv.org/abs/2606.18426",
+      "pdf_url": "https://arxiv.org/pdf/2606.18426",
+      "thumb": "assets/thumbs/2606.18426.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "北卡罗来纳大学教堂山分校",
+      "country": "US",
+      "org_type": "university",
+      "significance": 87,
+      "significance_reason": "首次系统性打通‘互联网视频→单目几何→障碍感知轨迹→VLA策略’全链路，在真实机器人上实现碰撞率下降66.7%、障碍清除提升60%，且发布含500万目标的大规模几何感知导航基准VEGA-Bench；虽未达RT-2级范式颠覆（缺多任务统一架构/跨域泛化证明），但显著超越当前多数纯仿真或小规模真机VLA工作，属强工程驱动的实质性突破。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "dataset",
+        "benchmark",
+        "open-source",
+        "real-robot"
+      ],
+      "tldr": "用互联网上大量无标注的第一人称视角导航视频（如人类走路拍的视频），通过单目几何重建生成障碍物感知的轨迹监督信号，训练出能理解语言/图像/空间目标并输出避障导航动作的视觉语言动作模型（VLA），并在新构建的大规模几何-目标配对基准VEGA-Bench和真实机器人上验证了其显著降低碰撞、提升障碍清除能力。",
+      "claim": "仅靠互联网规模的无标注第一人称视频，结合单目几何重建生成的障碍物感知轨迹监督，即可有效蒸馏出具备真实场景避障能力的导航VLA策略，无需真实机器人交互数据或人工标注轨迹。",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "input": "RGB视频帧+语言指令/图像目标/空间坐标目标",
+      "output": "导航动作序列（离散或连续动作块）",
+      "novelty": 8,
+      "evidence": 10,
+      "one_sentence_verdict": "真突破：用纯视频+几何蒸馏解决VLA长期缺乏真实障碍感知监督的核心瓶颈，并在真实机器人和大规模基准上给出扎实、可复现、量化的性能跃升。",
+      "deep": {}
+    },
+    {
+      "rank": 8,
       "arxiv_id": "2606.20545",
       "title": "Current World Models Lack a Persistent State Core",
       "published": "2026-06-18",
@@ -243,7 +322,7 @@
       "deep": {}
     },
     {
-      "rank": 7,
+      "rank": 9,
       "arxiv_id": "2606.17385",
       "title": "EgoInfinity: A Web-Scale 4D Hand-Object Interaction Data Engine for Any-View Robot Retargeting and Video-to-Action Robot Learning",
       "published": "2026-06-16",
@@ -281,7 +360,45 @@
       "deep": {}
     },
     {
-      "rank": 8,
+      "rank": 10,
+      "arxiv_id": "2606.19333",
+      "title": "Do as I Do: Dexterous Manipulation Data from Everyday Human Videos",
+      "published": "2026-06-17",
+      "url": "https://arxiv.org/abs/2606.19333",
+      "pdf_url": "https://arxiv.org/pdf/2606.19333",
+      "thumb": "assets/thumbs/2606.19333.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "伯克利",
+      "country": "US",
+      "org_type": "university",
+      "significance": 87,
+      "significance_reason": "首次在无任何人类动作标注/3D标注/传感器辅助前提下，从纯wild RGB视频中稳定重建并retarget到真实灵巧手（含多任务真机演示），性能显著超越Prior（如HOMER、HOI4D baseline），且提出可复现的pipeline和efficacy playbook；但未达T-Rex/ALOHA级系统性工程闭环（无全栈部署、无长期任务泛化、未整合触觉/力反馈）。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "dexterous",
+        "multimodal-fusion",
+        "dataset"
+      ],
+      "tldr": "用单目RGB人类日常视频（如YouTube、手机拍摄）自动重建人手与物体的交互动作，并将其迁移到多指灵巧手机器人上，生成可执行的真机操作轨迹数据。",
+      "claim": "仅靠无标注、非受控、单目RGB的人类日常视频，就能高保真重建手-物交互并成功迁移到真实灵巧手，实现从‘人做’到‘机器人做’的端到端数据生成。",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "policy"
+      ],
+      "input": "单目RGB视频（egocentric/exocentric，in-the-wild）",
+      "output": "灵巧手在真实机器人上的关节轨迹序列（robot-complete manipulation data）",
+      "novelty": 8,
+      "evidence": 9,
+      "one_sentence_verdict": "真突破：解决了‘如何从海量无标注人类视频中提取可执行灵巧操作数据’这一长期开放难题，证据扎实（多源视频+真机验证+消融+SOTA对比），但尚未形成完整机器人学习闭环。",
+      "deep": {}
+    },
+    {
+      "rank": 11,
       "arxiv_id": "2606.18558",
       "title": "MolmoMotion: Forecasting Point Trajectories in 3D with Language Instruction",
       "published": "2026-06-17",
@@ -318,7 +435,7 @@
       "deep": {}
     },
     {
-      "rank": 9,
+      "rank": 12,
       "arxiv_id": "2606.17200",
       "title": "ACE-Ego-0: Unifying Egocentric Human and Robotic Data for VLA Pretraining",
       "published": "2026-06-15",
@@ -358,46 +475,7 @@
       "deep": {}
     },
     {
-      "rank": 10,
-      "arxiv_id": "2606.15338",
-      "title": "SimWeaver: Zero-Shot RGB Sim-to-Real for Deformable Manipulation",
-      "published": "2026-06-13",
-      "url": "https://arxiv.org/abs/2606.15338",
-      "pdf_url": "https://arxiv.org/pdf/2606.15338",
-      "thumb": "assets/thumbs/2606.15338.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "sim2real_data",
-      "org": "未知（作者单位未在摘要中披露，无机构署名线索；虽有中文名但无法确认归属高校或企业，如清华/智元/宇树等均无依据）",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 85,
-      "significance_reason": "达到DROID（93）与ALOHA（92）之下、但显著超越MimicGen（89）和Isaac Lab（88）的实证强度：真机多任务（5类可变形物）、零样本、高成功率（91% avg）、强鲁棒性（丝绸任务下视觉分布偏移时仍100%，baseline崩至9-70%）、成本降两个数量级；但未开源代码/模型，且未报告跨机体泛化（如换机械臂）或用户泛化，故略低于DROID/ALOHA级里程碑。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "sim2real",
-        "dataset",
-        "benchmark",
-        "open-source"
-      ],
-      "tldr": "用仅200条仿真演示数据训练视觉语言动作（VLA）策略，不依赖任何真实机器人微调，直接在5种软体物体（如塑料袋、丝绸）操作任务上实现平均91%的真实世界成功率。",
-      "claim": "仅靠少量仿真数据（200 demo/task）和一套包含物理可信仿真器、资产生成框架、拓扑感知轨迹合成器与ISP感知图像增强协议的系统，即可实现零样本RGB sim-to-real迁移，解决可变形物体操控中的视觉域偏移与动力学失配难题。",
-      "method_components": [
-        "simulator",
-        "dataset",
-        "policy",
-        "benchmark"
-      ],
-      "input": "单帧RGB图像+语言指令",
-      "output": "动作序列（6DoF末端位姿+夹爪开合）",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：首次在可变形物体RGB-only操控中实现零样本sim-to-real部署，证据扎实（真机5任务+分布外鲁棒性+成本优势），但受限于未全开源，尚未达RT-X级范式开创地位。",
-      "deep": {}
-    },
-    {
-      "rank": 11,
+      "rank": 13,
       "arxiv_id": "2606.18363",
       "title": "Guava: An Effective and Universal Harness for Embodied Manipulation",
       "published": "2026-06-16",
@@ -437,46 +515,7 @@
       "deep": {}
     },
     {
-      "rank": 12,
-      "arxiv_id": "2606.15631",
-      "title": "Retrieve, Don't Retrain: Extending Vision Language Action Models to New Tasks at Test Time",
-      "published": "2026-06-14",
-      "url": "https://arxiv.org/abs/2606.15631",
-      "pdf_url": "https://arxiv.org/pdf/2606.15631",
-      "thumb": "assets/thumbs/2606.15631.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "NAVER AI Lab",
-      "country": "KR",
-      "org_type": "company",
-      "significance": 78,
-      "significance_reason": "实证扎实：在PushT和RoboTwin 2.0上超越跨 embodiment 基线，且在Franka真实机器人上验证；核心创新（检索替代微调）有明确机制解释（检索提供高层运动先验 + WAM未来图像目标提供视觉一致性约束），但未开新范式（仍属VLA扩展框架内），也未解决长期开放难题（如通用具身推理），分量介于π0（95）和OpenVLA（93）之下，但显著优于纯仿真刷榜工作。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "sim2real",
-        "multimodal-fusion",
-        "benchmark",
-        "real-robot"
-      ],
-      "tldr": "提出一种无需微调即可在测试时扩展视觉语言动作模型到新任务的方法：通过检索已有演示（来自更廉价的‘池’端，如人手视频）来条件化冻结策略，新任务只需向检索池添加演示数据，而非重新训练或收集机器人操作数据。",
-      "claim": "冻结的VLA策略可通过检索跨 embodiment 的演示数据（如人手视频）实现零微调的新任务泛化，且检索与世界动作模型（WAM）的未来图像预测目标协同增强动作一致性。",
-      "method_components": [
-        "model",
-        "dataset",
-        "policy",
-        "benchmark"
-      ],
-      "input": "RGB图像+语言指令+检索到的轨迹片段（来自池端演示）",
-      "output": "动作序列（末端执行器控制信号）",
-      "novelty": 7,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：首次将检索机制系统性嵌入VLA策略决策环，在冻结权重前提下实现跨 embodiment 新任务零微调部署，并在仿真+真实机器人上验证有效性，证据链完整（消融、多基准、真实硬件）",
-      "deep": {}
-    },
-    {
-      "rank": 13,
+      "rank": 14,
       "arxiv_id": "2606.18250",
       "title": "Future Dynamic 3D Reconstruction: A 3D World Model with Disentangled Ego-Motion",
       "published": "2026-06-16",
@@ -513,7 +552,7 @@
       "deep": {}
     },
     {
-      "rank": 14,
+      "rank": 15,
       "arxiv_id": "2606.16022",
       "title": "$λ$-Reachability: Geometric-Horizon Safety Bellman Equations for Humanoid Safety",
       "published": "2026-06-14",
@@ -546,40 +585,6 @@
       "novelty": 6,
       "evidence": 7,
       "one_sentence_verdict": "扎实增量：改进了安全值估计的偏差-方差权衡，有理论保障和初步实证，但缺乏开源、泛化验证和强基线对比，尚未构成范式转移或系统级推进。",
-      "deep": {}
-    },
-    {
-      "rank": 15,
-      "arxiv_id": "2606.15099",
-      "title": "Think Less, Act Early: Reinforced Latent Reasoning with Early Exit in Vision-Language-Action Models",
-      "published": "2026-06-13",
-      "url": "https://arxiv.org/abs/2606.15099",
-      "pdf_url": "https://arxiv.org/pdf/2606.15099",
-      "thumb": "assets/thumbs/2606.15099.jpg",
-      "venue": "ICML 2026",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "unknown",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 38,
-      "significance_reason": "仅在LIBERO仿真基准上验证，无真实机器人实验、无跨任务/跨机体泛化分析、无消融证明各模块贡献、未开源代码或模型；相比RT-2（97）、π0（95）、OpenVLA（93）等基石工作，它未触及多机体部署、开放世界泛化、真实硬件闭环或数据扩展等核心挑战，属于对CoT范式的局部效率优化，实证薄弱且封闭。",
-      "tier": "worth",
-      "grade": "D",
-      "tags": [
-        "sim2real"
-      ],
-      "tldr": "这篇论文提出一个叫AVA-VLA的新框架，不用生成中间文字推理步骤（Chain-of-Thought），而是用隐变量建模推理过程，并用强化学习去优化这些隐状态、再加早停机制来加速决策，最终在LIBERO等仿真任务上比传统CoT方法快6倍且成功率98.3%。",
-      "claim": "隐式潜变量推理+强化学习去噪+自适应早退，可在不牺牲成功率的前提下显著提升VLA模型的推理效率与长程稳定性。",
-      "method_components": [
-        "model",
-        "benchmark"
-      ],
-      "input": "视觉图像+语言指令",
-      "output": "动作序列/机器人操作指令",
-      "novelty": 5,
-      "evidence": 4,
-      "one_sentence_verdict": "概念包装：提出了隐变量+RL+早退的组合思路，但缺乏实证支撑、不可复现、未脱离仿真窄域，本质是CoT效率优化的包装，而非范式突破。",
       "deep": {}
     }
   ]
