@@ -1,17 +1,17 @@
 {
   "week": {
-    "start": "2026-06-14",
-    "end": "2026-06-20",
-    "label": "06.14~06.20"
+    "start": "2026-06-15",
+    "end": "2026-06-21",
+    "label": "06.15~06.21"
   },
   "count": 15,
-  "venue_count": 3,
+  "venue_count": 4,
   "venues": [
     "Humanoids",
     "ICML 2026",
     "IROS 2026"
   ],
-  "generated_at": "2026-06-20 05:11 UTC",
+  "generated_at": "2026-06-21 06:01 UTC",
   "picks": [
     {
       "rank": 1,
@@ -286,6 +286,45 @@
     },
     {
       "rank": 8,
+      "arxiv_id": "2606.20549",
+      "title": "Generating Robot Hands from Human Demonstrations",
+      "published": "2026-06-18",
+      "url": "https://arxiv.org/abs/2606.20549",
+      "pdf_url": "https://arxiv.org/pdf/2606.20549",
+      "thumb": "assets/thumbs/2606.20549.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "加州大学圣地亚哥分校",
+      "country": "US",
+      "org_type": "university",
+      "significance": 88,
+      "significance_reason": "首次将大规模人类运动数据直接用于机器人本体生成（非仅控制），实现从‘学动作’到‘长身体’的范式跃迁；真机部署验证多任务轨迹跟踪性能超越商用产品（如Shadow Dexterous Hand），且提出可制造的print-in-place结构；但未开源代码/模型/CAD，复现门槛高，故略低于ALOHA/ACT等96分档（后者全开源+多任务+跨平台+强消融）。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "dexterous",
+        "dataset",
+        "real-robot",
+        "large-scale"
+      ],
+      "tldr": "用400多万帧人类手指运动数据，通过优化树状机械结构+逆运动学控制策略，自动生成可3D打印的一体化机器人手（含6-DoF通用手和3-DoF专用手），并在真实硬件上验证了其指尖轨迹跟踪精度超过现有商用机械手。",
+      "claim": "大规模人类指尖运动数据不仅能训练控制器，更能直接驱动机器人物理本体（手部机构）的生成式设计与优化。",
+      "method_components": [
+        "dataset",
+        "simulator",
+        "policy",
+        "hardware"
+      ],
+      "input": "人类指尖三维轨迹序列（来自日常操作视频）",
+      "output": "树状拓扑结构的机器人手CAD参数（连杆长度、关节类型、自由度配置）及对应逆运动学关节角序列",
+      "novelty": 8,
+      "evidence": 10,
+      "one_sentence_verdict": "真突破：它不是在已有机器人上刷指标，而是用人类运动数据反向定义‘什么样的手才能自然做这些事’，并造出来——这是具身智能中‘形态-功能联合进化’的关键一步。",
+      "deep": {}
+    },
+    {
+      "rank": 9,
       "arxiv_id": "2606.20545",
       "title": "Current World Models Lack a Persistent State Core",
       "published": "2026-06-18",
@@ -322,7 +361,7 @@
       "deep": {}
     },
     {
-      "rank": 9,
+      "rank": 10,
       "arxiv_id": "2606.17385",
       "title": "EgoInfinity: A Web-Scale 4D Hand-Object Interaction Data Engine for Any-View Robot Retargeting and Video-to-Action Robot Learning",
       "published": "2026-06-16",
@@ -360,7 +399,7 @@
       "deep": {}
     },
     {
-      "rank": 10,
+      "rank": 11,
       "arxiv_id": "2606.19333",
       "title": "Do as I Do: Dexterous Manipulation Data from Everyday Human Videos",
       "published": "2026-06-17",
@@ -398,7 +437,7 @@
       "deep": {}
     },
     {
-      "rank": 11,
+      "rank": 12,
       "arxiv_id": "2606.18558",
       "title": "MolmoMotion: Forecasting Point Trajectories in 3D with Language Instruction",
       "published": "2026-06-17",
@@ -435,87 +474,7 @@
       "deep": {}
     },
     {
-      "rank": 12,
-      "arxiv_id": "2606.17200",
-      "title": "ACE-Ego-0: Unifying Egocentric Human and Robotic Data for VLA Pretraining",
-      "published": "2026-06-15",
-      "url": "https://arxiv.org/abs/2606.17200",
-      "pdf_url": "https://arxiv.org/pdf/2606.17200",
-      "thumb": "assets/thumbs/2606.17200.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "商汤科技",
-      "country": "CN",
-      "org_type": "company",
-      "significance": 78,
-      "significance_reason": "实证扎实：在4.5K小时真/仿机器人数据+1.5K小时人类视频上验证，覆盖RoboCasa/RoboTwin双基准，且展示真实双臂操作迁移效果；但未开源代码/模型，未报告消融实验细节（如伪标签质量影响、可靠性权重设计有效性），也未挑战多机体/跨用户泛化，尚未达到OpenVLA/Octo级的开放性与架构普适性。",
-      "tier": "heavy",
-      "grade": "B",
-      "tags": [
-        "multimodal-fusion",
-        "dataset",
-        "benchmark",
-        "sim2real"
-      ],
-      "tldr": "这篇论文提出ACE-Ego-0框架，把大量第一人称视角的人类活动视频（如Ego4D）自动转成机器人可理解的伪动作轨迹，并用可靠性加权的方式和真实机器人数据联合预训练VLA模型，目标是绕过昂贵的真实机器人数据采集。",
-      "claim": "通过构建可扩展的视频到伪动作转换管线、统一相机空间动作表征、以及可靠性感知训练目标，首次实现人类egocentric视频与机器人轨迹在VLA预训练中的有效联合利用，显著提升跨任务泛化性能。",
-      "method_components": [
-        "model",
-        "dataset",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "egocentric RGB视频 + 语言指令（隐含在视频上下文或配对字幕中）",
-      "output": "机器人动作序列（camera-space坐标系下的6DoF末端位姿+夹爪开合）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合——将人类egocentric视频转化为VLA预训练资源的技术路径完整、实证充分，但缺乏开源和深度消融，属于高质量工程推进，而非范式突破。",
-      "deep": {}
-    },
-    {
       "rank": 13,
-      "arxiv_id": "2606.18363",
-      "title": "Guava: An Effective and Universal Harness for Embodied Manipulation",
-      "published": "2026-06-16",
-      "url": "https://arxiv.org/abs/2606.18363",
-      "pdf_url": "https://arxiv.org/pdf/2606.18363",
-      "thumb": "assets/thumbs/2606.18363.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "马里兰大学",
-      "country": "US",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "贡献清晰：首次系统解耦Harness设计空间并提炼三大普适原则；实证扎实——在仿真+真实Panda上验证跨任务/跨物体/长程泛化，且用4B模型对标前沿闭源模型；但未突破ALOHA/ACT级的端到端闭环控制精度或实时性，也未解决触觉/灵巧手等核心瓶颈，属显著推进而非范式革命。",
-      "tier": "heavy",
-      "grade": "B",
-      "tags": [
-        "multimodal-fusion",
-        "sim2real",
-        "dataset",
-        "benchmark",
-        "open-source"
-      ],
-      "tldr": "提出一个叫Guava的通用‘驾驭框架’，让大语言模型（甚至小到4B的开源模型）能通过调用外部感知、规划、控制模块来完成具身操作任务，不靠端到端训练，只用不到2000条仿真轨迹就能蒸馏出强泛化能力。",
-      "claim": "一个精心设计的、模型无关的Harness框架（Guava），通过迭代感知-推理-动作循环、语义动作抽象和多模态观测三大设计原则，可将具身操作能力高效蒸馏至小型开源语言模型，且无需真实机器人数据即可实现跨物体、跨指令、长程任务的强泛化。",
-      "method_components": [
-        "model",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "自然语言指令+多模态观测（RGB/深度/状态等）",
-      "output": "语义动作序列（如'抓取红色立方体→移动到蓝色托盘→放置'）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：将具身智能的模块化架构设计提升到新高度，证据充分、可复现性强，但未触及底层控制或传感物理建模等根本挑战",
-      "deep": {}
-    },
-    {
-      "rank": 14,
       "arxiv_id": "2606.18250",
       "title": "Future Dynamic 3D Reconstruction: A 3D World Model with Disentangled Ego-Motion",
       "published": "2026-06-16",
@@ -552,39 +511,76 @@
       "deep": {}
     },
     {
-      "rank": 15,
-      "arxiv_id": "2606.16022",
-      "title": "$λ$-Reachability: Geometric-Horizon Safety Bellman Equations for Humanoid Safety",
-      "published": "2026-06-14",
-      "url": "https://arxiv.org/abs/2606.16022",
-      "pdf_url": "https://arxiv.org/pdf/2606.16022",
-      "thumb": "assets/thumbs/2606.16022.jpg",
+      "rank": 14,
+      "arxiv_id": "2606.19935",
+      "title": "PhysDrift: Bridging the Embodiment Gap in Humanoid Co-Speech Motion Generation",
+      "published": "2026-06-18",
+      "url": "https://arxiv.org/abs/2606.19935",
+      "pdf_url": "https://arxiv.org/pdf/2606.19935",
+      "thumb": "assets/thumbs/2606.19935.jpg",
       "venue": "Humanoids",
       "domain": "embodied_ai",
-      "best_route": "whole_body_control",
-      "org": "卡内基梅隆大学",
-      "country": "US",
+      "best_route": "world_model",
+      "org": "unknown",
+      "country": "CN",
       "org_type": "university",
-      "significance": 58,
-      "significance_reason": "理论上有清晰收缩性证明和对经典HJ PDE的可扩展近似路径，实验覆盖仿真+少量真机平衡/避障，但未展示跨机体/跨地形/多任务泛化，无开源代码，未与近年SOTA安全方法（如SafeRL-Humanoid、CORA、Neural HJ）对比，远未达H2O/ASAP级工程整合或GR00T级范式突破。",
-      "tier": "worth",
-      "grade": "D",
+      "significance": 68,
+      "significance_reason": "提出了明确的‘embodiment gap’问题意识并给出可实施的两阶段解法（IK-EER + PhysDrift），在真实人形机器人上验证了语音对齐、物理稳定性和实时性提升，但未开源代码/模型，未报告跨机型/跨任务泛化，数据构建路径仍依赖人类动作先验，未挑战语音-动作因果建模等深层科学问题，属显著但非范式级贡献。",
+      "tier": "notable",
+      "grade": "C",
       "tags": [
         "sim2real",
-        "benchmark"
+        "dexterous"
       ],
-      "tldr": "提出一种叫λ-Reachability的新安全分析方法，用带几何分布步数的随机 rollout 来估计人形机器人在平衡和避障约束下的安全可达集边界和安全裕度，比传统单步TD方法更准。",
-      "claim": "通过引入几何分布的随机rollout长度与概率吸收终端机制，λ-Reachability能在高维人形机器人系统中实现可证明收敛的、兼顾局部一致性与长时序安全目标的安全值估计。",
+      "tldr": "这篇论文发现用人类动作模型（如SMPL-X）生成语音伴随动作再迁移到人形机器人上，会导致动作多样性下降、韵律-动作不同步等问题；于是提出两个新东西：一是IK-EER方法来更好把人类动作‘转译’成机器人能做的动作，二是PhysDrift模型直接从语音生成机器人原生关节轨迹，绕过人类表示，实现在真机上的实时、物理合理、语音对齐的说话动作。",
+      "claim": "绕过人类身体表征（如SMPL-X），直接在机器人本体约束下建模语音到关节轨迹的映射，可显著提升共语动作的物理可执行性、韵律同步性和实时交互能力。",
       "method_components": [
         "model",
-        "simulator",
+        "dataset",
+        "policy"
+      ],
+      "input": "语音音频（含韵律特征）",
+      "output": "人形机器人各关节的时序轨迹（角度/速度）",
+      "novelty": 7,
+      "evidence": 8,
+      "one_sentence_verdict": "显著贡献：真机验证了‘绕过人类表征’路线的有效性，但受限于数据构造方式和泛化能力，尚未达到开创新范式的程度。",
+      "deep": {}
+    },
+    {
+      "rank": 15,
+      "arxiv_id": "2606.19656",
+      "title": "DF-ExpEnse: Diffusion Filtered Exploration for Sample Efficient Finetuning",
+      "published": "2026-06-17",
+      "url": "https://arxiv.org/abs/2606.19656",
+      "pdf_url": "https://arxiv.org/pdf/2606.19656",
+      "thumb": "assets/thumbs/2606.19656.jpg",
+      "venue": "ICML 2026",
+      "domain": "embodied_ai",
+      "best_route": "sim2real_data",
+      "org": "哥伦比亚大学",
+      "country": "US",
+      "org_type": "university",
+      "significance": 68,
+      "significance_reason": "方法设计有清晰创新点（扩散过滤+critic ensemble），在多个真实机器人操作与运动任务上验证了样本效率提升（相比默认finetuning和替代动作选择），但未开源代码/模型，缺乏消融实验细节、未报告绝对性能（仅相对增益）、未验证跨形态泛化极限（如从机械臂到四足），整体属扎实增量而非范式突破，明显弱于DROID/ALOHA/RT-X等基石工作。",
+      "tier": "notable",
+      "grade": "D",
+      "tags": [
+        "multimodal-fusion",
+        "sim2real",
+        "large-scale"
+      ],
+      "tldr": "提出一种叫DF-ExpEnse的在线探索策略，用于提升预训练生成式控制策略在真实机器人微调时的样本效率：它用扩散模型生成高质量动作候选集，再用批评家集成筛选出既靠谱又具探索价值的动作，支持多机器人协同探索。",
+      "claim": "通过扩散过滤+批评家集成的双阶段动作选择机制，可显著提升生成式控制策略在真实机器人在线微调中的样本效率，且支持跨机器人协作探索。",
+      "method_components": [
+        "model",
+        "policy",
         "benchmark"
       ],
-      "input": "状态（如关节角、角速度、质心位置等）+ 安全约束（平衡/碰撞）",
-      "output": "标量安全值（表示该状态是否属于安全集及安全裕度）",
-      "novelty": 6,
-      "evidence": 7,
-      "one_sentence_verdict": "扎实增量：改进了安全值估计的偏差-方差权衡，有理论保障和初步实证，但缺乏开源、泛化验证和强基线对比，尚未构成范式转移或系统级推进。",
+      "input": "预训练生成式控制策略的隐空间表征 + 当前观测（RGB/状态）",
+      "output": "高探索性且高置信度的动作",
+      "novelty": 7,
+      "evidence": 8,
+      "one_sentence_verdict": "显著贡献：工程整合——将扩散建模、critic集成与在线探索有机耦合，在真实机器人上实证了样本效率提升，但开源不足、分析深度有限，尚未达到开新范式或解决长期开放难题的量级。",
       "deep": {}
     }
   ]
