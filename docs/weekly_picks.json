@@ -1,8 +1,8 @@
 {
   "week": {
-    "start": "2026-06-15",
-    "end": "2026-06-21",
-    "label": "06.15~06.21"
+    "start": "2026-06-16",
+    "end": "2026-06-22",
+    "label": "06.16~06.22"
   },
   "count": 15,
   "venue_count": 4,
@@ -11,7 +11,7 @@
     "ICML 2026",
     "IROS 2026"
   ],
-  "generated_at": "2026-06-21 06:01 UTC",
+  "generated_at": "2026-06-22 06:27 UTC",
   "picks": [
     {
       "rank": 1,
@@ -53,45 +53,6 @@
     },
     {
       "rank": 2,
-      "arxiv_id": "2606.17055",
-      "title": "T-Rex: Tactile-Reactive Dexterous Manipulation",
-      "published": "2026-06-15",
-      "url": "https://arxiv.org/abs/2606.17055",
-      "pdf_url": "https://arxiv.org/pdf/2606.17055",
-      "thumb": "assets/thumbs/2606.17055.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "斯坦福",
-      "country": "US",
-      "org_type": "university",
-      "significance": 94,
-      "significance_reason": "对标FTP-1（94分）——同为跨传感器、接触密集型灵巧操作的触觉通用策略，但T-Rex更进一步：①首次将触觉建模嵌入VLA范式并保持其多模态能力；②100小时真机触觉数据规模远超FTP-1（未公开数据量，但FTP-1依赖多平台仿真+少量真实数据）；③12项任务覆盖力控+软体变形，实证强度与YUBI/RealDexUMI相当；④消融明确验证时序VQ-VAE与MoT的必要性；唯开源程度略逊（仅code，无data/model）。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "tactile",
-        "dexterous",
-        "dataset",
-        "benchmark",
-        "real-robot"
-      ],
-      "tldr": "构建了首个大规模（100小时）以基础运动原语驱动的触觉-rich机器人操作数据集，提出可变采样率的MoT架构和时序触觉VQ-VAE编码器，让现有VLA模型能实时响应高频触觉信号，在12个需精细力控和软体物操作的任务上比最强基线平均成功率提升超30%。",
-      "claim": "通过触觉信号的动态时序建模与数据高效采集范式，首次实现VLA模型对高频触觉反馈的实时、任务驱动式响应，显著提升灵巧操作中力控与形变物体处理能力。",
-      "method_components": [
-        "model",
-        "dataset",
-        "benchmark"
-      ],
-      "input": "RGB图像+语言指令+高频率触觉序列（来自GelSight等触觉传感器）",
-      "output": "动作序列（关节扭矩/末端位姿）",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：在VLA框架下首次打通高频触觉实时闭环，数据、架构、任务三维度均达领域新基准，非概念包装",
-      "deep": {}
-    },
-    {
-      "rank": 3,
       "arxiv_id": "2606.18955",
       "title": "Motion-Focused Latent Action Enables Cross-Embodiment VLA Training from Human EgoVideos",
       "published": "2026-06-17",
@@ -128,84 +89,7 @@
       "deep": {}
     },
     {
-      "rank": 4,
-      "arxiv_id": "2606.17054",
-      "title": "Human Universal Grasping",
-      "published": "2026-06-15",
-      "url": "https://arxiv.org/abs/2606.17054",
-      "pdf_url": "https://arxiv.org/pdf/2606.17054",
-      "thumb": "assets/thumbs/2606.17054.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "纽约大学",
-      "country": "US",
-      "org_type": "university",
-      "significance": 92,
-      "significance_reason": "达到ALOHA/ACT级分量：首次构建百万级真实人类抓取视频数据集（非动作捕捉、非实验室摆拍），提出面向抓取的flow-matching建模范式，完成从人类抓取分布→机器人零样本部署的全链路验证（含多机体、多环境、多视角真实测试），且全部开源；相比LUCID（93分，仅从无结构视频学习意图）更聚焦抓取物理可行性，相比Dexterous Point Policy（95分，需机器人真机演示）更彻底摆脱对机器人数据的依赖，属具身智能中‘人类先验驱动’范式的标志性落地。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "dataset",
-        "benchmark",
-        "open-source",
-        "real-robot",
-        "multimodal-fusion"
-      ],
-      "tldr": "用人类日常抓取的100万帧RGB-D数据训练了一个flow-matching模型HUG，输入单张RGB-D图就能生成符合人体自然习惯的完整手部姿态（手腕位姿+MANO手型），再迁移到多种机器人手上实现零样本抓取，在90个未见物体的仿真+30个真实物体跨相机/跨机器人/跨家庭环境测试中大幅超越现有方法。",
-      "claim": "人类抓取分布是机器人通用抓取的最优先验，通过大规模、真实、egocentric的人类抓取数据建模该分布，并实现跨机体零样本抓取迁移。",
-      "method_components": [
-        "model",
-        "dataset",
-        "simulator",
-        "benchmark"
-      ],
-      "input": "单张RGB-D图像（来自双目相机）",
-      "output": "参数化的抓取姿态（手腕平移+旋转+MANO手部关节角度）",
-      "novelty": 8,
-      "evidence": 11,
-      "one_sentence_verdict": "真突破：不是改进某个模块，而是确立了‘以人类自然抓取为唯一监督信号’的新技术路线，并用百万级真实数据、新模型、新评测、全开源和跨平台部署完整闭环验证。",
-      "deep": {}
-    },
-    {
-      "rank": 5,
-      "arxiv_id": "2606.17046",
-      "title": "Geometric Action Model for Robot Policy Learning",
-      "published": "2026-06-15",
-      "url": "https://arxiv.org/abs/2606.17046",
-      "pdf_url": "https://arxiv.org/pdf/2606.17046",
-      "thumb": "assets/thumbs/2606.17046.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "苏黎世联邦理工学院",
-      "country": "EU",
-      "org_type": "university",
-      "significance": 82,
-      "significance_reason": "首次将几何基础模型（GFM）显式用于端到端动作生成，且在多个真机接触操作任务（如堆叠、插拔、开门）上系统性超越OpenVLA/Octo等主流VLA基线，有消融验证几何token预测对接触鲁棒性的关键作用，但未开源代码/模型，也未证明跨机体泛化到非Franka平台，尚未达RT-2级范式突破，属扎实重磅推进。",
-      "tier": "heavy",
-      "grade": "B",
-      "tags": [
-        "multimodal-fusion",
-        "sim2real",
-        "real-robot"
-      ],
-      "tldr": "这篇论文提出Geometric Action Model（GAM），让机器人策略直接复用预训练的几何基础模型（GFM）作为统一骨干，把GFM中间层拆开：浅层编码视觉/本体感知输入，中间插入一个因果未来预测器来生成语言+动作历史条件下的未来几何token，再送入深层GFM解码出动作；核心是用最小改动把2D主导的VLAs升级为显式建模3D几何的动作策略，在仿真和真机任务上比现有大模型基线更准、更快、更鲁棒。",
-      "claim": "通过在预训练几何基础模型（GFM）中间层进行轻量拆分与因果未来预测器注入，可构建一个语言驱动、显式建模3D几何演化的机器人操作策略，无需从头训练即可超越现有VLAs/WAMs在接触密集操作中的性能。",
-      "method_components": [
-        "model",
-        "simulator",
-        "benchmark"
-      ],
-      "input": "RGB-D图像+语言指令+本体感知+历史动作序列",
-      "output": "机器人末端6D位姿动作序列（含抓取状态）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合——在已有几何基础模型上做出精巧架构改造，实证显著提升真机接触操作性能，但未开源且未挑战更广义具身泛化，属于高质量工程级整合而非理论或范式突破。",
-      "deep": {}
-    },
-    {
-      "rank": 6,
+      "rank": 3,
       "arxiv_id": "2606.19980",
       "title": "ENPIRE: Agentic Robot Policy Self-Improvement in the Real World",
       "published": "2026-06-18",
@@ -244,7 +128,7 @@
       "deep": {}
     },
     {
-      "rank": 7,
+      "rank": 4,
       "arxiv_id": "2606.18426",
       "title": "VEGA: Learning Navigation VLAs from In-the-Wild Egocentric Video with Geometric Trajectory Supervision",
       "published": "2026-06-16",
@@ -285,7 +169,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
+      "rank": 5,
       "arxiv_id": "2606.20549",
       "title": "Generating Robot Hands from Human Demonstrations",
       "published": "2026-06-18",
@@ -324,7 +208,7 @@
       "deep": {}
     },
     {
-      "rank": 9,
+      "rank": 6,
       "arxiv_id": "2606.20545",
       "title": "Current World Models Lack a Persistent State Core",
       "published": "2026-06-18",
@@ -361,7 +245,7 @@
       "deep": {}
     },
     {
-      "rank": 10,
+      "rank": 7,
       "arxiv_id": "2606.17385",
       "title": "EgoInfinity: A Web-Scale 4D Hand-Object Interaction Data Engine for Any-View Robot Retargeting and Video-to-Action Robot Learning",
       "published": "2026-06-16",
@@ -399,7 +283,7 @@
       "deep": {}
     },
     {
-      "rank": 11,
+      "rank": 8,
       "arxiv_id": "2606.19333",
       "title": "Do as I Do: Dexterous Manipulation Data from Everyday Human Videos",
       "published": "2026-06-17",
@@ -437,7 +321,7 @@
       "deep": {}
     },
     {
-      "rank": 12,
+      "rank": 9,
       "arxiv_id": "2606.18558",
       "title": "MolmoMotion: Forecasting Point Trajectories in 3D with Language Instruction",
       "published": "2026-06-17",
@@ -471,6 +355,121 @@
       "novelty": 8,
       "evidence": 9,
       "one_sentence_verdict": "工程整合：构建了高质量数据-基准-模型全栈，实证充分、问题定义清晰、迁移效果可测，但缺开源与真机部署，属于AI×科学/生物中面向物理世界的强基础性工作，非具身智能领域里程碑。",
+      "deep": {}
+    },
+    {
+      "rank": 10,
+      "arxiv_id": "2606.18363",
+      "title": "Guava: An Effective and Universal Harness for Embodied Manipulation",
+      "published": "2026-06-16",
+      "url": "https://arxiv.org/abs/2606.18363",
+      "pdf_url": "https://arxiv.org/pdf/2606.18363",
+      "thumb": "assets/thumbs/2606.18363.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "马里兰大学",
+      "country": "US",
+      "org_type": "university",
+      "significance": 78,
+      "significance_reason": "贡献清晰：首次系统解耦Harness设计空间并提炼三大普适原则；实证扎实——在仿真+真实Panda上验证跨任务/跨物体/长程泛化，且用4B模型对标前沿闭源模型；但未突破ALOHA/ACT级的端到端闭环控制精度或实时性，也未解决触觉/灵巧手等核心瓶颈，属显著推进而非范式革命。",
+      "tier": "heavy",
+      "grade": "B",
+      "tags": [
+        "multimodal-fusion",
+        "sim2real",
+        "dataset",
+        "benchmark",
+        "open-source"
+      ],
+      "tldr": "提出一个叫Guava的通用‘驾驭框架’，让大语言模型（甚至小到4B的开源模型）能通过调用外部感知、规划、控制模块来完成具身操作任务，不靠端到端训练，只用不到2000条仿真轨迹就能蒸馏出强泛化能力。",
+      "claim": "一个精心设计的、模型无关的Harness框架（Guava），通过迭代感知-推理-动作循环、语义动作抽象和多模态观测三大设计原则，可将具身操作能力高效蒸馏至小型开源语言模型，且无需真实机器人数据即可实现跨物体、跨指令、长程任务的强泛化。",
+      "method_components": [
+        "model",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "input": "自然语言指令+多模态观测（RGB/深度/状态等）",
+      "output": "语义动作序列（如'抓取红色立方体→移动到蓝色托盘→放置'）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：将具身智能的模块化架构设计提升到新高度，证据充分、可复现性强，但未触及底层控制或传感物理建模等根本挑战",
+      "deep": {}
+    },
+    {
+      "rank": 11,
+      "arxiv_id": "2606.19531",
+      "title": "ImageWAM: Do World Action Models Really Need Video Generation, or Just Image Editing?",
+      "published": "2026-06-17",
+      "url": "https://arxiv.org/abs/2606.19531",
+      "pdf_url": "https://arxiv.org/pdf/2606.19531",
+      "thumb": "assets/thumbs/2606.19531.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "world_model",
+      "org": "上海交通大学",
+      "country": "CN",
+      "org_type": "university",
+      "significance": 78,
+      "significance_reason": "实证扎实：在Adroit/RLBench仿真+真实Panda平台上验证，对比VLA基线和竞争性WAM，显著降低FLOPs（1/6）与延迟（1/4），且有attention可视化佐证编辑缓存聚焦动作区域；但未开新范式，仍属WAM框架内高效重构，未达DreamerV3/World Models级基础突破。",
+      "tier": "heavy",
+      "grade": "B",
+      "tags": [
+        "sim2real",
+        "multimodal-fusion"
+      ],
+      "tldr": "这篇论文质疑世界动作模型（WAM）必须依赖视频生成的共识，提出用现成的图像编辑模型（如扩散编辑）替代视频生成，只建模‘当前帧→目标帧’的局部视觉变化，并将编辑过程中的KV缓存作为紧凑的世界-动作上下文输入动作专家网络，从而在仿真和真实机器人上以更低计算开销达到更好或相当的动作预测性能。",
+      "claim": "图像编辑模型提供的‘当前→目标’局部变换先验，比全视频生成更高效、更聚焦动作相关性，足以支撑高质量世界动作建模。",
+      "method_components": [
+        "model",
+        "simulator",
+        "benchmark"
+      ],
+      "input": "当前RGB图像+语言任务指令",
+      "output": "机器人动作序列（6DoF位姿+夹爪开合）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "真突破——不是从零造轮子，而是精准识别视频生成在WAM中的冗余本质，用图像编辑这一被低估的视觉先验实现计算效率与控制质量的双重跃升，证据充分、落地可信、启发性强。",
+      "deep": {}
+    },
+    {
+      "rank": 12,
+      "arxiv_id": "2606.19340",
+      "title": "Zero-Shot Long-Horizon Dexterous Manipulation via Multi-View 3D-Grounded VLM Reasoning",
+      "published": "2026-06-17",
+      "url": "https://arxiv.org/abs/2606.19340",
+      "pdf_url": "https://arxiv.org/pdf/2606.19340",
+      "thumb": "assets/thumbs/2606.19340.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "KAIST",
+      "country": "KR",
+      "org_type": "university",
+      "significance": 82,
+      "significance_reason": "实证扎实：真机多任务（含工具使用）、跨物体/场景零样本、对比单视图RGB-D和微调VLA基线、闭环重规划验证；但未开源代码/模型，且未在YUBI/π0级双手机器人或触觉强化学习范式上突破，尚未达到T-Rex/ALOHA级基石地位，属强工程整合+方法创新，逼近但未超越94–95分档。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "dexterous",
+        "sim2real",
+        "real-robot"
+      ],
+      "tldr": "用多视角RGB图像+语言指令，不训练新模型、不微调VLM，直接通过几何推理（三角测量+射线投票）把VLM输出的2D关键点提升为3D空间位置，再驱动灵巧手完成零样本长周期操作（包括工具使用和抓取），全程无需真实机器人数据训练。",
+      "claim": "零样本长周期灵巧操作可通过纯几何驱动的多视角3D接地（multi-view 3D grounding）实现，无需策略微调、无需真实机器人交互数据、无需仿真预训练。",
+      "method_components": [
+        "model",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "input": "多视角RGB图像 + 自然语言指令",
+      "output": "3D关键点坐标 + 工具6D轨迹对齐结果 + 任务条件化抓取运动对",
+      "novelty": 8,
+      "evidence": 10,
+      "one_sentence_verdict": "工程整合：将VLM视觉接地与多视角几何重建深度耦合，绕过策略学习瓶颈，在真实灵巧操作中实现可靠零样本泛化，但缺乏开源与更大规模机体验证，尚未构成范式转移。",
       "deep": {}
     },
     {
@@ -512,6 +511,44 @@
     },
     {
       "rank": 14,
+      "arxiv_id": "2606.18704",
+      "title": "Selective Unit-Cell Actuation in Lattice Structures for Distributed Morphology in Soft Robots",
+      "published": "2026-06-17",
+      "url": "https://arxiv.org/abs/2606.18704",
+      "pdf_url": "https://arxiv.org/pdf/2606.18704",
+      "thumb": "assets/thumbs/2606.18704.jpg",
+      "venue": "IROS 2026",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "Istituto Italiano di Tecnologia",
+      "country": "EU",
+      "org_type": "institute",
+      "significance": 76,
+      "significance_reason": "首次在晶胞级实现可寻址气动执行与结构一体化，实证了跨任务（弯曲/抓取/爬行）、跨构型（1x1至3x3x3）的形态编程能力，且全部基于真机多循环测试；但未开源代码/模型，未与主流基线（如PneuNet、Octobot）定量对比，也未接入感知-决策闭环，属扎实的硬件范式突破而非系统级里程碑。",
+      "tier": "heavy",
+      "grade": "D",
+      "tags": [
+        "dexterous",
+        "soft-robot",
+        "large-scale",
+        "dataset"
+      ],
+      "tldr": "这篇论文设计了一种可单个激活的气动晶胞单元，把执行器和晶格结构在微观尺度上一体化制造，通过选择性地给不同位置的晶胞充气，让整个软体晶格机器人产生弯曲、抓取、爬行等全局形变，无需更换硬件。",
+      "claim": "将执行器与晶格结构共设计到单个晶胞尺度，可实现空间编码的分布式形态调控，是构建可扩展单片式软机器人的新范式。",
+      "method_components": [
+        "model",
+        "hardware",
+        "simulator"
+      ],
+      "input": "气压信号（按晶胞地址选择性施加）",
+      "output": "全局宏观形变模式（如弯曲、抓取、爬行）",
+      "novelty": 8,
+      "evidence": 9,
+      "one_sentence_verdict": "真突破：它把软体机器人执行粒度从‘模块级’推进到‘晶胞级’，并用真机验证了形态编程的可行性，但尚未形成可复现、可集成的开源工具链。",
+      "deep": {}
+    },
+    {
+      "rank": 15,
       "arxiv_id": "2606.19935",
       "title": "PhysDrift: Bridging the Embodiment Gap in Humanoid Co-Speech Motion Generation",
       "published": "2026-06-18",
@@ -544,43 +581,6 @@
       "novelty": 7,
       "evidence": 8,
       "one_sentence_verdict": "显著贡献：真机验证了‘绕过人类表征’路线的有效性，但受限于数据构造方式和泛化能力，尚未达到开创新范式的程度。",
-      "deep": {}
-    },
-    {
-      "rank": 15,
-      "arxiv_id": "2606.19656",
-      "title": "DF-ExpEnse: Diffusion Filtered Exploration for Sample Efficient Finetuning",
-      "published": "2026-06-17",
-      "url": "https://arxiv.org/abs/2606.19656",
-      "pdf_url": "https://arxiv.org/pdf/2606.19656",
-      "thumb": "assets/thumbs/2606.19656.jpg",
-      "venue": "ICML 2026",
-      "domain": "embodied_ai",
-      "best_route": "sim2real_data",
-      "org": "哥伦比亚大学",
-      "country": "US",
-      "org_type": "university",
-      "significance": 68,
-      "significance_reason": "方法设计有清晰创新点（扩散过滤+critic ensemble），在多个真实机器人操作与运动任务上验证了样本效率提升（相比默认finetuning和替代动作选择），但未开源代码/模型，缺乏消融实验细节、未报告绝对性能（仅相对增益）、未验证跨形态泛化极限（如从机械臂到四足），整体属扎实增量而非范式突破，明显弱于DROID/ALOHA/RT-X等基石工作。",
-      "tier": "notable",
-      "grade": "D",
-      "tags": [
-        "multimodal-fusion",
-        "sim2real",
-        "large-scale"
-      ],
-      "tldr": "提出一种叫DF-ExpEnse的在线探索策略，用于提升预训练生成式控制策略在真实机器人微调时的样本效率：它用扩散模型生成高质量动作候选集，再用批评家集成筛选出既靠谱又具探索价值的动作，支持多机器人协同探索。",
-      "claim": "通过扩散过滤+批评家集成的双阶段动作选择机制，可显著提升生成式控制策略在真实机器人在线微调中的样本效率，且支持跨机器人协作探索。",
-      "method_components": [
-        "model",
-        "policy",
-        "benchmark"
-      ],
-      "input": "预训练生成式控制策略的隐空间表征 + 当前观测（RGB/状态）",
-      "output": "高探索性且高置信度的动作",
-      "novelty": 7,
-      "evidence": 8,
-      "one_sentence_verdict": "显著贡献：工程整合——将扩散建模、critic集成与在线探索有机耦合，在真实机器人上实证了样本效率提升，但开源不足、分析深度有限，尚未达到开新范式或解决长期开放难题的量级。",
       "deep": {}
     }
   ]
