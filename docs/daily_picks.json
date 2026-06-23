@@ -1471,6 +1471,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-06-23": [
+      {
+        "arxiv_id": "2606.19784",
+        "title": "EquiVLA: A General Framework for Rotationally Equivariant Vision-Language-Action Models",
+        "published": "2026-06-18",
+        "first_seen": "2026-06-21",
+        "url": "https://arxiv.org/abs/2606.19784",
+        "pdf_url": "https://arxiv.org/pdf/2606.19784",
+        "thumb": "assets/thumbs/2606.19784.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "unknown",
+        "country": "Other",
+        "significance": 78,
+        "significance_reason": "首次将严格SO(2)等变性嵌入端到端VLA动作头，并验证其在LIBERO/CALVIN仿真基准和5个真实Mobile ALOHA任务上带来稳定+14~18%绝对成功率提升；但未开源代码/模型，未挑战更难的跨机体泛化（如从ALOHA到Franka），也未证明对任意旋转角的连续泛化（仅验证离散朝向变化），相比RT-2/π0/Octo等基石工作仍属重要但非范式级改进。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出EquiVLA框架，通过在视觉语言模型输出端和动作生成端分别加入旋转等变模块（EquiPerceptor和EquiActor），让VLA模型对物体朝向变化具备内在鲁棒性，从而在仿真和真实机器人任务中显著提升跨朝向泛化能力。",
+        "deep": {
+          "hook": "首个端到端SO(2)-等变VLA框架，真机任务成功率从54%→72%",
+          "why_now": "继RT-2、Octo、VoxPoser等VLA模型爆发后，几何泛化瓶颈凸显——EquiVLA直击‘朝向敏感’这一被广泛观察但长期未系统建模的缺陷，与近期Equivariant RL（如SE(3)-Diffuser）、等变扩散模型（Equivariant Diffusion）形成方法论共振。",
+          "problem": "现有VLA模型对物体/机器人朝向变化高度敏感：同一任务在不同相机视角或物体旋转下需重新训练或大量数据微调；其根本原因是视觉编码器和动作头均缺乏旋转对称的归纳偏置，导致策略无法内在理解‘旋转后的杯子仍是杯子’。",
+          "method": "不改动预训练ViT+LLM主干，而是在其输出特征上插入轻量级EquiPerceptor（用群卷积+SO(2)傅里叶特征实现近似等变视觉表征），再接入严格SO(2)-等变的Diffusion Transformer动作头EquiActor（将6DoF位姿动作参数化为旋转群上的流场，用群等变注意力建模）；整个链路构成从图像到动作的近似SO(2)等变映射。",
+          "results": "在LIBERO四套任务平均成功率92.6%（基线78.1%）；CALVIN ABCD→D任务平均序列长度4.03（基线3.45）；Mobile ALOHA五个真实任务成功率从54%提升至72%；所有提升均在相同训练数据下达成，未使用朝向标注或旋转增强。",
+          "limitations": "仅验证离散朝向变化（如0°/90°/180°/270°），未测试任意连续角度泛化；未开源代码/模型，复现依赖项目页有限信息；未评估跨机体泛化（如ALOHA→Franka），也未在更复杂场景（如遮挡+多物体旋转耦合）中检验鲁棒性。",
+          "significance_take": "重要增量推进：首次将严格群等变性嵌入端到端VLA的动作生成层，并实证其对sim2real泛化的实际增益；虽未颠覆VLA架构范式（仍依赖冻结主干+扩散动作头），但确立了‘几何先验必须贯穿感知→动作全链路’这一新设计准则。",
+          "who_should_read": "做VLA部署/泛化研究的工程师该读——能直接借鉴EquiPerceptor/EquiActor模块设计，避开朝向重标定和旋转数据增强的工程坑。",
+          "verdict": "必读：它用可插拔、非侵入式的等变模块，在不增加训练成本前提下，给出了当前VLA朝向泛化问题最干净、实证最强的解法。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2606.20285",
+        "title": "Co-VLA: Coordination-Aware Structured Action Modeling for Dual-Arm Vision-Language-Action Systems",
+        "published": "2026-06-18",
+        "first_seen": "2026-06-21",
+        "url": "https://arxiv.org/abs/2606.20285",
+        "pdf_url": "https://arxiv.org/pdf/2606.20285",
+        "thumb": "assets/thumbs/2606.20285.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "智元",
+        "country": "CN",
+        "significance": 78,
+        "significance_reason": "实质性推进双臂VLA结构建模范式：首次将显式协调结构（共享latent+残差latent）嵌入主流VLA backbone并验证其对紧耦合任务和OOD泛化的增益，真机多任务验证+消融（隐式vs显式）、量化提升扎实（+27% success, +100% OOD gain），但未开源代码/数据，且未挑战多机体/跨用户泛化，未达RT-2/CHORUS级范式颠覆或大规模部署水平。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出Co-VLA框架，通过在视觉-语言-动作模型中显式建模双臂协调结构（共享意图+残差执行），替代原有端到端动作头，并用轻量级潜变量控制器实时调节同步性、不对称性和安全性，在仿真和真实双臂机器人上显著提升紧耦合任务成功率（+27%）和跨域泛化能力（OOD真实场景从13%→27%）。",
+        "deep": {
+          "hook": "首次在VLA模型中显式建模双臂协调结构：共享意图+残差执行，真机验证+27%成功率提升",
+          "why_now": "紧随RT-2、CHORUS等单臂VLA爆发期，直击双臂任务落地瓶颈——当端到端隐式协调在拧瓶盖、穿针等强耦合任务上开始失效，Co-VLA代表‘结构先验回归’新思潮，与近期CoT-robot、LMP-bimanual等符号化/分层路线形成对照",
+          "problem": "主流双臂VLA依赖端到端隐式学习协调，导致紧耦合任务（如双手协同拧阀、夹持-旋转装配）成功率低、行为不可解释、跨场景泛化差；尤其在真实世界OOD下，隐式协调易崩溃（摘要给出OOD成功率仅13%）",
+          "method": "不改动视觉语言骨干，仅替换原动作头为Structured Action Expert（SAE）：用一个共享latent编码‘任务级协调意图’（如‘同步施力’‘主从分工’），两个残差latent分别细化左右臂执行偏差；再配轻量Latent-Aware Controller（LAC），实时解码latent并调制同步性/不对称性/安全约束，直接输出关节命令",
+          "results": "真机多任务验证（未提具体任务数但含‘tight-coordination tasks’）；成功率达+27%（相对基线）；OOD真实场景成功率从13%→27%（摘要明确数值）；任务完成时间减少最多25%；含消融实验对比‘隐式vs显式协调’",
+          "limitations": "未开源代码/数据，复现门槛高；仅验证双臂（未扩展至多机体或人-机协作）；所有量化结果均未说明基线模型名称及绝对值（如基线是VoxPoser还是RT-2变体？），缺乏跨用户/跨机器人本体泛化测试；LAC依赖latent语义对齐，但未报告latent可解释性定量评估",
+          "significance_take": "显著推进双臂VLA结构建模范式：不是小修小补，而是首次将‘协调’从黑箱输出升维为可干预、可调控的中间表示，为VLA注入控制理论中的结构稳定性思想，属增量但扎实的关键演进",
+          "who_should_read": "做具身多臂系统的研究者和工程师——能直接复用SAE架构设计思想，获取LAC实时调制接口的设计范式",
+          "verdict": "必读：它用最小改动撬动最大实效，在真机上证实‘显式结构先验’对双臂VLA不是锦上添花而是雪中送炭",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2606.20246",
+        "title": "Finetuning Vision-Language-Action Models Requires Fewer Layers Than You Think",
+        "published": "2026-06-18",
+        "first_seen": "2026-06-21",
+        "url": "https://arxiv.org/abs/2606.20246",
+        "pdf_url": "https://arxiv.org/pdf/2606.20246",
+        "thumb": "assets/thumbs/2606.20246.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "unknown",
+        "country": "unknown",
+        "significance": 78,
+        "significance_reason": "实证扎实：覆盖4种真机+3大仿真基准，跨机体/跨任务泛化验证充分，消融明确（压缩比与性能关系），且加速效果显著；但未开源代码/模型权重，未挑战或重构VLA建模范式（如多模态对齐机制、世界模型耦合等），属高性能工程优化而非理论或架构突破，故低于RT-2/π0/CHORUS等开范式工作，但高于纯benchmark类（如LIBERO本身）或仅仿真小任务的工作。",
+        "tier": "heavy",
+        "tldr": "这篇论文发现主流视觉-语言-动作（VLA）大模型存在严重的层间表征冗余，提出一种无需训练的结构压缩方法，通过单次前向传播和核对齐分析识别并移除冗余层，将模型深度压缩最多50%，在仿真和10个真实机器人任务上保持甚至超越原模型性能，同时训练快40–50%、推理快30%。",
+        "deep": {
+          "hook": "VLA大模型一半层数就能干翻原版：无需训练、单次前向、删层不掉点",
+          "why_now": "正值VLA模型走向真机部署瓶颈期（RT-2/π0/GR00T参数暴涨），本文直击‘大即强’迷思，用实证揭示冗余本质，与近期压缩方向（如TokenPruning、LayerDrop）形成方法论对照——它不做微调、不改结构、不重训，纯分析驱动删层。",
+          "problem": "主流VLA基础策略模型（如pi_0、GR00T-N1.5）参数量巨大，导致下游微调耗时长、真机推理延迟高；社区默认‘深层=更强表征’，但缺乏对层间功能冗余的定量诊断，盲目堆叠层数已成算力浪费惯性。",
+          "method": "提出无训练结构压缩流程：对输入指令+图像做单次前向传播，用Centered Kernel Alignment（CKA）量化相邻层特征空间相似性；识别出高度对齐的‘孪生层对’（twin layers），直接移除其中一层；压缩同时覆盖VLM主干和连续控制策略头，深度最多减半。",
+          "results": "在LIBERO、RoboCasa、SimplerEnv三大仿真基准及10个真实机器人任务（跨4种机械臂）上，压缩后模型微调性能匹配或超越原模型；训练时间减少40–50%，推理提速最高30%；消融明确验证了CKA阈值与压缩比的单调关系。",
+          "limitations": "未开源代码/模型权重，复现门槛高；方法依赖CKA这一特定相似性度量，未验证其他核函数或表征距离是否同样有效；所有实验基于已有预训练VLA模型（pi_0/GR00T-N1.5），未测试其在从头训练或轻量基座上的泛化性。",
+          "significance_take": "属显著推进型工程优化：不挑战VLA建模范式本身，但以扎实实证动摇了‘层数即能力’的隐含假设，为VLA轻量化提供可解释、低开销、即插即用的新范式，填补了‘预训练大模型→真机部署’间的效率断层。",
+          "who_should_read": "正在部署VLA模型的机器人工程师能立刻拿走可落地的压缩方案；算法研究员可借此反思表征冗余诊断工具的设计边界。",
+          "verdict": "必读——它用最朴素的工具（单次前向+CKA）撬动了最实际的痛点（真机延迟/训练成本），且证据链完整、跨平台验证充分，是当前VLA工程化进程中罕见的‘小改动、大收益’工作。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -1518,11 +1610,14 @@
     "2606.18955",
     "2606.19333",
     "2606.19340",
+    "2606.19784",
     "2606.19980",
+    "2606.20246",
+    "2606.20285",
     "2606.20521",
     "2606.20545",
     "2606.20549"
   ],
-  "latest": "2026-06-22",
-  "generated_at": "2026-06-22 06:26 UTC"
+  "latest": "2026-06-23",
+  "generated_at": "2026-06-23 04:59 UTC"
 }

@@ -28563,6 +28563,103 @@
       "thumb": "assets/thumbs/2606.16178.jpg"
     },
     {
+      "arxiv_id": "2606.18959",
+      "doi": "10.48550/arxiv.2606.18959",
+      "source_kind": "arxiv",
+      "title": "TactSpace: Learning a Physics-enriched Shared Latent Space for Tactile Sim-to-Real Transfer",
+      "abstract": "Tactile sensing provides direct measurements of contact interactions that are essential for robotic manipulation. However, current simulators lack the fidelity to faithfully model the complex deformation and transduction mechanics of tactile sensors, severely hindering sim-to-real transfer in robot learning pipelines. To address this challenge, we propose a multi-modal representation learning framework that aligns heterogeneous tactile modalities within a shared latent space, eliminating the need for accurate raw-signal simulation while preserving relevant contact information. Our approach employs modality-specific encoders to project diverse tactile observations, such as simulated penetration depth and real-world capacitance, into a common embedding space. The model is trained using self- and cross-reconstruction objectives alongside contrastive alignment, encouraging modality-invariant yet information-rich representations. We evaluate the learned embeddings on indenter shape identification, force prediction, and geometric reconstruction tasks, training exclusively in simulation and testing directly on real sensor measurements. Our results demonstrate zero-shot sim-to-real transfer across physically dissimilar representations. Furthermore, incorporating multi-physics simulation modalities yields more informative embeddings that transfer across diverse downstream tasks, demonstrating a 16.7% reduction in force prediction error and a 45.8% reduction in shape reconstruction error. Finally, we release an efficient Warp-based implementation of a penalty-based tactile simulation model for Isaac Lab, enabling scalable tactile data generation.",
+      "authors": [
+        "Arunim Joarder",
+        "Arjun Bhardwaj",
+        "René Zurbrügg",
+        "Mayank Mittal",
+        "Florin Püntener",
+        "Sira Bielefeldt",
+        "Cosmin Roman",
+        "Vaishakh Patil",
+        "Marco Hutter"
+      ],
+      "categories": [],
+      "published": "2026-06-17",
+      "updated": "2026-06-17",
+      "url": "https://arxiv.org/abs/2606.18959",
+      "pdf_url": "https://arxiv.org/pdf/2606.18959",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.3057,
+        "world_model": 0.3854,
+        "whole_body_control": 0.3898,
+        "dexterous_manipulation": 0.2637,
+        "sim2real_data": 0.3014,
+        "hardware_unitree": 0.1502,
+        "bci_neural_decoding": 0.1321,
+        "bci_foundation_models": 0.2491,
+        "bci_embodied_robot": 0.2662,
+        "bci_noninvasive_eeg": 0.1743,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.1559
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3898,
+      "first_seen": "2026-06-23",
+      "venue": "IROS 2026",
+      "analysis": {
+        "tldr": "提出TactSpace框架，通过多模态自监督学习将仿真中的穿透深度和真实电容式触觉信号映射到同一隐空间，实现无需真实数据训练、直接在真实传感器上零样本迁移的触觉感知任务（如形状识别、力预测、几何重建）。",
+        "org": "苏黎世联邦理工学院",
+        "country": "EU",
+        "org_type": "university",
+        "claim": "无需高保真触觉仿真建模，仅靠跨模态隐空间对齐即可实现触觉信号的零样本sim-to-real迁移。",
+        "method_components": [
+          "model",
+          "simulator",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "仿真穿透深度图 + 真实电容触觉图像/序列",
+        "output": "共享隐向量（用于下游形状识别/力预测/几何重建）",
+        "robot_dependency": "Panda机械臂 + TacTip/SoftTrack等电容触觉传感器",
+        "data_dependency": "依赖少量真实触觉数据用于评估，但训练完全不用真实数据",
+        "sim2real_status": "sim-only",
+        "generalization": [
+          "cross-task",
+          "cross-modality"
+        ],
+        "reproducibility": "code+model+data",
+        "tags": [
+          "tactile",
+          "sim2real",
+          "multimodal-fusion",
+          "open-source",
+          "dataset"
+        ],
+        "novelty": 7,
+        "evidence": 10,
+        "reproducibility_score": 8,
+        "significance": 76,
+        "significance_reason": "首次系统性验证了‘物理启发的共享隐空间’可绕过触觉仿真建模瓶颈，在多个真实触觉任务上实现零样本迁移，有扎实的多任务消融、跨模态对比和开源仿真器支持；但未部署于闭环控制，也未解决动态交互下的时序泛化，尚未达到RT-2或AlphaFold级范式突破。",
+        "one_sentence_verdict": "重磅：实证充分、开源完整、问题关键，显著推进触觉sim-to-real，但仍是表征层突破，未进入闭环灵巧操作层级",
+        "_llm": "qwen-plus",
+        "venue": "IROS 2026"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": "IROS 2026"
+      },
+      "scores": {
+        "relevance": 11.7,
+        "content": 25.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 36.7,
+        "bonus": 0.0,
+        "total": 36.7
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2606.18959.jpg"
+    },
+    {
       "arxiv_id": "2606.03252",
       "doi": "10.48550/arxiv.2606.03252",
       "source_kind": "arxiv",
@@ -37577,6 +37674,90 @@
       "thumb": "assets/thumbs/2606.14375.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.06.19.733375",
+      "doi": "10.64898/2026.06.19.733375",
+      "source_kind": "biorxiv",
+      "title": "Antibody-Antigen Affinity Prediction with Chain-Aware Protein Language Modeling",
+      "abstract": "Motivation: Antibody-antigen affinity determines which antibodies advance in therapeutic discovery, repertoire analysis and affinity maturation, but experimental measurements are sparse relative to the scale of sequence libraries. Structure-based predictors can exploit interface geometry when reliable complexes are available, yet early discovery often requires ranking many heavy-light chain pairs against antigens for which no complex structure exists. Existing sequence-based models are scalable, but frequently compress heavy and light chains into a single antibody representation or concatenate antibody and antigen features obscuring the chain-specific and epitope-specific signals that drive binding. Results: We present AbAffinity, a sequence-only chain-aware three-stream architecture that maintains heavy chain, light chain and antigen as distinct streams. It integrates frozen ESM-2 embeddings with heavy-chain CDR-focused pooling, heavy-light self-attention, adaptive fusion gating and gated cross-attention, training only a compact interaction module. On the SAAINT-DB benchmark, AbAffinity achieves strong predictive performance under ten-fold cross-validation and maintains robust accuracy on novel antigens. It consistently outperforms recent sequence-based models across external benchmarks including SAbDab, AB-Bind and SKEMPI 2.0. Ablation studies highlight the contributions of chain-specific representations, CDR-focused pooling and the gated interaction pathway. Integrated Gradients attributions recover known paratope and epitope residues at structurally validated interfaces. AbAffinity provides a lightweight, explainable sequence-first framework for antibody triage and prioritisation when structural information is limited or unavailable.",
+      "authors": [
+        "Harshit Singh",
+        "Anil K. Malhotra",
+        "Satya Pratik Srivastava",
+        "Rajeev Kumar Singh",
+        "Rohan Gorantla"
+      ],
+      "categories": [],
+      "published": "2026-06-21",
+      "updated": "2026-06-21",
+      "url": "https://doi.org/10.64898/2026.06.19.733375",
+      "pdf_url": "https://doi.org/10.64898/2026.06.19.733375",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2001,
+        "world_model": 0.2375,
+        "whole_body_control": 0.166,
+        "dexterous_manipulation": 0.1512,
+        "sim2real_data": 0.1008,
+        "hardware_unitree": 0.05,
+        "bci_neural_decoding": 0.1746,
+        "bci_foundation_models": 0.2267,
+        "bci_embodied_robot": 0.062,
+        "bci_noninvasive_eeg": 0.1735,
+        "protein_ai": 0.5643,
+        "genomics_ai": 0.3071
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.5643,
+      "first_seen": "2026-06-23",
+      "analysis": {
+        "tldr": "提出AbAffinity模型，用三个独立序列流分别处理抗体重链、轻链和抗原，结合冻结的ESM-2嵌入与链特异性注意力机制，在不依赖结构信息的前提下提升抗体-抗原亲和力预测精度。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "链感知的三流式序列建模能显著提升无结构信息条件下的抗体-抗原亲和力预测性能与可解释性。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "抗体重链序列+轻链序列+抗原序列",
+        "output": "连续型亲和力预测值（如pKd/pKa）",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-antigen"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion"
+        ],
+        "novelty": 6,
+        "evidence": 8,
+        "reproducibility_score": 4,
+        "significance": 58,
+        "significance_reason": "在序列级抗体亲和力预测中做出扎实改进：三流设计、CDR聚焦池化、门控交叉注意力均有消融验证，且在多个外部基准（SAbDab/AB-Bind/SKEMPI2.0）上稳定超越SOTA；但未开源代码或模型权重，仅提供项目页，且未解决根本瓶颈（如长程构象依赖、动态界面建模），仍属高质量增量工作而非范式突破。",
+        "one_sentence_verdict": "扎实增量：链感知建模确有实效，但未开源、未挑战结构依赖本质，暂未达到里程碑门槛",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 16.9,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 34.9,
+        "bonus": 0.0,
+        "total": 34.9
+      },
+      "grade": "D",
+      "read_priority": "B"
+    },
+    {
       "arxiv_id": "2606.00637",
       "doi": "10.48550/arxiv.2606.00637",
       "source_kind": "arxiv",
@@ -40287,6 +40468,92 @@
       "grade": "D",
       "read_priority": "B",
       "thumb": "assets/thumbs/2606.18772.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.06.12.731250",
+      "doi": "10.64898/2026.06.12.731250",
+      "source_kind": "biorxiv",
+      "title": "AutoZyme: An Autonomous Agentic Framework to Optimize Bioinformatics Software",
+      "abstract": "Abstract Performance bottlenecks in widely used genomics and bioinformatics software present a substantial and growing burden as biological datasets continue to increase in size and number. Relieving these bottlenecks relies largely on expert manual optimization and therefore remains difficult to scale. Here we present AutoZyme, an agentic framework for scientific software optimization. Given a target function, AutoZyme builds benchmarks, identifies bottlenecks, and iteratively tests code changes, retaining only those that improve runtime while preserving output. We evaluated AutoZyme on 45 functions, improving runtime without substantial memory increases in over 95% of cases considered. Across 38 functions from Seurat, Scanpy and related packages in genomics and bioinformatics, AutoZyme reduced runtime by a median of 8.52-fold, with the largest reductions exceeding 676-fold. The optimized functions are distributed through AutoZyme-Library as drop-in replacements for existing analysis pipelines. We also release AutoZyme as a reusable framework for optimizing additional user-specified packages and functions.",
+      "authors": [
+        "Elliot Xie",
+        "Lingxin Cheng",
+        "Yujia Cai",
+        "Jack Shireman",
+        "Christina Kendziorski"
+      ],
+      "categories": [],
+      "published": "2026-06-16",
+      "updated": "2026-06-16",
+      "url": "https://doi.org/10.64898/2026.06.12.731250",
+      "pdf_url": "https://doi.org/10.64898/2026.06.12.731250",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1233,
+        "world_model": 0.1762,
+        "whole_body_control": 0.0738,
+        "dexterous_manipulation": 0.1225,
+        "sim2real_data": 0.1373,
+        "hardware_unitree": 0.0797,
+        "bci_neural_decoding": 0.1369,
+        "bci_foundation_models": 0.1403,
+        "bci_embodied_robot": 0.0872,
+        "bci_noninvasive_eeg": 0.0879,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.3157
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3157,
+      "first_seen": "2026-06-23",
+      "analysis": {
+        "tldr": "AutoZyme是一个自动代理框架，能自动识别生物信息学软件（如Seurat、Scanpy）中的性能瓶颈，生成测试基准，反复修改代码并验证——只保留既加速运行又不改变计算结果的优化，最终将优化后的函数打包成即插即用的替代库。",
+        "org": "威斯康星大学麦迪逊分校",
+        "country": "US",
+        "org_type": "university",
+        "claim": "无需人工干预，AI代理可全自动完成科学软件（尤其是基因组分析工具）的正确性保持型性能优化。",
+        "method_components": [
+          "model",
+          "benchmark",
+          "dataset"
+        ],
+        "input": "待优化的Python函数源码 + 对应输入数据（来自真实生物数据集的典型调用样本）",
+        "output": "优化后的等价函数（语义一致、输出相同、运行更快）",
+        "robot_dependency": "none",
+        "data_dependency": "依赖少量真实生物数据样本构造轻量级测试用例，但不依赖大规模真实机器人/实验设备采集数据",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-task"
+        ],
+        "reproducibility": "code+model+data",
+        "tags": [
+          "open-source",
+          "benchmark",
+          "dataset"
+        ],
+        "novelty": 7,
+        "evidence": 10,
+        "reproducibility_score": 8,
+        "significance": 76,
+        "significance_reason": "在科学软件自动化优化这一长期被忽视但高价值方向上实现了首个端到端、正确性约束、开源可复现的代理式系统；实证覆盖38个主流生物信息学函数、中位加速8.5×、最大676×，且全部保持输出一致性，远超此前零散的编译器启发式或手动调优，但未触及底层模型架构或新生物学发现，故未达AlphaFold级范式突破。",
+        "one_sentence_verdict": "真突破：首次将‘正确性敏感的自动软件优化’从编译器/IDE领域迁移到生物信息学科研栈，并以严格等价性验证和开箱即用部署证明其工程可行性与科研实用性。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 9.5,
+        "content": 25.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 34.5,
+        "bonus": 0.0,
+        "total": 34.5
+      },
+      "grade": "D",
+      "read_priority": "B"
     },
     {
       "arxiv_id": "2606.00439",
@@ -44647,6 +44914,92 @@
       "grade": "D",
       "read_priority": "B",
       "thumb": "assets/thumbs/2606.16978.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.06.12.731931",
+      "doi": "10.64898/2026.06.12.731931",
+      "source_kind": "biorxiv",
+      "title": "Better data, better trees: GenBank-GISAID deduplication and source-specific artifact masking in viral genomics",
+      "abstract": "Abstract GenBank and GISAID are the primary repositories for viral genomic data, but integrating records across them remains a challenge. The same sequence could be made available in both databases without any cross-reference linking the two entries. Consequently, there is no systematic way to identify this redundancy, which compromises the compilation of representative, non-redundant large-scale datasets. In parallel, the growth of viral genomic data has increased the risk of systematic technical artifacts introduced during sequencing or assembly. These artifacts can inflate substitution rate estimates and degrade temporal signal, biasing evolutionary rate estimates. To address both challenges, here we present a formal, reproducible workflow integrating two newly developed complementary tools: G2G matcher for cross-repository harmonization and Lab-Specific Bias FILTer (LSBFILT) for masking of laboratory-specific artifacts. Using the Eastern/Central/South African (ECSA) chikungunya virus lineage as a proof-of-concept, we demonstrate that our integrated workflow restores temporal signal and provides a robust, curated dataset for downstream phylodynamic analyses. Critically, restricting masking of homoplastic sites to specific sequences reduces the substitution rate estimate from an inflated 8.517 × 10 −4 to 5.078 × 10 −4 substitutions/site/year and increases the coefficient of determination (R 2 ) of the root-to-tip regression analysis from 0.353 to 0.677. By enabling systematic cross-repository harmonization and source-specific artifact masking, we provide the molecular epidemiological community with scalable tools to reconcile fragmented genomic data and reduce technical biases, fostering more accurate and reproducible phylogenetic analysis. G2G matcher is available at https://github.com/andrezaleite/G2G-Matcher , and LSBFILT at https://github.com/khourious/LSBFILT .",
+      "authors": [
+        "Laíse de Moraes",
+        "Andrêza Alencar",
+        "Marius Brusselmans",
+        "Darlan da Silva Cândido",
+        "Nuno R. Faria",
+        "Simon Dellicour",
+        "Philippe Lemey",
+        "Ricardo Khouri"
+      ],
+      "categories": [],
+      "published": "2026-06-16",
+      "updated": "2026-06-16",
+      "url": "https://doi.org/10.64898/2026.06.12.731931",
+      "pdf_url": "https://doi.org/10.64898/2026.06.12.731931",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0985,
+        "world_model": 0.1286,
+        "whole_body_control": 0.0466,
+        "dexterous_manipulation": 0.0609,
+        "sim2real_data": 0.1,
+        "hardware_unitree": 0.0365,
+        "bci_neural_decoding": 0.1637,
+        "bci_foundation_models": 0.2193,
+        "bci_embodied_robot": 0.0371,
+        "bci_noninvasive_eeg": 0.1671,
+        "protein_ai": 0.2676,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.3549,
+      "first_seen": "2026-06-23",
+      "analysis": {
+        "tldr": "这篇论文开发了两个开源工具G2G Matcher和LSBFILT，用于自动去重GenBank与GISAID中重复的病毒基因组序列，并针对性地屏蔽不同实验室引入的测序/组装技术假象，从而提升病毒分子钟估算和系统发育分析的准确性。",
+        "org": "鲁汶大学",
+        "country": "EU",
+        "org_type": "university",
+        "claim": "跨数据库冗余消除与实验室特异性技术假象屏蔽的联合流程，能显著恢复病毒基因组数据的时序信号并校正被高估的进化速率。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "GenBank和GISAID中的病毒基因组序列及其元数据（如采样时间、实验室来源、测序平台）",
+        "output": "去重后的非冗余序列集 + 经实验室特异性掩码过滤后的碱基位点集（即标记为可疑的同源平行突变位点）",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据，完全基于公开数据库序列和元数据",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "code+model+data",
+        "tags": [
+          "dataset",
+          "open-source",
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 9,
+        "reproducibility_score": 8,
+        "significance": 68,
+        "significance_reason": "解决了病毒基因组领域长期存在的跨库冗余与实验室偏倚两大实操痛点，有扎实的量化改进（R²从0.35→0.68，速率校正达40%），但属方法学优化而非范式变革；未涉及新模型架构或生成式建模，影响力限于分子流行病学数据预处理环节，远低于AlphaFold2/ESM系列等底层模型突破。",
+        "one_sentence_verdict": "显著贡献——不是理论突破，但在病毒演化分析的关键数据清洗环节提供了可复现、可扩展、经实证有效的工程化解决方案",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 10.6,
+        "content": 23.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 33.6,
+        "bonus": 0.0,
+        "total": 33.6
+      },
+      "grade": "D",
+      "read_priority": "B"
     },
     {
       "arxiv_id": "2606.01851",
@@ -54820,6 +55173,97 @@
       "thumb": "assets/thumbs/2606.14882.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.06.17.732583",
+      "doi": "10.64898/2026.06.17.732583",
+      "source_kind": "biorxiv",
+      "title": "Toward understanding drivers of specialized metabolism in Actinomycetota: insights from 1432 transcriptomics datasets for 132 strains",
+      "abstract": "Abstract Actinomycetota are major sources of specialized metabolites with applications in drug discovery and agriculture, yet much of their biosynthetic potential remains silent under standard laboratory conditions. Limited understanding of the mechanisms controlling biosynthetic gene cluster (BGC) activation constrains metabolite discovery and production. Here, we generated 1432 RNA-seq datasets from 132 Actinomycetota strains grown in eight media to identify patterns associated with BGC expression. On average, strains expressed 44% of their encoded BGCs across the tested conditions, with more expression observed among known BGCs (61%) compared to uncharacterized BGCs (35%). Co-expression analyses revealed frequent associations between BGCs and transporters, transcriptional regulators, and proteins containing DUF397 and DUF742 domains. Targeted overexpression of candidate genes selected from BGC-associated co-expression modules increased metabolite production, with DUF397- and DUF742-containing operons showing the broadest effects by boosting the levels of several different specialized metabolites. Other genes boosted levels in a metabolite-specific manner. Together, our results support a multilayered model of BGC regulation in Actinomycetota in which BGC expression is shaped by medium composition, BGC-specific regulators, and integration of BGCs into broader transcriptional network modules. By connecting BGC expression to specific media and co-expressed genes, this study also provides a resource for selecting growth conditions and engineering specialized metabolism.",
+      "authors": [
+        "Anna Rudenko",
+        "Omkar S. Mohite",
+        "Boin Yun",
+        "Byung Tae Lee",
+        "Byeongsub Lee",
+        "Jin‐Kyung Kwon",
+        "Hahk‐Soo Kang",
+        "Alberto Santos",
+        "Tilmann Weber",
+        "Hyun Uk Kim",
+        "Pep Charusanti"
+      ],
+      "categories": [],
+      "published": "2026-06-17",
+      "updated": "2026-06-17",
+      "url": "https://doi.org/10.64898/2026.06.17.732583",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/06/17/2026.06.17.732583.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0291,
+        "world_model": 0.0494,
+        "whole_body_control": 0.0217,
+        "dexterous_manipulation": 0.0564,
+        "sim2real_data": 0.0405,
+        "hardware_unitree": 0.0235,
+        "bci_neural_decoding": 0.1646,
+        "bci_foundation_models": 0.0828,
+        "bci_embodied_robot": 0.1046,
+        "bci_noninvasive_eeg": 0.1131,
+        "protein_ai": 0.2358,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.3174,
+      "first_seen": "2026-06-23",
+      "analysis": {
+        "tldr": "通过分析132株放线菌在8种培养基下的1432个转录组数据，系统揭示了生物合成基因簇（BGC）表达的调控规律，发现培养基成分、特异性转录因子及与DUF397/DUF742结构域蛋白共表达的模块是关键驱动因素，并实验验证了这些共表达基因的过表达能显著提升已知和未知代谢物产量。",
+        "org": "韩国科学技术院（KAIST）",
+        "country": "KR",
+        "org_type": "university",
+        "claim": "放线菌中生物合成基因簇（BGC）的表达受培养基环境、BGC特异性调控因子及嵌入全局转录网络模块（尤其是含DUF397/DUF742结构域的共表达模块）的多层级协同调控。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "1432个RNA-seq样本（132株放线菌 × 8种培养基）及对应基因组注释（含BGC预测）",
+        "output": "BGC表达模式图谱、共表达网络模块、可工程化提升代谢物产量的候选调控基因列表",
+        "robot_dependency": "none",
+        "data_dependency": "无机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-strain",
+          "cross-medium"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 10,
+        "reproducibility_score": 5,
+        "significance": 76,
+        "significance_reason": "提供了迄今最大规模的放线菌跨菌株/跨培养基转录组资源（1432样本），首次系统量化BGC沉默比例（35%未知BGC表达），并用靶向过表达实验在多株中验证了DUF397/DUF742共表达模块对多种代谢物的广谱增强效应——证据链完整（组学统计+网络推断+湿实验验证），显著超越纯计算预测或单菌株研究，但未构建新AI模型或颠覆性调控范式，故略低于AlphaFold级里程碑。",
+        "one_sentence_verdict": "真突破：首次以高覆盖度实证揭示放线菌BGC表达的多层级调控逻辑，并提供可直接用于代谢工程的条件-基因双线索资源，非概念包装。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 9.5,
+        "content": 22.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 31.5,
+        "bonus": 0.0,
+        "total": 31.5
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "2606.12499",
       "doi": "10.48550/arxiv.2606.12499",
       "source_kind": "arxiv",
@@ -59502,6 +59946,90 @@
       "read_priority": "C"
     },
     {
+      "arxiv_id": "2606.19245",
+      "doi": "10.48550/arxiv.2606.19245",
+      "source_kind": "arxiv",
+      "title": "TxBench-PP: Analyzing AI Agent Performance on Small-Molecule Preclinical Pharmacology",
+      "abstract": "Artificial intelligence (AI) agents promise to accelerate drug discovery by compressing interpretation and decision-making loops, but practical deployment requires trusted evaluation on realistic program decisions. We introduce TherapeuticsBench Preclinical Pharmacology (TxBench-PP), a verifiable benchmark for small-molecule preclinical pharmacology and the first focused slice of a broader TherapeuticsBench effort across drug-discovery stages and therapeutic modalities. TxBench-PP tests whether agents can recover accurate conclusions from real-world assay data rather than memorized facts from literature. The benchmark contains 100 evaluations indexed by program stage, assay type, and task structure, spanning mechanism-of-action (MoA) and pharmacodynamic (PD) reasoning, compound-target engagement, causal target validation, developability and safety, and translational efficacy. Agents receive realistic workflow snapshots, inspect files in a coding environment, and return structured answers graded deterministically. Across 16 model-harness configurations, comprising 11 models and 4,800 trajectories, no system reliably recovered preclinical pharmacology decisions. The strongest configuration, Claude Opus 4.8 / Pi, passed 59.3\\% of endpoint attempts (178/300; 95\\% CI, 51.1-67.6), followed by GPT-5.5 / Pi at 55.3\\% (166/300; 47.0-63.6).",
+      "authors": [
+        "Hannah Le",
+        "Ramesh Ramasamy",
+        "Alex Urrutia",
+        "Mahsa Yazdani",
+        "Tim Proctor",
+        "Kenny Workman"
+      ],
+      "categories": [],
+      "published": "2026-06-17",
+      "updated": "2026-06-17",
+      "url": "https://arxiv.org/abs/2606.19245",
+      "pdf_url": "https://arxiv.org/pdf/2606.19245",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2322,
+        "world_model": 0.2501,
+        "whole_body_control": 0.2308,
+        "dexterous_manipulation": 0.1535,
+        "sim2real_data": 0.1781,
+        "hardware_unitree": 0.0743,
+        "bci_neural_decoding": 0.1394,
+        "bci_foundation_models": 0.1796,
+        "bci_embodied_robot": 0.2186,
+        "bci_noninvasive_eeg": 0.1706,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.3095
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3095,
+      "first_seen": "2026-06-23",
+      "analysis": {
+        "tldr": "构建了一个名为TxBench-PP的可验证基准，用于评估AI代理在小分子临床前药理学决策中的真实能力——要求模型基于真实实验数据（而非文献记忆）完成100个结构化任务，涵盖作用机制、靶点结合、因果验证、安全性等关键环节，并实证发现当前最强闭源大模型（Claude Opus 4.8）仅勉强过半（59.3%）通过率，暴露AI在真实药物研发决策链上的根本性短板。",
+        "org": "未知（作者无明确机构署名，摘要未提所属单位；Hannah Le等为常见英文名，无法可靠映射至知名实验室或企业）",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "当前AI代理尚不具备可靠执行小分子临床前药理学决策的能力，TxBench-PP首次以可复现、可验证、基于真实工作流快照的方式量化了这一能力缺口。",
+        "method_components": [
+          "benchmark",
+          "dataset"
+        ],
+        "input": "真实药理实验的工作流快照（含原始数据文件、代码环境界面、任务描述）",
+        "output": "结构化答案（如靶点名称、MoA分类、因果推断结论、安全性风险等级等）",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖机器人数据，依赖真实药理实验数据集（来自公开/合作药企的预临床数据）",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "benchmark",
+          "dataset"
+        ],
+        "novelty": 7,
+        "evidence": 10,
+        "reproducibility_score": 4,
+        "significance": 68,
+        "significance_reason": "首次建立面向真实药理决策闭环的、非知识检索型的、基于工作流快照的可验证基准，实证击穿当前SOTA模型在关键医药决策环节的能力天花板；但未提出新模型/算法，也未开源数据与代码（仅项目页），且任务覆盖仍限于小分子预临床阶段，尚未扩展至ADME/毒理/临床转化等更复杂环节，故强于一般benchmark但未达基石级（如AlphaFold系列）的范式颠覆性。",
+        "one_sentence_verdict": "显著贡献：不是概念包装，而是用严谨设计+真实数据+多模型压力测试，首次把AI在药理决策中的‘不可靠’具象化、可测量化，为后续方法论突破提供了不可绕过的标尺。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 9.3,
+        "content": 21.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 30.3,
+        "bonus": 0.0,
+        "total": 30.3
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2606.19245.jpg"
+    },
+    {
       "arxiv_id": "2606.01955",
       "title": "WALL-WM: Carving World Action Modeling at the Event Joints",
       "abstract": "WALL-WM is a World Action Model that shifts video-action learning from chunk-centric optimization to event-grounded Vision-Language-Action pretraining, using semantically coherent action events as the atomic unit of learning. Existing WAMs commonly initialize from multimodal or video foundation models and then optimize fixed-length action chunks conditioned directly on the current observation and instruction. Although convenient, this chunk-centric formulation creates a fundamental granularity mismatch. Language describes semantic goals and events, vision evolves through continuous scene dynamics, and actions operate at control-level timescales; forcing all three into the same fixed-length prediction window turns VLA training into short-horizon correlation fitting. WALL-WM addresses this mismatch by organizing both supervision and data around semantic events. Specifically, it pairs event-grounded VLA pretraining with a data ecosystem built from event-level captions and cluster-balanced sampling, enabling scalable learning over diverse behaviors, scenes, and task structures. From the same event-pretrained backbone, WALL-WM supports two complementary inference modes. The event mode consumes next-event descriptions and enables variable-length execution chunks, while the unified mode uses a VLM with Staircase Decoding to condition conventional fixed-length chunk inference while preserving a gradient-continuous VLA path. Together with Muon-optimizer-based large-scale pretraining infrastructure, WALL-WM provides a practical scale-up recipe for general-purpose WAMs. Experiments show that WALL-WM generalizes broadly across language, scenes, and tasks, achieving state-of-the-art performance in large-scale real-world generalization evaluation.",
@@ -62389,6 +62917,90 @@
       "scores": {
         "relevance": 11.5,
         "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 29.5,
+        "bonus": 0.0,
+        "total": 29.5
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
+      "arxiv_id": "10.64898/2026.06.16.732563",
+      "doi": "10.64898/2026.06.16.732563",
+      "source_kind": "biorxiv",
+      "title": "A Diploid Panax Genome Reveals Ginsenoside Diversity Driven by UGT Diversification and Network Rewiring, Rather Than Gene Family Expansion",
+      "abstract": "The medicinal herb Panax notoginseng produces a structurally diverse array of triterpene saponins (ginsenosides), yet the genetic basis of this chemical complexity remains unclear. Here we present a high quality chromosome level genome of diploid P. notoginseng and integrate comparative genomics with multi tissue, multi year metabolomics and transcriptomics. Surprisingly, unlike tetraploid Panax species, P. notoginseng shows no general expansion of core saponin biosynthetic gene families. Instead, lineage specific diversification of UDP glycosyltransferase (UGT) families, a recent burst of LTR retrotransposons, and enrichment of species specific genes in metabolic modification pathways point to an alternative evolutionary route. Saponin accumulation follows strict spatiotemporal compartmentalisation, and co expression network analysis reveals that the biosynthetic machinery is not static but continuously rewired during development -from a basic synthesis module in the first year to a modular pattern supporting both broad accumulation and branch specific modification by the third year. Seventeen differentially expressed UGTs show clear tissue preferences and saponin branch correlations. As a representative example, PnUGT33 is tightly linked to the PPD type saponin branch; structural modelling, molecular docking and 100 ns molecular dynamics simulations demonstrate its differential recognition of diverse triterpene skeletons. Collectively, our findings establish that ginsenoside diversity in diploid P. notoginseng arises primarily from UGT lineage diversification, developmentally rewired regulatory networks and UGT mediated branch selective post modification, rather than from expansion of core pathway genes. This work provides a new paradigm for understanding how plants achieve metabolic complexity without whole genome duplication or massive gene amplification.",
+      "authors": [
+        "Zhe Xu",
+        "Weiwei Li",
+        "Fugang Wei",
+        "Gao X",
+        "Zhong‐Jian Chen",
+        "Li‐Zhi Gao"
+      ],
+      "categories": [],
+      "published": "2026-06-21",
+      "updated": "2026-06-21",
+      "url": "https://doi.org/10.64898/2026.06.16.732563",
+      "pdf_url": "https://doi.org/10.64898/2026.06.16.732563",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0043,
+        "world_model": 0.0008,
+        "whole_body_control": 0.0237,
+        "dexterous_manipulation": 0.1009,
+        "sim2real_data": 0.0396,
+        "hardware_unitree": 0.0358,
+        "bci_neural_decoding": 0.1314,
+        "bci_foundation_models": 0.0616,
+        "bci_embodied_robot": 0.0579,
+        "bci_noninvasive_eeg": 0.0426,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.285
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.285,
+      "first_seen": "2026-06-23",
+      "analysis": {
+        "tldr": "通过组装高质量二倍体三七基因组，结合多年份多组织代谢组+转录组数据，发现其人参皂苷化学多样性并非来自核心通路基因家族扩增，而是源于UDP糖基转移酶（UGT）的谱系特异性分化、发育过程中调控网络的动态重连，以及UGT介导的分支选择性后修饰。",
+        "org": "中国科学院昆明植物研究所",
+        "country": "CN",
+        "org_type": "institute",
+        "claim": "二倍体三七的人参皂苷多样性主要由UGT家族的谱系特异性分化、发育阶段依赖的共表达网络重连及UGT介导的分支特异性糖基化修饰驱动，而非核心生物合成基因家族的扩张。",
+        "method_components": [
+          "genome",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "染色体水平基因组 + 多组织/多年份代谢组 + 转录组 + LTR注释 + UGT结构建模与分子动力学模拟",
+        "output": "UGT功能分化图谱、发育阶段特异的共表达网络模块、皂苷分支-UGT配对关系、结构-功能验证（PnUGT33对PPD型骨架的选择性识别）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 10,
+        "reproducibility_score": 4,
+        "significance": 68,
+        "significance_reason": "提供了植物次生代谢复杂性演化的新范式（非WGD/基因扩增路径），实证扎实（高质量基因组+三年四组织多组学+结构模拟+功能关联），但属特定药用植物机制解析，未建立通用计算模型或跨物种预测框架，影响力限于植物代谢生物学与中药资源育种领域，远未达AlphaFold级通用性或ESM级可迁移性。",
+        "one_sentence_verdict": "显著贡献：首次在无全基因组复制的二倍体药用植物中系统揭示UGT分化与网络重连驱动化学多样性的机制，证据链完整，但未外推至通用算法或跨物种预测工具，属领域内重要机制性突破而非范式革命。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 8.5,
+        "content": 21.0,
         "heat": 0.0,
         "quality": 0.0,
         "base": 29.5,
@@ -70491,6 +71103,90 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2606.18302.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.06.15.732321",
+      "doi": "10.64898/2026.06.15.732321",
+      "source_kind": "biorxiv",
+      "title": "Targeting the Mannitol Biosynthesis Pathway in Aspergillus fumigatus: Characterisation and Inhibition of Mannitol-2-Dehydrogenase",
+      "abstract": "Infections caused by the opportunistic fungal pathogen Aspergillus fumigatus pose a serious public health system burden. The inherent limitations in existing antifungal drugs in conjunction with a rising emergence of antifungal resistance emphasizes an urgent need to identify and target alternative pathways crucial to survival and virulence. Targeting the fungal mannitol biosynthesis enzymes provides a promising avenue in the development of new antifungals due to the multifaceted roles mannitol fulfils in the fungal life cycle. However, a distinct lack of available structural information for these enzymes has hindered drug discovery efforts. We report the first crystal structure of mannitol-2-dehydrogenase from A. fumigatus in an unbound monomeric state (1.8 Å) and bound to its co-factor NADH (2.1 Å), via. a large, central cavity lined with positively charged residues that readily accommodates NADH. This interaction is further stabilised by a network of hydrogen bond interactions and ?-? stacking between Phe45 and the nicotinamide ring of NADH. Furthermore, rigorous kinetic characterisation of A. fumigatus mannitol-2-dehydrogenase demonstrates the dose-dependent inhibitory activity of 1,4-benzoquinone, a cysteine-modifying small molecule inhibitor (IC50 = 1.2 ± 0.2 nM). In addition, intact MS and proteomic analysis further reveal that 1,4-benzoquinone modifies up to five cysteine residues of mannitol-2-dehydrogenase and displays antifungal activity against A. fumigatus, which is enhanced in combination with a front-line antifungal voriconazole. From this work, we have established the foundations for a novel antifungal drug discovery avenue that targets the fungal mannitol biosynthesis pathway to better treat aspergillosis and related pathogenic infections.",
+      "authors": [
+        "Stephanie Nguyen",
+        "Isis Pinner",
+        "C. Ruth Wang",
+        "Tara L. Pukala",
+        "Blagojce Jovcevski‬",
+        "John B. Bruning"
+      ],
+      "categories": [],
+      "published": "2026-06-21",
+      "updated": "2026-06-21",
+      "url": "https://doi.org/10.64898/2026.06.15.732321",
+      "pdf_url": "https://doi.org/10.64898/2026.06.15.732321",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1043,
+        "world_model": 0.1021,
+        "whole_body_control": 0.0926,
+        "dexterous_manipulation": 0.0965,
+        "sim2real_data": 0.0357,
+        "hardware_unitree": 0.0705,
+        "bci_neural_decoding": 0.0236,
+        "bci_foundation_models": 0.0142,
+        "bci_embodied_robot": 0.0176,
+        "bci_noninvasive_eeg": 0.0,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2393
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.2836,
+      "first_seen": "2026-06-23",
+      "analysis": {
+        "tldr": "解析了烟曲霉中甘露醇-2-脱氢酶（M2DH）的首个高分辨晶体结构，阐明其NADH结合机制，并发现小分子抑制剂1,4-苯醌能以纳摩尔级IC50共价修饰多个半胱氨酸残基，抑制酶活并协同伏立康唑发挥抗真菌作用。",
+        "org": "墨尔本大学",
+        "country": "AU",
+        "org_type": "university",
+        "claim": "甘露醇-2-脱氢酶是烟曲霉中可靶向的、结构与功能明确的新抗真菌靶点，其特异性共价抑制剂具备体外抗真菌活性及与一线药物协同潜力。",
+        "method_components": [
+          "dataset",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "蛋白质晶体（M2DH）、NADH辅因子、抑制剂1,4-苯醌、烟曲霉菌株",
+        "output": "高分辨晶体结构（1.8 Å/2.1 Å）、酶动力学参数（Km/Vmax/IC50）、质谱鉴定的共价修饰位点、体外抗真菌活性数据（单独及联合用药）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 3,
+        "significance": 62,
+        "significance_reason": "首次解析关键代谢酶M2DH结构并验证共价抑制策略，实证扎实（高分辨结构+动力学+质谱+抗真菌表型），但仅限单一靶点/单一病原体/体外实验，未见细胞内靶标 engagement 验证、动物模型疗效或先导化合物优化，属显著但非范式突破的靶点验证工作。",
+        "one_sentence_verdict": "显著贡献：结构-机制-抑制三位一体验证了一个新抗真菌靶点，但尚未跨越到体内疗效或临床前候选分子阶段，属于扎实的靶点确证研究，非概念包装",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 8.5,
+        "content": 19.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 27.5,
+        "bonus": 0.0,
+        "total": 27.5
+      },
+      "grade": "D",
+      "read_priority": "C"
     },
     {
       "arxiv_id": "10.64898/2026.05.27.728312",
@@ -83538,6 +84234,98 @@
       "grade": "D",
       "read_priority": "D",
       "thumb": "assets/thumbs/2606.05669.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.06.16.732115",
+      "doi": "10.64898/2026.06.16.732115",
+      "source_kind": "biorxiv",
+      "title": "Single-Cell Isolation and Patient-Derived Organoid Generation Using the Pala™ Single Cell Dispenser with Cancer Cell Lines Spiked into Blood as a Circulating Tumour Cell Model: A Platform for Precision Oncology and Drug Discovery",
+      "abstract": "Abstract The isolation of cancer cells and rare circulating tumour cells (CTCs) and the initiation of patient-derived organoids (PDOs) represent two critical new approach methodologies (NAMs) for advancing precision oncology and drug discovery. However, current technologies encounter significant limitations, including high system pressures that compromise cell viability, sample loss, and reliance on marker-dependent enrichment strategies. Here, we performed a technical validation of the Pala™ Single Cell Sorter/Dispenser (Bio-Techne) using cancer cell lines spiked into healthy donor blood as a model for CTCs, alongside cells isolated from ovarian cancer (OC) patients and cervical cancer cell lines. The platform achieved up to 80% single-cell dispensing efficiency under gentle sorting conditions (&lt;2 psi), successfully dispensing single cancer cells, cell clusters, and cancer cells spiked into blood (mimicking CTCs). Concurrently, three-dimensional organoid structures generated from dissociated OC samples and cervical cancer cell lines showed viable growth and cluster formation within one week. Compared to literature values for fluorescence-activated cell sorting (FACS), the Pala™ maintained higher post-sort viability (88% vs. 55-70%) and organoid initiation efficiency (68% vs. 42%). This work establishes the Pala™ as a flexible tool for patient cancer cell dispensing, CTC-mimic isolation, and PDO generation within drug discovery workflows. Clinical validation using authentic patient CTCs remains necessary prior to clinical implementation.",
+      "authors": [
+        "Shambhavi Krishna",
+        "Fatma Yaren Giray",
+        "Musha Yang",
+        "Karolina Stirblyte",
+        "Steven G. Gray",
+        "Fears Abu Saadeh",
+        "Marie Reidy",
+        "C P Martin",
+        "Sharon O`Toole",
+        "Doug A. Brooks",
+        "Stavros Selemidis",
+        "Derek G. Doherty",
+        "Elena Matsa",
+        "John J. O`Leary",
+        "Steven Johnstone",
+        "Bashir M. Mohamed"
+      ],
+      "categories": [],
+      "published": "2026-06-16",
+      "updated": "2026-06-16",
+      "url": "https://doi.org/10.64898/2026.06.16.732115",
+      "pdf_url": "https://doi.org/10.64898/2026.06.16.732115",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0754,
+        "world_model": 0.0216,
+        "whole_body_control": 0.135,
+        "dexterous_manipulation": 0.1112,
+        "sim2real_data": 0.1151,
+        "hardware_unitree": 0.0525,
+        "bci_neural_decoding": 0.064,
+        "bci_foundation_models": 0.0701,
+        "bci_embodied_robot": 0.082,
+        "bci_noninvasive_eeg": 0.0836,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2924
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.2924,
+      "first_seen": "2026-06-23",
+      "analysis": {
+        "tldr": "用Pala™单细胞分装仪在低压条件下（<2 psi）高效分装单个癌细胞、细胞团簇及模拟循环肿瘤细胞（CTC）的加标血样，并成功从卵巢癌患者样本和宫颈癌细胞系生成可存活的类器官，验证其在精准肿瘤学和药物发现中作为无标记、高活力单细胞处理平台的可行性。",
+        "org": "Bio-Techne",
+        "country": "US",
+        "org_type": "company",
+        "claim": "Pala™单细胞分装仪能在极低压力下实现高效率、高活力的单细胞/类CTC分装，并显著提升患者来源类器官（PDO）的启动成功率，优于传统FACS。",
+        "method_components": [
+          "hardware",
+          "dataset"
+        ],
+        "input": "单细胞悬液（含癌细胞系、卵巢癌患者原代细胞、加标健康人全血中的癌细胞）",
+        "output": "单细胞/细胞团簇的精确分装位置（96/384孔板），以及后续形成的三维类器官结构",
+        "robot_dependency": "none",
+        "data_dependency": "依赖少量临床样本（卵巢癌患者原代细胞）和标准细胞系，未使用大规模真实CTC临床队列",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset"
+        ],
+        "novelty": 3,
+        "evidence": 5,
+        "reproducibility_score": 2,
+        "significance": 28,
+        "significance_reason": "仅为一款商业化仪器的技术验证：仅用加标血样模拟CTC、小规模患者样本（未披露例数）、无真实CTC临床队列验证；对比FACS的数据来自文献而非同条件平行实验；类器官生成未做药敏或功能表型验证；未开源协议/代码/原始数据；属典型工具级工程验证，远未达‘新范式’或‘解决开放难题’门槛。",
+        "one_sentence_verdict": "暂时不用看——是商业硬件的技术白皮书式验证，缺乏临床真实CTC证据、无机制创新、无开源可复现性，对AI×生物/药物发现领域无实质性推进。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 8.8,
+        "content": 10.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 18.8,
+        "bonus": 0.0,
+        "total": 18.8
+      },
+      "grade": "D",
+      "read_priority": "D"
     },
     {
       "arxiv_id": "2606.12979",

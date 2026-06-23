@@ -1,8 +1,8 @@
 {
   "week": {
-    "start": "2026-06-16",
-    "end": "2026-06-22",
-    "label": "06.16~06.22"
+    "start": "2026-06-17",
+    "end": "2026-06-23",
+    "label": "06.17~06.23"
   },
   "count": 15,
   "venue_count": 4,
@@ -11,48 +11,10 @@
     "ICML 2026",
     "IROS 2026"
   ],
-  "generated_at": "2026-06-22 06:27 UTC",
+  "generated_at": "2026-06-23 05:00 UTC",
   "picks": [
     {
       "rank": 1,
-      "arxiv_id": "2606.17846",
-      "title": "Qwen-RobotManip Technical Report: Alignment Unlocks Scale for Robotic Manipulation Foundation Models",
-      "published": "2026-06-16",
-      "url": "https://arxiv.org/abs/2606.17846",
-      "pdf_url": "https://arxiv.org/pdf/2606.17846",
-      "thumb": "assets/thumbs/2606.17846.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "阿里通义实验室",
-      "country": "CN",
-      "org_type": "company",
-      "significance": 94,
-      "significance_reason": "达到CHORUS（94分档）量级：首次在纯开源数据+无专用硬件采集前提下，实现跨15平台、多OOD基准全面SOTA，且在ALOHA/Franka/UR/ARX四类真实机器人上完成部署验证；其三维度对齐框架具范式迁移潜力，但未像RT-2或Octo那样定义全新训练范式或开源全栈数据/模型。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "open-source",
-        "real-robot",
-        "large-scale"
-      ],
-      "tldr": "用统一的对齐框架整合多源异构机器人操作数据（视频、动作、语言指令），在纯开源数据上训练出能跨平台、抗干扰、零样本执行新指令的大模型Qwen-RobotManip，并在多个真实机器人和强泛化评测集上显著超越π0.5等SOTA模型。",
-      "claim": "对齐（alignment）是解锁机器人操作大模型规模化训练与真正泛化的关键瓶颈，而非单纯堆数据或参数；通过表征、运动、行为三维度统一对齐，可使异构开源数据协同驱动大规模VLA模型涌现泛化能力。",
-      "method_components": [
-        "model",
-        "dataset",
-        "benchmark"
-      ],
-      "input": "RGB视频帧+自然语言指令+可选的egocentric手部动作演示",
-      "output": "机器人关节级动作序列或末端轨迹",
-      "novelty": 7,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：不是刷榜，而是用可复现的对齐工程打通了开源数据→大规模VLA→真实多机体部署的完整链路，实质性降低了具身智能基础模型的准入门槛。",
-      "deep": {}
-    },
-    {
-      "rank": 2,
       "arxiv_id": "2606.18955",
       "title": "Motion-Focused Latent Action Enables Cross-Embodiment VLA Training from Human EgoVideos",
       "published": "2026-06-17",
@@ -89,7 +51,7 @@
       "deep": {}
     },
     {
-      "rank": 3,
+      "rank": 2,
       "arxiv_id": "2606.19980",
       "title": "ENPIRE: Agentic Robot Policy Self-Improvement in the Real World",
       "published": "2026-06-18",
@@ -128,48 +90,7 @@
       "deep": {}
     },
     {
-      "rank": 4,
-      "arxiv_id": "2606.18426",
-      "title": "VEGA: Learning Navigation VLAs from In-the-Wild Egocentric Video with Geometric Trajectory Supervision",
-      "published": "2026-06-16",
-      "url": "https://arxiv.org/abs/2606.18426",
-      "pdf_url": "https://arxiv.org/pdf/2606.18426",
-      "thumb": "assets/thumbs/2606.18426.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "北卡罗来纳大学教堂山分校",
-      "country": "US",
-      "org_type": "university",
-      "significance": 87,
-      "significance_reason": "首次系统性打通‘互联网视频→单目几何→障碍感知轨迹→VLA策略’全链路，在真实机器人上实现碰撞率下降66.7%、障碍清除提升60%，且发布含500万目标的大规模几何感知导航基准VEGA-Bench；虽未达RT-2级范式颠覆（缺多任务统一架构/跨域泛化证明），但显著超越当前多数纯仿真或小规模真机VLA工作，属强工程驱动的实质性突破。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "dataset",
-        "benchmark",
-        "open-source",
-        "real-robot"
-      ],
-      "tldr": "用互联网上大量无标注的第一人称视角导航视频（如人类走路拍的视频），通过单目几何重建生成障碍物感知的轨迹监督信号，训练出能理解语言/图像/空间目标并输出避障导航动作的视觉语言动作模型（VLA），并在新构建的大规模几何-目标配对基准VEGA-Bench和真实机器人上验证了其显著降低碰撞、提升障碍清除能力。",
-      "claim": "仅靠互联网规模的无标注第一人称视频，结合单目几何重建生成的障碍物感知轨迹监督，即可有效蒸馏出具备真实场景避障能力的导航VLA策略，无需真实机器人交互数据或人工标注轨迹。",
-      "method_components": [
-        "model",
-        "dataset",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "RGB视频帧+语言指令/图像目标/空间坐标目标",
-      "output": "导航动作序列（离散或连续动作块）",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：用纯视频+几何蒸馏解决VLA长期缺乏真实障碍感知监督的核心瓶颈，并在真实机器人和大规模基准上给出扎实、可复现、量化的性能跃升。",
-      "deep": {}
-    },
-    {
-      "rank": 5,
+      "rank": 3,
       "arxiv_id": "2606.20549",
       "title": "Generating Robot Hands from Human Demonstrations",
       "published": "2026-06-18",
@@ -208,7 +129,7 @@
       "deep": {}
     },
     {
-      "rank": 6,
+      "rank": 4,
       "arxiv_id": "2606.20545",
       "title": "Current World Models Lack a Persistent State Core",
       "published": "2026-06-18",
@@ -245,45 +166,7 @@
       "deep": {}
     },
     {
-      "rank": 7,
-      "arxiv_id": "2606.17385",
-      "title": "EgoInfinity: A Web-Scale 4D Hand-Object Interaction Data Engine for Any-View Robot Retargeting and Video-to-Action Robot Learning",
-      "published": "2026-06-16",
-      "url": "https://arxiv.org/abs/2606.17385",
-      "pdf_url": "https://arxiv.org/pdf/2606.17385",
-      "thumb": "assets/thumbs/2606.17385.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "谷歌DeepMind",
-      "country": "US",
-      "org_type": "company",
-      "significance": 87,
-      "significance_reason": "实质性推进了开放世界具身学习的数据瓶颈：首次在无标注、任意视角、跨机器人形态条件下，实现物理一致性保障的视频→动作全链路自动化；实证覆盖5类真实机器人技能（抓取/切割/擦拭/倾倒等），含真实硬件验证，但未开源代码与模型，复现门槛高，略逊于RT-2/Octo/OpenVLA级的系统性开源与部署广度。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "dataset",
-        "multimodal-fusion",
-        "open-source"
-      ],
-      "tldr": "用一个全自动的模块化引擎，把网上任意角度拍摄的人类操作视频（比如YouTube上的做饭、清洁视频）直接转成带物理合理性的4D手-物交互数据（手轨迹+物体6D位姿+接触状态），再适配到各种机器人身体上生成可执行动作，全程无需人工标注。",
-      "claim": "通过端到端可演化的模块化数据引擎EgoInfinity，首次实现从任意互联网视频到多形态机器人可执行动作的全自动、物理可靠的视频到动作（video-to-action）闭环，且不依赖人工标注或特定采集设置。",
-      "method_components": [
-        "dataset",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "任意视角/分辨率/遮挡程度的单目RGB视频（含人类手部操作）",
-      "output": "机器人可执行的关节轨迹（适配多种机械手形态）+ 4D手-物交互表示（手部3D轨迹、物体6D位姿、接触状态）",
-      "novelty": 8,
-      "evidence": 9,
-      "one_sentence_verdict": "真突破——它解决了长期悬而未决的‘如何让机器人从海量网络视频中自主学动作’这一根本性瓶颈，且有真实机器人技能验证，不是纯仿真或概念演示。",
-      "deep": {}
-    },
-    {
-      "rank": 8,
+      "rank": 5,
       "arxiv_id": "2606.19333",
       "title": "Do as I Do: Dexterous Manipulation Data from Everyday Human Videos",
       "published": "2026-06-17",
@@ -321,7 +204,7 @@
       "deep": {}
     },
     {
-      "rank": 9,
+      "rank": 6,
       "arxiv_id": "2606.18558",
       "title": "MolmoMotion: Forecasting Point Trajectories in 3D with Language Instruction",
       "published": "2026-06-17",
@@ -358,47 +241,7 @@
       "deep": {}
     },
     {
-      "rank": 10,
-      "arxiv_id": "2606.18363",
-      "title": "Guava: An Effective and Universal Harness for Embodied Manipulation",
-      "published": "2026-06-16",
-      "url": "https://arxiv.org/abs/2606.18363",
-      "pdf_url": "https://arxiv.org/pdf/2606.18363",
-      "thumb": "assets/thumbs/2606.18363.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "马里兰大学",
-      "country": "US",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "贡献清晰：首次系统解耦Harness设计空间并提炼三大普适原则；实证扎实——在仿真+真实Panda上验证跨任务/跨物体/长程泛化，且用4B模型对标前沿闭源模型；但未突破ALOHA/ACT级的端到端闭环控制精度或实时性，也未解决触觉/灵巧手等核心瓶颈，属显著推进而非范式革命。",
-      "tier": "heavy",
-      "grade": "B",
-      "tags": [
-        "multimodal-fusion",
-        "sim2real",
-        "dataset",
-        "benchmark",
-        "open-source"
-      ],
-      "tldr": "提出一个叫Guava的通用‘驾驭框架’，让大语言模型（甚至小到4B的开源模型）能通过调用外部感知、规划、控制模块来完成具身操作任务，不靠端到端训练，只用不到2000条仿真轨迹就能蒸馏出强泛化能力。",
-      "claim": "一个精心设计的、模型无关的Harness框架（Guava），通过迭代感知-推理-动作循环、语义动作抽象和多模态观测三大设计原则，可将具身操作能力高效蒸馏至小型开源语言模型，且无需真实机器人数据即可实现跨物体、跨指令、长程任务的强泛化。",
-      "method_components": [
-        "model",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "自然语言指令+多模态观测（RGB/深度/状态等）",
-      "output": "语义动作序列（如'抓取红色立方体→移动到蓝色托盘→放置'）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：将具身智能的模块化架构设计提升到新高度，证据充分、可复现性强，但未触及底层控制或传感物理建模等根本挑战",
-      "deep": {}
-    },
-    {
-      "rank": 11,
+      "rank": 7,
       "arxiv_id": "2606.19531",
       "title": "ImageWAM: Do World Action Models Really Need Video Generation, or Just Image Editing?",
       "published": "2026-06-17",
@@ -434,7 +277,7 @@
       "deep": {}
     },
     {
-      "rank": 12,
+      "rank": 8,
       "arxiv_id": "2606.19340",
       "title": "Zero-Shot Long-Horizon Dexterous Manipulation via Multi-View 3D-Grounded VLM Reasoning",
       "published": "2026-06-17",
@@ -473,44 +316,43 @@
       "deep": {}
     },
     {
-      "rank": 13,
-      "arxiv_id": "2606.18250",
-      "title": "Future Dynamic 3D Reconstruction: A 3D World Model with Disentangled Ego-Motion",
-      "published": "2026-06-16",
-      "url": "https://arxiv.org/abs/2606.18250",
-      "pdf_url": "https://arxiv.org/pdf/2606.18250",
-      "thumb": "assets/thumbs/2606.18250.jpg",
-      "venue": "ICML 2026",
+      "rank": 9,
+      "arxiv_id": "2606.20521",
+      "title": "HumanScale: Egocentric Human Video Can Outperform Real-Robot Data for Embodied Pretraining",
+      "published": "2026-06-18",
+      "url": "https://arxiv.org/abs/2606.20521",
+      "pdf_url": "https://arxiv.org/pdf/2606.20521",
+      "thumb": "assets/thumbs/2606.20521.jpg",
+      "venue": "",
       "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "慕尼黑工业大学",
-      "country": "EU",
-      "org_type": "university",
-      "significance": 76,
-      "significance_reason": "显著推进了动态世界建模的物理合理性：首次在3D潜空间完成ego/world motion严格解耦并验证其对长期预测几何一致性的提升；实验覆盖多个真实驾驶数据集、支持2秒外推、有消融（解耦模块+蒸馏策略），但未开源代码/模型，且未在真实机器人闭环控制中验证，未达DreamerV3/World Models级范式突破，属扎实重磅贡献。",
+      "best_route": "sim2real_data",
+      "org": "智元",
+      "country": "CN",
+      "org_type": "company",
+      "significance": 78,
+      "significance_reason": "首次用严格控制变量的实证（多任务真实机器人部署+消融+跨分布泛化）证明人类视频可反超遥操作数据，推动‘人类行为即具身先验’范式；但未开源核心数据/代码，且未构建新模型或仿真器，分量略低于DROID/ALOHA等基石工作（它们定义了新架构/新采集范式/新仿真基座）。",
       "tier": "heavy",
-      "grade": "D",
+      "grade": "C",
       "tags": [
-        "multimodal-fusion",
         "dataset",
-        "benchmark"
+        "benchmark",
+        "multimodal-fusion"
       ],
-      "tldr": "这篇论文提出FR3D模型，从单目视频中预测未来2秒内动态场景的几何一致、物理合理的3D世界状态，核心是把智能体自身运动（ego-motion）和环境真实变化（world-motion）在3D潜空间里彻底解耦，避免传统2D视频生成模型中物体凭空消失或形变的问题。",
-      "claim": "通过在3D潜空间中显式解耦ego-motion与world-motion，并蒸馏视觉基础模型的空间常识，可实现几何一致、零样本泛化的未来动态3D重建。",
+      "tldr": "这篇论文系统对比了第一人称人类视频和真实机器人遥操作数据作为具身基础模型预训练数据的效果，发现经过精心过滤和标注的人类视频不仅成本低、多样性高，还能在真实机器人任务上取得比同等规模遥操作数据更好的性能。",
+      "claim": "经合理处理的egocentric human video在具身模型预训练中可超越同量级teleoperated real-robot data，成为更优、更可扩展的预训练数据源。",
       "method_components": [
-        "model",
         "dataset",
         "benchmark"
       ],
-      "input": "单目RGB视频序列（含相机位姿先验或估计）",
-      "output": "未来多时刻的动态3D隐式表示（如NeRF/3D Gaussian Splatting兼容的时空场）",
+      "input": "第一人称视角人类操作视频（含动作语义标签）",
+      "output": "真实机器人动作序列预测（动作块/轨迹）",
       "novelty": 7,
-      "evidence": 8,
-      "one_sentence_verdict": "工程整合：将3D生成、运动解耦、基础模型蒸馏三者系统性结合，在动态3D预测任务上取得几何一致性与零样本泛化双重实证提升，但缺乏真机部署与全开源，尚未构成新范式。",
+      "evidence": 10,
+      "one_sentence_verdict": "真突破：用扎实的多任务真实机器人验证推翻了‘必须用真机数据预训练’的行业默认假设，为具身AI数据瓶颈提供了可立即落地的新路径。",
       "deep": {}
     },
     {
-      "rank": 14,
+      "rank": 10,
       "arxiv_id": "2606.18704",
       "title": "Selective Unit-Cell Actuation in Lattice Structures for Distributed Morphology in Soft Robots",
       "published": "2026-06-17",
@@ -548,7 +390,118 @@
       "deep": {}
     },
     {
-      "rank": 15,
+      "rank": 11,
+      "arxiv_id": "2606.19784",
+      "title": "EquiVLA: A General Framework for Rotationally Equivariant Vision-Language-Action Models",
+      "published": "2026-06-18",
+      "url": "https://arxiv.org/abs/2606.19784",
+      "pdf_url": "https://arxiv.org/pdf/2606.19784",
+      "thumb": "assets/thumbs/2606.19784.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "unknown",
+      "country": "Other",
+      "org_type": "unknown",
+      "significance": 78,
+      "significance_reason": "首次将严格SO(2)等变性嵌入端到端VLA动作头，并验证其在LIBERO/CALVIN仿真基准和5个真实Mobile ALOHA任务上带来稳定+14~18%绝对成功率提升；但未开源代码/模型，未挑战更难的跨机体泛化（如从ALOHA到Franka），也未证明对任意旋转角的连续泛化（仅验证离散朝向变化），相比RT-2/π0/Octo等基石工作仍属重要但非范式级改进。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "sim2real",
+        "real-robot"
+      ],
+      "tldr": "这篇论文提出EquiVLA框架，通过在视觉语言模型输出端和动作生成端分别加入旋转等变模块（EquiPerceptor和EquiActor），让VLA模型对物体朝向变化具备内在鲁棒性，从而在仿真和真实机器人任务中显著提升跨朝向泛化能力。",
+      "claim": "引入SO(2)旋转等变性到端到端VLA模型中，可系统性提升其在不同物体朝向下的泛化性能，且无需额外真实朝向标注或数据增强。",
+      "method_components": [
+        "model",
+        "benchmark"
+      ],
+      "input": "RGB图像+语言指令",
+      "output": "动作序列（6DoF末端位姿+夹爪开合）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：在成熟VLA架构上精准注入几何先验，实证扎实、效果显著，但属于高质量增量而非范式突破。",
+      "deep": {}
+    },
+    {
+      "rank": 12,
+      "arxiv_id": "2606.20285",
+      "title": "Co-VLA: Coordination-Aware Structured Action Modeling for Dual-Arm Vision-Language-Action Systems",
+      "published": "2026-06-18",
+      "url": "https://arxiv.org/abs/2606.20285",
+      "pdf_url": "https://arxiv.org/pdf/2606.20285",
+      "thumb": "assets/thumbs/2606.20285.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "智元",
+      "country": "CN",
+      "org_type": "company",
+      "significance": 78,
+      "significance_reason": "实质性推进双臂VLA结构建模范式：首次将显式协调结构（共享latent+残差latent）嵌入主流VLA backbone并验证其对紧耦合任务和OOD泛化的增益，真机多任务验证+消融（隐式vs显式）、量化提升扎实（+27% success, +100% OOD gain），但未开源代码/数据，且未挑战多机体/跨用户泛化，未达RT-2/CHORUS级范式颠覆或大规模部署水平。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "dexterous",
+        "sim2real",
+        "real-robot"
+      ],
+      "tldr": "这篇论文提出Co-VLA框架，通过在视觉-语言-动作模型中显式建模双臂协调结构（共享意图+残差执行），替代原有端到端动作头，并用轻量级潜变量控制器实时调节同步性、不对称性和安全性，在仿真和真实双臂机器人上显著提升紧耦合任务成功率（+27%）和跨域泛化能力（OOD真实场景从13%→27%）。",
+      "claim": "显式引入任务级协调结构先验（而非依赖隐式端到端学习）可大幅提升双臂VLA模型在紧耦合、强约束任务中的可靠性、可解释性与跨域泛化性。",
+      "method_components": [
+        "model",
+        "simulator",
+        "benchmark",
+        "hardware"
+      ],
+      "input": "RGB图像+自然语言指令",
+      "output": "双臂关节级动作序列（含同步/异步/安全约束调制）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：在成熟VLA架构上做出关键结构改进并取得扎实真机效果，但属于高质量增量而非范式突破。",
+      "deep": {}
+    },
+    {
+      "rank": 13,
+      "arxiv_id": "2606.20246",
+      "title": "Finetuning Vision-Language-Action Models Requires Fewer Layers Than You Think",
+      "published": "2026-06-18",
+      "url": "https://arxiv.org/abs/2606.20246",
+      "pdf_url": "https://arxiv.org/pdf/2606.20246",
+      "thumb": "assets/thumbs/2606.20246.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "unknown",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 78,
+      "significance_reason": "实证扎实：覆盖4种真机+3大仿真基准，跨机体/跨任务泛化验证充分，消融明确（压缩比与性能关系），且加速效果显著；但未开源代码/模型权重，未挑战或重构VLA建模范式（如多模态对齐机制、世界模型耦合等），属高性能工程优化而非理论或架构突破，故低于RT-2/π0/CHORUS等开范式工作，但高于纯benchmark类（如LIBERO本身）或仅仿真小任务的工作。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "multimodal-fusion",
+        "real-robot"
+      ],
+      "tldr": "这篇论文发现主流视觉-语言-动作（VLA）大模型存在严重的层间表征冗余，提出一种无需训练的结构压缩方法，通过单次前向传播和核对齐分析识别并移除冗余层，将模型深度压缩最多50%，在仿真和10个真实机器人任务上保持甚至超越原模型性能，同时训练快40–50%、推理快30%。",
+      "claim": "主流VLA基础策略模型（如pi_0、GR00T-N1.5）的深层架构存在严重层间冗余，仅需保留约一半层数即可维持甚至提升下游操控性能。",
+      "method_components": [
+        "model",
+        "benchmark"
+      ],
+      "input": "视觉帧+语言指令",
+      "output": "连续动作向量（用于机器人操控）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：用严谨的表征分析揭示VLA模型冗余本质，并给出即插即用的无训练压缩方案，在真实机器人上验证了其跨机体泛化性与计算收益，是当前大模型落地机器人的关键实用性推进。",
+      "deep": {}
+    },
+    {
+      "rank": 14,
       "arxiv_id": "2606.19935",
       "title": "PhysDrift: Bridging the Embodiment Gap in Humanoid Co-Speech Motion Generation",
       "published": "2026-06-18",
@@ -581,6 +534,43 @@
       "novelty": 7,
       "evidence": 8,
       "one_sentence_verdict": "显著贡献：真机验证了‘绕过人类表征’路线的有效性，但受限于数据构造方式和泛化能力，尚未达到开创新范式的程度。",
+      "deep": {}
+    },
+    {
+      "rank": 15,
+      "arxiv_id": "2606.19656",
+      "title": "DF-ExpEnse: Diffusion Filtered Exploration for Sample Efficient Finetuning",
+      "published": "2026-06-17",
+      "url": "https://arxiv.org/abs/2606.19656",
+      "pdf_url": "https://arxiv.org/pdf/2606.19656",
+      "thumb": "assets/thumbs/2606.19656.jpg",
+      "venue": "ICML 2026",
+      "domain": "embodied_ai",
+      "best_route": "sim2real_data",
+      "org": "哥伦比亚大学",
+      "country": "US",
+      "org_type": "university",
+      "significance": 68,
+      "significance_reason": "方法设计有清晰创新点（扩散过滤+critic ensemble），在多个真实机器人操作与运动任务上验证了样本效率提升（相比默认finetuning和替代动作选择），但未开源代码/模型，缺乏消融实验细节、未报告绝对性能（仅相对增益）、未验证跨形态泛化极限（如从机械臂到四足），整体属扎实增量而非范式突破，明显弱于DROID/ALOHA/RT-X等基石工作。",
+      "tier": "notable",
+      "grade": "D",
+      "tags": [
+        "multimodal-fusion",
+        "sim2real",
+        "large-scale"
+      ],
+      "tldr": "提出一种叫DF-ExpEnse的在线探索策略，用于提升预训练生成式控制策略在真实机器人微调时的样本效率：它用扩散模型生成高质量动作候选集，再用批评家集成筛选出既靠谱又具探索价值的动作，支持多机器人协同探索。",
+      "claim": "通过扩散过滤+批评家集成的双阶段动作选择机制，可显著提升生成式控制策略在真实机器人在线微调中的样本效率，且支持跨机器人协作探索。",
+      "method_components": [
+        "model",
+        "policy",
+        "benchmark"
+      ],
+      "input": "预训练生成式控制策略的隐空间表征 + 当前观测（RGB/状态）",
+      "output": "高探索性且高置信度的动作",
+      "novelty": 7,
+      "evidence": 8,
+      "one_sentence_verdict": "显著贡献：工程整合——将扩散建模、critic集成与在线探索有机耦合，在真实机器人上实证了样本效率提升，但开源不足、分析深度有限，尚未达到开新范式或解决长期开放难题的量级。",
       "deep": {}
     }
   ]
