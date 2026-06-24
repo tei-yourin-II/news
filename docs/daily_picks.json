@@ -1563,6 +1563,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-06-24": [
+      {
+        "arxiv_id": "2606.23085",
+        "title": "Foresight: Failure Detection for Long-Horizon Robotic Manipulation with Action-Conditioned World Model Latents",
+        "published": "2026-06-22",
+        "first_seen": "2026-06-24",
+        "url": "https://arxiv.org/abs/2606.23085",
+        "pdf_url": "https://arxiv.org/pdf/2606.23085",
+        "thumb": "assets/thumbs/2606.23085.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "密歇根大学",
+        "country": "US",
+        "significance": 78,
+        "significance_reason": "在长时程失败检测这一长期被忽视的实用瓶颈问题上，首次系统性验证了世界模型隐空间作为失败表征的鲁棒性与泛化性，真机覆盖多机体多任务且对比SOTA方法，但未引入新世界模型架构或持久状态机制，未达World Models/DreamerV3级范式突破，属扎实重磅推进。",
+        "tier": "heavy",
+        "tldr": "提出Foresight框架，用动作条件化的世界模型隐状态来检测长时程机器人操作任务中的失败，只用任务级成功/失败标签训练，不依赖逐帧失败标注，在多个仿真基准和真实机械臂上验证了有效性。",
+        "deep": {
+          "hook": "只用任务成败标签，就能让世界模型隐状态自动学会预警长时程操作失败",
+          "why_now": "接续DreamerV3、OpenVLA等世界模型与VLA热潮，首次将世界模型隐空间从‘预测工具’转向‘失败诊断接口’；踩中具身智能落地刚需——真机长任务不可靠性检测缺乏低成本监督信号",
+          "problem": "长时程操作中失败常渐进发生、形态多变（如滑动、倾倒、夹取偏移），人工标注每帧是否失败成本极高；现有方法依赖密集监督或策略专用设计，泛化差、难迁移到新策略或新机体。",
+          "method": "Foresight不训练新世界模型，而是复用预训练的动作条件化世界模型（如MUSE或类似架构）提取每步观测-动作对的隐状态序列；用任务级二分类标签监督一个轻量预测头，学习从隐状态轨迹中判别失败；引入功能化共形预测（FCP）替代固定阈值，使检测置信度可校准、可解释。",
+          "results": "在LIBERO-Long、ManiSkill-Long、BEHAVIOR-1K三个仿真长时程基准上超越SOTA失败检测方法；真机验证覆盖ReactorX-200（3个任务）和Franka（1个任务），报告‘显著提升失败检出率与早期预警能力’（摘要未给具体数值）；跨策略测试表明同一Foresight模型可无缝适配不同VLA策略输出。",
+          "limitations": "未公开所用世界模型具体架构与预训练细节（是否微调？冻结？）；所有真机实验仅报告定性有效性，无漏报/误报率、平均提前预警步数等量化指标；FCP校准依赖独立校准集，在线部署时需额外缓存窗口，未验证实时性开销。",
+          "significance_take": "属扎实重磅推进：首次证明世界模型隐空间天然携带失败语义，且无需逐帧标注即可被挖掘——这为‘诊断即预测’范式铺平道路，比单纯改进检测器更根本，但未挑战世界模型本身架构瓶颈，尚未构成范式级突破。",
+          "who_should_read": "做机器人异常监控、VLA系统集成、或世界模型下游应用的研究者/工程师，能直接复用其FCP+隐空间诊断框架降低真机部署风险。",
+          "verdict": "必读——它把世界模型从‘黑箱控制器’变成‘可解释健康看护员’，且代码开源、真机可跑，是当前最贴近落地的失败检测工作。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2606.24742",
+        "title": "World Value Models for Robotic Manipulation",
+        "published": "2026-06-23",
+        "first_seen": "2026-06-24",
+        "url": "https://arxiv.org/abs/2606.24742",
+        "pdf_url": "https://arxiv.org/pdf/2606.24742",
+        "thumb": "assets/thumbs/2606.24742.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "中科院自动化所",
+        "country": "CN",
+        "significance": 78,
+        "significance_reason": "首次系统性将世界模型架构引入机器人价值估计任务，构建了首个面向混合质量数据的价值评估专用基准（Suboptimal-Value-Bench）并完成跨机体验证；实证扎实（多仿真平台+3种真实机械臂+消融+SOTA VOC指标），但未开源代码/模型，且未挑战端到端策略生成范式，属强增量而非范式突破。",
+        "tier": "heavy",
+        "tldr": "提出World Value Model（WVM），用世界模型替代传统视觉语言模型作为价值函数主干，专门强化时序建模与未来状态预测能力，从而更准确评估机器人操作轨迹的质量（尤其是混杂专家与次优数据时），并在仿真和真实机械臂上验证其对策略学习的提升效果。",
+        "deep": {
+          "hook": "用世界模型替代VLM做价值函数，首次专为混杂质量操作数据设计的价值评估新范式",
+          "why_now": "正值具身智能从‘策略生成’转向‘数据价值判别’的关键阶段——OpenVLA、RT-2等强调通用表征，但价值建模仍卡在VLM时序短板上；本文直击混合数据（专家+次优）下价值排序失准这一SOTA瓶颈",
+          "problem": "现有机器人价值模型多基于VLM，但VLM预训练于静态图像或稀疏视频，缺乏对动作序列的因果建模与未来状态预测能力；导致在含大量次优轨迹的真实数据中，价值打分失真，进而误导策略学习",
+          "method": "提出World Value Model（WVM）：以世界模型（如MAE-ViT+Transformer动态建模器）为骨干，输入多帧RGB+文本指令，联合重建观测+预测未来隐状态，并将隐状态演化路径映射为标量价值分数；关键创新是将‘价值’定义为轨迹在世界模型内部状态空间中的进展一致性度量，而非VLM式的跨模态对齐分数",
+          "results": "在标准基准上取得SOTA Value-Order Correlation（VOC）指标；在新构建的Suboptimal-Value-Bench（800条带人工帧级标注的次优轨迹）上保持SOTA；在3种真实机械臂（UR5、Franka、DexPilot）及多个仿真平台（ManiSkill2、Ravens）上验证其提升下游策略学习效果",
+          "limitations": "未开源代码/模型，复现门槛高；所有实证均未脱离‘价值函数→策略提取’两阶段范式，未挑战端到端价值驱动控制；Suboptimal-Value-Bench仅含800条轨迹，规模远小于主流行为克隆数据集（如Bridge、OpenVLA），泛化性存疑",
+          "significance_take": "属显著增量推进：首次将世界模型的时序因果建模能力系统性迁移到价值估计任务，证明‘预测能力即价值判别能力’这一新认知路径，为混合数据驱动的具身学习提供了可验证的架构替代方案，但尚未动摇VLM+RLHF主导的价值建模范式",
+          "who_should_read": "做机器人离线强化学习、价值函数设计或世界模型落地的研究者，能直接获得WVM架构设计逻辑、Suboptimal-Value-Bench构造方法和跨机体验证方案",
+          "verdict": "值得读——它用扎实的多平台验证把一个被忽视的假设（世界模型比VLM更适合价值估计）坐实了，虽未开源且未越界，但给出了当前最可信的价值建模新基线",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2606.20092",
+        "title": "EventVLA: Event-Driven Visual Evidence Memory for Long-Horizon Vision-Language-Action Policies",
+        "published": "2026-06-18",
+        "first_seen": "2026-06-24",
+        "url": "https://arxiv.org/abs/2606.20092",
+        "pdf_url": "https://arxiv.org/pdf/2606.20092",
+        "thumb": "assets/thumbs/2606.20092.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "智元",
+        "country": "CN",
+        "significance": 78,
+        "significance_reason": "在17个仿真+4个真实双臂任务上实证了+40%成功率提升，KEM模块有明确消融（vs. uniform buffer / LSTM memory），且RoboTwin-MeM基准首次聚焦非马尔可夫视觉证据诊断；但未开源代码/模型，未跨机体泛化（仅限Franka+Allegro/UR5e+Shadow），未证明对大规模VLA底座（如OpenVLA/Octo）的即插即用能力，尚未达到RT-2/π0级范式突破，属扎实重磅推进。",
+        "tier": "heavy",
+        "tldr": "提出EventVLA框架，用稀疏的、事件驱动的关键帧记忆（KEM）替代传统冗余视觉缓存，让视觉语言动作策略能在长时程操作中记住关键视觉证据（如物体被遮挡前的最后状态），并在仿真和真实双臂机器人上显著提升任务成功率。",
+        "deep": {
+          "hook": "用‘预测哪一帧该记住’代替‘全存下来’，EventVLA让机器人在物体被遮挡前主动存下关键视觉证据",
+          "why_now": "接续RT-2/π0后VLA泛化能力瓶颈，直击近期工作（如MemVLA、VoxPoser）未解的非马尔可夫诊断难题；RoboTwin-MeM基准首次专为视觉证据因果性设计，踩中具身智能从‘感知-动作’迈向‘感知-记忆-推理’的关键拐点",
+          "problem": "标准VLA策略是马尔可夫式的，无法处理长时程任务中关键视觉线索瞬时消失（如手遮挡物体、物体滑入缝隙）的问题；现有记忆方法要么堆砌冗余帧（信息过载）、要么依赖人工规则或固定窗口（缺乏任务因果性），导致真实操作中频繁因‘忘掉最后一眼’而失败",
+          "method": "EventVLA不缓存所有帧，而是让VLA主干网络的隐状态实时预测‘未来哪几帧最可能成为关键证据’——KEM模块据此稀疏采样并存储关键帧图像+对应嵌入；同时保留两个轻量锚点（初始场景+最近交互帧）作为基础视觉锚；整个流程端到端训练，无额外延迟模块",
+          "results": "在17个仿真+4个真实双臂任务上平均成功率提升+40%；KEM消融显示：相比uniform buffer和LSTM memory，其关键帧选择准确率与下游任务成功率强相关；RoboTwin-MeM基准上首次实现对非马尔可夫视觉证据遗忘模式的可量化诊断",
+          "limitations": "仅验证于Franka+Allegro与UR5e+Shadow两类双臂构型，未测试单臂/移动机械臂等机体泛化；未开源代码/模型，仅提供project-page，复现门槛高；所有实证均基于small-real（小规模真实实验），未见长时间连续运行鲁棒性报告",
+          "significance_take": "属扎实重磅推进：它没有重构VLA底座（如不改动OpenVLA架构），但首次将‘记忆’从被动缓存升维为主动因果预测，为VLA注入类人类‘预判性记忆’机制；KEM的设计原则（用VLA自身隐状态预测关键帧）具备向任意VLA主干迁移的接口潜力",
+          "who_should_read": "做VLA系统集成的工程师应读——能直接借鉴KEM轻量接口设计；做具身记忆建模的研究者应读——获得首个面向非马尔可夫视觉证据的诊断基准RoboTwin-MeM",
+          "verdict": "必读：它是当前少有把‘记忆’真正做成VLA内生能力（而非外挂模块）、且在真机双臂任务上给出可复现+可诊断+有消融证据的工作",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -1612,12 +1704,15 @@
     "2606.19340",
     "2606.19784",
     "2606.19980",
+    "2606.20092",
     "2606.20246",
     "2606.20285",
     "2606.20521",
     "2606.20545",
-    "2606.20549"
+    "2606.20549",
+    "2606.23085",
+    "2606.24742"
   ],
-  "latest": "2026-06-23",
-  "generated_at": "2026-06-23 04:59 UTC"
+  "latest": "2026-06-24",
+  "generated_at": "2026-06-24 05:03 UTC"
 }
