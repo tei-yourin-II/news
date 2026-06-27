@@ -1,18 +1,18 @@
 {
   "week": {
-    "start": "2026-06-20",
-    "end": "2026-06-26",
-    "label": "06.20~06.26"
+    "start": "2026-06-21",
+    "end": "2026-06-27",
+    "label": "06.21~06.27"
   },
   "count": 15,
   "venue_count": 4,
   "venues": [
-    "CVPR 2026",
     "CoRL 2026",
     "ECCV 2026",
+    "Humanoids",
     "IROS 2026"
   ],
-  "generated_at": "2026-06-26 05:11 UTC",
+  "generated_at": "2026-06-27 04:53 UTC",
   "picks": [
     {
       "rank": 1,
@@ -94,6 +94,46 @@
     },
     {
       "rank": 3,
+      "arxiv_id": "2606.25575",
+      "title": "One Body, Two Minds: Variable Autonomy Approach for a Co-embodied Robotic Hand",
+      "published": "2026-06-24",
+      "url": "https://arxiv.org/abs/2606.25575",
+      "pdf_url": "https://arxiv.org/pdf/2606.25575",
+      "thumb": "assets/thumbs/2606.25575.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "KTH皇家理工学院",
+      "country": "EU",
+      "org_type": "university",
+      "significance": 87,
+      "significance_reason": "首次实现单物理体下人类与AI‘双心智’分阶段自主切换，并在真机上完成跨任务/跨用户的大规模用户研究（n=44），含统计显著性（p<0.001）、效应量（d=0.94）、高成功率（93.6%）及高接受度（5.7/7），填补了共具身范式从概念到实证的关键缺口；虽未达T-Rex/ALOHA级底层控制突破，但在人机协作范式层面达到与Diffusion Policy/π0同档的工程级里程碑水平。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "dexterous",
+        "teleoperation",
+        "real-robot",
+        "benchmark"
+      ],
+      "tldr": "提出一种‘共具身’可变自主性框架，让人类和AI共享同一只穿戴式机械手：搜索抓取阶段由AI自动完成（基于视觉扩散策略），抓稳后切换为人类用头部手势控制工具动作，全程物理耦合且人类随时可否决，实证显示用户操作效率提升23.3%、成功率93.6%。",
+      "claim": "共具身（co-embodiment）下的可变自主性——而非传统分离身体的混合自主——能通过物理耦合与阶段性自主切换，在保持人类完全否决权的前提下显著提升辅助机器人任务效率与接受度。",
+      "method_components": [
+        "model",
+        "dataset",
+        "policy",
+        "hardware",
+        "benchmark"
+      ],
+      "input": "RGB视觉输入 + 头部姿态/手势信号 + 手部位置反馈",
+      "output": "机械手关节动作序列（抓取阶段） + 工具执行指令（操作阶段）",
+      "novelty": 8,
+      "evidence": 11,
+      "one_sentence_verdict": "真突破：不是改进某个模块，而是确立了‘共具身+可变自主’这一新协作范式，并用扎实的真机多任务用户实验闭环验证其有效性与可用性。",
+      "deep": {}
+    },
+    {
+      "rank": 4,
       "arxiv_id": "2606.24884",
       "title": "InSight: Self-Guided Skill Acquisition via Steerable VLAs",
       "published": "2026-06-23",
@@ -131,50 +171,6 @@
       "novelty": 8,
       "evidence": 10,
       "one_sentence_verdict": "真突破：首次建立VLA原始动作级可引导性与VLM驱动的自主数据飞轮，在真实机器人上零示例习得多类新技能并组合执行，证据扎实且具范式迁移潜力。",
-      "deep": {}
-    },
-    {
-      "rank": 4,
-      "arxiv_id": "2606.22174",
-      "title": "OpenHLM: An Empirical Recipe for Whole-Body Humanoid Loco-Manipulation",
-      "published": "2026-06-20",
-      "url": "https://arxiv.org/abs/2606.22174",
-      "pdf_url": "https://arxiv.org/pdf/2606.22174",
-      "thumb": "assets/thumbs/2606.22174.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "智元",
-      "country": "CN",
-      "org_type": "company",
-      "significance": 82,
-      "significance_reason": "实证扎实：真机多任务验证（含大垂直跨度长程任务）、对比SOTA基线、消融明确（三阶段缺一不可）、开源全栈（数据/代码/模型），但未开新范式（仍属VLA迁移框架内优化），也未解决人形全身控制的根本性耦合动力学建模难题，分量介于OpenVLA（93）与CHORUS（94）之间，略低于π0（95）的理论深度与多机体统一性。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "teleoperation",
-        "dataset",
-        "benchmark",
-        "open-source",
-        "real-robot",
-        "large-scale"
-      ],
-      "tldr": "这篇论文提出OpenHLM，一个开源的全身体 humanoid（人形机器人）视觉-语言-动作（VLA）建模流程，通过三阶段实证路线图（全身体遥操作→VLA架构设计→异构协同训练），实现了仅用不到一半示范时长就超越两个SOTA人形VLA基线（GR00T N1.6和Ψ₀）在垂直跨度大的长程任务上的表现。",
-      "claim": "全身体人形locomanipulation无需从零构建专用VLA模型，可通过‘联合遥操作接口+跨平台VLA预训练+HuMI式异构协同训练’这一可复现的三步实证配方达成高效迁移与泛化。",
-      "method_components": [
-        "model",
-        "dataset",
-        "simulator",
-        "policy",
-        "benchmark",
-        "hardware"
-      ],
-      "input": "RGB图像+自然语言指令",
-      "output": "全身体关节控制信号（32+自由度动作序列）",
-      "novelty": 7,
-      "evidence": 10,
-      "one_sentence_verdict": "工程整合——将现有VLA范式系统性适配到人形全身控制，证据充分、开源完整、效果显著，但未突破VLA底层建模范式或人形动力学本质瓶颈。",
       "deep": {}
     },
     {
@@ -216,6 +212,45 @@
     },
     {
       "rank": 6,
+      "arxiv_id": "2606.27364",
+      "title": "PhysiFormer: Learning to Simulate Mechanics in World Space",
+      "published": "2026-06-25",
+      "url": "https://arxiv.org/abs/2606.27364",
+      "pdf_url": "https://arxiv.org/pdf/2606.27364",
+      "thumb": "assets/thumbs/2606.27364.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "world_model",
+      "org": "牛津大学",
+      "country": "UK",
+      "org_type": "university",
+      "significance": 78,
+      "significance_reason": "虽未达World Models/DreamerV3级范式突破（缺乏持久状态、闭环控制、策略耦合或真实世界交互验证），但首次将扩散建模系统性引入世界坐标系物理运动预测，实证覆盖多材质、多物体、未见几何，且开源完整数据与代码；其坐标空间扩散范式对具身智能的world model底层表征有明确启发，属扎实重磅贡献。",
+      "tier": "heavy",
+      "grade": "B",
+      "tags": [
+        "multimodal-fusion",
+        "dataset",
+        "benchmark",
+        "open-source"
+      ],
+      "tldr": "这篇论文提出了PhysiFormer，一个直接在三维世界坐标系中对物体顶点轨迹做扩散建模的Transformer模型，不依赖物理先验（如刚体约束或显式动力学方程），仅靠纯数据驱动就能生成符合力学直觉的刚性/弹性物体运动，支持多物体、未见几何、混合材质，并在仿真轨迹精度和物理一致性上显著超过自回归基线。",
+      "claim": "在世界坐标系中对3D网格顶点轨迹进行端到端扩散建模，无需任何物理归纳偏置，即可学习出具备力学合理性的、不确定-aware的多物体运动预测。",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "benchmark"
+      ],
+      "input": "初始顶点位置、顶点速度、物体材质类型（刚性/弹性）",
+      "output": "未来帧的顶点轨迹（世界坐标系下的时序顶点坐标）",
+      "novelty": 8,
+      "evidence": 10,
+      "one_sentence_verdict": "工程整合——将扩散模型与3D物理轨迹预测深度耦合，在世界坐标系中实现无物理先验的高保真运动生成，证据充分、开源完整，但尚未接入真实机器人闭环或构建可规划的状态核心。",
+      "deep": {}
+    },
+    {
+      "rank": 7,
       "arxiv_id": "2606.24472",
       "title": "G$^3$VLA: Geometric inductive bias for Vision-Language-Action Models",
       "published": "2026-06-23",
@@ -250,7 +285,7 @@
       "deep": {}
     },
     {
-      "rank": 7,
+      "rank": 8,
       "arxiv_id": "2606.27326",
       "title": "Hallucination in World Models is Predictable and Preventable",
       "published": "2026-06-25",
@@ -288,7 +323,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
+      "rank": 9,
       "arxiv_id": "2606.22836",
       "title": "Cloak: Zero-Shot Cross-Embodiment Manipulation by Masking the End-Effector from the VLA",
       "published": "2026-06-22",
@@ -326,7 +361,7 @@
       "deep": {}
     },
     {
-      "rank": 9,
+      "rank": 10,
       "arxiv_id": "2606.22998",
       "title": "TEXEDO : Test Time Scaling for Controller-aware Language-conditioned Humanoid Motion Generation",
       "published": "2026-06-22",
@@ -364,7 +399,46 @@
       "deep": {}
     },
     {
-      "rank": 10,
+      "rank": 11,
+      "arxiv_id": "2606.25591",
+      "title": "WOLF-VLA: Whole-Body Humanoid Optimal Locomotion Framework for Vision-Language-Action Learning",
+      "published": "2026-06-24",
+      "url": "https://arxiv.org/abs/2606.25591",
+      "pdf_url": "https://arxiv.org/pdf/2606.25591",
+      "thumb": "assets/thumbs/2606.25591.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "德国宇航中心(DLR)/柏林工业大学",
+      "country": "EU",
+      "org_type": "institute",
+      "significance": 78,
+      "significance_reason": "首次系统性构建了面向全身locomotion的VLA专用数据集与基准，填补了VLA从操作向运动控制延伸的关键空白；但所有验证限于仿真（Centaur平台），无真机部署、无跨机体验证、未与RT-2/Octo等通用VLA基线做公平对比，且最优控制合成数据无法反映真实接触动力学噪声与传感器失配，属于扎实的领域定向推进而非范式突破。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "dataset",
+        "benchmark",
+        "open-source",
+        "sim2real"
+      ],
+      "tldr": "这篇论文构建了一个面向人形机器人全身运动的视觉-语言-动作（VLA）框架WOLF-VLA，用最优控制生成大量动态可行的 locomotion 轨迹数据集，训练出能根据自然语言指令直接输出全身关节轨迹的VLA模型，并开源数据、模型和仿真基准。",
+      "claim": "通过将最优控制生成的动态一致轨迹与多模态VLA训练结合，首次实现了在接触丰富、全身协同的人形行走任务中，从自然语言指令端到端生成安全、鲁棒、可泛化的运动策略。",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "benchmark"
+      ],
+      "input": "自然语言指令+ego-centric RGB图像",
+      "output": "全身关节角度轨迹（含力/接触状态隐式建模）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：把最优控制、VLA架构与人形运动任务强耦合，构建了首个可复现的locomotion-VLA基准，但仍是仿真内闭环，尚未跨越sim2real鸿沟",
+      "deep": {}
+    },
+    {
+      "rank": 12,
       "arxiv_id": "2606.24448",
       "title": "Supervise What Survives: Geometry-Guided VLA Adaptation from Synthetic Robot Videos",
       "published": "2026-06-23",
@@ -402,83 +476,46 @@
       "deep": {}
     },
     {
-      "rank": 11,
-      "arxiv_id": "2606.23589",
-      "title": "KEMO: Event-Driven Keyframe Memory for Long-Horizon Robot Manipulation with VLA Policies",
-      "published": "2026-06-22",
-      "url": "https://arxiv.org/abs/2606.23589",
-      "pdf_url": "https://arxiv.org/pdf/2606.23589",
-      "thumb": "assets/thumbs/2606.23589.jpg",
-      "venue": "",
+      "rank": 13,
+      "arxiv_id": "2606.25706",
+      "title": "Learning Asynchronous Upper-body Task-space Trajectory Tracking Policy for Humanoid Robots",
+      "published": "2026-06-24",
+      "url": "https://arxiv.org/abs/2606.25706",
+      "pdf_url": "https://arxiv.org/pdf/2606.25706",
+      "thumb": "assets/thumbs/2606.25706.jpg",
+      "venue": "Humanoids",
       "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "未知（作者无明确机构署名，摘要未提所属单位，arXiv未标注affiliation）",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 78,
-      "significance_reason": "在真实双臂长时程操作（最长95秒、2846步）上验证了事件驱动记忆的有效性，有扎实的消融（关键帧选择、融合方式、损失加权）、多任务评测和显著性能增益（+23.6% TSR），但未开源代码/模型，且未跨机体泛化（仅双臂平台），未挑战开放世界或新范式，属对VLA记忆模块的高质量工程级增强，未达RT-2/Octo级范式突破。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "sim2real",
-        "real-robot",
-        "large-scale"
-      ],
-      "tldr": "提出KEMO框架，通过结合机器人运动学和视觉变化检测关键事件帧，只保留与任务进展相关的关键历史帧作为轻量记忆，再用交叉注意力和门控残差融合进VLA策略，显著提升了长时程双臂操作任务的成功率。",
-      "claim": "事件驱动的关键帧记忆（KEMO）能以轻量、可插拔方式提升VLA策略在长时程操作任务中的任务进度感知能力，且优于均匀采样或仅保留近期帧的记忆机制。",
-      "method_components": [
-        "model",
-        "policy",
-        "benchmark"
-      ],
-      "input": "RGB图像序列 + 机器人关节/末端位姿（用于事件检测） + 语言指令",
-      "output": "动作序列（VLA策略输出的tokenized动作）",
-      "novelty": 7,
-      "evidence": 10,
-      "one_sentence_verdict": "工程整合：解决了VLA在长时程任务中因观测歧义导致的进度遗忘问题，实证充分、部署落地，但属于模块级改进而非架构或范式创新。",
-      "deep": {}
-    },
-    {
-      "rank": 12,
-      "arxiv_id": "2606.22136",
-      "title": "Wh0: Generative World Models as Scalable Sources of Egocentric Human Hand Manipulation Data",
-      "published": "2026-06-20",
-      "url": "https://arxiv.org/abs/2606.22136",
-      "pdf_url": "https://arxiv.org/pdf/2606.22136",
-      "thumb": "assets/thumbs/2606.22136.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "清华",
+      "best_route": "whole_body_control",
+      "org": "浙江大学",
       "country": "CN",
       "org_type": "university",
-      "significance": 78,
-      "significance_reason": "实质性推进了VLA在灵巧操作中的零样本泛化能力，实证扎实（18个真实任务+消融验证），但未构建新世界模型架构，而是创新性地将现有生成视频模型（如CogVideoX类）重定向为具身对齐的数据引擎；相比World Models（97）等基石工作，它不解决世界建模本体问题，而是聚焦下游具身数据瓶颈，属重磅应用级突破而非范式级",
-      "tier": "heavy",
+      "significance": 72,
+      "significance_reason": "解决了人形控制中长期存在的planning-execution时序失配这一关键工程瓶颈，实证扎实（真机G1+多任务+消融+对比SOTA基线），但未开新范式、未覆盖全身运动生成、未打通端到端VLA链路，属于显著但非里程碑级的系统性工程突破。",
+      "tier": "notable",
       "grade": "C",
       "tags": [
-        "dataset",
-        "generative-model",
-        "multimodal-fusion",
-        "open-source"
+        "sim2real",
+        "dexterous",
+        "real-robot"
       ],
-      "tldr": "用生成式世界模型合成5万段第一人称视角的人手操作视频（WM-H），再通过手部运动重建和视觉编辑转为机器人可训练的监督信号，配合少量真实机器人数据微调VLA模型，在18个真实灵巧操作任务上将零样本成功率从8.3%提升至38.9%",
-      "claim": "生成式世界模型可作为可扩展、可控、场景-具身对齐的egocentric human-hand manipulation数据源，有效弥补真实机器人数据稀缺与仿真失真之间的鸿沟",
+      "tldr": "这篇论文解决人形机器人高层规划轨迹稀疏（低频）与底层控制器高频执行之间的时序不匹配问题，提出一个异步上半身任务空间跟踪策略，用教师-学生蒸馏初始化策略，结合滑动窗口全局奖励和MPC后处理，在仿真和Unitree G1真机上验证了低更新率下的更稳更准跟踪。",
+      "claim": "通过异步条件化策略建模+滑动窗口全局奖励+MPC引导的混合架构，可显著提升人形机器人在稀疏高层轨迹输入下的上半身任务空间跟踪鲁棒性与泛化性，无需显式帧对齐或在线时间估计。",
       "method_components": [
         "model",
-        "dataset",
-        "simulator"
+        "simulator",
+        "policy",
+        "benchmark",
+        "hardware"
       ],
-      "input": "语言指令+物体类别+场景描述",
-      "output": "egocentric视频序列→经手部运动重建与视觉编辑后生成的机器人动作监督信号（如关节轨迹或动作token）",
-      "novelty": 7,
+      "input": "缓存的未来任务空间轨迹序列 + 当前执行时间索引（标量）",
+      "output": "上半身关节力矩/速度控制指令（隐式映射到任务空间动作）",
+      "novelty": 6,
       "evidence": 9,
-      "one_sentence_verdict": "工程整合：将生成式世界模型首次系统性用于构建具身对齐的egocentric human-hand数据管道，并在真实灵巧操作任务上取得显著零样本提升，但核心模型非原创，依赖外部生成模型能力",
+      "one_sentence_verdict": "显著贡献：真机验证了异步轨迹跟踪的有效性，填补了稀疏指令下上半身精细操作的控制空白，但未触及具身智能核心认知层或通用任务编排。",
       "deep": {}
     },
     {
-      "rank": 13,
+      "rank": 14,
       "arxiv_id": "2606.23686",
       "title": "LIBERO-Safety: A Comprehensive Benchmark for Physical and Semantic Safety in Vision-Language-Action Models",
       "published": "2026-06-22",
@@ -515,7 +552,7 @@
       "deep": {}
     },
     {
-      "rank": 14,
+      "rank": 15,
       "arxiv_id": "2606.24450",
       "title": "NoContactNoWorries: Estimating Contact through Vision and Proprioception for In-Hand Dexterous Manipulation",
       "published": "2026-06-23",
@@ -550,41 +587,6 @@
       "novelty": 6,
       "evidence": 7,
       "one_sentence_verdict": "显著贡献：解决了伪触觉信号生成与下游操作闭环验证的关键链路，但受限于信号粒度（仅二值）、未开源、缺乏与触觉硬件的定量对比，尚未达到基石级分量。",
-      "deep": {}
-    },
-    {
-      "rank": 15,
-      "arxiv_id": "2606.22363",
-      "title": "Reference-Free Assessment of Physical Consistency in World Model-based Video Generation",
-      "published": "2026-06-21",
-      "url": "https://arxiv.org/abs/2606.22363",
-      "pdf_url": "https://arxiv.org/pdf/2606.22363",
-      "thumb": "assets/thumbs/2606.22363.jpg",
-      "venue": "CVPR 2026",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "unknown",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 52,
-      "significance_reason": "提出了首个可定位、免参考的物理一致性评估框架，实证显示其筛选后的视频使任务成功率提升8%，但未开源代码/模型，仅靠项目页；方法依赖现成SLAM/光流模型（非原创），未在多世界模型或跨任务上验证泛化性，也未与FVD/Elo等基准做系统对比，属扎实但窄口径的评估工具创新，未触及世界模型架构或训练范式本身。",
-      "tier": "worth",
-      "grade": "D",
-      "tags": [
-        "benchmark",
-        "sim2real"
-      ],
-      "tldr": "这篇论文提出了一种无需真实视频参考、也不依赖人工评分的自动评估方法，用SLAM和光流模型来检测生成视频中违反物理规律的帧和区域，从而量化世界模型生成视频的物理一致性，并验证该评估能提升仿真到现实的迁移效果。",
-      "claim": "无需参考视频或人工标注，仅通过DROID-SLAM和SEA-RAFT即可定量评估世界模型生成视频的物理一致性，并显著缩小sim2real任务成功率差距。",
-      "method_components": [
-        "model",
-        "benchmark"
-      ],
-      "input": "生成的视频序列",
-      "output": "物理不一致性的时空定位图（像素级+帧级）及相对/绝对一致性得分",
-      "novelty": 6,
-      "evidence": 7,
-      "one_sentence_verdict": "工程整合：将现有视觉运动估计工具（DROID-SLAM/SEA-RAFT）迁移到世界模型评估场景，实现了免参考、可定位的物理一致性诊断，但缺乏开源与广义验证，尚未构成方法论突破。",
       "deep": {}
     }
   ]
