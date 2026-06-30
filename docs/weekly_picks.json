@@ -1,16 +1,17 @@
 {
   "week": {
-    "start": "2026-06-23",
-    "end": "2026-06-29",
-    "label": "06.23~06.29"
+    "start": "2026-06-24",
+    "end": "2026-06-30",
+    "label": "06.24~06.30"
   },
   "count": 15,
   "venue_count": 4,
   "venues": [
-    "CoRL 2026",
+    "ECCV 2026",
+    "Humanoids",
     "IROS 2026"
   ],
-  "generated_at": "2026-06-29 05:31 UTC",
+  "generated_at": "2026-06-30 05:04 UTC",
   "picks": [
     {
       "rank": 1,
@@ -212,47 +213,6 @@
     },
     {
       "rank": 6,
-      "arxiv_id": "2606.24884",
-      "title": "InSight: Self-Guided Skill Acquisition via Steerable VLAs",
-      "published": "2026-06-23",
-      "url": "https://arxiv.org/abs/2606.24884",
-      "pdf_url": "https://arxiv.org/pdf/2606.24884",
-      "thumb": "assets/thumbs/2606.24884.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "斯坦福",
-      "country": "US",
-      "org_type": "university",
-      "significance": 86,
-      "significance_reason": "首次系统实现VLA模型在原始动作级的可引导性+闭环自主技能增殖，真机验证5类无先验演示的新任务（含pouring/twisting等高难度操作），具备跨任务泛化与长程组合能力；虽未开源代码/模型，但方法完整、消融充分、多基线对比扎实，显著推进VLA从‘模仿封闭集’迈向‘自主开放学习’范式，但尚未达到RT-2级范式颠覆量级。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "sim2real",
-        "dataset",
-        "benchmark",
-        "real-robot"
-      ],
-      "tldr": "提出InSight框架，让视觉语言动作模型（VLA）能自主发现并学习新技能的底层动作原语（如‘移动夹爪到碗’‘向上提起’），无需人类提供目标技能的演示——通过VLM自动分解已有演示、识别缺失原语、用VLM生成低层控制指令自主尝试执行、自动标注并回填训练集，最终实现零人类示范下的新任务长程组合执行。",
-      "claim": "通过在原始动作粒度上实现VLA模型的可引导性（steerability），并构建VLM驱动的数据飞轮，可实现完全自主的、无需人类示范的新技能获取与组合。",
-      "method_components": [
-        "model",
-        "dataset",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "多模态指令（自然语言+图像/视频）、已有演示轨迹（含末端位姿）、VLM生成的动作原语描述",
-      "output": "可执行的动作原语序列（对应关节/末端控制信号）、扩展后的VLA训练数据集",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：首次建立VLA原始动作级可引导性与VLM驱动的自主数据飞轮，在真实机器人上零示例习得多类新技能并组合执行，证据扎实且具范式迁移潜力。",
-      "deep": {}
-    },
-    {
-      "rank": 7,
       "arxiv_id": "2606.26423",
       "title": "CoStream: Composing Simple Behaviors for Generalizable Complex Manipulation",
       "published": "2026-06-24",
@@ -293,7 +253,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
+      "rank": 7,
       "arxiv_id": "2606.26800",
       "title": "SSI-Policy: Learning Structured Scene Interfaces for Vision-Language Robotic Manipulation",
       "published": "2026-06-25",
@@ -331,7 +291,7 @@
       "deep": {}
     },
     {
-      "rank": 9,
+      "rank": 8,
       "arxiv_id": "2606.27364",
       "title": "PhysiFormer: Learning to Simulate Mechanics in World Space",
       "published": "2026-06-25",
@@ -370,79 +330,43 @@
       "deep": {}
     },
     {
-      "rank": 10,
-      "arxiv_id": "2606.24712",
-      "title": "TACTFUL: Tactile-Driven Exploration For Object Localization and Identification in Confined Environments",
-      "published": "2026-06-23",
-      "url": "https://arxiv.org/abs/2606.24712",
-      "pdf_url": "https://arxiv.org/pdf/2606.24712",
-      "thumb": "assets/thumbs/2606.24712.jpg",
-      "venue": "IROS 2026",
-      "domain": "embodied_ai",
-      "best_route": "hardware_unitree",
-      "org": "Boston Dynamics",
-      "country": "US",
-      "org_type": "company",
-      "significance": 78,
-      "significance_reason": "首次在真实多指灵巧手上实现端到端纯触觉驱动的物体定位+识别+重建闭环，跨物体/场景验证扎实（非单物单场景），但未开源数据集与完整模型权重，且未证明跨机体迁移能力；显著优于此前纯触觉工作（如GelSight-based baseline），但尚未达到Unitree R1（90分档）级系统性工程突破量级。",
-      "tier": "heavy",
-      "grade": "D",
-      "tags": [
-        "tactile",
-        "dexterous",
-        "real-robot"
-      ],
-      "tldr": "用纯触觉（不依赖视觉）让多指机器人在狭小空间里自主摸索、找到物体并重建其形状和身份，全程只用真实机器人数据训练，没用任何仿真。",
-      "claim": "纯触觉驱动的探索策略可作为主模态实现 confined 环境下的物体定位与识别，无需视觉辅助，且仅靠真实硬件数据即可训练出泛化性良好的单策略。",
-      "method_components": [
-        "model",
-        "hardware",
-        "benchmark"
-      ],
-      "input": "多指机器人指尖触觉传感器序列（如力/形变/滑动信号）",
-      "output": "物体类别标签 + 三维几何重建点云",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "真突破——它是首个在真实灵巧手上完成全触觉闭环（探索→接触→识别→重建）且有量化指标支撑的工作，但受限于闭源数据与单一硬件平台，尚未构成范式迁移级贡献。",
-      "deep": {}
-    },
-    {
-      "rank": 11,
-      "arxiv_id": "2606.24472",
-      "title": "G$^3$VLA: Geometric inductive bias for Vision-Language-Action Models",
-      "published": "2026-06-23",
-      "url": "https://arxiv.org/abs/2606.24472",
-      "pdf_url": "https://arxiv.org/pdf/2606.24472",
-      "thumb": "assets/thumbs/2606.24472.jpg",
-      "venue": "CoRL 2026",
+      "rank": 9,
+      "arxiv_id": "2606.28133",
+      "title": "Translation as a Bridging Action: Transferring Manipulation Skills from Humans to Robots",
+      "published": "2026-06-26",
+      "url": "https://arxiv.org/abs/2606.28133",
+      "pdf_url": "https://arxiv.org/pdf/2606.28133",
+      "thumb": "assets/thumbs/2606.28133.jpg",
+      "venue": "",
       "domain": "embodied_ai",
       "best_route": "vla",
-      "org": "未知（作者单位未在摘要中披露，无明显机构标识如DeepMind/Stanford/NVIDIA；arXiv署名无affiliation信息）",
-      "country": "unknown",
-      "org_type": "unknown",
+      "org": "清华大学",
+      "country": "CN",
+      "org_type": "university",
       "significance": 76,
-      "significance_reason": "实证扎实：在LIBERO、RoboCasa24、RoboTwin2.0及真实机器人上跨平台验证，尤其在空间敏感任务上提升显著；几何注入方式（PRoPE+ray embedding+cross-view fusion）具明确物理意义；但未开源代码/模型，且未挑战VLA基础架构瓶颈（如动作表征、长程规划），属于强工程导向的高质量改进，尚未达RT-2/π0级范式突破",
+      "significance_reason": "真机验证跨机体技能迁移，明确规避了人机手部几何/接触建模这一长期难点，提出可测量、可对齐的桥接动作空间；但仅限平移动作、未覆盖旋转与接触力，未开源代码/模型，消融实验未公开细节，未与RT-2/π0等基线直接对比，属扎实推进但未达里程碑级。",
       "tier": "heavy",
-      "grade": "C",
+      "grade": "B",
       "tags": [
         "multimodal-fusion",
-        "sim2real"
+        "teleoperation",
+        "real-robot"
       ],
-      "tldr": "这篇论文给现有的视觉-语言-动作（VLA）模型加了一个几何感知模块G³VLA，把相机内参/外参等真实几何信息注入视觉token，让模型理解多视角图像间的3D空间关系，从而提升在需要空间推理的机器人操作任务上的表现，不改原有动作输出和训练目标。",
-      "claim": "向预训练VLA模型注入相机标定几何先验（而非仅2D像素坐标），可显著提升其在空间敏感型机器人操作任务中的泛化与性能，且无需额外深度传感器或人工标注。",
+      "tldr": "提出一种‘桥接动作’表示法（以头戴相机坐标系下的手腕相对平移量为核心），将人类双手机械操作动作迁移到带平行夹爪的双臂机器人上，绕过手部姿态估计噪声和人机接触模式差异问题。",
+      "claim": "用头戴相机坐标系下的人类手腕相对平移作为人机共享的动作表征，比直接使用噪声6DoF手部姿态更鲁棒、更可迁移，且能随人类数据量增长而持续提升机器人操作性能。",
       "method_components": [
         "model",
-        "simulator"
+        "dataset"
       ],
-      "input": "多视角RGB图像+语言指令+相机内参/外参（标定参数）",
-      "output": "动作序列（与原VLA一致，未改变动作空间）",
+      "input": "RGB视频流（来自头戴相机）+语言任务指令",
+      "output": "双臂机器人末端执行器的平移动作块（x,y,z）",
       "novelty": 7,
       "evidence": 8,
-      "one_sentence_verdict": "工程整合：将相机几何先验系统性注入VLA视觉token流，在多基准上稳定提效，方法清晰、验证充分，但属架构增强而非范式革新，且缺乏开源支撑",
+      "one_sentence_verdict": "工程整合：解决了人机动作表征不对齐的关键工程瓶颈，有真实机器人验证和跨机体泛化，但动作空间受限、开源不足、未对标顶级基线，属于高质量落地导向工作而非范式突破。",
       "deep": {}
     },
     {
-      "rank": 12,
+      "rank": 10,
       "arxiv_id": "2606.27326",
       "title": "Hallucination in World Models is Predictable and Preventable",
       "published": "2026-06-25",
@@ -480,7 +404,7 @@
       "deep": {}
     },
     {
-      "rank": 13,
+      "rank": 11,
       "arxiv_id": "2606.27079",
       "title": "ForesightSafety-VLA: A Unified Diagnostic Safety Benchmark for Vision-Language-Action Models",
       "published": "2026-06-25",
@@ -517,7 +441,7 @@
       "deep": {}
     },
     {
-      "rank": 14,
+      "rank": 12,
       "arxiv_id": "2606.26603",
       "title": "Bridging Handheld and Teleoperated Supervision for Contact-Rich Manipulation via State-Gated Experts",
       "published": "2026-06-25",
@@ -555,7 +479,7 @@
       "deep": {}
     },
     {
-      "rank": 15,
+      "rank": 13,
       "arxiv_id": "2606.26215",
       "title": "TaskNPoint: How to Teach Your Humanoid to Hit a Backhand in Minutes",
       "published": "2026-06-24",
@@ -591,6 +515,82 @@
       "novelty": 7,
       "evidence": 10,
       "one_sentence_verdict": "重磅——真机多任务零样本泛化+分钟级训练+免奖励工程，证据扎实，但开源缺失限制复现，尚未突破全身时序建模上限",
+      "deep": {}
+    },
+    {
+      "rank": 14,
+      "arxiv_id": "2606.25706",
+      "title": "Learning Asynchronous Upper-body Task-space Trajectory Tracking Policy for Humanoid Robots",
+      "published": "2026-06-24",
+      "url": "https://arxiv.org/abs/2606.25706",
+      "pdf_url": "https://arxiv.org/pdf/2606.25706",
+      "thumb": "assets/thumbs/2606.25706.jpg",
+      "venue": "Humanoids",
+      "domain": "embodied_ai",
+      "best_route": "whole_body_control",
+      "org": "浙江大学",
+      "country": "CN",
+      "org_type": "university",
+      "significance": 72,
+      "significance_reason": "解决了人形控制中长期存在的planning-execution时序失配这一关键工程瓶颈，实证扎实（真机G1+多任务+消融+对比SOTA基线），但未开新范式、未覆盖全身运动生成、未打通端到端VLA链路，属于显著但非里程碑级的系统性工程突破。",
+      "tier": "notable",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "dexterous",
+        "real-robot"
+      ],
+      "tldr": "这篇论文解决人形机器人高层规划轨迹稀疏（低频）与底层控制器高频执行之间的时序不匹配问题，提出一个异步上半身任务空间跟踪策略，用教师-学生蒸馏初始化策略，结合滑动窗口全局奖励和MPC后处理，在仿真和Unitree G1真机上验证了低更新率下的更稳更准跟踪。",
+      "claim": "通过异步条件化策略建模+滑动窗口全局奖励+MPC引导的混合架构，可显著提升人形机器人在稀疏高层轨迹输入下的上半身任务空间跟踪鲁棒性与泛化性，无需显式帧对齐或在线时间估计。",
+      "method_components": [
+        "model",
+        "simulator",
+        "policy",
+        "benchmark",
+        "hardware"
+      ],
+      "input": "缓存的未来任务空间轨迹序列 + 当前执行时间索引（标量）",
+      "output": "上半身关节力矩/速度控制指令（隐式映射到任务空间动作）",
+      "novelty": 6,
+      "evidence": 9,
+      "one_sentence_verdict": "显著贡献：真机验证了异步轨迹跟踪的有效性，填补了稀疏指令下上半身精细操作的控制空白，但未触及具身智能核心认知层或通用任务编排。",
+      "deep": {}
+    },
+    {
+      "rank": 15,
+      "arxiv_id": "2606.27268",
+      "title": "E-TTS: A New Embodied Test-Time Scaling Framework for Robotic Manipulation",
+      "published": "2026-06-25",
+      "url": "https://arxiv.org/abs/2606.27268",
+      "pdf_url": "https://arxiv.org/pdf/2606.27268",
+      "thumb": "assets/thumbs/2606.27268.jpg",
+      "venue": "ECCV 2026",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "未知",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 68,
+      "significance_reason": "首次将test-time scaling系统性引入具身操作，并设计历史缓冲+闭环验证机制，实证覆盖多平台多环境，但未开源代码/模型，且所有提升均基于已有VLA基线（未挑战基础建模瓶颈），属扎实的工程范式拓展而非理论或架构突破。",
+      "tier": "notable",
+      "grade": "D",
+      "tags": [
+        "sim2real",
+        "multimodal-fusion",
+        "benchmark"
+      ],
+      "tldr": "提出一个叫E-TTS的框架，在机器人操作任务推理时动态扩展开采与验证过程，通过历史缓冲区+视觉语言验证器实现带反馈的闭环迭代优化，不重训练就能提升现有VLA模型在仿真和真实机器人上的表现。",
+      "claim": "通过历史感知的闭环迭代验证机制，可在测试时无需重训练地统一提升推理与动作缩放能力，显著增强VLA模型在长程具身操作任务中的泛化与鲁棒性。",
+      "method_components": [
+        "model",
+        "simulator",
+        "benchmark"
+      ],
+      "input": "多帧视觉观测+语言指令+历史动作/状态序列",
+      "output": "优化后的动作序列（或单步动作）",
+      "novelty": 6,
+      "evidence": 8,
+      "one_sentence_verdict": "工程整合：把TTS思想落地到具身操作，机制清晰、验证充分，但缺乏开源与底层创新，尚未达到开新范式或解决长期开放难题的量级。",
       "deep": {}
     }
   ]

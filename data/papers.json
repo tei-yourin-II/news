@@ -7898,6 +7898,95 @@
       "thumb": "assets/thumbs/2606.27364.jpg"
     },
     {
+      "arxiv_id": "2606.28133",
+      "title": "Translation as a Bridging Action: Transferring Manipulation Skills from Humans to Robots",
+      "abstract": "We study whether we can learn novel manipulation skills from human actions to a bi-manual robot with parallel grippers. Human action data is cheap, abundant, and diverse, making it one of the most promising resources for scaling up robot learning. Yet transferring skills from humans to robots remains hard: most prior work treats humans as just another bi-manual 6DoF embodiment, where hand-pose estimates are noisy and the contact patterns of human fingers differ fundamentally from those of a parallel gripper. We argue that learning rotation-inclusive action signals from human data is therefore sub-optimal, and instead propose a bridging action representation: the relative wrist translation within the initial head-camera frame, an action space shared by humans and robots. To handle the potential absence of certain action components in different embodiments, we build a π_0-like vision-language-action model with interleaved action tokens and attention masking. On a suite of novel bi-manual manipulation tasks, our bridging action transfers human manipulation knowledge to robots far more effectively than noisy 6DoF human actions and scales with the amount of human data.",
+      "authors": [
+        "Sijin Chen",
+        "Kaixuan Jiang",
+        "Haixin Shi",
+        "Yanhui Wang",
+        "Weiheng Zhong",
+        "Haosheng Li",
+        "Bo Jiang",
+        "Yuxiao Liu",
+        "Xihui Liu"
+      ],
+      "categories": [],
+      "published": "2026-06-26T00:00:00.000Z",
+      "updated": "2026-06-26T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2606.28133",
+      "pdf_url": "https://arxiv.org/pdf/2606.28133",
+      "hf_upvotes": 15,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.6444,
+        "world_model": 0.4162,
+        "whole_body_control": 0.5697,
+        "dexterous_manipulation": 0.3607,
+        "sim2real_data": 0.3302,
+        "hardware_unitree": 0.2515,
+        "bci_neural_decoding": 0.2986,
+        "bci_foundation_models": 0.2728,
+        "bci_embodied_robot": 0.3888,
+        "bci_noninvasive_eeg": 0.1764,
+        "protein_ai": 0.1436,
+        "genomics_ai": 0.1862
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.6444,
+      "first_seen": "2026-06-29",
+      "analysis": {
+        "tldr": "提出一种‘桥接动作’表示法（以头戴相机坐标系下的手腕相对平移量为核心），将人类双手机械操作动作迁移到带平行夹爪的双臂机器人上，绕过手部姿态估计噪声和人机接触模式差异问题。",
+        "org": "清华大学",
+        "country": "CN",
+        "org_type": "university",
+        "claim": "用头戴相机坐标系下的人类手腕相对平移作为人机共享的动作表征，比直接使用噪声6DoF手部姿态更鲁棒、更可迁移，且能随人类数据量增长而持续提升机器人操作性能。",
+        "method_components": [
+          "model",
+          "dataset"
+        ],
+        "input": "RGB视频流（来自头戴相机）+语言任务指令",
+        "output": "双臂机器人末端执行器的平移动作块（x,y,z）",
+        "robot_dependency": "双臂机器人平台（未指明具体型号，但实验在真实机器人上进行）",
+        "data_dependency": "依赖人类穿戴头戴相机采集的真实操作视频数据，不依赖机器人自身交互数据",
+        "sim2real_status": "small-real",
+        "generalization": [
+          "cross-embodiment"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "teleoperation",
+          "real-robot"
+        ],
+        "novelty": 7,
+        "evidence": 8,
+        "reproducibility_score": 3,
+        "significance": 76,
+        "significance_reason": "真机验证跨机体技能迁移，明确规避了人机手部几何/接触建模这一长期难点，提出可测量、可对齐的桥接动作空间；但仅限平移动作、未覆盖旋转与接触力，未开源代码/模型，消融实验未公开细节，未与RT-2/π0等基线直接对比，属扎实推进但未达里程碑级。",
+        "one_sentence_verdict": "工程整合：解决了人机动作表征不对齐的关键工程瓶颈，有真实机器人验证和跨机体泛化，但动作空间受限、开源不足、未对标顶级基线，属于高质量落地导向工作而非范式突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 34,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 19.3,
+        "content": 18.0,
+        "heat": 13.4,
+        "quality": 0.0,
+        "base": 37.3,
+        "bonus": 13.4,
+        "total": 50.7
+      },
+      "grade": "B",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2606.28133.jpg"
+    },
+    {
       "arxiv_id": "2604.04913",
       "title": "A Frame is Worth One Token: Efficient Generative World Modeling with Delta Tokens",
       "abstract": "Anticipating diverse future states is a central challenge in video world modeling. Discriminative world models produce a deterministic prediction that implicitly averages over possible futures, while existing generative world models remain computationally expensive. Recent work demonstrates that predicting the future in the feature space of a vision foundation model (VFM), rather than a latent space optimized for pixel reconstruction, requires significantly fewer world model parameters. However, most such approaches remain discriminative. In this work, we introduce DeltaTok, a tokenizer that encodes the VFM feature difference between consecutive frames into a single continuous \"delta\" token, and DeltaWorld, a generative world model operating on these tokens to efficiently generate diverse plausible futures. Delta tokens reduce video from a three-dimensional spatio-temporal representation to a one-dimensional temporal sequence, for example yielding a 1,024x token reduction with 512x512 frames. This compact representation enables tractable multi-hypothesis training, where many futures are generated in parallel and only the best is supervised. At inference, this leads to diverse predictions in a single forward pass. Experiments on dense forecasting tasks demonstrate that DeltaWorld forecasts futures that more closely align with real-world outcomes, while having over 35x fewer parameters and using 2,000x fewer FLOPs than existing generative world models. Code and weights: https://deltatok.github.io.",
@@ -8645,95 +8734,6 @@
       "grade": "C",
       "read_priority": "B",
       "thumb": "assets/thumbs/2606.12403.jpg"
-    },
-    {
-      "arxiv_id": "2606.28133",
-      "title": "Translation as a Bridging Action: Transferring Manipulation Skills from Humans to Robots",
-      "abstract": "We study whether we can learn novel manipulation skills from human actions to a bi-manual robot with parallel grippers. Human action data is cheap, abundant, and diverse, making it one of the most promising resources for scaling up robot learning. Yet transferring skills from humans to robots remains hard: most prior work treats humans as just another bi-manual 6DoF embodiment, where hand-pose estimates are noisy and the contact patterns of human fingers differ fundamentally from those of a parallel gripper. We argue that learning rotation-inclusive action signals from human data is therefore sub-optimal, and instead propose a bridging action representation: the relative wrist translation within the initial head-camera frame, an action space shared by humans and robots. To handle the potential absence of certain action components in different embodiments, we build a π_0-like vision-language-action model with interleaved action tokens and attention masking. On a suite of novel bi-manual manipulation tasks, our bridging action transfers human manipulation knowledge to robots far more effectively than noisy 6DoF human actions and scales with the amount of human data.",
-      "authors": [
-        "Sijin Chen",
-        "Kaixuan Jiang",
-        "Haixin Shi",
-        "Yanhui Wang",
-        "Weiheng Zhong",
-        "Haosheng Li",
-        "Bo Jiang",
-        "Yuxiao Liu",
-        "Xihui Liu"
-      ],
-      "categories": [],
-      "published": "2026-06-26T00:00:00.000Z",
-      "updated": "2026-06-26T00:00:00.000Z",
-      "url": "https://arxiv.org/abs/2606.28133",
-      "pdf_url": "https://arxiv.org/pdf/2606.28133",
-      "hf_upvotes": 15,
-      "source": "hf_daily",
-      "route_scores": {
-        "vla": 0.6444,
-        "world_model": 0.4162,
-        "whole_body_control": 0.5697,
-        "dexterous_manipulation": 0.3607,
-        "sim2real_data": 0.3302,
-        "hardware_unitree": 0.2515,
-        "bci_neural_decoding": 0.2986,
-        "bci_foundation_models": 0.2728,
-        "bci_embodied_robot": 0.3888,
-        "bci_noninvasive_eeg": 0.1764,
-        "protein_ai": 0.1436,
-        "genomics_ai": 0.1862
-      },
-      "best_route": "vla",
-      "relevance_raw": 0.6444,
-      "first_seen": "2026-06-29",
-      "analysis": {
-        "tldr": "提出一种‘桥接动作’表示法（以头戴相机坐标系下的手腕相对平移量为核心），将人类双手机械操作动作迁移到带平行夹爪的双臂机器人上，绕过手部姿态估计噪声和人机接触模式差异问题。",
-        "org": "清华大学",
-        "country": "CN",
-        "org_type": "university",
-        "claim": "用头戴相机坐标系下的人类手腕相对平移作为人机共享的动作表征，比直接使用噪声6DoF手部姿态更鲁棒、更可迁移，且能随人类数据量增长而持续提升机器人操作性能。",
-        "method_components": [
-          "model",
-          "dataset"
-        ],
-        "input": "RGB视频流（来自头戴相机）+语言任务指令",
-        "output": "双臂机器人末端执行器的平移动作块（x,y,z）",
-        "robot_dependency": "双臂机器人平台（未指明具体型号，但实验在真实机器人上进行）",
-        "data_dependency": "依赖人类穿戴头戴相机采集的真实操作视频数据，不依赖机器人自身交互数据",
-        "sim2real_status": "small-real",
-        "generalization": [
-          "cross-embodiment"
-        ],
-        "reproducibility": "project-page",
-        "tags": [
-          "multimodal-fusion",
-          "teleoperation",
-          "real-robot"
-        ],
-        "novelty": 7,
-        "evidence": 8,
-        "reproducibility_score": 3,
-        "significance": 76,
-        "significance_reason": "真机验证跨机体技能迁移，明确规避了人机手部几何/接触建模这一长期难点，提出可测量、可对齐的桥接动作空间；但仅限平移动作、未覆盖旋转与接触力，未开源代码/模型，消融实验未公开细节，未与RT-2/π0等基线直接对比，属扎实推进但未达里程碑级。",
-        "one_sentence_verdict": "工程整合：解决了人机动作表征不对齐的关键工程瓶颈，有真实机器人验证和跨机体泛化，但动作空间受限、开源不足、未对标顶级基线，属于高质量落地导向工作而非范式突破。",
-        "_llm": "qwen-plus"
-      },
-      "signals": {
-        "hf_upvotes": 15,
-        "citations": 0,
-        "venue": ""
-      },
-      "scores": {
-        "relevance": 19.3,
-        "content": 18.0,
-        "heat": 10.5,
-        "quality": 0.0,
-        "base": 37.3,
-        "bonus": 10.5,
-        "total": 47.8
-      },
-      "grade": "C",
-      "read_priority": "B",
-      "thumb": "assets/thumbs/2606.28133.jpg"
     },
     {
       "arxiv_id": "2606.06556",
@@ -37102,6 +37102,97 @@
       "grade": "C",
       "read_priority": "B",
       "thumb": "assets/thumbs/2606.26046.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.06.23.733997",
+      "doi": "10.64898/2026.06.23.733997",
+      "source_kind": "biorxiv",
+      "title": "BoltzProt-1: Towards Efficient De Novo Binder Design with Good Developability",
+      "abstract": "Designing binders against novel protein targets remains a central challenge in computational drug discovery. Here we introduce BoltzProt-1, a pipeline for generating protein binders, including nanobodies, with improved hit rates and favorable developability properties. At its core lie a refined iteration of BoltzGen's generative model and a novel protein-protein interaction prediction model, BoltzPPI. Employing BoltzPPI instead of BoltzGen's standard structure-prediction confidence metrics to rank nanobody (VHH) designs increases the confirmed-binder hit rate from 3.3% to 8.0% across 10 novel targets. Assessed on 10 additional targets used in prior literature, the BoltzProt-1 pipeline obtains nanobody screening hits for 7 of 10 targets, surpassing the 6 of 10 previously reported by Chai-2. Finally, evaluating the developability of BoltzProt-1-designed nanobodies in terms of stability, aggregation, purity, polyspecificity and hydrophobicity reveals that 58% of its confirmed binders pass every criterion, exceeding both BoltzGen (40%) and clinical-stage VHH controls (21%).",
+      "authors": [
+        "Talip Ucar",
+        "Jack Bates",
+        "Yunguan Fu",
+        "Wenxian Shi",
+        "H. Stärk",
+        "Demitri Nava",
+        "Luca Cavalleri",
+        "Jeremy Wohlwend",
+        "Gabriele Corso",
+        "Saro Passaro"
+      ],
+      "categories": [],
+      "published": "2026-06-27",
+      "updated": "2026-06-27",
+      "url": "https://doi.org/10.64898/2026.06.23.733997",
+      "pdf_url": "https://doi.org/10.64898/2026.06.23.733997",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1412,
+        "world_model": 0.1729,
+        "whole_body_control": 0.1555,
+        "dexterous_manipulation": 0.1457,
+        "sim2real_data": 0.1167,
+        "hardware_unitree": 0.0625,
+        "bci_neural_decoding": 0.1387,
+        "bci_foundation_models": 0.1164,
+        "bci_embodied_robot": 0.1092,
+        "bci_noninvasive_eeg": 0.138,
+        "protein_ai": 0.5417,
+        "genomics_ai": 0.3658
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.5417,
+      "first_seen": "2026-06-30",
+      "analysis": {
+        "tldr": "提出BoltzProt-1流程，用改进的生成模型BoltzGen和新训练的蛋白-蛋白互作预测模型BoltzPPI联合筛选纳米抗体，将实验验证的结合体命中率从3.3%提至8.0%，并在10个新靶点中实现7个成功筛选，同时58%的确认结合体满足全部可开发性指标（稳定性、抗聚集等），显著优于前代BoltzGen和临床阶段对照。",
+        "org": "DeepMind",
+        "country": "US",
+        "org_type": "company",
+        "claim": "用BoltzPPI替代结构置信度打分进行生成后排序，可显著提升de novo纳米抗体设计的实验命中率和可开发性达标率。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "目标蛋白结构（PDB格式）或序列",
+        "output": "可开发性达标的纳米抗体（VHH）氨基酸序列",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖机器人数据，依赖已发表的蛋白结构、结合实验数据及可开发性检测结果（如DSF、SEC-HPLC、SPR等）",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-target"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "benchmark",
+          "dataset"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 78,
+        "significance_reason": "在de novo蛋白 binder设计中首次将PPI预测模型直接用于生成式筛选排序，并在10+10个独立新靶点上完成湿实验验证，命中率翻倍且可开发性达标率超临床对照；但未开源代码/模型权重，未覆盖更广蛋白类型（仅VHH），也未证明对非结构化靶点或突变靶点的鲁棒性，尚未达到RFdiffusion/AlphaFold2级范式突破，属扎实重磅进展。",
+        "one_sentence_verdict": "工程整合：将生成模型与专用判别模型闭环耦合，在真实湿实验中系统验证了对新靶点的高命中与高可开发性，但未开源核心资产，未拓展至通用蛋白支架，属当前AI×生物领域顶尖的工程级推进。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 16.3,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 36.3,
+        "bonus": 0.0,
+        "total": 36.3
+      },
+      "grade": "C",
+      "read_priority": "B"
     },
     {
       "arxiv_id": "2606.00702",
@@ -80173,6 +80264,88 @@
       "read_priority": "C"
     },
     {
+      "arxiv_id": "10.64898/2026.06.22.732937",
+      "doi": "10.64898/2026.06.22.732937",
+      "source_kind": "biorxiv",
+      "title": "Single cell genomics and fluorescence microscopy suggest a permanent plastid in a marine centrohelid",
+      "abstract": "Photosynthetic organelles (plastids), which originated via primary endosymbiosis between an Archaeplastida ancestor and cyanobacteria, have shaped the Earth's oxygen-rich atmosphere and spread across the eukaryotic tree of life through multiple secondary and higher order endosymbioses. Yet, the mechanisms driving the transition from endosymbiont to organelle remain poorly understood, highlighting the need for novel systems to elucidate the stages of endosymbiont integration and test the generality of plastid evolution models. Here, we employ single-cell genomics and catalyzed reporter deposition fluorescence in-situ hybridization (CARD-FISH) to investigate the dictyochophyte plastids of the poorly known marine centrohelid Meringosphaera across diverse geographic locations. Our analyses detected novel microdiversity of cells both containing and lacking plastids. Using phylogenomics we show that host and plastid data are perfectly congruent across a large plastid-containing clade (named MER-2), strongly indicating co-evolution. Extensive environmental screening using double CARD-FISH simultaneously targeting host and plastid further confirms that MER-2 cells almost always harbor plastids, supporting the hypothesis of permanent plastid integration and vertical transmission. Additionally, we find that both MER-2 hosts and other Meringosphaera lineages encode multiple plastid-associated genes from diverse phylogenetic origins, with many of their products predicted to be plastid-targeted. Collectively, our findings represent the first report of algae in centrohelids, a large eukaryotic group of otherwise heterotrophic predators. The discovery of new plastids is rare and underscores the importance of exploring uncultured algae to provide new insights into plastid origin and evolution.",
+      "authors": [
+        "Anne Walraven",
+        "Vasily V. Zlatogursky",
+        "Patrick J. Keeling",
+        "Rachel A. Foster",
+        "Fabien Burki"
+      ],
+      "categories": [],
+      "published": "2026-06-26",
+      "updated": "2026-06-26",
+      "url": "https://doi.org/10.64898/2026.06.22.732937",
+      "pdf_url": "https://doi.org/10.64898/2026.06.22.732937",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0097,
+        "world_model": 0.0277,
+        "whole_body_control": 0.0931,
+        "dexterous_manipulation": 0.0612,
+        "sim2real_data": 0.0351,
+        "hardware_unitree": 0.0863,
+        "bci_neural_decoding": 0.034,
+        "bci_foundation_models": 0.0406,
+        "bci_embodied_robot": 0.0,
+        "bci_noninvasive_eeg": 0.0671,
+        "protein_ai": 0.2521,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.2547,
+      "first_seen": "2026-06-30",
+      "analysis": {
+        "tldr": "通过单细胞基因组学和荧光原位杂交技术，首次在原本纯异养的海洋中心藻类（centrohelid）Meringosphaera中发现稳定遗传、垂直传递的永久性质体，并证实宿主与质体长期共进化，填补了质体演化中间阶段的关键空白。",
+        "org": "加拿大不列颠哥伦比亚大学",
+        "country": "CA",
+        "org_type": "university",
+        "claim": "Meringosphaera中的质体是永久性、垂直遗传的细胞器，而非暂时性内共生体，代表质体演化的全新自然实例。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "单细胞基因组DNA + 环境样本RNA + CARD-FISH探针信号",
+        "output": "质体存在/缺失状态判定、宿主-质体系统发育一致性、质体靶向蛋白预测",
+        "robot_dependency": "none",
+        "data_dependency": "无机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 8,
+        "evidence": 10,
+        "reproducibility_score": 4,
+        "significance": 78,
+        "significance_reason": "提供了迄今最扎实的‘永久质体’自然实证：跨地理样本、双标记FISH验证、宿主-质体系统发育完全一致、多谱系质体相关基因水平转移+靶向预测，显著推进内共生器演化理论，但属单一新类群发现，未构建通用模型或工具，未达AlphaFold级范式突破。",
+        "one_sentence_verdict": "真突破：首次在全新真核门类中确立永久质体，证据链完整（基因组+荧光+系统发育+靶向预测），实质性填补质体演化关键中间态空白。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 7.6,
+        "content": 22.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 29.6,
+        "bonus": 0.0,
+        "total": 29.6
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "2512.16913",
       "title": "Depth Any Panoramas: A Foundation Model for Panoramic Depth Estimation",
       "abstract": "In this work, we present a panoramic metric depth foundation model that generalizes across diverse scene distances. We explore a data-in-the-loop paradigm from the view of both data construction and framework design. We collect a large-scale dataset by combining public datasets, high-quality synthetic data from our UE5 simulator and text-to-image models, and real panoramic images from the web. To reduce domain gaps between indoor/outdoor and synthetic/real data, we introduce a three-stage pseudo-label curation pipeline to generate reliable ground truth for unlabeled images. For the model, we adopt DINOv3-Large as the backbone for its strong pre-trained generalization, and introduce a plug-and-play range mask head, sharpness-centric optimization, and geometry-centric optimization to improve robustness to varying distances and enforce geometric consistency across views. Experiments on multiple benchmarks (e.g., Stanford2D3D, Matterport3D, and Deep360) demonstrate strong performance and zero-shot generalization, with particularly robust and stable metric predictions in diverse real-world scenes. The project page can be found at: \\href{https://insta360-research-team.github.io/DAP_website/} {https://insta360-research-team.github.io/DAP\\_website/}",
@@ -82678,6 +82851,93 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2606.27036.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.06.17.733032",
+      "doi": "10.64898/2026.06.17.733032",
+      "source_kind": "biorxiv",
+      "title": "Electrolytic-microbubble dynamics delineate safety thresholds during intracortical microstimulation with flexible neural interfaces",
+      "abstract": "Abstract Intracortical microstimulation (ICMS) with ultraflexible neural electrodes enables low-threshold, chronically stable, and high-resolution modulation of neural circuits, providing a promising strategy for sensory restoration and closed-loop neuromodulation. However, the microscopic mechanisms delineating its safe and effective current range remain unclear. Here, we combine intravital two-photon (2P) imaging and electrophysiology in awake mice to examine the current-dependent neurovascular outcomes of charge-balanced stimulation via ultraflexible arrays. We observed gas bubbles formed along the electrode during ICMS, with bubble size increasing quadratically with current amplitude, consistent with a Faradaic bubble-growth model. Intravital 2P imaging reveals that at low-to-moderate currents (20–40 µA), vascular leakage is small, spatially confined, and largely reversible, whereas higher currents (≥60 µA) induce a sharp transition to extensive, field-dominated extravasation and secondary vessel disruption. This transition coincides with immediate, stimulus-locked motor responses and the onset of electrode degradation. Multiphysics simulations reproduce the observed nonlinear leakage–current relationship by incorporating gas bubble–induced electric field redistribution and voltage-dependent vessel wall permeability. The model indicates that gas bubbles act as local electric-field modulators, concentrating suprathreshold fields near the bubble boundary at lower currents while shielding more distant vessel segments; at higher currents, this confinement breaks down and the system enters a field-dominated damage regime. Collectively, these findings define a mechanistically informed safety window for ICMS with flexible neural interfaces and identify bubble-assisted vascular permeabilization as a key failure mode at high currents, crucial for the design of future bidirectional brain-computer interfaces and high-precision neuroprosthetic protocols.",
+      "authors": [
+        "Artem Iliasov",
+        "H F",
+        "F H Li",
+        "Z Chen",
+        "Mingliang Xu",
+        "C YU",
+        "R K Li",
+        "Jinsong Wu",
+        "Fei He"
+      ],
+      "categories": [],
+      "published": "2026-06-23",
+      "updated": "2026-06-23",
+      "url": "https://doi.org/10.64898/2026.06.17.733032",
+      "pdf_url": "https://doi.org/10.64898/2026.06.17.733032",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0253,
+        "world_model": 0.0477,
+        "whole_body_control": 0.0306,
+        "dexterous_manipulation": 0.0557,
+        "sim2real_data": 0.0222,
+        "hardware_unitree": 0.0,
+        "bci_neural_decoding": 0.5,
+        "bci_foundation_models": 0.2437,
+        "bci_embodied_robot": 0.1237,
+        "bci_noninvasive_eeg": 0.1752,
+        "protein_ai": 0.0856,
+        "genomics_ai": 0.1042
+      },
+      "best_route": "bci_neural_decoding",
+      "relevance_raw": 0.2437,
+      "first_seen": "2026-06-30",
+      "analysis": {
+        "tldr": "通过活体双光子成像和电生理实验，发现柔性脑内电极微刺激时产生的电解气泡大小随电流平方增长，并揭示气泡会动态调制局部电场，导致血管通透性在60µA以上发生不可逆跃变式损伤，从而划定了安全电流窗口。",
+        "org": "复旦大学",
+        "country": "CN",
+        "org_type": "university",
+        "claim": "电解气泡的动态演化是决定柔性神经电极微刺激安全阈值的核心物理机制，其引发的电场重分布与血管壁电压依赖性通透共同导致60µA以上出现不可逆神经血管损伤。",
+        "method_components": [
+          "dataset",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "电刺激电流参数（幅值、波形、电荷平衡）+ 活体小鼠皮层微环境（血管结构、血脑屏障状态）",
+        "output": "血管渗漏空间分布与时间动态、气泡尺寸演化、电极降解状态、运动行为响应",
+        "robot_dependency": "none",
+        "data_dependency": "高度依赖活体双光子成像数据与同步电生理记录，无离线仿真替代",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "benchmark",
+          "dataset"
+        ],
+        "novelty": 8,
+        "evidence": 10,
+        "reproducibility_score": 4,
+        "significance": 78,
+        "significance_reason": "首次在活体尺度上建立气泡-电场-血管通透三者因果链，实证定义了柔性电极ICMS的安全电流拐点（60µA），且含多物理场仿真验证；但仅限小鼠皮层、单一电极构型、未跨物种/跨脑区验证，尚未进入临床闭环系统测试，强于多数机制研究但未达基石级临床转化突破（如BCI语音/行走）",
+        "one_sentence_verdict": "真突破：用活体动态成像+多物理仿真锁定柔性电极刺激的微观失效临界点，为下一代高精度双向脑机接口提供了可量化的安全设计边界。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 7.3,
+        "content": 22.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 29.3,
+        "bonus": 0.0,
+        "total": 29.3
+      },
+      "grade": "D",
+      "read_priority": "C"
     },
     {
       "arxiv_id": "10.64898/2026.05.27.726245",
@@ -89926,6 +90186,89 @@
       "thumb": "assets/thumbs/2606.25299.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.06.26.734713",
+      "doi": "10.64898/2026.06.26.734713",
+      "source_kind": "biorxiv",
+      "title": "Evolutionary genomics of a natural Wolbachia superinfection in the dengue mosquito Aedes albopictus",
+      "abstract": "Aedes albopictus, an invasive mosquito vector of human pathogens, is naturally infected by two strains of the endosymbiotic bacterium Wolbachia, wAlbA and wAlbB. Here, we present a comprehensive genomic analysis of these Wolbachia strains, their associated plasmids, and host mitochondrial DNA (mtDNA). We observed extensive variation in Wolbachia densities-spanning over three orders of magnitude-indicating that infections often exist at extremely low levels and this variation is largely driven by environmental factors. Phylogenetic analyses revealed concordant evolutionary histories among mitochondrial, Wolbachia, and plasmid genomes, with no strong evidence for horizontal or paternal transmission. We estimate that the common ancestor of the superinfection existed ~6,000-9,000 years ago. Patterns of genetic structure and divergence indicate that the subsequent geographical spread of Wolbachia has mirrored host population history. Comparative rate analyses revealed that wAlbA evolves more slowly than wAlbB, consistent with a reduced mutation rate. Despite the close relationship between wAlbB lineages, gene content in this strain is highly variable, with 184 genes exhibiting presence-absence or copy number variation across strains, including genes involved in inducing cytoplasmic incompatibility. Several of these genes reside in repetitive or prophage regions, indicating that transposable elements appear to drive structural genomic variation in Wolbachia populations. Together, our results highlight extensive natural diversity within Wolbachia populations and provide a foundation for understanding symbiont dynamics in nature and to inform the selection of strains for Wolbachia-based vector control programs.",
+      "authors": [
+        "Thomas L. Schmidt",
+        "Julien Martinez",
+        "Jonathan P. Day",
+        "Steven P. Sinkins",
+        "John J. Welch",
+        "Francis M. Jiggins"
+      ],
+      "categories": [],
+      "published": "2026-06-26",
+      "updated": "2026-06-26",
+      "url": "https://doi.org/10.64898/2026.06.26.734713",
+      "pdf_url": "https://doi.org/10.64898/2026.06.26.734713",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0003,
+        "world_model": 0.0842,
+        "whole_body_control": 0.0558,
+        "dexterous_manipulation": 0.0747,
+        "sim2real_data": 0.0281,
+        "hardware_unitree": 0.0647,
+        "bci_neural_decoding": 0.0669,
+        "bci_foundation_models": 0.0544,
+        "bci_embodied_robot": 0.0078,
+        "bci_noninvasive_eeg": 0.1549,
+        "protein_ai": 0.1689,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.2618,
+      "first_seen": "2026-06-30",
+      "analysis": {
+        "tldr": "对白纹伊蚊体内天然共感染的两种沃尔巴克氏菌（wAlbA和wAlbB）及其质粒、宿主线粒体基因组进行全基因组测序与比较进化分析，揭示其共进化历史、分化时间（约6000–9000年前）、地理扩散与宿主群体历史一致、突变速率差异及结构变异机制（转座元件驱动），并发现CI相关基因存在广泛存在/缺失和拷贝数变异。",
+        "org": "剑桥大学",
+        "country": "UK",
+        "org_type": "university",
+        "claim": "白纹伊蚊中天然沃尔巴克氏菌超感染（wAlbA+wAlbB）是长期共进化产物，其基因组多样性、结构变异机制和传播历史可被系统解析，且该自然变异图谱为基于沃尔巴克氏菌的媒介控制提供关键筛选依据。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "多个野外采集白纹伊蚊个体的沃尔巴克氏菌基因组、质粒基因组及宿主线粒体基因组测序数据",
+        "output": "沃尔巴克氏菌株系的系统发育树、分化时间估计、突变速率比较、基因存在/缺失矩阵、结构变异注释（含重复区/前噬菌体定位）、群体遗传结构图谱",
+        "robot_dependency": "none",
+        "data_dependency": "无机器人数据依赖，完全基于野外采样与高通量测序",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 68,
+        "significance_reason": "提供了迄今最系统的天然沃尔巴克氏菌超感染多基因组实证分析，首次量化wAlbA/wAlbB突变速率差异、定位CI基因结构变异热点、建立宿主-共生菌-质粒三系统共进化模型；但属高质量描述性进化基因组学工作，未提出新算法/模型，未实验验证功能机制，也未直接产出可部署的控制菌株或预测工具，故强于普通群体基因组论文但未达AI×生物领域基石级方法论突破。",
+        "one_sentence_verdict": "显著贡献：扎实的进化基因组学实证研究，填补了天然超感染系统演化机制的关键空白，但非方法论突破，暂不构成AI×生物方向的范式转移",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 7.9,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 27.9,
+        "bonus": 0.0,
+        "total": 27.9
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "2605.30740",
       "doi": "10.48550/arxiv.2605.30740",
       "source_kind": "arxiv",
@@ -94897,6 +95240,93 @@
       "thumb": "assets/thumbs/2606.17906.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.06.22.733815",
+      "doi": "10.64898/2026.06.22.733815",
+      "source_kind": "biorxiv",
+      "title": "Recurrent Duplication of the REST–NOA1 Locus Reveals a Hotspot of Regulatory Evolution Across Even-Toed Ungulates",
+      "abstract": "Gene duplication is a major source of evolutionary novelty, yet recurrent duplication of the same genomic locus across independent lineages remains understudied. Using a chromosome-scale assembly and de novo annotation of the North American bison (Bison bison), we investigated the mechanisms underlying immune-system diversification in ungulates. Comparative genomics of bison, cattle, elk, and 13 mammalian species identified a large segmental duplication encompassing the regulatory genes REST and NOA1. Although similar duplications were present in 14/16 species examined, phylogenetic analyses revealed that duplicated genes cluster within species rather than across taxa, indicating repeated independent origins rather inheritance from a common ancestor. To characterize the evolutionary consequences of this duplication, we integrated transcriptomics from six tissues with weighted gene co-expression and comparative protein clustering. We identified extensive structural divergence among duplicated copies of REST and NOA1, including domain losses, truncations, and expression partitioning across tissues, consistent with functional divergence following duplication. Comparative analyses revealed substantial remodeling of immune-related genes in bison, including BOLA class I molecules, T-cell receptor genes, leukocyte immunoglobulin-like receptors, and regulators of immune signaling. These modifications included domain rearrangements, novel sequence insertions, and lineage-specific duplications associated with immune-related expression networks. Together, these findings identify the REST-NOA1 locus as a recurrent hotspot of segmental duplication in ungulates and demonstrate how repeated duplication, structural divergence, and regulatory partitioning contribute to genome evolution. These results suggest that immune system diversification in bison and related species has been shaped not only by sequence evolution but also by recurrent remodeling of regulatory pathways and antigen-recognition pathways.",
+      "authors": [
+        "Rick E. Masonbrink",
+        "Sharu Paul Sharma",
+        "Viswanathan Satheesh",
+        "Aleksandra E. Badaczewska-Dawid",
+        "Sivanandan Chudalayandi",
+        "David P. Alt",
+        "Paola Boggiatto",
+        "Ellie J. Putz",
+        "Andrew Severin",
+        "Steven C. Olsen"
+      ],
+      "categories": [],
+      "published": "2026-06-26",
+      "updated": "2026-06-26",
+      "url": "https://doi.org/10.64898/2026.06.22.733815",
+      "pdf_url": "https://doi.org/10.64898/2026.06.22.733815",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0326,
+        "world_model": 0.0,
+        "whole_body_control": 0.0397,
+        "dexterous_manipulation": 0.0362,
+        "sim2real_data": 0.0033,
+        "hardware_unitree": 0.0473,
+        "bci_neural_decoding": 0.0753,
+        "bci_foundation_models": 0.1123,
+        "bci_embodied_robot": 0.0172,
+        "bci_noninvasive_eeg": 0.0706,
+        "protein_ai": 0.2224,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.2224,
+      "first_seen": "2026-06-30",
+      "analysis": {
+        "tldr": "通过组装北美野牛基因组并比较16种哺乳动物，发现REST–NOA1基因座在偶蹄目中反复独立发生大片段重复，导致该区域基因结构剧烈分化（如结构域丢失、截短）、表达组织特异性分割，并驱动免疫相关基因（如BOLA、TCR、LILR）的系统性重排与功能重塑。",
+        "org": "Iowa State University",
+        "country": "US",
+        "org_type": "university",
+        "claim": "REST–NOA1基因座是偶蹄目中一个反复独立发生的调控进化热点，其多次重复事件通过结构分化与表达分区共同驱动了免疫通路的系统性重塑。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "染色体水平基因组组装（野牛）、15个哺乳动物物种基因组比对、六组织转录组数据、加权基因共表达网络、蛋白质结构域聚类分析",
+        "output": "重复事件演化起源判定（独立发生而非祖先遗传）、重复拷贝间结构变异图谱（domain loss/truncation）、组织特异性表达模式、免疫相关基因家族的系统性重排证据",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "cross-species",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 68,
+        "significance_reason": "提供了高质量染色体级野牛基因组和跨16物种的系统性比较证据，实证揭示一个特定基因座在多个偶蹄目谱系中独立重复并驱动免疫系统结构-调控协同进化，属扎实的进化基因组学重大发现；但未构建预测模型、未实验验证功能、未提出可泛化计算范式，分量不及AI×生物领域基石工作（如ESM/AlphaFold），也未达到‘开新范式’级别。",
+        "one_sentence_verdict": "显著贡献：首次以高置信度证实一个基因座在多个哺乳动物谱系中反复独立重复并系统性重塑免疫通路，证据链完整（组装+比较+转录+蛋白结构），但属机制解析型发现，非方法或范式突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 6.7,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 26.7,
+        "bonus": 0.0,
+        "total": 26.7
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "10.64898/2026.06.01.729354",
       "doi": "10.64898/2026.06.01.729354",
       "source_kind": "biorxiv",
@@ -98007,6 +98437,94 @@
       "thumb": "assets/thumbs/2606.00933.jpg"
     },
     {
+      "arxiv_id": "2606.26821",
+      "doi": "10.48550/arxiv.2606.26821",
+      "source_kind": "arxiv",
+      "title": "Characterizing robotic positioners under the influence of changing gravity vectors for future spectroscopic surveys",
+      "abstract": "Future (Stage V) spectroscopic surveys intend to accurately map billions of galaxies. To accomplish this goal, these surveys will employ highly multiplexed focal planes composed of robotic fiber positioners to accurately place individual optical fibers on targets of interest. The ambitious science objectives place stringent requirements on the mechanical performance of these positioners. Experience from previous surveys has shown that testing positioners under conditions closely resembling those on the telescope is of utmost importance during the prototyping and quality assurance phases of construction. We present an automated telescope simulator test stand that characterizes the performance of these positioners at different orientations, reproducing the changing gravity vectors encountered during telescope operations. The test stand aims to verify position stability down to 1 um, focus stability down to 5 um, as well as tilt variations lower than 0.4 deg. We discuss the design of our setup, along with early characterization of image quality due to turbulence and the compensation of the enclosure deformation via calibration using fixed spots. Finally, we present initial results of positioning stability tests using a prototype module built by Orbray Co., Ltd. This test setup fulfills an important need for integrated testing of advanced focal plane prototypes under conditions similar to on-telescope conditions.",
+      "authors": [
+        "Johannes Wüthrich",
+        "Guandi Zhao",
+        "Banan Yamani",
+        "L. Lebrun",
+        "Sean MacBride",
+        "Andrin Fazan",
+        "Felipe Andrade-Oliveira",
+        "M Soares-Santos"
+      ],
+      "categories": [],
+      "published": "2026-06-25",
+      "updated": "2026-06-25",
+      "url": "https://arxiv.org/abs/2606.26821",
+      "pdf_url": "https://arxiv.org/pdf/2606.26821",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.5,
+        "world_model": 0.2528,
+        "whole_body_control": 0.144,
+        "dexterous_manipulation": 0.0973,
+        "sim2real_data": 0.1328,
+        "hardware_unitree": 0.1327,
+        "bci_neural_decoding": 0.0047,
+        "bci_foundation_models": 0.0,
+        "bci_embodied_robot": 0.1258,
+        "bci_noninvasive_eeg": 0.0824,
+        "protein_ai": 0.1479,
+        "genomics_ai": 0.0384
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.2528,
+      "first_seen": "2026-06-30",
+      "analysis": {
+        "tldr": "搭建了一个能模拟望远镜不同指向时重力方向变化的自动化测试台，用于精确标定和验证光谱巡天用机器人光纤定位器在真实工况下的微米级位置/焦点/倾角稳定性。",
+        "org": "未知（作者单位未在摘要中明确列出，仅知Orbray Co., Ltd.为原型模块供应商，非论文主导方）",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "通过可变重力矢量的硬件测试平台，首次实现对天文光纤定位器在全姿态下亚微米级机械稳定性的系统性表征与校准。",
+        "method_components": [
+          "simulator",
+          "benchmark",
+          "hardware"
+        ],
+        "input": "机器人定位器模块的物理姿态（对应望远镜指向）、环境温湿度、光学反馈信号（固定参考点图像）",
+        "output": "位置偏移（μm）、焦点偏移（μm）、倾角变化（deg）等量化稳定性指标",
+        "robot_dependency": "Orbray光纤定位器原型模块",
+        "data_dependency": "完全依赖真实机器人硬件测试数据，无仿真替代；所有结果均来自物理原型实测",
+        "sim2real_status": "deployed",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "benchmark",
+          "real-robot",
+          "hardware"
+        ],
+        "novelty": 6,
+        "evidence": 9,
+        "reproducibility_score": 3,
+        "significance": 45,
+        "significance_reason": "属高精度天文仪器工程验证范畴，解决的是特定硬件（光纤定位器）在真实重力场变化下的标定难题，技术扎实但领域窄、不可迁移至通用机器人或AI模型研究；无算法创新、无开源代码/模型，仅提供专用测试方法与初步实测数据，未形成通用benchmark或开放协议。",
+        "one_sentence_verdict": "工程整合：解决了天文巡天硬件落地中的关键标定瓶颈，但属垂直领域专用方案，不具备跨领域复用性或范式突破性",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 7.6,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 25.6,
+        "bonus": 0.0,
+        "total": 25.6
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2606.26821.jpg"
+    },
+    {
       "arxiv_id": "2606.03551",
       "doi": "10.48550/arxiv.2606.03551",
       "source_kind": "arxiv",
@@ -98760,6 +99278,93 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2606.02166.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.06.22.733667",
+      "doi": "10.64898/2026.06.22.733667",
+      "source_kind": "biorxiv",
+      "title": "Molecular Basis of Mycoparasitic Performance: Genomic and Transcriptomic Comparison of Contrasting <i>Trichoderma atroviride</i> Strains",
+      "abstract": "Trichoderma species are widely used as biological control agents due to their ability to parasitize plant pathogens. However, substantial variability in mycoparasitic performance exists among strains, even within the same species, and the underlying molecular mechanisms remain poorly understood. Here, we performed comparative genomic and transcriptomic analyses of six Trichoderma atroviride strains exhibiting contrasting mycoparasitic performance (weakly or highly parasitic; WP or HP) against Alternaria brassicicola , Rhizoctonia solani , and Globisporangium ultimum . Comparative genomics revealed limited strain-specific differences, mainly restricted to NLR (NOD-like receptor) repertoires, with certain NLR-coding genes absent from WP strain genomes compared to HP strains, while overall genomic variation remained low. In contrast, transcriptomic analyses revealed strong differences in gene expression dynamics between HP and WP strains. Co-expression network analysis identified two modules associated with mycoparasitic performance. The first was specifically induced in response to pathogen contact and was enriched in genes encoding cell wall-degrading enzymes, with stronger expression in HP strains. The second module was more broadly overexpressed in HP strains across all conditions and included genes involved in detoxification and defense-related pathways. In addition, this module encompassed genes involved in specialized metabolite biosynthesis and effector-like protein secretion, with WP and HP strains differentially expressing distinct gene subsets within these categories. Together, these results provide a comprehensive framework for identifying the molecular drivers of mycoparasitic performance in T. atroviride . This study deepens our understanding of the functional diversity within the species and establishes a robust foundation for the future development of molecular markers to predict strain efficiency.",
+      "authors": [
+        "Etienne Brémand",
+        "Franck Bastide",
+        "Justine Colou",
+        "Nicolás Denancé",
+        "Séverine Boisard",
+        "Nicolas Ruiz",
+        "Samuel Bertrand",
+        "Muriel Marchi",
+        "Jérôme Verdier",
+        "Thomas Guillemette"
+      ],
+      "categories": [],
+      "published": "2026-06-26",
+      "updated": "2026-06-26",
+      "url": "https://doi.org/10.64898/2026.06.22.733667",
+      "pdf_url": "https://doi.org/10.64898/2026.06.22.733667",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0659,
+        "world_model": 0.0176,
+        "whole_body_control": 0.0,
+        "dexterous_manipulation": 0.0204,
+        "sim2real_data": 0.0,
+        "hardware_unitree": 0.0,
+        "bci_neural_decoding": 0.0511,
+        "bci_foundation_models": 0.0,
+        "bci_embodied_robot": 0.0,
+        "bci_noninvasive_eeg": 0.0307,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2757
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.2757,
+      "first_seen": "2026-06-30",
+      "analysis": {
+        "tldr": "通过比较6株寄生能力差异显著的木霉菌（Trichoderma atroviride）的基因组和转录组，发现寄生能力强的菌株并非靠基因组大范围变异，而是靠两类关键基因模块的动态表达差异：一类是接触病原菌后快速上调的细胞壁降解酶基因，另一类是持续高表达的解毒、防御及次级代谢相关基因。",
+        "org": "INRAE",
+        "country": "EU",
+        "org_type": "institute",
+        "claim": "木霉菌株间寄生能力差异主要由转录调控层面的两个功能模块（病原响应型酶表达模块 + 持续性防御/代谢模块）驱动，而非基因组结构变异。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "六株T. atroviride菌株的全基因组序列 + 多时间点、多病原菌互作条件下的RNA-seq数据",
+        "output": "与寄生性能强弱显著关联的共表达基因模块、差异表达基因集、NLR基因缺失图谱",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 5,
+        "evidence": 8,
+        "reproducibility_score": 4,
+        "significance": 52,
+        "significance_reason": "扎实的组学比较研究，揭示了木霉寄生性能的关键转录调控机制，但仅限单一真菌物种、三种病原体、六株菌，未构建预测模型或验证分子标记，也未开源代码/模型，属于高质量基础生物学发现，但未达方法论突破或跨物种泛化水平，远低于AlphaFold/ESM/RFdiffusion等基石工作。",
+        "one_sentence_verdict": "扎实增量：提供了首个系统性解析木霉菌株寄生能力差异的多组学证据链，但未形成可复用工具或普适机制模型，暂未超出领域内常规高质量微生物功能基因组研究范畴。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 8.3,
+        "content": 17.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 25.3,
+        "bonus": 0.0,
+        "total": 25.3
+      },
+      "grade": "D",
+      "read_priority": "C"
     },
     {
       "arxiv_id": "2606.06944",
@@ -102217,6 +102822,93 @@
       "read_priority": "C"
     },
     {
+      "arxiv_id": "10.64898/2026.06.25.734591",
+      "doi": "10.64898/2026.06.25.734591",
+      "source_kind": "biorxiv",
+      "title": "Species-specific drivers of genetic diversity are decoupled from plant community diversity",
+      "abstract": "Understanding how habitat connectivity shapes biodiversity remains a major ecological challenge. In particular, the roles of connectivity and ecological heterogeneity on co-variation in plant species diversity and intraspecific genetic diversity is not understood. We combined species distribution modelling, resistance-to-movement mapping, landscape connectivity analysis and population genomics to investigate diversity patterns in three wet meadow herbs, Scorzonera humilis, Oenanthe peucedanifolia and Lychnis flos-cuculi, and their surrounding plant communities. Genetic diversity patterns differed strongly among co-occurring species. Connectivity metrics explained genetic diversity only in O. peucedanifolia, and environmental drivers of genetic diversity were highly species specific. Importantly, genetic diversity changed with the presence of some species in the community, but it was consistently unrelated to indicators of local plant community diversity. Overall, the processes shaping within-species biodiversity may differ fundamentally from those structuring habitat connectivity and plant species communities, with important implications for conservation.",
+      "authors": [
+        "Lina Abdelwahed",
+        "Lisa Favre‐Bac",
+        "Neda Rahnamae",
+        "Freya Way",
+        "Noemie Poulain",
+        "Tahir Ali",
+        "Anu Eskelinen",
+        "Irène Till‐Bottraud",
+        "Juliette de Meaux"
+      ],
+      "categories": [],
+      "published": "2026-06-26",
+      "updated": "2026-06-26",
+      "url": "https://doi.org/10.64898/2026.06.25.734591",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/06/26/2026.06.25.734591.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0141,
+        "world_model": 0.0558,
+        "whole_body_control": 0.0394,
+        "dexterous_manipulation": 0.0257,
+        "sim2real_data": 0.0,
+        "hardware_unitree": 0.0126,
+        "bci_neural_decoding": 0.0632,
+        "bci_foundation_models": 0.0339,
+        "bci_embodied_robot": 0.1036,
+        "bci_noninvasive_eeg": 0.0635,
+        "protein_ai": 0.1448,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.2037,
+      "first_seen": "2026-06-30",
+      "analysis": {
+        "tldr": "这篇论文用景观基因组学方法分析了三种湿地草本植物的种内遗传多样性，发现各物种的遗传多样性驱动因素（如连通性、环境变量、群落组成）高度特异，且与当地植物群落多样性指标无统计关联，说明种内遗传多样性和群落物种多样性可能由不同生态过程主导。",
+        "org": "未知",
+        "country": "EU",
+        "org_type": "university",
+        "claim": "植物种内遗传多样性的驱动因子具有物种特异性，且与植物群落多样性无系统性关联，二者受不同生态过程调控。",
+        "method_components": [
+          "dataset",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "物种分布模型输出、阻力面数据、景观连通性指标、群体基因组SNP数据、植物群落调查数据",
+        "output": "各物种遗传多样性（如π、He）的空间格局及其与景观/环境/群落变量的统计关系（回归系数、显著性、方差解释率）",
+        "robot_dependency": "none",
+        "data_dependency": "依赖野外采样获得的群体基因组数据和植被样方数据，属真实生态观测数据，但未使用实时传感器或机器人采集",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 9,
+        "reproducibility_score": 3,
+        "significance": 52,
+        "significance_reason": "提供了多物种实证证据，挑战了‘遗传多样性与群落多样性协同变化’的常见假设，在保护生物学中具警示价值；但方法为成熟组合（SDM+景观遗传学+线性建模），样本限于3种草本、单一湿地生境，未提出新模型或算法，也未验证机制因果性，分量属于扎实的生态学增量研究，远未达AI×科学领域基石级（如AlphaFold2/ESM3等）的技术深度或范式影响力。",
+        "one_sentence_verdict": "扎实增量：用严谨的多物种实证揭示了遗传多样性与群落多样性的解耦现象，但属生态学常规方法推进，非技术突破，对AI×科学/生物领域无直接贡献。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 6.1,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 24.1,
+        "bonus": 0.0,
+        "total": 24.1
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "2606.10934",
       "doi": "10.48550/arxiv.2606.10934",
       "source_kind": "arxiv",
@@ -104033,6 +104725,90 @@
       "scores": {
         "relevance": 9.9,
         "content": 13.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 22.9,
+        "bonus": 0.0,
+        "total": 22.9
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
+      "arxiv_id": "2606.26912",
+      "doi": "10.48550/arxiv.2606.26912",
+      "source_kind": "arxiv",
+      "title": "A Givens-exchange ansatz for molecular variational eigensolvers",
+      "abstract": "Molecular ground-state energies help determine conformer rankings, reaction energetics, and electronic effects in computational drug discovery, but accurate calculations become difficult when strong correlation or large active spaces are important. Variational quantum eigensolvers estimate these energies by optimizing a parameterized quantum state, making ansatz design central to both accuracy and cost. We study a fixed-topology Givens-exchange ansatz that avoids architecture search. The circuit starts from the computational-basis state with the lowest diagonal Hamiltonian expectation and applies local RY rotations with two ordered all-pair Givens exchange blocks. Parameters are optimized using Hamiltonian expectation values, while exact diagonalization is used only after optimization to compute errors and fidelities. Across six fixed seeds, coefficient-verified LiH-6 and H2O-8 Hamiltonians, together with a BeH2-6 public-specification candidate, are chemically accurate in every run. The corresponding six-seed mean errors are 0.000000124 Hartree, equivalent to 0.000124 milli-Hartree; 0.000128558 Hartree, equivalent to 0.128558 milli-Hartree; and 0.000002152 Hartree, equivalent to 0.002152 milli-Hartree, respectively. On LiH-6 and H2O-8, these mean errors are lower than the published point errors of the compared quantum-architecture-search methods, while the ansatz uses a larger pre-compilation macro budget. The method is therefore an accurate, reproducible, and search-free reference template for molecular variational eigensolvers.",
+      "authors": [
+        "Azadeh Alavi",
+        "Fatemeh Kouchmeshki",
+        "Muhammad Usman",
+        "Yongli Ren",
+        "Ke Deng",
+        "Hossein Akhoundi",
+        "Abdolrahman Alavi"
+      ],
+      "categories": [],
+      "published": "2026-06-25",
+      "updated": "2026-06-25",
+      "url": "https://arxiv.org/abs/2606.26912",
+      "pdf_url": "https://arxiv.org/pdf/2606.26912",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0694,
+        "world_model": 0.182,
+        "whole_body_control": 0.1429,
+        "dexterous_manipulation": 0.0944,
+        "sim2real_data": 0.0643,
+        "hardware_unitree": 0.0814,
+        "bci_neural_decoding": 0.0798,
+        "bci_foundation_models": 0.1282,
+        "bci_embodied_robot": 0.0744,
+        "bci_noninvasive_eeg": 0.15,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2492
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.2624,
+      "first_seen": "2026-06-30",
+      "analysis": {
+        "tldr": "提出一种固定结构的Givens交换量子电路模板，用于分子基态能量变分求解，无需架构搜索，在LiH、H2O、BeH₂小分子上实现化学精度（<1 mH），且六次随机种子运行全部达标。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "固定拓扑的Givens-exchange ansatz可替代架构搜索，在小分子量子化学计算中实现高精度、高复现性、零搜索开销的变分本征求解。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "分子哈密顿量（由STO-3G或6-31G*基组生成的稀疏矩阵）",
+        "output": "基态能量估计值（Hartree单位）及对应量子态保真度",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "benchmark"
+        ],
+        "novelty": 5,
+        "evidence": 7,
+        "reproducibility_score": 3,
+        "significance": 42,
+        "significance_reason": "仅在LiH/H2O/BeH₂三个极小分子（≤8 qubits）、固定基组、无噪声仿真下验证；未与经典方法（如CCSD(T)）比精度上限，未测试泛化到更大分子或真实硬件，无开源代码，仅靠项目页描述；属扎实但窄域的量子算法工程改进，远未达AlphaFold级范式突破或dtSFM级药物发现实用价值。",
+        "one_sentence_verdict": "工程整合：在受限小分子集上实现了免搜索的高精度变分求解，但缺乏代码开源、真实硬件验证、更大体系扩展和与经典金标准的对比，尚未构成对量子化学计算范式的实质性推进。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 7.9,
+        "content": 15.0,
         "heat": 0.0,
         "quality": 0.0,
         "base": 22.9,
@@ -108351,6 +109127,88 @@
       "grade": "D",
       "read_priority": "D",
       "thumb": "assets/thumbs/2606.05669.jpg"
+    },
+    {
+      "arxiv_id": "2606.26159",
+      "doi": "10.48550/arxiv.2606.26159",
+      "source_kind": "arxiv",
+      "title": "Microparticles manipulation with a three-dimensional closed optical trap",
+      "abstract": "Gaussian optical tweezers have strong phototoxicity to bioactive substances and it is difficult to achieve capture and manipulation of multiple particles. Moreover, vortex optical tweezers face several challenges, such as weak axial confinement and dependence on complex optical elements like a spatial light modulator (SLM). Therefore, we design and construct a novel three-dimensional (3D) \"optical spindle trap\" (OST) system that does not require a SLM. By employing intracavity mode modulation and a simple extra-cavity lens modulation, we generate a fully enclosed 3D dark potential well with zero central intensity. Experimental results demonstrate that the system achieves stable trapping of single or multiple micrometer-sized particles with excellent 3D confinement and enables the trapping of mouse hepatocytes under low-power conditions. The system exhibits high physical stability. Its closed dark-field structure can also reduce phototoxic damage to biological samples. Furthermore, the dimensions of the optical trap can be flexibly tuned to suit various application scenarios. This study provides a novel, highly efficient, gentle, and low-cost optical trap platform for biomedicine and micro/nanoscale manipulation.",
+      "authors": [
+        "Chunyu Zhang",
+        "Xinran Fang",
+        "Pengcheng Mao",
+        "Dan Zhao"
+      ],
+      "categories": [],
+      "published": "2026-06-24",
+      "updated": "2026-06-24",
+      "url": "https://arxiv.org/abs/2606.26159",
+      "pdf_url": "https://arxiv.org/pdf/2606.26159",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.5,
+        "world_model": 0.0299,
+        "whole_body_control": 0.0731,
+        "dexterous_manipulation": 0.0882,
+        "sim2real_data": 0.0402,
+        "hardware_unitree": 0.054,
+        "bci_neural_decoding": 0.0104,
+        "bci_foundation_models": 0.0049,
+        "bci_embodied_robot": 0.0377,
+        "bci_noninvasive_eeg": 0.0455,
+        "protein_ai": 0.0954,
+        "genomics_ai": 0.0862
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.0954,
+      "first_seen": "2026-06-30",
+      "analysis": {
+        "tldr": "设计了一种无需空间光调制器（SLM）的三维闭合光学纺锤阱（OST），利用腔内模式调制和腔外透镜调制，生成零中心强度的全封闭暗势阱，实现了对微米级颗粒及活体小鼠肝细胞的低功率、高稳定性三维捕获与多粒子操控。",
+        "org": "unknown",
+        "country": "CN",
+        "org_type": "unknown",
+        "claim": "无需SLM的三维闭合暗场光学阱可通过纯光学硬件调制实现低光毒性、高稳定性的多粒子三维捕获。",
+        "method_components": [
+          "simulator",
+          "hardware"
+        ],
+        "input": "激光束（经腔内模式调制+腔外透镜调制）",
+        "output": "三维闭合暗势阱结构（用于捕获微粒/细胞）",
+        "robot_dependency": "none",
+        "data_dependency": "无真实机器人数据依赖；实验基于光学平台与显微成像系统，非机器人系统",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "benchmark",
+          "hardware"
+        ],
+        "novelty": 6,
+        "evidence": 7,
+        "reproducibility_score": 3,
+        "significance": 48,
+        "significance_reason": "属光学微操纵领域扎实的工程改进：解决了SLM依赖与光毒性痛点，实验证明了多粒子捕获与活细胞低功率操控，但未开源代码/模型，未建立新基准或跨样本/跨平台泛化验证，也未与主流光镊系统做定量SOTA对比（如捕获刚度、带宽、并行数等关键指标缺失），影响力限于特定光学工程子方向，远未达RT-2/Octo/OpenVLA级范式突破或通用性跃迁。",
+        "one_sentence_verdict": "工程整合：在光学微操纵硬件架构上做了有效简化与性能优化，但缺乏通用接口、可复现性支撑和跨场景验证，暂未形成方法论级影响。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 2.9,
+        "content": 16.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 18.9,
+        "bonus": 0.0,
+        "total": 18.9
+      },
+      "grade": "D",
+      "read_priority": "D",
+      "thumb": "assets/thumbs/2606.26159.jpg"
     },
     {
       "arxiv_id": "10.64898/2026.06.16.732115",
