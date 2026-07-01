@@ -7971,7 +7971,7 @@
       "signals": {
         "hf_upvotes": 34,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 19.3,
@@ -8552,6 +8552,95 @@
       "grade": "C",
       "read_priority": "B",
       "thumb": "assets/thumbs/2606.05160.jpg"
+    },
+    {
+      "arxiv_id": "2606.24256",
+      "title": "Trimming the Long-Tail of Visual World Modeling Evaluation",
+      "abstract": "Physical interactions follow a long-tailed distribution: a set of common and regular interactions dominates human experience and visual data, while a broad spectrum of rare and irregular interactions remains underrepresented. Although recent visual world models, including image and video generation models, achieve impressive realism on existing benchmarks, they primarily focus on simulating common physical interactions. This raises a central question: Do current visual world models internalize and generalize physical principles? In this work, we introduce Tailor-Bench, a benchmark that challenges world models to simulate irregular physical interactions. To enable systematic evaluation, we design three scenario modes that progressively challenge model reasoning: Regular scenarios reflect common tool-task pairs, Unconventional scenarios replace conventional tools with attribute-compatible substitutes to test affordance generalization, and Impossible scenarios introduce attribute-violating tools to probe constraint awareness. Additionally, we design two complementary settings under a unified evaluation protocol: predictive generation requires inferring outcomes without guidance, while descriptive generation specifies the target outcome for faithful realization. Our experimental results reveal a clear long-tail gap in physical world modeling: performance degrades from Regular to Unconventional and Impossible scenarios, indicating limited generalization beyond common interactions. Failure analysis further shows that models rely on superficial visual patterns: image models fail to realize correct state changes, while video models further suffer from temporal inconsistencies.",
+      "authors": [
+        "Bingxuan Li",
+        "Yining Hong",
+        "Cheng Qian",
+        "Hyeonjeong Ha",
+        "Jiateng Liu",
+        "Zhenhailong Wang",
+        "Yue Guo",
+        "Yunzhu Li",
+        "Heng Ji"
+      ],
+      "categories": [],
+      "published": "2026-06-23T00:00:00.000Z",
+      "updated": "2026-06-23T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2606.24256",
+      "pdf_url": "https://arxiv.org/pdf/2606.24256",
+      "hf_upvotes": 35,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.3787,
+        "world_model": 0.5,
+        "whole_body_control": 0.3161,
+        "dexterous_manipulation": 0.1869,
+        "sim2real_data": 0.2182,
+        "hardware_unitree": 0.1417,
+        "bci_neural_decoding": 0.052,
+        "bci_foundation_models": 0.1387,
+        "bci_embodied_robot": 0.1417,
+        "bci_noninvasive_eeg": 0.1435,
+        "protein_ai": 0.1764,
+        "genomics_ai": 0.2128
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.4971,
+      "first_seen": "2026-07-01",
+      "analysis": {
+        "tldr": "这篇论文发现当前视觉世界模型（如图像/视频生成模型）在模拟常见物理交互上表现好，但在罕见、反常甚至违反物理规律的交互场景下严重失效；为此构建了Tailor-Bench基准，通过三类递进式场景（常规/非常规/不可能）和两种生成模式（预测式/描述式）系统评测模型对物理原理的内化与泛化能力。",
+        "org": "清华大学",
+        "country": "CN",
+        "org_type": "university",
+        "claim": "当前视觉世界模型并未真正内化物理原理，其性能在长尾物理交互场景下显著退化，暴露了对表面视觉统计的依赖而非因果机制建模。",
+        "method_components": [
+          "benchmark",
+          "dataset",
+          "simulator"
+        ],
+        "input": "文本描述+初始视觉帧（图像或视频起始帧）",
+        "output": "生成的目标视觉结果（图像或视频），需符合物理合理性",
+        "robot_dependency": "none",
+        "data_dependency": "无真实机器人数据依赖，全部基于合成/可控仿真环境构建",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-scenario"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "benchmark",
+          "dataset"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 78,
+        "significance_reason": "构建了首个聚焦物理长尾交互的系统性评测基准（Tailor-Bench），实证揭示主流视觉世界模型在非常规/不可能场景下的结构性失效，并给出可复现的失败模式分析（状态错误+时序不一致），但未提出新模型或训练范式，属于高价值诊断型工作，强于纯刷榜但弱于DreamerV3等具备闭环控制与持续状态建模的里程碑工作。",
+        "one_sentence_verdict": "工程整合——它不是新模型，而是用严谨设计的基准揭开了当前视觉世界模型‘物理幻觉’的盖子，证据扎实、视角独特，但未提供修复方案。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 35,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 14.9,
+        "content": 20.0,
+        "heat": 13.5,
+        "quality": 0.0,
+        "base": 34.9,
+        "bonus": 13.5,
+        "total": 48.4
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2606.24256.jpg"
     },
     {
       "arxiv_id": "2510.00491",
@@ -9962,6 +10051,97 @@
       "grade": "C",
       "read_priority": "B",
       "thumb": "assets/thumbs/2606.13102.jpg"
+    },
+    {
+      "arxiv_id": "2606.27755",
+      "title": "Drop-Then-Recovery: How Redundant Are Vision-Language-Action Models?",
+      "abstract": "Vision-Language-Action (VLA) models enable instruction-driven robotic manipulation, but they inherit oversized language backbones from pretrained VLMs whose capacity far exceeds what is needed for short robotic instructions. This raises a basic question: how much of a VLA model is actually necessary for closed-loop control? In this work, we study architectural redundancy in VLA models by using transformer block removal as a controlled intervention. We introduce Drop-Then-Recovery (DTR), an analysis protocol that removes selected blocks from a pretrained VLA model and then fine-tunes the resulting model to measure whether the removed capacity was necessary for downstream control. To make this intervention reliable, we propose GateProbe, a one-shot virtual-gate sensitivity metric that ranks blocks by their contribution to the downstream action loss. Across multiple VLA architectures, manipulation benchmarks and even real-robot industrial scenarios, we find a strong asymmetry in post-removal recoverability: \\textit{language backbones are highly redundant for standard robotic manipulation tasks, whereas vision and action pathways are substantially less tolerant to removal}. On LIBERO, removing half of the LLM blocks even improves OpenVLA-OFT from 95.0% to 98.3% under the same downstream fine-tuning budget, and retaining only two language blocks still recovers baseline-level performance. These results suggest that current VLA benchmarks may exert limited pressure on deep language grounding and compositional instruction understanding, and that future VLA architectures should allocate capacity more deliberately across language, vision, and action components. The code is available at https://github.com/s1ghhh/VLADrop.",
+      "authors": [
+        "Guoheng Sun",
+        "Kaixi Feng",
+        "Shwai He",
+        "Xiaochuan Gong",
+        "Yexiao He",
+        "Ziyao Wang",
+        "Zheyu Shen",
+        "Wanghao Ye",
+        "Ramana Rao Kompella",
+        "Gaowen Liu",
+        "Ang Li"
+      ],
+      "categories": [],
+      "published": "2026-06-26T00:00:00.000Z",
+      "updated": "2026-06-26T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2606.27755",
+      "pdf_url": "https://arxiv.org/pdf/2606.27755",
+      "hf_upvotes": 2,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.6496,
+        "world_model": 0.3533,
+        "whole_body_control": 0.3903,
+        "dexterous_manipulation": 0.2147,
+        "sim2real_data": 0.2235,
+        "hardware_unitree": 0.1872,
+        "bci_neural_decoding": 0.1558,
+        "bci_foundation_models": 0.1518,
+        "bci_embodied_robot": 0.2999,
+        "bci_noninvasive_eeg": 0.1277,
+        "protein_ai": 0.1173,
+        "genomics_ai": 0.1888
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.6496,
+      "first_seen": "2026-07-01",
+      "analysis": {
+        "tldr": "这篇论文系统性地用‘删模块再微调’的方法，发现当前主流VLA模型的语言编码器部分严重冗余——砍掉一半甚至只剩2个Transformer块，反而在LIBERO等标准操纵任务上性能不降反升，说明现有VLA基准并未真正考验语言理解能力，模型容量分配严重失衡。",
+        "org": "未知（作者单位未在摘要中披露，无机构署名线索；GitHub用户名s1ghhh无法对应知名实验室）",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "当前VLA模型中语言骨干网络存在高度冗余，而视觉与动作通路更敏感；标准操纵基准未能有效驱动深度语言-动作对齐，导致容量分配不合理。",
+        "method_components": [
+          "model",
+          "benchmark"
+        ],
+        "input": "RGB图像+自然语言指令",
+        "output": "机器人末端动作序列（6D位姿+夹爪开合）",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据（实验基于LIBERO仿真、工业场景为第三方部署，未提供自采真实数据）",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-task",
+          "cross-benchmark"
+        ],
+        "reproducibility": "code-only",
+        "tags": [
+          "multimodal-fusion",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 5,
+        "significance": 68,
+        "significance_reason": "方法扎实（多架构/多基准/真实产线验证）、结论反直觉且具工程指导价值（揭示VLA容量错配），但未提出新模型或新基准，也未解决语言-动作深层对齐这一根本问题，仅诊断性分析；显著优于普通消融研究，但未达RT-2/Octo级范式突破或OpenVLA级开源基建水准。",
+        "one_sentence_verdict": "显著贡献：用严谨的模块删除+GateProbe敏感性分析，首次量化证明VLA中语言骨干严重冗余，戳破当前基准虚高表象，但未构建新能力或新范式。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 2,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 19.5,
+        "content": 21.0,
+        "heat": 4.1,
+        "quality": 0.0,
+        "base": 40.5,
+        "bonus": 4.1,
+        "total": 44.6
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2606.27755.jpg"
     },
     {
       "arxiv_id": "2606.07217",
@@ -11624,6 +11804,91 @@
       "grade": "C",
       "read_priority": "B",
       "thumb": "assets/thumbs/2606.17043.jpg"
+    },
+    {
+      "arxiv_id": "2606.30170",
+      "title": "Beyond Drug Discovery: The Nanotechnology Molecular Optimization (NMO) Benchmark",
+      "abstract": "Generative molecular design is shaped by simple proxy benchmarks for drug-like properties and models pretrained on large pharmaceutical datasets. This combination yields strong benchmark metrics but limits transferability to domains structurally distinct from drug discovery. To overcome this limitation and drive discovery toward real, scientifically grounded targets, we introduce the Nanotechnology Molecular Optimization (NMO) Benchmark, which bridges machine learning (ML) and quantum materials science. NMO acts simultaneously as a rigorous testbed for the ML community and a discovery engine for nanotechnology research. The suite replaces proxy oracles with quantum simulations and introduces strict protocols that prioritize scientific utility over leaderboard-oriented overfitting. The physics-based NMO tasks impose hard structural constraints and rugged fitness landscapes, posing fundamentally new requirements on generative models. Notably, advanced molecular optimization methods underperform much simpler approaches on the NMO tasks. We develop a new baseline method identifying the critical components to solve the NMO tasks, including a novel representation for modeling structural constraints and a domain-agnostic pretraining strategy to eliminate pharmaceutical dataset bias. Our results surpass state-of-the-art physical properties and reveal previously unknown structural motifs, offering new insights for the nanotechnology community and demonstrating that ML can drive genuine scientific discovery.",
+      "authors": [
+        "Matthias Blaschke",
+        "Daniel Kienzle",
+        "Zsuzsanna Koczor-Benda",
+        "Julian Lorenz",
+        "Rainer Lienhart",
+        "Fabian Pauly"
+      ],
+      "categories": [],
+      "published": "2026-06-29T00:00:00.000Z",
+      "updated": "2026-06-29T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2606.30170",
+      "pdf_url": "https://arxiv.org/pdf/2606.30170",
+      "hf_upvotes": 3,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.1236,
+        "world_model": 0.2679,
+        "whole_body_control": 0.17,
+        "dexterous_manipulation": 0.1671,
+        "sim2real_data": 0.1714,
+        "hardware_unitree": 0.0383,
+        "bci_neural_decoding": 0.1602,
+        "bci_foundation_models": 0.1729,
+        "bci_embodied_robot": 0.1399,
+        "bci_noninvasive_eeg": 0.1806,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.3114
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3844,
+      "first_seen": "2026-07-01",
+      "analysis": {
+        "tldr": "这篇论文构建了一个面向纳米材料科学的分子优化新基准NMO，用第一性原理量子模拟替代传统药物发现中的经验性代理指标，强制模型满足物理约束并探索真实材料设计空间，同时提出一个去药企数据偏置的新基线方法。",
+        "org": "奥格斯堡大学",
+        "country": "EU",
+        "org_type": "university",
+        "claim": "当前生成式分子设计方法在药物发现基准上表现优异，但因依赖药企数据和简单代理指标，在面向量子材料的真实纳米结构优化任务中系统性失效；NMO基准通过物理驱动的任务定义、严格结构约束和无药企预训练，揭示了现有方法的根本缺陷，并验证了可迁移、物理一致的生成建模路径。",
+        "method_components": [
+          "benchmark",
+          "dataset",
+          "simulator"
+        ],
+        "input": "分子图/SMILES/3D构型（作为初始候选）",
+        "output": "优化后的分子结构（满足指定电子/几何/稳定性约束）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "code+model+data",
+        "tags": [
+          "benchmark",
+          "dataset",
+          "open-source"
+        ],
+        "novelty": 8,
+        "evidence": 10,
+        "reproducibility_score": 8,
+        "significance": 78,
+        "significance_reason": "NMO是首个将第一性原理量子模拟（而非ML代理）嵌入生成式分子优化闭环的开源基准，实证揭示主流方法（如REINVENT、GBDT+GAN）在物理约束任务中全面崩溃，并给出可复现的、去药企偏置的基线；虽未达AlphaFold级范式革命，但显著超越纯刷榜benchmark（如QED/SA-score），属扎实重磅贡献——真机对应物是‘真量子计算实验验证前的最严苛数字沙盒’。",
+        "one_sentence_verdict": "工程整合：它不是算法突破，而是用严谨物理建模重构了分子生成的评估范式，并提供完整可复现工具链，实质性抬高了AI×材料科学的准入门槛和可信度。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 3,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 11.5,
+        "content": 26.0,
+        "heat": 5.2,
+        "quality": 0.0,
+        "base": 37.5,
+        "bonus": 5.2,
+        "total": 42.7
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2606.30170.jpg"
     },
     {
       "arxiv_id": "2606.08242",
@@ -21594,6 +21859,97 @@
       "grade": "C",
       "read_priority": "B",
       "thumb": "assets/thumbs/2606.21672.jpg"
+    },
+    {
+      "arxiv_id": "2606.31734",
+      "title": "MemLearner: Learning to Query Context memory for Video World Models",
+      "abstract": "Video World Models are interactive video generation models that predict future world states based on user actions and history video frames. A critical challenge in video world models is the lack of memory, causing inconsistent generated scenes over extended durations. Previous methods explored rule-based context frame retrieval as memory, but they fail to generalize in scenarios with scene occlusions and dynamic objects. We propose MemLearner, a learning-based adaptive context query method using query tokens to bridge context and predicted tokens. By leveraging the video generation model itself for context querying, MemLearner exploits pre-trained visual priors without training additional modules from scratch, and incorporates efficient strategies for training and inference. We collect a dataset of long videos with scene occlusions and dynamic objects, paired with camera pose annotations, and propose a multi-dataset training strategy leveraging both annotated rendered and unannotated real-world videos. Extensive experiments demonstrate that MemLearner significantly outperforms prior video world models in terms of scene consistency and memory, particularly under challenging occlusion and dynamic scenarios.",
+      "authors": [
+        "Jiwen Yu",
+        "Jianxiong Gao",
+        "Jianhong Bai",
+        "Yiran Qin",
+        "Kaiyi Huang",
+        "Quande Liu",
+        "Xintao Wang",
+        "Pengfei Wan",
+        "Kun Gai",
+        "Xihui Liu"
+      ],
+      "categories": [],
+      "published": "2026-06-30T00:00:00.000Z",
+      "updated": "2026-06-30T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2606.31734",
+      "pdf_url": "https://arxiv.org/pdf/2606.31734",
+      "hf_upvotes": 14,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.3189,
+        "world_model": 0.5,
+        "whole_body_control": 0.1829,
+        "dexterous_manipulation": 0.1306,
+        "sim2real_data": 0.1773,
+        "hardware_unitree": 0.0472,
+        "bci_neural_decoding": 0.0614,
+        "bci_foundation_models": 0.1877,
+        "bci_embodied_robot": 0.0568,
+        "bci_noninvasive_eeg": 0.1093,
+        "protein_ai": 0.1392,
+        "genomics_ai": 0.1264
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.4339,
+      "first_seen": "2026-07-01",
+      "venue": "ECCV 2026",
+      "analysis": {
+        "tldr": "这篇论文提出MemLearner，一种让视频世界模型能自适应检索历史帧作为记忆的方法，用可学习的query token调用已有生成模型自身的视觉先验，缓解长视频生成中因缺乏持久记忆导致的场景不一致问题，尤其在遮挡和动态物体场景下提升记忆连贯性。",
+        "org": "阿里巴巴",
+        "country": "CN",
+        "org_type": "company",
+        "claim": "通过将上下文帧检索建模为可学习的token-level查询任务，并复用视频生成模型的预训练视觉表征，MemLearner无需额外训练记忆模块即可显著提升视频世界模型在长时序、遮挡与动态场景下的场景一致性。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "历史视频帧序列 + 用户动作（隐式或显式）+ 当前帧/相机位姿（部分实验）",
+        "output": "具有一致记忆的未来视频帧预测序列",
+        "robot_dependency": "none",
+        "data_dependency": "未使用任何真实机器人交互数据；仅依赖合成渲染视频（带相机位姿标注）和未标注的真实世界视频（无动作-状态对）",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 7,
+        "reproducibility_score": 3,
+        "significance": 58,
+        "significance_reason": "属扎实增量：首次将query-token机制引入视频世界模型的记忆检索，实证显示在自建遮挡/动态数据集上优于基线，但未挑战世界模型的核心缺陷（如缺乏显式状态空间、无法闭环交互、无真实动作-状态因果建模），且所有评估停留在开环视频生成质量（PSNR/LPIPS/一致性人工评分），无下游任务验证（如规划、控制），也未接入任何具身系统；相比DreamerV3/WEAVER等具备闭环决策、状态抽象、真实机器人泛化的基石工作，仍停留在表征增强层面。",
+        "one_sentence_verdict": "扎实增量——改进了视频世界模型的记忆检索机制并做了针对性数据构建和评测，但未触及世界模型的本质瓶颈（状态抽象、因果建模、具身闭环），也不是面向真实交互的系统级推进。",
+        "_llm": "qwen-plus",
+        "venue": "ECCV 2026"
+      },
+      "signals": {
+        "hf_upvotes": 14,
+        "citations": 0,
+        "venue": "ECCV 2026"
+      },
+      "scores": {
+        "relevance": 13.0,
+        "content": 16.0,
+        "heat": 10.2,
+        "quality": 0.0,
+        "base": 29.0,
+        "bonus": 10.2,
+        "total": 39.2
+      },
+      "grade": "C",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2606.31734.jpg"
     },
     {
       "arxiv_id": "2606.06061",
@@ -61164,6 +61520,98 @@
       "thumb": "assets/thumbs/2606.25800.jpg"
     },
     {
+      "arxiv_id": "2606.29501",
+      "title": "Learning Transferable Dynamics Priors from Action to World Modeling",
+      "abstract": "We study action-conditioned world modeling as a scalable way to learn transferable dynamics priors for robot learning. By pretraining a model to predict how actions drive visual scene evolution, the resulting world model captures reusable interaction dynamics beyond appearance-level video generation. Concretely, we pretrain a multi-view interactive base diffusion world model, A2World, on large-scale robot manipulation data with real action annotations. We validate the learned dynamics priors from two complementary perspectives. First, we adapt A2World into a task- or scene-specialized real-world simulator, A2World-sim, whose long-horizon rollouts support simulator-based policy evaluation and scalable what-if analysis by replacing real-robot rollouts with world model rollouts. Second, starting from the same pretrained weights, we adapt A2World into a video-action joint prediction model, A2World-policy, that predicts actions under visual and instruction conditioning. Experiments across simulation benchmarks and real-robot settings demonstrate that action-conditioned world model pretraining yields transferable dynamics priors that benefit both simulator-centric and policy-centric robot learning.",
+      "authors": [
+        "Ze Huang",
+        "Jiahui Zhang",
+        "Hairuo Liu",
+        "Chenxi Zhang",
+        "Ran Cheng",
+        "Li Zhang"
+      ],
+      "categories": [],
+      "published": "2026-06-28T00:00:00.000Z",
+      "updated": "2026-06-28T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2606.29501",
+      "pdf_url": "https://arxiv.org/pdf/2606.29501",
+      "hf_upvotes": 1,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.6444,
+        "world_model": 0.6121,
+        "whole_body_control": 0.4955,
+        "dexterous_manipulation": 0.2634,
+        "sim2real_data": 0.3765,
+        "hardware_unitree": 0.1858,
+        "bci_neural_decoding": 0.1195,
+        "bci_foundation_models": 0.2012,
+        "bci_embodied_robot": 0.2678,
+        "bci_noninvasive_eeg": 0.1304,
+        "protein_ai": 0.1409,
+        "genomics_ai": 0.1637
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.6444,
+      "first_seen": "2026-07-01",
+      "venue": "ECCV 2026",
+      "analysis": {
+        "tldr": "用真实机器人操作视频和对应动作数据预训练一个能预测‘动作如何改变视觉场景’的多视角扩散世界模型（A2World），然后把它复用为两个下游工具：一个是可长程 rollout 的专用仿真器（A2World-sim），用于替代真机测试做策略评估；另一个是能根据视觉输入和语言指令联合预测动作的策略模型（A2World-policy）。",
+        "org": "未知（作者无明确机构署名，摘要未提所属单位，论文未公开来源）",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "动作条件化的世界模型预训练能提取可迁移的动力学先验，该先验可同时支撑仿真器构建与策略学习两大范式。",
+        "method_components": [
+          "model",
+          "dataset",
+          "simulator",
+          "policy",
+          "benchmark"
+        ],
+        "input": "多视角RGB视频帧序列 + 对应的真实机器人动作序列 + 可选的语言指令",
+        "output": "未来多步视觉帧预测（A2World-sim）或动作序列预测（A2World-policy）",
+        "robot_dependency": "真实机器人操作平台（但未指明具体型号）",
+        "data_dependency": "强依赖——明确使用‘large-scale robot manipulation data with real action annotations’，但未公开数据集名称、规模、采集细节或是否开源",
+        "sim2real_status": "small-real",
+        "generalization": [
+          "cross-task",
+          "cross-scene"
+        ],
+        "reproducibility": "none",
+        "tags": [
+          "multimodal-fusion",
+          "sim2real",
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 5,
+        "reproducibility_score": 0,
+        "significance": 48,
+        "significance_reason": "虽提出‘动作驱动的世界建模’新视角并验证双路径迁移（仿真器+策略），但缺乏真机多任务闭环控制结果、无消融证明动力学先验的独立贡献、未开源数据/代码、未与DreamerV3/WEAVER等基石方法在相同基准上对比，仅报告‘benefit both’而无量化增益，属扎实但窄域的增量工作，未达分量标尺中任一档（最低门槛93分对应Genie/DayDreamer级通用性、开源性与实证强度）",
+        "one_sentence_verdict": "工程整合——将扩散模型适配到动作-视觉联合建模并尝试双路径迁移，但缺乏开源、消融与真机闭环证据，尚未构成范式推进",
+        "_llm": "qwen-plus",
+        "venue": "ECCV 2026"
+      },
+      "signals": {
+        "hf_upvotes": 1,
+        "citations": 0,
+        "venue": "ECCV 2026"
+      },
+      "scores": {
+        "relevance": 19.3,
+        "content": 11.0,
+        "heat": 2.6,
+        "quality": 0.0,
+        "base": 30.3,
+        "bonus": 2.6,
+        "total": 32.9
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2606.29501.jpg"
+    },
+    {
       "arxiv_id": "2606.25179",
       "doi": "10.48550/arxiv.2606.25179",
       "source_kind": "arxiv",
@@ -63913,6 +64361,95 @@
       },
       "grade": "D",
       "read_priority": "B"
+    },
+    {
+      "arxiv_id": "2606.25393",
+      "title": "Large-Scale Tunnel Air-Ground Collaboration With FLISP: Fast LiDAR-IMU Synchronized Path Planner",
+      "abstract": "Hydropower tunnel inspection is critical for infrastructure integrity yet remains inefficient and hazardous using manual methods. We propose FLISP (Fast LiDAR-IMU Synchronized Path Planner), a mapless planning framework for cooperative UGV-UAV inspection. Unlike traditional map-based paradigms, FLISP features three core contributions: (1) a unified architecture where a single UGV-mounted LiDAR-IMU suite drives synchronized path generation for both platforms; (2) platform-specific solvers utilizing an enhanced Firefly Algorithm for UGV obstacle avoidance and a dynamic iterative optimizer for UAV flight; and (3) a hierarchical refinement strategy ensuring kinematic feasibility without state estimation drift. Benchmarks in a 1.2 km operational tunnel demonstrate that FLISP circumvents structural bottlenecks of map-based methods, eliminating map rasterization overhead (Fast-LIO2 + A*) and sampling instability (LIO-SAM + RRT*). FLISP achieves a 100% success rate with 7 ms latency, representing a 7-fold speedup over grid-based and a three-order-of-magnitude improvement over sampling-based baselines. Validated in operational hydropower tunnels, this approach offers a scalable solution for robotic inspection in feature-degraded linear infrastructure. A demonstration video is available at https://youtu.be/Y_ezs1PfLJ4, and the code at https://github.com/ArchibaldGuo/FLISP.git.",
+      "authors": [
+        "Fenghe Guo",
+        "Runjie Shen",
+        "Chenyang Sun",
+        "Junrui Zhang",
+        "Quanxi Zhan",
+        "Yongchun Wang",
+        "Junjie Zhang"
+      ],
+      "categories": [],
+      "published": "2026-06-25T00:00:00.000Z",
+      "updated": "2026-06-25T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2606.25393",
+      "pdf_url": "https://arxiv.org/pdf/2606.25393",
+      "hf_upvotes": 1,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.2346,
+        "world_model": 0.5,
+        "whole_body_control": 0.2345,
+        "dexterous_manipulation": 0.1627,
+        "sim2real_data": 0.2111,
+        "hardware_unitree": 0.1651,
+        "bci_neural_decoding": 0.0495,
+        "bci_foundation_models": 0.0806,
+        "bci_embodied_robot": 0.206,
+        "bci_noninvasive_eeg": 0.1456,
+        "protein_ai": 0.1147,
+        "genomics_ai": 0.1796
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.3624,
+      "first_seen": "2026-07-01",
+      "analysis": {
+        "tldr": "提出FLISP框架，用单个UGV搭载的LiDAR-IMU实时同步规划UGV和UAV在无地图水电隧道中的协同巡检路径，不建图、低延迟、100%成功，已在真实1.2公里隧道验证。",
+        "org": "未知（作者单位未在摘要中披露，GitHub主页archibaldguo未显示机构 affiliation，论文未提所属实验室/公司）",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "无需预先构建隧道地图，仅靠单台UGV实时采集的LiDAR-IMU数据，即可同步生成UGV地面路径与UAV空中飞行路径，实现高成功率、毫秒级延迟的隧道空地协同巡检。",
+        "method_components": [
+          "model",
+          "simulator",
+          "policy",
+          "benchmark",
+          "hardware"
+        ],
+        "input": "UGV搭载的LiDAR点云序列 + IMU惯性测量数据",
+        "output": "UGV运动轨迹 + UAV飞行轨迹（含避障与动力学约束）",
+        "robot_dependency": "UGV（地面机器人）+ UAV（无人机）+ LiDAR-IMU传感器套件",
+        "data_dependency": "依赖真实隧道中UGV采集的LiDAR-IMU在线流数据；未使用离线大规模数据集训练，但需真实硬件部署采集",
+        "sim2real_status": "deployed",
+        "generalization": "limited",
+        "reproducibility": "code-only",
+        "tags": [
+          "sim2real",
+          "real-robot",
+          "large-scale",
+          "teleoperation"
+        ],
+        "novelty": 5,
+        "evidence": 9,
+        "reproducibility_score": 5,
+        "significance": 68,
+        "significance_reason": "解决了水电隧道这类特征退化、长直结构场景下传统建图+规划范式的结构性瓶颈（如栅格化开销、采样不稳定），在真实1.2km运营隧道完成端到端部署验证，延迟7ms、100%成功率，证据扎实；但方法属工程级系统整合（Firefly算法改进+分层优化器耦合），未提出新学习范式、未开源数据/模型、泛化性限于线性封闭环境，未跨机体/任务扩展，显著优于现有基线但未达‘开新范式’或‘长期开放难题突破’层级。",
+        "one_sentence_verdict": "工程整合：在真实长隧道场景中有效规避了建图依赖，但核心算法为启发式与优化器组合改进，非原理性创新，且复现受限于硬件接口与未公开数据。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 1,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 10.9,
+        "content": 19.0,
+        "heat": 2.6,
+        "quality": 0.0,
+        "base": 29.9,
+        "bonus": 2.6,
+        "total": 32.5
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2606.25393.jpg"
     },
     {
       "arxiv_id": "2605.31173",
@@ -73553,6 +74090,85 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2606.20867.jpg"
+    },
+    {
+      "arxiv_id": "2606.30292",
+      "title": "DreamForge-World 0.1 Preview: A Low-Compute Real-Time Controllable World Model",
+      "abstract": "We present DreamForge-World 0.1 Preview, a preview foundational world model for real-time interactive world simulation. The system adapts the LongLive 1 autoregressive video stack, itself derived from Wan2.1-T2V-1.3B, with a residual action pathway inspired by the Matrix-Game family. DreamForge-World 0.1 Preview focuses on a complementary axis to frontier-scale world simulators: low-compute adaptation, consumer-GPU runtime, and broad interactive capability coverage. It supports live keyboard and mouse control, multimodal initialization, mid-stream reprompting, dual-view operation, and minute-scale interactive rollouts at native 480p resolution, reaching up to 14 to 15 FPS FPS on a single RTX 4090 with a low memory footprint. By leveraging open video backbones and applying targeted adaptation runs, we build the preview system with high cost-efficiency. DF-World 0.1 Preview is not yet a memory-complete or frontier-quality world simulator, but demonstrates a practical low-compute route toward real-time controllable world-model previews on consumer GPUs.",
+      "authors": [
+        "Daniyel Ayupov",
+        "Artur Markov-Tsoy"
+      ],
+      "categories": [],
+      "published": "2026-06-29T00:00:00.000Z",
+      "updated": "2026-06-29T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2606.30292",
+      "pdf_url": "https://arxiv.org/pdf/2606.30292",
+      "hf_upvotes": 9,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.3481,
+        "world_model": 0.5081,
+        "whole_body_control": 0.2911,
+        "dexterous_manipulation": 0.1609,
+        "sim2real_data": 0.2693,
+        "hardware_unitree": 0.1828,
+        "bci_neural_decoding": 0.1735,
+        "bci_foundation_models": 0.2216,
+        "bci_embodied_robot": 0.1165,
+        "bci_noninvasive_eeg": 0.161,
+        "protein_ai": 0.151,
+        "genomics_ai": 0.2144
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.5081,
+      "first_seen": "2026-07-01",
+      "analysis": {
+        "tldr": "用消费级显卡（单RTX 4090）实时生成480p、14–15 FPS的可控视频世界模型预览版，支持键盘鼠标交互、中途重提示、双视角等，但无持久状态、未达前沿质量，本质是轻量级工程适配而非新范式。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "低算力、高交互性、实时可控的世界模型预览系统可在消费级GPU上实现分钟级480p视频生成与多模态交互。",
+        "method_components": [
+          "model",
+          "simulator"
+        ],
+        "input": "键盘/鼠标动作 + 多模态初始化信号（如文本/图像） + 中途重提示指令",
+        "output": "实时生成的480p视频帧序列（含动态响应）",
+        "robot_dependency": "none",
+        "data_dependency": "无真实机器人数据依赖，仅依赖公开视频模型（Wan2.1-T2V-1.3B）及自适应微调",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "none",
+        "tags": [
+          "sim2real",
+          "multimodal-fusion"
+        ],
+        "novelty": 3,
+        "evidence": 4,
+        "reproducibility_score": 0,
+        "significance": 32,
+        "significance_reason": "仅为现有T2V模型（Wan2.1-T2V-1.3B）加残差动作通路和交互封装，无新架构、无状态建模、无评估基准、无开源代码/数据，未验证泛化性或控制精度，远低于World Models（97）、DreamerV3（96）等基石工作所要求的状态建模、闭环决策、长期一致性等核心能力，属低门槛工程包装。",
+        "one_sentence_verdict": "概念包装：把已有T2V模型加交互接口就称‘世界模型预览’，缺乏状态建模、闭环控制、评估验证等世界模型本质要素，且零开源，暂无实质推进。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 9,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 15.2,
+        "content": 7.0,
+        "heat": 8.7,
+        "quality": 0.0,
+        "base": 22.2,
+        "bonus": 8.7,
+        "total": 30.9
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2606.30292.jpg"
     },
     {
       "arxiv_id": "2606.09315",

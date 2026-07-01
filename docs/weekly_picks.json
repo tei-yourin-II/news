@@ -1,17 +1,16 @@
 {
   "week": {
-    "start": "2026-06-24",
-    "end": "2026-06-30",
-    "label": "06.24~06.30"
+    "start": "2026-06-25",
+    "end": "2026-07-01",
+    "label": "06.25~07.01"
   },
   "count": 15,
   "venue_count": 4,
   "venues": [
     "ECCV 2026",
-    "Humanoids",
     "IROS 2026"
   ],
-  "generated_at": "2026-06-30 05:04 UTC",
+  "generated_at": "2026-07-01 05:22 UTC",
   "picks": [
     {
       "rank": 1,
@@ -133,46 +132,6 @@
     },
     {
       "rank": 4,
-      "arxiv_id": "2606.25575",
-      "title": "One Body, Two Minds: Variable Autonomy Approach for a Co-embodied Robotic Hand",
-      "published": "2026-06-24",
-      "url": "https://arxiv.org/abs/2606.25575",
-      "pdf_url": "https://arxiv.org/pdf/2606.25575",
-      "thumb": "assets/thumbs/2606.25575.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "KTH皇家理工学院",
-      "country": "EU",
-      "org_type": "university",
-      "significance": 87,
-      "significance_reason": "首次实现单物理体下人类与AI‘双心智’分阶段自主切换，并在真机上完成跨任务/跨用户的大规模用户研究（n=44），含统计显著性（p<0.001）、效应量（d=0.94）、高成功率（93.6%）及高接受度（5.7/7），填补了共具身范式从概念到实证的关键缺口；虽未达T-Rex/ALOHA级底层控制突破，但在人机协作范式层面达到与Diffusion Policy/π0同档的工程级里程碑水平。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "dexterous",
-        "teleoperation",
-        "real-robot",
-        "benchmark"
-      ],
-      "tldr": "提出一种‘共具身’可变自主性框架，让人类和AI共享同一只穿戴式机械手：搜索抓取阶段由AI自动完成（基于视觉扩散策略），抓稳后切换为人类用头部手势控制工具动作，全程物理耦合且人类随时可否决，实证显示用户操作效率提升23.3%、成功率93.6%。",
-      "claim": "共具身（co-embodiment）下的可变自主性——而非传统分离身体的混合自主——能通过物理耦合与阶段性自主切换，在保持人类完全否决权的前提下显著提升辅助机器人任务效率与接受度。",
-      "method_components": [
-        "model",
-        "dataset",
-        "policy",
-        "hardware",
-        "benchmark"
-      ],
-      "input": "RGB视觉输入 + 头部姿态/手势信号 + 手部位置反馈",
-      "output": "机械手关节动作序列（抓取阶段） + 工具执行指令（操作阶段）",
-      "novelty": 8,
-      "evidence": 11,
-      "one_sentence_verdict": "真突破：不是改进某个模块，而是确立了‘共具身+可变自主’这一新协作范式，并用扎实的真机多任务用户实验闭环验证其有效性与可用性。",
-      "deep": {}
-    },
-    {
-      "rank": 5,
       "arxiv_id": "2606.27344",
       "title": "VibeAct: Vibration to Actions for Contact-Rich Reactive Robot Dexterity",
       "published": "2026-06-25",
@@ -212,48 +171,7 @@
       "deep": {}
     },
     {
-      "rank": 6,
-      "arxiv_id": "2606.26423",
-      "title": "CoStream: Composing Simple Behaviors for Generalizable Complex Manipulation",
-      "published": "2026-06-24",
-      "url": "https://arxiv.org/abs/2606.26423",
-      "pdf_url": "https://arxiv.org/pdf/2606.26423",
-      "thumb": "assets/thumbs/2606.26423.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "MIT/斯坦福",
-      "country": "US",
-      "org_type": "university",
-      "significance": 87,
-      "significance_reason": "真机部署8个跨域任务（含毫米级PCIe插槽装配），三行为解耦设计有明确物理意义和模块接口（SE(3)右乘），触觉+视觉+语言模态协同且扰动恢复实证扎实；虽未开源代码/模型，但工程完整度和任务难度逼近ALOHA/ACT级，但缺乏大规模数据集构建与跨机体验证，未达T-Rex/π0级范式颠覆性。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "tactile",
-        "dexterous",
-        "sim2real",
-        "real-robot"
-      ],
-      "tldr": "提出CoStream框架，把复杂操作任务拆解为三个可自由组合的简单行为（语义约束提取、关键点轨迹预测、触觉力反馈修正），通过SE(3)姿态接口实时右乘融合成统一控制指令，在8个真实机器人任务（含GPU插槽装配等高精度接触任务）上验证了泛化性和扰动恢复能力。",
-      "claim": "复杂操作能力无需单一大模型或刚性流水线，而可自然涌现于多个解耦、可组合、多模态协同的简单行为在SE(3)空间的动态融合。",
-      "method_components": [
-        "model",
-        "simulator",
-        "policy",
-        "benchmark",
-        "hardware"
-      ],
-      "input": "RGB-D图像、触觉传感器信号、力扭矩数据、语言指令（隐含在语义行为中）",
-      "output": "每步输出的SE(3)位姿增量命令",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：首次将SE(3)空间的行为组合作为通用操作原语，在真实复杂接触任务中实现免重训泛化与扰动鲁棒性，不是端到端黑箱也不是传统流水线，而是可解释、可替换、可诊断的新操作范式。",
-      "deep": {}
-    },
-    {
-      "rank": 7,
+      "rank": 5,
       "arxiv_id": "2606.26800",
       "title": "SSI-Policy: Learning Structured Scene Interfaces for Vision-Language Robotic Manipulation",
       "published": "2026-06-25",
@@ -291,7 +209,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
+      "rank": 6,
       "arxiv_id": "2606.27364",
       "title": "PhysiFormer: Learning to Simulate Mechanics in World Space",
       "published": "2026-06-25",
@@ -330,7 +248,7 @@
       "deep": {}
     },
     {
-      "rank": 9,
+      "rank": 7,
       "arxiv_id": "2606.28133",
       "title": "Translation as a Bridging Action: Transferring Manipulation Skills from Humans to Robots",
       "published": "2026-06-26",
@@ -366,7 +284,7 @@
       "deep": {}
     },
     {
-      "rank": 10,
+      "rank": 8,
       "arxiv_id": "2606.27326",
       "title": "Hallucination in World Models is Predictable and Preventable",
       "published": "2026-06-25",
@@ -404,7 +322,7 @@
       "deep": {}
     },
     {
-      "rank": 11,
+      "rank": 9,
       "arxiv_id": "2606.27079",
       "title": "ForesightSafety-VLA: A Unified Diagnostic Safety Benchmark for Vision-Language-Action Models",
       "published": "2026-06-25",
@@ -441,7 +359,7 @@
       "deep": {}
     },
     {
-      "rank": 12,
+      "rank": 10,
       "arxiv_id": "2606.26603",
       "title": "Bridging Handheld and Teleoperated Supervision for Contact-Rich Manipulation via State-Gated Experts",
       "published": "2026-06-25",
@@ -479,85 +397,119 @@
       "deep": {}
     },
     {
-      "rank": 13,
-      "arxiv_id": "2606.26215",
-      "title": "TaskNPoint: How to Teach Your Humanoid to Hit a Backhand in Minutes",
-      "published": "2026-06-24",
-      "url": "https://arxiv.org/abs/2606.26215",
-      "pdf_url": "https://arxiv.org/pdf/2606.26215",
-      "thumb": "assets/thumbs/2606.26215.jpg",
+      "rank": 11,
+      "arxiv_id": "2606.27295",
+      "title": "LA4VLA: Learning to Act without Seeing via Language-Action Pretraining",
+      "published": "2026-06-25",
+      "url": "https://arxiv.org/abs/2606.27295",
+      "pdf_url": "https://arxiv.org/pdf/2606.27295",
+      "thumb": "assets/thumbs/2606.27295.jpg",
       "venue": "",
       "domain": "embodied_ai",
-      "best_route": "whole_body_control",
-      "org": "加州理工学院",
-      "country": "US",
+      "best_route": "vla",
+      "org": "上海交通大学",
+      "country": "CN",
       "org_type": "university",
-      "significance": 82,
-      "significance_reason": "实现在Unitree G1真机上跨5类动态操作任务（含高速击球、踢球）的零样本目标泛化，单GPU<1h训练，无需每任务调奖赏函数；证据链完整（仿真训练→sim2real部署→多任务真机验证→消融交互窗口标注必要性），但未开源代码/模型，且未挑战全身长时序协同（如连续多拍对打），故略低于GRAIL/WholeBodyVLA级里程碑",
+      "significance": 78,
+      "significance_reason": "首次系统性剥离视觉信号、纯语言-动作预训练VLA模型，并在仿真+真实机械臂（Franka/Panda）多任务上验证其有效性；有消融（LA-only/sequential/mixed）、跨平台部署（multi-embodiment）、真实硬件验证（real-world success +45.0pt），但模型规模小（1B）、未开源代码/权重、未挑战开放长程任务或复杂语义理解，尚未达到RT-2/Octo级范式突破，属扎实重磅增量。",
       "tier": "heavy",
       "grade": "C",
       "tags": [
-        "sim2real",
-        "real-robot",
-        "teleoperation",
-        "benchmark"
+        "dataset",
+        "multimodal-fusion"
       ],
-      "tldr": "提出TaskNPoint训练协议，让人类教练只需提供每个技能的一段视频示范、标出关键交互窗口（如球拍接触球的20cm轨迹段）和目标位置，机器人就能在仿真中快速拟合完整动作，在Unitree G1真机上实现网球正反手、踢球、抓放箱等多任务零样本泛化，单GPU训练不到一小时。",
-      "claim": "动态技能的学习本质是掌握少数关键交互窗口的精确协调，而非拟合整条轨迹；通过显式分离人类教练（提供技能离散集、单次示范、交互窗口标注、目标）与机器人学习（在物理仿真中补全鲁棒轨迹），可实现分钟级多任务泛化。",
+      "tldr": "这篇论文提出一种不依赖视觉输入、仅用语言-动作配对数据预训练VLA模型的方法，从已有机器人演示中自动提取33K条语言描述+原子动作片段，让模型先学会‘语言到动作’的通用操作先验，再与视觉信号融合，从而提升模型对视觉干扰的鲁棒性和跨场景泛化能力。",
+      "claim": "仅用语言-动作配对（无图像）进行预训练，可构建更鲁棒、更少依赖视觉捷径的VLA策略，且该先验能有效迁移并增强多模态VLA模型性能。",
       "method_components": [
         "model",
-        "simulator",
-        "benchmark",
+        "dataset",
+        "benchmark"
+      ],
+      "input": "低级动作描述文本（如“向右移动夹爪0.02米”）",
+      "output": "动作序列/动作块",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：方法设计清晰、实证充分（真机+多任务+消融），但缺乏开源和更大尺度验证，是高质量的VLA架构优化工作，非范式革命。",
+      "deep": {}
+    },
+    {
+      "rank": 12,
+      "arxiv_id": "2606.27317",
+      "title": "OctoSense: Self-Supervised Learning for Multimodal Robot Perception",
+      "published": "2026-06-25",
+      "url": "https://arxiv.org/abs/2606.27317",
+      "pdf_url": "https://arxiv.org/pdf/2606.27317",
+      "thumb": "assets/thumbs/2606.27317.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "world_model",
+      "org": "宾夕法尼亚大学",
+      "country": "US",
+      "org_type": "university",
+      "significance": 78,
+      "significance_reason": "真机多平台（车+四足）、多模态（8种）、多退化场景数据采集扎实；模型架构解决异频/异时/异质输入融合的实际瓶颈（缓存式晚融合+模态专属tokenizer），并在多个感知任务上实证超越单模态基线；但未展示闭环控制或策略迁移能力，仍属感知层表征学习，未达World Models级的世界建模或决策泛化高度。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "dataset",
+        "open-source",
+        "real-robot"
+      ],
+      "tldr": "构建了一个八模态同步传感器平台（RGB双目+事件相机+激光雷达+热成像+IMU+RTK-GPS+本体感知），发布了59小时真实驾驶与四足机器人多场景多时段退化环境数据集，并提出一种支持异步、异频、异质输入的晚融合掩码自编码器架构，用于多模态自监督表征学习。",
+      "claim": "异构多模态传感器数据可通过模态专属分词器+缓存式晚融合掩码自编码器实现高效、鲁棒、低延迟的自监督表征学习，且在光学流、深度、语义分割、自运动估计等下游任务上超越单模态基础模型。",
+      "method_components": [
+        "dataset",
+        "model",
         "hardware"
       ],
-      "input": "单段人类视频示范+交互窗口标注+离散技能标签+目标位置坐标",
-      "output": "关节级动作轨迹（含时序控制信号）",
+      "input": "八种异构传感器原始信号：立体RGB图像、事件流、LiDAR点云、热成像图、IMU序列、RTK-GPS位姿、CAN总线车辆状态、四足关节角",
+      "output": "统一多模态隐空间表征（用于下游任务解码）",
       "novelty": 7,
       "evidence": 10,
-      "one_sentence_verdict": "重磅——真机多任务零样本泛化+分钟级训练+免奖励工程，证据扎实，但开源缺失限制复现，尚未突破全身时序建模上限",
+      "one_sentence_verdict": "工程整合——将多模态感知的硬件采集、数据治理与模型架构做系统性打通，证据扎实但未突破感知→决策范式",
+      "deep": {}
+    },
+    {
+      "rank": 13,
+      "arxiv_id": "2606.27239",
+      "title": "HumanoidUMI: Bridging Robot-Free Demonstrations and Humanoid Whole-Body Manipulation",
+      "published": "2026-06-25",
+      "url": "https://arxiv.org/abs/2606.27239",
+      "pdf_url": "https://arxiv.org/pdf/2606.27239",
+      "thumb": "assets/thumbs/2606.27239.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "清华",
+      "country": "CN",
+      "org_type": "university",
+      "significance": 76,
+      "significance_reason": "首次将UMI范式扩展至人形全身操作，实证覆盖5个真实场景且含基座运动+双臂协同，有完整retargeting pipeline和whole-body controller闭环，但未开源代码/模型，也未与SOTA基础模型（如RT-2、OpenVLA）对比，未验证跨机体泛化或长期部署能力，属扎实的工程级推进而非范式突破。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "teleoperation",
+        "dataset",
+        "multimodal-fusion"
+      ],
+      "tldr": "用轻量VR设备和UMI式夹爪采集人类全身稀疏关键点、手腕视角图像和夹爪动作，再将这些数据转译成人形机器人可执行的全身运动轨迹，实现在5个真实场景中无需真机示范就能训练全身操作技能。",
+      "claim": "无需真实机器人参与示范，仅通过低成本VR+UMI式外设采集的人类全身稀疏动作数据，即可有效训练人形机器人完成跨场景的全身协同操作任务。",
+      "method_components": [
+        "dataset",
+        "policy",
+        "simulator",
+        "benchmark"
+      ],
+      "input": "VR人体关键点序列+手腕RGB图像+夹爪开合状态",
+      "output": "人形机器人全身关节轨迹（含基座移动与双臂操作）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：把UMI思路成功迁移到人形全身控制，有真机验证和多场景落地，但缺乏开源与基准对比，尚未达到基石级模型的通用性与影响力。",
       "deep": {}
     },
     {
       "rank": 14,
-      "arxiv_id": "2606.25706",
-      "title": "Learning Asynchronous Upper-body Task-space Trajectory Tracking Policy for Humanoid Robots",
-      "published": "2026-06-24",
-      "url": "https://arxiv.org/abs/2606.25706",
-      "pdf_url": "https://arxiv.org/pdf/2606.25706",
-      "thumb": "assets/thumbs/2606.25706.jpg",
-      "venue": "Humanoids",
-      "domain": "embodied_ai",
-      "best_route": "whole_body_control",
-      "org": "浙江大学",
-      "country": "CN",
-      "org_type": "university",
-      "significance": 72,
-      "significance_reason": "解决了人形控制中长期存在的planning-execution时序失配这一关键工程瓶颈，实证扎实（真机G1+多任务+消融+对比SOTA基线），但未开新范式、未覆盖全身运动生成、未打通端到端VLA链路，属于显著但非里程碑级的系统性工程突破。",
-      "tier": "notable",
-      "grade": "C",
-      "tags": [
-        "sim2real",
-        "dexterous",
-        "real-robot"
-      ],
-      "tldr": "这篇论文解决人形机器人高层规划轨迹稀疏（低频）与底层控制器高频执行之间的时序不匹配问题，提出一个异步上半身任务空间跟踪策略，用教师-学生蒸馏初始化策略，结合滑动窗口全局奖励和MPC后处理，在仿真和Unitree G1真机上验证了低更新率下的更稳更准跟踪。",
-      "claim": "通过异步条件化策略建模+滑动窗口全局奖励+MPC引导的混合架构，可显著提升人形机器人在稀疏高层轨迹输入下的上半身任务空间跟踪鲁棒性与泛化性，无需显式帧对齐或在线时间估计。",
-      "method_components": [
-        "model",
-        "simulator",
-        "policy",
-        "benchmark",
-        "hardware"
-      ],
-      "input": "缓存的未来任务空间轨迹序列 + 当前执行时间索引（标量）",
-      "output": "上半身关节力矩/速度控制指令（隐式映射到任务空间动作）",
-      "novelty": 6,
-      "evidence": 9,
-      "one_sentence_verdict": "显著贡献：真机验证了异步轨迹跟踪的有效性，填补了稀疏指令下上半身精细操作的控制空白，但未触及具身智能核心认知层或通用任务编排。",
-      "deep": {}
-    },
-    {
-      "rank": 15,
       "arxiv_id": "2606.27268",
       "title": "E-TTS: A New Embodied Test-Time Scaling Framework for Robotic Manipulation",
       "published": "2026-06-25",
@@ -591,6 +543,43 @@
       "novelty": 6,
       "evidence": 8,
       "one_sentence_verdict": "工程整合：把TTS思想落地到具身操作，机制清晰、验证充分，但缺乏开源与底层创新，尚未达到开新范式或解决长期开放难题的量级。",
+      "deep": {}
+    },
+    {
+      "rank": 15,
+      "arxiv_id": "2606.31734",
+      "title": "MemLearner: Learning to Query Context memory for Video World Models",
+      "published": "2026-06-30",
+      "url": "https://arxiv.org/abs/2606.31734",
+      "pdf_url": "https://arxiv.org/pdf/2606.31734",
+      "thumb": "assets/thumbs/2606.31734.jpg",
+      "venue": "ECCV 2026",
+      "domain": "embodied_ai",
+      "best_route": "world_model",
+      "org": "阿里巴巴",
+      "country": "CN",
+      "org_type": "company",
+      "significance": 58,
+      "significance_reason": "属扎实增量：首次将query-token机制引入视频世界模型的记忆检索，实证显示在自建遮挡/动态数据集上优于基线，但未挑战世界模型的核心缺陷（如缺乏显式状态空间、无法闭环交互、无真实动作-状态因果建模），且所有评估停留在开环视频生成质量（PSNR/LPIPS/一致性人工评分），无下游任务验证（如规划、控制），也未接入任何具身系统；相比DreamerV3/WEAVER等具备闭环决策、状态抽象、真实机器人泛化的基石工作，仍停留在表征增强层面。",
+      "tier": "worth",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "dataset",
+        "benchmark"
+      ],
+      "tldr": "这篇论文提出MemLearner，一种让视频世界模型能自适应检索历史帧作为记忆的方法，用可学习的query token调用已有生成模型自身的视觉先验，缓解长视频生成中因缺乏持久记忆导致的场景不一致问题，尤其在遮挡和动态物体场景下提升记忆连贯性。",
+      "claim": "通过将上下文帧检索建模为可学习的token-level查询任务，并复用视频生成模型的预训练视觉表征，MemLearner无需额外训练记忆模块即可显著提升视频世界模型在长时序、遮挡与动态场景下的场景一致性。",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark"
+      ],
+      "input": "历史视频帧序列 + 用户动作（隐式或显式）+ 当前帧/相机位姿（部分实验）",
+      "output": "具有一致记忆的未来视频帧预测序列",
+      "novelty": 6,
+      "evidence": 7,
+      "one_sentence_verdict": "扎实增量——改进了视频世界模型的记忆检索机制并做了针对性数据构建和评测，但未触及世界模型的本质瓶颈（状态抽象、因果建模、具身闭环），也不是面向真实交互的系统级推进。",
       "deep": {}
     }
   ]
