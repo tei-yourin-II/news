@@ -583,6 +583,15 @@
           "why": "首个开源人形机器人行为基础模型，50k H100 GPU-hrs训练，VLA双系统架构，定义‘预训练+提示即控’新范式，推动WBC从任务专用走向通用智能体"
         },
         {
+          "name": "Human-as-Humanoid: Enabling Zero-Shot Humanoid Learning from Ego-Exo Human Videos with Human-Aligned Embodiments",
+          "org": "智元",
+          "country": "CN",
+          "year": "2026",
+          "arxiv_id": "2606.32009",
+          "significance": 95,
+          "why": "首次实现完全免动捕、免机器人交互的‘人类视频→人形控制’端到端范式，突破数据采集与具身对齐双重瓶颈，将VLA训练源头从专用传感器/仿真扩展至海量日常人类视频，具备可扩展性、普适性与社会级数据基础。"
+        },
+        {
           "name": "H2O",
           "org": "卡内基梅隆大学",
           "country": "US",
@@ -798,7 +807,7 @@
           "note": "H1/G1平台及Humanoid-Gym仿真支持"
         }
       ],
-      "verdict": "美国在范式开创（NTP、H2O、ExBody、GRAIL）、基础模型（GR00T）、理论深度（BFM）上仍领先；中国在工程落地（SUGAR、ULTRA、ASAP）、真机验证密度（PKU/上交/上海AI Lab密集部署）和规模化应用（宇树/智元量产）上已形成反超态势，中美呈现‘美主原创、中主闭环’双强格局",
+      "verdict": "美国在范式开创（NTP、H2O、ExBody、GRAIL、Human-as-Humanoid）上仍领先；中国在工程落地（SUGAR、ULTRA、ASAP）、真机验证密度（PKU/上交/上海AI Lab密集部署）和规模化应用（宇树/智元量产）上已形成反超态势，中美呈现‘美主原创、中主闭环’双强格局",
       "activity": "该领域处于爆发临界点：2025–2026年顶级会议（ICLR/CoRL/Robotics: Science and Systems）中WBC相关论文占比跃升至37%，真机验证论文年增120%，已从实验室探索迈入产业级技术攻坚阶段",
       "id": "whole_body_control",
       "name": "全身控制 / 人形",
@@ -1132,6 +1141,15 @@
           "why": "首个跨22种机体、百万级真机轨迹的开源聚合数据集，确立Sim2Real数据范式与跨机体学习基准，直接催生RT-X系列模型和行业数据协作标准"
         },
         {
+          "name": "SimFoundry: Modular and Automated Scene Generation for Policy Learning and Evaluation",
+          "org": "英伟达",
+          "country": "US",
+          "year": "2026",
+          "arxiv_id": "2606.28276",
+          "significance": 95,
+          "why": "首次实现从单段视频全自动构建功能保真、可泛化变体（数字表亲）的模块化场景生成范式，将Sim2Real的瓶颈从‘数据规模’转向‘场景语义可控生成’，实质性突破零样本迁移对人工建模/领域先验的依赖。"
+        },
+        {
           "name": "SimWeaver: Zero-Shot RGB Sim-to-Real for Deformable Manipulation",
           "org": "未知（作者单位未在摘要中披露，无机构署名线索；虽有中文名但无法确认归属高校或企业，如清华/智元/宇树等均无依据）",
           "country": "unknown",
@@ -1410,7 +1428,7 @@
           "note": "UMI"
         }
       ],
-      "verdict": "美国以SimWeaver（94）补全软体操纵这一长期缺失的Sim2Real关键拼图，与OXE、Crazyflow、DreamGen及新晋的Robot Self-Improvement（91）共同构成‘标准-硬件-生成-软体-自修复’五维领先矩阵；中国AgiBot World与Genie Sim 3.0仍聚焦刚性/半刚性人形场景，软体交互仿真、零样本迁移及失败自修复能力尚未见对标进展；欧洲LeRobot/DreamGen侧重数据协议与生成，未触及可变形物理的端到端零样本闭环及真实失败下的自主策略修正。",
+      "verdict": "美国以SimWeaver（94）与新晋SimFoundry（95）双擎驱动，确立‘软体操纵-场景生成’双支柱，补全零样本迁移中‘真实场景理解→仿真泛化→策略鲁棒’全闭环；原‘标准-硬件-生成-软体-自修复’五维矩阵升级为‘标准-硬件-生成（SimFoundry）-软体（SimWeaver）-自修复（Robot Self-Improvement）’六维领先体系；中欧在场景自动重建与功能保真变体生成维度仍呈代际空白。",
       "activity": "该领域处于爆发期：2025-2026年每月稳定产出3-5篇arXiv重磅工作，工业界融资密集（AgiBot/Mecka/Physical Intelligence超$600M），数据正从‘稀缺资源’转向‘可规模化生产基础设施’。",
       "id": "sim2real_data",
       "name": "Sim2Real / 数据",

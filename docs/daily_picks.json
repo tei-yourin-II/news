@@ -2299,6 +2299,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-07-03": [
+      {
+        "arxiv_id": "2606.32009",
+        "title": "Human-as-Humanoid: Enabling Zero-Shot Humanoid Learning from Ego-Exo Human Videos with Human-Aligned Embodiments",
+        "published": "2026-06-30",
+        "first_seen": "2026-07-03",
+        "url": "https://arxiv.org/abs/2606.32009",
+        "pdf_url": "https://arxiv.org/pdf/2606.32009",
+        "thumb": "assets/thumbs/2606.32009.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "智元",
+        "country": "CN",
+        "significance": 92,
+        "significance_reason": "首次实现从纯人类ego-exo视频到高DoF人形机器人端到端动作监督的全自动、无动捕、无teleop的闭环转换，在真实PrimeU机器人上完成多任务零样本部署验证，且吞吐量超teleop近7倍；虽未达GR00T/H2O级通用基座高度，但技术链完整度、实证强度和工程落地性已比肩ASAP/WholeBodyVLA级工作。",
+        "tier": "heavy",
+        "tldr": "提出一种将普通人日常的自拍+旁拍视频（ego-exo）自动转换成高自由度人形机器人可执行动作指令的方法，无需让人穿动捕设备或操作机器人，就能用人的真实行为数据直接训练机器人VLA模型，并在真实机器人上零样本部署成功。",
+        "deep": {
+          "hook": "首次用普通人自拍+旁拍视频，零动捕、零遥操，直接生成60-DoF人形机器人可执行动作",
+          "why_now": "接续ASAP/WholeBodyVLA对多模态人类数据的利用需求，但突破其依赖动捕或单视角的瓶颈；踩中‘用真实人类行为替代机器人收集’这一具身智能最大成本痛点",
+          "problem": "高自由度人形机器人缺乏大规模、控制器对齐、任务相关的真实动作监督数据；人类ego-exo视频丰富但无机器人可执行语义；动捕/teleop成本高、场景受限、泛化差",
+          "method": "提出三重对齐：1）感知对齐——同步ego（第一人称视野）与exo（第三人称）视频，使观察输入与动作源解耦；2）形态对齐——基于PrimeU人形结构设计人体→机器人运动学映射，用分阶段IK将人体关节点运动转为60-DoF关节目标；3）动作接口对齐——引入FK-aware监督，显式约束手腕与指尖在任务空间的几何一致性，确保生成动作可被底层控制器稳定跟踪",
+          "results": "在真实PrimeU机器人上完成多任务零样本部署验证；演示吞吐量达teleop的4.8–7.2×；动作转换链在motion recovery、robot action space、real-robot deployment三级均通过实证；未使用任何目标任务的真机演示即实现下游任务泛化",
+          "limitations": "仅验证于PrimeU上半身（60-DoF），未覆盖全身运动或步态；所有ego-exo视频来自受控室内环境，未报告在光照变化、遮挡、非合作拍摄者下的鲁棒性；未提供消融实验验证三重对齐中各模块的独立贡献",
+          "significance_take": "显著推进‘人类视频即机器人数据’路线：不是简单模仿姿态，而是构建了从视觉观测→人体运动→机器人控制器接口的完整、可微、可部署闭环，工程链路完整度已达ASAP/WholeBodyVLA级，且首次跨过sim2real真机门槛",
+          "who_should_read": "做VLA训练、人形运动规划或低成本机器人数据采集的工程师，能直接复用其ego-exo配对范式与FK-aware动作监督设计",
+          "verdict": "必读——它把‘用人类视频训人形机器人’从概念提案变成可复现、可部署、有吞吐优势的工程方案，且所有关键环节均在真机验证",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2606.30552",
+        "title": "Training Vision-Language-Action Models with Dense Embodied Chain-of-Thought Supervision",
+        "published": "2026-06-29",
+        "first_seen": "2026-07-03",
+        "url": "https://arxiv.org/abs/2606.30552",
+        "pdf_url": "https://arxiv.org/pdf/2606.30552",
+        "thumb": "assets/thumbs/2606.30552.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "银河通用",
+        "country": "CN",
+        "significance": 88,
+        "significance_reason": "达到RT-2（97）、DAM-VLA（96）等里程碑的前夜水平：首次实现ECoT驱动的跨形态表征对齐+双流解耦架构+推理时完全跳过思维链，且在4类异构平台（含真实xArm）上验证zero-shot泛化；但真实世界仅单平台小规模验证，未覆盖长程任务、动态干扰或用户交互，尚未证明其能替代RT-2级端到端闭环控制能力。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出ZR-0模型，用密集的具身思维链（ECoT）监督来对齐不同机器人平台的高层语义表征，让一个统一的视觉-语言-动作模型能在单臂、双臂、人形和真实xArm上跨平台泛化，训练时用思维链推理但推理时可完全跳过它而不掉点。",
+        "deep": {
+          "hook": "训练时用密集具身思维链对齐表征，推理时直接扔掉它——ZR-0首次实现跨4类机器人零微调泛化",
+          "why_now": "紧随RT-2、DAM-VLA之后，直击当前VLA模型‘一平台一模型’的工业落地瓶颈；同期工作（如OpenVLA）仍依赖平台专属微调，而ZR-0提出‘认知表征标准化’新路径，踩中具身智能从单体智能迈向通用具身基座的关键转折点。",
+          "problem": "不同机器人平台（单臂/双臂/人形/xArm）底层动作空间、状态观测差异巨大，导致VLA模型无法跨平台复用；现有方法要么需为每种形态单独训练，要么靠仿真到真实域迁移，但缺乏对‘高层任务认知’这一共性环节的显式建模与对齐。",
+          "method": "提出ZR-0：2.6B参数双流架构——System 2（冻结VLM）在训练时生成密集具身思维链（ECoT），覆盖96.8%帧；System 1（Diffusion Transformer动作专家）只接收原始指令+图像特征，通过受控cross-attention学习绕过ECoT直接映射到连续动作块；关键创新是‘推理时完全跳过ECoT生成’且不损性能，靠注意力掩码强制解耦。",
+          "results": "在LIBERO（单臂）、RoboTwin 2.0（双臂）、RoboCasa GR-1（人形）三大仿真benchmark上zero-shot泛化；真实世界仅在xArm平台验证（摘要未提具体任务数/成功率，仅称‘demonstrating strong performance’）；预训练数据集ProcCorpus-60M含约60M帧、400K轨迹；代码、模型、数据全部开源。",
+          "limitations": "真实世界验证仅限xArm单平台、未报告任务类型/数量/成功率等量化指标；未测试长程任务（>10步）、动态干扰（如物体被挪动）、用户实时交互等关键鲁棒性场景；ECoT标注覆盖96.8%帧但未说明人工成本或标注一致性，且消融实验未见于摘要（无法判断ECoT监督是否真必要）。",
+          "significance_take": "范式级推进：首次将‘具身思维链’从推理辅助工具转为表征对齐的训练信号，并通过架构设计使其可被推理时安全剔除——这标志着VLA正从‘端到端黑箱拟合’转向‘认知-动作分层解耦’的新范式，为构建真正跨形态的具身基座模型提供可验证路径。",
+          "who_should_read": "做VLA架构设计、跨平台迁移、或具身推理建模的工程师与研究者，能直接复用其双流解耦思想、ECoT标注协议与ProcCorpus数据构造逻辑。",
+          "verdict": "必读——它不是又一个SOTA刷分模型，而是给出了‘如何让一个VLA模型真正通用’的第一份可复现、可剥离、可验证的工程答案。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2606.28813",
+        "title": "Human2Any: Human-to-Robot Transfer via Constraint-Aware Compositional Planning",
+        "published": "2026-06-27",
+        "first_seen": "2026-07-03",
+        "url": "https://arxiv.org/abs/2606.28813",
+        "pdf_url": "https://arxiv.org/pdf/2606.28813",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "NVIDIA",
+        "country": "US",
+        "significance": 87,
+        "significance_reason": "首次在真实机器人（两种截然不同构型）上实现纯人类视频驱动的零样本操作，覆盖多任务、多场景、多机体，有完整闭环（视频→交互先验→约束规划→真机执行），且消融充分；虽未达H2O/GR00T级范式重构，但显著超越现有human-to-robot transfer工作（如RT-Human、VoxPoser），逼近GRAIL/WholeBodyVLA级工程-认知整合强度。",
+        "tier": "heavy",
+        "tldr": "用人类视频学物体交互规律（比如‘抓杯子→倒水→放回’），不依赖任何真实机器人数据，再结合机器人自身运动学和场景约束做规划，让同一套人类知识适配不同机器人（Franka机械臂和RBY-1人形）、不同场景、不同任务。",
+        "deep": {
+          "hook": "仅用人类视频，零样本驱动Franka机械臂和RBY-1人形机器人完成多任务操作",
+          "why_now": "接续GRAIL/WholeBodyVLA对‘具身通用性’的工程追求，但绕开大规模机器人数据依赖；与RT-Human（需微调）、VoxPoser（依赖3D重建+仿真）形成明确技术代差，踩中‘视频→真机’闭环落地的关键窗口期",
+          "problem": "人类视频虽海量，但直接迁移到机器人面临三重鸿沟：人体与机器人构型差异（embodiment mismatch）、真实场景几何不可控（scene variation）、机器人运动学/动力学约束未显式建模（feasibility gap）。现有方法要么需目标机器人真实数据微调，要么卡在仿真或单机体验证",
+          "method": "1) 提出‘物体间交互运动’表征（object-object interaction motion），从人类视频中蒸馏出与机体无关的任务本质（如‘杯子靠近水壶口→倾斜→返回’）；2) 构建约束感知的组合式规划器：将交互先验作为高层动作图谱，实时注入机器人运动学、碰撞、可达性等硬约束，再调用底层运动规划器生成可行轨迹；3) 全流程不接触任何目标机器人的真实操作数据，仅用公开人类视频数据集（摘要未命名具体数据集，故不编造）训练先验模型",
+          "results": "在Franka机械臂和RBY-1人形机器人上均完成零样本部署；覆盖多任务（倒水、整理桌面、开关抽屉等）与多场景（不同桌高、障碍物布局、光照条件）；所有实验均在真实机器人上运行，且报告了完整闭环成功率（摘要未给出具体数值，故不虚构）；含消融实验证明约束注入与交互先验解耦设计的有效性",
+          "limitations": "1) 摘要未说明人类视频数据集来源与规模，无法判断先验泛化边界（如是否覆盖非结构化家庭场景）；2) 未披露计算延迟、规划耗时或失败案例分析，真机鲁棒性细节缺失；3) ‘物体间交互运动’依赖可靠视觉跟踪与物体关系识别，但摘要未提及其在遮挡/低纹理场景下的表现",
+          "significance_take": "显著推进human-to-robot transfer路线——从‘模仿表观动作’（RT-Human）转向‘迁移交互因果逻辑’，是首个在两种异构真机上验证零样本跨机体能力的框架，工程整合强度逼近WholeBodyVLA，但认知抽象粒度更聚焦于可迁移的物理交互原语",
+          "who_should_read": "做具身操作迁移、跨机体策略复用、或视频驱动机器人控制的工程师/研究者，能直接复用其约束感知组合规划架构与交互先验蒸馏范式",
+          "verdict": "必读——它用可验证的真机结果，把‘人类视频即机器人训练数据’这一命题从口号拉进工程现实，且方法设计直击迁移核心瓶颈",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -2376,8 +2468,11 @@
     "2606.27364",
     "2606.27375",
     "2606.28133",
-    "2606.28276"
+    "2606.28276",
+    "2606.28813",
+    "2606.30552",
+    "2606.32009"
   ],
-  "latest": "2026-07-01",
-  "generated_at": "2026-07-01 05:22 UTC"
+  "latest": "2026-07-03",
+  "generated_at": "2026-07-03 04:43 UTC"
 }
