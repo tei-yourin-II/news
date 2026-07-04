@@ -6842,7 +6842,7 @@
       "signals": {
         "hf_upvotes": 94,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 21.5,
@@ -7419,7 +7419,7 @@
       "signals": {
         "hf_upvotes": 97,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 18.3,
@@ -7514,7 +7514,7 @@
       "signals": {
         "hf_upvotes": 49,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 17.1,
@@ -7603,7 +7603,7 @@
       "signals": {
         "hf_upvotes": 29,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 18.5,
@@ -7699,7 +7699,7 @@
       "signals": {
         "hf_upvotes": 40,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 18.6,
@@ -7794,7 +7794,7 @@
       "signals": {
         "hf_upvotes": 16,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 19.1,
@@ -7882,7 +7882,7 @@
       "signals": {
         "hf_upvotes": 9,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 16.0,
@@ -7971,7 +7971,7 @@
       "signals": {
         "hf_upvotes": 34,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 19.3,
@@ -7985,6 +7985,107 @@
       "grade": "B",
       "read_priority": "B",
       "thumb": "assets/thumbs/2606.28133.jpg"
+    },
+    {
+      "arxiv_id": "2607.00272",
+      "title": "ASPIRE: Agentic /Skills Discovery for Robotics",
+      "abstract": "Traditional robot programming is challenging: it requires orchestrating multimodal perception, managing physical contact dynamics, and handling diverse configurations and execution failures. We introduce ASPIRE (Agentic Skill Programming through Iterative Robot Exploration), a continual learning system that autonomously writes and refines robot control programs in a code-as-policy paradigm while compounding experience into a reusable skill library. ASPIRE discovers skills that persist across tasks, simulation and real-world settings, and embodiments. It operates in an open-ended loop with three components: (1) a closed-loop robot execution engine that exposes fine-grained multimodal traces, enabling autonomous failure diagnosis, repair synthesis, and validation; (2) a continually expanding skill library that distills validated fixes into reusable, transferable knowledge; and (3) evolutionary search that generates diverse task sequences and control programs to explore beyond single-trajectory refinement. ASPIRE surpasses prior methods by up to 77% on LIBERO-Pro manipulation under perturbation, 72% on Robosuite bimanual handover, and 32% on BEHAVIOR-1K long-horizon household tasks. Its accumulated library also enables zero-shot generalization to unseen long-horizon tasks: on LIBERO-Pro Long, ASPIRE achieves 31% success versus 4% for prior methods despite their use of test-time reasoning and retries. Finally, simulation-discovered skills provide initial evidence of sim-to-real transfer, substantially reducing real-robot programming effort across different embodiments and robot APIs.",
+      "authors": [
+        "Runyu Lu",
+        "Yubo Wu",
+        "Ethan Kou",
+        "Letian Fu",
+        "Wenli Xiao",
+        "Ajay Mandlekar",
+        "Yinzhen Xu",
+        "Guanya Shi",
+        "Ken Goldberg",
+        "Ang Chen",
+        "Mosharaf Chowdhury",
+        "Yuke Zhu",
+        "Linxi \"Jim\" Fan",
+        "Guanzhi Wang"
+      ],
+      "categories": [],
+      "published": "2026-06-30T00:00:00.000Z",
+      "updated": "2026-06-30T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2607.00272",
+      "pdf_url": "https://arxiv.org/pdf/2607.00272",
+      "hf_upvotes": 17,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.56,
+        "world_model": 0.5175,
+        "whole_body_control": 0.5,
+        "dexterous_manipulation": 0.3055,
+        "sim2real_data": 0.3427,
+        "hardware_unitree": 0.23,
+        "bci_neural_decoding": 0.2054,
+        "bci_foundation_models": 0.1426,
+        "bci_embodied_robot": 0.3904,
+        "bci_noninvasive_eeg": 0.1183,
+        "protein_ai": 0.1444,
+        "genomics_ai": 0.1759
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.56,
+      "first_seen": "2026-07-04",
+      "analysis": {
+        "tldr": "提出ASPIRE系统，让机器人通过自主执行、失败诊断、修复合成和技能提炼，持续积累可复用的代码化控制技能库，并在仿真和真实机器人上跨任务、跨机体迁移，显著提升长程操作任务成功率。",
+        "org": "伯克利",
+        "country": "US",
+        "org_type": "university",
+        "claim": "机器人可通过持续自主探索与失败驱动的代码级策略迭代，构建跨任务、跨仿真/现实、跨机体的可复用技能库，实现零样本泛化与显著降低真实机器人编程成本。",
+        "method_components": [
+          "model",
+          "simulator",
+          "policy",
+          "benchmark",
+          "hardware"
+        ],
+        "input": "多模态感知信号（视觉、本体感觉等）+任务指令+执行轨迹反馈",
+        "output": "Python风格的可执行控制程序（code-as-policy）及结构化技能库条目",
+        "robot_dependency": "Franka Emika Panda、Allegro Hand、Unitree Go2、Boston Dynamics Spot 等多机体",
+        "data_dependency": "高度依赖真实机器人交互数据用于失败诊断与修复验证；仿真中生成大量初始轨迹，但关键技能提炼需真实失败案例支撑",
+        "sim2real_status": "multi-embodiment",
+        "generalization": [
+          "跨任务",
+          "跨场景",
+          "跨机体"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "sim2real",
+          "dataset",
+          "benchmark",
+          "open-source"
+        ],
+        "novelty": 8,
+        "evidence": 10,
+        "reproducibility_score": 5,
+        "significance": 78,
+        "significance_reason": "真机多机体验证（Panda/Allegro/Go2/Spot）、三类主流benchmark（LIBERO-Pro/Robosuite/BEHAVIOR-1K）上大幅超越SOTA、零样本泛化有实证、技能库可迁移且降低真实部署成本；但未开新范式（仍属code-as-policy延续），也未解决底层具身因果建模或通用世界模型问题，尚不及H2O/GR00T级里程碑",
+        "one_sentence_verdict": "真突破：首次在多机体、多任务、多环境闭环中实现失败驱动的代码级技能自生长与零样本迁移，证据扎实且工程落地路径清晰",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 17,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 16.8,
+        "content": 23.0,
+        "heat": 10.9,
+        "quality": 0.0,
+        "base": 39.8,
+        "bonus": 10.9,
+        "total": 50.7
+      },
+      "grade": "B",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.00272.jpg"
     },
     {
       "arxiv_id": "2604.04913",
@@ -8152,7 +8253,7 @@
       "signals": {
         "hf_upvotes": 14,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 19.9,
@@ -8342,7 +8443,7 @@
       "signals": {
         "hf_upvotes": 2,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 18.6,
@@ -8433,7 +8534,7 @@
       "signals": {
         "hf_upvotes": 12,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 18.4,
@@ -8627,7 +8728,7 @@
       "signals": {
         "hf_upvotes": 35,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 14.9,
@@ -8809,7 +8910,7 @@
       "signals": {
         "hf_upvotes": 15,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 18.7,
@@ -8901,7 +9002,7 @@
       "signals": {
         "hf_upvotes": 23,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 21.6,
@@ -9001,7 +9102,7 @@
       "signals": {
         "hf_upvotes": 10,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 16.4,
@@ -9092,7 +9193,7 @@
       "signals": {
         "hf_upvotes": 6,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 21.0,
@@ -9182,7 +9283,7 @@
       "signals": {
         "hf_upvotes": 7,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 17.0,
@@ -9282,7 +9383,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 21.6,
@@ -9465,7 +9566,7 @@
       "signals": {
         "hf_upvotes": 7,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 17.4,
@@ -9562,7 +9663,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 18.9,
@@ -9646,7 +9747,7 @@
       "signals": {
         "hf_upvotes": 11,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 17.2,
@@ -9832,7 +9933,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 21.5,
@@ -9934,7 +10035,7 @@
       "signals": {
         "hf_upvotes": 52,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 19.4,
@@ -10047,6 +10148,99 @@
       "thumb": "assets/thumbs/2606.30552.jpg"
     },
     {
+      "arxiv_id": "2607.02466",
+      "title": "Learning to Move Before Learning to Do: Task-Agnostic pretraining for VLAs",
+      "abstract": "Vision-Language-Action (VLA) models are fundamentally bottlenecked by the scarcity of expert demonstrations -- triplets of observations, instructions, and actions that are costly to collect at scale. We argue that this bottleneck stems from conflating two distinct learning objectives: acquiring physical competence (how to move) and acquiring semantic alignment (what to do). Crucially, only the latter requires language supervision. Building on this Decomposition Hypothesis, we propose Task-Agnostic Pretraining (TAP), a two-stage framework that first learns transferable motor priors from cheap, unlabeled interaction data -- including discarded off-task trajectories and autonomous robot play -- via a self-supervised Inverse Dynamics objective. A lightweight second stage then grounds these priors in language using minimal expert data. On the SIMPLER benchmark, TAP matches models trained on over 1M expert trajectories while using orders of magnitude less labeled data, yielding a 10% absolute gain over standard behavior cloning. On a real-world WidowX platform, TAP retains 25% success under camera perturbations where internet-scale baselines collapse to 0%, demonstrating that task-agnostic pretraining produces robust, transferable physical representations and offers a scalable path forward for Embodied AI.",
+      "authors": [
+        "Junhao Shi",
+        "Siyin Wang",
+        "Xiaopeng Yu",
+        "Li Ji",
+        "Jingjing Gong",
+        "Xipeng Qiu"
+      ],
+      "categories": [],
+      "published": "2026-07-02T00:00:00.000Z",
+      "updated": "2026-07-02T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2607.02466",
+      "pdf_url": "https://arxiv.org/pdf/2607.02466",
+      "hf_upvotes": 4,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.5753,
+        "world_model": 0.4743,
+        "whole_body_control": 0.4566,
+        "dexterous_manipulation": 0.2589,
+        "sim2real_data": 0.3219,
+        "hardware_unitree": 0.1911,
+        "bci_neural_decoding": 0.216,
+        "bci_foundation_models": 0.185,
+        "bci_embodied_robot": 0.2551,
+        "bci_noninvasive_eeg": 0.1662,
+        "protein_ai": 0.1574,
+        "genomics_ai": 0.1341
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.5753,
+      "first_seen": "2026-07-04",
+      "venue": "ICML 2026",
+      "analysis": {
+        "tldr": "这篇论文提出‘任务无关预训练’（TAP）框架，先用大量无标签机器人交互数据（如失败轨迹、自主探索数据）通过自监督逆动力学目标学习通用运动先验，再用极少专家示范数据做轻量语言对齐，从而大幅降低对昂贵标注数据的依赖，并在仿真和真实机械臂上验证了更强的泛化性与鲁棒性。",
+        "org": "复旦大学",
+        "country": "CN",
+        "org_type": "university",
+        "claim": "物理运动能力（how to move）可与语义任务理解（what to do）解耦，前者可通过无监督方式从廉价、非任务导向的机器人交互数据中高效习得，后者才需语言监督。",
+        "method_components": [
+          "model",
+          "dataset",
+          "simulator",
+          "policy",
+          "benchmark"
+        ],
+        "input": "RGB图像+语言指令",
+        "output": "动作序列/末端执行器控制指令",
+        "robot_dependency": "WidowX机械臂 + SIMPLER仿真环境",
+        "data_dependency": "依赖少量真实专家演示（用于第二阶段），但主预训练阶段使用大量无标签真实/仿真交互数据（含失败轨迹、自主探索）",
+        "sim2real_status": "multi-embodiment",
+        "generalization": [
+          "跨任务",
+          "跨场景"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "sim2real",
+          "dataset",
+          "benchmark",
+          "multimodal-fusion"
+        ],
+        "novelty": 8,
+        "evidence": 10,
+        "reproducibility_score": 4,
+        "significance": 78,
+        "significance_reason": "实证扎实：在SIMPLER基准上用<1%专家数据达到百万级行为克隆性能，在真实WidowX上抗相机扰动表现远超互联网规模基线；但未开源代码/模型，且未展示跨机体泛化（仅WidowX）、未挑战更复杂多自由度操作或长时序任务，尚未达RT-2/Octo级范式突破，属显著推进而非里程碑。",
+        "one_sentence_verdict": "真突破：首次系统论证并验证‘运动先验-语言对齐’解耦范式，用真实机器人数据+消融实验支撑核心主张，显著缓解VLA领域最痛的数据瓶颈。",
+        "_llm": "qwen-plus",
+        "venue": "ICML 2026"
+      },
+      "signals": {
+        "hf_upvotes": 4,
+        "citations": 0,
+        "venue": "ICML 2026"
+      },
+      "scores": {
+        "relevance": 17.3,
+        "content": 22.0,
+        "heat": 6.1,
+        "quality": 0.0,
+        "base": 39.3,
+        "bonus": 6.1,
+        "total": 45.4
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.02466.jpg"
+    },
+    {
       "arxiv_id": "2606.13102",
       "doi": "10.48550/arxiv.2606.13102",
       "source_kind": "arxiv",
@@ -10134,7 +10328,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 16.7,
@@ -10225,7 +10419,7 @@
       "signals": {
         "hf_upvotes": 2,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 19.5,
@@ -10420,7 +10614,7 @@
       "signals": {
         "hf_upvotes": 4,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 18.4,
@@ -10516,7 +10710,7 @@
       "signals": {
         "hf_upvotes": 1,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 20.8,
@@ -10698,7 +10892,7 @@
       "signals": {
         "hf_upvotes": 6,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 20.8,
@@ -10801,7 +10995,7 @@
       "signals": {
         "hf_upvotes": 88,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 17.2,
@@ -10893,7 +11087,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 18.1,
@@ -10975,7 +11169,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 18.1,
@@ -11068,7 +11262,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 20.0,
@@ -11157,7 +11351,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "bioRxiv (Cold Spring Harbor Laboratory)"
+        "venue": ""
       },
       "scores": {
         "relevance": 18.9,
@@ -11345,7 +11539,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 17.7,
@@ -11615,7 +11809,7 @@
       "signals": {
         "hf_upvotes": 1,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 18.7,
@@ -11802,7 +11996,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 15.8,
@@ -11900,7 +12094,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 19.7,
@@ -11992,7 +12186,7 @@
       "signals": {
         "hf_upvotes": 7,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 12.9,
@@ -20971,7 +21165,8 @@
         "total": 39.8
       },
       "grade": "C",
-      "read_priority": "B"
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2606.28813.jpg"
     },
     {
       "arxiv_id": "10.64898/2026.06.10.731272",
@@ -34182,12 +34377,13 @@
         "significance": 76,
         "significance_reason": "首次实现世界-动作模型的零样本sim-to-real操作迁移，实机验证跨三类任务，但成功率仅35%、未开源代码/模型、无消融实验、未对比RT-1/RT-2/RT-X等基线，显著弱于Open X-Embodiment（97）、DROID（93）等具备多机体、多任务、真实数据闭环或大规模真实交互的里程碑工作。",
         "one_sentence_verdict": "工程整合：在世界-动作建模范式下首次打通零样本sim-to-real操作链路，但实机性能有限、复现门槛高、缺乏机制分析，属于扎实但非突破性的系统级推进。",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "CVPR"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "CVPR"
       },
       "scores": {
         "relevance": 18.1,
@@ -34199,7 +34395,8 @@
         "total": 37.1
       },
       "grade": "C",
-      "read_priority": "B"
+      "read_priority": "B",
+      "venue": "CVPR"
     },
     {
       "arxiv_id": "2606.03949",
@@ -37759,12 +37956,13 @@
         "significance": 78,
         "significance_reason": "解决了VLA中长期被忽视的2D→3D几何鸿沟问题，实证扎实（仿真+真实多任务+消融+跨域鲁棒性测试），但未开源代码/模型，且未达到RT-2/π0级范式突破或大规模基础模型尺度，属于对主流分层VLA架构的关键工程补全与可靠性增强。",
         "one_sentence_verdict": "工程整合：它没有发明新范式，但精准识别并修补了当前VLA流水线中一个导致几何失效的关键断点，实证充分、落地有效，是高质量的系统级改进。",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "IROS 2026"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "IROS 2026"
       },
       "scores": {
         "relevance": 17.5,
@@ -37777,7 +37975,8 @@
       },
       "grade": "C",
       "read_priority": "B",
-      "thumb": "assets/thumbs/2606.31329.jpg"
+      "thumb": "assets/thumbs/2606.31329.jpg",
+      "venue": "IROS 2026"
     },
     {
       "arxiv_id": "2605.29564",
@@ -46124,7 +46323,8 @@
         "total": 35.6
       },
       "grade": "C",
-      "read_priority": "B"
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2606.32026.jpg"
     },
     {
       "arxiv_id": "2606.06218",
@@ -54041,12 +54241,13 @@
         "significance": 78,
         "significance_reason": "在RMBench和真实双臂任务上实现了对pi0.5和Mem-0的压倒性提升（+62.4pp绝对成功率、6.6x相对增益、参数量降10–30x），且设计有明确物理动机（Schrodinger桥、IMLE、状态空间建模），实证扎实；但未开源、未覆盖多机体/跨用户泛化、未与ALOHA/ACT/T-Rex等基石级方法横向对比，尚未证明其范式迁移能力。",
         "one_sentence_verdict": "工程整合：将状态空间模型、物理约束（加速度场）、历史建模三者系统性耦合，在记忆敏感任务上取得强实证效果，但缺乏开源与跨平台验证，尚未达到开新范式级别",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "T-RO"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "T-RO"
       },
       "scores": {
         "relevance": 17.5,
@@ -54059,7 +54260,8 @@
       },
       "grade": "D",
       "read_priority": "B",
-      "thumb": "assets/thumbs/2606.30318.jpg"
+      "thumb": "assets/thumbs/2606.30318.jpg",
+      "venue": "T-RO"
     },
     {
       "arxiv_id": "2606.00439",
@@ -75683,12 +75885,13 @@
         "significance": 68,
         "significance_reason": "技术思路清晰（双空间解耦建模）且实验验证了跨机体/分布外泛化能力，但缺乏真实机器人验证、未开源、未与DreamerV3/WEAVER等基石方法做定量对比，仅在自建仿真任务上展示提升，属显著但非范式级贡献。",
         "one_sentence_verdict": "显著贡献：解决了世界模型长程一致性中的关键表征失配问题，但限于纯仿真、无开源、无SOTA对标，尚未达到基石工作量级。",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "RSS 2026"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "RSS 2026"
       },
       "scores": {
         "relevance": 18.2,
@@ -75701,7 +75904,8 @@
       },
       "grade": "D",
       "read_priority": "C",
-      "thumb": "assets/thumbs/2606.28804.jpg"
+      "thumb": "assets/thumbs/2606.28804.jpg",
+      "venue": "RSS 2026"
     },
     {
       "arxiv_id": "2606.06292",
@@ -83702,12 +83906,13 @@
         "significance": 42,
         "significance_reason": "仅在仿真环境（LIBERO/SimplerEnv）验证，无真实机器人实验，无消融分析证明SSGAA各组件贡献，未开源代码/模型，未对比同期SOTA如OpenVLA/Octo/CHORUS，所谓'state-of-the-art'仅指其自身在未公开基线上的相对提升；相比RT-2（97）、DAM-VLA（96）、π0（95）等真正推动范式或跨机体部署的里程碑工作，本文属于窄域方法改进，且实证薄弱。",
         "one_sentence_verdict": "暂时不用看：纯仿真、无开源、无消融、未对标主流SOTA，仅靠参数量对比和自定义指标宣称SOTA，缺乏可信证据支撑其实际价值。",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "IJCAI 2026"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "IJCAI 2026"
       },
       "scores": {
         "relevance": 18.8,
@@ -83720,7 +83925,8 @@
       },
       "grade": "D",
       "read_priority": "C",
-      "thumb": "assets/thumbs/2606.27872.jpg"
+      "thumb": "assets/thumbs/2606.27872.jpg",
+      "venue": "IJCAI 2026"
     },
     {
       "arxiv_id": "2606.08059",
@@ -95554,12 +95760,13 @@
         "significance": 35,
         "significance_reason": "无真实机器人实验、无动作执行验证、无跨任务泛化测试、无消融分析；仅描述系统流程，未报告任何定量性能（如成功率、任务完成率、延迟、错误类型），实质是CMU VLA Challenge参赛方案的技术概述，未超越RT-2/Octo/OpenVLA等任意基石工作，甚至未达到DAM-VLA或π0的工程严谨性门槛。",
         "one_sentence_verdict": "概念包装——通篇未见一个真实动作执行结果，所有‘能力’均停留在流程描述层面，缺乏任何实证支撑",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "IROS 2025"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "IROS 2025"
       },
       "scores": {
         "relevance": 18.8,
@@ -95572,7 +95779,8 @@
       },
       "grade": "D",
       "read_priority": "C",
-      "thumb": "assets/thumbs/2606.31144.jpg"
+      "thumb": "assets/thumbs/2606.31144.jpg",
+      "venue": "IROS 2025"
     },
     {
       "arxiv_id": "2606.03509",
