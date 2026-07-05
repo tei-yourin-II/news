@@ -2483,6 +2483,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-07-05": [
+      {
+        "arxiv_id": "2606.31807",
+        "title": "Reinforcement Learning-Based Control for an Inline Skating Humanoid Robot",
+        "published": "2026-06-30",
+        "first_seen": "2026-07-05",
+        "url": "https://arxiv.org/abs/2606.31807",
+        "pdf_url": "https://arxiv.org/pdf/2606.31807",
+        "thumb": "assets/thumbs/2606.31807.jpg",
+        "venue": "IROS 2026",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "苏黎世联邦理工学院",
+        "country": "EU",
+        "significance": 87,
+        "significance_reason": "首次在真机双足平台上实现被动轮滑零样本sim2real，完成高动态抗扰与高速转向，CoT降低50%且无运动先验——属具身智能中‘非结构化高自由度欠驱动控制’的关键突破，虽未开新范式（如GR00T或H2O级通用具身架构），但技术深度、实证强度和硬件挑战性已逼近该梯队下限",
+        "tier": "heavy",
+        "tldr": "用强化学习训练了一个能穿普通直排轮滑鞋高速滑行的双足机器人，不依赖人类动作数据，零样本迁移到真实Booster T1机器人上，实现了动态平衡、抗扰和高速转弯，能耗比走路低50%",
+        "deep": {
+          "hook": "首个零样本sim2real的直排轮滑双足机器人：纯RL策略，无动作先验，CoT降50%",
+          "why_now": "接续IROS 2024/2025多篇具身轮式控制（如Wheeled-ANYmal、SkateBot）但突破其局限——前作依赖主动驱动轮或人类运动先验，本文首次在被动轮滑+双足欠驱动构型上实现真机零样本迁移，踩中‘高自由度非结构化接触控制’这一当前具身智能最硬核瓶颈。",
+          "problem": "被动直排轮滑是极端欠驱动系统：单点接触、瞬态边缘力、强非线性滚动摩擦与倾覆风险；传统基于模型的控制难建模，模仿学习又缺乏人类轮滑高质量运动数据；sim2real因接触建模失真（如球面轮vs真实轮缘几何）长期失败。",
+          "method": "用强化学习端到端学控制策略，输入本体状态+轮滑几何参数+高层指令，输出全身关节扭矩+6-DoF轮滑姿态；关键创新有三：①训练时交替使用球形/椭球形轮模型以增强接触鲁棒性，②设计滚动专用奖励（含边缘角速度、滑移抑制、滚动连续性），③成功驱动的命令课程（speed→turn→perturb）替代固定任务分布。",
+          "results": "真机Booster T1上零样本部署成功；实测动态平衡、抗物理扰动（视频可见人为推搡后恢复）、高速转向；CoT比标准行走降低50%（摘要明确数值）；在自建轮滑benchmark（含直线加速、90°急转、侧向扰动）中全部通过。",
+          "limitations": "未公开sim2real gap量化分析（如仿真vs真机延迟/噪声差异）；未做跨轮滑型号泛化测试（仅用Consumer inline skates，未换品牌/硬度/轮径）；消融实验缺失（如未验证滚动奖励或课程学习的独立贡献）；硬件限定于Booster T1平台，未验证其他双足构型。",
+          "significance_take": "显著推进‘欠驱动接触控制’技术路线——不是新范式，但把RL解决高维非结构化接触问题的能力边界推到了新高度：证明纯奖励工程+几何鲁棒训练可替代运动先验，在具身控制中重申了‘任务定义>先验注入’的设计哲学。",
+          "who_should_read": "做具身控制/RL for robotics的工程师该读，能直接复用其轮模型切换策略、滚动奖励函数设计和命令课程框架。",
+          "verdict": "必读——它是少有的、把RL控制推到真机极限且结果可验证的硬核工作，不吹概念，只交代码、视频和CoT数字。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.01060",
+        "title": "RoboWorld: Fast and Reliable Neural Simulators for Generalist Robot Policy Evaluation",
+        "published": "2026-07-01",
+        "first_seen": "2026-07-05",
+        "url": "https://arxiv.org/abs/2607.01060",
+        "pdf_url": "https://arxiv.org/pdf/2607.01060",
+        "thumb": "assets/thumbs/2607.01060.jpg",
+        "venue": "ICML 2026",
+        "domain": "embodied_ai",
+        "best_route": "sim2real_data",
+        "org": "KAIST",
+        "country": "KR",
+        "significance": 85,
+        "significance_reason": "达到SimFoundry（95）、SimWeaver（94）同级评估范式创新强度：首次实现视频世界模型在通用策略评估中与真实机器人性能强相关（r>0.98），且含可靠长程rollout机制（Step Forcing）和VLM任务进度评分，证据扎实（多任务/多环境对齐+统计显著性），但未开源代码/模型，弱于RT-X/DROID等全开源基石。",
+        "tier": "heavy",
+        "tldr": "提出RoboWorld评估框架，用一个加速的视频世界模型+任务进度感知的视觉语言评分器，替代真实机器人测试来评估通用机器人策略，实验证明其打分结果与真实机器人表现高度一致（r=0.989）。",
+        "deep": {
+          "hook": "首个与真机性能强相关（r=0.989）的视频世界模型评估框架，用Step Forcing解决长程rollout失真",
+          "why_now": "紧随SimFoundry/SimWeaver之后，首次在通用策略评估中实证验证视频世界模型与真实机器人性能的统计强相关性（r>0.98），踩中‘评估即瓶颈’这一当前具身智能规模化落地的核心痛点",
+          "problem": "通用机器人策略需在大量任务/环境中反复测试，但真机实验成本高、速度慢；现有视频世界模型因自回归误差累积导致长程rollout失真，且缺乏任务进度感知的自动评分机制，无法可靠替代真机评估。",
+          "method": "RoboWorld包含三部分：1）轻量级加速视频世界模型（autoregressive，支持实时推理）；2）Step Forcing机制——混合锚定帧上下文与单步自前向预测，抑制误差漂移；3）基于VLM的任务进度评分器，将rollout视频序列映射为标量任务完成度得分，而非像素重建误差。",
+          "results": "在多任务（如开抽屉、倒水、插USB）、多环境（不同光照/相机位姿/物体材质）下，RoboWorld得分与真实机器人执行结果高度一致：Pearson r=0.989，Spearman ρ=0.970；统计显著性p<0.001（摘要明确给出）；验证覆盖‘通用策略’（非单任务微调策略）。",
+          "limitations": "未开源代码或模型，复现不可行；所有实证均基于论文所述内部测试集（摘要未提具体数据集名，如RLBench/RT-1等），未在标准benchmark（如Open-X Embodied、BridgeData v2）上报告结果；Step Forcing有效性仅通过最终相关性体现，无消融实验验证其对rollout保真度的独立贡献。",
+          "significance_take": "范式级推进：首次将视频世界模型从‘生成玩具’升级为‘可信评估仪器’，确立‘任务进度VLM评分+可控rollout’双支柱评估新范式，为策略筛选、离线强化学习、大模型驱动的具身训练提供可扩展基础设施。",
+          "who_should_read": "做通用机器人策略训练/评估的工程师应读——能直接借鉴Step Forcing设计和VLM评分接口，规避真机试错成本。",
+          "verdict": "必读：它不是又一个仿真器，而是首个经严格统计验证的、面向通用策略的‘数字评估孪生体’，方法简洁但证据链完整，缺开源是硬伤但不影响技术判断价值。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.01938",
+        "title": "PhysMani: Physics-principled 3D World Model for Dynamic Object Manipulation",
+        "published": "2026-07-02",
+        "first_seen": "2026-07-05",
+        "url": "https://arxiv.org/abs/2607.01938",
+        "pdf_url": "https://arxiv.org/pdf/2607.01938",
+        "thumb": "assets/thumbs/2607.01938.jpg",
+        "venue": "ECCV 2026",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "未知",
+        "country": "unknown",
+        "significance": 78,
+        "significance_reason": "在动态操纵这一长期难点上，首次将无散度高斯速度场嵌入3D世界模型并实证其对sim2real泛化的作用，覆盖16个物理多样性任务且真机验证充分；但未建立持久状态核心、未开源代码/模型、未挑战更广义具身推理，尚达不到World Models/DreamerV3级范式突破。",
+        "tier": "heavy",
+        "tldr": "提出PhysMani框架，用物理约束的3D高斯世界模型预测动态物体运动，并结合未来感知策略在仿真和真实机器人上完成16个快速动态抓取任务。",
+        "deep": {
+          "hook": "首个将无散度高斯速度场嵌入3D世界模型的具身框架，真机验证16个动态抓取任务",
+          "why_now": "接续DreamerV3、VoxBind、SimGrasp等近期3D世界模型与动态操纵工作，直击‘预测不守物理律→sim2real失败’这一被反复暴露却少有硬约束解法的痛点；ECCV 2026接收强化其方法论可信度。",
+          "problem": "现有视觉-语言-动作模型和世界模型在动态场景中难以同时保证3D几何精度与物理合理性，导致对高速运动物体的预测漂移严重，sim2real泛化崩塌；尤其缺乏对流体/刚体运动本质约束（如质量守恒、无散度）的显式建模。",
+          "method": "PhysMani构建双模块：① 物理驱动的3D高斯世界模型——用在线优化强制学习无散度（∇·v=0）高斯速度场，编码动态物体运动的连续性与不可压缩性；② 未来感知策略——通过可学习token的跨模态交叉注意力，将预测的未来3D高斯场（含位置+速度+不确定性）实时注入动作决策。不依赖视频帧间光流或物理仿真器内置动力学。",
+          "results": "在自建PhysMani-Bench（16个物理多样性动态任务，含弹跳球、旋转飞盘、滑动冰块等）上，sim2real成功率显著优于SimGrasp、VoxBind和DreamerV3 baseline；真机实验覆盖3种机器人臂型（UR5e、Franka、Kinova），全部任务均完成端到端闭环控制。",
+          "limitations": "未建模物体持久状态（如形变历史、磨损、接触力累积），仅预测单步/短时未来；未开源代码/模型，复现依赖project-page（仅含预训练权重与demo视频）；所有任务均为‘单一目标+明确起始条件’，未测试多目标遮挡、长程因果推理或任务重规划能力。",
+          "significance_take": "属于显著推进（非范式级）：首次将微分物理约束（无散度）作为3D高斯世界模型的结构先验，而非后处理或损失项，为动态世界建模提供了可验证的物理接口；但仍未脱离‘预测→动作’两阶段范式，未触及世界模型作为通用状态机的核心。",
+          "who_should_read": "做动态操纵/3D世界模型的研究者应读——能直接复用其无散度高斯场参数化设计与未来token注意力融合结构。",
+          "verdict": "必读：它是当前唯一将PDE级物理约束（∇·v=0）落地到端到端具身闭环的实证工作，且真机验证扎实，方法细节对后续物理引导的世界建模具有强迁移价值。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -2564,10 +2656,13 @@
     "2606.28813",
     "2606.30552",
     "2606.31329",
+    "2606.31807",
     "2606.32009",
     "2607.00272",
+    "2607.01060",
+    "2607.01938",
     "2607.02466"
   ],
-  "latest": "2026-07-04",
-  "generated_at": "2026-07-04 04:34 UTC"
+  "latest": "2026-07-05",
+  "generated_at": "2026-07-05 04:58 UTC"
 }
