@@ -1,19 +1,21 @@
 {
   "week": {
-    "start": "2026-06-29",
-    "end": "2026-07-05",
-    "label": "06.29~07.05"
+    "start": "2026-06-30",
+    "end": "2026-07-06",
+    "label": "06.30~07.06"
   },
   "count": 15,
-  "venue_count": 9,
+  "venue_count": 11,
   "venues": [
     "CVPR",
+    "CoRL 2026",
     "ECCV 2026",
     "ICML 2026",
+    "ICRA 2026",
     "IROS 2026",
-    "T-RO"
+    "RSS 2026"
   ],
-  "generated_at": "2026-07-05 04:59 UTC",
+  "generated_at": "2026-07-06 05:13 UTC",
   "picks": [
     {
       "rank": 1,
@@ -134,46 +136,6 @@
     },
     {
       "rank": 4,
-      "arxiv_id": "2606.30552",
-      "title": "Training Vision-Language-Action Models with Dense Embodied Chain-of-Thought Supervision",
-      "published": "2026-06-29",
-      "url": "https://arxiv.org/abs/2606.30552",
-      "pdf_url": "https://arxiv.org/pdf/2606.30552",
-      "thumb": "assets/thumbs/2606.30552.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "银河通用",
-      "country": "CN",
-      "org_type": "company",
-      "significance": 88,
-      "significance_reason": "达到RT-2（97）、DAM-VLA（96）等里程碑的前夜水平：首次实现ECoT驱动的跨形态表征对齐+双流解耦架构+推理时完全跳过思维链，且在4类异构平台（含真实xArm）上验证zero-shot泛化；但真实世界仅单平台小规模验证，未覆盖长程任务、动态干扰或用户交互，尚未证明其能替代RT-2级端到端闭环控制能力。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "sim2real",
-        "dataset",
-        "benchmark",
-        "open-source"
-      ],
-      "tldr": "这篇论文提出ZR-0模型，用密集的具身思维链（ECoT）监督来对齐不同机器人平台的高层语义表征，让一个统一的视觉-语言-动作模型能在单臂、双臂、人形和真实xArm上跨平台泛化，训练时用思维链推理但推理时可完全跳过它而不掉点。",
-      "claim": "通过在预训练阶段注入密集具身思维链（ECoT）监督，可解耦并标准化跨机器人平台的高层认知表征，从而实现单一VLA模型在多形态仿真与真实机器人上的零微调泛化。",
-      "method_components": [
-        "model",
-        "dataset",
-        "simulator",
-        "benchmark"
-      ],
-      "input": "RGB图像+自然语言任务指令",
-      "output": "连续动作块（continuous action chunks）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "真突破——它不是刷榜或包装，而是用可跳过的ECoT监督实质性打通了VLA模型跨形态泛化的表征瓶颈，并开源全栈，为多机体统一策略范式确立了新基线。",
-      "deep": {}
-    },
-    {
-      "rank": 5,
       "arxiv_id": "2607.02466",
       "title": "Learning to Move Before Learning to Do: Task-Agnostic pretraining for VLAs",
       "published": "2026-07-02",
@@ -213,7 +175,122 @@
       "deep": {}
     },
     {
+      "rank": 5,
+      "arxiv_id": "2606.31909",
+      "title": "CoDex: Learning Compositional Dexterous Functional Manipulation without Demonstrations",
+      "published": "2026-06-30",
+      "url": "https://arxiv.org/abs/2606.31909",
+      "pdf_url": "https://arxiv.org/pdf/2606.31909",
+      "thumb": "assets/thumbs/2606.31909.jpg",
+      "venue": "ICRA 2026",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "德州大学奥斯汀分校",
+      "country": "US",
+      "org_type": "university",
+      "significance": 82,
+      "significance_reason": "首次在无演示前提下系统性解决‘功能性灵巧操作’这一长期开放难题（区别于单纯抓取或开柜门），实证覆盖6类含复杂内部机构的新物体+新目标场景，真机验证+跨物体泛化+仿真到现实迁移+VLM语义引导闭环，证据链完整扎实，但未开源代码/模型，且未与ALOHA/ACT等SOTA示范学习方法做直接对比，略逊于T-Rex/ALOHA级里程碑。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "dexterous",
+        "sim2real",
+        "multimodal-fusion",
+        "benchmark"
+      ],
+      "tldr": "提出CoDex框架，让机器人无需人类示范就能自主学会操作带内部机构的工具（如喷壶、胶枪），先用视觉语言模型理解任务语义，再通过约束优化生成可行抓取点，最后用强化学习优化出‘抓取-移动-触发’完整策略，并在真实7自由度机械臂+16自由度灵巧手平台上完成6个新物体新场景的任务。",
+      "claim": "无需任何人类演示，仅凭视觉语言模型引导的约束优化与仿真到现实迁移的强化学习，即可实现对未知功能性物体的 compositional dexterous functional manipulation。",
+      "method_components": [
+        "model",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "input": "RGB图像+自然语言任务描述（如'用喷壶给植物喷水'）",
+      "output": "端到端灵巧操作策略（包含抓取位姿、运动轨迹、触发动作时序）",
+      "novelty": 8,
+      "evidence": 9,
+      "one_sentence_verdict": "真突破：它跳出了‘必须靠人教’的范式，在功能性灵巧操作这个硬骨头问题上，用VLM+约束优化+RL实现了真正意义上的自主发现与执行，证据充分、任务真实、平台完整。",
+      "deep": {}
+    },
+    {
       "rank": 6,
+      "arxiv_id": "2606.31236",
+      "title": "TactX: Learning Shared Tactile Representations Across Diverse Sensors",
+      "published": "2026-06-30",
+      "url": "https://arxiv.org/abs/2606.31236",
+      "pdf_url": "https://arxiv.org/pdf/2606.31236",
+      "thumb": "assets/thumbs/2606.31236.jpg",
+      "venue": "CoRL 2026",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "加州大学圣地亚哥分校",
+      "country": "US",
+      "org_type": "university",
+      "significance": 82,
+      "significance_reason": "实证扎实：覆盖三类根本不同换能原理的传感器（非仅外形差异），在4个真实接触密集操作任务上验证零样本跨传感器迁移，成功率提升18.4个百分点；但未开源代码/模型，且未与FTP-1等94分基准直接对比，也未展示跨机体或跨用户泛化，属显著推进但未达基石级。",
+      "tier": "heavy",
+      "grade": "D",
+      "tags": [
+        "multimodal-fusion",
+        "tactile",
+        "dataset",
+        "benchmark"
+      ],
+      "tldr": "提出TactX框架，用配对接触数据联合训练多种触觉传感器（电阻式、磁式、视觉式）的专用编码器，把异构触觉信号映射到统一隐空间，实现不同传感器间的零样本策略迁移。",
+      "claim": "通过跨模态配对接触数据联合训练，可学习到保留物体级接触信息的传感器无关触觉表征，使策略在未见过的物理触觉传感器上零样本迁移成功。",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark"
+      ],
+      "input": "多种触觉传感器原始信号（电阻变化/磁场扰动/触觉摄像头图像）",
+      "output": "统一隐空间中的触觉表征向量",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "真突破：首次在电阻/磁/视觉三类物理原理迥异的触觉传感器间建立可迁移表征，并在真实机器人任务上验证零样本策略迁移效果，证据链完整、问题定义清晰、实验设计严谨。",
+      "deep": {}
+    },
+    {
+      "rank": 7,
+      "arxiv_id": "2606.31993",
+      "title": "OopsieVerse: A Safety Benchmark with Damage-Aware Simulation for Robot Manipulation",
+      "published": "2026-06-30",
+      "url": "https://arxiv.org/abs/2606.31993",
+      "pdf_url": "https://arxiv.org/pdf/2606.31993",
+      "thumb": "assets/thumbs/2606.31993.jpg",
+      "venue": "RSS 2026",
+      "domain": "embodied_ai",
+      "best_route": "sim2real_data",
+      "org": "德州大学奥斯汀分校 Robin Lab",
+      "country": "US",
+      "org_type": "university",
+      "significance": 78,
+      "significance_reason": "首次系统性定义并实现多模态物理损伤的仿真量化与任务无关嵌入，填补了安全评估的底层信号空白；实证覆盖双引擎仿真器、四类安全用例（含sim2real迁移），但未在真实机器人上验证安全性提升效果，也未证明其损伤模型能泛化到未见材料/结构/失效模式，尚未达到RT-X级范式开创性，但显著优于纯概念型安全工作，属扎实重磅贡献。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "benchmark",
+        "sim2real",
+        "open-source",
+        "dataset"
+      ],
+      "tldr": "这篇论文构建了一个专门评估机器人操作安全性的新仿真基准OOPSIEVERSE，它首次在仿真中统一建模机械、热、流体三类物理损伤，并提供可量化的损伤信号，用于训练和评测不损坏自身或环境的家用机器人策略。",
+      "claim": "物理损伤可被建模为任务无关、物理可解释、跨仿真器通用的显式信号，且该信号能有效驱动更安全的机器人策略学习与评估。",
+      "method_components": [
+        "simulator",
+        "benchmark",
+        "dataset"
+      ],
+      "input": "机器人本体状态、动作、环境交互（接触力/温度/液体流动等物理量）",
+      "output": "量化损伤值（标量或张量形式，含机械/热/流体维度）及安全评估分数",
+      "novelty": 8,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合——将物理损伤建模从定性警示升级为可计算、可优化、可评测的标准化信号，但尚未跨越仿真到真实世界的可靠性鸿沟",
+      "deep": {}
+    },
+    {
+      "rank": 8,
       "arxiv_id": "2607.01938",
       "title": "PhysMani: Physics-principled 3D World Model for Dynamic Object Manipulation",
       "published": "2026-07-02",
@@ -252,7 +329,7 @@
       "deep": {}
     },
     {
-      "rank": 7,
+      "rank": 9,
       "arxiv_id": "2607.00272",
       "title": "ASPIRE: Agentic /Skills Discovery for Robotics",
       "published": "2026-06-30",
@@ -293,7 +370,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
+      "rank": 10,
       "arxiv_id": "2606.31329",
       "title": "3D HAMSTER: Bridging Planning and Control in Hierarchical Vision Language Action Models through 3D Trajectory Guidance",
       "published": "2026-06-30",
@@ -331,46 +408,7 @@
       "deep": {}
     },
     {
-      "rank": 9,
-      "arxiv_id": "2606.30318",
-      "title": "Chronos: A Physics-Informed Full-History Framework for Non-Markovian Long-Horizon Manipulation",
-      "published": "2026-06-29",
-      "url": "https://arxiv.org/abs/2606.30318",
-      "pdf_url": "https://arxiv.org/pdf/2606.30318",
-      "thumb": "assets/thumbs/2606.30318.jpg",
-      "venue": "T-RO",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "未知（作者单位未在摘要中披露，无机构缩写或知名实验室线索）",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 78,
-      "significance_reason": "在RMBench和真实双臂任务上实现了对pi0.5和Mem-0的压倒性提升（+62.4pp绝对成功率、6.6x相对增益、参数量降10–30x），且设计有明确物理动机（Schrodinger桥、IMLE、状态空间建模），实证扎实；但未开源、未覆盖多机体/跨用户泛化、未与ALOHA/ACT/T-Rex等基石级方法横向对比，尚未证明其范式迁移能力。",
-      "tier": "heavy",
-      "grade": "D",
-      "tags": [
-        "non-markovian",
-        "long-horizon",
-        "physics-informed",
-        "sim2real"
-      ],
-      "tldr": "提出Chronos框架，把机器人操作的历史观测序列直接建模为动力学系统的隐状态（而非辅助上下文），用物理启发的时序模型+加速度场预测实现长程记忆型操作，在16个仿真任务和4个真实双臂实验中显著超越现有Markovian和memory-VLA基线。",
-      "claim": "历史不应作为辅助上下文，而应作为操作策略动力学的隐状态；通过物理信息嵌入的全历史建模可实质性解决非马尔可夫长程操作问题。",
-      "method_components": [
-        "model",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "RGB图像+本体感知（proprioception）序列（对齐物理时间步）",
-      "output": "粗粒度动作先验 + 细粒度加速度场 → 平滑、物理合理的关节/末端执行器轨迹",
-      "novelty": 8,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：将状态空间模型、物理约束（加速度场）、历史建模三者系统性耦合，在记忆敏感任务上取得强实证效果，但缺乏开源与跨平台验证，尚未达到开新范式级别",
-      "deep": {}
-    },
-    {
-      "rank": 10,
+      "rank": 11,
       "arxiv_id": "2607.00666",
       "title": "Domain Arithmetic: One-Shot VLA Adaptation under Environmental Shifts",
       "published": "2026-07-01",
@@ -406,7 +444,7 @@
       "deep": {}
     },
     {
-      "rank": 11,
+      "rank": 12,
       "arxiv_id": "2606.31958",
       "title": "Adapting Generalist Robot Policies with Semantic Reinforcement Learning",
       "published": "2026-06-30",
@@ -443,7 +481,7 @@
       "deep": {}
     },
     {
-      "rank": 12,
+      "rank": 13,
       "arxiv_id": "2607.02322",
       "title": "The Moving Eye: Enhancing VLA Spatial Generalization via Hybrid Dynamic Data Collection",
       "published": "2026-07-02",
@@ -479,7 +517,7 @@
       "deep": {}
     },
     {
-      "rank": 13,
+      "rank": 14,
       "arxiv_id": "2606.31101",
       "title": "Efficient Sim-to-Real Transfer of World-Action Models from Synthetic Priors",
       "published": "2026-06-30",
@@ -516,44 +554,6 @@
       "novelty": 7,
       "evidence": 8,
       "one_sentence_verdict": "工程整合：在世界-动作建模范式下首次打通零样本sim-to-real操作链路，但实机性能有限、复现门槛高、缺乏机制分析，属于扎实但非突破性的系统级推进。",
-      "deep": {}
-    },
-    {
-      "rank": 14,
-      "arxiv_id": "2606.29940",
-      "title": "WARP: Whole-Body Retargeting for Learning from Offline Human Demonstrations",
-      "published": "2026-06-29",
-      "url": "https://arxiv.org/abs/2606.29940",
-      "pdf_url": "https://arxiv.org/pdf/2606.29940",
-      "thumb": "assets/thumbs/2606.29940.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "whole_body_control",
-      "org": "密歇根大学",
-      "country": "US",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "实证扎实：在Spot+Allegro真机上完成开门、取物、插拔等多任务开环重放，对比基线（IK-FK、RETRO）显著提升成功率；SEW求解器带来可解释性与确定性，但未开源训练数据与完整仿真环境，且未验证跨机型泛化（仅Spot），未接入闭环策略或VLA架构，属重磅工程突破而非范式变革。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "sim2real",
-        "teleoperation",
-        "dataset"
-      ],
-      "tldr": "这篇论文提出WARP方法，把人类全身动作视频（如手机拍摄）离线转换成机器人可执行的精确全身运动轨迹，无需真人遥控或真实机器人采集数据，直接在真实机器人上开环重放成功。",
-      "claim": "通过显式建模人机形态差异并引入SEW几何求解器，WARP能从纯离线人类演示中生成唯一、精确、一致的机器人全身动作轨迹，实现零样本全身体移动操作。",
-      "method_components": [
-        "model",
-        "dataset",
-        "simulator",
-        "policy"
-      ],
-      "input": "单目RGB视频中的人体2D/3D姿态序列（如来自H36M或自采手机视频）",
-      "output": "机器人全身关节角度轨迹（含移动底盘+双臂+手指）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：解决了离线人体动作到移动灵巧手机器人之间的关键几何对齐难题，实机效果可靠，但未打通感知-决策-控制闭环，也未开放核心数据与仿真配置，尚未达到GR00T/H2O级范式引领地位。",
       "deep": {}
     },
     {
