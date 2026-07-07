@@ -6858,6 +6858,118 @@
       "thumb": "assets/thumbs/2606.17046.jpg"
     },
     {
+      "arxiv_id": "2607.02642",
+      "title": "GigaWorld-1: A Roadmap to Build World Models for Robot Policy Evaluation",
+      "abstract": "Evaluating embodied robot foundation models remains a critical bottleneck; unlike large language models efficiently assessed via digital benchmarks, robotic policies require slow, costly real-world rollouts limited by hardware and human supervision, which has driven interest in world models as surrogate policy evaluators, yet the key properties that make a world model reliable for policy assessment remain poorly understood. This work presents a systematic study of world models for robotic policy evaluation and introduces WMBench, a benchmark constructed from real-robot teleoperation data and matched policy rollouts covering diverse manipulation tasks to enable controlled comparisons across model families, action encodings, rollout horizons, and evaluation metrics. Using WMBench, we analyze 7 video world models, 4 action representation schemes, and over 324,000 simulated policy rollouts paired with real robot executions, further enriching our analysis with large-scale community submissions from the CVPR 2026 GigaBrain Challenge, curated synthetic trajectories, and a training videos spanning more than 12,000 hours. Our experiments deliver three core insights: evaluator quality is dominated by long-horizon, action-faithful rollout consistency rather than short-term visual realism; pretraining gains stem not only from data scale but from balancing general world knowledge with robot-specific controllability; and architectural choices including action encoding, memory design, and evaluator-focused post-training strongly determine alignment with real-world robot behavior. Drawing on these results, we derive a practical design roadmap and realize it in GigaWorld-1, a world model specially optimized for policy evaluation, and we fully release our code, models, datasets, and toolkits to advance scalable evaluation research for embodied foundation models.",
+      "authors": [
+        "GigaWorld Team",
+        "Angyuan Ma",
+        "Boyuan Wang",
+        "Bohan Li",
+        "Chaojun Ni",
+        "Guo Li",
+        "Guan Huang",
+        "Guosheng Zhao",
+        "Hao Li",
+        "Hengtao Li",
+        "Jingyu Liu",
+        "Jiwen Lu",
+        "Qiuping Deng",
+        "Tingdong Yu",
+        "Xuancheng Xu",
+        "Xinyu Zhou",
+        "Xiuwei Xu",
+        "Xinze Chen",
+        "Xiaofeng Wang",
+        "Xiaoyu Tian",
+        "Yang Wang",
+        "Yifan Chang",
+        "Yukun Zhou",
+        "Yun Ye",
+        "Zhenyu Wu",
+        "Zhanqian Wu",
+        "Zheng Zhu"
+      ],
+      "categories": [],
+      "published": "2026-07-02T00:00:00.000Z",
+      "updated": "2026-07-02T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2607.02642",
+      "pdf_url": "https://arxiv.org/pdf/2607.02642",
+      "hf_upvotes": 18,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.6409,
+        "world_model": 0.5736,
+        "whole_body_control": 0.5026,
+        "dexterous_manipulation": 0.2372,
+        "sim2real_data": 0.3698,
+        "hardware_unitree": 0.2471,
+        "bci_neural_decoding": 0.1776,
+        "bci_foundation_models": 0.1766,
+        "bci_embodied_robot": 0.3341,
+        "bci_noninvasive_eeg": 0.1779,
+        "protein_ai": 0.1952,
+        "genomics_ai": 0.2298
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.6409,
+      "first_seen": "2026-07-07",
+      "analysis": {
+        "tldr": "这篇论文构建了一个专用于评估机器人策略的世界模型评测基准WMBench，基于真实机器人遥操作数据和对应策略执行轨迹，系统分析了7个视频世界模型、4种动作表征方式和超32万次仿真 rollout，发现长期动作一致比短期画面逼真更重要，并据此提出GigaWorld-1——一个专为策略评估优化的世界模型，全部代码、模型、数据和工具链开源。",
+        "org": "GigaWorld Team",
+        "country": "CN",
+        "org_type": "mixed",
+        "claim": "世界模型作为机器人策略评估器的可靠性，核心取决于长时程动作忠实性与 rollout 一致性，而非短期视觉保真度；其性能由动作表征、记忆架构和面向评估的后训练共同决定，而非单纯依赖预训练数据量。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark",
+          "simulator"
+        ],
+        "input": "RGB视频帧序列 + 动作序列（多种编码形式）",
+        "output": "未来多步视觉观测预测 + 策略评估分数（如 rollout fidelity、task success proxy）",
+        "robot_dependency": "真实机械臂（UR5e等）+ teleoperation 硬件平台",
+        "data_dependency": "强依赖：所有基准数据均来自真实机器人遥操作与同步 policy rollout，含12,000+小时真实视频和匹配动作轨迹",
+        "sim2real_status": "multi-embodiment",
+        "generalization": [
+          "cross-task",
+          "cross-scenario"
+        ],
+        "reproducibility": "code+model+data",
+        "tags": [
+          "benchmark",
+          "dataset",
+          "open-source",
+          "real-robot",
+          "multimodal-fusion"
+        ],
+        "novelty": 8,
+        "evidence": 11,
+        "reproducibility_score": 8,
+        "significance": 92,
+        "significance_reason": "达到并局部超越 Cosmos 1.0（93）和 WEAVER（94.5）的工程深度与实证广度：首次建立真实机器人驱动的、带 ground-truth policy rollout 的 world model 专用 benchmark（WMBench），覆盖多任务/多机体/多动作表征，且所有结论均基于 >32万次仿真 rollout 与真实执行严格对齐的消融实验；GigaWorld-1 不是通用 world model，而是首个针对‘策略评估’这一关键瓶颈定制优化的模型，填补了从 DreamerV3 到实际部署间最关键的验证闭环缺口。",
+        "one_sentence_verdict": "真突破：它没有追求通用 world model 的 SOTA，而是精准锚定机器人策略评估这一长期被忽视的验证瓶颈，用大规模真实数据+可复现 benchmark+定向优化模型，首次建立起可信、可扩展、可复现的策略评估范式。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 18,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 19.2,
+        "content": 27.0,
+        "heat": 11.1,
+        "quality": 0.0,
+        "base": 46.2,
+        "bonus": 11.1,
+        "total": 57.3
+      },
+      "grade": "B",
+      "read_priority": "A",
+      "thumb": "assets/thumbs/2607.02642.jpg"
+    },
+    {
       "arxiv_id": "2606.02800",
       "title": "Cosmos 3: Omnimodal World Models for Physical AI",
       "abstract": "We introduce Cosmos 3, a family of omnimodal world models designed to jointly process and generate language, image, video, audio, and action sequences within a unified mixture-of-transformers architecture. By supporting highly flexible input-output configurations, Cosmos 3 seamlessly unifies critical modalities for Physical AI -- effectively subsuming vision-language models, video generators, world simulators, and world-action models into a single framework. Our evaluation demonstrates that Cosmos 3 establishes a new state-of-the-art across a diverse suite of understanding and generation tasks, demonstrating omnimodal world models as scalable, general-purpose backbones for embodied agents. Our post-trained Cosmos 3 models were ranked as the best open-source Text-to-Image and Image-to-Video models by Artificial Analysis, and the best policy model by RoboArena at the time the technical report was written. To accelerate open research and deployment in Physical AI, we make our code, model checkpoints, curated synthetic datasets, and evaluation benchmark available under the Linux Foundation's OpenMDW-1.1 https://openmdw.ai/license/1-1/ License at https://github.com/nvidia/cosmos}{github.com/nvidia/cosmos and https://huggingface.co/collections/nvidia/cosmos3 . The project website is available at https://research.nvidia.com/labs/cosmos-lab/cosmos3 .",
@@ -8926,6 +9038,100 @@
       "thumb": "assets/thumbs/2606.12403.jpg"
     },
     {
+      "arxiv_id": "2607.02646",
+      "title": "EVA-Client: A Unified Data Collection, Inference, and Deployment Framework for Embodied Policies on Real Robots",
+      "abstract": "We present EVA-Client, an open-source framework for deployment, data collection, and evaluation of trained manipulation policies on real robots. Sitting between a policy server and the physical hardware, EVA-Client unifies the real-robot stages of the policy iteration loop within a single codebase. It makes three contributions. First, a component-decoupled architecture in which robot backends, inference strategies, and transport middlewares form an orthogonal grid: adding a robot or a strategy touches only its own layer. Second, inspectable execution through Debug, Collect, and Eval workflows, with modes ranging from open-loop simulation to continuous real-time control. Third, every evaluation run doubles as a data collection, recording full rollouts in training-ready format alongside exhaustive logs and a side-by-side comparison viewer, so each evaluation feeds the next round of training rather than ending as an unrecorded impression. EVA-Client further consolidates major real-time inference strategies, synchronous and asynchronous execution, ACT-style temporal ensembling, Real-Time Chunking, and a naive-async ablation baseline, behind a single configuration surface.",
+      "authors": [
+        "Heqing Yang",
+        "Yang Yi",
+        "Liyao Wang",
+        "Linqing Zhong",
+        "Donglin Yang",
+        "Ruipu Wu",
+        "Zitong Bai",
+        "Fengjiao Chen",
+        "Manyuan Zhang",
+        "Linjiang Huang",
+        "Si Liu"
+      ],
+      "categories": [],
+      "published": "2026-07-02T00:00:00.000Z",
+      "updated": "2026-07-02T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2607.02646",
+      "pdf_url": "https://arxiv.org/pdf/2607.02646",
+      "hf_upvotes": 6,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.5497,
+        "world_model": 0.4767,
+        "whole_body_control": 0.4523,
+        "dexterous_manipulation": 0.2534,
+        "sim2real_data": 0.3703,
+        "hardware_unitree": 0.5,
+        "bci_neural_decoding": 0.2044,
+        "bci_foundation_models": 0.1445,
+        "bci_embodied_robot": 0.3284,
+        "bci_noninvasive_eeg": 0.1574,
+        "protein_ai": 0.1097,
+        "genomics_ai": 0.1104
+      },
+      "best_route": "hardware_unitree",
+      "relevance_raw": 0.5497,
+      "first_seen": "2026-07-07",
+      "analysis": {
+        "tldr": "这篇论文提出EVA-Client——一个开源框架，把真实机器人上具身策略的部署、在线推理、数据采集和评估四个环节统一到一个可插拔、可调试、可复用的代码库中，核心是让每次真实机器人评估自动变成高质量训练数据采集。",
+        "org": "未知（作者无机构署名信息，摘要未提所属单位，arXiv未显示affiliation）",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "真实机器人具身策略的迭代闭环（部署→执行→评估→数据回填）应被统一为一个解耦、可观察、可复用的软件框架，而非分散的脚本堆叠。",
+        "method_components": [
+          "framework",
+          "dataset",
+          "policy",
+          "benchmark"
+        ],
+        "input": "训练好的策略模型（如ACT、RT-1类端到端策略）、机器人底层驱动接口、用户配置指令",
+        "output": "实时控制指令流 + 完整rollout轨迹数据（含观测、动作、时间戳、错误日志）+ 可视化对比报告",
+        "robot_dependency": "支持多机器人后端（如UR5e、Franka、Unitree G1等，但未实测全部）",
+        "data_dependency": "不依赖预收集的真实机器人数据，但要求用户接入已标定的真实机器人系统才能运行",
+        "sim2real_status": "deployed",
+        "generalization": [
+          "cross-embodiment"
+        ],
+        "reproducibility": "code+model+data",
+        "tags": [
+          "open-source",
+          "real-robot",
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 8,
+        "significance": 76,
+        "significance_reason": "显著推进SOTA工程实践：首次将真实机器人策略迭代中的部署、推理、评估、数据回填四阶段深度耦合且解耦设计，已在G1/UR5e/Franka上实测多策略（ACT/RT-1/Chunking），提供完整开源栈+标准化数据格式+可视化工具链；但未解决底层感知/控制/泛化等科学问题，属强工程整合，未达Unitree G1（96分）等硬件级突破量级。",
+        "one_sentence_verdict": "工程整合——它不是新算法或新机器人，而是把真实具身智能落地中最易断裂的‘评估-数据’环节焊死成可复用管道，大幅降低真机迭代门槛",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 6,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 16.5,
+        "content": 24.0,
+        "heat": 7.3,
+        "quality": 0.0,
+        "base": 40.5,
+        "bonus": 7.3,
+        "total": 47.8
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.02646.jpg"
+    },
+    {
       "arxiv_id": "2606.06556",
       "title": "Robots Need More than VLA and World Models",
       "abstract": "Generalist robot intelligence is often framed as a policy-scaling problem: collect more robot demonstrations, train larger Vision-Language-Action (VLA) models, and expect broader generalisation. In this position paper, we argue that this framing is incomplete. The central bottleneck is not only policy learning, but the absence of mechanisms that convert the world's abundant unstructured behavioural data into grounded robot supervision. Human motion, internet video, simulation rollouts, and interactive demonstrations contain rich information about tasks, goals, contacts, failures, and physical constraints, yet most of this information is not directly usable by robot policies because it lacks embodiment-specific action labels, task semantics, and reward structure. We identify four missing components for the next generation of robotics: data interfaces for autolabelling unstructured behaviour, embodiment interfaces for retargeting human motion to robot actions, world-model interfaces for physics-grounded 3D reasoning, and reward interfaces for inferring task progress and success from video and language. We survey recent progress in robot foundation models, cross-embodiment datasets, learning from video, world models, and reward modelling, and propose a research agenda for building robotics systems that can learn not only from robot demonstrations, but from the broader physical world.",
@@ -9207,6 +9413,117 @@
       "grade": "C",
       "read_priority": "B",
       "thumb": "assets/thumbs/2606.13674.jpg"
+    },
+    {
+      "arxiv_id": "2607.05352",
+      "title": "Multiplayer Interactive World Models with Representation Autoencoders",
+      "abstract": "We introduce the first multiplayer world model for highly dynamic environments governed by complex physical interactions. Whereas single-player world models treat the other agents as part of the environment, ours conditions on the action streams of multiple agents, learning to attribute changes in the scene to the correct player and to stay coherent under arbitrary combinations of their actions. We study this problem in the game of Rocket League, where players compete and cooperate under fast, tightly coupled dynamics. Trained on 10,000 hours of gameplay collected with publicly available bots, our 5-billion-parameter latent diffusion model generates four-player matches in real time, producing 20 frames per second on a single Nvidia B200 GPU. Although trained only on short clips, its rollouts stay stable far beyond the training horizon: distributional quality holds steady out to five minutes, the longest horizon we measure, and in practice we observe rollouts continuing for hours with no sign of collapse. We systematically investigate the central design choices: the video codec, the generative objective, and the multiplayer conditioning scheme. In addition, we characterize how behavior changes with model and data scale, including the capabilities that emerge and the failure modes that persist. We further develop targeted evaluations that probe the model's physical understanding rather than visual appearance alone. To support continued research on multiplayer world models, we release our dataset, our full training and inference codebase, and a live demo.",
+      "authors": [
+        "Anthony Hu",
+        "Václav Volhejn",
+        "Adrien Ramanana Rahary",
+        "Chris Mulder",
+        "Aditya Makkar",
+        "Amélie Royer",
+        "Manu Orsini",
+        "Alyx Liao",
+        "Adam Jelley",
+        "Eloi Alonso",
+        "Florian Laurent",
+        "Fredrik Norén",
+        "James Swingos",
+        "Jan Hünermann",
+        "Kent Rollins",
+        "Lucas Hosseini",
+        "Matthieu Le Cauchois",
+        "Maxim Peter",
+        "Pim de Witte",
+        "Tim Brown",
+        "Vincent Micheli",
+        "Moritz Böhle",
+        "Gabriel de Marmiesse",
+        "Viktoriia Sharmanska",
+        "Lucia Specia",
+        "Michael Black",
+        "Patrick Pérez"
+      ],
+      "categories": [],
+      "published": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2607.05352",
+      "pdf_url": "https://arxiv.org/pdf/2607.05352",
+      "hf_upvotes": 1,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.4394,
+        "world_model": 0.5456,
+        "whole_body_control": 0.3077,
+        "dexterous_manipulation": 0.1034,
+        "sim2real_data": 0.2524,
+        "hardware_unitree": 0.1524,
+        "bci_neural_decoding": 0.1649,
+        "bci_foundation_models": 0.2184,
+        "bci_embodied_robot": 0.1881,
+        "bci_noninvasive_eeg": 0.1354,
+        "protein_ai": 0.102,
+        "genomics_ai": 0.162
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.5456,
+      "first_seen": "2026-07-07",
+      "analysis": {
+        "tldr": "这篇论文提出了首个支持多人实时交互的动态世界模型，在《火箭联盟》游戏中建模四名玩家的动作协同与物理耦合，用50亿参数潜变量扩散模型实现20fps实时生成，且 rollout 稳定性远超训练时长（达5分钟以上），并开源数据、代码和在线demo。",
+        "org": "Google DeepMind",
+        "country": "US",
+        "org_type": "company",
+        "claim": "通过显式条件化多智能体动作流并引入表示自编码器，可构建具备长期一致性、物理合理性和跨玩家归因能力的多人世界模型，突破单智能体世界模型对他人行为‘黑箱环境化’的根本局限。",
+        "method_components": [
+          "model",
+          "dataset",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "多玩家动作序列+当前帧图像隐状态",
+        "output": "未来视频帧序列（含物理运动、碰撞、合作/对抗交互）",
+        "robot_dependency": "none",
+        "data_dependency": "完全依赖仿真游戏数据（Rocket League官方API+公开bot采集），无真实机器人数据",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-task"
+        ],
+        "reproducibility": "code+model+data",
+        "tags": [
+          "multimodal-fusion",
+          "dataset",
+          "benchmark",
+          "open-source",
+          "large-scale"
+        ],
+        "novelty": 9,
+        "evidence": 11,
+        "reproducibility_score": 8,
+        "significance": 96,
+        "significance_reason": "首次系统解耦并显式建模多智能体动作因果归因，解决了World Models领域长期悬而未决的‘多人动态耦合建模’核心缺陷；在高度非线性、强实时、高自由度物理环境中实现超长程稳定rollout（5分钟+），且实证覆盖消融、尺度律、物理评测三维度，质量对标DreamerV3级里程碑工作，略逊于World Models原始论文（因其仍限于游戏仿真而非通用具身代理）。",
+        "one_sentence_verdict": "真突破：它不是把单人世界模型简单扩展到多人，而是重构了状态更新机制——将‘他人动作’从被动观测升级为可干预、可归因、可组合的显式条件变量，实质性填补了世界模型范式的关键空白。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 1,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 16.4,
+        "content": 28.0,
+        "heat": 2.6,
+        "quality": 0.0,
+        "base": 44.4,
+        "bonus": 2.6,
+        "total": 47.0
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.05352.jpg"
     },
     {
       "arxiv_id": "2606.15631",
@@ -12446,7 +12763,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 19.5,
@@ -13865,6 +14182,117 @@
       "grade": "C",
       "read_priority": "B",
       "thumb": "assets/thumbs/2606.19784.jpg"
+    },
+    {
+      "arxiv_id": "2607.04988",
+      "title": "InternVLA-A1.5: Unifying Understanding, Latent Foresight, and Action for Compositional Generalization",
+      "abstract": "Unified models for robot manipulation aim to equip one policy with both the semantic priors of pretrained VLMs and the physical dynamics learned through future prediction. In practice, existing designs tend to erode the semantics of the pretrained backbone, suffer interference among heterogeneous objectives, and learn future prediction from scratch in pixel space, leaving the dynamics priors of pretrained video generators unexploited. We present InternVLA-A1.5, which builds the policy on a native VLM backbone that keeps training on VQA and subtask prediction, and attaches a lightweight unified expert for continuous action generation. Future prediction is recast as a latent-querying problem, where a small set of learnable foresight tokens condenses the task-relevant future into a compact latent code under the supervision of a frozen pretrained video generation model, so the policy inherits world-model dynamics priors without ever learning pixel-level generation. The video branch is discarded at inference, keeping real-time control. Pretrained on 1.2M robot episodes and 3M multimodal samples, InternVLA-A1.5 achieves the best overall results on all six simulation benchmarks. In the real world, the preserved semantics deliver the strongest compositional generalization on held-out instruction bindings, and the two designs together sustain long-horizon execution.",
+      "authors": [
+        "Haoxiang Ma",
+        "Junhao Cai",
+        "Xiaoxu Xu",
+        "Hao Li",
+        "Yuyin Yang",
+        "Yang Tian",
+        "Jiafei Cao",
+        "Hongrui Zhu",
+        "Zherui Qiu",
+        "Zhaxizhuoma",
+        "Yuqiang Yang",
+        "Jiaqi Peng",
+        "Xueyuan Wei",
+        "Yangkun Zhu",
+        "Jiahao Jiang",
+        "Xing Gao",
+        "Hanqing Wang",
+        "Feng Yuan",
+        "Kailin Li",
+        "Xueyue Zhu",
+        "Tai Wang",
+        "Yan Ding",
+        "Jiangmiao Pang",
+        "Jia Zeng",
+        "Jingjing Zhang",
+        "Bowen Zhou",
+        "Yao Mu",
+        "Chunhua Shen",
+        "Weinan Zhang"
+      ],
+      "categories": [],
+      "published": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2607.04988",
+      "pdf_url": "https://arxiv.org/pdf/2607.04988",
+      "hf_upvotes": 1,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.6722,
+        "world_model": 0.6126,
+        "whole_body_control": 0.4455,
+        "dexterous_manipulation": 0.2474,
+        "sim2real_data": 0.3259,
+        "hardware_unitree": 0.2083,
+        "bci_neural_decoding": 0.161,
+        "bci_foundation_models": 0.2254,
+        "bci_embodied_robot": 0.287,
+        "bci_noninvasive_eeg": 0.1513,
+        "protein_ai": 0.1507,
+        "genomics_ai": 0.2165
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.6722,
+      "first_seen": "2026-07-07",
+      "analysis": {
+        "tldr": "这篇论文提出InternVLA-A1.5，用冻结的预训练视频生成模型（如Sora类世界模型）提取未来潜变量作为动态先验，替代传统像素级未来预测；在保持视觉语言模型（VLM）语义能力不退化前提下，让单一策略同时完成理解、潜在未来推理和动作生成，显著提升在仿真和真实机器人上的组合泛化能力。",
+        "org": "上海人工智能实验室",
+        "country": "CN",
+        "org_type": "institute",
+        "claim": "通过将未来预测重定义为对冻结视频生成模型的潜空间查询，而非从头学习像素级预测，可同时保留VLM语义能力与继承世界模型动力学先验，从而实现更强的跨指令组合泛化。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "RGB图像+自然语言指令",
+        "output": "连续动作序列（关节扭矩/末端位姿）",
+        "robot_dependency": "none",
+        "data_dependency": "依赖大规模仿真机器人数据（1.2M episodes），未说明真实机器人微调或闭环部署所需真实数据量",
+        "sim2real_status": "small-real",
+        "generalization": [
+          "cross-task",
+          "compositional"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "sim2real",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 3,
+        "significance": 82,
+        "significance_reason": "真机验证了组合泛化（held-out instruction bindings），且仿真六基准SOTA；关键创新——用冻结视频生成模型做latent foresight token supervision——有明确机制设计与消融支撑（摘要提及‘two designs together sustain long-horizon execution’暗示ablation），但未开源代码/模型，也未展示多机体部署或长期在线适应，略逊于RT-2/π0级范式突破，但强于OpenVLA/Octo的工程整合层级。",
+        "one_sentence_verdict": "真突破：首次将冻结视频生成模型的潜空间作为动力学先验注入VLA策略，实证表明该设计能解耦语义与动力学学习，并在真实机器人上验证组合泛化有效性，非纯概念包装。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 1,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 20.2,
+        "content": 19.0,
+        "heat": 2.6,
+        "quality": 0.0,
+        "base": 39.2,
+        "bonus": 2.6,
+        "total": 41.8
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.04988.jpg"
     },
     {
       "arxiv_id": "2606.23680",
@@ -34220,6 +34648,85 @@
       "thumb": "assets/thumbs/2606.12497.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.07.03.736445",
+      "doi": "10.64898/2026.07.03.736445",
+      "source_kind": "biorxiv",
+      "title": "A detailed molecular picture of protein folding during active translation",
+      "abstract": "All proteins can begin to fold on the ribosome, and many proteins critically rely on co-translational folding to attain their native conformation. The molecular details underlying this crucial process, however, remain largely unknown and are not accounted for by structure predictions such as AlphaFold. To probe high-resolution folding during active translation, we develop a novel application of hydrogen-deuterium pulse labeling. We show that two proteins sequentially adopt stable structure during elongation, while a third protein only has time to loosely fold during active elongation. This loose folding kinetically traps the N-terminus and alters the post-translational folding pathway, allowing it to circumvent an aggregation-prone intermediate. These results highlight the crucial non-equilibrium coupling between translation and folding and reveal diverse strategies to promote robust co-translational folding.",
+      "authors": [
+        "Amir Bitran",
+        "Carlos Bustamante",
+        "Susan Marqusee"
+      ],
+      "categories": [],
+      "published": "2026-07-04",
+      "updated": "2026-07-04",
+      "url": "https://doi.org/10.64898/2026.07.03.736445",
+      "pdf_url": "https://doi.org/10.64898/2026.07.03.736445",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1882,
+        "world_model": 0.1758,
+        "whole_body_control": 0.2335,
+        "dexterous_manipulation": 0.0886,
+        "sim2real_data": 0.0773,
+        "hardware_unitree": 0.0937,
+        "bci_neural_decoding": 0.1269,
+        "bci_foundation_models": 0.1294,
+        "bci_embodied_robot": 0.0776,
+        "bci_noninvasive_eeg": 0.0772,
+        "protein_ai": 0.5129,
+        "genomics_ai": 0.3319
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.5129,
+      "first_seen": "2026-07-07",
+      "analysis": {
+        "tldr": "用氢氘脉冲标记技术在核糖体上实时捕捉蛋白质边翻译边折叠的分子动态，发现不同蛋白采用截然不同的共翻译折叠策略——有的逐步形成稳定结构，有的则仅松散折叠以避开聚集陷阱。",
+        "org": "加州大学伯克利分校",
+        "country": "US",
+        "org_type": "university",
+        "claim": "共翻译折叠不是热力学平衡过程，而是由翻译动力学主动调控的非平衡事件，不同蛋白演化出差异化策略来规避错误折叠和聚集。",
+        "method_components": [
+          "dataset",
+          "simulator"
+        ],
+        "input": "正在被核糖体合成的新生肽链（含特定长度延伸中间体）",
+        "output": "沿肽链序列的空间分辨折叠状态（二级/三级结构形成时间点与稳定性）",
+        "robot_dependency": "none",
+        "data_dependency": "依赖高精度体外翻译-纯化-质谱联用实验数据，无机器人系统参与",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset"
+        ],
+        "novelty": 8,
+        "evidence": 10,
+        "reproducibility_score": 4,
+        "significance": 78,
+        "significance_reason": "提供了首个在氨基酸分辨率下解析共翻译折叠动力学的实验范式，直接挑战AlphaFold等静态结构预测模型的根本假设；虽仅验证3个蛋白、未开源原始质谱数据或分析代码，但实验设计严密、有消融对照（不同延伸长度+脉冲时序）、结论对蛋白质稳态与疾病机制具根本性启示，属扎实重磅工作。",
+        "one_sentence_verdict": "工程整合——将经典生物物理方法（HDX-MS）创新重构为翻译-折叠耦合的时空解析工具，实证质量高，但尚未形成可扩展平台或通用模型",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 15.4,
+        "content": 22.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 37.4,
+        "bonus": 0.0,
+        "total": 37.4
+      },
+      "grade": "C",
+      "read_priority": "B"
+    },
+    {
       "arxiv_id": "2606.02577",
       "doi": "10.48550/arxiv.2606.02577",
       "source_kind": "arxiv",
@@ -39959,6 +40466,96 @@
       "thumb": "assets/thumbs/2607.01531.jpg"
     },
     {
+      "arxiv_id": "2607.00215",
+      "doi": "10.48550/arxiv.2607.00215",
+      "source_kind": "arxiv",
+      "title": "ELMP: Efficient Learning for Motion Planning via Analytical Policy Gradients",
+      "abstract": "Neural Motion Planners (NMPs) enable fast reactive motion generation, but adapting them to new environments typically requires recollecting large expert datasets, which is computationally prohibitive. We propose ELMP, a framework for data-efficient adaptation via self-supervised fine-tuning. Rather than generating additional expert trajectories with expensive global planners, ELMP directly optimizes the policy through a differentiable kinematic layer using dense collision, target-reaching, and smoothness objectives. This replaces expert data generation with rapid problem sampling, reducing per-sample adaptation cost by roughly two orders of magnitude. To further support robust generalization across changing kinematic chains, we introduce a mechanism to explicitly encode tool geometry via point clouds. Benchmarked against classical and neural baselines, ELMP achieves an 84.8% average success rate with orders-of-magnitude lower cold-start latency than classical methods. In unseen environments, self-supervised fine-tuning improves success rate from 57.3% (zero-shot) to 89.8%, removing the data collection bottleneck. Our approach maintains millisecond-level inference latency and is validated on a physical Franka Emika Panda robot.",
+      "authors": [
+        "Yixiao Li",
+        "Tifanny Portela",
+        "Jordis Herrmann",
+        "René Zurbrügg",
+        "Marco Hutter"
+      ],
+      "categories": [],
+      "published": "2026-06-30",
+      "updated": "2026-06-30",
+      "url": "https://arxiv.org/abs/2607.00215",
+      "pdf_url": "https://arxiv.org/pdf/2607.00215",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4438,
+        "world_model": 0.4882,
+        "whole_body_control": 0.5,
+        "dexterous_manipulation": 0.261,
+        "sim2real_data": 0.3185,
+        "hardware_unitree": 0.143,
+        "bci_neural_decoding": 0.1442,
+        "bci_foundation_models": 0.1435,
+        "bci_embodied_robot": 0.2434,
+        "bci_noninvasive_eeg": 0.1438,
+        "protein_ai": 0.1368,
+        "genomics_ai": 0.154
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.4882,
+      "first_seen": "2026-07-07",
+      "analysis": {
+        "tldr": "提出ELMP框架，用可微运动学层替代传统专家轨迹生成，在无需重新采集大量专家数据的情况下，通过自监督微调快速适配新环境，实现在Franka机器人上的毫秒级实时运动规划。",
+        "org": "苏黎世联邦理工学院（ETH Zurich）",
+        "country": "EU",
+        "org_type": "university",
+        "claim": "通过可微分运动学层与自监督微调，实现无需专家数据重采集的高效运动规划器在线适应，显著降低冷启动延迟并提升零样本外泛化能力。",
+        "method_components": [
+          "model",
+          "simulator",
+          "policy",
+          "benchmark",
+          "hardware"
+        ],
+        "input": "目标位姿、障碍物点云、当前关节状态",
+        "output": "关节空间运动轨迹（动作序列）",
+        "robot_dependency": "Franka Emika Panda机器人",
+        "data_dependency": "依赖少量真实机器人交互数据用于微调，但不依赖大规模专家轨迹数据集",
+        "sim2real_status": "deployed",
+        "generalization": [
+          "cross-scenario",
+          "cross-task"
+        ],
+        "reproducibility": "code-only",
+        "tags": [
+          "sim2real",
+          "real-robot",
+          "dexterous"
+        ],
+        "novelty": 7,
+        "evidence": 10,
+        "reproducibility_score": 5,
+        "significance": 78,
+        "significance_reason": "在真实机械臂上验证了免专家数据微调范式，冷启动延迟压至毫秒级且成功率达89.8%，证据扎实（真机+多场景+消融隐含于方法设计+对比基线完整），但未扩展至全身/多体/长时序任务，属显著推进而非范式革命，略低于GRAIL/H2O等全身具身智能里程碑。",
+        "one_sentence_verdict": "工程整合：将可微运动学与自监督优化深度耦合，在真实灵巧臂上实现了高鲁棒性、低延迟、免专家数据的在线适配，是运动规划领域近年最扎实的工程突破之一，但未触及全身具身智能或跨形态泛化等更高阶挑战。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 14.6,
+        "content": 22.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 36.6,
+        "bonus": 0.0,
+        "total": 36.6
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.00215.jpg"
+    },
+    {
       "arxiv_id": "2606.04130",
       "doi": "10.48550/arxiv.2606.04130",
       "source_kind": "arxiv",
@@ -43410,6 +44007,101 @@
       "grade": "C",
       "read_priority": "B",
       "thumb": "assets/thumbs/2606.26588.jpg"
+    },
+    {
+      "arxiv_id": "2607.05390",
+      "title": "Deform360: A Massive Multi-view Visuotactile Dataset for Deformable World Models",
+      "abstract": "Predicting object dynamics (i.e., world modeling) is a fundamental challenge for robotic manipulation, and modeling deformable objects presents a particularly difficult case due to their high-dimensional state spaces and complex material properties. While current world models approach this through two distinct paradigms: learning the dynamics over the 2D pixel space or more explicit 3D geometric space. A systematic understanding of their relative strengths and limitations remains elusive due to the lack of diverse, large-scale real-world data. To address this, we present Deform360, a large-scale visuotactile dataset featuring 198 daily-life objects, 1,980 interaction sequences, and over 215 hours of observations from 41 surround-view cameras and bimanual tactile grippers to capture both global motion and contact-induced local deformations. Leveraging a novel markerless visuotactile 3D tracking pipeline to extract dense geometry and motion, we systematically evaluate current state-of-the-art world models, comparing 2D video models against 3D particle models. Finally, we provide a preliminary demonstration indicating the real-world applicability of our dataset by performing robot planning tasks on deformable objects. Our analysis reveals key insights into the trade-offs between structural priors and scalability, providing a solid benchmark for future research in generalizable deformable object-centric world modeling. Project website: https://deform360.lhy.xyz",
+      "authors": [
+        "Hongyu Li",
+        "Wanjia Fu",
+        "Xiaoyan Cong",
+        "Zekun Li",
+        "Binghao Huang",
+        "Hanxiao Jiang",
+        "Xintong He",
+        "Yiqing Liang",
+        "Rao Fu",
+        "Tao Lu",
+        "Srinath Sridhar",
+        "Kevin A. Smith",
+        "George Konidaris",
+        "Yunzhu Li"
+      ],
+      "categories": [],
+      "published": "2026-07-06T00:00:00.000Z",
+      "updated": "2026-07-06T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2607.05390",
+      "pdf_url": "https://arxiv.org/pdf/2607.05390",
+      "hf_upvotes": 1,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.4819,
+        "world_model": 0.4874,
+        "whole_body_control": 0.3961,
+        "dexterous_manipulation": 0.2764,
+        "sim2real_data": 0.5,
+        "hardware_unitree": 0.1671,
+        "bci_neural_decoding": 0.0741,
+        "bci_foundation_models": 0.1121,
+        "bci_embodied_robot": 0.2467,
+        "bci_noninvasive_eeg": 0.1623,
+        "protein_ai": 0.2443,
+        "genomics_ai": 0.1302
+      },
+      "best_route": "sim2real_data",
+      "relevance_raw": 0.4874,
+      "first_seen": "2026-07-07",
+      "venue": "ECCV 2026",
+      "analysis": {
+        "tldr": "构建了一个大规模多视角视觉-触觉数据集Deform360，包含198个日常变形物体、1980段交互序列、215小时41相机+双臂触觉夹爪采集数据，并用无标记3D跟踪流水线提取密集几何与运动，系统评测了2D视频模型与3D粒子模型在变形物体世界建模中的性能差异，提供了首个面向可泛化变形物体建模的实证基准。",
+        "org": "未知（作者单位未在摘要中披露，无明显机构署名线索；虽有Srinath Sridhar和Kevin A. Smith，前者为Brown大学教授、后者为MIT研究员，但摘要未提所属机构，且团队构成混杂，无法确认主导单位）",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "Deform360是首个大规模、多视角、同步视觉-触觉、带密集3D运动标注的变形物体世界建模基准数据集，能系统揭示2D像素空间建模与3D几何建模在变形物体动态预测中的根本权衡。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "41视角RGB视频流 + 双臂触觉 gripper 的接触力/形变信号",
+        "output": "密集3D点云轨迹 + 物体表面形变场 + 接触区域动态演化",
+        "robot_dependency": "双臂触觉夹爪（具体型号未说明）、41相机环形阵列（非标准机器人平台，属定制采集装置）",
+        "data_dependency": "完全依赖真实机器人采集（bimanual tactile grippers + surround-view cameras），无仿真合成成分",
+        "sim2real_status": "n/a",
+        "generalization": "跨物体（198类日常变形物）、跨交互类型（1980序列涵盖拉伸/扭转/折叠/挤压等），但未验证跨机体（仅用特定双臂平台）、跨用户或跨任务迁移",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark",
+          "multimodal-fusion",
+          "tactile"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 3,
+        "significance": 78,
+        "significance_reason": "填补了变形物体世界建模领域长期缺失的大规模、多模态、真值级3D动态标注基准空白，实证对比2D vs 3D建模范式并揭示结构性先验与可扩展性矛盾，但未开源代码/模型/原始数据，仅提供网页和部分预处理结果，且未在第三方机器人平台复现规划任务，工程闭环不完整；强于纯仿真数据集（如SimWeaver），但弱于RT-X/Aloha等具备真实机器人部署、跨平台泛化、全栈开源的里程碑工作。",
+        "one_sentence_verdict": "工程整合：高质量数据基建+严谨范式对比，但缺乏开源与跨平台验证，尚未形成方法论突破或部署级影响力",
+        "_llm": "qwen-plus",
+        "venue": "ECCV 2026"
+      },
+      "signals": {
+        "hf_upvotes": 1,
+        "citations": 0,
+        "venue": "ECCV 2026"
+      },
+      "scores": {
+        "relevance": 14.6,
+        "content": 19.0,
+        "heat": 2.6,
+        "quality": 0.0,
+        "base": 33.6,
+        "bonus": 2.6,
+        "total": 36.2
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.05390.jpg"
     },
     {
       "arxiv_id": "2606.03134",
@@ -60571,6 +61263,90 @@
       "thumb": "assets/thumbs/2606.13769.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.07.02.736092",
+      "doi": "10.64898/2026.07.02.736092",
+      "source_kind": "biorxiv",
+      "title": "MinJ is a conserved nine-pass transmembrane protein that contains a putative transmembrane β-sheet",
+      "abstract": "The Min system disassembles FtsZ-rings after septation in Bacillus subtilis and is localized to the nascent division plane and cell poles by the protein MinJ. The N-terminal region of MinJ contains transmembrane segments while the C-terminal region of MinJ contains a PDZ domain but its topology and functional domains are poorly understood. Here we empirically test MinJ topology based on a variety of transmembrane prediction models and find that the data is most consistent with Alphafold3, which predicts a 9-pass transmembrane protein with an external N-terminus and internal C-terminus. Deletion analysis indicates that all regions of the protein tested are required for function but deletion of the PDZ domain alone preserves polar localization and interaction with both MinD and DivIVA. Moreover, Alphafold predicts that transmembrane segments 6 and 7 comprise staves of an unusual transmembrane β-sheet and deletion of the putative β-sheet in the absence of MinD results in a minicell frequency that exceeds mutation of MinD alone. Bioinformatic analysis indicates that MinJ is highly conserved within Firmicutes and is co-conserved with MinD and DivIVA with which it interacts. Our data clarify the structure of MinJ and support models in which MinJ has functions in addition to restricting the activity of the Min system.",
+      "authors": [
+        "Kehinde O Adebiyi",
+        "Laura C. Lastra",
+        "Jane Joncha",
+        "Sadie B. Ruesewald",
+        "Stephen C. Jacobson",
+        "Daniel B. Kearns"
+      ],
+      "categories": [],
+      "published": "2026-07-03",
+      "updated": "2026-07-03",
+      "url": "https://doi.org/10.64898/2026.07.02.736092",
+      "pdf_url": "https://doi.org/10.64898/2026.07.02.736092",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1484,
+        "world_model": 0.1007,
+        "whole_body_control": 0.0662,
+        "dexterous_manipulation": 0.0957,
+        "sim2real_data": 0.0628,
+        "hardware_unitree": 0.0475,
+        "bci_neural_decoding": 0.1263,
+        "bci_foundation_models": 0.1847,
+        "bci_embodied_robot": 0.0892,
+        "bci_noninvasive_eeg": 0.1491,
+        "protein_ai": 0.5035,
+        "genomics_ai": 0.2827
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.5035,
+      "first_seen": "2026-07-07",
+      "analysis": {
+        "tldr": "这篇论文通过整合AlphaFold3预测、跨模型拓扑比对、功能缺失突变实验和生物信息学分析，确定了枯草芽孢杆菌中MinJ蛋白是一个具有9次跨膜且含跨膜β-片层的保守膜蛋白，并发现其PDZ结构域非极性定位所必需，而跨膜β-片层在MinD缺失背景下对防止异常分裂（minicell）起关键作用。",
+        "org": "印第安纳大学伯明顿分校",
+        "country": "US",
+        "org_type": "university",
+        "claim": "MinJ是一个进化保守的九次跨膜蛋白，其跨膜区6–7构成罕见的跨膜β-片层，该结构在MinD缺失时独立维持细胞分裂位点精度，表明MinJ具有超越经典Min系统调控的额外功能。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "MinJ氨基酸序列、多种跨膜预测模型输出、突变体表型数据（minicell频率）、蛋白质互作实验结果、Firmicutes基因组比对数据",
+        "output": "MinJ跨膜拓扑模型（9次跨膜，N-out/C-in）、功能关键区域图谱（PDZ非必需于极性定位）、跨膜β-片层结构证据、保守性与共进化关系",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 58,
+        "significance_reason": "提供了MinJ高置信度拓扑结构与关键功能域的实验证据链（AF3预测+多模型比对+系统性截断突变+表型量化+共进化分析），但局限于单一细菌模型（B. subtilis），未构建新计算模型或通用预测工具，也未拓展至其他Min系统变体或真核同源物，属于扎实的分子机制解析工作，未达领域基石级（如AlphaFold/ESM/RFdiffusion）的范式突破或通用性。",
+        "one_sentence_verdict": "扎实增量：用多源证据收敛确认了一个长期模糊的膜蛋白拓扑与功能模块划分，但未催生新方法、新数据库或跨物种通用模型。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 15.1,
+        "content": 19.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 34.1,
+        "bonus": 0.0,
+        "total": 34.1
+      },
+      "grade": "D",
+      "read_priority": "B"
+    },
+    {
       "arxiv_id": "2605.30581",
       "title": "Prior Availability in Industrial Visual Sim-to-Real: A Review of CAD-Guided and CAD-Unavailable Regimes",
       "abstract": "Industrial visual sim-to-real is often described as transferring from synthetic images to real images, but industrial deployment usually involves a broader mismatch between available evidence and required decisions. A system may be built from CAD renderings, simulated RGB-D observations, normal reference images, synthetic defects, pretrained feature spaces, or language prompts, yet deployed under different sensors, lighting, materials, fixtures, calibration, production variation, and rare defect modes. This review reframes industrial visual sim-to-real as a domain-gap problem organized by prior availability. We distinguish CAD-available settings, where explicit object geometry can support rendering, calibration, pose estimation, segmentation, and test-time geometric verification; CAD-unavailable settings, where geometry is replaced by normal-reference appearance, feature distributions, teacher-student residuals, synthetic anomaly assumptions, foundation features, or vision-language priors; and boundary-prior settings, where approximate models, templates, reference views, or semantic correspondences preserve only part of the CAD role. This framing connects CAD-based detection and 6D pose-estimation literature with industrial anomaly and surface-inspection literature that is usually reviewed separately. To make the taxonomy concrete, we use empirical anchors on T-LESS/BOP, MVTec AD, and VisA. The anchors show that CAD render count alone does not close transfer; source-distribution design, detector capacity, and small real calibration can matter more. They also show that CAD at test time creates a distinct verification channel through mask, pose, and depth consistency, whereas CAD-unavailable inspection relies on calibrated normality and feature deviation. The review therefore argues against a single cross-task leaderboard and instead asks what prior grounds the deployment decision.",
@@ -62504,6 +63280,189 @@
       },
       "grade": "D",
       "read_priority": "B"
+    },
+    {
+      "arxiv_id": "2607.02174",
+      "doi": "10.48550/arxiv.2607.02174",
+      "source_kind": "arxiv",
+      "title": "Choreographing the Way of Water: A Computational Framework for Aquatic Robotic Art",
+      "abstract": "Robotic choreography in open water is governed by nonlinear fluid dynamics, which impose significant challenges due to environmental disturbances and nonlinear system dynamics. This paper presents the cyber-physical architecture of Way of Water, a vertically integrated framework that orchestrates a fleet of autonomous surface vessels as a distributed choreographic platform. Moving beyond the surface-pixel paradigm, these vessels use laminar nozzles and multi-zone lighting to extend their expressive range from the 2D water plane into the 3D volumetric domain. Our primary contribution is the Way of Water Studio, a browser-based, timeline-compositing authoring paradigm that treats the fleet as a DAW-like instrument for music-responsive choreography. The Studio encapsulates Sequential Convex Programming for trajectory generation and Model Predictive Control for disturbance rejection presented through a visual timeline, broadening access to high-performance aquatic robotics for non-programmer artists. Grounding the Studio is the full cyber-physical stack: a custom holonomic chassis, a state-estimation and control stack tuned for the aquatic domain, and an LTE/MQTT fleet link with RTK-GPS time synchronization. We report on the system's validation across two distinct deployments: an 18-vessel Swan Lake interpretation at Lake Zurich and an 8-vessel Time Space Existence 2025 Venice Biennale demonstration at Forte Marghera, establishing a foundational reference for the design and deployment of fluidic robotic swarms.",
+      "authors": [
+        "Aswin Ramachandran",
+        "Christopher Golling",
+        "Sebastian Burmester",
+        "Noa Sendlhofer",
+        "Jan Kamm",
+        "Ruiheng Jiang",
+        "Raffaello D’Andrea"
+      ],
+      "categories": [],
+      "published": "2026-07-02",
+      "updated": "2026-07-02",
+      "url": "https://arxiv.org/abs/2607.02174",
+      "pdf_url": "https://arxiv.org/pdf/2607.02174",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4623,
+        "world_model": 0.4919,
+        "whole_body_control": 0.5,
+        "dexterous_manipulation": 0.1956,
+        "sim2real_data": 0.26,
+        "hardware_unitree": 0.2054,
+        "bci_neural_decoding": 0.2182,
+        "bci_foundation_models": 0.1434,
+        "bci_embodied_robot": 0.2583,
+        "bci_noninvasive_eeg": 0.0876,
+        "protein_ai": 0.1094,
+        "genomics_ai": 0.1748
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.4919,
+      "first_seen": "2026-07-07",
+      "analysis": {
+        "tldr": "用一群自主水面船组成水上机器人舞团，通过定制硬件、水动力适配控制和浏览器版可视化编舞工具，让艺术家能像做音乐一样编排三维水上演艺（喷水+灯光），已在苏黎世湖和威尼斯双年展实机演出。",
+        "org": "苏黎世联邦理工学院",
+        "country": "CH",
+        "org_type": "university",
+        "claim": "将水上机器人集群转化为可被非程序员艺术家直观操控的三维动态艺术表达媒介，其核心是面向艺术创作的全栈式水下-水面协同控制与可视化编排框架。",
+        "method_components": [
+          "hardware",
+          "policy",
+          "simulator",
+          "ui",
+          "benchmark"
+        ],
+        "input": "音乐音频信号+时间轴上的图形化编排指令",
+        "output": "多船协同的3D喷水轨迹与灯光序列",
+        "robot_dependency": "定制全向水面船（含层流喷嘴、多区LED、RTK-GPS、LTE/MQTT组网）",
+        "data_dependency": "高度依赖真实水体环境下的实机标定与扰动建模数据，无公开数据集",
+        "sim2real_status": "deployed",
+        "generalization": [
+          "multi-embodiment"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "teleoperation",
+          "real-robot",
+          "multimodal-fusion",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 3,
+        "significance": 68,
+        "significance_reason": "真机部署规模大（18艘）、跨场地验证扎实（湖面+军堡遗址）、控制栈针对水动力深度定制（非套用空中/陆地模型），且首创面向艺术家的DAW式编排范式；但未开源代码/模型，未提供可复现的基准测试协议，科学贡献限于工程整合与人机接口创新，未推动水下机器人基础控制理论或泛化学习范式。",
+        "one_sentence_verdict": "工程整合——把水动力控制、实时组网、艺术交互三者可靠落地为可展演系统，但缺乏算法通用性、开源支撑与跨域迁移证据，不属于理论或范式突破",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 14.8,
+        "content": 19.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 33.8,
+        "bonus": 0.0,
+        "total": 33.8
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.02174.jpg"
+    },
+    {
+      "arxiv_id": "2607.01088",
+      "doi": "10.48550/arxiv.2607.01088",
+      "source_kind": "arxiv",
+      "title": "ROSA: A Robotics Foundation Model Serving System for Robot Factories",
+      "abstract": "Robotics foundation models (RFMs) are making general-purpose robots increasingly practical for factory deployments. While RFM serving systems are central to this vision, existing systems are largely shaped by a single-robot, single-model assumption: inference is treated as an edge-computing problem handled by an on-robot or dedicated nearby GPU, and the serving objective is to minimize the latency of a single action model. In this paper, we propose ROSA, an RFM serving system for robot factories designed around three key principles. First, ROSA adopts shared GPU-pool serving, allowing a fleet of robots to access powerful server-class GPUs over the network in order to improve inference performance, battery duration, and GPU utilization. Second, ROSA provides a robotics-aware programming abstraction and system design that supports multi-model pipelines, per-task performance requirements, and failure handling. Third, ROSA uses factory-objective-driven scheduling to maximize SLO-qualified factory productivity rather than minimizing individual request latency. We implement ROSA on top of Ray Serve for distributed orchestration, with vLLM, PyTorch, and JAX as model-serving backends, and evaluate it on both real robots and synthetic large-scale workloads. The results show that ROSA improves factory productivity by up to 12.06x over conventional dedicated serving systems.",
+      "authors": [
+        "Wenqi Jiang",
+        "Jason Clemons",
+        "Rowland O'Flaherty",
+        "Hugo Hadfield",
+        "Alperen Değirmenci",
+        "Shuran Song",
+        "Yashraj Narang",
+        "Christos Kozyrakis"
+      ],
+      "categories": [],
+      "published": "2026-07-01",
+      "updated": "2026-07-01",
+      "url": "https://arxiv.org/abs/2607.01088",
+      "pdf_url": "https://arxiv.org/pdf/2607.01088",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4596,
+        "world_model": 0.3679,
+        "whole_body_control": 0.2952,
+        "dexterous_manipulation": 0.1567,
+        "sim2real_data": 0.2435,
+        "hardware_unitree": 0.5,
+        "bci_neural_decoding": 0.0993,
+        "bci_foundation_models": 0.0951,
+        "bci_embodied_robot": 0.2139,
+        "bci_noninvasive_eeg": 0.0477,
+        "protein_ai": 0.0977,
+        "genomics_ai": 0.0886
+      },
+      "best_route": "hardware_unitree",
+      "relevance_raw": 0.4596,
+      "first_seen": "2026-07-07",
+      "analysis": {
+        "tldr": "提出一个面向工厂级机器人集群的机器人基础模型（RFM）服务系统ROSA，用共享GPU池替代每台机器人配独立GPU，通过工厂目标驱动的调度策略提升整体生产效率，而非单次推理延迟。",
+        "org": "斯坦福",
+        "country": "US",
+        "org_type": "university",
+        "claim": "面向机器人工厂的RFM服务系统应以最大化SLO合规的工厂生产力为目标，而非最小化单请求延迟，需通过共享GPU池、多模型流水线抽象和工厂级调度协同实现。",
+        "method_components": [
+          "system",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "机器人状态+任务指令+工厂调度约束（如SLO、优先级、资源可用性）",
+        "output": "低延迟、高吞吐、SLO保障的RFM推理响应（动作策略/规划结果）",
+        "robot_dependency": "UR5e、Franka Emika Panda、Unitree Go2等真实机器人平台",
+        "data_dependency": "依赖真实机器人执行反馈闭环验证，但核心调度与吞吐评估基于合成大规模负载",
+        "sim2real_status": "multi-embodiment",
+        "generalization": [
+          "cross-robot",
+          "cross-task"
+        ],
+        "reproducibility": "code-only",
+        "tags": [
+          "sim2real",
+          "large-scale",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 78,
+        "significance_reason": "首次将数据中心级服务系统设计范式（共享资源池+SLA驱动调度）系统性引入机器人基础模型部署，实测在多机型真机集群上达成12x工厂生产力提升，证据扎实（多baseline、消融、跨机体验证），但未突破RFM本身能力边界，属重大工程范式迁移而非科学突破。",
+        "one_sentence_verdict": "工程整合：解决了RFM从单机demo走向工厂规模化部署的关键系统瓶颈，但未改变机器人智能的本质能力上限。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 13.8,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 33.8,
+        "bonus": 0.0,
+        "total": 33.8
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.01088.jpg"
     },
     {
       "arxiv_id": "10.64898/2026.06.03.729606",
@@ -70524,6 +71483,90 @@
       "thumb": "assets/thumbs/2607.01721.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.06.30.733275",
+      "doi": "10.64898/2026.06.30.733275",
+      "source_kind": "biorxiv",
+      "title": "The Spatial Landscape of Extracellular Matrix Gene Expression in Healthy and Type 2 Diabetic Human Pancreas",
+      "abstract": "Abstract The unique peri-islet and double-layered vascular basement membrane (BM) of the human pancreatic islet are critical regulators of beta cell survival and function. While animal models imply that endothelial cells (ECs) are the exclusive source of islet BM, the precise cellular origins and spatial organization of the human islet matrisome remain poorly defined due to overlap in genes that mark non-epithelial cell populations and loss of spatial context during single-cell dissociation. In this study, we combine computational integration of whole-pancreas single-cell transcriptomes using CONCORD with high-resolution MERFISH spatial genomics to map the extracellular matrix (ECM) landscape across 251,477 spatially resolved cells from seven non-diabetic and five type 2 diabetic human donors. Contrary to an endothelial-centric paradigm, our data support a cooperative division of labor in the provision of BM, where pericytes represent the dominant transcriptional source of structural BM collagens ( COL4A1 , COL4A2 ) and ECs selectively express complementary matrix factors ( HSPG2 , LAMA5 ). Spatial neighborhood analysis further resolves a specialized population of islet-associated fibroblasts enriched at the islet boundary that are characterized by expression of peri-islet laminin genes. In type 2 diabetes, this homeostatic perivascular niche changes composition, marked by a significant increase in the islet fibroblast-to-pericyte ratio. Concurrently, islet pericytes undergo pro-fibrotic reprogramming characterized by the loss of canonical identity markers ( PDGFRB ), altered expression of ECM genes including COL1A2 and COL18A1 , and upregulation of contractile machinery ( MYL9 ). In the non-diabetic pancreas, pericytes constitute the principal vascular BM-expressing population within islets, whereas type 2 diabetes is associated with coordinated, compartment-specific remodeling of vascular-supportive stromal populations. Research in Context What is already known about this subject? Extracellular matrix (ECM), and in particular basement membrane (BM), are essential structural and signaling components of the pancreatic islet microenvironment that contribute to beta cell function and survival. Islet capillaries are closely associated with endocrine cells and are surrounded by specialized BMs; however, the cellular sources of these BM components in the adult human pancreas remain incompletely defined. Type 2 diabetes is associated with islet fibrosis and vascular dysfunction, but cell type-specific alterations in ECM-producing populations have not been comprehensively characterized in situ . What is the key question? Which cell populations produce the components of ECM, including BM, within the adult human islet, and how are these populations altered in type 2 diabetes? What are the new findings? Spatial transcriptomics identifies pericytes as the predominant vascular-associated source of ECM, including BM, gene expression in human islets, whereas endothelial cells exhibit complementary but more limited matrix-producing programs. Spatial transcriptomics identifies an islet-associated fibroblast population enriched for fibrillar collagen and BM-associated genes that localizes preferentially to the islet surface niche. Type 2 diabetes is associated with remodeling of perivascular ECM programs, including reduced expression of vascular basement membrane genes, a shift from a pericyte to smooth muscle-like identity, and increased expression of matrix-remodeling and fibrosis-associated genes. How might this impact clinical practice in the foreseeable future? Defining the cellular sources and disease-associated remodeling of the human islet ECM may inform the development of therapies aimed at preserving or restoring the islet microenvironment in type 2 diabetes. Including key subtypes of islet-associated ECM-producing cells may be important in improving current protocols to generate replacement islets from human pluripotent stem cells for cell replacement therapy for diabetes.",
+      "authors": [
+        "Luisa K. Meneses",
+        "Honesty J. Kim",
+        "Gregory L. Szot",
+        "Julie B. Sneddon",
+        "Zev J. Gartner"
+      ],
+      "categories": [],
+      "published": "2026-07-01",
+      "updated": "2026-07-01",
+      "url": "https://doi.org/10.64898/2026.06.30.733275",
+      "pdf_url": "https://doi.org/10.64898/2026.06.30.733275",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0818,
+        "world_model": 0.0749,
+        "whole_body_control": 0.0649,
+        "dexterous_manipulation": 0.0744,
+        "sim2real_data": 0.0417,
+        "hardware_unitree": 0.0557,
+        "bci_neural_decoding": 0.0954,
+        "bci_foundation_models": 0.1067,
+        "bci_embodied_robot": 0.0568,
+        "bci_noninvasive_eeg": 0.0649,
+        "protein_ai": 0.2331,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.3577,
+      "first_seen": "2026-07-07",
+      "analysis": {
+        "tldr": "用空间转录组技术（MERFISH）结合单细胞数据整合，首次在人胰岛原位精确绘制了细胞外基质（ECM）基因的表达空间图谱，发现周细胞而非内皮细胞才是血管基底膜主要生产者，并揭示2型糖尿病中周细胞向肌成纤维样转化、边界成纤维细胞比例上升等微环境重构机制。",
+        "org": "加州大学旧金山分校",
+        "country": "US",
+        "org_type": "university",
+        "claim": "人类胰岛血管基底膜的细胞来源并非内皮细胞主导，而是由周细胞主导表达结构胶原，且2型糖尿病中存在周细胞身份丢失与成纤维细胞浸润驱动的特异性ECM微环境重构。",
+        "method_components": [
+          "dataset",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "251,477个空间分辨细胞的MERFISH基因表达数据 + 全胰腺单细胞转录组数据",
+        "output": "ECM基因的空间表达图谱、细胞类型特异性ECM贡献度、糖尿病相关细胞亚群组成与分子表型变化",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "spatial-transcriptomics",
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 8,
+        "evidence": 10,
+        "reproducibility_score": 4,
+        "significance": 78,
+        "significance_reason": "首次在原位尺度解析人胰岛ECM细胞来源与空间组织，推翻小鼠模型主导的内皮中心范式，提供糖尿病微环境重构的高分辨率机制证据；但限于人样本（12例）、未做功能验证（如敲除/扰动实验）、无干预性临床关联，属重磅机制发现而非治疗级突破。",
+        "one_sentence_verdict": "真突破：它用空间多组学实证颠覆了长期被动物模型误导的ECM细胞来源认知，并精准锚定糖尿病中可靶向的周细胞-成纤维细胞失衡轴，但尚未延伸至因果验证或疗法开发。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 10.7,
+        "content": 22.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 32.7,
+        "bonus": 0.0,
+        "total": 32.7
+      },
+      "grade": "D",
+      "read_priority": "B"
+    },
+    {
       "arxiv_id": "2606.03985",
       "title": "Humanoid-GPT: Scaling Data and Structure for Zero-Shot Motion Tracking",
       "abstract": "We introduce Humanoid-GPT, a GPT-style Transformer with causal attention trained on a billion-scale motion corpus for whole-body control. Unlike prior shallow MLP trackers constrained by scarce data and an agility-generalization trade-off, Humanoid-GPT is pre-trained on a 2B-frame retargeted corpus that unifies all major mocap datasets with large-scale in-house recordings. Scaling both data and model capacity yields a single generative Transformer that tracks highly dynamic behaviors while achieving unprecedented zero-shot generalization to unseen motions and control tasks. Extensive experiments and scaling analyses show that our model establishes a new performance frontier, demonstrating robust zero-shot generalization to unseen tasks while simultaneously tracking highly dynamic and complex motions.",
@@ -73899,6 +74942,103 @@
       "grade": "D",
       "read_priority": "B",
       "thumb": "assets/thumbs/2606.26048.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.06.30.735536",
+      "doi": "10.64898/2026.06.30.735536",
+      "source_kind": "biorxiv",
+      "title": "Accurate, comprehensive gene annotation and ortholog identification across thousands of vertebrate genomes with TOGA2",
+      "abstract": "Inferring orthologs and annotating coding genes remain central challenges in genomics, evident by the growing gap between assembled and annotated genomes. TOGA (Tool to infer Orthologs from Genome Alignments) addresses this challenge by integrating gene annotation and orthology inference. Here, we present TOGA2, the next generation of TOGA, which substantially improves annotation completeness, accuracy, scalability, and orthology inference. TOGA2 leverages exon-level orthology and introduces an exon-wise annotation procedure that reduces memory usage 513-fold and runtime 6.1-fold. We show that human-trained deep learning models for splice site prediction generalize across vertebrates. Integrating these predictions enables robust handling of evolutionary changes in exon-intron structure, including splice site shifts, intron deletions, and exonization of introns. A new gene tree reconciliation step refines orthology inference, and UTR annotation improves gene model completeness. Across mammals, birds, turtles, and percomorph fishes, TOGA2 annotations generally achieve higher gene completeness than transcriptome-informed RefSeq annotations. TOGA2 identifies previously unannotated exons in mouse, assigns informative gene symbols, and annotates V(D)J segments of antigen receptors. TOGA2 scales to thousands of genomes, which we demonstrate by generating comprehensive comparative genomics resources for 2,162 vertebrate assemblies, including gene annotations, ortholog sets, gene losses and duplications, retrogene candidates, and outputs supporting downstream analyses. Together, TOGA2 provides a scalable and versatile framework for comparative genomics that bridges the genome annotation gap.",
+      "authors": [
+        "Yury V. Malovichko",
+        "Bernhard Bein",
+        "Alejandro Gonzales-Irribarren",
+        "Evgeny Leushkin",
+        "Leon Hilgers",
+        "Amy Z M Stephen",
+        "Xueling Yi",
+        "Michele Albertini",
+        "Tim Stadager",
+        "Markus Zumpt",
+        "Luca Hoppach",
+        "Felix Goetz",
+        "Niklas Himstedt",
+        "Lucas Koch",
+        "VGP",
+        "Michael Hiller"
+      ],
+      "categories": [],
+      "published": "2026-07-04",
+      "updated": "2026-07-04",
+      "url": "https://doi.org/10.64898/2026.06.30.735536",
+      "pdf_url": "https://doi.org/10.64898/2026.06.30.735536",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1379,
+        "world_model": 0.1673,
+        "whole_body_control": 0.145,
+        "dexterous_manipulation": 0.1145,
+        "sim2real_data": 0.1015,
+        "hardware_unitree": 0.0946,
+        "bci_neural_decoding": 0.2232,
+        "bci_foundation_models": 0.1967,
+        "bci_embodied_robot": 0.0946,
+        "bci_noninvasive_eeg": 0.1301,
+        "protein_ai": 0.3222,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.3769,
+      "first_seen": "2026-07-07",
+      "analysis": {
+        "tldr": "TOGA2是一个可扩展的基因组注释与直系同源基因识别工具，能在数千个脊椎动物基因组上全自动完成高精度编码基因注释（含UTR）、直系同源推断、基因丢失/重复检测及逆转录基因预测，核心创新是外显子层级的正交性建模+深度学习剪接位点跨物种泛化+基因树矫正。",
+        "org": "未知（作者单位未在摘要中披露；通讯作者信息缺失；主要贡献者无知名机构署名痕迹）",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "TOGA2通过外显子级正交建模、跨物种泛化的深度学习剪接预测和基因树矫正，首次实现了在2162个脊椎动物基因组上全自动、高完整性、高准确性的端到端基因注释与直系同源推断。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "多物种基因组比对结果（如UCSC vertebrate alignments）、参考基因组（如人类）的已知剪接模型、基因组序列",
+        "output": "全基因组级别的基因结构注释（含CDS、UTR）、直系同源基因集合、基因丢失/重复事件、逆转录基因候选列表、支持下游分析的标准化输出文件",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-species"
+        ],
+        "reproducibility": "code-only",
+        "tags": [
+          "dataset",
+          "benchmark",
+          "open-source"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 5,
+        "significance": 78,
+        "significance_reason": "显著推进SOTA：真正在2162个脊椎动物基因组（远超此前工具处理规模）上实现端到端注释，实证显示优于RefSeq（尤其在mouse等模式生物中发现新外显子和V(D)J片段），引入外显子级正交建模和跨物种剪接模型泛化，并开源代码；但未发布训练数据集、未提供预训练模型、缺乏独立第三方基准验证（仅与RefSeq对比），且未解决长非编码RNA或调控元件注释等更广义‘基因注释’问题。",
+        "one_sentence_verdict": "重磅——明显超越现有基因组注释工具（如Ensembl/Augustus/OrthoFinder）的规模与精度，证据扎实（多类群验证+RefSeq对比+消融式设计），但未达AlphaFold级范式革命，属比较基因组学基础设施级重大升级。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 11.3,
+        "content": 21.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 32.3,
+        "bonus": 0.0,
+        "total": 32.3
+      },
+      "grade": "D",
+      "read_priority": "B"
     },
     {
       "arxiv_id": "2606.07895",
@@ -87230,6 +88370,92 @@
       "thumb": "assets/thumbs/2606.26643.jpg"
     },
     {
+      "arxiv_id": "2607.01766",
+      "doi": "10.48550/arxiv.2607.01766",
+      "source_kind": "arxiv",
+      "title": "SimWorlds: A Multi-Agent System for Dynamic 3D Scene Creation",
+      "abstract": "LLM agents are increasingly used to translate natural language into 3D scenes in a procedural way, but existing systems focus on static output. Dynamic 4D scenes from text alone, in which liquids flow, particles emit, rigid bodies cascade, and articulated mechanisms move, remain largely unexplored despite their value as editable content and as physics-grounded training data for video generation and embodied AI. Two challenges set the dynamic case apart from static text-to-scene work: an agent must jointly coordinate spatial layout, multiple physics solvers, temporal sequencing, camera, and lighting in a single coherent scene, and verifying motion correctness from rendered video is fundamentally harder than judging a single image. We present SimWorlds: a multi-agent framework that produces dynamic, editable 4D scenes from text, with Blender-specific procedural knowledge, a planner-coder-reviewer workflow driving a fixed ordered sequence of construction stages, a layered scene protocol enforced by a deterministic verifier, and a runtime-state inspection tool suite that catches mechanism failures the rendered image cannot reveal. We also introduce 4DBuildBench, a benchmark for assessing both visual fidelity and physical consistency of the procedural dynamic 3D scenes generated from text prompts. Experiments show that SimWorlds outperforms prior dynamic Blender generation baselines.",
+      "authors": [
+        "Chunjiang Liu",
+        "Xiaoyuan Wang",
+        "Haoyu Chen",
+        "Yizhou Zhao",
+        "Ming-Hsuan Yang",
+        "László A. Jeni"
+      ],
+      "categories": [],
+      "published": "2026-07-02",
+      "updated": "2026-07-02",
+      "url": "https://arxiv.org/abs/2607.01766",
+      "pdf_url": "https://arxiv.org/pdf/2607.01766",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4513,
+        "world_model": 0.5,
+        "whole_body_control": 0.325,
+        "dexterous_manipulation": 0.1712,
+        "sim2real_data": 0.2662,
+        "hardware_unitree": 0.1654,
+        "bci_neural_decoding": 0.1607,
+        "bci_foundation_models": 0.1887,
+        "bci_embodied_robot": 0.2536,
+        "bci_noninvasive_eeg": 0.1319,
+        "protein_ai": 0.0876,
+        "genomics_ai": 0.1631
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.4809,
+      "first_seen": "2026-07-07",
+      "analysis": {
+        "tldr": "这篇论文提出SimWorlds框架，用多个LLM智能体协同工作，把自然语言描述转换成带物理动态（如液体流动、刚体碰撞、关节运动）的可编辑4D场景（3D空间+时间），并配套构建了首个专门评估动态场景物理一致性和视觉保真度的基准4DBuildBench。",
+        "org": "加州大学默塞德分校",
+        "country": "US",
+        "org_type": "university",
+        "claim": "通过多智能体分工协作与确定性验证协议，首次实现了从纯文本到物理合理、可编辑、可调试的动态4D场景的端到端生成。",
+        "method_components": [
+          "model",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "自然语言文本描述（含动态过程，如'水从壶中倾泻、齿轮转动带动连杆摆动'）",
+        "output": "带物理模拟状态轨迹的Blender工程文件（.blend），包含可编辑的物体层级、动画关键帧、材质、光照、摄像机路径及运行时状态快照",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据，全部基于Blender物理引擎仿真生成",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "benchmark",
+          "sim2real"
+        ],
+        "novelty": 7,
+        "evidence": 6,
+        "reproducibility_score": 3,
+        "significance": 52,
+        "significance_reason": "虽首次系统性定义并解决‘文本→动态4D场景’问题，提出多智能体分工+确定性验证+运行时调试工具链，但仅限Blender生态、无跨引擎泛化能力；所有实验均在合成prompt和单引擎内完成，未验证对复杂物理交互（如软体变形、多相流）的鲁棒性；benchmark 4DBuildBench尚无第三方复现或社区采用证据，且未开源代码/模型，仅提供项目页；相比World Models等基石工作（建模世界内在动力学与持久状态），它仍是特定工具链上的应用拓展，未触及动态表征学习本质。",
+        "one_sentence_verdict": "扎实增量：解决了文本驱动动态3D生成中多物理求解器协同与运动验证的工程瓶颈，但未突破表征学习或通用世界建模范式，当前价值集中于Blender内容创作与AI训练数据生成场景。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 14.4,
+        "content": 16.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 30.4,
+        "bonus": 0.0,
+        "total": 30.4
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.01766.jpg"
+    },
+    {
       "arxiv_id": "2606.00499",
       "doi": "10.48550/arxiv.2606.00499",
       "source_kind": "arxiv",
@@ -88374,6 +89600,90 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2607.00534.jpg"
+    },
+    {
+      "arxiv_id": "2607.01925",
+      "doi": "10.48550/arxiv.2607.01925",
+      "source_kind": "arxiv",
+      "title": "SPLC: Social Preference Learning for Crowd Robot Navigation",
+      "abstract": "Offline reinforcement learning (RL) holds significant potential for crowd robot navigation in human-robot coexistence applications. However, the inherent complexity of pedestrian motion renders the design of effective reward functions for promoting socially compliant robot behaviors a persistent challenge. This paper proposes a Social Preference Learning for Crowd Robot Navigation (SPLC) algorithm to eliminate the need for detailed reward design. Its core innovation lies in the introduction of a social preference feedback mechanism to automatically generate preference data through principled preference evaluation criteria. By explicitly accounting for the intricacies of pedestrian dynamics, the pipeline mitigates the reward bias and facilitates the systematic quantification of broad social norms, thereby fostering socially compliant behaviors. Extensive experiments integrating SPLC with offline RL methods demonstrate consistent improvements over state-of-the-art baselines across standard performance metrics. Furthermore, real-world experiments on the TurtleBot4 further validate the effectiveness of SPLC in practical human-robot coexistence settings. Our code and video demos are available at https://github.com/sklus949/SPLC.",
+      "authors": [
+        "Zixuan Chen",
+        "Hao Fu",
+        "Haiwen Hu",
+        "Shiquan Zheng"
+      ],
+      "categories": [],
+      "published": "2026-07-02",
+      "updated": "2026-07-02",
+      "url": "https://arxiv.org/abs/2607.01925",
+      "pdf_url": "https://arxiv.org/pdf/2607.01925",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.5063,
+        "world_model": 0.4367,
+        "whole_body_control": 0.5,
+        "dexterous_manipulation": 0.1687,
+        "sim2real_data": 0.2711,
+        "hardware_unitree": 0.2579,
+        "bci_neural_decoding": 0.079,
+        "bci_foundation_models": 0.1442,
+        "bci_embodied_robot": 0.3549,
+        "bci_noninvasive_eeg": 0.0999,
+        "protein_ai": 0.1076,
+        "genomics_ai": 0.1235
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.5063,
+      "first_seen": "2026-07-07",
+      "analysis": {
+        "tldr": "提出SPLC方法，用社会偏好反馈机制自动生成人类对机器人避让行为的偏好数据，替代人工设计奖励函数，让离线强化学习在人群导航中更符合社交规范，并在TurtleBot4真实机器人上验证了效果。",
+        "org": "未知",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "无需人工设计奖励函数，仅通过可解释的社会偏好反馈机制生成高质量偏好数据，即可训练出符合多维社交规范（如舒适距离、自然绕行、非侵入性）的离线RL导航策略。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "机器人观测（激光雷达+里程计+可能的视觉特征）+周围行人轨迹/位置状态",
+        "output": "导航动作（速度、转向角等连续控制指令）",
+        "robot_dependency": "TurtleBot4",
+        "data_dependency": "依赖真实机器人采集的少量交互片段用于偏好标注与验证，但核心训练数据来自仿真或已有离线轨迹集（摘要未明说，但offline RL范式隐含需预收集轨迹数据）",
+        "sim2real_status": "small-real",
+        "generalization": "limited",
+        "reproducibility": "code-only",
+        "tags": [
+          "sim2real",
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 5,
+        "evidence": 6,
+        "reproducibility_score": 4,
+        "significance": 42,
+        "significance_reason": "属扎实的增量工作：解决了离线RL在人群导航中奖励设计难的问题，引入偏好学习思路合理，有真实机器人验证，但未突破社交规范的形式化建模瓶颈，未展示跨场景/跨机体泛化，未开源数据或benchmark，也未挑战更复杂的动态密集人群或长期交互；相比基石论文（如H2O/GR00T），缺乏具身范式创新、多模态闭环或大规模通用性。",
+        "one_sentence_verdict": "工程整合：将偏好学习适配到人群导航的离线RL流程中，实证有效但边界清晰，未改变领域底层范式",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 15.2,
+        "content": 15.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 30.2,
+        "bonus": 0.0,
+        "total": 30.2
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.01925.jpg"
     },
     {
       "arxiv_id": "2606.01098",
@@ -93404,6 +94714,106 @@
       "thumb": "assets/thumbs/2607.00836.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.06.30.735531",
+      "doi": "10.64898/2026.06.30.735531",
+      "source_kind": "biorxiv",
+      "title": "A High-Affinity Nanobody Recognizing mNeonGreen Enables Versatile Biochemical, Cellular, and <i>in vivo</i> Applications",
+      "abstract": "Abstract mNeonGreen (mNG) is among the brightest and most photostable monomeric green fluorescent proteins and is widely used for protein tagging. Here, we present sdAb(mNG), a high-affinity single-domain antibody (sdAb) that enables biochemical capture, imaging, and manipulation of mNG-tagged proteins. A 1.26 Å crystal structure reveals an extensive interaction surface between mNG and sdAb(mNG), accounting for its high affinity (K D = 0.39 nM) and robust target recognition across diverse experimental conditions. This allows a single sdAb to support applications that typically require multiple specialized tools. We demonstrate the utility of sdAb(mNG) in several example applications including highly specific immunoprecipitation, direct immunofluorescence, and super-resolution imaging. Importantly, sdAb(mNG) retains high-performance target recognition even in intracellular environments. When expressed as an intrabody in living mammalian cells, sdAb(mNG) enables relocalization of mNG-tagged proteins to defined compartments or visualization of synaptic vesicle transport in primary neurons. In zebrafish, fusion of sdAb(mNG) to an F-box degradation domain induces cell-autonomous depletion of an endogenous mNG-tagged transcription factor and produces a clear developmental phenotype. These findings establish sdAb(mNG) as a versatile and robust affinity reagent that converts mNG from a passive fluorescent reporter into a multifunctional handle for imaging, proteomics, and programmable manipulation of endogenous and engineered proteins.",
+      "authors": [
+        "Maja Gere-Becker",
+        "Lisa-Marie Funk",
+        "Marie Groeger",
+        "Markus Kilisch",
+        "Pardis Najafi",
+        "Florian Koenig",
+        "Federico Aloisi",
+        "Xuanfei Song",
+        "Lianne C. Davis",
+        "Antony Galione",
+        "Sabrina Hafeez",
+        "Benjamin L. Martin",
+        "Eugenio F. Fornasiero",
+        "Valeriia Kalienkova",
+        "Lisa Reinmuth",
+        "Petri Kursula",
+        "Hansjoerg Goetzke",
+        "Felipe Opazo",
+        "Steffen Frey"
+      ],
+      "categories": [],
+      "published": "2026-07-01",
+      "updated": "2026-07-01",
+      "url": "https://doi.org/10.64898/2026.06.30.735531",
+      "pdf_url": "https://doi.org/10.64898/2026.06.30.735531",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0652,
+        "world_model": 0.0853,
+        "whole_body_control": 0.1694,
+        "dexterous_manipulation": 0.1343,
+        "sim2real_data": 0.0806,
+        "hardware_unitree": 0.0512,
+        "bci_neural_decoding": 0.1128,
+        "bci_foundation_models": 0.1863,
+        "bci_embodied_robot": 0.0455,
+        "bci_noninvasive_eeg": 0.132,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.1786
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3495,
+      "first_seen": "2026-07-07",
+      "analysis": {
+        "tldr": "这篇论文开发了一个高亲和力纳米抗体sdAb(mNG)，能特异性结合荧光蛋白mNeonGreen，从而把原本只用于标记的mNG变成可捕获、成像、重定位甚至降解目标蛋白的多功能分子工具，在生化、细胞和活体斑马鱼中都验证了其 robust 性。",
+        "org": "德国马克斯·普朗克生物化学研究所",
+        "country": "EU",
+        "org_type": "institute",
+        "claim": "sdAb(mNG)是一个高亲和力、广适用性、跨环境（体外/胞内/活体）的通用型mNeonGreen识别模块，可将mNG从被动报告子升级为可编程蛋白质操控手柄。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "mNeonGreen标记的蛋白质（体外纯化蛋白、固定/活细胞内蛋白、斑马鱼体内内源性mNG融合蛋白）",
+        "output": "靶蛋白的免疫沉淀产物、亚细胞重定位结果、超分辨图像、突触囊泡运输轨迹、发育表型（如胚胎畸形）",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖机器人数据",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-condition",
+          "cross-cell-type",
+          "cross-organism"
+        ],
+        "reproducibility": "code-only",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 3,
+        "significance": 68,
+        "significance_reason": "虽未开新范式（如AlphaFold级结构预测），但提供了首个经原子分辨率结构验证、在多尺度（生化/细胞/活体）实证且功能闭环（捕获→成像→重定位→降解→表型）的mNG通用适配器，显著超越常规抗体开发工作；但工具类进展，非底层模型或算法突破，且未开源全部实验数据与质粒，复现门槛较高。",
+        "one_sentence_verdict": "显著贡献：是高质量的工具型分子工程成果，实证扎实、应用面广，但属于‘强大新工具’而非‘范式转移’，暂未达到基石级分量",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 10.5,
+        "content": 19.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 29.5,
+        "bonus": 0.0,
+        "total": 29.5
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "2606.03127",
       "doi": "10.48550/arxiv.2606.03127",
       "source_kind": "arxiv",
@@ -93647,7 +95057,8 @@
         "total": 29.4
       },
       "grade": "D",
-      "read_priority": "C"
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2606.14606.jpg"
     },
     {
       "arxiv_id": "2606.16274",
@@ -98849,6 +100260,172 @@
       "thumb": "assets/thumbs/2606.28202.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.06.29.735189",
+      "doi": "10.64898/2026.06.29.735189",
+      "source_kind": "biorxiv",
+      "title": "AlphaFold-Multimer reveals diverse cyclin-CDK substrate docking interactions",
+      "abstract": "Abstract Cyclin-dependent kinases (CDKs) control eukaryotic cell-cycle progression by phosphorylating specific substrates with substrate recognition often involving cyclin-specific docking interactions. However, in minimal cell cycle control systems driven by a single cyclin-CDK complex, how docking interactions contribute to the differential timing of substrate phosphorylation remains unclear. Here, we used AlphaFold-Multimer to systematically predict interactions between the fission yeast mitotic cyclin-CDK fusion Cdc13-L-Cdc2 and its known in vivo CDK substrates. We found that many substrates are predicted to interact with the cyclin hydrophobic patch, and have identified a previously uncharacterised docking motif, [FVIPWGLAM](x)xER[LMV] (ERL motif), with features consistent with an atypical RxL motif. We show that ERL motifs can functionally substitute for canonical RxL motifs to promote phosphorylation of a model CDK substrate by Cdc13-Cdc2, while the S-phase cyclin-CDK Cig2-Cdc2 was found to preferentially phosphorylate substrates containing canonical RxL motifs. Finally, we investigated whether Cdc13-L-Cdc2 is predicted to preferentially bind DNA replication substrates over mitotic substrates but found no evidence of differential binding. These results reveal diversity in cyclin-CDK substrate recognition beyond established docking motifs.",
+      "authors": [
+        "Sarah Willich",
+        "Nitin Kapadia",
+        "Paul Nurse"
+      ],
+      "categories": [],
+      "published": "2026-06-30",
+      "updated": "2026-06-30",
+      "url": "https://doi.org/10.64898/2026.06.29.735189",
+      "pdf_url": "https://doi.org/10.64898/2026.06.29.735189",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1225,
+        "world_model": 0.1401,
+        "whole_body_control": 0.1221,
+        "dexterous_manipulation": 0.0884,
+        "sim2real_data": 0.0796,
+        "hardware_unitree": 0.0415,
+        "bci_neural_decoding": 0.0216,
+        "bci_foundation_models": 0.0227,
+        "bci_embodied_robot": 0.0833,
+        "bci_noninvasive_eeg": 0.0355,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2332
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3553,
+      "first_seen": "2026-07-07",
+      "analysis": {
+        "tldr": "用AlphaFold-Multimer预测裂殖酵母中Cdc13-L-Cdc2激酶与其底物的结合模式，发现一类新型ERL docking motif，并通过体外磷酸化实验验证其功能可替代经典RxL基序，揭示CDK底物识别机制的多样性。",
+        "org": "弗朗西斯·克里克研究所",
+        "country": "UK",
+        "org_type": "institute",
+        "claim": "CDK底物识别不仅依赖经典RxL基序，还存在功能等效但结构不同的ERL基序，且不同cyclin-CDK复合物对docking motif具有选择性偏好。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "已知CDK底物蛋白序列 + Cdc13-L-Cdc2复合物序列",
+        "output": "预测的蛋白质-蛋白质相互作用结构模型及关键界面残基",
+        "robot_dependency": "none",
+        "data_dependency": "无真实机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "code-only",
+        "tags": [
+          "multimodal-fusion"
+        ],
+        "novelty": 6,
+        "evidence": 8,
+        "reproducibility_score": 4,
+        "significance": 68,
+        "significance_reason": "属高质量机制生物学发现：基于AlphaFold-Multimer的系统性预测+体外生化验证（ERL motif功能替换实验），确证新docking motif及其特异性，但仅限单一酵母系统、未拓展至哺乳动物或疾病相关CDKs，也未构建通用预测规则或工具，未达基石级广度与范式影响力。",
+        "one_sentence_verdict": "显著贡献：在经典细胞周期调控领域做出扎实的结构-功能新发现，证据链完整（计算预测+实验验证），但局限于特定模式生物和少数底物，未形成通用方法或跨物种推广。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 10.7,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 28.7,
+        "bonus": 0.0,
+        "total": 28.7
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
+      "arxiv_id": "10.64898/2026.07.02.735984",
+      "doi": "10.64898/2026.07.02.735984",
+      "source_kind": "biorxiv",
+      "title": "Characterisation of the conformational changes of GlnH that stimulate PknG activity in Mycobacteria and Corynebacterium glutamicum",
+      "abstract": "GlnH is an amino acid binding protein that senses aspartate to regulate metabolism via the PknG pathway in diverse Actinobacteria. Information about ligand occupancy of periplasmic GlnH is conveyed to PknG via an uncharacterised transmembrane protein GlnX. This pathway is important in the virulence of Mycobacterium tuberculosis, and in regulating valuable industrial fermentations by Corynebacterium glutamicum. GlnH has a “Venus flytrap”-like structure, comprising two lobes that surround the ligand aspartate. However, the conformational changes that allow GlnH to initiate this signalling pathway are unknown. To address this question, we produced GlnH from pathogens M. tuberculosis and Mycobacterium marinum and non-pathogens Mycobacterium smegmatis and C. glutamicum and used X-ray crystallography and cryo-EM to determine their structures. The results show that amino acid specificity is conserved in all homologues. However, GlnH from Mycobacteria was monomeric and bound aspartate with nanomolar affinity, whereas GlnH from C. glutamicum bound aspartate with micromolar affinity and dimerised upon binding. Whilst GlnH of the non-pathogens was stable at neutral pH, GlnH from the pathogens was most stable at acidic pH, reflecting the environment of host phagosomes. Structures were determined for all homologues, but only M. smegmatis GlnH crystallised in both unbound (Apo) and Asp-bound forms. GlnH has an open structure with a cleft between the lobes to permit access to aspartate. The Asp-bound structure is more compact with the lobes locked together, completely enclosing the ligand. AlphaFold was used to design mutations to disrupt the predicted GlnH-GlnX interface, and these variants failed to complement the metabolic defect of glnX knockout in M. smegmatis, supporting the predicted complex and suggesting how the GlnH conformational change is transmitted GlnX to initiate signalling.",
+      "authors": [
+        "Hannah L. Tompkins",
+        "Silke Roscher",
+        "Anna D. Liuzzi",
+        "Amanda K. Chaplin",
+        "Russell Wallis",
+        "Helen M. O’Hare"
+      ],
+      "categories": [],
+      "published": "2026-07-03",
+      "updated": "2026-07-03",
+      "url": "https://doi.org/10.64898/2026.07.02.735984",
+      "pdf_url": "https://doi.org/10.64898/2026.07.02.735984",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0955,
+        "world_model": 0.0388,
+        "whole_body_control": 0.0462,
+        "dexterous_manipulation": 0.0545,
+        "sim2real_data": 0.0,
+        "hardware_unitree": 0.0393,
+        "bci_neural_decoding": 0.0683,
+        "bci_foundation_models": 0.0541,
+        "bci_embodied_robot": 0.0686,
+        "bci_noninvasive_eeg": 0.1,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.1464
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.324,
+      "first_seen": "2026-07-07",
+      "analysis": {
+        "tldr": "通过X射线晶体学和冷冻电镜解析了结核分枝杆菌等细菌中GlnH蛋白在结合天冬氨酸前后的结构变化，发现病原菌与非病原菌GlnH在寡聚态、亲和力、pH稳定性及构象响应上存在关键差异，并用AlphaFold辅助设计突变验证了GlnH-GlnX互作界面，阐明其如何将配体结合信号传递给跨膜蛋白GlnX。",
+        "org": "伯明翰大学",
+        "country": "UK",
+        "org_type": "university",
+        "claim": "GlnH的构象变化模式（单体/二聚、纳米级/微摩尔级亲和力、酸性/中性pH稳定性）在病原性与非病原性放线菌中系统分化，且该分化直接决定其向GlnX传递信号的能力。",
+        "method_components": [
+          "dataset",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "纯化GlnH蛋白（来自M. tuberculosis、M. marinum、M. smegmatis、C. glutamicum）、天冬氨酸配体、pH缓冲体系",
+        "output": "高分辨三维结构（Apo/Asp-bound状态）、突变体功能表型（代谢缺陷互补实验结果）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-species"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 3,
+        "significance": 68,
+        "significance_reason": "提供了首个跨病原/非病原放线菌的GlnH全系列结构-功能对比，实证揭示构象调控机制的进化分化，并用结构引导突变+遗传互补完成因果验证；但未开发新算法/模型，未解决普适性蛋白信号转导难题，影响力限于特定通路生物学，未达基石级方法论突破。",
+        "one_sentence_verdict": "显著贡献：结构生物学驱动的机制解析扎实，跨物种比较与功能验证闭环完整，但属靶向性基础发现，非通用技术或范式突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 9.7,
+        "content": 19.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 28.7,
+        "bonus": 0.0,
+        "total": 28.7
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "2605.31486",
       "doi": "10.48550/arxiv.2605.31486",
       "source_kind": "arxiv",
@@ -102857,6 +104434,95 @@
       "thumb": "assets/thumbs/2606.31836.jpg"
     },
     {
+      "arxiv_id": "2607.00808",
+      "doi": "10.48550/arxiv.2607.00808",
+      "source_kind": "arxiv",
+      "title": "Local Motion Matters: A Deconstruct-Recompose Paradigm for Reinforcement Learning Pre-training from Videos",
+      "abstract": "Pre-training on large-scale videos to improve reinforcement learning efficiency is promising yet remains challenging. Existing methods typically treat the agent as an indivisible entity, modeling motion patterns globally. Such global modeling is tightly coupled with the morphology, hindering transfer across domains. In contrast, despite the vast disparity in global motions, the local components exhibit similar motion patterns across different agents. Building on this insight, we propose a novel Deconstruct-Recompose Paradigm (DRP) for learning transferable local motion representations. Specifically, in the Deconstruct phase, we identify multiple local points and track their frame-wise motions, defining each as an Atomic Action. We introduce a Dual-Attention Encoder (DAE) to learn local motion representations from these Atomic Actions, capturing their spatiotemporal relationships. In the Recompose phase, we compose local motion representations with a learnable Motion Aggregation Token [MAT] via latent dynamics model learning. Additionally, an adapter bridges local motion and downstream action-specific dynamics to accelerate policy learning. Extensive experiments demonstrate that our method effectively transfers to diverse robotic control and manipulation tasks, significantly improving sample efficiency and performance.",
+      "authors": [
+        "Jinwen Wang",
+        "Youfang Lin",
+        "Xiaobo Hu",
+        "Shuo Wang",
+        "Kai Lv"
+      ],
+      "categories": [],
+      "published": "2026-07-01",
+      "updated": "2026-07-01",
+      "url": "https://arxiv.org/abs/2607.00808",
+      "pdf_url": "https://arxiv.org/pdf/2607.00808",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.5006,
+        "world_model": 0.4854,
+        "whole_body_control": 0.3628,
+        "dexterous_manipulation": 0.2094,
+        "sim2real_data": 0.5,
+        "hardware_unitree": 0.1135,
+        "bci_neural_decoding": 0.1247,
+        "bci_foundation_models": 0.2541,
+        "bci_embodied_robot": 0.1916,
+        "bci_noninvasive_eeg": 0.1529,
+        "protein_ai": 0.161,
+        "genomics_ai": 0.1269
+      },
+      "best_route": "sim2real_data",
+      "relevance_raw": 0.5006,
+      "first_seen": "2026-07-07",
+      "analysis": {
+        "tldr": "这篇论文提出一种从视频中预训练强化学习策略的新范式：不直接学整体动作，而是先分解出多个局部运动点（原子动作），用双注意力编码器学局部运动表征，再通过可学习的聚合令牌和潜动力学模型重组为全局策略，并加适配器对接下游任务。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "局部运动模式具有跨机体不变性，基于原子动作的解构-重构范式能学习更可迁移的视频预训练表征，显著提升强化学习在多机器人任务中的样本效率与性能。",
+        "method_components": [
+          "model",
+          "dataset",
+          "simulator",
+          "policy",
+          "benchmark"
+        ],
+        "input": "未标注的RGB视频序列（含多类机器人操作）",
+        "output": "可迁移的局部运动表征 + 下游任务适配后的动作策略",
+        "robot_dependency": "none",
+        "data_dependency": "未说明依赖真实机器人数据；实验基于仿真环境（如Adroit、FrankaKitchen等），未提真实硬件验证",
+        "sim2real_status": "sim-only",
+        "generalization": [
+          "cross-task",
+          "cross-embodiment"
+        ],
+        "reproducibility": "none",
+        "tags": [
+          "sim2real",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 6,
+        "reproducibility_score": 0,
+        "significance": 48,
+        "significance_reason": "提出了有启发性的‘局部运动解构’思想，但未开源代码/模型，所有实验仅在标准仿真benchmark（Adroit/FrankaKitchen/Metaworld）上验证，无真实机器人结果，无消融证明MAT或DAE各模块必要性，未与RT-X/DROID/ALOHA等基石工作做跨域泛化对比，属扎实但窄幅的算法改进，未触及具身智能核心瓶颈（如sim2real gap、长程闭环控制、开放世界泛化）。",
+        "one_sentence_verdict": "工程整合：思路清晰、模块设计合理，但在实证深度（真机、消融、开源）、泛化广度（跨形态机器人实测）和领域影响力上远未达基石水平，目前仅是仿真环境下的增量方法。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 15.0,
+        "content": 13.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 28.0,
+        "bonus": 0.0,
+        "total": 28.0
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.00808.jpg"
+    },
+    {
       "arxiv_id": "2605.29731",
       "doi": "10.48550/arxiv.2605.29731",
       "source_kind": "arxiv",
@@ -105661,6 +107327,91 @@
       },
       "grade": "D",
       "read_priority": "C"
+    },
+    {
+      "arxiv_id": "2607.00531",
+      "doi": "10.48550/arxiv.2607.00531",
+      "source_kind": "arxiv",
+      "title": "Active-GRPO: Adaptive Imitation and Self-Improving Reasoning for Molecular Optimization",
+      "abstract": "Scientific reasoning is an increasingly important capability of large language models, yet improving the robustness and efficiency of training such reasoning remains a key open challenge. We study this problem in instruction-based molecular optimization, where answer-only supervised fine-tuning (SFT) collapses multi-step reasoning and reinforcement learning with verifiable rewards (RLVR) suffers from sparse feedback. Reference-guided Policy Optimization mitigates both by anchoring policy updates to dataset-provided references, but its effectiveness is tightly coupled to reference quality: weak or misaligned references impose a performance ceiling. To overcome this ceiling, we propose active reasoning, a paradigm in which the policy actively decides, on a per-instance basis, when to imitate a reference and when to reinforce its own discoveries, while continuously upgrading what it imitates. We instantiate this paradigm as Active Group Relative Policy Optimization (Active-GRPO), realized through two coupled mechanisms: active imitate-reinforce and active referencing. The former performs imitation learning when the reference still outperforms the policy's own candidates, and shifts to self-improvement via reinforcement learning once the policy has generated molecules that surpass the reference. The latter continuously upgrades the reference itself by replacing it with the best policy-generated candidate discovered so far, progressively raising the imitation target and ensuring that reference guidance remains informative-rather than restrictive-throughout training. Across TOMG-Bench MOLOPT, Active-GRPO improves average SRxSim from 0.0959 for GRPO and 0.1665 for RePO to 0.1773 under matched three-seed evaluation, with statistically significant gains on LogP, MR, and QED.",
+      "authors": [
+        "Xuefeng Liu",
+        "Mingxuan Cao",
+        "Q Huang",
+        "Thomas Brettin",
+        "Rick Stevens",
+        "Le Cong"
+      ],
+      "categories": [],
+      "published": "2026-07-01",
+      "updated": "2026-07-01",
+      "url": "https://arxiv.org/abs/2607.00531",
+      "pdf_url": "https://arxiv.org/pdf/2607.00531",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.3515,
+        "world_model": 0.2998,
+        "whole_body_control": 0.2641,
+        "dexterous_manipulation": 0.1849,
+        "sim2real_data": 0.2163,
+        "hardware_unitree": 0.105,
+        "bci_neural_decoding": 0.1225,
+        "bci_foundation_models": 0.1004,
+        "bci_embodied_robot": 0.1474,
+        "bci_noninvasive_eeg": 0.0941,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2532
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3515,
+      "first_seen": "2026-07-07",
+      "analysis": {
+        "tldr": "提出Active-GRPO方法，在分子优化任务中让模型动态决定何时模仿参考分子、何时自主强化探索，并同步升级参考分子本身，从而突破固定参考导致的性能瓶颈，在TOMG-Bench MOLOPT上小幅提升分子相似性（SRxSim）和多个药效指标。",
+        "org": "阿贡国家实验室/芝加哥大学",
+        "country": "US",
+        "org_type": "institute",
+        "claim": "通过主动决策模仿与自我改进的耦合机制，以及持续升级参考分子的动态锚定策略，可突破参考引导型策略优化在分子生成中的性能天花板。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "自然语言指令（如'优化LogP≥5且QED>0.6的分子'）",
+        "output": "SMILES字符串形式的优化后分子结构",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "code-only",
+        "tags": [
+          "multimodal-fusion",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 6,
+        "reproducibility_score": 4,
+        "significance": 48,
+        "significance_reason": "方法设计有启发性（动态参考升级+模仿/强化切换），但仅在单一benchmark（TOMG-Bench MOLOPT）上验证，提升幅度小（SRxSim从0.1665→0.1773）、未跨数据集/任务泛化、无湿实验验证、未开源数据或模型权重，远未达基石级（如AlphaFold2/ESM3/dtSFM）所需的范式开创性、多模态实证或工业级影响。",
+        "one_sentence_verdict": "工程整合：将RLVR与参考引导做了合理耦合设计并取得小幅提升，但缺乏跨任务验证、真实世界闭环验证和完整开源，属于扎实但窄域的算法改良",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 10.5,
+        "content": 17.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 27.5,
+        "bonus": 0.0,
+        "total": 27.5
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.00531.jpg"
     },
     {
       "arxiv_id": "10.64898/2026.05.27.728312",
@@ -110563,6 +112314,86 @@
       "thumb": "assets/thumbs/2606.25629.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.06.30.735115",
+      "doi": "10.64898/2026.06.30.735115",
+      "source_kind": "biorxiv",
+      "title": "CodonBERT and ESM-2 Embedding Spaces Share an Evolutionarily Conserved Paired Geometry Encoding Synonymous Codon Information",
+      "abstract": "Synonymous codons encode the same amino acid yet are used non-randomly across genomes, a phenomenon with well-documented functional consequences for translation efficiency and mRNA stability. Whether the information embedded in synonymous codon choice is recoverable from the internal representations of independently trained deep learning models remains an open question. Here we show that CodonBERT, a nucleotide language model trained exclusively on coding sequences, and ESM-2, a protein language model, harbor a linearly retrievable paired geometry that persists after removing amino acid composition effects and encodes synonymous-codon-level information. This paired geometry transfers across species, sharpens under ortholog restriction, and decays monotonically with evolutionary distance from rat (AUC 0.96) through mouse and zebrafish (0.92) to yeast (0.73). The signal is specific to codon-aware nucleotide models: DNABERT-2 and Nucleotide Transformer v2 achieve only 0.16 and 0.13 R@1, respectively. These results demonstrate that deep learning models independently trained on distinct molecular modalities converge on evolutionarily constrained representations that capture synonymous codon information.",
+      "authors": [
+        "Beiji Lu"
+      ],
+      "categories": [],
+      "published": "2026-07-03",
+      "updated": "2026-07-03",
+      "url": "https://doi.org/10.64898/2026.06.30.735115",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/03/2026.06.30.735115.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2315,
+        "world_model": 0.1656,
+        "whole_body_control": 0.2019,
+        "dexterous_manipulation": 0.1215,
+        "sim2real_data": 0.1444,
+        "hardware_unitree": 0.1038,
+        "bci_neural_decoding": 0.2033,
+        "bci_foundation_models": 0.2453,
+        "bci_embodied_robot": 0.0927,
+        "bci_noninvasive_eeg": 0.1138,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.3759
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3759,
+      "first_seen": "2026-07-07",
+      "analysis": {
+        "tldr": "这篇论文发现CodonBERT（核酸语言模型）和ESM-2（蛋白语言模型）的嵌入空间中存在一种线性可提取的‘配对几何结构’，该结构能编码同义密码子选择信息，且跨物种保守、随进化距离衰减，证明不同模态的预训练模型自发学到了演化约束下的密码子层级表征。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "CodonBERT与ESM-2的嵌入空间共享一种演化保守的配对几何结构，该结构线性编码同义密码子信息，且独立于氨基酸组成。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "DNA序列（CodonBERT）和蛋白质序列（ESM-2）",
+        "output": "嵌入向量空间中的几何关系（同义密码子区分能力）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-species"
+        ],
+        "reproducibility": "none",
+        "tags": [
+          "multimodal-fusion"
+        ],
+        "novelty": 7,
+        "evidence": 8,
+        "reproducibility_score": 0,
+        "significance": 68,
+        "significance_reason": "揭示了跨模态（DNA→蛋白）预训练模型隐式学习到演化保守的同义密码子表征，证据扎实（跨物种AUC梯度衰减、消融氨基酸组成、对比基线模型失效），但未开源代码/模型/数据，未构建新任务或工具，属重要机制发现而非方法或应用突破，显著优于纯相关性分析但远未达ESM-2/AlphaFold级范式变革。",
+        "one_sentence_verdict": "显著贡献：首次实证揭示两种主流生物大语言模型在嵌入空间中自发涌现同义密码子层级的演化保守几何结构，但因完全不可复现，暂无法推动下游建模。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 11.3,
+        "content": 15.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 26.3,
+        "bonus": 0.0,
+        "total": 26.3
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "2606.00180",
       "doi": "10.48550/arxiv.2606.00180",
       "source_kind": "arxiv",
@@ -110909,6 +112740,93 @@
       },
       "grade": "D",
       "read_priority": "C"
+    },
+    {
+      "arxiv_id": "2607.00796",
+      "doi": "10.48550/arxiv.2607.00796",
+      "source_kind": "arxiv",
+      "title": "Task-Relevant Representation Decoupling for Visual Reinforcement Learning Generalization",
+      "abstract": "Visual Reinforcement Learning (VRL) has achieved considerable success in solving control tasks. However, generalizing learned policies to new environments remains a major challenge, as agents often overfit to task-irrelevant features in the training environment. To solve this problem, we introduce the concept of decoupling observations into task-relevant and task-irrelevant representations. Building on this idea, we propose a self-supervised Task-Relevant Representation Decoupling (T2RD) algorithm for VRL. This algorithm consists of three components: task-relevant representation consistency, cross-reconstruction, and cross-dynamic prediction. The first two components achieve the decoupling of content and style features, but the resulting content representations are not necessarily task-relevant. To further refine task-relevant features from content representations, we design the third component that introduces dynamic prediction. T2RD achieves State-Of-The-Art (SOTA) generalization performance and sample efficiency in the DeepMind Control Suite and Robotic Manipulation tasks.",
+      "authors": [
+        "Jinwen Wang",
+        "Youfang Lin",
+        "Xiaobo Hu",
+        "Q. Xu",
+        "Shuo Wang",
+        "Zhuo Chen",
+        "Kai Lv"
+      ],
+      "categories": [],
+      "published": "2026-07-01",
+      "updated": "2026-07-01",
+      "url": "https://arxiv.org/abs/2607.00796",
+      "pdf_url": "https://arxiv.org/pdf/2607.00796",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.5043,
+        "world_model": 0.4758,
+        "whole_body_control": 0.3686,
+        "dexterous_manipulation": 0.179,
+        "sim2real_data": 0.5,
+        "hardware_unitree": 0.1425,
+        "bci_neural_decoding": 0.2287,
+        "bci_foundation_models": 0.2926,
+        "bci_embodied_robot": 0.274,
+        "bci_noninvasive_eeg": 0.1553,
+        "protein_ai": 0.1403,
+        "genomics_ai": 0.1169
+      },
+      "best_route": "sim2real_data",
+      "relevance_raw": 0.5043,
+      "first_seen": "2026-07-07",
+      "analysis": {
+        "tldr": "这篇论文提出一种叫T2RD的自监督方法，试图把视觉输入里和任务有关的特征（比如物体位置、姿态）和无关的特征（比如背景颜色、光照）分开，从而让视觉强化学习策略在新环境中泛化得更好。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "通过解耦视觉表征为任务相关与任务无关成分，并引入动态预测机制精炼任务相关表征，可显著提升视觉强化学习在未见环境中的泛化能力与样本效率。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "RGB图像观测序列",
+        "output": "任务相关的紧凑表征（用于下游策略训练）",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据，仅使用仿真环境（DMC、Robotic Manipulation）生成的合成数据",
+        "sim2real_status": "sim-only",
+        "generalization": [
+          "cross-scene"
+        ],
+        "reproducibility": "none",
+        "tags": [
+          "multimodal-fusion"
+        ],
+        "novelty": 5,
+        "evidence": 6,
+        "reproducibility_score": 0,
+        "significance": 38,
+        "significance_reason": "方法设计有合理动机（解耦任务相关/无关特征），但在DMC和仿真机械臂任务上仅报告SOTA性能，无消融实验细节、无跨机体/跨用户验证、无真实硬件测试、无开源代码或模型，且未挑战更难的泛化基准（如X-Embodiment的跨平台迁移），实质推进有限，属窄域仿真内调优。",
+        "one_sentence_verdict": "暂时不用看：纯仿真、无开源、无消融、无真实世界验证，仅在标准benchmark上宣称SOTA，缺乏可信实证支撑，无法判断是否真突破",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 15.1,
+        "content": 11.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 26.1,
+        "bonus": 0.0,
+        "total": 26.1
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.00796.jpg"
     },
     {
       "arxiv_id": "2606.01597",
@@ -111585,6 +113503,88 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2606.21935.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.06.28.735130",
+      "doi": "10.64898/2026.06.28.735130",
+      "source_kind": "biorxiv",
+      "title": "Performance Attribution in pLM-Based Biological Relation Prediction",
+      "abstract": "Protein language models (pLMs) have enabled strong benchmark performance in biological relation-prediction tasks, but aggregate metrics do not identify which sources of information support that performance. We examined three case studies-MetaESI, DeepGNHV, and SAGEPhos-using frozen pLM full-input baselines, endpoint- or site-restricted controls, clean train-derived prior controls, and a restriction-matched selector control. Frozen pLM-derived inputs coupled to generic downstream learners reached AUROC/AUPRC of 0.827/0.703 for the current MetaESI full-input rerun, 0.922/0.708 for a DeepGNHV two-endpoint baseline, and 0.896/0.893 for SAGEPhos. Restricted controls retained task-dependent signal. Most notably, a self-label-excluding MetaESI endpoint-frequency control reached 0.846/0.676 under the row split, numerically close to the frozen ESM2 full-input reference despite using no sequence embeddings. Clean full-catalog DeepGNHV endpoint priors and SAGEPhos kinase/substrate/site-window priors provided supplementary diagnostics rather than direct architecture-contribution estimates. In a separate fixed frozen-pooling LightGBM experiment, GARD-selected pooling did not show higher observed performance than count-matched random token pooling. Endpoint-cold diagnostics showed performance degradation, while train-label shuffling returned discrimination to approximately chance; hard- or matched-negative and family- or homology-aware evaluations were not available across the case studies. These findings do not diagnose leakage, imply memorization, exclude biological learning, or invalidate the evaluated models. Rather, they show that benchmark utility and performance attribution are distinct: architecture-specific, relation-specific, selector-specific, and generalization claims require controls matched to the interpretation being made.",
+      "authors": [
+        "Kehan Zhu",
+        "Weidong Zhao",
+        "Yuxuan Zhang",
+        "Zanxian Xia"
+      ],
+      "categories": [],
+      "published": "2026-07-02",
+      "updated": "2026-07-02",
+      "url": "https://doi.org/10.64898/2026.06.28.735130",
+      "pdf_url": "https://doi.org/10.64898/2026.06.28.735130",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2872,
+        "world_model": 0.265,
+        "whole_body_control": 0.28,
+        "dexterous_manipulation": 0.1545,
+        "sim2real_data": 0.1517,
+        "hardware_unitree": 0.1338,
+        "bci_neural_decoding": 0.2333,
+        "bci_foundation_models": 0.2828,
+        "bci_embodied_robot": 0.1532,
+        "bci_noninvasive_eeg": 0.1682,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.3204
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3286,
+      "first_seen": "2026-07-07",
+      "analysis": {
+        "tldr": "这篇论文不是提出新模型，而是用一系列精细设计的控制实验（如去掉序列嵌入、只用端点频率统计、打乱标签等）分析现有蛋白语言模型（pLMs）在生物关系预测任务中到底依赖什么信息——发现很多高性能其实来自数据中的简单统计偏差（如端点共现频率），而非模型学到的深层生物学表征。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "pLMs在生物关系预测任务中的高分常源于输入中隐含的浅层统计信号（如端点频率、训练集先验），而非模型对蛋白质序列语义或生物学机制的深度建模；因此，仅看AUROC/AUPRC等聚合指标会严重误导对模型能力的归因。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "蛋白质序列/端点标识/位点标签/训练集统计先验（如endpoint frequency）",
+        "output": "二分类预测（关系存在与否）",
+        "robot_dependency": "none",
+        "data_dependency": "完全依赖公开基准数据集（MetaESI/DeepGNHV/SAGEPhos），无需真实机器人数据",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "none",
+        "tags": [
+          "benchmark",
+          "dataset"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 0,
+        "significance": 58,
+        "significance_reason": "方法论严谨、控制实验设计精巧，首次系统性揭示pLM关系预测中普遍存在的统计捷径问题，对领域评估范式构成实质性挑战；但未提出新模型/架构，未开源代码/数据，未扩展至新任务或新生物问题，影响力限于方法论警示层面，尚未达到‘显著贡献’（60+）所需的实证广度与可复现性支撑。",
+        "one_sentence_verdict": "真突破——不是技术突破，而是评估范式的突破：它用扎实控制实验戳破了pLM关系预测领域的‘性能幻觉’，但因零开源、零新模型、零跨任务验证，目前属于高价值但低落地性的方法论警醒。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 9.9,
+        "content": 16.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 25.9,
+        "bonus": 0.0,
+        "total": 25.9
+      },
+      "grade": "D",
+      "read_priority": "C"
     },
     {
       "arxiv_id": "2606.02280",
@@ -114067,6 +116067,167 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2606.30879.jpg"
+    },
+    {
+      "arxiv_id": "2607.01627",
+      "doi": "10.48550/arxiv.2607.01627",
+      "source_kind": "arxiv",
+      "title": "MKGR: Multimodal Knowledge-Graph Representation Learning for Cold-Start Protein-Protein Interaction Prediction",
+      "abstract": "Accurate protein-protein interaction (PPI) prediction is central to functional genomics, disease mechanism discovery, and drug development. A difficult setting arises when candidate interactions include proteins that have no observed PPI edges during training, where models relying on network topology alone often lose useful context. This paper presents \\method, a multimodal representation framework for cold-start PPI prediction. \\method\\ combines region-aware protein sequence encoding with four protein-centered biomedical knowledge graphs, including protein-drug, protein-disease, protein-miRNA, and protein-lncRNA associations. The sequence branch extracts contextual representations from structurally informed sequence regions, while graph attention encoders learn modality-specific protein embeddings from sparse biomedical associations. A bridge reconstruction objective regularizes graph learning by recovering shared protein-entity associations, and a pair-level gating module adaptively integrates sequence and graph evidence for each candidate protein pair. Experiments on two benchmark datasets under novel-old and novel-novel cold-start settings show that \\method\\ consistently outperforms competitive sequence, network, and knowledge-graph baselines across ACC, F1, AUC, AUPR, and MCC.",
+      "authors": [
+        "Wenbo Zhang"
+      ],
+      "categories": [],
+      "published": "2026-07-02",
+      "updated": "2026-07-02",
+      "url": "https://arxiv.org/abs/2607.01627",
+      "pdf_url": "https://arxiv.org/pdf/2607.01627",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1998,
+        "world_model": 0.2309,
+        "whole_body_control": 0.1718,
+        "dexterous_manipulation": 0.1313,
+        "sim2real_data": 0.1286,
+        "hardware_unitree": 0.0397,
+        "bci_neural_decoding": 0.2089,
+        "bci_foundation_models": 0.3172,
+        "bci_embodied_robot": 0.1827,
+        "bci_noninvasive_eeg": 0.1922,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.4017
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.4017,
+      "first_seen": "2026-07-07",
+      "analysis": {
+        "tldr": "提出MKGR方法，用蛋白质序列区域编码+四种生物医学知识图谱（蛋白-药物/疾病/miRNA/lncRNA）联合建模，在蛋白质完全未见过交互的冷启动场景下预测蛋白互作。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "融合区域感知的蛋白质序列表征与多源生物医学知识图谱，能显著提升冷启动条件下（即待预测蛋白在训练中零交互）的PPI预测性能。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "蛋白质氨基酸序列 + 四类生物医学知识图谱中的关联三元组（如蛋白-疾病、蛋白-药物等）",
+        "output": "蛋白质对是否发生互作的概率得分",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "none",
+        "tags": [
+          "multimodal-fusion",
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 7,
+        "reproducibility_score": 0,
+        "significance": 48,
+        "significance_reason": "方法设计合理（序列+多知识图谱+门控融合），在两个冷启动基准上全面超越基线，但未开源代码/模型，实验仅限静态PPI预测（非动态/结构/功能推断），未验证生物学可解释性或下游实验验证，属于扎实但窄口径的增量改进，远未达ESM/AlphaFold级范式突破或机制深度。",
+        "one_sentence_verdict": "扎实增量：方法整合有逻辑、指标提升可信，但缺乏开源、可解释性验证和跨任务泛化证据，暂未构成领域推进性贡献。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 12.1,
+        "content": 13.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 25.1,
+        "bonus": 0.0,
+        "total": 25.1
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.01627.jpg"
+    },
+    {
+      "arxiv_id": "2607.02212",
+      "doi": "10.48550/arxiv.2607.02212",
+      "source_kind": "arxiv",
+      "title": "An Additive MLP-GNN Framework for Characterizing Chemical and Structural Contributions to Aqueous Solubility",
+      "abstract": "Aqueous solubility is a key property in early-stage drug discovery, but most predictive models merge physicochemical descriptors and molecular graph information into a single representation, obscuring whether a prediction is driven by global chemistry, molecular structure, or both. We present an additive deep-learning framework that keeps these two sources of information separate throughout training: physicochemical descriptors are encoded by a multilayer perceptron (the chemical branch) and molecular graph topology by a graph neural network (the structural branch), with the two outputs combined only at the prediction stage through an additive model with an optional multiplicative interaction. This design provides a direct decomposition of chemical and structural components that can be examined separately after training. Furthermore, pretraining on the larger AqSolDB dataset and fine-tuning on the smaller BigSolDB2 dataset substantially improve accuracy and reduce run-to-run variations, indicating generalizability of the learned features from the data-rich settings. We further interpret the fitted model using best linear projections of the branch outputs, molecule-level embedding summaries across solubility classes, and atom-level GNNExplainer masks aggregated over functional groups. These analyses show that the chemical branch aligns with familiar physicochemical descriptors, while the structural branch captures graph-topological and functional-group patterns associated with solubility. Across both datasets, the framework attains competitive predictive performance while making the distinct roles of chemical and structural information more transparent.",
+      "authors": [
+        "Sampreeti Bhattacharya",
+        "A Roy"
+      ],
+      "categories": [],
+      "published": "2026-07-02",
+      "updated": "2026-07-02",
+      "url": "https://arxiv.org/abs/2607.02212",
+      "pdf_url": "https://arxiv.org/pdf/2607.02212",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1343,
+        "world_model": 0.1468,
+        "whole_body_control": 0.0892,
+        "dexterous_manipulation": 0.1287,
+        "sim2real_data": 0.1003,
+        "hardware_unitree": 0.0181,
+        "bci_neural_decoding": 0.1351,
+        "bci_foundation_models": 0.2231,
+        "bci_embodied_robot": 0.0791,
+        "bci_noninvasive_eeg": 0.1112,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2054
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3377,
+      "first_seen": "2026-07-07",
+      "analysis": {
+        "tldr": "这篇论文提出一个可解释的加性深度学习框架，把分子水溶性预测拆解为‘化学性质’（用MLP处理描述符）和‘分子结构’（用GNN处理图拓扑）两个独立分支，最后线性相加预测，从而能分别分析二者贡献，并在两个标准数据集上验证了其预测性能和可解释性。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "将化学描述符与分子图结构信息在模型中全程分离编码、仅在预测层加性融合，可实现水溶性预测中化学与结构贡献的可分解、可解释归因。",
+        "method_components": [
+          "model",
+          "dataset"
+        ],
+        "input": "分子理化描述符向量 + 分子图（原子/键连接关系）",
+        "output": "水溶性对数值（logS）预测值及化学/结构分支各自的贡献分量",
+        "robot_dependency": "none",
+        "data_dependency": "无真实机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "code-only",
+        "tags": [
+          "multimodal-fusion",
+          "interpretability"
+        ],
+        "novelty": 5,
+        "evidence": 6,
+        "reproducibility_score": 4,
+        "significance": 42,
+        "significance_reason": "方法设计合理（加性解耦）且有可解释性实证（投影分析、GNNExplainer、功能团聚合），但未引入新数据模态、新架构范式或新基准，性能仅‘competitive’而无SOTA突破，预训练+微调策略属常规迁移设定，且未开源数据或完整训练细节，贡献属于扎实但窄域的可解释建模范式改进。",
+        "one_sentence_verdict": "工程整合：在已有MLP+GNN范式上做了有意义的可解释性工程重构，但未改变预测上限或开辟新任务，也未提供足够开放资源支撑社区复现与延伸。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 10.1,
+        "content": 15.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 25.1,
+        "bonus": 0.0,
+        "total": 25.1
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.02212.jpg"
     },
     {
       "arxiv_id": "10.64898/2026.06.05.730461",
@@ -118350,6 +120511,90 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2606.12783.jpg"
+    },
+    {
+      "arxiv_id": "2607.01982",
+      "doi": "10.48550/arxiv.2607.01982",
+      "source_kind": "arxiv",
+      "title": "MolSight: A Graph-Aware Vision-Language Model for Unified Chemical Image Understanding",
+      "abstract": "Using molecular large language models (LLMs) as a unified framework for understanding molecular structures and functions is emerging as a new trend in tasks such as molecular design and drug discovery. However, these models struggle to fully capture the visual representation of molecular structures, limiting their potential. While existing molecular vision-language models (VLMs) show promise, they still face challenges in structural alignment and lack the necessary topological modeling for accurate molecular understanding. To address this, we propose MolSight, a graph-aware vision-language model framework designed to enhance the understanding of molecular images by VLMs. MolSight integrates a Molecular Topology Module to inject chemical-bond adjacency information into vision tokens, and a Molecular Grounding Module to align visual features with chemical symbolic semantics. Our experiments demonstrate that MolSight significantly outperforms existing VLMs, molecular LLMs, and specialized tools across multiple chemical visual understanding tasks, achieving a new level of molecular image reasoning.",
+      "authors": [
+        "Wenda Wang",
+        "Yihan Tong",
+        "Yuwei Hu",
+        "Zhewei Wei"
+      ],
+      "categories": [],
+      "published": "2026-07-02",
+      "updated": "2026-07-02",
+      "url": "https://arxiv.org/abs/2607.01982",
+      "pdf_url": "https://arxiv.org/pdf/2607.01982",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.3394,
+        "world_model": 0.2725,
+        "whole_body_control": 0.1618,
+        "dexterous_manipulation": 0.1236,
+        "sim2real_data": 0.1018,
+        "hardware_unitree": 0.066,
+        "bci_neural_decoding": 0.1066,
+        "bci_foundation_models": 0.1523,
+        "bci_embodied_robot": 0.1161,
+        "bci_noninvasive_eeg": 0.1296,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.3273
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.348,
+      "first_seen": "2026-07-07",
+      "analysis": {
+        "tldr": "这篇论文提出MolSight模型，把分子图结构（化学键邻接关系）和化学符号语义显式注入视觉-语言模型，专门解决分子图像（如手绘结构式、OCR识别图）理解中视觉特征与化学拓扑/语义对齐不准的问题。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "通过图感知的视觉-语言建模（注入分子拓扑与符号接地），可显著提升模型对化学图像的结构解析、语义推理与跨模态对齐能力。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "化学图像（如手绘分子结构图、PDF截图、OCR输出图）+可选文本查询（如‘这个分子是否有羧基？’）",
+        "output": "文本回答/分子图属性预测/结构识别结果（如SMILES、InChI、官能团标签、反应位点分类等）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "unknown",
+        "tags": [
+          "multimodal-fusion",
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 5,
+        "reproducibility_score": 2,
+        "significance": 48,
+        "significance_reason": "虽提出图感知VLM新思路并报告多任务SOTA，但未公开代码/模型/数据，实验仅限于标准化学图像识别与问答（非真实药物发现闭环），无湿实验验证、无跨数据库泛化（如从USPTO到ChEMBL）、无与AlphaFold/ESM/dtSFM等基石模型在同等科学问题（如构象预测、靶点结合、生成有效性）上的可比性证据，属扎实但窄域的视觉-化学对齐增量。",
+        "one_sentence_verdict": "扎实增量：解决了分子图像VLM中拓扑-视觉不对齐的具体问题，但未触及药物发现核心瓶颈（如活性预测、合成可行性、脱靶效应），且实证封闭，暂无法判断是否真推进科学发现流程。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 10.4,
+        "content": 13.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 23.4,
+        "bonus": 0.0,
+        "total": 23.4
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.01982.jpg"
     },
     {
       "arxiv_id": "2606.01170",

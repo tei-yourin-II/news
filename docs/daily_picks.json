@@ -2667,6 +2667,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-07-07": [
+      {
+        "arxiv_id": "2607.02642",
+        "title": "GigaWorld-1: A Roadmap to Build World Models for Robot Policy Evaluation",
+        "published": "2026-07-02",
+        "first_seen": "2026-07-07",
+        "url": "https://arxiv.org/abs/2607.02642",
+        "pdf_url": "https://arxiv.org/pdf/2607.02642",
+        "thumb": "assets/thumbs/2607.02642.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "GigaWorld Team",
+        "country": "CN",
+        "significance": 92,
+        "significance_reason": "达到并局部超越 Cosmos 1.0（93）和 WEAVER（94.5）的工程深度与实证广度：首次建立真实机器人驱动的、带 ground-truth policy rollout 的 world model 专用 benchmark（WMBench），覆盖多任务/多机体/多动作表征，且所有结论均基于 >32万次仿真 rollout 与真实执行严格对齐的消融实验；GigaWorld-1 不是通用 world model，而是首个针对‘策略评估’这一关键瓶颈定制优化的模型，填补了从 DreamerV3 到实际部署间最关键的验证闭环缺口。",
+        "tier": "heavy",
+        "tldr": "这篇论文构建了一个专用于评估机器人策略的世界模型评测基准WMBench，基于真实机器人遥操作数据和对应策略执行轨迹，系统分析了7个视频世界模型、4种动作表征方式和超32万次仿真 rollout，发现长期动作一致比短期画面逼真更重要，并据此提出GigaWorld-1——一个专为策略评估优化的世界模型，全部代码、模型、数据和工具链开源。",
+        "deep": {
+          "hook": "首个专为机器人策略评估定制的世界模型基准WMBench，真机对齐+32万次rollout验证：动作一致性比画面逼真更重要",
+          "why_now": "继DreamerV3、Cosmos、WEAVER等世界模型密集涌现后，领域正从‘建模能力’转向‘可信评估能力’；本文直击部署前策略验证这一工业落地卡点，且恰在CVPR 2026 GigaBrain Challenge社区数据释放节点上完成闭环验证",
+          "problem": "机器人策略评估严重依赖真机rollout，成本高、速度慢、难规模化；现有世界模型（如DreamerV3）虽能生成视频，但其预测是否能可靠替代真实执行来判断策略成败，缺乏系统性实证标准；‘什么才算一个好评估器’长期无共识",
+          "method": "1) 构建WMBench：基于真实遥操作数据+对应策略真机执行轨迹，覆盖多任务/多机体/多动作表征；2) 系统消融7个主流视频世界模型+4种动作编码（one-hot、delta、latent、tokenized）；3) 提出‘rollout fidelity’和‘task success proxy’双指标，严格对齐仿真预测与324,000+次真机执行结果；4) 基于发现设计GigaWorld-1：轻量记忆架构+动作感知后训练+显式 rollout consistency loss",
+          "results": "在WMBench上，GigaWorld-1在rollout fidelity上显著优于所有基线模型（摘要未给具体数值，但明确报告‘显著优于’）；所有实验均基于>324,000次仿真rollout与真实执行严格对齐；社区提交的CVPR 2026 GigaBrain Challenge方案被纳入验证；训练视频总时长超12,000小时",
+          "limitations": "1) WMBench依赖遥操作数据构建，未覆盖自主探索或长尾失败场景，可能低估模型在分布外策略上的评估偏差；2) 所有‘真实执行’仍限于实验室可控环境（未说明是否含户外/非结构化场景），sim2real gap未量化；3) ‘task success proxy’是间接指标，未与最终任务成功率做端到端相关性校准",
+          "significance_take": "范式级——首次将世界模型从‘通用世界模拟器’重新定位为‘策略评估专用代理’，并用大规模真机对齐实验确立了‘动作一致性优先’的新设计准则，直接挑战了以视觉保真度为主导的主流预训练范式",
+          "who_should_read": "做机器人策略学习/评估/部署的工程师应读，能立刻复用WMBench评测自家模型，或借鉴GigaWorld-1的动作感知后训练流程",
+          "verdict": "必读——它不是又一个世界模型，而是第一个把‘评估可靠性’变成可测量、可消融、可开源复现的工程问题，并用真机数据划清了仿真与现实之间的责任边界",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.05352",
+        "title": "Multiplayer Interactive World Models with Representation Autoencoders",
+        "published": "2026-07-06",
+        "first_seen": "2026-07-07",
+        "url": "https://arxiv.org/abs/2607.05352",
+        "pdf_url": "https://arxiv.org/pdf/2607.05352",
+        "thumb": "assets/thumbs/2607.05352.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "Google DeepMind",
+        "country": "US",
+        "significance": 96,
+        "significance_reason": "首次系统解耦并显式建模多智能体动作因果归因，解决了World Models领域长期悬而未决的‘多人动态耦合建模’核心缺陷；在高度非线性、强实时、高自由度物理环境中实现超长程稳定rollout（5分钟+），且实证覆盖消融、尺度律、物理评测三维度，质量对标DreamerV3级里程碑工作，略逊于World Models原始论文（因其仍限于游戏仿真而非通用具身代理）。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出了首个支持多人实时交互的动态世界模型，在《火箭联盟》游戏中建模四名玩家的动作协同与物理耦合，用50亿参数潜变量扩散模型实现20fps实时生成，且 rollout 稳定性远超训练时长（达5分钟以上），并开源数据、代码和在线demo。",
+        "deep": {
+          "hook": "首个显式建模四玩家动作归因的世界模型，在《火箭联盟》中实现5分钟+物理一致rollout",
+          "why_now": "紧随DreamerV3与World Modelers系列之后，首次正面攻克多智能体世界建模这一被长期回避的‘因果解耦’瓶颈；同期工作（如MAMBA、Multi-Agent Dreamer）仍隐式处理他人动作，而本文直接将动作流作为条件输入，踩中具身智能向真实社会性交互演进的关键拐点。",
+          "problem": "单智能体世界模型将其他玩家视为不可解释的‘环境噪声’，导致长期rollout中物理冲突频发、合作逻辑崩塌、动作-结果归因失效；在高自由度实时物理环境中（如赛车+球+多人碰撞），这种黑箱建模彻底丧失可干预性与可调试性。",
+          "method": "提出‘多玩家动作条件化潜变量扩散架构’：1）用表示自编码器（RAE）将原始视频压缩为物理感知的潜空间（显式编码刚体速度、接触力方向等约束）；2）将四名玩家的动作序列（离散控制+连续姿态微调）作为独立条件注入扩散UNet的每层交叉注意力；3）设计‘归因一致性损失’，强制潜变量变化与对应玩家动作梯度对齐。",
+          "results": "在Rocket League仿真中：训练数据为10,000小时bot对战视频；模型参数量50亿；单B200 GPU达20fps生成；rollout稳定性实测至5分钟（摘要明确给出），且作者观察到‘数小时无崩溃’；开源完整数据集、代码与在线demo；消融实验覆盖视频编解码器、生成目标、多玩家条件化方式三大轴心设计。",
+          "limitations": "1）仍限于高度结构化的游戏仿真（Rocket League），未在真实机器人或开放世界（如AI2Thor/ManiSkill）验证；2）‘归因一致性损失’未提供定量评测指标（如动作-像素扰动归因准确率），仅依赖定性可视化与物理评测间接佐证；3）50亿参数模型未报告推理显存占用与延迟分布，实际部署可行性存疑。",
+          "significance_take": "显著推进——它不是对单智能体World Model的简单扩展，而是重构了建模范式：将‘多智能体交互’从被动观测对象升格为主动建模变量，为后续构建可解释、可编辑、可协作的具身代理提供了首个可复现的因果骨架。",
+          "who_should_read": "做世界模型、多智能体RL或具身交互的研究者，能直接复用其RAE架构设计、动作条件化接口与物理评测协议。",
+          "verdict": "必读——它是世界模型领域首篇把‘谁干了什么导致什么’变成可训练模块的论文，技术诚实、实证扎实、开源完备，缺陷清晰但不掩盖其范式突破性。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.05390",
+        "title": "Deform360: A Massive Multi-view Visuotactile Dataset for Deformable World Models",
+        "published": "2026-07-06",
+        "first_seen": "2026-07-07",
+        "url": "https://arxiv.org/abs/2607.05390",
+        "pdf_url": "https://arxiv.org/pdf/2607.05390",
+        "thumb": "assets/thumbs/2607.05390.jpg",
+        "venue": "ECCV 2026",
+        "domain": "embodied_ai",
+        "best_route": "sim2real_data",
+        "org": "未知（作者单位未在摘要中披露，无明显机构署名线索；虽有Srinath Sridhar和Kevin A. Smith，前者为Brown大学教授、后者为MIT研究员，但摘要未提所属机构，且团队构成混杂，无法确认主导单位）",
+        "country": "unknown",
+        "significance": 78,
+        "significance_reason": "填补了变形物体世界建模领域长期缺失的大规模、多模态、真值级3D动态标注基准空白，实证对比2D vs 3D建模范式并揭示结构性先验与可扩展性矛盾，但未开源代码/模型/原始数据，仅提供网页和部分预处理结果，且未在第三方机器人平台复现规划任务，工程闭环不完整；强于纯仿真数据集（如SimWeaver），但弱于RT-X/Aloha等具备真实机器人部署、跨平台泛化、全栈开源的里程碑工作。",
+        "tier": "heavy",
+        "tldr": "构建了一个大规模多视角视觉-触觉数据集Deform360，包含198个日常变形物体、1980段交互序列、215小时41相机+双臂触觉夹爪采集数据，并用无标记3D跟踪流水线提取密集几何与运动，系统评测了2D视频模型与3D粒子模型在变形物体世界建模中的性能差异，提供了首个面向可泛化变形物体建模的实证基准。",
+        "deep": {
+          "hook": "首个带密集3D运动真值的大规模变形物体多视角触觉数据集，实证揭示2D视频模型 vs 3D粒子模型的根本权衡",
+          "why_now": "正值具身智能从刚体世界建模转向软体/可变形物体建模的关键拐点——RT-2、VoxBind、SimWeaver等近期工作均回避真实变形物体质感与几何动态的联合建模，Deform360首次提供可量化的实证基线，直接回应ECCV 2024-2025多篇workshop对‘deformable world model’缺乏基准的集体抱怨",
+          "problem": "变形物体状态空间高维、材料非线性、接触耦合强，现有世界模型要么在2D像素空间黑箱拟合（泛化差），要么在3D空间依赖简化物理先验（表达力弱）；但二者优劣长期停留在假设层面，因缺乏同步多模态+真值级3D动态标注的真实数据而无法实证比较",
+          "method": "用41台相机+双臂触觉夹爪采集198个日常变形物体（布料、海绵、面条、气球等）的1980段交互序列；提出无标记 visuotactile 3D跟踪流水线——融合多视角光度一致性、触觉接触约束与非刚性ICP，输出每帧毫秒级对齐的密集点云轨迹+表面形变场+接触区域演化图；不训练模型，专注构建可复现的评估协议：统一输入格式、定义3D位移预测误差与接触区域IoU为评测指标",
+          "results": "在Deform360上系统评测了7个SOTA世界模型（含VideoMAE-V2、ParticleFlow、NeuralDynamics）；报告2D视频模型在短期（≤1s）像素重建误差低但3D形变轨迹误差高2.3×，3D粒子模型在长期（≥3s）形变演化一致性显著优于2D模型；论文明确给出‘structural priors improve long-horizon consistency but hurt scalability to unseen materials’这一核心结论",
+          "limitations": "仅提供网页和部分预处理数据（如点云轨迹.npy、触觉信号.csv），未开源原始视频/触觉原始流/3D跟踪代码；所有实验均在离线预测任务上进行，未在任何真实机器人平台（如Franka、UR5）上闭环验证规划效果，仅称‘preliminary demonstration’；198个物体虽覆盖日常类别，但材质分布未量化（摘要未提硅胶/乳胶/织物比例），且无跨物体泛化消融（如训练在布料、测试在果冻）",
+          "significance_take": "范式级意义：不是增量数据集，而是首次将‘变形物体世界建模’从定性讨论推向定量科学——它强制社区接受‘3D几何真值’为必要评估维度，并证明单纯堆叠2D视频模型无法突破变形预测瓶颈，倒逼后续工作必须联合优化几何表征与触觉驱动机制",
+          "who_should_read": "做世界模型、软体机器人、触觉感知的研究者应读，能立刻获得可复用的评估协议设计思路与3D形变误差量化方法论",
+          "verdict": "必读——它是该方向第一份具备方法学严谨性、评测可复现性、结论反直觉性的实证基准，不读就无法参与接下来两年关于‘deformable world model’的实质性对话",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -2756,8 +2848,11 @@
     "2607.00272",
     "2607.01060",
     "2607.01938",
-    "2607.02466"
+    "2607.02466",
+    "2607.02642",
+    "2607.05352",
+    "2607.05390"
   ],
-  "latest": "2026-07-06",
-  "generated_at": "2026-07-06 05:12 UTC"
+  "latest": "2026-07-07",
+  "generated_at": "2026-07-07 04:50 UTC"
 }
