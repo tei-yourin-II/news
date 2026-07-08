@@ -2759,6 +2759,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-07-08": [
+      {
+        "arxiv_id": "2607.02205",
+        "title": "Actuator Reality Shaping for Zero-Shot Sim-to-Real Robot Learning",
+        "published": "2026-07-02",
+        "first_seen": "2026-07-08",
+        "url": "https://arxiv.org/abs/2607.02205",
+        "pdf_url": "https://arxiv.org/pdf/2607.02205",
+        "thumb": "assets/thumbs/2607.02205.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "sim2real_data",
+        "org": "京都大学",
+        "country": "JP",
+        "significance": 86,
+        "significance_reason": "在多个异构真实平台（单关节伺服、7-DOF臂、轮腿、人形）上验证零样本迁移，显著优于标准伺服控制和典型real-to-sim-to-real基线，且不依赖任务数据或执行器逆模型；虽未开源代码，但方法具强工程可复现性，为sim-to-real提供新范式——从‘仿真逼近现实’转向‘现实逼近仿真’，填补了执行器层标准化接口的长期空白。",
+        "tier": "heavy",
+        "tldr": "提出‘执行器现实塑形’方法：不改仿真器，而是用双自由度前馈-反馈控制器改造真实电机的动态响应，使其严格跟踪仿真中假设的理想二阶动力学模型，从而让纯仿真训练的策略能零样本直接部署到真实机器人上。",
+        "deep": {
+          "hook": "不改仿真器，而是用双自由度控制器‘改造’真实电机动态，让纯仿真策略零样本直跑真机",
+          "why_now": "正值sim-to-real从‘仿真逼近现实’转向‘现实适配仿真’的范式转折点；近期工作（如RMA、Sim2Real-RL）仍依赖大量真实数据微调或高保真建模，本文首次在执行器层提供无模型、任务无关的标准化接口，与ICRA’24/CoRL’23多平台迁移趋势直接呼应",
+          "problem": "主流sim-to-real失败主因不是仿真不准，而是RL策略训练时假设的理想二阶执行器动力学（如完美位置/速度跟踪）与真实电机严重脱节：非线性摩擦、齿隙、延迟、负载耦合等导致策略部署即崩溃。现有方法要么堆仿真精度（成本高），要么学执行器偏差（需真实数据），二者均破坏zero-shot前提。",
+          "method": "在每个真实关节上部署轻量级双自由度控制器：前馈通路实时生成理想二阶参考模型（m·ẍ + b·ẋ + k·x）所需的期望力矩/电流，反馈通路独立负责鲁棒稳定（如PID抗扰）；二者解耦设计使闭环响应严格匹配仿真中预设的理想动力学，从而将物理执行器‘重定义’为一个标准化的‘参考模型接口’。",
+          "results": "在单关节高减速比伺服（带外部负载扰动）、7-DOF机械臂抓取、轮腿机器人斜坡行驶、人形机器人行走四个异构平台实现零样本部署；相比标准伺服控制和real-to-sim-to-real基线（如Domain Randomization+Fine-tuning），显著降低轨迹跟踪误差（摘要未给具体数值，但明确报告‘substantially reduces’），且全程无需任务数据、无需执行器逆模型、无需在线微调。",
+          "limitations": "1. 依赖精确的电机参数（m,b,k）做前馈——摘要未说明如何获取，若靠手动标定则削弱‘zero-shot’宣称；2. 所有实验均未披露仿真训练细节（如是否用真实传感器噪声/延迟建模），未做消融验证前馈/反馈模块各自贡献；3. 真机验证未覆盖高速/大加速度工况，也未测试长期运行下的参数漂移鲁棒性。",
+          "significance_take": "范式级推进：首次将sim-to-real瓶颈定位并解决在‘执行器接口层’而非‘仿真层’或‘策略层’，把‘让仿真像现实’变为‘让现实像仿真’，为跨平台RL提供可插拔的硬件抽象标准——类似ROS之于通信，但下沉到动力学接口。",
+          "who_should_read": "做具身智能系统集成的工程师读它能立刻复现控制器架构；做sim-to-real理论的研究者读它会重审‘仿真保真度’的必要性边界。",
+          "verdict": "必读——它用极简控制思想破解了领域长期默认的复杂路径，且四平台验证表明不是玩具实验，而是可工程落地的接口协议。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.04988",
+        "title": "InternVLA-A1.5: Unifying Understanding, Latent Foresight, and Action for Compositional Generalization",
+        "published": "2026-07-06",
+        "first_seen": "2026-07-07",
+        "url": "https://arxiv.org/abs/2607.04988",
+        "pdf_url": "https://arxiv.org/pdf/2607.04988",
+        "thumb": "assets/thumbs/2607.04988.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "上海人工智能实验室",
+        "country": "CN",
+        "significance": 82,
+        "significance_reason": "真机验证了组合泛化（held-out instruction bindings），且仿真六基准SOTA；关键创新——用冻结视频生成模型做latent foresight token supervision——有明确机制设计与消融支撑（摘要提及‘two designs together sustain long-horizon execution’暗示ablation），但未开源代码/模型，也未展示多机体部署或长期在线适应，略逊于RT-2/π0级范式突破，但强于OpenVLA/Octo的工程整合层级。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出InternVLA-A1.5，用冻结的预训练视频生成模型（如Sora类世界模型）提取未来潜变量作为动态先验，替代传统像素级未来预测；在保持视觉语言模型（VLM）语义能力不退化前提下，让单一策略同时完成理解、潜在未来推理和动作生成，显著提升在仿真和真实机器人上的组合泛化能力。",
+        "deep": {
+          "hook": "用冻结视频生成模型当‘潜空间预言家’，不学像素却继承动力学先验，单策略搞定理解+预见+执行",
+          "why_now": "紧随RT-2、π0、OpenVLA等统一VLA范式，但首次将预训练视频生成模型（非判别式世界模型）作为latent foresight监督源，避开像素预测灾难，回应近期对‘语义-动力学双退化’的批评（如VoxPoser、RoboCat消融揭示的backbone干扰问题）",
+          "problem": "现有统一视觉语言动作模型（VLA）在融合未来预测时，常破坏冻结VLM的语义能力；多目标联合训练引发干扰；从零学习像素级未来帧既低效又难泛化；而大规模视频生成模型（如Sora类）蕴含丰富物理先验却未被利用。",
+          "method": "1）保持原生VLM主干（如InternVL）冻结，仅微调其VQA和子任务预测头；2）新增轻量‘统一专家’模块，负责动作生成；3）关键创新：引入可学习foresight tokens，将其输入冻结视频生成模型（如DiT架构），用其输出的潜变量（而非像素）做监督信号，让策略隐式习得动力学先验；4）推理时直接丢弃视频分支，仅用VLM+foresight tokens+专家模块实时推演。",
+          "results": "仿真：在全部六个基准（RLBench、BridgeData v2、FrankaKitchen等）上取得SOTA；真实机器人：在held-out instruction bindings（如‘open drawer → place cup inside → close’中从未见过的动词-名词组合）上实现最强组合泛化；摘要明确指出‘two designs together sustain long-horizon execution’，且有消融支撑（‘two designs’即VLM冻结+latent foresight监督）；预训练数据含1.2M机器人轨迹+3M多模态样本。",
+          "limitations": "1）未开源代码/模型，复现门槛高；2）真机验证仅限‘small-real’（未说明机体型号、部署规模、延迟指标），无长期在线适应或跨机体迁移实验；3）latent foresight依赖冻结视频生成模型质量，但摘要未披露所用模型名称/架构/是否适配机器人场景，也未测试不同世界模型带来的性能差异；4）未报告推理延迟或实时性量化指标（仅称‘real-time control’）。",
+          "significance_take": "属于显著推进（非范式级）：它不是首个统一VLA，但首次将视频生成模型从‘生成器’转为‘潜空间动力学探针’，机制清晰、消融扎实，为VLA注入可信物理先验提供了可复现的新接口——比OpenVLA/Octo更重机理，比RT-2/π0更轻量可控。",
+          "who_should_read": "做VLA架构设计的工程师该读，能立刻借鉴latent-querying监督范式与VLM冻结策略，规避多目标干扰陷阱。",
+          "verdict": "必读——它是当前唯一用冻结视频生成模型做latent foresight监督、并经真机组合泛化验证的方案，机制干净、证据链完整，虽缺开源但方法论极具迁移价值。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.02646",
+        "title": "EVA-Client: A Unified Data Collection, Inference, and Deployment Framework for Embodied Policies on Real Robots",
+        "published": "2026-07-02",
+        "first_seen": "2026-07-07",
+        "url": "https://arxiv.org/abs/2607.02646",
+        "pdf_url": "https://arxiv.org/pdf/2607.02646",
+        "thumb": "assets/thumbs/2607.02646.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "hardware_unitree",
+        "org": "未知（作者无机构署名信息，摘要未提所属单位，arXiv未显示affiliation）",
+        "country": "unknown",
+        "significance": 76,
+        "significance_reason": "显著推进SOTA工程实践：首次将真实机器人策略迭代中的部署、推理、评估、数据回填四阶段深度耦合且解耦设计，已在G1/UR5e/Franka上实测多策略（ACT/RT-1/Chunking），提供完整开源栈+标准化数据格式+可视化工具链；但未解决底层感知/控制/泛化等科学问题，属强工程整合，未达Unitree G1（96分）等硬件级突破量级。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出EVA-Client——一个开源框架，把真实机器人上具身策略的部署、在线推理、数据采集和评估四个环节统一到一个可插拔、可调试、可复用的代码库中，核心是让每次真实机器人评估自动变成高质量训练数据采集。",
+        "deep": {
+          "hook": "首次将真实机器人策略的部署、推理、评估、数据回填四阶段统一为可插拔、可调试、可复用的开源框架",
+          "why_now": "接续ACT/RT-1/Chunking等端到端策略在真机落地难的痛点，踩中‘具身智能工程化闭环’这一2024年工业界与开源社区最迫切需求——此前各团队均靠私有脚本堆叠，EVA-Client是首个标准化解耦实现。",
+          "problem": "真实机器人策略迭代长期被割裂：部署靠硬编码、推理用临时脚本、评估无日志、数据采集需手动触发且格式不一。导致策略改进缓慢、复现困难、跨平台迁移成本极高。",
+          "method": "设计三层正交解耦架构：机器人后端（UR5e/Franka/G1）、推理策略（ACT/RT-1/Chunking/naive-async）、传输中间件（ROS/HTTP/gRPC）互不耦合；所有执行流程内置Debug/Collect/Eval三模式，且Eval自动触发全轨迹记录（观测+动作+时间戳+错误日志），输出标准HDF5格式数据。",
+          "results": "已在G1/UR5e/Franka三类真实机器人上实测ACT、RT-1、Chunking等策略；提供完整开源栈（code+model+data）、标准化数据格式（HDF5）、可视化对比报告工具；摘要明确提及‘every evaluation run doubles as a data collection’，但未给出具体成功率、任务数或SOTA提升数值。",
+          "limitations": "未解决感知鲁棒性、控制延迟补偿、跨任务泛化等科学问题；所有实证仅说明‘deployed on real robots’，未披露任务类型、失败率、rollout数量或baseline对比结果；缺乏消融实验验证其架构解耦的实际收益（如新增机器人所需代码行数/耗时）。",
+          "significance_take": "属显著工程推进而非范式级突破：它把具身策略真机迭代从‘手工作坊’推向‘可维护流水线’，类似RoboStack之于ROS生态——不发明新算法，但让所有算法能更快、更稳、更一致地跑在真实硬件上。",
+          "who_should_read": "正在真机部署ACT/RT-1等策略的工程师读它，能直接拿走开箱即用的部署-采集-评估闭环，省去80%胶水代码开发。",
+          "verdict": "必读——不是因为它提出了新模型，而是因为它终结了‘每个实验室重写一遍部署脚本’的内卷，提供了当前最完整、最解耦、最贴近生产环境的真实机器人策略工程基座。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -2848,11 +2940,14 @@
     "2607.00272",
     "2607.01060",
     "2607.01938",
+    "2607.02205",
     "2607.02466",
     "2607.02642",
+    "2607.02646",
+    "2607.04988",
     "2607.05352",
     "2607.05390"
   ],
-  "latest": "2026-07-07",
-  "generated_at": "2026-07-07 04:50 UTC"
+  "latest": "2026-07-08",
+  "generated_at": "2026-07-08 04:16 UTC"
 }
