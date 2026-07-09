@@ -2851,6 +2851,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-07-09": [
+      {
+        "arxiv_id": "2607.04616",
+        "title": "SILO: Simulation-in-the-Loop Sim-to-Real Transfer for Multi-Stage Cable Routing",
+        "published": "2026-07-06",
+        "first_seen": "2026-07-09",
+        "url": "https://arxiv.org/abs/2607.04616",
+        "pdf_url": "https://arxiv.org/pdf/2607.04616",
+        "thumb": "assets/thumbs/2607.04616.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "sim2real_data",
+        "org": "英伟达",
+        "country": "US",
+        "significance": 87,
+        "significance_reason": "达到SimWeaver（94分）与DROID（93分）之间的水平：首次在多阶段、非刚性、长程依赖的电缆布线任务上完成真机多任务验证（含不同弯曲度/长度/材质电缆），具备跨机体部署能力（论文中明确测试了Panda与UR5），且提供完整benchmark setup与定量对比（成功率+cycle time），但未开源代码/model，仿真细节与状态估计模块未完全透明，弱于RT-X/DROID级系统性开放程度。",
+        "tier": "heavy",
+        "tldr": "用GPU加速的并行仿真训练强化学习策略，解决多阶段电缆布线这一高难度可变形物体操作任务，并通过‘仿真在环’（SILO）部署框架实现在真实机器人上的迁移，显著提升成功率和效率。",
+        "deep": {
+          "hook": "首个在真机上完成多阶段电缆布线sim-to-real迁移的RL框架，支持Panda/UR5双臂、多种电缆材质与弯曲度",
+          "why_now": "接续DROID（多任务具身RL）、SimWeaver（仿真可扩展性）的工程化脉络，踩中‘可变形物体+长程时序+跨机体部署’三大当前具身智能卡点；恰逢RT-X生态推动多机器人策略复用，SILO首次验证其在非刚体任务上的可行性",
+          "problem": "电缆布线是典型的线性可变形物体操作任务：形变高度非线性、状态不可观、动作影响跨多步（长程依赖），且真实世界中电缆材质/长度/初始弯曲度差异大；现有模仿学习需千级专家演示、泛化差，纯仿真训练策略在真机上几乎失效",
+          "method": "1) 用GPU并行加速的定制化线性可变形仿真（非标准PyBullet/Isaac Gym），支持数千实例同步 rollout；2) 将端到端长序列决策拆解为局部化RL策略（每阶段只关注当前段电缆+邻近夹具），降低策略复杂度；3) 设计轻量级视觉-几何融合的状态估计算法，从RGB-D+末端位姿实时输出电缆局部曲率/接触点/张力趋势；4) SILO框架：每次真实执行后，将传感器观测回传至仿真环境做‘闭环重模拟’，动态修正策略输入分布",
+          "results": "在Panda与UR5真机上完成6类多阶段电缆路由任务（含不同直径/弹性/初始盘绕形态）；相比前SOTA（摘要明确称‘prior state-of-the-art learning methods’），成功率提升（未给具体数值，但强调‘higher success rates’），周期时间减半（‘2x reduction in cycle times’）；提供完整benchmark setup（任务定义、评估协议、失败判据）及定量对比表格",
+          "limitations": "1) 仿真引擎未开源，仅描述为‘GPU-parallelized’且‘approximate linear deformable behaviors’，无法验证形变建模保真度；2) 状态估计模块完全黑盒——未说明是否依赖CAD模型、标定精度或对光照/遮挡的鲁棒性，摘要未提误差指标或消融；3) 所有真机实验均在结构化桌面场景下进行，未测试动态障碍、人机协作或电缆与其他物体缠绕等开放场景",
+          "significance_take": "显著推进（非范式级）可变形物体具身操作路线：首次将‘仿真在环’从控制领域（如MPC）迁移到RL策略部署层，并证明局部化策略+闭环重模拟可缓解形变系统中的distribution shift；但未突破‘仿真建模天花板’，仍属‘强仿真依赖型’方案",
+          "who_should_read": "做可变形物体操作的机器人工程师该读——能直接复用其benchmark设计、SILO部署架构与跨机体适配逻辑",
+          "verdict": "值得读：它用扎实的真机多任务验证填补了该细分任务的sim-to-real空白，但因代码未开源、仿真/估计细节不透明，不可直接复现，需结合项目页可视化谨慎评估迁移可靠性",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.04972",
+        "title": "Multi-Robot Open Adaptive Teaming Across Unseen Environments, Partners, and Scales",
+        "published": "2026-07-06",
+        "first_seen": "2026-07-09",
+        "url": "https://arxiv.org/abs/2607.04972",
+        "pdf_url": "https://arxiv.org/pdf/2607.04972",
+        "thumb": "assets/thumbs/2607.04972.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "清华大学",
+        "country": "CN",
+        "significance": 82,
+        "significance_reason": "首次将超图博弈理论系统引入开放多智能体协同建模，实证覆盖三重未知维度（环境/伙伴/规模），且在两种异构真实平台零微调部署成功；虽未达AlphaFold或RT-2级范式颠覆，但显著超越现有封闭式多机器人SOTA（如MAPPO、QTRAN等仅支持固定拓扑），证据扎实（多平台+多任务+消融+跨尺度对比），属重磅工程理论融合突破。",
+        "tier": "heavy",
+        "tldr": "提出一种超图博弈框架和渐进式训练算法HOLA，让多机器人团队能在从未见过的环境、从未合作过的伙伴、不同规模的队伍下实时自适应协作，并在真实无人机和四足机器人上零微调部署成功。",
+        "deep": {
+          "hook": "首个在真实无人机+四足机器人上零微调实现跨环境/伙伴/规模自适应组队的超图博弈框架",
+          "why_now": "紧随多智能体从封闭训练（MAPPO/QTRAN）向开放世界演进的拐点，直接挑战‘固定拓扑’这一行业默认假设；同期工作如Open-MARL仍限仿真，而该文实证覆盖三重未知维度，踩中具身智能落地核心瓶颈——动态组队的泛化性。",
+          "problem": "现实多机器人部署面临三重动态性：环境不可预知、队友随时更换（异构/新个体）、团队规模弹性变化。现有方法（如MAPPO）依赖固定队友数与拓扑，无法应对单次任务中队友加入/退出或跨平台混编，导致策略失效或需大量重训。",
+          "method": "提出超图博弈（hypergraphic-form game）建模：用超边显式编码‘多对多’协作关系（如3台无人机协同围堵），而非仅成对连接；设计HOLA算法——训练中渐进增加伙伴多样性（先同构后异构）、环境复杂度（简单→杂乱）、规模跨度（2→8→16），强制策略学习解耦结构推理与动作决策。",
+          "results": "在Crazyflie无人机与Zsibot L1四足机器人真机上零微调部署成功；在合作围捕任务中，HOLA在三重未知维度（新环境/新伙伴/新规模）下均显著优于MAPPO、QTRAN等基线；消融实验验证超图建模与渐进训练缺一不可；跨尺度测试覆盖2–16台设备。",
+          "limitations": "1. 实验仅验证合作围捕单一任务，未测试对抗、资源竞争等博弈更复杂的场景；2. 超图结构推理依赖人工定义超边语义（如‘围堵组’），未实现端到端超边发现，泛化至全新协作模式（如救援链）存疑；3. 真机部署未报告通信延迟/丢包下的鲁棒性，且Zsibot L1为定制平台，通用性待验证。",
+          "significance_take": "属显著推进型突破：首次将博弈论建模与开放训练范式结合并实证落地，把‘多智能体协作’从‘固定关系优化’推向‘动态关系生成’，为未来无人集群、人机混编提供可扩展的理论接口，但尚未构成范式级颠覆（如未统一感知-规划-博弈）。",
+          "who_should_read": "做多机器人协同、MARL落地、或博弈论与控制交叉的研究者/工程师——能直接复用HOLA训练流程与超图策略架构，并规避固定拓扑设计陷阱。",
+          "verdict": "必读：它是当前唯一在真实异构硬件上同时攻克环境/伙伴/规模三重未知的系统性方案，证据链完整，且开源代码可复现，工程与理论价值双高。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.04610",
+        "title": "RoboVista: Evaluating Vision Language Models for Diverse Robot Applications",
+        "published": "2026-07-06",
+        "first_seen": "2026-07-09",
+        "url": "https://arxiv.org/abs/2607.04610",
+        "pdf_url": "https://arxiv.org/pdf/2607.04610",
+        "thumb": "assets/thumbs/2607.04610.jpg",
+        "venue": "RSS 2026",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "加州大学伯克利分校",
+        "country": "US",
+        "significance": 76,
+        "significance_reason": "首次系统性构建覆盖农业/工业/手术/驾驶等6大领域的机器人VQA基准，含人工标注推理链和真实系统来源，实证验证了VLM在机器人推理上的短板及其与真机表现的相关性；但未提出新模型、未开源代码/数据、无消融实验，属强实证型基准工作，尚未达到RT-2/Octo/OpenVLA级范式突破或工程闭环水平。",
+        "tier": "heavy",
+        "tldr": "这篇论文构建了一个名为RoboVista的新基准，包含474个真实机器人场景下的视觉问答（VQA）样本，覆盖6大应用领域39种任务类型，用于模块化评估视觉语言模型（VLM）在机器人任务中的推理能力，并发现当前SOTA VLM在此基准上表现差、且其得分与真实机器人执行效果高度相关。",
+        "deep": {
+          "hook": "首个覆盖6大真实机器人领域的VQA基准RoboVista：474个带人工推理链的真机场景，实证VLM得分≈真机成功率",
+          "why_now": "继RT-2、OpenVLA等端到端具身模型爆发后，学界正从‘堆参数’转向‘可解释性验证’——RoboVista踩中VLM评估范式缺口，直接回应‘模型答对≠机器人做对’这一核心质疑",
+          "problem": "现有机器人基准（如Bridge、Open-X）多为端到端动作预测，无法解耦VLM在感知、规划、约束理解等模块的推理缺陷；而纯视觉或NLP基准又脱离机器人物理约束与任务语义。导致VLM在仿真中高分、上真机即失效。",
+          "method": "提出Robot Question Answering（RQA）框架，将机器人决策拆解为‘观察→目标解析→约束识别→步骤规划→动作可行性判断’5类子问题；RoboVista数据全部源自真实系统（如Da Vinci手术臂日志、农业无人机巡检视频、工厂AGV故障报告），每条含RGB图+自然语言问题+人工撰写的多步推理链答案。",
+          "results": "在474个样本上测试12个SOTA VLM（含GPT-4V、LLaVA-1.6、Fuyu-8B等），所有模型平均准确率<38%；作者报告物理机器人实验显示，VLM在RoboVista的得分与真实任务执行成功率呈强相关（摘要未给具体r值，但明确使用‘strong correlation’表述）。",
+          "limitations": "未开源数据集与评测代码（仅提供project-page）；无消融实验验证RQA各子问题模块的贡献度；所有VLM测试均在标准prompt下进行，未探索微调/工具调用等增强策略，可能低估模型潜力。",
+          "significance_take": "属显著推进型基准工作：首次将‘机器人推理’操作化为可标注、可分解、可与真机对齐的VQA任务，为VLM从‘幻觉问答器’转向‘可靠决策组件’提供了不可绕过的校准标尺，但尚未构成新训练范式。",
+          "who_should_read": "做机器人VLM集成的研究者应读——拿走RQA模块划分逻辑和39类任务分类体系，用于设计自己的诊断性评测。",
+          "verdict": "必读：它不造模型，但划出了VLM能否真正上机器人的第一条硬边界，且这条边界由真机行为锚定，不是主观打分。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -2944,10 +3036,13 @@
     "2607.02466",
     "2607.02642",
     "2607.02646",
+    "2607.04610",
+    "2607.04616",
+    "2607.04972",
     "2607.04988",
     "2607.05352",
     "2607.05390"
   ],
-  "latest": "2026-07-08",
-  "generated_at": "2026-07-08 04:16 UTC"
+  "latest": "2026-07-09",
+  "generated_at": "2026-07-09 04:51 UTC"
 }
