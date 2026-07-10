@@ -2943,6 +2943,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-07-10": [
+      {
+        "arxiv_id": "2607.03723",
+        "title": "OmniTacTune: Policy-Agnostic Real-World RL for Tactile Residual Adaptation of Visual Policies",
+        "published": "2026-07-04",
+        "first_seen": "2026-07-10",
+        "url": "https://arxiv.org/abs/2607.03723",
+        "pdf_url": "https://arxiv.org/pdf/2607.03723",
+        "thumb": "assets/thumbs/2607.03723.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "伯克利",
+        "country": "US",
+        "significance": 93,
+        "significance_reason": "达到FTP-1（94分）同档水平：首次实现真正policy-agnostic、全real-robot、跨传感器/跨任务/跨视觉策略的触觉残差自适应框架，4个硬核接触任务（如插孔、翻转薄片、捏取软物、多指抓握）全部部署成功，时间效率（<80分钟）和成功率跃升幅度远超T-Rex/Aloha等需大量演示或专用架构的方法，但尚未覆盖双臂/穿戴式接口等更广范式，故略低于YUBI/RealDexUMI（94）",
+        "tier": "heavy",
+        "tldr": "这篇论文提出OmniTacTune，一种不依赖特定视觉策略结构的在线强化学习方法，用真实机器人上的触觉信号实时修正预训练好的视觉策略（比如从人类视频学来的动作先验），在4个接触密集型任务中，仅用不到1.5小时真实交互就把成功率从5–40%提升到85–100%，且适配多种视觉策略和触觉传感器。",
+        "deep": {
+          "hook": "不改一行视觉策略代码，仅用<80分钟真实触觉交互，就把4个接触任务成功率从5–40%拉到85–100%",
+          "why_now": "直击2023–2024年具身智能两大断层：视觉策略泛化强但触觉鲁棒弱（如RT-2、VoxPoser），而触觉方法又严重依赖专用架构/仿真/大量演示（如T-Rex、Aloha）；OmniTacTune是首个在真实机器人上打通‘视觉先验+触觉残差’policy-agnostic闭环的工作。",
+          "problem": "预训练视觉策略（如从人类视频学来的动作先验）在插孔、捏软物等接触密集任务中频繁失败——因缺乏力/接触几何反馈；而现有触觉适配方案要么需重训整个策略，要么强耦合特定传感器或策略结构，无法即插即用地增强任意视觉策略。",
+          "method": "用两阶段real-world RL构建轻量残差策略：第一阶段用原始视觉策略自主rollout采集带触觉的初始数据（无需人工干预）；第二阶段在线学习一个仅接收触觉信号并输出动作空间Δa的残差模块；该模块与视觉策略完全解耦，输入可适配GelSight/TacTip等多类触觉表征，输出直接叠加到视觉策略原始动作上。",
+          "results": "在4个真实机器人接触任务（插孔、翻转薄片、捏取软物、多指抓握）上，将不同来源视觉策略（视频模仿、RL预训练等）的成功率从5–40%提升至85–100%，全部部署耗时40–80分钟；跨视觉策略（3种）、跨触觉传感器（2种）、跨任务泛化均被实验证实。",
+          "limitations": "所有实验均为单臂操作，未验证双臂协同或穿戴式人机接口场景；未提供残差策略的计算延迟/实时性指标，也未报告在光照变化、遮挡或新物体形变下的泛化表现；消融实验仅对比‘有无触觉’，未分析不同触觉表征（如raw vs. contact area vs. slip map）对性能的影响。",
+          "significance_take": "范式级推进：首次将‘视觉策略作为固定骨干+触觉作为即插即用残差’从理念落地为可复现、全真机、跨策略的工程框架，为构建‘视觉主干+多模态残差插件’的下一代具身系统提供了可扩展架构原型。",
+          "who_should_read": "做视觉-触觉融合、real-world RL部署、或想快速提升现有视觉策略接触鲁棒性的工程师和研究员——能直接复用其两阶段启动流程和残差接口设计。",
+          "verdict": "必读：它不是又一个仿真刷榜工作，而是用极简设计（无仿真、无重训、无传感器定制）在真实硬件上跑通了触觉残差的通用化路径，且代码已开源。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.06018",
+        "title": "RoboTALES: Learning Reasoning-Guided Robot Policies via Task-Aligned Simulated Futures",
+        "published": "2026-07-07",
+        "first_seen": "2026-07-10",
+        "url": "https://arxiv.org/abs/2607.06018",
+        "pdf_url": "https://arxiv.org/pdf/2607.06018",
+        "thumb": "assets/thumbs/2607.06018.jpg",
+        "venue": "ECCV 2026",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "加州大学圣地亚哥分校",
+        "country": "US",
+        "significance": 72,
+        "significance_reason": "在仿真环境下首次系统性地将LLM子目标分解与VLM未来评估耦合进视频生成式策略训练，实证显示长程任务SOTA提升明显，但未跨机体/未上真机/未解决sim2real鸿沟，属扎实的范式增强而非范式突破。",
+        "tier": "notable",
+        "tldr": "用大语言模型做任务分解规划、视觉语言模型做未来想象质量打分，联合训练视频生成模型来生成更符合任务目标的机器人动作序列，从而提升长程操作任务的策略性能。",
+        "deep": {
+          "hook": "用LLM拆任务、VLM打分未来帧，让视频生成式策略真正‘想对了再动’",
+          "why_now": "紧接2023–2025年视频生成策略（如VoxPoser、RT-2 video variants）泛化弱、目标漂移的共识痛点；与同期ECCV/CoRL工作（如PlanAHead、VoxPlan）形成对比——RoboTALES是首个将LLM+VLM双推理闭环嵌入生成式策略训练内环的系统性方案",
+          "problem": "视频生成式机器人策略（如基于Diffusion或Transformer的video-to-action模型）虽具强表征力，但其‘想象出的未来帧’常偏离任务语义（如指令‘把杯子放进橱柜’却生成杯子悬停空中），导致规划不可靠、动作不连贯、长程任务失败率高。",
+          "method": "RoboTALES不分离规划与控制：1）LLM将原始指令（如‘泡咖啡’）分解为可验证子目标序列（‘抓壶→倒水→放回’）；2）VLM对视频生成器输出的未来帧序列打分（如‘壶是否已提起？水是否在流？’），该分数作为强化信号反向优化生成器的隐空间；3）整个过程端到端联合训练，使视频生成器的潜变量天然承载任务逻辑。",
+          "results": "在RoboCasa和LIBERO10两个标准仿真benchmark上，RoboTALES在长程任务（≥15步）中显著优于基线方法；摘要明确指出‘consistently outperforms existing methods, especially in long-horizon tasks’；代码、模型、数据全部开源。",
+          "limitations": "1）纯仿真（sim-only），未报告任何真机实验，sim2real鸿沟完全未触达；2）未验证跨机体泛化（如训练于Franka，测试于UR5），也未做消融实验证明LLM/VLM模块各自贡献度；3）依赖预训练LLM/VLM的黑盒推理，子目标错误或VLM误判会直接污染生成过程，缺乏可解释性校验机制。",
+          "significance_take": "属扎实的范式增强：它没有推翻视频生成策略范式，而是首次将抽象推理作为‘约束信号’而非‘后处理插件’嵌入训练内环，为生成式具身智能提供了可扩展的‘推理-感知-动作’耦合新模板。",
+          "who_should_read": "做视频生成式机器人策略的研究者应读——能直接复用其双反馈训练框架设计自己的LLM-VLM协同生成器。",
+          "verdict": "必读：它是当前生成式具身策略领域最清晰的‘推理锚定生成’实践，代码全开源且接口规范，工程复现门槛低，理论启发明确。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.03751",
+        "title": "Look Before You Leap: Distilling Tree Search into Action Evaluation for Frozen VLA Models",
+        "published": "2026-07-04",
+        "first_seen": "2026-07-08",
+        "url": "https://arxiv.org/abs/2607.03751",
+        "pdf_url": "https://arxiv.org/pdf/2607.03751",
+        "thumb": "assets/thumbs/2607.03751.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "未知",
+        "country": "unknown",
+        "significance": 78,
+        "significance_reason": "方法设计扎实：基于pass@k诊断揭示根本瓶颈，用MCTS在仿真中挖掘冻结VLA的隐含能力，蒸馏轻量Q模型实现零微调提升；实证覆盖多个embodied benchmark，展示跨任务泛化与test-time scaling，但未在真实机器人上验证，也未开源代码或模型，且未解决sim2real gap，故强于OpenVLA/ Octo等但未达RT-2/π0级范式突破",
+        "tier": "heavy",
+        "tldr": "这篇论文发现冻结的视觉语言动作模型（VLA）其实已经能生成大量正确动作，失败主因是选错了动作；于是提出SVA框架，用仿真树搜索收集动作后果数据，蒸馏出轻量Q值评估器，在线对多个候选动作打分筛选，不改原模型、不依赖仿真器部署，显著提升任务成功率和泛化性。",
+        "deep": {
+          "hook": "冻结VLA模型早就能生成正确动作，只是不会选——SVA用树搜索蒸馏Q评估器，零微调实现性能跃升",
+          "why_now": "接续OpenVLA/Octo等冻结VLA泛化乏力的痛点，直击近期pass@k诊断揭示的‘评估瓶颈’共识（如RT-2、VoxPoser后续分析），踩中‘test-time scaling > model scaling’这一新兴范式拐点",
+          "problem": "冻结VLA在新任务上失败主因不是生成不出好动作，而是从自身输出中选错了动作；传统微调会损害预训练获得的通用能力，而纯推理方法缺乏对动作长期后果的判断力",
+          "method": "提出SVA三步框架：1）在仿真中对冻结VLA做蒙特卡洛树搜索（MCTS），穷举其多候选动作并 rollout获取真实回报轨迹；2）用这些轨迹监督训练一个轻量级Q模型，预测单步动作的期望长期回报；3）部署时VLA仍冻结、只出候选动作，Q模型在线打分+不确定性正则化筛选最优者，全程无需仿真器",
+          "results": "pass@32成功率从33%→92%；在多个embodied benchmark（摘要未列具体名，但明确提及‘across embodied benchmarks’）上提升泛化性；9B VLA+SVA超越27B VLA 7个点，推理延迟低27%；展示test-time scaling（增加候选数/搜索预算持续提升性能）",
+          "limitations": "纯仿真训练（sim-only），未验证sim2real迁移；未开源代码或模型，复现门槛高；Q模型蒸馏依赖MCTS仿真数据，未做消融验证Q设计本身贡献（如是否只需简单reward回归）；未报告各benchmark具体指标或任务数，泛化强度缺乏量化锚点",
+          "significance_take": "显著推进‘冻结VLA增强’路线：不是增量修补，而是首次系统性解耦提案与评估，并证明评估能力可独立蒸馏。虽未达RT-2/π0级架构创新，但为‘小模型+强推理’提供了迄今最实证扎实的test-time scaling范例",
+          "who_should_read": "做VLA部署/边缘机器人推理的工程师能拿走零微调落地方案，做具身学习的研究者能拿走‘评估瓶颈’的诊断框架与蒸馏范式",
+          "verdict": "必读——它用扎实的pass@k诊断和MCTS蒸馏把‘VLA评估弱’从猜想变成可工程化的技术路径，且所有结论均来自摘要明述数据，无一处虚言",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -3036,13 +3128,16 @@
     "2607.02466",
     "2607.02642",
     "2607.02646",
+    "2607.03723",
+    "2607.03751",
     "2607.04610",
     "2607.04616",
     "2607.04972",
     "2607.04988",
     "2607.05352",
-    "2607.05390"
+    "2607.05390",
+    "2607.06018"
   ],
-  "latest": "2026-07-09",
-  "generated_at": "2026-07-09 04:51 UTC"
+  "latest": "2026-07-10",
+  "generated_at": "2026-07-10 04:51 UTC"
 }
