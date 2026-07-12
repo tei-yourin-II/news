@@ -1,16 +1,16 @@
 {
   "week": {
-    "start": "2026-07-05",
-    "end": "2026-07-11",
-    "label": "07.05~07.11"
+    "start": "2026-07-06",
+    "end": "2026-07-12",
+    "label": "07.06~07.12"
   },
   "count": 15,
-  "venue_count": 5,
+  "venue_count": 6,
   "venues": [
     "ECCV 2026",
     "RSS 2026"
   ],
-  "generated_at": "2026-07-11 04:09 UTC",
+  "generated_at": "2026-07-12 04:30 UTC",
   "picks": [
     {
       "rank": 1,
@@ -54,6 +54,42 @@
     },
     {
       "rank": 2,
+      "arxiv_id": "2607.06701",
+      "title": "SPEAR: A Simulator for Photorealistic Embodied AI Research",
+      "published": "2026-07-07",
+      "url": "https://arxiv.org/abs/2607.06701",
+      "pdf_url": "https://arxiv.org/pdf/2607.06701",
+      "thumb": "assets/thumbs/2607.06701.jpg",
+      "venue": "ECCV 2026",
+      "domain": "embodied_ai",
+      "best_route": "sim2real_data",
+      "org": "NVIDIA",
+      "country": "US",
+      "org_type": "company",
+      "significance": 95,
+      "significance_reason": "与SimFoundry（95分）同属‘下一代通用仿真基座’层级：它不是单任务仿真器，而是将UE从游戏引擎升格为可编程AI实验平台，其14K函数暴露量、帧内确定性图执行、多模态真值输出均构成实质性工程范式跃迁；虽未发布真实机器人部署案例，但已支撑城市级、人脸级、多体协同等前沿用例，且开源程度（项目页含文档/示例/安装指南）优于SimFoundry初期发布形态。",
+      "tier": "heavy",
+      "grade": "D",
+      "tags": [
+        "sim2real",
+        "benchmark",
+        "open-source"
+      ],
+      "tldr": "SPEAR是一个连接Unreal Engine的Python库，大幅提升了UE仿真器的可编程性（暴露1.4万+函数）、渲染速度（73fps全高清图像）和输出模态丰富度（如非漫反射分解、材质ID等），并支持跨实体（人/车/机器人）、多视角、多物理引擎协同的高表达力任务编排。",
+      "claim": "SPEAR通过模块化UE插件+Python绑定+图式执行模型，首次在UE生态中实现工业级可编程性、实时光追级渲染吞吐与全栈感知模态输出能力的统一。",
+      "method_components": [
+        "simulator",
+        "benchmark"
+      ],
+      "input": "Python脚本定义的UE工作流图（含数据依赖）、UE场景资产",
+      "output": "NumPy数组格式的多模态图像（RGB/深度/法线/材质ID/非漫反射分量/着色参数等）、UE状态变量、跨仿真器同步信号",
+      "novelty": 8,
+      "evidence": 9,
+      "one_sentence_verdict": "真突破：它把Unreal Engine变成了一个可编程、可测量、可协同的AI科研操作系统，而非仅是渲染外壳。",
+      "deep": {}
+    },
+    {
+      "rank": 3,
       "arxiv_id": "2607.07370",
       "title": "Behavior Foundations for Quadruped Robots: ABot-C0 Technical Report",
       "published": "2026-07-08",
@@ -94,7 +130,7 @@
       "deep": {}
     },
     {
-      "rank": 3,
+      "rank": 4,
       "arxiv_id": "2607.06882",
       "title": "GemNav: Discrete-Token Visual Robot Navigation using a Multimodal Large Language Model",
       "published": "2026-07-08",
@@ -133,7 +169,7 @@
       "deep": {}
     },
     {
-      "rank": 4,
+      "rank": 5,
       "arxiv_id": "2607.04616",
       "title": "SILO: Simulation-in-the-Loop Sim-to-Real Transfer for Multi-Stage Cable Routing",
       "published": "2026-07-06",
@@ -171,7 +207,7 @@
       "deep": {}
     },
     {
-      "rank": 5,
+      "rank": 6,
       "arxiv_id": "2607.05765",
       "title": "Image2Sim: Scaling Embodied Navigation via Generative Neural Simulator",
       "published": "2026-07-07",
@@ -209,7 +245,7 @@
       "deep": {}
     },
     {
-      "rank": 6,
+      "rank": 7,
       "arxiv_id": "2607.05966",
       "title": "Imagined Rollouts are Kinematic, Not Dynamic: A Diagnosis of Long-Horizon World-Model Failure",
       "published": "2026-07-07",
@@ -246,7 +282,7 @@
       "deep": {}
     },
     {
-      "rank": 7,
+      "rank": 8,
       "arxiv_id": "2607.05390",
       "title": "Deform360: A Massive Multi-view Visuotactile Dataset for Deformable World Models",
       "published": "2026-07-06",
@@ -283,7 +319,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
+      "rank": 9,
       "arxiv_id": "2607.04988",
       "title": "InternVLA-A1.5: Unifying Understanding, Latent Foresight, and Action for Compositional Generalization",
       "published": "2026-07-06",
@@ -320,82 +356,7 @@
       "deep": {}
     },
     {
-      "rank": 9,
-      "arxiv_id": "2607.04972",
-      "title": "Multi-Robot Open Adaptive Teaming Across Unseen Environments, Partners, and Scales",
-      "published": "2026-07-06",
-      "url": "https://arxiv.org/abs/2607.04972",
-      "pdf_url": "https://arxiv.org/pdf/2607.04972",
-      "thumb": "assets/thumbs/2607.04972.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "whole_body_control",
-      "org": "清华大学",
-      "country": "CN",
-      "org_type": "university",
-      "significance": 82,
-      "significance_reason": "首次将超图博弈理论系统引入开放多智能体协同建模，实证覆盖三重未知维度（环境/伙伴/规模），且在两种异构真实平台零微调部署成功；虽未达AlphaFold或RT-2级范式颠覆，但显著超越现有封闭式多机器人SOTA（如MAPPO、QTRAN等仅支持固定拓扑），证据扎实（多平台+多任务+消融+跨尺度对比），属重磅工程理论融合突破。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multi-embodiment",
-        "real-robot",
-        "sim2real",
-        "teleoperation"
-      ],
-      "tldr": "提出一种超图博弈框架和渐进式训练算法HOLA，让多机器人团队能在从未见过的环境、从未合作过的伙伴、不同规模的队伍下实时自适应协作，并在真实无人机和四足机器人上零微调部署成功。",
-      "claim": "开放环境下动态变化的多机器人团队可通过超图博弈建模与渐进式开放训练实现跨环境、跨伙伴、跨规模的零微调泛化协作。",
-      "method_components": [
-        "model",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "局部观测（如位置、速度、通信状态）+ 动态团队构成信息",
-      "output": "分布式协作动作策略（连续控制信号）",
-      "novelty": 8,
-      "evidence": 11,
-      "one_sentence_verdict": "真突破：它不是调参或刷榜，而是用可解释的博弈结构替代黑盒GNN，解决了开放团队中‘谁该和谁协调’这一长期被忽略的结构推理问题，并在真实异构机器人上闭环验证。",
-      "deep": {}
-    },
-    {
       "rank": 10,
-      "arxiv_id": "2607.04610",
-      "title": "RoboVista: Evaluating Vision Language Models for Diverse Robot Applications",
-      "published": "2026-07-06",
-      "url": "https://arxiv.org/abs/2607.04610",
-      "pdf_url": "https://arxiv.org/pdf/2607.04610",
-      "thumb": "assets/thumbs/2607.04610.jpg",
-      "venue": "RSS 2026",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "加州大学伯克利分校",
-      "country": "US",
-      "org_type": "university",
-      "significance": 76,
-      "significance_reason": "首次系统性构建覆盖农业/工业/手术/驾驶等6大领域的机器人VQA基准，含人工标注推理链和真实系统来源，实证验证了VLM在机器人推理上的短板及其与真机表现的相关性；但未提出新模型、未开源代码/数据、无消融实验，属强实证型基准工作，尚未达到RT-2/Octo/OpenVLA级范式突破或工程闭环水平。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "benchmark",
-        "dataset",
-        "multimodal-fusion"
-      ],
-      "tldr": "这篇论文构建了一个名为RoboVista的新基准，包含474个真实机器人场景下的视觉问答（VQA）样本，覆盖6大应用领域39种任务类型，用于模块化评估视觉语言模型（VLM）在机器人任务中的推理能力，并发现当前SOTA VLM在此基准上表现差、且其得分与真实机器人执行效果高度相关。",
-      "claim": "RoboVista是一个首个面向多领域真实机器人应用、支持模块化推理评估的VLM基准，其性能可预测真实机器人任务执行效果。",
-      "method_components": [
-        "benchmark",
-        "dataset"
-      ],
-      "input": "RGB图像+自然语言问题（含任务上下文、目标、约束等）",
-      "output": "自然语言答案（含分步推理链）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：它不是新模型也不是新训练范式，而是用严谨采样、跨域覆盖和真机验证把VLM评估从‘刷图题’拉回机器人语义推理本质，填补了评估维度的关键空白。",
-      "deep": {}
-    },
-    {
-      "rank": 11,
       "arxiv_id": "2607.06018",
       "title": "RoboTALES: Learning Reasoning-Guided Robot Policies via Task-Aligned Simulated Futures",
       "published": "2026-07-07",
@@ -434,41 +395,78 @@
       "deep": {}
     },
     {
-      "rank": 12,
-      "arxiv_id": "2607.04409",
-      "title": "Learning Task-Sufficient World Models by Synergizing Agentic Exploration and Structured Modeling",
-      "published": "2026-07-05",
-      "url": "https://arxiv.org/abs/2607.04409",
-      "pdf_url": "https://arxiv.org/pdf/2607.04409",
-      "thumb": "assets/thumbs/2607.04409.jpg",
+      "rank": 11,
+      "arxiv_id": "2607.04972",
+      "title": "Multi-Robot Open Adaptive Teaming Across Unseen Environments, Partners, and Scales",
+      "published": "2026-07-06",
+      "url": "https://arxiv.org/abs/2607.04972",
+      "pdf_url": "https://arxiv.org/pdf/2607.04972",
+      "thumb": "assets/thumbs/2607.04972.jpg",
       "venue": "",
       "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "谷歌DeepMind",
-      "country": "US",
-      "org_type": "company",
+      "best_route": "whole_body_control",
+      "org": "清华大学",
+      "country": "CN",
+      "org_type": "university",
       "significance": 82,
-      "significance_reason": "在World Models范式下首次系统性定义并实证实现‘task-sufficient representation’，通过闭环探针+结构化蒸馏机制，在多个标准连续控制与机械臂仿真基准上验证了跨任务/跨组合泛化能力，有消融实验支撑，但未部署真机、未开源代码、未构建新数据集或硬件接口，属扎实推进而非范式突破。",
+      "significance_reason": "首次将超图博弈理论系统引入开放多智能体协同建模，实证覆盖三重未知维度（环境/伙伴/规模），且在两种异构真实平台零微调部署成功；虽未达AlphaFold或RT-2级范式颠覆，但显著超越现有封闭式多机器人SOTA（如MAPPO、QTRAN等仅支持固定拓扑），证据扎实（多平台+多任务+消融+跨尺度对比），属重磅工程理论融合突破。",
       "tier": "heavy",
       "grade": "C",
       "tags": [
-        "multimodal-fusion",
+        "multi-embodiment",
+        "real-robot",
         "sim2real",
-        "benchmark"
+        "teleoperation"
       ],
-      "tldr": "这篇论文提出一种闭环协同机制，让智能体主动探索环境收集任务相关数据，同时世界模型用结构化建模方式从中蒸馏出仅包含控制所需信息的极简隐状态，从而提升策略的样本效率和跨任务泛化能力。",
-      "claim": "通过智能体探索与结构化世界模型学习的闭环协同，可实证地恢复出任务充分（task-sufficient）的最小隐状态表示，该表示仅保留决策必需的因果因子，且能支撑跨技能、跨物体-技能组合及未见任务的泛化。",
+      "tldr": "提出一种超图博弈框架和渐进式训练算法HOLA，让多机器人团队能在从未见过的环境、从未合作过的伙伴、不同规模的队伍下实时自适应协作，并在真实无人机和四足机器人上零微调部署成功。",
+      "claim": "开放环境下动态变化的多机器人团队可通过超图博弈建模与渐进式开放训练实现跨环境、跨伙伴、跨规模的零微调泛化协作。",
       "method_components": [
         "model",
         "simulator",
         "policy",
         "benchmark"
       ],
-      "input": "原始观测（如RGB图像或状态向量）",
-      "output": "紧凑的任务充分隐状态 + 基于该隐状态的控制策略",
+      "input": "局部观测（如位置、速度、通信状态）+ 动态团队构成信息",
+      "output": "分布式协作动作策略（连续控制信号）",
+      "novelty": 8,
+      "evidence": 11,
+      "one_sentence_verdict": "真突破：它不是调参或刷榜，而是用可解释的博弈结构替代黑盒GNN，解决了开放团队中‘谁该和谁协调’这一长期被忽略的结构推理问题，并在真实异构机器人上闭环验证。",
+      "deep": {}
+    },
+    {
+      "rank": 12,
+      "arxiv_id": "2607.04610",
+      "title": "RoboVista: Evaluating Vision Language Models for Diverse Robot Applications",
+      "published": "2026-07-06",
+      "url": "https://arxiv.org/abs/2607.04610",
+      "pdf_url": "https://arxiv.org/pdf/2607.04610",
+      "thumb": "assets/thumbs/2607.04610.jpg",
+      "venue": "RSS 2026",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "加州大学伯克利分校",
+      "country": "US",
+      "org_type": "university",
+      "significance": 76,
+      "significance_reason": "首次系统性构建覆盖农业/工业/手术/驾驶等6大领域的机器人VQA基准，含人工标注推理链和真实系统来源，实证验证了VLM在机器人推理上的短板及其与真机表现的相关性；但未提出新模型、未开源代码/数据、无消融实验，属强实证型基准工作，尚未达到RT-2/Octo/OpenVLA级范式突破或工程闭环水平。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "benchmark",
+        "dataset",
+        "multimodal-fusion"
+      ],
+      "tldr": "这篇论文构建了一个名为RoboVista的新基准，包含474个真实机器人场景下的视觉问答（VQA）样本，覆盖6大应用领域39种任务类型，用于模块化评估视觉语言模型（VLM）在机器人任务中的推理能力，并发现当前SOTA VLM在此基准上表现差、且其得分与真实机器人执行效果高度相关。",
+      "claim": "RoboVista是一个首个面向多领域真实机器人应用、支持模块化推理评估的VLM基准，其性能可预测真实机器人任务执行效果。",
+      "method_components": [
+        "benchmark",
+        "dataset"
+      ],
+      "input": "RGB图像+自然语言问题（含任务上下文、目标、约束等）",
+      "output": "自然语言答案（含分步推理链）",
       "novelty": 7,
       "evidence": 9,
-      "one_sentence_verdict": "工程整合：将主动探索、课程学习与结构化表征学习深度耦合，在仿真中实现了更精炼可控的世界模型，但离真机部署和开源可复现尚有距离",
+      "one_sentence_verdict": "工程整合：它不是新模型也不是新训练范式，而是用严谨采样、跨域覆盖和真机验证把VLM评估从‘刷图题’拉回机器人语义推理本质，填补了评估维度的关键空白。",
       "deep": {}
     },
     {
@@ -509,43 +507,6 @@
     },
     {
       "rank": 14,
-      "arxiv_id": "2607.04434",
-      "title": "RoboDojo: A Unified Sim-and-Real Benchmark for Comprehensive Evaluation of Generalist Robot Manipulation Policies",
-      "published": "2026-07-05",
-      "url": "https://arxiv.org/abs/2607.04434",
-      "pdf_url": "https://arxiv.org/pdf/2607.04434",
-      "thumb": "assets/thumbs/2607.04434.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "未知（作者单位未在摘要中披露，无明显机构署名线索；虽有英文名拼写风格差异，但无法可靠映射至清华/伯克利/智元等主流团队）",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 76,
-      "significance_reason": "显著推进SOTA评测范式：首次实现仿真与真实评测的协议级对齐（含硬件/重置/接口/协议统一），并实测30个策略暴露共性缺陷；但未提出新算法或新硬件，也未解决长期开放难题（如触觉闭环、灵巧手通用控制），分量不及T-Rex/ALOHA等基石工作（它们定义了新能力边界），属于强工程整合型基准建设。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "benchmark",
-        "sim2real",
-        "large-scale"
-      ],
-      "tldr": "这篇论文构建了一个叫RoboDojo的统一仿真+真实世界机器人操作评测基准，包含42个仿真任务和18个真实机器人任务，覆盖泛化性、记忆、精度、长时序执行、开放词汇指令理解五大维度，并配套了可远程访问的标准化真机评测系统RoboDojo-RealEval和策略集成框架XPolicyLab，用于公平、可复现地横向评测30种通用操作策略。",
-      "claim": "RoboDojo是首个同时支持大规模并行仿真评估与标准化、可远程复现的真实机器人部署评估的统一基准，能系统性暴露通用操作策略在仿真与现实之间的能力鸿沟。",
-      "method_components": [
-        "benchmark",
-        "simulator",
-        "dataset"
-      ],
-      "input": "自然语言指令 + 仿真/真实环境观测（RGB/D/状态）",
-      "output": "机器人动作序列（末端位姿/关节控制）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合——它没发明新策略或新机器人，但把评测这件事做到了前所未有的系统性、可比性和可复现性，是当前通用操作策略走向可靠部署的关键基础设施。",
-      "deep": {}
-    },
-    {
-      "rank": 15,
       "arxiv_id": "2607.06403",
       "title": "From Foundation to Application: Improving VLA Models in Practice",
       "published": "2026-07-07",
@@ -580,6 +541,44 @@
       "novelty": 4,
       "evidence": 8,
       "one_sentence_verdict": "工程整合：在数据规模、动作空间和时序建模上做了系统性增强，实证充分且面向落地，但未提出新架构或新学习范式，也未超越现有基石模型的分量级",
+      "deep": {}
+    },
+    {
+      "rank": 15,
+      "arxiv_id": "2607.04927",
+      "title": "DSWAM: A Dual-System World Action Foundation Model for Fine-Grained Robot Manipulation",
+      "published": "2026-07-06",
+      "url": "https://arxiv.org/abs/2607.04927",
+      "pdf_url": "https://arxiv.org/pdf/2607.04927",
+      "thumb": "assets/thumbs/2607.04927.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "智元",
+      "country": "CN",
+      "org_type": "company",
+      "significance": 78,
+      "significance_reason": "首次在真实机器人、同一平台、同一数据源、同一评估协议下完成WAM与VLA的公平对比，证明WAM路径在细粒度变形操作中不弱于VLA，且引入System 2规划器显著提升多步任务成功率（+14.2%），但未开源代码/模型，且未挑战跨机体泛化或长期开放世界任务，属扎实重磅推进而非范式突破。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "real-robot",
+        "benchmark",
+        "multimodal-fusion"
+      ],
+      "tldr": "提出DSWAM双系统模型，用一个快速反应的World Action Model（System 1）做主执行器，只在需要分解复杂指令时才调用视觉语言子任务规划器（System 2），并在统一硬件/数据/评估协议下首次实现WAM与VLA在真实机器人变形物体操作任务上的公平对比。",
+      "claim": "通过解耦‘直觉执行’与‘语言规划’两个系统，并在DeMaVLA真实变形操作基准上严格控制变量，WAM可达到甚至超越同配置VLA的细粒度操作性能，且部署延迟更低。",
+      "method_components": [
+        "model",
+        "benchmark",
+        "simulator"
+      ],
+      "input": "短时视觉历史（视频帧序列）+ 全局任务语言指令",
+      "output": "动作块（action chunks），即时间对齐的末端位姿与夹爪开合序列",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：将WAM从纯仿真推向真实变形操作的可控落地，并建立首个WAM-VLA公平比较框架，但缺乏开源与更广义泛化验证，尚未达RT-2/π0级里程碑地位。",
       "deep": {}
     }
   ]

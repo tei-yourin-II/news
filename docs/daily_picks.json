@@ -3127,6 +3127,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-07-12": [
+      {
+        "arxiv_id": "2607.06701",
+        "title": "SPEAR: A Simulator for Photorealistic Embodied AI Research",
+        "published": "2026-07-07",
+        "first_seen": "2026-07-12",
+        "url": "https://arxiv.org/abs/2607.06701",
+        "pdf_url": "https://arxiv.org/pdf/2607.06701",
+        "thumb": "assets/thumbs/2607.06701.jpg",
+        "venue": "ECCV 2026",
+        "domain": "embodied_ai",
+        "best_route": "sim2real_data",
+        "org": "NVIDIA",
+        "country": "US",
+        "significance": 95,
+        "significance_reason": "与SimFoundry（95分）同属‘下一代通用仿真基座’层级：它不是单任务仿真器，而是将UE从游戏引擎升格为可编程AI实验平台，其14K函数暴露量、帧内确定性图执行、多模态真值输出均构成实质性工程范式跃迁；虽未发布真实机器人部署案例，但已支撑城市级、人脸级、多体协同等前沿用例，且开源程度（项目页含文档/示例/安装指南）优于SimFoundry初期发布形态。",
+        "tier": "heavy",
+        "tldr": "SPEAR是一个连接Unreal Engine的Python库，大幅提升了UE仿真器的可编程性（暴露1.4万+函数）、渲染速度（73fps全高清图像）和输出模态丰富度（如非漫反射分解、材质ID等），并支持跨实体（人/车/机器人）、多视角、多物理引擎协同的高表达力任务编排。",
+        "deep": {
+          "hook": "SPEAR把UE变成可编程AI实验平台：14K函数暴露+73fps真光追渲染+全栈真值输出",
+          "why_now": "继SimFoundry（2025）后，具身智能仿真正从‘能跑’迈向‘可工程化’——SPEAR是首个在UE生态中实现工业级可编程性、实时光追吞吐与多模态真值输出三统一的系统，踩中仿真基座API化、多物理耦合、intrinsic image需求爆发三大趋势",
+          "problem": "现有光真实感仿真器（如AI2-THOR、Habitat、iGibson）受限于黑盒控制、低帧率、模态单一；UE虽强但Python绑定薄弱，无法支持数据流驱动的确定性执行和跨实体协同任务编排，严重制约复杂具身任务（如城市级多智能体交互、人脸级材质感知）的闭环研发",
+          "method": "SPEAR不是新引擎，而是UE的‘操作系统层’：通过模块化C++插件暴露14,000+UE底层函数到Python；设计帧内确定性图执行模型（graph-of-work），支持带数据依赖的任意节点调度；在渲染管线中注入非漫反射分解、材质ID、着色参数等物理真值通道，并直接输出为NumPy数组；支持与MuJoCo等外部物理引擎同步信号级协同",
+          "results": "单实例73fps@1920x1080光追渲染；暴露14,000+UE函数（摘要明确数值）；提供非漫反射分解/材质ID/着色参数等全新真值模态（摘要明确列举）；验证多场景：城市级环境、人脸多视角同步渲染、人/车/机器人混合控制、UE-MuJoCo联合仿真、自然语言驱动场景编辑",
+          "limitations": "未报告任何真实机器人部署或sim2real迁移结果；所有验证均在UE内完成，无跨仿真器泛化测试（如是否兼容Unity或WebGL）；图式执行模型未公开调度开销与规模上限（如万级节点是否仍保帧内确定性）；开源仅含文档/示例/安装指南，未提核心插件源码是否开放",
+          "significance_take": "范式级——它将UE从‘渲染容器’升格为‘可编程AI实验平台’，定义了下一代仿真基座的三个硬指标：函数暴露量（10⁴级）、帧内确定性计算能力、物理真值模态完备性；后续工作若绕过此类基座，将面临API碎片化与模态缺失瓶颈",
+          "who_should_read": "做具身仿真系统、多模态感知训练、intrinsic image建模的工程师和研究者，能直接复用其真值通道设计与图执行范式",
+          "verdict": "必读——它不是又一个仿真器，而是UE生态首次具备AI研发基础设施属性的分水岭式系统，所有依赖光真实感仿真的团队需评估其API与模态能否替代现有pipeline",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.05966",
+        "title": "Imagined Rollouts are Kinematic, Not Dynamic: A Diagnosis of Long-Horizon World-Model Failure",
+        "published": "2026-07-07",
+        "first_seen": "2026-07-11",
+        "url": "https://arxiv.org/abs/2607.05966",
+        "pdf_url": "https://arxiv.org/pdf/2607.05966",
+        "thumb": "assets/thumbs/2607.05966.jpg",
+        "venue": "RSS 2026",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "未知（作者无明确机构署名，摘要未提所属单位；arXiv预印本，无affiliation信息）",
+        "country": "unknown",
+        "significance": 78,
+        "significance_reason": "提出首个可计算、可扰动验证的kinematic-vs-dynamic诊断框架，实证揭示世界模型根本性建模偏差（非误差传播而是物理建模缺失），证据扎实（跨摩擦参数边界+与真实物理rollout对比+iKCE量化+公开checkpoint复现），但仅限单一DMC任务和DreamerV3架构，未扩展至多机体/多任务/真实平台，未提供修复方案，故强于普通增量但未达里程碑级。",
+        "tier": "heavy",
+        "tldr": "这篇论文发现世界模型在长时序预测中失败的根本原因不是泛泛的‘误差累积’，而是模型倾向于生成符合运动学约束（如关节角度连续性）但违背动力学规律（如力、摩擦、惯性）的轨迹；作者提出一个可量化的诊断指标iKCE，并在DreamerV3上实证：当真实物理环境跨越步态崩溃临界点时，模型的iKCE几乎不变，而策略奖励骤降，证明其想象是‘运动学式’而非‘动力学式’。",
+        "deep": {
+          "hook": "世界模型不是‘算不准’，而是根本没学物理——它只画连贯动画，不模拟真实受力",
+          "why_now": "继2023–2024年DreamerV3、TD-MPC等世界模型在长时序任务上频频失效后，本文首次跳出‘误差累积’叙事，直指建模本质缺陷；恰逢RSS 2026接收、社区正密集反思世界模型物理性，诊断框架可直接嵌入现有训练流水线",
+          "problem": "世界模型在长horizon rollout中性能骤降，传统归因为‘误差传播’，但该解释无法指导修复：是优化问题？数据问题？还是模型根本没学动力学？缺乏可量化、可扰动的归因工具。",
+          "method": "提出iKCE（imagined Kinematic-Consistency Error）指标——对每个想象步，计算其与运动学零解（如关节角速度/加速度满足纯几何约束的理论值）的偏差；再设计摩擦参数扫掠实验，观察iKCE是否在真实物理相变点（如步态崩溃）发生跃变——若不变，说明模型‘无视动力学’。",
+          "results": "在DMC walker-walk任务上，DreamerV3想象rollout的iKCE比真实物理rollout高约两个数量级；当摩擦系数跨越步态崩溃临界点时，策略奖励从~800暴跌至~200，而iKCE统计上无变化（p>0.1），证实其动力学盲区。",
+          "limitations": "仅验证单一任务（DMC walker-walk）和单一架构（DreamerV3）；未测试多自由度机体（如quadruped）、多任务泛化或真实机器人平台；诊断框架未附带修复机制（如动力学正则化），也未开源扰动协议代码（仅提‘released checkpoint’）。",
+          "significance_take": "属于显著推进级：它把模糊的‘长时序失败’转化为可证伪的物理建模范式缺陷，并给出首个可计算、可扰动验证的诊断标准（iKCE+边界响应），为后续动力学感知世界模型提供靶向标尺，而非泛泛提倡‘加物理先验’。",
+          "who_should_read": "所有用世界模型做长时序规划的研究者和工程师——读完能立刻用iKCE检查自己模型是否在‘假装懂物理’。",
+          "verdict": "必读：它用极简实验戳破一个广泛误信（误差累积论），并交付可复现、可即插即用的诊断工具，价值不在方案而在精准归因。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.04409",
+        "title": "Learning Task-Sufficient World Models by Synergizing Agentic Exploration and Structured Modeling",
+        "published": "2026-07-05",
+        "first_seen": "2026-07-11",
+        "url": "https://arxiv.org/abs/2607.04409",
+        "pdf_url": "https://arxiv.org/pdf/2607.04409",
+        "thumb": "assets/thumbs/2607.04409.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "谷歌DeepMind",
+        "country": "US",
+        "significance": 82,
+        "significance_reason": "在World Models范式下首次系统性定义并实证实现‘task-sufficient representation’，通过闭环探针+结构化蒸馏机制，在多个标准连续控制与机械臂仿真基准上验证了跨任务/跨组合泛化能力，有消融实验支撑，但未部署真机、未开源代码、未构建新数据集或硬件接口，属扎实推进而非范式突破。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出一种闭环协同机制，让智能体主动探索环境收集任务相关数据，同时世界模型用结构化建模方式从中蒸馏出仅包含控制所需信息的极简隐状态，从而提升策略的样本效率和跨任务泛化能力。",
+        "deep": {
+          "hook": "首次实证定义并学到‘任务充分’隐状态：只保留决策必需的因果因子，砍掉所有冗余信息",
+          "why_now": "接续2023–2024年World Models从‘像素重建’转向‘可控表征’的范式迁移（如DreamerV3、S3M），直击当前主流方法因隐空间过载导致跨任务泛化差的核心痛点",
+          "problem": "现有世界模型（如VAE-based或Transformer-based）隐状态维度高、混杂大量任务无关因子（如背景纹理、光照变化），导致策略训练样本效率低，且难以泛化到新技能组合或未见任务；‘什么信息对控制真正必要’长期缺乏可操作定义与实证路径",
+          "method": "构建闭环协同机制：① 智能体按自适应课程主动探针环境（如扰动物体、切换工具），生成富含任务相关因果信号的轨迹；② 世界模型采用结构化蒸馏架构（显式分离动态因子+静态因子+控制不变量），强制压缩隐状态至最小充分集，并用探针轨迹反向约束其因果完备性",
+          "results": "在DM Control Suite（6个任务）、RoboDesk（12个机械臂任务）和ObjectSet（跨物体-技能组合）上验证：策略在相同样本量下实现更优性能；报告跨技能泛化（如‘抓取→放置’组合迁移）、跨物体泛化（训练用杯子，测试用瓶子）、以及未见任务零样本泛化能力；含完整消融（移除探针/移除结构化蒸馏均显著下降）",
+          "limitations": "纯仿真验证（sim-only），无真机部署；未开源代码或模型权重，仅提供project-page（复现门槛高）；所有基准均为已有数据集（DM Control/RoboDesk/ObjectSet），未引入新任务复杂度或物理真实性挑战",
+          "significance_take": "属显著推进：首次将‘task-sufficiency’从理论概念（如Pearl因果推断中的do-calculus）落地为可训练、可验证、可消融的建模范式，为世界模型从‘拟真’转向‘可用’提供了可复现的技术锚点",
+          "who_should_read": "做具身学习/世界模型的研究者应读——能直接拿走探针课程设计+结构化蒸馏模块的工程模板",
+          "verdict": "必读：它没改写范式，但把‘任务充分表征’这个关键命题第一次焊死在可实验、可比较、可复现的工程轨道上",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -3222,6 +3314,7 @@
     "2607.02646",
     "2607.03723",
     "2607.03751",
+    "2607.04409",
     "2607.04610",
     "2607.04616",
     "2607.04972",
@@ -3229,10 +3322,12 @@
     "2607.05352",
     "2607.05390",
     "2607.05765",
+    "2607.05966",
     "2607.06018",
+    "2607.06701",
     "2607.06882",
     "2607.07370"
   ],
-  "latest": "2026-07-11",
-  "generated_at": "2026-07-11 04:09 UTC"
+  "latest": "2026-07-12",
+  "generated_at": "2026-07-12 04:29 UTC"
 }
