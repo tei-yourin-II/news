@@ -18146,6 +18146,86 @@
       "thumb": "assets/thumbs/2607.07608.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.07.08.737319",
+      "doi": "10.64898/2026.07.08.737319",
+      "source_kind": "biorxiv",
+      "title": "A geometric atlas of how ESM3 organizes modalities across depth",
+      "abstract": "Protein language models learn general-purpose representations from large collections of protein sequences and structures, and have advanced the prediction of protein structure and function. ESM3 is a multimodal protein language model that ingests a protein through several channels at once, including amino-acid sequence, three-dimensional structure, secondary structure (SS8), solvent accessibility (SASA), and discrete functional annotations, summing their embeddings into a single residual stream. Little is known about whether these modalities occupy separate subspaces and the depth at which they fuse. The present analysis examines ESM3 (esm3-sm-open-v1; 1.4 billion parameters; 48 transformer layers) once per modality in isolation and applies representational-similarity analysis across all 48 layers. The four physical modalities (sequence, structure, SS8, SASA) begin in distinct subspaces, remain maximally separated through roughly the first half of layers, and then fuse into a shared low-dimensional subspace between layers 25 and 35. The fusion is ordered. The structure-derived modalities (structure, SS8, SASA) are mutually aligned from the input, whereas sequence joins last, after layer 28. The functional-annotation modality never fuses; instead, it remains representationally orthogonal to the physical modalities at every layer, and this orthogonality holds whether the annotation is supplied as whole-protein or per-residue, suggesting that it is content-driven rather than a tokenization artifact. The fusion is a learned property, absent in a randomly initialized model of the same architecture, holds at the residue level below the mean-pool, and reorganizes variance, converting between-condition variance into within-condition variance while the stream never approaches isotropy. Fusion depth is independent of protein length but is delayed by structural disorder. The phenomenon is universal across diverse organisms. Across 5,555 proteins from 12 organisms spanning eukaryota, bacteria, and archaea, every superkingdom (and every individual organism) reaches peak modality fusion at the same network depth (layer 35).",
+      "authors": [
+        "Jacob L. Steenwyk"
+      ],
+      "categories": [],
+      "published": "2026-07-12",
+      "updated": "2026-07-12",
+      "url": "https://doi.org/10.64898/2026.07.08.737319",
+      "pdf_url": "https://doi.org/10.64898/2026.07.08.737319",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2761,
+        "world_model": 0.2522,
+        "whole_body_control": 0.0944,
+        "dexterous_manipulation": 0.0817,
+        "sim2real_data": 0.0969,
+        "hardware_unitree": 0.0589,
+        "bci_neural_decoding": 0.2604,
+        "bci_foundation_models": 0.3095,
+        "bci_embodied_robot": 0.0751,
+        "bci_noninvasive_eeg": 0.1718,
+        "protein_ai": 0.6305,
+        "genomics_ai": 0.3264
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.6305,
+      "first_seen": "2026-07-14",
+      "analysis": {
+        "tldr": "这篇论文用表征相似性分析（RSA）系统刻画了ESM3模型中不同蛋白质模态（序列、结构、二级结构、溶剂可及性、功能注释）在48层Transformer中的空间演化轨迹，发现前25层各模态保持分离，25–35层物理模态逐步融合为共享低维子空间（结构类模态先对齐，序列最后加入），而功能注释模态始终正交不融合，且该现象是模型学习所得、跨物种普适、与蛋白长度无关但受无序结构延迟。",
+        "org": "Meta",
+        "country": "US",
+        "org_type": "company",
+        "claim": "ESM3中物理模态在深度25–35层发生有序、可复现、内容驱动的子空间融合，而功能注释模态始终与物理模态正交，该组织原则是模型学习所得、跨物种保守、非tokenization artifact。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "单个蛋白质的多模态输入（氨基酸序列、3D结构、SS8、SASA、功能注释）",
+        "output": "各层表征空间中模态间相似性矩阵及子空间分离/融合深度定位",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-organism"
+        ],
+        "reproducibility": "code-only",
+        "tags": [
+          "multimodal-fusion"
+        ],
+        "novelty": 7,
+        "evidence": 10,
+        "reproducibility_score": 5,
+        "significance": 78,
+        "significance_reason": "首次实证揭示ESM3内部多模态表征的几何组织规律——融合深度、顺序、正交性、普适性均给出强统计证据（5,555蛋白×12物种，消融对比随机初始化，残基级验证， disorder延迟效应），虽未提出新模型或预测任务SOTA，但为理解多模态PLM内在机制提供了不可替代的基准性解剖图谱，属扎实的重大机制发现，但尚未达到AlphaFold2/ESM3级别范式突破。",
+        "one_sentence_verdict": "真突破：首次以高分辨率几何视角实证刻画ESM3多模态表征的深度演化规律，证据充分、普适性强、机制解释力深，是蛋白质AI基础理解层面的重要里程碑。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 18.9,
+        "content": 22.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 40.9,
+        "bonus": 0.0,
+        "total": 40.9
+      },
+      "grade": "C",
+      "read_priority": "B"
+    },
+    {
       "arxiv_id": "2606.06139",
       "doi": "10.48550/arxiv.2606.06139",
       "source_kind": "arxiv",
@@ -31962,6 +32042,175 @@
       "thumb": "assets/thumbs/2607.00666.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.07.10.737860",
+      "doi": "10.64898/2026.07.10.737860",
+      "source_kind": "biorxiv",
+      "title": "Benchmarking AI Protein Structure Predictors Reveals a Persistent Bias in Multi-State Proteins",
+      "abstract": "Protein structure predictors achieve high single-state accuracy, but it remains unclear whether they can recover functionally relevant conformational ensembles or account for the presence of ligands and/or binding partners. Here, we benchmark AlphaFold3, Boltz-2, Chai-1, and BioEmu on four canonical multi-state proteins (Pf-MATE, LAO, SecA, and β2AR), quantifying state bias and sampling breadth against experimental reference structures. Models frequently default to a dominant state represented in the PDB; small-molecule ligands have weak or inconsistent effects, while large protein partners drive clear conformational switching between states. Multiple sequence alignment (MSA)-based approaches (AF-Cluster and random subsampling) recapitulate similar biases, indicating that this behavior is not unique to newer architectures. These results underscore current limitations for multi-state protein structure prediction and structure-guided ligand discovery.",
+      "authors": [
+        "Muhui Ye",
+        "Y Wang",
+        "Maximilian Brogi",
+        "Jerry M. Parks",
+        "Katie M. Kuo",
+        "James C. Gumbart"
+      ],
+      "categories": [],
+      "published": "2026-07-11",
+      "updated": "2026-07-11",
+      "url": "https://doi.org/10.64898/2026.07.10.737860",
+      "pdf_url": "https://doi.org/10.64898/2026.07.10.737860",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1959,
+        "world_model": 0.2767,
+        "whole_body_control": 0.1824,
+        "dexterous_manipulation": 0.1374,
+        "sim2real_data": 0.1528,
+        "hardware_unitree": 0.0884,
+        "bci_neural_decoding": 0.2249,
+        "bci_foundation_models": 0.2399,
+        "bci_embodied_robot": 0.1736,
+        "bci_noninvasive_eeg": 0.2156,
+        "protein_ai": 0.6106,
+        "genomics_ai": 0.3198
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.6106,
+      "first_seen": "2026-07-14",
+      "analysis": {
+        "tldr": "这篇论文系统评测了AlphaFold3、Boltz-2、Chai-1和BioEmu等主流AI蛋白结构预测模型在多构象蛋白（如Pf-MATE、LAO等）上的表现，发现它们普遍存在对PDB中优势构象的严重偏好，难以准确采样功能相关的多态构象集合，且对小分子配体响应微弱，仅对大蛋白伙伴有较明显构象切换，说明当前模型在动态结构预测和配体诱导变构建模上存在根本性局限。",
+        "org": "佐治亚理工学院",
+        "country": "US",
+        "org_type": "university",
+        "claim": "当前主流AI蛋白结构预测器在多状态蛋白建模中存在系统性构象偏好偏差，该偏差源于训练数据与MSA构建方式，而非模型架构特有，严重制约其在变构药物设计中的实用性。",
+        "method_components": [
+          "benchmark",
+          "dataset"
+        ],
+        "input": "蛋白质序列+配体/伙伴蛋白信息（文本/结构标识）",
+        "output": "预测的三维结构集合（多构象采样）",
+        "robot_dependency": "none",
+        "data_dependency": "无真实机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "benchmark",
+          "dataset"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 68,
+        "significance_reason": "首次系统量化四大前沿模型在多态蛋白上的构象偏差，并关联到MSA采样机制与实验参考结构，证据扎实（4个经典多态蛋白+定量状态分布分析+消融式MSA对比），但未提出新模型或算法，属高质量诊断性研究，推进了领域认知边界，尚未达到基石级方法论突破（如AF2/ESMFold/RFDiffusion）。",
+        "one_sentence_verdict": "显著贡献——不是新模型，而是用严谨基准揭示了当前SOTA模型在动态结构预测中的结构性缺陷，为后续变构建模和药物发现提供了不可绕过的实证基线。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 18.3,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 38.3,
+        "bonus": 0.0,
+        "total": 38.3
+      },
+      "grade": "C",
+      "read_priority": "B"
+    },
+    {
+      "arxiv_id": "2607.06629",
+      "doi": "10.48550/arxiv.2607.06629",
+      "source_kind": "arxiv",
+      "title": "STST-JEPA: Shallow-Target Spatio-Temporal Joint Embedding Prediction Architecture For EEG Self-Supervised Learning",
+      "abstract": "Brain age - the age inferred from a physiological recording - is an emerging biomarker whose deviation from chronological age tracks neurological and psychiatric burden, and EEG is an attractive substrate for it because it is cheap, portable, and temporally rich. Yet EEG brain-age models must contend with cross-site montage heterogeneity, small labelled cohorts, and dominant subject-level non-stationarity, and few EEG foundation models have been shown to deliver competitive age regression across the full pediatric to older adult range in which such a biomarker would actually be deployed. We introduce STST-JEPA, a self-supervised transformer for resting-state and task EEG, pretrained on 47,703 sessions spanning ages 5-81 from the brain.space and Healthy Brain Network (HBN) corpora. The model combines a latent-prediction objective - predicting masked-token representations against an EMA-of-tokenizer target - with an auxiliary signal-reconstruction term, applied to 30-second multi-channel windows under spatiotemporal block masks. A lightweight attentive probe trained on frozen pretrained embeddings achieves a best held-out-validation mean absolute error of 3.06 years (r = 0.924) for age regression on 3,367 sessions, against a predict-the-mean baseline of approximately 10 years MAE. With light task-specific finetuning of the model's final layers, the same pretrained encoder achieves rank-1 placements - with the model's native 30-second windows - on the public NeuralBench x brain.space EEG leaderboard for sex classification (balanced accuracy 0.911), age prediction (r = 0.749), and psychopathology composite regression (r = 0.215). We further show that the model's age-prediction residual is negatively correlated with cognitive efficiency over several tasks we examined.",
+      "authors": [
+        "Roy Segal",
+        "Yoni Svechinsky",
+        "Tomer Fekete"
+      ],
+      "categories": [],
+      "published": "2026-07-07",
+      "updated": "2026-07-07",
+      "url": "https://arxiv.org/abs/2607.06629",
+      "pdf_url": "https://arxiv.org/pdf/2607.06629",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1718,
+        "world_model": 0.3093,
+        "whole_body_control": 0.1963,
+        "dexterous_manipulation": 0.0899,
+        "sim2real_data": 0.1101,
+        "hardware_unitree": 0.0867,
+        "bci_neural_decoding": 0.4392,
+        "bci_foundation_models": 0.6432,
+        "bci_embodied_robot": 0.3279,
+        "bci_noninvasive_eeg": 0.5,
+        "protein_ai": 0.2002,
+        "genomics_ai": 0.2206
+      },
+      "best_route": "bci_noninvasive_eeg",
+      "relevance_raw": 0.6432,
+      "first_seen": "2026-07-14",
+      "analysis": {
+        "tldr": "提出一个名为STST-JEPA的自监督Transformer模型，用4.7万段跨年龄（5–81岁）多中心EEG数据预训练，通过掩码时空块预测+信号重建联合目标学习通用表征，在冻结主干后仅用轻量探针就实现3.06年脑龄预测误差，并在多个EEG下游任务（性别、年龄、精神病理）上刷榜。",
+        "org": "Weizmann Institute of Science",
+        "country": "IL",
+        "org_type": "university",
+        "claim": "STST-JEPA通过浅层目标联合嵌入预测架构，在跨站点、跨年龄段、小标注样本约束下，学习到泛化性强的EEG基础表征，显著提升脑龄等生物标志物建模性能。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "30秒多通道静息态/任务态EEG时序信号（按spatiotemporal block mask掩码）",
+        "output": "被掩码时间-空间位置的潜变量表示 + 原始EEG信号重建",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-site",
+          "cross-age",
+          "cross-task"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "benchmark",
+          "dataset"
+        ],
+        "novelty": 6,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 68,
+        "significance_reason": "首次在超大尺度（4.7万段）、全生命周期（5–81岁）、多中心EEG数据上验证了自监督JEPA范式对脑龄等临床相关生物标志物的有效性，MAE=3.06年具临床可解释性，且跨任务迁移表现稳健；但未开源代码/模型权重，未报告消融实验细节，未与同期SOTA（如EEGNet+SSL变体）做公平对比，也未验证其残差是否真能驱动干预决策。",
+        "one_sentence_verdict": "显著贡献：工程整合——将JEPA框架扎实落地于EEG基础模型，数据规模与任务覆盖广度确属当前领先，但缺乏开源与机制分析，尚未达到‘真突破’门槛",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 19.3,
+        "content": 19.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 38.3,
+        "bonus": 0.0,
+        "total": 38.3
+      },
+      "grade": "C",
+      "read_priority": "B"
+    },
+    {
       "arxiv_id": "2605.29298",
       "title": "MonoDuo: Using One Robot Arm to Learn Bimanual Policies",
       "abstract": "Bimanual coordination is essential for many real-world manipulation tasks, yet learning bimanual robot policies is limited by the scarcity of bimanual robots and datasets. Single-arm robots, however, are widely available in research labs. Can we leverage them to train bimanual robot policies? We present MonoDuo, a framework for learning bimanual manipulation policies using single-arm robot demonstrations paired with human collaboration. MonoDuo collects data by teleoperating a single-arm robot to perform one side of a bimanual task while a human performs the other, then swapping roles to cover both sides. RGB-D observations from a wrist-mounted and fixed camera are augmented into synthetic demonstrations for target bimanual robots using state-of-the-art hand pose estimation, image and point cloud segmentation, and inpainting. These synthetic demonstrations, grounded in real robot kinematics, are used to train bimanual policies. We evaluate MonoDuo on five tasks: box lifting, backpack packing, cloth folding, jacket zipping, and plate handover. Compared to approaches relying solely on human bimanual videos, MonoDuo enables zero-shot deployment on unseen bimanual robot configurations, achieving success rates up to 70%. With only 25 target robot demonstrations, few-shot finetuning further boosts success rates by 65-70% over training from scratch, demonstrating MonoDuo's effectiveness in efficiently transferring knowledge from single-arm robot data to bimanual robot policies.",
@@ -34094,6 +34343,90 @@
       "grade": "C",
       "read_priority": "B",
       "thumb": "assets/thumbs/2607.08742.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.07.05.736621",
+      "doi": "10.64898/2026.07.05.736621",
+      "source_kind": "biorxiv",
+      "title": "BCCWJ-Brain: A Multi-Modal fMRI, MEG, and EEG Dataset of Naturalistic Japanese Reading",
+      "abstract": "Abstract We present the BCCWJ-Brain dataset, a multi-modal neuroimaging resource comprising functional magnetic resonance imaging (fMRI), magnetoencephalography (MEG), and electroencephalography (EEG) data recorded from native Japanese speakers reading newspaper articles from the Balanced Corpus of Contemporary Written Japanese (BCCWJ). Neural data were collected from 112 participants (36 fMRI, 35 MEG, and 41 EEG) as they read twenty newspaper articles presented in a Rapid Serial Visual Presentation (RSVP) paradigm. By providing three complementary neuroimaging modalities collected under identical naturalistic reading stimuli, this dataset provides a cognitive benchmark for computational models such as large language models. The dataset is publicly available on the OpenNeuro platform, offering a valuable resource for neuroscience, natural language processing, and related research fields.",
+      "authors": [
+        "Yushi Sugimoto",
+        "Masayuki Asahara",
+        "Hyeonjeong Jeong",
+        "Akitake Kanno",
+        "Masatoshi Koizumi",
+        "Yohei Oseki"
+      ],
+      "categories": [],
+      "published": "2026-07-09",
+      "updated": "2026-07-09",
+      "url": "https://doi.org/10.64898/2026.07.05.736621",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/09/2026.07.05.736621.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2243,
+        "world_model": 0.2385,
+        "whole_body_control": 0.1091,
+        "dexterous_manipulation": 0.1028,
+        "sim2real_data": 0.0959,
+        "hardware_unitree": 0.0369,
+        "bci_neural_decoding": 0.4661,
+        "bci_foundation_models": 0.6002,
+        "bci_embodied_robot": 0.3044,
+        "bci_noninvasive_eeg": 0.5,
+        "protein_ai": 0.1978,
+        "genomics_ai": 0.2553
+      },
+      "best_route": "bci_noninvasive_eeg",
+      "relevance_raw": 0.6002,
+      "first_seen": "2026-07-14",
+      "analysis": {
+        "tldr": "发布了包含112名日语母语者在阅读20篇新闻文章时同步采集的fMRI、MEG和EEG数据的多模态神经影像数据集，用于评估语言模型对自然阅读过程的建模能力。",
+        "org": "东京大学",
+        "country": "JP",
+        "org_type": "university",
+        "claim": "BCCWJ-Brain是首个在完全一致的自然阅读刺激下同步采集fMRI、MEG和EEG三模态神经数据的公开日语语料库，可作为计算语言模型认知对齐的基准。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "日语新闻文本（RSVP呈现）",
+        "output": "对应时间点的fMRI体素信号、MEG磁源信号、EEG通道电压序列",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖机器人数据，纯人类被试神经记录",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "code-only",
+        "tags": [
+          "dataset",
+          "benchmark",
+          "open-source"
+        ],
+        "novelty": 6,
+        "evidence": 8,
+        "reproducibility_score": 6,
+        "significance": 45,
+        "significance_reason": "虽为高质量、多模态、自然语言刺激下的稀缺神经数据集，但本质是资源型工作——无新算法/解码模型/闭环接口，未验证任何模型性能提升，也未解决脑机接口或AI×神经科学中的关键瓶颈问题；相比标尺中90+分的临床级实时解码、闭环控制或高保真重建类工作，它仅提供静态观测数据，贡献属于扎实但窄域的基础设施建设。",
+        "one_sentence_verdict": "工程整合：高质量数据集构建严谨、模态互补、公开可用，但未推动方法论或临床应用边界，属于支撑性基建而非突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 18.0,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 38.0,
+        "bonus": 0.0,
+        "total": 38.0
+      },
+      "grade": "C",
+      "read_priority": "B"
     },
     {
       "arxiv_id": "2606.01095",
@@ -50001,6 +50334,89 @@
       "grade": "C",
       "read_priority": "B",
       "thumb": "assets/thumbs/2607.02501.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.07.09.737410",
+      "doi": "10.64898/2026.07.09.737410",
+      "source_kind": "biorxiv",
+      "title": "Isoform-level resolution in single-cell CRISPR screens reveals hidden functional consequences of gene perturbation",
+      "abstract": "Single-cell CRISPR screens have enabled systematic investigation of gene function, but studies have largely focused on gene-level effects, overlooking transcriptional complexity and isoform usage. Methods capable of capturing splicing and isoform usage have emerged, including long-read sequencing and alternative library preparation strategies, but their suitability for large-scale perturbation screens remains unevaluated. We compare two library preparation methods (10x Genomics and Parse Biosciences) across Illumina short-read, Oxford Nanopore, and PacBio long-read sequencing, applying CRISPRi to silence three genes with distinct regulatory roles (DDX6, GEMIN5, GFI1B) in K562 cells. While short-read methods detected some splicing events, only long-read sequencing consistently captured isoform-level changes. Although Parse provided even transcript coverage, we observed strong intronic read enrichment, limiting its utility for splicing analysis. The primary constraint of long-read approaches was sequencing depth: ~21 million reads are needed for 80% saturation of splicing events in a single perturbation. Notably, GEMIN5 knockdown produced only modest differential expression but the most extensive splicing changes, an effect invisible to gene-level analysis, underscoring the value of isoform-level screens. We provide a practical framework for isoform-level analysis in single-cell CRISPR screens, identifying current capabilities and limitations. As perturbation studies scale, long-read sequencing will be essential for comprehensive functional interpretation, capturing biology missed by gene-level analysis.",
+      "authors": [
+        "Nathanael Andrews",
+        "Josie Gleeson",
+        "Jasper Panten",
+        "Sofia Öling",
+        "Sofia Lundqvist",
+        "Tuuli Lappalainen"
+      ],
+      "categories": [],
+      "published": "2026-07-10",
+      "updated": "2026-07-10",
+      "url": "https://doi.org/10.64898/2026.07.09.737410",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/10/2026.07.09.737410.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0474,
+        "world_model": 0.1115,
+        "whole_body_control": 0.0364,
+        "dexterous_manipulation": 0.0924,
+        "sim2real_data": 0.088,
+        "hardware_unitree": 0.0,
+        "bci_neural_decoding": 0.0771,
+        "bci_foundation_models": 0.0703,
+        "bci_embodied_robot": 0.0129,
+        "bci_noninvasive_eeg": 0.1218,
+        "protein_ai": 0.3563,
+        "genomics_ai": 0.5368
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.5368,
+      "first_seen": "2026-07-14",
+      "analysis": {
+        "tldr": "这篇论文系统比较了短读长和长读长测序技术在单细胞CRISPR筛选中解析基因剪接异构体（isoform）变化的能力，发现只有长读长测序（Nanopore/PacBio）能稳定检测到扰动引起的异构体层面变化，而传统基因水平分析会漏掉关键功能效应（如GEMIN5敲降几乎不改变基因表达量，却引发最广泛的剪接异常），并量化了实现80%剪接事件饱和检测所需的最低测序深度（约2100万reads）。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "在单细胞CRISPR筛选中，仅靠基因水平表达分析会系统性遗漏由剪接调控介导的功能性扰动后果，必须结合长读长测序才能可靠捕获isoform-level表型。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "CRISPRi扰动的K562单细胞样本（含DDX6/GEMIN5/GFI1B三个靶基因）、两种建库方法（10x/Parse）与三种测序平台（Illumina/Nanopore/PacBio）的组合数据",
+        "output": "isoform-level剪接变化谱（含具体可变剪接事件、isoform比例偏移）、测序饱和度曲线、方法适用性评估结论",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 72,
+        "significance_reason": "首次在单细胞CRISPR筛选中完成多平台、多建库策略的isoform解析能力实证比对，用真实扰动数据证明基因水平分析存在重大盲区（GEMIN5案例），并给出可复现的测序深度量化阈值；但仅限K562细胞系和3个基因，未扩展至原代细胞、体内模型或高通量规模，也未提出新算法或模型，属于扎实的方法学验证与范式提醒，而非技术突破。",
+        "one_sentence_verdict": "显著贡献：用严谨实验设计证实了单细胞CRISPR筛选中isoform层面分析的必要性与可行性，填补了方法学评估空白，但受限于细胞系和规模，尚未构成范式革命。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 16.1,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 36.1,
+        "bonus": 0.0,
+        "total": 36.1
+      },
+      "grade": "C",
+      "read_priority": "B"
     },
     {
       "arxiv_id": "2606.01264",
@@ -86924,6 +87340,85 @@
       "read_priority": "B"
     },
     {
+      "arxiv_id": "10.64898/2026.07.10.737551",
+      "doi": "10.64898/2026.07.10.737551",
+      "source_kind": "biorxiv",
+      "title": "ProtBLIP2-SST: Protein Function Prediction via BLIP2 with Sequence, Structure, and Text",
+      "abstract": "Protein function prediction traditionally relies on structured gene ontology (GO) labels or multi-label classifiers. However, these labels or classifiers cannot flexibly describe molecular function, biological process, cellular component, and free-text functional narratives in a single output. In comparison, generation-based approaches offer an intuitive paradigm for flexible free-text protein annotation, with large language models (LLMs) as a representative method for protein-text modeling. Recent efforts on utilizing LLMs for protein semantic understanding and annotation generation have adopted sequence-only encoding or sequence-text contrastive alignment paradigms, yet without explicit consideration of three-dimensional structural information. To address these limitations in current protein function prediction methods, we present ProtBLIP2-SST, a two-stage framework built on the BLIP2 model architecture that bridges protein sequence, structure, and text for open-ended protein functional caption generation. Specifically, we first integrate sequence and structure information through SaProt, a protein language model (PLM) with a structure-aware vocabulary that fuses residue tokens with Foldseek-derived 3Di structural tokens. To empower the LLM to understand protein semantics, we employ a Q-Former (a querying transformer in BLIP2) with learnable query tokens as the cross-modal projector to align protein features from the frozen SaProt encoder and text features from a frozen BiomedBERT via protein--text contrasting, protein--text matching, and protein captioning objectives. After alignment, the protein features are linearly projected and prepended to the prompt embeddings of the LLM for protein captioning fine-tuning with LoRA. Trained on 441k protein--text pairs from Swiss-Prot with corresponding structures from the AlphaFold Database, our ProtBLIP2-SST outperforms sequence-only and sequence-text alignment baselines on protein captioning metrics, with ablation studies demonstrating the effectiveness of integrating structure with sequence information for improved protein understanding. Through a unified two-stage alignment-and-generation pipeline, ProtBLIP2-SST integrates protein sequence and structural information, overcomes the rigidity of traditional GO-centric classification, generating open-ended captions that jointly describe molecular function, subcellular location, and homology context in one single output.",
+      "authors": [
+        "Zhuoyang Chen",
+        "Qiong Luo"
+      ],
+      "categories": [],
+      "published": "2026-07-12",
+      "updated": "2026-07-12",
+      "url": "https://doi.org/10.64898/2026.07.10.737551",
+      "pdf_url": "https://doi.org/10.64898/2026.07.10.737551",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2778,
+        "world_model": 0.2673,
+        "whole_body_control": 0.2086,
+        "dexterous_manipulation": 0.118,
+        "sim2real_data": 0.1271,
+        "hardware_unitree": 0.1047,
+        "bci_neural_decoding": 0.2161,
+        "bci_foundation_models": 0.2303,
+        "bci_embodied_robot": 0.084,
+        "bci_noninvasive_eeg": 0.1419,
+        "protein_ai": 0.5017,
+        "genomics_ai": 0.4634
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.5017,
+      "first_seen": "2026-07-14",
+      "analysis": {
+        "tldr": "提出ProtBLIP2-SST，一个两阶段框架，把蛋白质序列、三维结构和文本三模态信息对齐后输入冻结的大语言模型，生成自由文本形式的功能描述（如分子功能、亚细胞定位、同源背景），替代传统僵化的基因本体（GO）分类标签。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "融合蛋白质序列与AlphaFold预测的三维结构信息，并通过Q-Former跨模态对齐到BiomedBERT文本空间，可显著提升大语言模型生成开放性、多维度蛋白功能描述的能力。",
+        "method_components": [
+          "model",
+          "dataset"
+        ],
+        "input": "蛋白质氨基酸序列 + AlphaFold预测的3D结构（经Foldseek编码为3Di token）+ 文本提示",
+        "output": "自由文本形式的蛋白功能描述（含分子功能、细胞组分、生物过程、同源上下文等）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "code-only",
+        "tags": [
+          "multimodal-fusion",
+          "dataset"
+        ],
+        "novelty": 6,
+        "evidence": 7,
+        "reproducibility_score": 4,
+        "significance": 58,
+        "significance_reason": "首次系统性将结构信息（3Di）嵌入BLIP2式多模态对齐框架用于蛋白功能生成，实证优于纯序列基线，但仅在单一数据集（Swiss-Prot+AFDB）上验证，未测试泛化到新fold/新功能族/实验验证结构，也未与ESM-2/ESMFold/AlphaFold2等基石模型在下游任务（如突变影响预测、功能迁移）上横向对比，属扎实但窄域的增量创新。",
+        "one_sentence_verdict": "扎实增量：技术路线合理、有消融验证，但未突破蛋白功能预测范式，也未证明其生成文本具备可解释性或实验指导价值，暂未达到基石级分量",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 15.1,
+        "content": 17.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 32.1,
+        "bonus": 0.0,
+        "total": 32.1
+      },
+      "grade": "D",
+      "read_priority": "B"
+    },
+    {
       "arxiv_id": "2606.05143",
       "doi": "10.48550/arxiv.2606.05143",
       "source_kind": "arxiv",
@@ -88165,6 +88660,87 @@
       "grade": "D",
       "read_priority": "B",
       "thumb": "assets/thumbs/2607.07287.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.07.07.737093",
+      "doi": "10.64898/2026.07.07.737093",
+      "source_kind": "biorxiv",
+      "title": "Locus-Level Transposable Element Profiling Resolves Division-Coupled Transcriptional Dynamics During Human Endoderm Specification",
+      "abstract": "Background: Transposable elements (TEs) constitute nearly half of the human genome and are now recognized as significant contributors to mammalian gene regulatory networks. Despite this, most transcriptomic studies quantify TE expression at the subfamily level, which may obscure meaningful variation arising from individual insertion sites. Whether resolving TE expression to individual loci can reveal biologically distinct signals during stem cell differentiation has not been systematically characterized. Results: We re-analysed a published RNA-seq time course of FUCCI-h9 human embryonic stem cells differentiating into definitive endoderm (0 to 72 hour, seven time points, three division cycles, three biological replicates), quantifying expression in parallel at two complementary resolutions: TE subfamilies using TEtranscripts and individual TE loci using TElocal. The primary finding is that individual TE loci capture heterogeneous transcriptional responses at cell division boundaries that are entirely absent at the subfamily level. Within-division-state PC1 variance for TE loci was substantially elevated at the first division cycle (6.72; 95% bootstrap CI 0.63 - 8.48) compared with TE subfamilies (0.22; CI 0.04 - 0.34), with non-overlapping confidence intervals providing statistically robust support for the resolution advantage. Differential expression analysis identified over 18,000 dynamic TE loci across the time course, exceeding the 268 differentially expressed subfamilies, with alternating phases of silencing and reactivation resolved only at locus resolution. Differentially expressed TE loci were non-randomly enriched at superenhancers (fold enrichment: 9.1 - 23.5-fold; p &lt; 0.001 by permutation), with peak overlap at 36-48 hours coinciding with the second cell division and endoderm commitment. ERV1-class elements, particularly HERVH-int, were the dominant contributors, and representative loci near the endoderm regulators MIXL1 and ID3 showed differentiation-induced RNA-seq signal within proximal superenhancer domains. Conclusions: TE loci exhibit heterogeneous transcriptional responses at cell division boundaries, a signal with non-overlapping bootstrap confidence intervals relative to TE subfamilies at the first division cycle that is entirely masked by subfamily-level aggregation. This division-boundary resolution advantage, together with permutation-confirmed enrichment of dynamic loci at superenhancers during a discrete 36-48 hour endoderm commitment window, supports broader adoption of locus-resolved TE quantification as a complement to conventional gene expression analysis in developmental genomics.",
+      "authors": [
+        "AMRIT GAIRE",
+        "Erich Kummerfeld",
+        "Constantin Aliferis",
+        "Yi-Xiang Wang"
+      ],
+      "categories": [],
+      "published": "2026-07-11",
+      "updated": "2026-07-11",
+      "url": "https://doi.org/10.64898/2026.07.07.737093",
+      "pdf_url": "https://doi.org/10.64898/2026.07.07.737093",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.077,
+        "world_model": 0.0877,
+        "whole_body_control": 0.1984,
+        "dexterous_manipulation": 0.0629,
+        "sim2real_data": 0.0683,
+        "hardware_unitree": 0.0894,
+        "bci_neural_decoding": 0.1761,
+        "bci_foundation_models": 0.1599,
+        "bci_embodied_robot": 0.1021,
+        "bci_noninvasive_eeg": 0.1144,
+        "protein_ai": 0.3025,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.401,
+      "first_seen": "2026-07-14",
+      "analysis": {
+        "tldr": "这篇论文用 locus-level（单个插入位点）而非传统 subfamily-level（TE亚家族）方法分析转座子表达，发现在人类内胚层分化过程中，单个TE位点的表达在细胞分裂边界呈现高度异质性动态，这种信号被亚家族平均完全掩盖，且这些动态位点显著富集于超级增强子区域，尤其在36–48小时的关键命运决定窗口。",
+        "org": "unknown",
+        "country": "US",
+        "org_type": "university",
+        "claim": "TE表达的生物学意义必须在单个基因组插入位点（locus）分辨率下才能被可靠捕获，亚家族水平的聚合会系统性抹除与细胞分裂耦合的转录动态信号。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "FUCCI-h9人胚胎干细胞向定型内胚层分化的RNA-seq时间序列数据（0–72小时，7个时间点，3个生物重复）",
+        "output": "每个转座子插入位点的定量表达值及差异表达状态（激活/沉默）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 72,
+        "significance_reason": "方法学上确证了locus-level TE量化对发育转录动力学的不可替代性——提供了bootstrap非重叠CI、超增强子富集p<0.001、18k+动态位点vs仅268个亚家族的强对比证据；但局限于单一分化体系（内胚层）、未开源代码/模型，未拓展至其他谱系或疾病模型，属扎实但边界明确的机制发现，未达基石级广度或技术通用性。",
+        "one_sentence_verdict": "真突破：首次以统计稳健方式证明TE位点分辨率是解析分裂耦合转录动态的必要条件，推翻亚家族聚合的常规实践，但限于特定发育场景，尚未形成可迁移工具链。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 12.0,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 32.0,
+        "bonus": 0.0,
+        "total": 32.0
+      },
+      "grade": "D",
+      "read_priority": "B"
     },
     {
       "arxiv_id": "2605.29864",
@@ -92152,6 +92728,88 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2607.03828.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.07.03.736278",
+      "doi": "10.64898/2026.07.03.736278",
+      "source_kind": "biorxiv",
+      "title": "The impact of behavioural activity on the EEG power spectrum, its source localisation, and global functional connectivity in rats",
+      "abstract": "Abstract The behavioural activity of freely moving animals is a confounding factor that affects the recording, analysis, and final results of animal EEG experiments. Along with the lack of standardisation in animal in vivo electrophysiology experiments, this could lead to huge inconsistencies, especially in the analysis of centrally acting drugs. Therefore, the main aim of this paper is to investigate the effects of behavioural activity versus inactivity on the multichannel EEG in freely moving rats. In a large sample (n = 116) of waking recordings from 12 cortical electrodes (ECoG) in Wistar rats, we evaluated behavioural activity-related changes in the power spectrum, current source density, and power-based global functional connectivity (GFC) in a 3D rat brain model, according to the TOHOKU Rat Brain Atlas. The main findings were that behavioural activity induced 1) a robust power increase in 6-8 Hz, peaking at 7 Hz with maximum changes over the parietal and temporal cortex, 2) an increase in gamma power (30-80 Hz) across the whole brain, 3) a decrease in delta (1-4 Hz) and beta (12-30 Hz) power across the whole cortex. Changes were also localised in subcortical regions, particularly in the diencephalon/thalamus. The GFC analysis showed a similar pattern of power changes across the 6-8 Hz, delta, and beta bands; however, GFC in the gamma band decreased. Again, the GFC analysis revealed changes in connectivity within subcortical structures, primarily in the thalamus. None of the measures was affected in the alpha band (8-12 Hz). These findings emphasise behavioural state as a critical factor influencing EEG outcomes, with important implications for the standardisation and translational validity of preclinical neurophysiological studies.",
+      "authors": [
+        "Čestmír Vejmola",
+        "Stanislav Jiříček",
+        "Marcel Bochin",
+        "Vlastimil Koudelka",
+        "Tomáš Páleníček"
+      ],
+      "categories": [],
+      "published": "2026-07-08",
+      "updated": "2026-07-08",
+      "url": "https://doi.org/10.64898/2026.07.03.736278",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/08/2026.07.03.736278.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0851,
+        "world_model": 0.219,
+        "whole_body_control": 0.0555,
+        "dexterous_manipulation": 0.044,
+        "sim2real_data": 0.0155,
+        "hardware_unitree": 0.0591,
+        "bci_neural_decoding": 0.3634,
+        "bci_foundation_models": 0.483,
+        "bci_embodied_robot": 0.2496,
+        "bci_noninvasive_eeg": 0.5,
+        "protein_ai": 0.0953,
+        "genomics_ai": 0.1221
+      },
+      "best_route": "bci_noninvasive_eeg",
+      "relevance_raw": 0.483,
+      "first_seen": "2026-07-14",
+      "analysis": {
+        "tldr": "这篇论文用116次清醒大鼠的皮层脑电（ECoG）记录，系统量化了行为活动（如走动、探查）与静息状态对EEG功率谱、源定位和全脑功能连接的影响，发现7Hz频段和伽马频段功率显著升高，而delta和beta频段下降，且这些变化在皮层和丘脑等亚皮层区域均有定位，强调行为状态是动物EEG实验中必须控制的关键混杂变量。",
+        "org": "查理大学",
+        "country": "CZ",
+        "org_type": "university",
+        "claim": "自由行为活动会特异性地、可重复地改变大鼠多通道EEG的频谱功率分布、源空间激活模式及全脑功能连接结构，且该效应跨个体稳定，构成动物电生理实验中不可忽视的核心混杂因素。",
+        "method_components": [
+          "dataset",
+          "simulator"
+        ],
+        "input": "12通道皮层ECoG信号 + 行为视频标注（活动/静息）",
+        "output": "频段特异性功率变化图、电流源密度分布图、基于功率的全脑功能连接矩阵",
+        "robot_dependency": "none",
+        "data_dependency": "完全依赖真实大鼠电生理数据（n=116次清醒记录）",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 5,
+        "evidence": 9,
+        "reproducibility_score": 3,
+        "significance": 48,
+        "significance_reason": "虽为扎实的实证工作（大样本、多模态EEG分析、跨皮层-亚皮层验证），但属方法学控制层面的重要发现，未提出新范式、未解决长期开放难题、未推动BCI解码性能或临床转化，也未构建通用模型或开源完整代码/数据；其价值在于警示与标准化，而非技术突破，明显低于所有列举的基石工作（均涉及实时闭环解码、高维神经接口、临床级应用）。",
+        "one_sentence_verdict": "工程整合：系统性地完成了动物EEG中行为混杂效应的定量刻画，是高质量的预临床方法学研究，但未跨越到神经接口或解码技术层面，暂不构成突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 14.5,
+        "content": 17.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 31.5,
+        "bonus": 0.0,
+        "total": 31.5
+      },
+      "grade": "D",
+      "read_priority": "C"
     },
     {
       "arxiv_id": "2606.12499",
@@ -97071,6 +97729,87 @@
       "thumb": "assets/thumbs/2607.04554.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.07.10.737545",
+      "doi": "10.64898/2026.07.10.737545",
+      "source_kind": "biorxiv",
+      "title": "ProtAug: An Empirical Investigation of pLM-Guided Data Augmentation for Protein Sequence Prediction Tasks",
+      "abstract": "Protein language models (pLMs) offer great potential for protein sequence analysis, yet the scarcity of labeled data often limits their effectiveness in fine-tuning. Data augmentation is a promising remedy, but systematic evaluation of augmentation strategies for protein sequences remains limited, and the conditions under which augmentation confers downstream benefits are not well understood. In this paper, we systematically investigate pLM-guided substitution-based augmentation across seven protein prediction tasks. We propose ProtAug, a framework that leverages encoder-based (ESM-2) and autoregressive (ProtGPT2) pLMs to generate augmented sequences with user-controlled variation levels. Our investigation focuses on four questions: (Q1) whether pLM-synthesized sequences preserve more original signals than simpler methods, (Q2) to what extent augmentation improves prediction performance, (Q3) how variation levels affect downstream accuracy across tasks and models, and (Q4) whether biological plausibility is a necessary condition for achieving improvement. Our experimental results show that: (1) ProtAug_Esm generally preserves motifs and structural similarity better than simple substitution, often comparable to homology retrieval; (2) augmentation yields consistent but task-dependent improvements, with ProtAug_Esm achieving the best or second-best performance in 5 out of 7 tasks at 10% variation; (3) low-to-moderate variation levels (2-30%) perform best overall, although high-variation augmentation can benefit certain structure-related tasks; (4) the necessity of biological plausibility is task- and variation-dependent-while semantic preservation correlates with performance at low-to-moderate variation levels, improved generalization at high variation levels suggests that regularization effects, rather than label preservation, can also drive performance gains.",
+      "authors": [
+        "Zhuoyang Chen",
+        "Ruoqi Wang",
+        "Qiong Luo"
+      ],
+      "categories": [],
+      "published": "2026-07-11",
+      "updated": "2026-07-11",
+      "url": "https://doi.org/10.64898/2026.07.10.737545",
+      "pdf_url": "https://doi.org/10.64898/2026.07.10.737545",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2582,
+        "world_model": 0.2633,
+        "whole_body_control": 0.2118,
+        "dexterous_manipulation": 0.1518,
+        "sim2real_data": 0.1586,
+        "hardware_unitree": 0.0672,
+        "bci_neural_decoding": 0.2822,
+        "bci_foundation_models": 0.263,
+        "bci_embodied_robot": 0.0731,
+        "bci_noninvasive_eeg": 0.1559,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.4146
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.43,
+      "first_seen": "2026-07-14",
+      "analysis": {
+        "tldr": "这篇论文系统评估了用蛋白语言模型（pLM）生成替代序列来做数据增强的效果，在7个蛋白预测任务上测试了不同变异程度、不同pLM（ESM-2 vs ProtGPT2）的增强策略，发现低中度变异下ESM-2增强能较好保留功能信号并稳定提升性能，而高变异时性能提升可能源于正则化而非生物合理性。",
+        "org": "未知",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "pLM引导的数据增强效果高度依赖任务类型、变异程度和pLM架构，生物合理性并非性能提升的必要条件——在高变异下，正则化效应可独立驱动泛化增益。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "原始蛋白序列及其标签（如二级结构、荧光、稳定性等）",
+        "output": "增强后的蛋白序列集合（用于扩充训练集）",
+        "robot_dependency": "none",
+        "data_dependency": "完全依赖公开蛋白序列数据集（无实验测量数据生成）",
+        "sim2real_status": "n/a",
+        "generalization": "跨任务",
+        "reproducibility": "code-only",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 5,
+        "evidence": 8,
+        "reproducibility_score": 5,
+        "significance": 52,
+        "significance_reason": "扎实的实证分析但未提出新模型或新任务，仅系统性验证已有pLM（ESM-2/ProtGPT2）在数据增强中的行为规律；所有实验基于公开基准任务与标准指标，无新湿实验验证、无新结构/功能预测能力突破，贡献属于方法论诊断级（diagnostic study），显著优于纯概念但远未达基石级（如ESM-2/AlphaFold2级）",
+        "one_sentence_verdict": "扎实增量：首次系统量化pLM增强中变异程度、模型类型与任务特性的交互效应，但未创造新能力或解决领域核心瓶颈",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 12.9,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 30.9,
+        "bonus": 0.0,
+        "total": 30.9
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "2606.09315",
       "doi": "10.48550/arxiv.2606.09315",
       "source_kind": "arxiv",
@@ -99725,6 +100464,89 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2607.06971.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.07.07.737019",
+      "doi": "10.64898/2026.07.07.737019",
+      "source_kind": "biorxiv",
+      "title": "Consistency Analyses of Open-source Software for Motor Unit Decomposition Using High-density Electromyography Signal",
+      "abstract": "Abstract Motor unit (MU) decomposition using high-density surface electromyography (HD-sEMG) has been widely used to characterize MU behavior in neurophysiology and to build neural-machine interfaces for wearable robots. Recently, many open-source software tools for MU decomposition have been made available on GitHub, which could reduce the effort of researchers in the field. However, the consistency among these open-source tools has never been studied, making researchers hesitate to use them. In this study, we collected 7 open-source software tools on GitHub and applied them to decompose MUs from an open-source HD-sEMG dataset (including 11 isometric contraction trials) to investigate the consistency among these tools. To create a comprehensive MU pool for reference, we combined all unique MUs identified by seven tools, visually inspected and removed bad MUs, and manually edited all remaining MU spike trains. Across 7 tools for 11 trials, the number of identified MUs ranges from 167 to 736. The number of valid MUs after expert inspection ranges from 29 to 210, which is 10% to 72% of the reference pool. The rate of agreement between the raw MUSTs and the manually edited MUSTs ranges from 0.86 to 0.94, and the averaged number of edits per MU to correct misalignments ranges from 14 to 39. The results show inconsistency in the implementation and procedures of each tool, which results in an inconsistent number of identified MUs and valid MUs (29 vs 210). In general, a substantial amount of effort is required to process the raw MUSTs from each tool to conduct further research analysis. This study provided a guideline for using open-source software tools for MU decomposition and indicated that it would be beneficial to develop tools to automatically edit the MUSTs.",
+      "authors": [
+        "Jirui Fu",
+        "Shiyu Zhang",
+        "Helen J. Huang",
+        "Mohsen Rakhshan",
+        "Yue Wen"
+      ],
+      "categories": [],
+      "published": "2026-07-08",
+      "updated": "2026-07-08",
+      "url": "https://doi.org/10.64898/2026.07.07.737019",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/08/2026.07.07.737019.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2886,
+        "world_model": 0.266,
+        "whole_body_control": 0.3081,
+        "dexterous_manipulation": 0.2359,
+        "sim2real_data": 0.2299,
+        "hardware_unitree": 0.1827,
+        "bci_neural_decoding": 0.4527,
+        "bci_foundation_models": 0.3821,
+        "bci_embodied_robot": 0.4415,
+        "bci_noninvasive_eeg": 0.5,
+        "protein_ai": 0.2221,
+        "genomics_ai": 0.2186
+      },
+      "best_route": "bci_noninvasive_eeg",
+      "relevance_raw": 0.4527,
+      "first_seen": "2026-07-14",
+      "analysis": {
+        "tldr": "这篇论文系统评测了7个开源肌电分解工具在同一个公开高密度肌电信号数据集上的结果一致性，发现各工具识别出的运动单元数量差异极大（167–736个），经专家人工校正后有效单元数仅29–210个，且需大量手动修正 spike 时间对齐，揭示了当前开源工具在方法学和实现上缺乏标准化、结果不可靠。",
+        "org": "佛罗里达国际大学",
+        "country": "US",
+        "org_type": "university",
+        "claim": "当前主流开源运动单元分解软件在相同HD-sEMG数据上输出结果高度不一致，导致可重复性差、后续分析成本高，亟需标准化评估与自动化校正工具。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "高密度表面肌电信号（HD-sEMG）时序数据",
+        "output": "运动单元动作电位序列（MUSTs）",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据，仅使用公开肌电数据集",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "code-only",
+        "tags": [
+          "benchmark",
+          "dataset",
+          "open-source"
+        ],
+        "novelty": 4,
+        "evidence": 8,
+        "reproducibility_score": 5,
+        "significance": 38,
+        "significance_reason": "属严谨的方法学评估型工作，实证扎实（7工具+11试次+专家校验），但未提出新算法/模型/硬件，也未解决神经解码核心瓶颈（如实时性、跨被试泛化、闭环控制），仅暴露现有工具缺陷并给出使用建议，贡献限于领域内工程实践规范层面，远低于所有列出的基石工作（最低档90+分均为突破性闭环脑机接口或临床级神经假体）。",
+        "one_sentence_verdict": "工程整合：做了关键但被动的工具横向评测，揭示了领域基础设施短板，但未推动科学边界或技术范式演进",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 13.6,
+        "content": 17.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 30.6,
+        "bonus": 0.0,
+        "total": 30.6
+      },
+      "grade": "D",
+      "read_priority": "C"
     },
     {
       "arxiv_id": "2606.01072",
@@ -102526,6 +103348,169 @@
       "scores": {
         "relevance": 8.2,
         "content": 22.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 30.2,
+        "bonus": 0.0,
+        "total": 30.2
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
+      "arxiv_id": "10.64898/2026.07.11.737882",
+      "doi": "10.64898/2026.07.11.737882",
+      "source_kind": "biorxiv",
+      "title": "ProtPen combines sequence- and structure-based approaches to facilitate protein function predictions on a proteome-wide scale",
+      "abstract": "Proteins of unknown function represent a significant gap in our understanding of biological processes, encompassing large portions of the proteomes of many organisms, especially prokaryotes. Addressing this gap is critical to understanding the biology and pathogenicity of such organisms. We introduce ProtPen, an open-source pipeline that facilitates protein function prediction by combining eggNOG-mapper for sequence-based annotation with Foldseek for rapid structural similarity searches using AlphaFold-predicted protein structures. Annotation results from both tools are merged and enriched with UniProt metadata to produce a comprehensive output suitable for downstream analysis. The pipeline requires only a FASTA input file with UniProt identifiers, and is designed to analyze datasets on the scale of whole proteomes. Benchmarking on a curated dataset of well-characterized Pseudomonas aeruginosa proteins demonstrated an annotation accuracy of &gt;90%, and highlighted the complementarity of sequence- and structure-based methods. Further evaluation of ProtPen included its application to biologically relevant datasets, comprising proteins of unknown function that exhibited significant differential abundances in a proteomics dataset of P. aeruginosa, and uncharacterized glycoproteins from Haloferax volcanii. ProtPen is readily extensible to incorporate additional protein function prediction tools. In summary, this pipeline facilitates the systemwide annotation of proteins of unknown function from proteomic datasets and whole proteomes.",
+      "authors": [
+        "Diya Mathai",
+        "Stefan Schulze"
+      ],
+      "categories": [],
+      "published": "2026-07-11",
+      "updated": "2026-07-11",
+      "url": "https://doi.org/10.64898/2026.07.11.737882",
+      "pdf_url": "https://doi.org/10.64898/2026.07.11.737882",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1549,
+        "world_model": 0.1858,
+        "whole_body_control": 0.1297,
+        "dexterous_manipulation": 0.0952,
+        "sim2real_data": 0.1046,
+        "hardware_unitree": 0.0511,
+        "bci_neural_decoding": 0.1013,
+        "bci_foundation_models": 0.1519,
+        "bci_embodied_robot": 0.1002,
+        "bci_noninvasive_eeg": 0.1219,
+        "protein_ai": 0.5385,
+        "genomics_ai": 0.4132
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.5385,
+      "first_seen": "2026-07-14",
+      "analysis": {
+        "tldr": "ProtPen是一个开源流程，把序列比对（eggNOG-mapper）和结构比对（Foldseek+AlphaFold预测结构）结果合并，并补充UniProt元数据，用于大规模蛋白质功能注释，尤其针对未知功能蛋白。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "整合序列与结构信息的自动化流程ProtPen能显著提升全蛋白组尺度下未知功能蛋白的功能预测准确率与覆盖度。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "FASTA文件（含UniProt ID）",
+        "output": "结构化功能注释报告（含GO、EC、COG、描述、置信度等）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "large-scale"
+        ],
+        "reproducibility": "code-only",
+        "tags": [
+          "open-source",
+          "benchmark",
+          "dataset"
+        ],
+        "novelty": 3,
+        "evidence": 6,
+        "reproducibility_score": 5,
+        "significance": 42,
+        "significance_reason": "是实用型工程整合（非模型创新），依赖已有工具（eggNOG-mapper/Foldseek/AlphaFold），无新算法或架构；虽在P. aeruginosa上达>90%准确率，但未验证跨物种泛化性，未开源训练数据或模型权重，也未与ESM/AlphaFold系方法对比，仅属扎实的流程级增量，远未达基石级（如ESM-2/AlphaFold2）的范式突破或底层建模创新。",
+        "one_sentence_verdict": "工程整合：将现有SOTA工具串接成可复用流程，提升了分析效率，但未贡献新模型、新表征或新生物学发现。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 16.2,
+        "content": 14.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 30.2,
+        "bonus": 0.0,
+        "total": 30.2
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
+      "arxiv_id": "10.64898/2026.07.04.736200",
+      "doi": "10.64898/2026.07.04.736200",
+      "source_kind": "biorxiv",
+      "title": "A Chromosome-level Genome Assembly of the Potato Leafhopper <i>Empoasca fabae</i> (Hemiptera: Cicadellidae)",
+      "abstract": "ABSTRACT The potato leafhopper, Empoasca fabae (Harris, 1841), is a highly polyphagous, migratory insect pest of eastern North America that feeds on more than 200 herbaceous and woody plant species, causing substantial losses to forage and field crops. Despite its agricultural and ecological importance, no genome has been available for this species. Here, we present the first chromosome-level genome assembly of E. fabae , generated from Oxford Nanopore long reads, Illumina short reads, and Omni-C proximity-ligation data. The final assembly spans 908 Mb across 132 scaffolds, with 99.8% of the assembly captured in ten chromosome-length scaffolds (nine autosomes and an X chromosome) with a scaffold N50 of 96.2 Mb. The assembly is highly complete, recovering 92.4% of conserved hemipteran single-copy orthologs, and is composed of 47.6% repetitive sequence, dominated by long terminal repeat retrotransposons and unclassified elements. Read-depth comparison between male and female individuals supports assignment of a single sex-linked chromosome, consistent with an XO sex-determination system. BRAKER3 gene annotation predicted 31,406 protein-coding genes after retaining the longest isoform per locus. Comparative genome analysis against the two closest related Typhlocybinae species with genomes available, Matsumurasca onukii and Hebata decipiens , revealed extensive chromosome-scale collinearity, while defining a shared core gene repertoire. This reference genome provides a foundation for comparative and population genomic studies and for investigating genetic traits in this economically important crop pest species. SIGNIFICANCE Leafhoppers (Cicadellidae) are among the most diverse families of plant-feeding insects, but chromosome-level genomes remain scarce, particularly for mesophyll-feeding members of the subfamily Typhlocybinae. The potato leafhopper, Empoasca fabae , is an unusually polyphagous crop and migratory pest of major importance across North America. Here, we provide the first chromosome-level genome assembly for this species. This chromosomal reference reveals broad synteny with two related Typhlocybinae relatives. This assembly will serve as a critical resource, enabling further comparative genomics, population genomics, and functional studies of host-plant adaptation in a significant agricultural crop pest species.",
+      "authors": [
+        "Joshua Molligan",
+        "Florent Sylvestre",
+        "Edel Pérez‐López"
+      ],
+      "categories": [],
+      "published": "2026-07-09",
+      "updated": "2026-07-09",
+      "url": "https://doi.org/10.64898/2026.07.04.736200",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/09/2026.07.04.736200.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0701,
+        "world_model": 0.0118,
+        "whole_body_control": 0.1563,
+        "dexterous_manipulation": 0.0745,
+        "sim2real_data": 0.0703,
+        "hardware_unitree": 0.1065,
+        "bci_neural_decoding": 0.0752,
+        "bci_foundation_models": 0.0995,
+        "bci_embodied_robot": 0.1024,
+        "bci_noninvasive_eeg": 0.1037,
+        "protein_ai": 0.2372,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.3415,
+      "first_seen": "2026-07-14",
+      "analysis": {
+        "tldr": "这篇论文首次为马铃薯叶蝉（一种危害严重的农业害虫）构建了染色体水平的高质量基因组组装，整合了纳米孔长读长、Illumina短读长和Omni-C染色质构象数据，获得了10条染色体长度的连续序列，并完成了基因注释和比较基因组分析。",
+        "org": "unknown",
+        "country": "US",
+        "org_type": "unknown",
+        "claim": "本研究提供了首个染色体水平的马铃薯叶蝉（Empoasca fabae）基因组组装，填补了该重要农业害虫无高质量参考基因组的空白，并揭示其与近缘种间广泛的染色体共线性。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "Oxford Nanopore长读长 + Illumina短读长 + Omni-C染色质互作数据",
+        "output": "染色体水平基因组组装（10条染色体长度scaffold）、31,406个蛋白编码基因注释、重复序列组成、性染色体判定、与近缘种的共线性图谱",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 58,
+        "significance_reason": "属高质量物种基因组资源建设：技术扎实（多平台整合+染色体锚定+完整BUSCO评估+性染色体验证+跨种比较），但本质是单物种参考基因组产出，未解决方法学普适性问题，也未开展功能验证或群体/适应性机制实证；显著优于普通基因组草图（如仅Illumina scaffold N50<1 Mb），但远未达AlphaFold2/ESM/RFdiffusion等定义新范式的里程碑级别，亦未达到dtSFM级药物靶点特异性建模的科学纵深。",
+        "one_sentence_verdict": "扎实增量——是农业害虫基因组学中一次高质量、可复用的基础资源建设，但非方法论突破，也未延伸至机制或应用层实证。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 10.2,
+        "content": 20.0,
         "heat": 0.0,
         "quality": 0.0,
         "base": 30.2,
@@ -129932,6 +130917,89 @@
       "thumb": "assets/thumbs/2606.07935.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.07.01.735932",
+      "doi": "10.64898/2026.07.01.735932",
+      "source_kind": "biorxiv",
+      "title": "UVfinder: a tool to extract bryophyte sex-linked gene copies from the GoFlag408 probe set",
+      "abstract": "Target enrichment sequencing using probe sets like GoFlag 408 has revolutionized phylogenetics, yet recent genomic data indicate that some probes may be sex-linked, potentially introducing topological conflict while also allowing studies of sex-specific evolutionary processes. To test for sex-linkage across the bryophytes, we developed UVfinder, a pipeline designed to identify sex-linked GoFlag loci across published moss genomes and enable sex-aware downstream analyses. Applying UVfinder to 50 dioicous moss genomes, we identified 93 probes that exhibit sex-linkage in one or more lineages, providing genomic evidence for neo-sex chromosome formation via autosome-sex chromosome fusion and gene translocation. Furthermore, by comparing species trees derived from sex-linked versus autosomal loci in Hypnales and Dicranidae, we demonstrate that sex-linked loci harbor phylogenetic information that is distinct from that in autosomes. We also discovered a pervasive female sampling bias in the genomic data, perhaps reflecting a preference among collectors for plants with sporophytes. Ultimately, our findings highlight the dynamism in sex linkage across bryophytes and suggest that sex-aware phylogenomics can be used to reconstruct ancestral karyotypes and potentially resolve topological conflict. We expect that UVfinder will facilitate the further study of sex-specific evolutionary processes, particularly with improved genome assemblies and increased sampling in males.",
+      "authors": [
+        "Seyeon Kim",
+        "John L. Bowman",
+        "Edward L. Braun",
+        "Stuart F. McDaniel"
+      ],
+      "categories": [],
+      "published": "2026-07-07",
+      "updated": "2026-07-07",
+      "url": "https://doi.org/10.64898/2026.07.01.735932",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/07/2026.07.01.735932.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0616,
+        "world_model": 0.044,
+        "whole_body_control": 0.0643,
+        "dexterous_manipulation": 0.0702,
+        "sim2real_data": 0.0404,
+        "hardware_unitree": 0.0651,
+        "bci_neural_decoding": 0.0,
+        "bci_foundation_models": 0.0171,
+        "bci_embodied_robot": 0.0,
+        "bci_noninvasive_eeg": 0.0137,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2122
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.2122,
+      "first_seen": "2026-07-14",
+      "analysis": {
+        "tldr": "开发了一个叫UVfinder的生物信息学工具，从已有的GoFlag408探针集中识别出在苔藓植物中存在性染色体连锁现象的基因位点，并用50个雌雄异株苔藓基因组验证了93个探针存在跨谱系的性连锁，揭示了苔藓中新性染色体形成的机制（常染色体-性染色体融合+基因易位），同时发现现有基因组数据存在严重雌性采样偏差。",
+        "org": "佛罗里达大学",
+        "country": "US",
+        "org_type": "university",
+        "claim": "GoFlag408探针集中存在大量在苔藓中性连锁的位点，其系统发育信号与常染色体位点不同，且性连锁状态具有谱系特异性，支持新性染色体动态演化假说。",
+        "method_components": [
+          "tool",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "已组装的苔藓基因组FASTA文件 + GoFlag408探针序列",
+        "output": "每个GoFlag探针对应的性连锁状态判定（X/Y-linked/autosomal）、支持证据（覆盖深度比、等位基因缺失模式、共线性断裂）、以及性染色体区域注释",
+        "robot_dependency": "none",
+        "data_dependency": "完全依赖已发表的50个苔藓基因组组装数据（无原始测序数据生成）",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "code-only",
+        "tags": [
+          "dataset",
+          "benchmark",
+          "open-source"
+        ],
+        "novelty": 6,
+        "evidence": 8,
+        "reproducibility_score": 6,
+        "significance": 52,
+        "significance_reason": "工具设计合理、实证扎实（50基因组+消融式覆盖分析+物种树对比），但问题尺度窄（仅限GoFlag408+苔藓）、方法无算法突破（基于已有比对/深度/共线性指标组合）、未开源训练数据或模型、未解决长期开放难题（如通用性染色体预测），属高质量领域专用工具+可靠发现，但未达‘显著贡献’门槛（需跨类群泛化或推动方法范式）。",
+        "one_sentence_verdict": "工程整合：将已有基因组分析指标（覆盖深度比、等位缺失、共线性断裂）系统化封装为可复现的性连锁探测流程，并在苔藓中获得稳健生物学发现，但未提出新算法或拓展至其他类群。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 6.4,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 26.4,
+        "bonus": 0.0,
+        "total": 26.4
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "2606.00550",
       "doi": "10.48550/arxiv.2606.00550",
       "source_kind": "arxiv",
@@ -133607,6 +134675,87 @@
       "thumb": "assets/thumbs/2607.02474.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.07.10.737777",
+      "doi": "10.64898/2026.07.10.737777",
+      "source_kind": "biorxiv",
+      "title": "Characterizing the Small Non-Coding RNA Pathways in the Invasive Zebra Mussel ( <i>Dreissena polymorpha</i> )",
+      "abstract": "The zebra mussel ( Dreissena polymorpha ) is an invasive species that causes extensive economic and ecological damage. Here, we identify and characterize the key components of the small RNA (sRNA) and RNA interference (RNAi) pathways in zebra mussels. Like other mollusks, zebra mussels have extensive microRNA (miRNA) and Piwi-interacting RNA (piRNA) machinery but lack or have modified canonical factors needed to produce small interfering RNA (siRNA). Specifically, the zebra mussel Dicer sequence displays substitutions in the conserved DEAD box motif that is required for substrate processivity, and this organism also lacks some attendant accessory factors such as R2D2. We sequenced the small RNA found in both isolated somatic tissue (adductor muscle) and whole animals (including germline), and identified both conserved and novel miRNA and diverse piRNA sequences, but few endogenous siRNAs. To determine whether their remaining sRNA machinery could still be co-opted to initiate gene silencing, we injected dsRNA targeting several genes into zebra mussel adductor muscle. The injected rpn8 -targeting dsRNA reduced rpn8 mRNA levels and was processed into sRNA that resemble endogenous miRNAs and piRNAs. The levels of both sRNA types correlated with mRNA knockdown, suggesting that they may act together to initiate RNAi as seen elsewhere. dsRNA targeting other genes produced variable results suggesting that particular criteria may be needed to trigger an RNAi response in this assay. Our results characterize endogenous sRNA pathways in zebra mussels, establish that dsRNA can induce RNAi, and lay the groundwork for further optimizations to establish RNAi-based genetic manipulation tools for this damaging invasive species.",
+      "authors": [
+        "Víctor Hugo Hérnández‐Elizárraga",
+        "Lindsey Gengelbach O'Brien",
+        "Scott Ballantyne",
+        "Daryl M. Gohl"
+      ],
+      "categories": [],
+      "published": "2026-07-11",
+      "updated": "2026-07-11",
+      "url": "https://doi.org/10.64898/2026.07.10.737777",
+      "pdf_url": "https://doi.org/10.64898/2026.07.10.737777",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0053,
+        "world_model": 0.0,
+        "whole_body_control": 0.0291,
+        "dexterous_manipulation": 0.0544,
+        "sim2real_data": 0.027,
+        "hardware_unitree": 0.0424,
+        "bci_neural_decoding": 0.137,
+        "bci_foundation_models": 0.0131,
+        "bci_embodied_robot": 0.0307,
+        "bci_noninvasive_eeg": 0.0536,
+        "protein_ai": 0.1273,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.3152,
+      "first_seen": "2026-07-14",
+      "analysis": {
+        "tldr": "这篇论文系统解析了入侵物种斑马贻贝的小非编码RNA通路，发现其缺乏典型siRNA生成能力（Dicer突变、缺失R2D2），但实验证明外源dsRNA仍能触发RNAi——被加工成类似miRNA/piRNA的sRNA并导致靶基因mRNA下降，为后续开发该物种的RNAi遗传操作工具提供首个实证基础。",
+        "org": "unknown",
+        "country": "US",
+        "org_type": "university",
+        "claim": "斑马贻贝虽缺失经典siRNA通路核心因子，但其残存的sRNA机制仍可被外源dsRNA劫持，产生功能性RNAi效应。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "dsRNA注射（靶向rpn8等基因）、小RNA测序文库（来自肌肉组织和全动物）",
+        "output": "sRNA序列谱（miRNA/piRNA/siRNA丰度与类型）、靶基因mRNA表达水平、sRNA加工产物特征",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 7,
+        "reproducibility_score": 3,
+        "significance": 42,
+        "significance_reason": "属扎实的非模式生物分子机制探索：首次刻画斑马贻贝sRNA通路缺陷，并用dsRNA注射+qPCR+sRNA-seq证实RNAi可行性，但仅限单一组织（肌肉）、少数基因（rpn8为主）、无脱靶/效率定量/体内递送优化，未建立可复用的遗传操作流程，离‘工具化’尚远；相比AI×科学领域基石工作（如AlphaFold2/ESM系列），既无算法/模型创新，也无跨物种泛化或高通量应用潜力，仅为特定生态防控需求的前置基础研究。",
+        "one_sentence_verdict": "扎实增量：完成入侵软体动物RNAi通路的首份实证刻画，但未突破方法学边界，也未构建可推广工具，属于特定物种机制研究中的可靠一步。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 9.5,
+        "content": 16.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 25.5,
+        "bonus": 0.0,
+        "total": 25.5
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "10.64898/2026.05.31.729038",
       "doi": "10.64898/2026.05.31.729038",
       "source_kind": "biorxiv",
@@ -137260,6 +138409,86 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2606.23280.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.07.06.736558",
+      "doi": "10.64898/2026.07.06.736558",
+      "source_kind": "biorxiv",
+      "title": "SPECTER-Based Semantic Triage of Biomedical Literature for Systematic Reviews in Mutational Signature Analysis",
+      "abstract": "Systematic reviews in computational biology require screening large heterogeneous bibliographic sets, especially when topics span computational methods, cancer genomics and statistical modelling. This paper presents a reproducible semantic triage pipeline that combines SPECTER scientific-document embeddings, research-question similarity, proposal-summary similarity and domain keyword coverage to rank candidate studies for systematic review screening. The pipeline was evaluated on 2,231 Covidence records, including 120 final included studies (prevalence = 5.38%), against keyword-only, TF-IDF, BM25, MiniLM, PubMedBERT and SPECTER-only baselines. SPECTER-hybrid achieved the highest average precision (AP = 0.546), recovered 50% of included studies after screening 4.48% of records, and produced an 11.16-fold enrichment over prevalence. Ablation analysis showed that semantic-keyword combinations consistently outperformed single-signal variants. These findings suggest that citation-informed hybrid ranking can support literature triage while retaining human reviewers as final decision-makers.",
+      "authors": [
+        "Ronie C. Bituin",
+        "Ayub Bokani"
+      ],
+      "categories": [],
+      "published": "2026-07-09",
+      "updated": "2026-07-09",
+      "url": "https://doi.org/10.64898/2026.07.06.736558",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/09/2026.07.06.736558.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.106,
+        "world_model": 0.0173,
+        "whole_body_control": 0.017,
+        "dexterous_manipulation": 0.0265,
+        "sim2real_data": 0.0349,
+        "hardware_unitree": 0.0,
+        "bci_neural_decoding": 0.0777,
+        "bci_foundation_models": 0.0854,
+        "bci_embodied_robot": 0.0552,
+        "bci_noninvasive_eeg": 0.1623,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.3826
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3826,
+      "first_seen": "2026-07-14",
+      "analysis": {
+        "tldr": "这篇论文提出了一种用SPECTER嵌入结合研究问题匹配、提案摘要匹配和领域关键词覆盖的混合排序方法，自动筛选突变特征分析领域的系统综述候选文献，显著提升了初筛效率（4.48%的文献量覆盖50%的最终入选研究）。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "基于SPECTER的语义-关键词混合排序策略比纯文本检索或单一语义模型更能高效识别突变特征分析领域系统综述所需的高质量研究。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "文献标题、摘要、研究问题描述、提案摘要、预定义领域关键词列表",
+        "output": "按相关性排序的文献列表（用于人工初筛优先级排序）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "benchmark",
+          "dataset"
+        ],
+        "novelty": 3,
+        "evidence": 6,
+        "reproducibility_score": 4,
+        "significance": 32,
+        "significance_reason": "属于文献筛选工具的工程优化：在特定子领域（突变特征分析）验证了已有模型（SPECTER）+规则组合的有效性，有实证（Covidence数据集+多基线对比+消融），但未开源代码/模型，未跨领域验证，未解决任何生物学或计算方法的根本问题，仅提升系统综述流程效率，与AlphaFold2等基石级工作差距巨大。",
+        "one_sentence_verdict": "工程整合：复用SPECTER并叠加简单语义+关键词规则，在单一任务上取得可复现的筛选增益，但无新模型、无新科学发现、无跨域泛化、无开源实现，属流程优化而非突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 11.5,
+        "content": 13.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 24.5,
+        "bonus": 0.0,
+        "total": 24.5
+      },
+      "grade": "D",
+      "read_priority": "C"
     },
     {
       "arxiv_id": "10.64898/2026.05.31.729167",
@@ -146827,6 +148056,83 @@
       "thumb": "assets/thumbs/2606.12979.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.07.01.735716",
+      "doi": "10.64898/2026.07.01.735716",
+      "source_kind": "biorxiv",
+      "title": "A Requirement for Partial Dehydration of the K <sup>+</sup> Ion Governs Gating of the Shaker K <sup>+</sup> Channel: Quantum Calculations Show Complex Interactions of Ions, Water, Protons, and Protein Side Chains",
+      "abstract": "Abstract There is a vast literature on the voltage gating of ion channels, with a fairly large fraction concerned with potassium channels, especially of the K V 1 family, including Shaker . Experimental evidence derived from protein structure has been interpreted to give gating mechanisms that largely disregard water. We propose that the K + ion, in order to pass through the gating region and enter the cavity pore, must be largely dehydrated. Competitive interactions of single hydration shell water molecules at the gate, with counterions, protein, or other water molecules, can remove one water at a time; not every water molecule is removed. There are several such interactions for the ion hydration shell; for the ion to pass through the gating region, there must be enough such interactions to leave the ion with at most two hydrating water molecules, in which case the gate is open. Protein conformational changes are small, and mostly unimportant. The hypothesis has a second part: protons, previously shown to be candidate carriers of the gating current (Kariev and Green, JPC B, 2019, Membranes, 2022, 2024) are capable of reaching the gate; adding four protons to the gate prevents dehydration, leaving the ion with at least three hydrating water molecules, enough to block passage. Quantum calculations presented here support the dehydration part of the hypothesis; they also mostly support the second part, concerning the protons, but further work will be required to fully confirm this. The hypothesis explains the experimental finding that the P475D mutant is essentially constitutively open, while the P475S mutant, with a wider gate opening, is closed at all relevant potentials; the computations presented here show the mechanism for this in detail, further confirming the first part of the hypothesis, and largely but not completely confirming the second part, concerning protons, while showing where further work is needed. This mechanism can also qualitatively account for flicker noise and fluctuations, and their consequences.",
+      "authors": [
+        "Alisher M. Kariev",
+        "Regina Monaco",
+        "Michael E. Green"
+      ],
+      "categories": [],
+      "published": "2026-07-07",
+      "updated": "2026-07-07",
+      "url": "https://doi.org/10.64898/2026.07.01.735716",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/07/2026.07.01.735716.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.065,
+        "world_model": 0.0346,
+        "whole_body_control": 0.0307,
+        "dexterous_manipulation": 0.0413,
+        "sim2real_data": 0.0113,
+        "hardware_unitree": 0.0463,
+        "bci_neural_decoding": 0.0467,
+        "bci_foundation_models": 0.1005,
+        "bci_embodied_robot": 0.0067,
+        "bci_noninvasive_eeg": 0.0864,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.0658
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.2329,
+      "first_seen": "2026-07-14",
+      "analysis": {
+        "tldr": "这篇论文用量子力学计算论证：Shaker钾离子通道的门控依赖于K⁺离子在通过门控区前必须部分脱水（只剩最多2个水分子），而质子到达门控区可阻止脱水从而关闭通道；该机制解释了P475D/S突变体的开闭表型差异。",
+        "org": "unknown",
+        "country": "US",
+        "org_type": "university",
+        "claim": "Shaker钾通道的电压门控本质是K⁺离子局部脱水程度受水-离子-蛋白-质子竞争相互作用调控，而非传统认为的大尺度蛋白构象变化。",
+        "method_components": [
+          "model",
+          "simulator"
+        ],
+        "input": "蛋白质结构（Shaker通道门控区）、K⁺离子、水分子、质子、侧链基团的量子化学初始构型",
+        "output": "能量势垒、水分子结合能、脱水路径可行性、质子影响下的水合数稳定性",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "none",
+        "tags": [],
+        "novelty": 6,
+        "evidence": 5,
+        "reproducibility_score": 0,
+        "significance": 32,
+        "significance_reason": "属计算生物物理领域的小尺度机制假说验证，仅基于量子计算（无实验验证、无新结构数据、无突变体功能测试），虽逻辑自洽且解释两个突变表型，但未提供可泛化的新方法或普适原理，远低于AlphaFold2/ESM等基石工作（90+），也弱于主流计算生物学顶刊实证研究（如Nature Comput Mol Sci级）。",
+        "one_sentence_verdict": "概念包装——提出一个有启发性的脱水门控假说并用量子计算部分支撑，但缺乏实验验证、不可复现、未开源代码/数据，且机制限于单一通道突变，未形成可迁移框架或工具",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 7.0,
+        "content": 11.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 18.0,
+        "bonus": 0.0,
+        "total": 18.0
+      },
+      "grade": "D",
+      "read_priority": "D"
+    },
+    {
       "arxiv_id": "10.64898/2026.06.23.734050",
       "doi": "10.64898/2026.06.23.734050",
       "source_kind": "biorxiv",
@@ -146907,6 +148213,92 @@
         "base": 17.6,
         "bonus": 0.0,
         "total": 17.6
+      },
+      "grade": "D",
+      "read_priority": "D"
+    },
+    {
+      "arxiv_id": "10.64898/2026.07.07.737051",
+      "doi": "10.64898/2026.07.07.737051",
+      "source_kind": "biorxiv",
+      "title": "Gene model for the ortholog of <i>raptor</i> in <i>Drosophila grimshawi</i>",
+      "abstract": "Gene model for the ortholog of raptor in the D. grimshawi May 2011 (Agencourt dgri_caf1/DgriCAF1) Genome Assembly (GenBank Accession: GCA_000005155.1) of Drosophila grimshawi . This ortholog was characterized as part of a developing dataset to study the evolution of the Insulin/insulin-like growth factor signaling pathway (IIS) across the genus Drosophila using the Genomics Education Partnership gene annotation protocol for Course-based Undergraduate Research Experiences.",
+      "authors": [
+        "Bethany C. Lieser",
+        "Bailey Lose",
+        "Cole A Kiser",
+        "Sydney Butterfield",
+        "Luke Laschober",
+        "Leon F. Laskowski",
+        "Jonas Nielsen",
+        "John Pulford",
+        "Jeffrey S. Thompson",
+        "Chinmay P Rele",
+        "Jacqueline K. Wittke‐Thompson"
+      ],
+      "categories": [],
+      "published": "2026-07-11",
+      "updated": "2026-07-11",
+      "url": "https://doi.org/10.64898/2026.07.07.737051",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/11/2026.07.07.737051.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1096,
+        "world_model": 0.1505,
+        "whole_body_control": 0.0276,
+        "dexterous_manipulation": 0.0716,
+        "sim2real_data": 0.0512,
+        "hardware_unitree": 0.0644,
+        "bci_neural_decoding": 0.1408,
+        "bci_foundation_models": 0.1398,
+        "bci_embodied_robot": 0.0274,
+        "bci_noninvasive_eeg": 0.0683,
+        "protein_ai": 0.2575,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.3849,
+      "first_seen": "2026-07-14",
+      "analysis": {
+        "tldr": "这篇论文只是为果蝇物种Drosophila grimshawi中的raptor基因同源物构建了一个基础基因模型（即预测其外显子-内含子结构），属于教学导向的基因组注释练习，未开展任何功能验证、进化分析或计算建模。",
+        "org": "Genomics Education Partnership",
+        "country": "US",
+        "org_type": "institute",
+        "claim": "完成了D. grimshawi中raptor同源基因的初步基因结构注释。",
+        "method_components": [
+          "dataset"
+        ],
+        "input": "D. grimshawi基因组序列（GCA_000005155.1）",
+        "output": "raptor同源基因的基因模型（含外显子/内含子边界预测）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset"
+        ],
+        "novelty": 1,
+        "evidence": 2,
+        "reproducibility_score": 3,
+        "significance": 15,
+        "significance_reason": "纯教学级基因注释产出，无新算法、无实验验证、无跨物种比较分析、无功能推断，未整合到任何数据库或工具链，对IIS通路研究或基因组学领域无实质性推进。",
+        "one_sentence_verdict": "暂时不用看——属于本科生课程作业级产出，无科研增量价值",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 11.5,
+        "content": 6.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 17.5,
+        "bonus": 0.0,
+        "total": 17.5
       },
       "grade": "D",
       "read_priority": "D"
