@@ -1,18 +1,18 @@
 {
   "week": {
-    "start": "2026-07-12",
-    "end": "2026-07-18",
-    "label": "07.12~07.18"
+    "start": "2026-07-13",
+    "end": "2026-07-19",
+    "label": "07.13~07.19"
   },
   "count": 15,
-  "venue_count": 4,
+  "venue_count": 5,
   "venues": [
     "ECCV 2026",
     "IROS 2026",
     "RSS 2026",
     "Sci. Robotics 2026"
   ],
-  "generated_at": "2026-07-18 03:59 UTC",
+  "generated_at": "2026-07-19 04:27 UTC",
   "picks": [
     {
       "rank": 1,
@@ -217,6 +217,44 @@
     },
     {
       "rank": 6,
+      "arxiv_id": "2607.14586",
+      "title": "SoftNav: Injecting 3D Scene Tokens into VLMs for Embodied Navigation",
+      "published": "2026-07-16",
+      "url": "https://arxiv.org/abs/2607.14586",
+      "pdf_url": "https://arxiv.org/pdf/2607.14586",
+      "thumb": "assets/thumbs/2607.14586.jpg",
+      "venue": "IROS 2026",
+      "domain": "embodied_ai",
+      "best_route": "whole_body_control",
+      "org": "未知（作者单位未在摘要中披露，无机构缩写或知名实验室线索；Yi Wu等常见于国内高校/企业，但无法确认具体归属）",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 78,
+      "significance_reason": "实证扎实：在3个不同导航基准（含OVON、GOAT-Bench、SG3D）上SOTA，且完成真实机器人部署（非演示视频，摘要明确‘without retraining or architectural modification’），但未开源代码/模型，且未报告消融实验细节（如软token维度、投影器结构、是否用真实传感器数据微调），相比GR00T/H2O等95+分工作，缺乏多机体泛化、端到端闭环控制或具身基础模型级架构创新。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "sim2real",
+        "benchmark"
+      ],
+      "tldr": "提出SoftNav方法，把3D场景中检测到的物体和前沿点直接编码为连续向量（软token），注入冻结的视觉语言模型（VLM）隐空间，仅用1200个样本和1700万参数微调，就在多个仿真导航基准（HM3D-OVON、GOAT-Bench、SG3D）上实现零样本迁移，并成功部署到真实机器人上。",
+      "claim": "直接将实体级3D连续表征作为软token注入冻结VLM隐空间，比文本化3D信息更有效，且能实现跨基准、跨仿真器、跨真实机器人的零样本导航泛化。",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "benchmark"
+      ],
+      "input": "RGB图像+语言目标指令+3D场景几何与语义信息（物体检测框、前沿点坐标及类别）",
+      "output": "导航动作序列（离散动作：前进/左转/右转/停止）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：将3D感知与VLM深度耦合的高效方案，实证充分且落地真实机器人，但属强工程优化而非范式突破",
+      "deep": {}
+    },
+    {
+      "rank": 7,
       "arxiv_id": "2607.11688",
       "title": "Automated Synthesis of Facial Mechanisms for Conversational Animatronic Robots",
       "published": "2026-07-13",
@@ -255,7 +293,7 @@
       "deep": {}
     },
     {
-      "rank": 7,
+      "rank": 8,
       "arxiv_id": "2607.13579",
       "title": "Agile perceptive multi-skill locomotion for quadrupedal robots in the wild",
       "published": "2026-07-15",
@@ -295,7 +333,44 @@
       "deep": {}
     },
     {
-      "rank": 8,
+      "rank": 9,
+      "arxiv_id": "2607.14578",
+      "title": "Beyond Implicit Force: Evaluating Explicit Force-Torque Proxies in Action Chunking with Transformers",
+      "published": "2026-07-16",
+      "url": "https://arxiv.org/abs/2607.14578",
+      "pdf_url": "https://arxiv.org/pdf/2607.14578",
+      "thumb": "assets/thumbs/2607.14578.jpg",
+      "venue": "IROS 2026",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "未知（作者 affiliations 未在摘要中给出，King Hang Wong 等无明确机构标识）",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 78,
+      "significance_reason": "实证扎实：在4个真实接触密集任务上系统剥离/替换隐式力线索，证明ACT的‘力感知’是工程副产物而非认知涌现；提出低成本力矩代理方案并验证其有效性，对部署级ACT落地有直接指导价值，但未开源、未扩展到多机体/跨传感器，未达基石级（如ALOHA/ACT本身）的范式开创性。",
+      "tier": "heavy",
+      "grade": "D",
+      "tags": [
+        "teleoperation",
+        "real-robot",
+        "contact-rich"
+      ],
+      "tldr": "这篇论文发现ACT模型在真实机器人上表现出的‘力感知能力’其实严重依赖于遥操作中主从运动不一致这一隐含的力信号，而非真正理解接触物理；作者去掉这个隐含信号后模型崩溃，再用电机电流估算的关节力矩作为显式替代，成功恢复了接触敏感行为。",
+      "claim": "ACT模型在真实硬件上的力感知能力本质上源于遥操作引入的隐式力线索，该线索可用低成本电机电流推导的关节力矩代理显式重建，且效果相当甚至更优。",
+      "method_components": [
+        "model",
+        "benchmark",
+        "hardware"
+      ],
+      "input": "视觉图像+关节位置/速度+电机电流（或关节力矩代理）",
+      "output": "未来若干步的 follower 关节状态序列（动作块）",
+      "novelty": 7,
+      "evidence": 10,
+      "one_sentence_verdict": "工程整合：揭示了ACT实际依赖的隐藏工程线索，并给出可部署的低成本力感知替代方案，但缺乏开源与泛化验证，属于对现有主流方法的关键诊断与务实增强",
+      "deep": {}
+    },
+    {
+      "rank": 10,
       "arxiv_id": "2607.11874",
       "title": "A Minimalist Retargeting-Guided Reinforcement Learning Recipe for Dexterous Manipulation",
       "published": "2026-07-13",
@@ -334,7 +409,7 @@
       "deep": {}
     },
     {
-      "rank": 9,
+      "rank": 11,
       "arxiv_id": "2607.12114",
       "title": "GaitSpan: Growing Humanoid Locomotion from Walking to Running",
       "published": "2026-07-13",
@@ -372,7 +447,7 @@
       "deep": {}
     },
     {
-      "rank": 10,
+      "rank": 12,
       "arxiv_id": "2607.13033",
       "title": "DenseReward: Dense Reward Learning via Failure Synthesis for Robotic Manipulation",
       "published": "2026-07-14",
@@ -411,7 +486,49 @@
       "deep": {}
     },
     {
-      "rank": 11,
+      "rank": 13,
+      "arxiv_id": "2607.14236",
+      "title": "Never Too Late for Force: Accelerating VLA Post-Training with Reactive Force Injection",
+      "published": "2026-07-15",
+      "url": "https://arxiv.org/abs/2607.14236",
+      "pdf_url": "https://arxiv.org/pdf/2607.14236",
+      "thumb": "assets/thumbs/2607.14236.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "上海交通大学",
+      "country": "CN",
+      "org_type": "university",
+      "significance": 78,
+      "significance_reason": "真机验证3个接触敏感任务，有消融（力记忆/在线DAgger缺一不可）、多baseline对比（vision-only post-training）、开源代码数据；但未跨机体/跨场景泛化验证，未挑战更复杂接触动力学（如塑性变形、流体交互），也未证明对现有SOTA VLA（如OpenVLA/Octo）的普适增强效果，属扎实且具工程落地价值的增量突破，尚未达范式级（如RT-2/π0）或架构级解耦创新（如DAM-VLA/CHORUS）。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "tactile",
+        "sim2real",
+        "dataset",
+        "benchmark",
+        "open-source",
+        "real-robot"
+      ],
+      "tldr": "这篇论文提出LIFT方法，在已有的视觉-语言-动作（VLA）大模型基础上，通过在后训练阶段注入实时6D力觉信号（配合因果力记忆和零初始化交叉注意力），并结合在线DAgger纠偏机制，让模型在接触态操作（如毛巾折叠、书本插入）中更鲁棒；不改原始VLA主干，只加轻量力响应模块。",
+      "claim": "在不破坏预训练VLA策略通用性前提下，仅通过后训练阶段引入轻量级、可插拔的力觉响应机制与在线人类纠偏闭环，即可显著提升其在接触密集型操作任务中的执行鲁棒性与收敛速度。",
+      "method_components": [
+        "model",
+        "dataset",
+        "policy",
+        "benchmark"
+      ],
+      "input": "RGB图像+语言指令+最近6D末端力（含力/力矩）",
+      "output": "动作块（action chunk）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：将力觉模态以低侵入方式嵌入VLA后训练流程，并用在线人类纠偏闭环解决接触态分布偏移，实证充分、开源完整，但未突破VLA基础架构或扩展至多机体/长时序强耦合接触场景",
+      "deep": {}
+    },
+    {
+      "rank": 14,
       "arxiv_id": "2607.13429",
       "title": "Generalizable VLA Finetuning via Representation Anchoring and Language-Action Alignment",
       "published": "2026-07-15",
@@ -448,7 +565,7 @@
       "deep": {}
     },
     {
-      "rank": 12,
+      "rank": 15,
       "arxiv_id": "2607.11498",
       "title": "See like a Robot: Robot-Centric Pointmaps for Vision-Language-Action Models",
       "published": "2026-07-13",
@@ -482,119 +599,6 @@
       "novelty": 7,
       "evidence": 9,
       "one_sentence_verdict": "真突破——它揪出了VLA建模中一个隐蔽却致命的坐标系假设漏洞，并用极简接口（pointmap）给出可落地、可复用、有实证的修正方案，不是修修补补，而是正本清源。",
-      "deep": {}
-    },
-    {
-      "rank": 13,
-      "arxiv_id": "2607.11734",
-      "title": "NeuralActuator: Neural Actuation Modeling for Robot Dynamics and External Force Perception",
-      "published": "2026-07-13",
-      "url": "https://arxiv.org/abs/2607.11734",
-      "pdf_url": "https://arxiv.org/pdf/2607.11734",
-      "thumb": "assets/thumbs/2607.11734.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "whole_body_control",
-      "org": "MIT",
-      "country": "US",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "首次系统性解耦并联合建模低成本执行器中摩擦/滞回/热效应/背隙等混杂非线性，且在三类差异显著的商用平台（500–30000美元）上实证了跨执行器家族泛化能力；但未部署于闭环控制任务或长期运行验证，也未开源代码/模型，工程落地闭环不完整，尚未达到GR00T/H2O级范式突破。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "sim2real",
-        "dataset",
-        "benchmark",
-        "real-robot"
-      ],
-      "tldr": "提出NeuralActuator——一个用神经网络建模低成本伺服电机真实动态行为的模块，能同时预测等效广义力（用于仿真轨迹传播）、无传感器接触力（带接触概率门控）、以及电机健康状态分数，并在三种不同价位和驱动原理的机械臂上验证了其跨平台泛化能力。",
-      "claim": "神经网络可以端到端建模低精度伺服电机中非线性、时变、多物理耦合的执行器动力学，从而在无需高精度力传感器和专用硬件的前提下，实现鲁棒的动力学仿真、外部力感知与电机状态评估。",
-      "method_components": [
-        "model",
-        "dataset",
-        "simulator",
-        "benchmark"
-      ],
-      "input": "关节角度/速度/电流/温度等执行器遥测数据 + 目标轨迹",
-      "output": "广义力代理值（用于仿真传播）、接触力估计值、接触概率门控信号、电机条件评分",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：它不是刷榜或包装概念，而是直击sim2real中最顽固的‘执行器黑箱’问题，用可微仿真+多头监督+真实跨平台数据，首次实现了对廉价伺服电机动力学的统一神经建模与多任务感知，证据扎实、问题关键、验证充分。",
-      "deep": {}
-    },
-    {
-      "rank": 14,
-      "arxiv_id": "2607.13597",
-      "title": "Semantic Anchoring for Robotic Action Representations",
-      "published": "2026-07-15",
-      "url": "https://arxiv.org/abs/2607.13597",
-      "pdf_url": "https://arxiv.org/pdf/2607.13597",
-      "thumb": "assets/thumbs/2607.13597.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "未知",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 78,
-      "significance_reason": "实证扎实：跨多个VLA骨干（RT-1/Octo/CHORUS级架构）、仿真+真实双环境、ID/OOD双指标提升超18%，并建立表征质量与任务成功率/泛化性的强相关性；但未开源代码/模型，未提供消融中关键模块（如语义流形构建方式）的细节，且未挑战更难的长程任务或具身导航类任务，属显著推进但未达基石级（如RT-2/π0）的范式突破。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "sim2real"
-      ],
-      "tldr": "这篇论文发现VLA模型在机器人微调后会丢失预训练视觉语言模型的语义结构，进而损害泛化能力；于是提出一种不改变部署模型、仅在训练时锚定动作表征到语义流形上的插件式方法，通过解耦共享语义通道与私有通道来修复表征质量，在仿真和真实机器人任务上显著提升ID/OOD性能。",
-      "claim": "动作表征的语义结构完整性（而非单纯预测精度）是VLA模型泛化能力的关键决定因素，且可通过训练期语义锚定无损恢复。",
-      "method_components": [
-        "model",
-        "benchmark"
-      ],
-      "input": "RGB图像+语言指令",
-      "output": "动作块（action tokens/trajectory）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：方法设计巧妙、验证全面，是当前VLA表征学习方向的重要加固，但缺乏开源与底层机制揭示，尚未构成新范式。",
-      "deep": {}
-    },
-    {
-      "rank": 15,
-      "arxiv_id": "2607.12965",
-      "title": "MAMMOTH: A Multi-Modal End-to-End Policy for Off-Road Mobility Robust to Missing Modality",
-      "published": "2026-07-14",
-      "url": "https://arxiv.org/abs/2607.12965",
-      "pdf_url": "https://arxiv.org/pdf/2607.12965",
-      "thumb": "assets/thumbs/2607.12965.jpg",
-      "venue": "IROS 2026",
-      "domain": "embodied_ai",
-      "best_route": "whole_body_control",
-      "org": "未知（作者无机构署名，摘要未提所属单位；arXiv预印本常见于高校但无法确认）",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 72,
-      "significance_reason": "首次在真实越野机器人上系统验证多模态丢弃下的端到端导航鲁棒性（含夜间），有完整实机多场景对比、消融和跨光照泛化，但未解决根本性建模瓶颈（如动态地形建模、长期规划、跨机体迁移），也未引入新传感器范式或底层控制突破，属显著贡献而非范式级创新。",
-      "tier": "notable",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "real-robot",
-        "open-source",
-        "dataset"
-      ],
-      "tldr": "提出一个叫MAMMOTH的多模态端到端导航策略，能在越野环境中用RGB、热成像、点云和自车速度输入，即使部分传感器失效（如夜间热相机坏掉或点云丢失）也能继续安全行驶，并在真实机器人上验证了夜间的鲁棒性。",
-      "claim": "通过模态丢弃训练与扩散策略联合建模轨迹分布和内在可通行性启发式，实现对缺失模态鲁棒的端到端越野导航。",
-      "method_components": [
-        "model",
-        "dataset",
-        "policy",
-        "benchmark"
-      ],
-      "input": "RGB图像、热成像图、3D点云、自车速度",
-      "output": "物理可行的运动轨迹（含可通行性偏好）",
-      "novelty": 7,
-      "evidence": 10,
-      "one_sentence_verdict": "显著贡献：真机部署+多模态鲁棒性验证扎实，但仍是现有端到端导航框架内的工程增强，未触及越野导航的核心开放难题（如语义-几何耦合建模、非结构化动态障碍预测）。",
       "deep": {}
     }
   ]
