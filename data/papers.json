@@ -6954,7 +6954,7 @@
       "signals": {
         "hf_upvotes": 18,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 19.2,
@@ -7340,6 +7340,124 @@
       "thumb": "assets/thumbs/2606.02800.jpg"
     },
     {
+      "arxiv_id": "2607.15330",
+      "title": "Xiaomi-Robotics-1: Scaling Vision-Language-Action Models with over 100K Hours of Real-World Trajectories",
+      "abstract": "We present Xiaomi-Robotics-1, a foundational vision-language-action (VLA) model capable of (1) following diverse language instructions to perform a wide range of mobile manipulation tasks in unseen environments out-of-the-box, and (2) efficiently adapting to novel downstream tasks with minimal fine-tuning data. We propose a two-stage training recipe consisting of pre-training and post-training. During pre-training, we imbue the model with broad and generalizable action-generation capabilities by training on over 100k hours of real-world manipulation trajectories collected via UMI devices. Crucially, we develop a scalable auto-labeling pipeline that annotates trajectory clips with natural languages describing scene state transitions, providing rich and precise conditioning for action learning. During post-training, we aim to align these capabilities with robot embodiments and imperative instructions that humans naturally use to prompt robots. Extensive experiments demonstrate strong scaling behavior. Xiaomi-Robotics-1 consistently improves with increased data scales and model sizes during pre-training. This scaling behavior directly transfers to post-training, where a stronger pre-training model yields better out-of-the-box real-robot performance in unseen environments. Furthermore, Xiaomi-Robotics-1 serves as a strong robot foundation policy that can be efficiently fine-tuned on complex, dexterous tasks with high data efficiency. Across multiple simulation benchmarks, Xiaomi-Robotics-1 outperforms state-of-the-art methods. Notably, it establishes a new state-of-the-art with a 57.6% success rate on RoboCasa365, surpassing the previous best of 46.6%. Furthermore, it achieves an average score of 20.07 on RoboDojo, significantly outperforming the prior state-of-the-art (13.07). Code and model checkpoints will be released. Project page: https://robotics.xiaomi.com/xiaomi-robotics-1.html",
+      "authors": [
+        "Xiaomi Robotics Team",
+        "Jun Guo",
+        "Piaopiao Jin",
+        "Jason Li",
+        "Peiyan Li",
+        "Yingyan Li",
+        "Futeng Liu",
+        "Wanli Peng",
+        "Optimus Qin",
+        "Yifei Su",
+        "Nan Sun",
+        "Qiao Sun",
+        "Runze Suo",
+        "Heyun Wang",
+        "Yunhong Wang",
+        "Rujie Wu",
+        "Caoyu Xia",
+        "Lina Zhang",
+        "Jack Zhao",
+        "Guoliang Chen",
+        "Wenlong Chen",
+        "Xinze He",
+        "Bin Li",
+        "Qing Li",
+        "Zhuorong Li",
+        "Heng Qu",
+        "Wenxuan Song",
+        "Diyun Xiang",
+        "Yifan Xie",
+        "Peiran Xu",
+        "Hangjun Ye",
+        "Wen Ye",
+        "Han Zhao",
+        "Quanyun Zhou"
+      ],
+      "categories": [],
+      "published": "2026-07-16T00:00:00.000Z",
+      "updated": "2026-07-16T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2607.15330",
+      "pdf_url": "https://arxiv.org/pdf/2607.15330",
+      "hf_upvotes": 18,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.6196,
+        "world_model": 0.4969,
+        "whole_body_control": 0.4438,
+        "dexterous_manipulation": 0.2483,
+        "sim2real_data": 0.3361,
+        "hardware_unitree": 0.2145,
+        "bci_neural_decoding": 0.1982,
+        "bci_foundation_models": 0.1619,
+        "bci_embodied_robot": 0.2685,
+        "bci_noninvasive_eeg": 0.1336,
+        "protein_ai": 0.1579,
+        "genomics_ai": 0.1637
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.6196,
+      "first_seen": "2026-07-20",
+      "analysis": {
+        "tldr": "小米机器人团队用超10万小时真实机器人操作轨迹（来自UMI设备）训练了一个视觉-语言-动作大模型，能直接在未见过的环境中根据自然语言指令执行移动操作任务，且只需少量微调就能适配新任务。",
+        "org": "小米机器人",
+        "country": "CN",
+        "org_type": "company",
+        "claim": "基于超10万小时真实世界轨迹和可扩展自动标注流水线训练的VLA模型，具备开箱即用的跨环境泛化能力与高效下游适配能力。",
+        "method_components": [
+          "model",
+          "dataset",
+          "policy",
+          "benchmark"
+        ],
+        "input": "RGB图像+自然语言指令",
+        "output": "动作序列（关节扭矩/末端位姿控制信号）",
+        "robot_dependency": "UMI（Universal Manipulation Interface）机械臂平台",
+        "data_dependency": "强依赖：全部预训练数据来自真实机器人（UMI）采集的100K+小时轨迹",
+        "sim2real_status": "deployed",
+        "generalization": [
+          "cross-environment",
+          "cross-task"
+        ],
+        "reproducibility": "code+model+data",
+        "tags": [
+          "real-robot",
+          "large-scale",
+          "open-source",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 11,
+        "reproducibility_score": 8,
+        "significance": 94,
+        "significance_reason": "达到CHORUS（94）同档：首次公开披露超10万小时真实机器人操作数据集+完整VLA训练栈+真机部署验证+多基准SOTA（RoboCasa365/RoboDojo），且开源代码/模型/数据；虽未展示多机体泛化或长期在线适应，但数据规模、真机覆盖广度与工程闭环完整性已逼近Qwen-RobotManip（94.5）与CHORUS（94）水平，显著超越Octo（92）和OpenVLA（93）的仿真主导范式。",
+        "one_sentence_verdict": "真突破：首个在真实机器人上完成10万小时级VLA预训练并全栈开源的工业级基础模型，实证扎实、部署落地、基准领先",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 18,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 18.6,
+        "content": 26.0,
+        "heat": 11.1,
+        "quality": 0.0,
+        "base": 44.6,
+        "bonus": 11.1,
+        "total": 55.7
+      },
+      "grade": "B",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.15330.jpg"
+    },
+    {
       "arxiv_id": "2606.04811",
       "doi": "10.48550/arxiv.2606.04811",
       "source_kind": "arxiv",
@@ -7527,7 +7645,7 @@
       "signals": {
         "hf_upvotes": 14,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 16.4,
@@ -7541,6 +7659,100 @@
       "grade": "B",
       "read_priority": "B",
       "thumb": "assets/thumbs/2607.05352.jpg"
+    },
+    {
+      "arxiv_id": "2607.15275",
+      "title": "RoboTTT: Context Scaling for Robot Policies",
+      "abstract": "Recent robot foundation models operate with single-step or short-history visuomotor context. We introduce Test-Time-Training Robot Policies (RoboTTT), a robot model and training recipe that scale visuomotor context to 8K timesteps, three orders of magnitude beyond state-of-the-art policies, without growing inference latency. At this context length, we unlock new robot capabilities: one-shot in-context imitation from human video demonstrations, on-the-fly policy improvement, robustness to perturbations, and stronger performance on multi-stage, long-horizon tasks. We also observe, for the first time, steady gains in closed-loop performance as pretraining context length scales. At its core, RoboTTT integrates Test-Time Training into robot foundation models such as Vision-Language-Action policies, yielding a sequence model whose recurrent state consists of fast weights, parameters updated by gradient descent during both training and inference, compressing histories into weight space and retrieving contextual information for long-context conditioning. To scale training context length, the recipe combines sequence action forcing with truncated backpropagation through time. On challenging real-robot manipulation tasks, RoboTTT improves overall performance by 87% over the single-step context baseline and fully completes a five-minute, ten-stage assembly task, which no baseline ever does. RoboTTT trained with 8K-timestep context outperforms the same model pretrained with 1K timesteps by 62%, suggesting context length as a new scaling axis for robot foundation models. Videos are available at https://research.nvidia.com/labs/gear/robottt/",
+      "authors": [
+        "Yunfan Jiang",
+        "Yevgen Chebotar",
+        "Ruijie Zheng",
+        "Fengyuan Hu",
+        "Yunhao Ge",
+        "Jimmy Wu",
+        "Tianyuan Dai",
+        "Scott Reed",
+        "Li Fei-Fei",
+        "Yuke Zhu",
+        "Linxi \"Jim\" Fan"
+      ],
+      "categories": [],
+      "published": "2026-07-16T00:00:00.000Z",
+      "updated": "2026-07-16T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2607.15275",
+      "pdf_url": "https://arxiv.org/pdf/2607.15275",
+      "hf_upvotes": 3,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.5919,
+        "world_model": 0.4386,
+        "whole_body_control": 0.5,
+        "dexterous_manipulation": 0.2043,
+        "sim2real_data": 0.3233,
+        "hardware_unitree": 0.1889,
+        "bci_neural_decoding": 0.1283,
+        "bci_foundation_models": 0.1136,
+        "bci_embodied_robot": 0.2245,
+        "bci_noninvasive_eeg": 0.1268,
+        "protein_ai": 0.1423,
+        "genomics_ai": 0.1507
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.5919,
+      "first_seen": "2026-07-17",
+      "analysis": {
+        "tldr": "提出RoboTTT方法，将机器人策略的视觉-运动上下文长度从百级扩展到8K步，不增加推理延迟，首次在真实机器人上实现基于单个视频演示的一次性上下文模仿、在线策略优化和长达5分钟10阶段装配任务的完整闭环执行。",
+        "org": "英伟达",
+        "country": "US",
+        "org_type": "company",
+        "claim": "将机器人基础模型的测试时上下文长度扩展至8K步（比SOTA高三个数量级），通过Test-Time Training机制将历史压缩进快速更新的权重空间，从而解锁长程任务完成、单视频模仿、扰动鲁棒性和在线策略改进等新能力。",
+        "method_components": [
+          "model",
+          "policy",
+          "benchmark",
+          "hardware"
+        ],
+        "input": "多帧RGB视频+动作序列（8K步历史）",
+        "output": "动作序列（当前步动作）",
+        "robot_dependency": "NVIDIA GR00T平台（含Franka机械臂与定制传感器）",
+        "data_dependency": "依赖真实机器人采集的长序列操作数据（含5分钟装配任务）",
+        "sim2real_status": "deployed",
+        "generalization": [
+          "cross-task",
+          "cross-scenario"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "sim2real",
+          "real-robot",
+          "large-scale"
+        ],
+        "novelty": 9,
+        "evidence": 11,
+        "reproducibility_score": 5,
+        "significance": 92,
+        "significance_reason": "首次在真实机器人上验证8K步上下文带来的质变能力（如完整5分钟10阶段装配），且有严格消融（+62% vs 1K-context）、多任务提升（+87%）、跨任务泛化及在线T3训练实证；虽未开新范式（如GR00T或H2O的具身对齐/人体建模），但将‘上下文长度’确立为机器人基础模型核心可扩展维度，证据强度接近GRAIL/WholeBodyVLA级工程突破。",
+        "one_sentence_verdict": "真突破：在真实机器人上以扎实实验确立长上下文为机器人基础模型关键扩展轴，非概念包装，所有宣称能力均经5分钟闭环任务、扰动测试、跨任务对比和消融验证。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 18,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 17.8,
+        "content": 25.0,
+        "heat": 11.1,
+        "quality": 0.0,
+        "base": 42.8,
+        "bonus": 11.1,
+        "total": 53.9
+      },
+      "grade": "B",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.15275.jpg"
     },
     {
       "arxiv_id": "2606.24597",
@@ -7642,7 +7854,7 @@
       "signals": {
         "hf_upvotes": 97,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 18.3,
@@ -7656,100 +7868,6 @@
       "grade": "B",
       "read_priority": "B",
       "thumb": "assets/thumbs/2606.24597.jpg"
-    },
-    {
-      "arxiv_id": "2607.15275",
-      "title": "RoboTTT: Context Scaling for Robot Policies",
-      "abstract": "Recent robot foundation models operate with single-step or short-history visuomotor context. We introduce Test-Time-Training Robot Policies (RoboTTT), a robot model and training recipe that scale visuomotor context to 8K timesteps, three orders of magnitude beyond state-of-the-art policies, without growing inference latency. At this context length, we unlock new robot capabilities: one-shot in-context imitation from human video demonstrations, on-the-fly policy improvement, robustness to perturbations, and stronger performance on multi-stage, long-horizon tasks. We also observe, for the first time, steady gains in closed-loop performance as pretraining context length scales. At its core, RoboTTT integrates Test-Time Training into robot foundation models such as Vision-Language-Action policies, yielding a sequence model whose recurrent state consists of fast weights, parameters updated by gradient descent during both training and inference, compressing histories into weight space and retrieving contextual information for long-context conditioning. To scale training context length, the recipe combines sequence action forcing with truncated backpropagation through time. On challenging real-robot manipulation tasks, RoboTTT improves overall performance by 87% over the single-step context baseline and fully completes a five-minute, ten-stage assembly task, which no baseline ever does. RoboTTT trained with 8K-timestep context outperforms the same model pretrained with 1K timesteps by 62%, suggesting context length as a new scaling axis for robot foundation models. Videos are available at https://research.nvidia.com/labs/gear/robottt/",
-      "authors": [
-        "Yunfan Jiang",
-        "Yevgen Chebotar",
-        "Ruijie Zheng",
-        "Fengyuan Hu",
-        "Yunhao Ge",
-        "Jimmy Wu",
-        "Tianyuan Dai",
-        "Scott Reed",
-        "Li Fei-Fei",
-        "Yuke Zhu",
-        "Linxi \"Jim\" Fan"
-      ],
-      "categories": [],
-      "published": "2026-07-16T00:00:00.000Z",
-      "updated": "2026-07-16T00:00:00.000Z",
-      "url": "https://arxiv.org/abs/2607.15275",
-      "pdf_url": "https://arxiv.org/pdf/2607.15275",
-      "hf_upvotes": 3,
-      "source": "hf_daily",
-      "route_scores": {
-        "vla": 0.5919,
-        "world_model": 0.4386,
-        "whole_body_control": 0.5,
-        "dexterous_manipulation": 0.2043,
-        "sim2real_data": 0.3233,
-        "hardware_unitree": 0.1889,
-        "bci_neural_decoding": 0.1283,
-        "bci_foundation_models": 0.1136,
-        "bci_embodied_robot": 0.2245,
-        "bci_noninvasive_eeg": 0.1268,
-        "protein_ai": 0.1423,
-        "genomics_ai": 0.1507
-      },
-      "best_route": "whole_body_control",
-      "relevance_raw": 0.5919,
-      "first_seen": "2026-07-17",
-      "analysis": {
-        "tldr": "提出RoboTTT方法，将机器人策略的视觉-运动上下文长度从百级扩展到8K步，不增加推理延迟，首次在真实机器人上实现基于单个视频演示的一次性上下文模仿、在线策略优化和长达5分钟10阶段装配任务的完整闭环执行。",
-        "org": "英伟达",
-        "country": "US",
-        "org_type": "company",
-        "claim": "将机器人基础模型的测试时上下文长度扩展至8K步（比SOTA高三个数量级），通过Test-Time Training机制将历史压缩进快速更新的权重空间，从而解锁长程任务完成、单视频模仿、扰动鲁棒性和在线策略改进等新能力。",
-        "method_components": [
-          "model",
-          "policy",
-          "benchmark",
-          "hardware"
-        ],
-        "input": "多帧RGB视频+动作序列（8K步历史）",
-        "output": "动作序列（当前步动作）",
-        "robot_dependency": "NVIDIA GR00T平台（含Franka机械臂与定制传感器）",
-        "data_dependency": "依赖真实机器人采集的长序列操作数据（含5分钟装配任务）",
-        "sim2real_status": "deployed",
-        "generalization": [
-          "cross-task",
-          "cross-scenario"
-        ],
-        "reproducibility": "project-page",
-        "tags": [
-          "sim2real",
-          "real-robot",
-          "large-scale"
-        ],
-        "novelty": 9,
-        "evidence": 11,
-        "reproducibility_score": 5,
-        "significance": 92,
-        "significance_reason": "首次在真实机器人上验证8K步上下文带来的质变能力（如完整5分钟10阶段装配），且有严格消融（+62% vs 1K-context）、多任务提升（+87%）、跨任务泛化及在线T3训练实证；虽未开新范式（如GR00T或H2O的具身对齐/人体建模），但将‘上下文长度’确立为机器人基础模型核心可扩展维度，证据强度接近GRAIL/WholeBodyVLA级工程突破。",
-        "one_sentence_verdict": "真突破：在真实机器人上以扎实实验确立长上下文为机器人基础模型关键扩展轴，非概念包装，所有宣称能力均经5分钟闭环任务、扰动测试、跨任务对比和消融验证。",
-        "_llm": "qwen-plus"
-      },
-      "signals": {
-        "hf_upvotes": 16,
-        "citations": 0,
-        "venue": "arXiv (Cornell University)"
-      },
-      "scores": {
-        "relevance": 17.8,
-        "content": 25.0,
-        "heat": 10.7,
-        "quality": 0.0,
-        "base": 42.8,
-        "bonus": 10.7,
-        "total": 53.5
-      },
-      "grade": "B",
-      "read_priority": "B",
-      "thumb": "assets/thumbs/2607.15275.jpg"
     },
     {
       "arxiv_id": "2606.18558",
@@ -7952,7 +8070,7 @@
       "signals": {
         "hf_upvotes": 85,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 16.9,
@@ -8046,7 +8164,7 @@
       "signals": {
         "hf_upvotes": 23,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 16.5,
@@ -8240,7 +8358,7 @@
       "signals": {
         "hf_upvotes": 8,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 17.7,
@@ -8437,7 +8555,7 @@
       "signals": {
         "hf_upvotes": 18,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 16.8,
@@ -8620,7 +8738,7 @@
       "signals": {
         "hf_upvotes": 9,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 16.0,
@@ -8709,7 +8827,7 @@
       "signals": {
         "hf_upvotes": 34,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 19.3,
@@ -8815,7 +8933,7 @@
       "signals": {
         "hf_upvotes": 31,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 17.3,
@@ -9277,7 +9395,7 @@
       "signals": {
         "hf_upvotes": 12,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 18.4,
@@ -9376,7 +9494,7 @@
       "signals": {
         "hf_upvotes": 74,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 18.8,
@@ -9468,7 +9586,7 @@
       "signals": {
         "hf_upvotes": 5,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 19.2,
@@ -9662,7 +9780,7 @@
       "signals": {
         "hf_upvotes": 35,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 14.9,
@@ -9956,7 +10074,7 @@
       "signals": {
         "hf_upvotes": 26,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 19.6,
@@ -10047,7 +10165,7 @@
       "signals": {
         "hf_upvotes": 5,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 17.0,
@@ -10061,6 +10179,88 @@
       "grade": "C",
       "read_priority": "B",
       "thumb": "assets/thumbs/2607.03723.jpg"
+    },
+    {
+      "arxiv_id": "2607.15207",
+      "title": "BadWAM: When World-Action Models Dream Right but Act Wrong",
+      "abstract": "World-action models (WAMs) are emerging as a promising foundation for embodied control: rather than predicting actions alone, they learn representations that couple action generation with future world prediction. This coupling is often viewed as a source of robustness, interpretability, and safety, as a robot's action can in principle be checked against its imagined future. In this paper, we show that this assumption is fragile. We introduce BadWAM, a unified framework for modeling and evaluating World-Action Drift Attacks: a new class of WAM-specific adversarial attacks that use small visual perturbations to break the alignment between what a WAM imagines and what it executes. BadWAM characterizes this attack surface along two natural criteria: attack strength and stealthiness. When the adversary prioritizes disruption, BadWAM instantiates an action-only adversarial attack, which directly drives the model toward task-failing actions. When the adversary additionally prioritizes stealth, BadWAM instantiates an imagination-preserving adversarial attack, which seeks to induce harmful action shifts while keeping the model's predicted future close to its clean imagination. Together, these two attacks capture a spectrum of WAM-specific failures: from overt action hijacking to stealthier cases where the model appears to imagine a plausible future but executes a desynchronized action. We evaluate BadWAM across different variants of WAMs. Results show that our attacks substantially reduce task success rates under closed-loop execution. For example, our action-only attack reduces the model performance from 96.5% to 43.1% success. The results of our imagination-preserving attack further exposes a WAM-specific vulnerability: moderate future-preserving regularization can maintain strong attack performance while reducing future imagination drift.",
+      "authors": [
+        "Qi Li",
+        "Xingyi Yang",
+        "Xinchao Wang"
+      ],
+      "categories": [],
+      "published": "2026-07-16T00:00:00.000Z",
+      "updated": "2026-07-16T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2607.15207",
+      "pdf_url": "https://arxiv.org/pdf/2607.15207",
+      "hf_upvotes": 15,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.4893,
+        "world_model": 0.5041,
+        "whole_body_control": 0.3539,
+        "dexterous_manipulation": 0.1763,
+        "sim2real_data": 0.2368,
+        "hardware_unitree": 0.1629,
+        "bci_neural_decoding": 0.1712,
+        "bci_foundation_models": 0.1301,
+        "bci_embodied_robot": 0.1408,
+        "bci_noninvasive_eeg": 0.1163,
+        "protein_ai": 0.1247,
+        "genomics_ai": 0.138
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.5041,
+      "first_seen": "2026-07-17",
+      "analysis": {
+        "tldr": "这篇论文发现世界-动作模型（WAM）存在一个根本性脆弱性：微小的视觉扰动就能让模型‘想象’出合理未来，却执行完全错误的动作；作者提出了两种针对性攻击（纯动作劫持和想象保留型攻击），在闭环控制下大幅降低任务成功率，并揭示了WAM中‘想象’与‘行动’解耦这一被忽视的安全隐患。",
+        "org": "南洋理工大学",
+        "country": "SG",
+        "org_type": "university",
+        "claim": "世界-动作模型（WAM）中‘想象未来’与‘生成动作’的耦合是脆弱的，可通过视觉对抗扰动系统性地破坏二者一致性，且该漏洞在保持未来预测表观合理性的同时仍能导致任务失败。",
+        "method_components": [
+          "model",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "RGB观测图像（含微小对抗扰动）",
+        "output": "机器人动作序列",
+        "robot_dependency": "仿真机械臂（如Franka Emika Panda）",
+        "data_dependency": "完全不依赖真实机器人数据，仅基于仿真环境训练与评估",
+        "sim2real_status": "sim-only",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "adversarial",
+          "sim2real",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 8,
+        "reproducibility_score": 3,
+        "significance": 68,
+        "significance_reason": "首次系统定义并实证WAM特有的一类‘世界-动作漂移攻击’，揭示其核心耦合机制的实际脆弱性，证据扎实（多WAM变体+闭环评估+消融验证），但未涉及真实机器人、未提出防御方案、未开源代码，属于对领域安全范式的显著警示而非架构级突破，分量介于扎实增量与重磅之间，明显低于DreamerV3/WEAVER等基石工作（94+）。",
+        "one_sentence_verdict": "显著贡献——不是技术突破，而是对当前热门WAM范式的一次关键压力测试，用严谨对抗实验戳破了‘想象即保障’的隐含假设。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 47,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 15.1,
+        "content": 18.0,
+        "heat": 14.6,
+        "quality": 0.0,
+        "base": 33.1,
+        "bonus": 14.6,
+        "total": 47.7
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.15207.jpg"
     },
     {
       "arxiv_id": "2606.06556",
@@ -10152,88 +10352,6 @@
       },
       "grade": "C",
       "read_priority": "B"
-    },
-    {
-      "arxiv_id": "2607.15207",
-      "title": "BadWAM: When World-Action Models Dream Right but Act Wrong",
-      "abstract": "World-action models (WAMs) are emerging as a promising foundation for embodied control: rather than predicting actions alone, they learn representations that couple action generation with future world prediction. This coupling is often viewed as a source of robustness, interpretability, and safety, as a robot's action can in principle be checked against its imagined future. In this paper, we show that this assumption is fragile. We introduce BadWAM, a unified framework for modeling and evaluating World-Action Drift Attacks: a new class of WAM-specific adversarial attacks that use small visual perturbations to break the alignment between what a WAM imagines and what it executes. BadWAM characterizes this attack surface along two natural criteria: attack strength and stealthiness. When the adversary prioritizes disruption, BadWAM instantiates an action-only adversarial attack, which directly drives the model toward task-failing actions. When the adversary additionally prioritizes stealth, BadWAM instantiates an imagination-preserving adversarial attack, which seeks to induce harmful action shifts while keeping the model's predicted future close to its clean imagination. Together, these two attacks capture a spectrum of WAM-specific failures: from overt action hijacking to stealthier cases where the model appears to imagine a plausible future but executes a desynchronized action. We evaluate BadWAM across different variants of WAMs. Results show that our attacks substantially reduce task success rates under closed-loop execution. For example, our action-only attack reduces the model performance from 96.5% to 43.1% success. The results of our imagination-preserving attack further exposes a WAM-specific vulnerability: moderate future-preserving regularization can maintain strong attack performance while reducing future imagination drift.",
-      "authors": [
-        "Qi Li",
-        "Xingyi Yang",
-        "Xinchao Wang"
-      ],
-      "categories": [],
-      "published": "2026-07-16T00:00:00.000Z",
-      "updated": "2026-07-16T00:00:00.000Z",
-      "url": "https://arxiv.org/abs/2607.15207",
-      "pdf_url": "https://arxiv.org/pdf/2607.15207",
-      "hf_upvotes": 15,
-      "source": "hf_daily",
-      "route_scores": {
-        "vla": 0.4893,
-        "world_model": 0.5041,
-        "whole_body_control": 0.3539,
-        "dexterous_manipulation": 0.1763,
-        "sim2real_data": 0.2368,
-        "hardware_unitree": 0.1629,
-        "bci_neural_decoding": 0.1712,
-        "bci_foundation_models": 0.1301,
-        "bci_embodied_robot": 0.1408,
-        "bci_noninvasive_eeg": 0.1163,
-        "protein_ai": 0.1247,
-        "genomics_ai": 0.138
-      },
-      "best_route": "world_model",
-      "relevance_raw": 0.5041,
-      "first_seen": "2026-07-17",
-      "analysis": {
-        "tldr": "这篇论文发现世界-动作模型（WAM）存在一个根本性脆弱性：微小的视觉扰动就能让模型‘想象’出合理未来，却执行完全错误的动作；作者提出了两种针对性攻击（纯动作劫持和想象保留型攻击），在闭环控制下大幅降低任务成功率，并揭示了WAM中‘想象’与‘行动’解耦这一被忽视的安全隐患。",
-        "org": "南洋理工大学",
-        "country": "SG",
-        "org_type": "university",
-        "claim": "世界-动作模型（WAM）中‘想象未来’与‘生成动作’的耦合是脆弱的，可通过视觉对抗扰动系统性地破坏二者一致性，且该漏洞在保持未来预测表观合理性的同时仍能导致任务失败。",
-        "method_components": [
-          "model",
-          "simulator",
-          "benchmark"
-        ],
-        "input": "RGB观测图像（含微小对抗扰动）",
-        "output": "机器人动作序列",
-        "robot_dependency": "仿真机械臂（如Franka Emika Panda）",
-        "data_dependency": "完全不依赖真实机器人数据，仅基于仿真环境训练与评估",
-        "sim2real_status": "sim-only",
-        "generalization": "limited",
-        "reproducibility": "project-page",
-        "tags": [
-          "adversarial",
-          "sim2real",
-          "benchmark"
-        ],
-        "novelty": 7,
-        "evidence": 8,
-        "reproducibility_score": 3,
-        "significance": 68,
-        "significance_reason": "首次系统定义并实证WAM特有的一类‘世界-动作漂移攻击’，揭示其核心耦合机制的实际脆弱性，证据扎实（多WAM变体+闭环评估+消融验证），但未涉及真实机器人、未提出防御方案、未开源代码，属于对领域安全范式的显著警示而非架构级突破，分量介于扎实增量与重磅之间，明显低于DreamerV3/WEAVER等基石工作（94+）。",
-        "one_sentence_verdict": "显著贡献——不是技术突破，而是对当前热门WAM范式的一次关键压力测试，用严谨对抗实验戳破了‘想象即保障’的隐含假设。",
-        "_llm": "qwen-plus"
-      },
-      "signals": {
-        "hf_upvotes": 44,
-        "citations": 0,
-        "venue": "arXiv (Cornell University)"
-      },
-      "scores": {
-        "relevance": 15.1,
-        "content": 18.0,
-        "heat": 14.4,
-        "quality": 0.0,
-        "base": 33.1,
-        "bonus": 14.4,
-        "total": 47.5
-      },
-      "grade": "C",
-      "read_priority": "B",
-      "thumb": "assets/thumbs/2607.15207.jpg"
     },
     {
       "arxiv_id": "2606.19980",
@@ -10539,7 +10657,7 @@
       "signals": {
         "hf_upvotes": 11,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 16.8,
@@ -10729,7 +10847,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 21.6,
@@ -11005,7 +11123,7 @@
       "signals": {
         "hf_upvotes": 5,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 17.3,
@@ -11372,7 +11490,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 21.5,
@@ -11571,7 +11689,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 21.4,
@@ -11765,7 +11883,7 @@
       "signals": {
         "hf_upvotes": 2,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 19.5,
@@ -11870,7 +11988,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 21.6,
@@ -12157,7 +12275,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 17.3,
@@ -12352,7 +12470,7 @@
       "signals": {
         "hf_upvotes": 12,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 19.5,
@@ -12723,7 +12841,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 18.1,
@@ -12830,7 +12948,7 @@
       "signals": {
         "hf_upvotes": 46,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 17.6,
@@ -13200,7 +13318,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 17.7,
@@ -13368,7 +13486,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "bioRxiv (Cold Spring Harbor Laboratory)"
+        "venue": ""
       },
       "scores": {
         "relevance": 21.5,
@@ -13572,6 +13690,91 @@
       "thumb": "assets/thumbs/2606.07723.jpg"
     },
     {
+      "arxiv_id": "2607.14076",
+      "doi": "10.48550/arxiv.2607.14076",
+      "source_kind": "arxiv",
+      "title": "From Pixels to States: Rethinking Interactive World Models as Game Engines",
+      "abstract": "Building interactive worlds that respond coherently to player actions has long been a shared goal of computer graphics, games, and artificial intelligence. Recent video generative models provide a data-driven route toward this goal by predicting future observations conditioned on user actions, and are increasingly regarded as potential next-generation game engines. Realizing a genuinely interactive game world, however, requires interaction outcomes that follow rules over evolving game conditions, consequences that persist over long horizons, and a generation loop that operates in real time. Conventional game engines realize these properties through a recurrent action-state-observation loop, in which player actions update an explicit game state according to predefined rules and observations are rendered from the resulting state. Taking this loop as an organizing lens, this paper examines interactive game world modeling along four dimensions: player action control, game state dynamics, state-observation persistence, and real-time interactive generation. For each dimension, we start from the capabilities required by an interactive game world, group existing approaches into representative families, and discuss the strengths and trade-offs of each family. Complementing this analysis, we present a scalable data engine for Black Myth: Wukong that collects over 90 hours of gameplay with frame-aligned player actions, ground-truth game states, and visual observations, together with structured and semantic annotations, as a resource for state-aware game world modeling. We hope this paper offers a clear picture of where the field stands and fosters progress toward interactive game worlds.",
+      "authors": [
+        "Zhen Li",
+        "Zian Meng",
+        "Shuwei Shi",
+        "Mingliang Zhai",
+        "Jiaming Tan",
+        "Chuanhao Li",
+        "K Zhang"
+      ],
+      "categories": [],
+      "published": "2026-07-15",
+      "updated": "2026-07-15",
+      "url": "https://arxiv.org/abs/2607.14076",
+      "pdf_url": "https://arxiv.org/pdf/2607.14076",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.3852,
+        "world_model": 0.582,
+        "whole_body_control": 0.2743,
+        "dexterous_manipulation": 0.1353,
+        "sim2real_data": 0.2343,
+        "hardware_unitree": 0.1315,
+        "bci_neural_decoding": 0.2138,
+        "bci_foundation_models": 0.1805,
+        "bci_embodied_robot": 0.2001,
+        "bci_noninvasive_eeg": 0.0959,
+        "protein_ai": 0.1841,
+        "genomics_ai": 0.2068
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.582,
+      "first_seen": "2026-07-18",
+      "analysis": {
+        "tldr": "这篇论文不是提出新模型，而是系统性梳理交互式世界模型应具备的四大能力维度（动作控制、状态演化、状态-观测量持久性、实时生成），并发布了一个面向《黑神话：悟空》的高质量游戏世界建模数据集（含90小时对齐的动作/真值状态/画面+结构化标注）。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "构建真正可交互的游戏世界，关键不在于单纯预测像素，而在于建模显式的、规则驱动的、持久演化的游戏状态，并以此为枢纽统一动作、状态与观测三者关系。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "玩家动作序列 + 当前帧图像",
+        "output": "未来多帧图像 + 对应的真值游戏状态（如角色血量、技能冷却、场景对象位置等结构化变量）",
+        "robot_dependency": "none",
+        "data_dependency": "高度依赖真实游戏运行时采集的同步真值状态（非仿真估计），但未使用机器人硬件",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 4,
+        "evidence": 6,
+        "reproducibility_score": 3,
+        "significance": 48,
+        "significance_reason": "虽提出清晰的四维分析框架并释放首个带真值游戏状态的大规模对齐数据集，但无新算法、无模型实现、无基线对比实验，未验证任何方法在该框架下的有效性；相比World Models（97分）等真正推动建模范式跃迁的工作，它停留在问题界定与资源供给层面，属扎实但窄口径的基础设施贡献。",
+        "one_sentence_verdict": "工程整合——提供了稀缺的真值状态对齐数据集和可操作的分析框架，但未推进建模方法本身，暂不具备范式突破性",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 29,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 17.5,
+        "content": 13.0,
+        "heat": 12.8,
+        "quality": 0.0,
+        "base": 30.5,
+        "bonus": 12.8,
+        "total": 43.3
+      },
+      "grade": "C",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.14076.jpg"
+    },
+    {
       "arxiv_id": "2607.08974",
       "doi": "10.48550/arxiv.2607.08974",
       "source_kind": "arxiv",
@@ -13643,7 +13846,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 20.1,
@@ -13657,91 +13860,6 @@
       "grade": "C",
       "read_priority": "B",
       "thumb": "assets/thumbs/2607.08974.jpg"
-    },
-    {
-      "arxiv_id": "2607.14076",
-      "doi": "10.48550/arxiv.2607.14076",
-      "source_kind": "arxiv",
-      "title": "From Pixels to States: Rethinking Interactive World Models as Game Engines",
-      "abstract": "Building interactive worlds that respond coherently to player actions has long been a shared goal of computer graphics, games, and artificial intelligence. Recent video generative models provide a data-driven route toward this goal by predicting future observations conditioned on user actions, and are increasingly regarded as potential next-generation game engines. Realizing a genuinely interactive game world, however, requires interaction outcomes that follow rules over evolving game conditions, consequences that persist over long horizons, and a generation loop that operates in real time. Conventional game engines realize these properties through a recurrent action-state-observation loop, in which player actions update an explicit game state according to predefined rules and observations are rendered from the resulting state. Taking this loop as an organizing lens, this paper examines interactive game world modeling along four dimensions: player action control, game state dynamics, state-observation persistence, and real-time interactive generation. For each dimension, we start from the capabilities required by an interactive game world, group existing approaches into representative families, and discuss the strengths and trade-offs of each family. Complementing this analysis, we present a scalable data engine for Black Myth: Wukong that collects over 90 hours of gameplay with frame-aligned player actions, ground-truth game states, and visual observations, together with structured and semantic annotations, as a resource for state-aware game world modeling. We hope this paper offers a clear picture of where the field stands and fosters progress toward interactive game worlds.",
-      "authors": [
-        "Zhen Li",
-        "Zian Meng",
-        "Shuwei Shi",
-        "Mingliang Zhai",
-        "Jiaming Tan",
-        "Chuanhao Li",
-        "K Zhang"
-      ],
-      "categories": [],
-      "published": "2026-07-15",
-      "updated": "2026-07-15",
-      "url": "https://arxiv.org/abs/2607.14076",
-      "pdf_url": "https://arxiv.org/pdf/2607.14076",
-      "cited_by_count": 0,
-      "route_scores": {
-        "vla": 0.3852,
-        "world_model": 0.582,
-        "whole_body_control": 0.2743,
-        "dexterous_manipulation": 0.1353,
-        "sim2real_data": 0.2343,
-        "hardware_unitree": 0.1315,
-        "bci_neural_decoding": 0.2138,
-        "bci_foundation_models": 0.1805,
-        "bci_embodied_robot": 0.2001,
-        "bci_noninvasive_eeg": 0.0959,
-        "protein_ai": 0.1841,
-        "genomics_ai": 0.2068
-      },
-      "best_route": "world_model",
-      "relevance_raw": 0.582,
-      "first_seen": "2026-07-18",
-      "analysis": {
-        "tldr": "这篇论文不是提出新模型，而是系统性梳理交互式世界模型应具备的四大能力维度（动作控制、状态演化、状态-观测量持久性、实时生成），并发布了一个面向《黑神话：悟空》的高质量游戏世界建模数据集（含90小时对齐的动作/真值状态/画面+结构化标注）。",
-        "org": "unknown",
-        "country": "unknown",
-        "org_type": "unknown",
-        "claim": "构建真正可交互的游戏世界，关键不在于单纯预测像素，而在于建模显式的、规则驱动的、持久演化的游戏状态，并以此为枢纽统一动作、状态与观测三者关系。",
-        "method_components": [
-          "dataset",
-          "benchmark"
-        ],
-        "input": "玩家动作序列 + 当前帧图像",
-        "output": "未来多帧图像 + 对应的真值游戏状态（如角色血量、技能冷却、场景对象位置等结构化变量）",
-        "robot_dependency": "none",
-        "data_dependency": "高度依赖真实游戏运行时采集的同步真值状态（非仿真估计），但未使用机器人硬件",
-        "sim2real_status": "n/a",
-        "generalization": "limited",
-        "reproducibility": "project-page",
-        "tags": [
-          "dataset",
-          "benchmark"
-        ],
-        "novelty": 4,
-        "evidence": 6,
-        "reproducibility_score": 3,
-        "significance": 48,
-        "significance_reason": "虽提出清晰的四维分析框架并释放首个带真值游戏状态的大规模对齐数据集，但无新算法、无模型实现、无基线对比实验，未验证任何方法在该框架下的有效性；相比World Models（97分）等真正推动建模范式跃迁的工作，它停留在问题界定与资源供给层面，属扎实但窄口径的基础设施贡献。",
-        "one_sentence_verdict": "工程整合——提供了稀缺的真值状态对齐数据集和可操作的分析框架，但未推进建模方法本身，暂不具备范式突破性",
-        "_llm": "qwen-plus"
-      },
-      "signals": {
-        "hf_upvotes": 27,
-        "citations": 0,
-        "venue": "arXiv (Cornell University)"
-      },
-      "scores": {
-        "relevance": 17.5,
-        "content": 13.0,
-        "heat": 12.6,
-        "quality": 0.0,
-        "base": 30.5,
-        "bonus": 12.6,
-        "total": 43.1
-      },
-      "grade": "C",
-      "read_priority": "C",
-      "thumb": "assets/thumbs/2607.14076.jpg"
     },
     {
       "arxiv_id": "2604.07457",
@@ -14021,7 +14139,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 18.8,
@@ -14296,7 +14414,7 @@
       "signals": {
         "hf_upvotes": 3,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 11.5,
@@ -14471,7 +14589,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 19.5,
@@ -14562,7 +14680,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 18.5,
@@ -14845,7 +14963,7 @@
       "signals": {
         "hf_upvotes": 14,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 14.0,
@@ -14934,7 +15052,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 17.1,
@@ -15115,7 +15233,7 @@
       "signals": {
         "hf_upvotes": 2,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       },
       "scores": {
         "relevance": 17.9,
@@ -31393,12 +31511,13 @@
         "significance": 78,
         "significance_reason": "首次系统性解耦并联合建模低成本执行器中摩擦/滞回/热效应/背隙等混杂非线性，且在三类差异显著的商用平台（500–30000美元）上实证了跨执行器家族泛化能力；但未部署于闭环控制任务或长期运行验证，也未开源代码/模型，工程落地闭环不完整，尚未达到GR00T/H2O级范式突破。",
         "one_sentence_verdict": "真突破：它不是刷榜或包装概念，而是直击sim2real中最顽固的‘执行器黑箱’问题，用可微仿真+多头监督+真实跨平台数据，首次实现了对廉价伺服电机动力学的统一神经建模与多任务感知，证据扎实、问题关键、验证充分。",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "RSS 2026"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "RSS 2026"
       },
       "scores": {
         "relevance": 15.7,
@@ -31411,7 +31530,8 @@
       },
       "grade": "C",
       "read_priority": "B",
-      "thumb": "assets/thumbs/2607.11734.jpg"
+      "thumb": "assets/thumbs/2607.11734.jpg",
+      "venue": "RSS 2026"
     },
     {
       "arxiv_id": "2606.00374",
@@ -117752,7 +117872,8 @@
         "total": 30.1
       },
       "grade": "D",
-      "read_priority": "C"
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2606.31691.jpg"
     },
     {
       "arxiv_id": "10.64898/2026.07.02.736062",
