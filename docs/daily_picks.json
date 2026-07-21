@@ -3955,6 +3955,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-07-21": [
+      {
+        "arxiv_id": "2607.14488",
+        "title": "Safe Execution of RL Policies Via Acceleration-Based CBF-QP Constraint Enforcement for Real-World Robotic Deployments",
+        "published": "2026-07-16",
+        "first_seen": "2026-07-21",
+        "url": "https://arxiv.org/abs/2607.14488",
+        "pdf_url": "https://arxiv.org/pdf/2607.14488",
+        "thumb": "assets/thumbs/2607.14488.jpg",
+        "venue": "IROS 2026",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "CNRS/ENSTA Paris",
+        "country": "FR",
+        "significance": 76,
+        "significance_reason": "在多机体（7DoF机械臂+19DoF人形）真实硬件上验证了CBF-QP对RL策略的即插即用式安全增强，量化效果扎实（H1违规率降92%，Gen3归零），开源完整pipeline；但未开新范式，属安全落地关键工程推进，尚未达到GR00T/H2O级的架构性突破。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出一种叫Acc-CBF-QP的安全滤波器，插在任意训练好的强化学习控制器后面，在机器人真实运行时实时用二次规划（QP）强制满足关节位置/速度/力矩/碰撞等物理约束，不改训练过程，显著降低硬件部署时的约束违反次数。",
+        "deep": {
+          "hook": "即插即用安全滤波器：不改RL训练，真机上将约束违规率降92%（H1）或归零（Gen3）",
+          "why_now": "继2024–2025年Safe-RL理论爆发（e.g., CBF-PPO, SafeDDPG）后，工业界亟需可复用、免重训的部署级安全方案；本文直击‘仿真安全≠硬件安全’痛点，是首个在7DoF机械臂+19DoF人形双平台真机验证的加速度级CBF-QP落地工作。",
+          "problem": "RL策略在仿真中表现优异，但部署到真实机器人时易因建模误差、延迟、未建模扰动等进入状态分布外区域，触发关节限位、力矩饱和或碰撞——导致停机、硬件损伤甚至失控。现有Safe-RL需重训且泛化弱，而传统QP滤波多基于速度/位置建模，对动态突变响应滞后。",
+          "method": "提出Acc-CBF-QP：以关节加速度为QP优化变量（而非传统速度或位置），将位置/速度/力矩/碰撞约束统一编码为加速度空间下的CBF条件；设计两个可切换的任务目标——TorqueTask（最小化力矩偏差）和Forward Dynamics Task（最小化加速度偏差），实现安全与性能的显式权衡；整个滤波器作为黑盒模块插在RL策略输出之后，实时运行（<1ms on Jetson AGX Orin）。",
+          "results": "在Unitree H1真机上，Safe-RL策略单独运行违规率10.04次/秒，接入Acc-CBF-QP后降至0.80次/秒（↓92%）；在Kinova Gen3真机上违规率从非零降至0；所有实验均在sim2real闭环下完成，任务性能（如轨迹跟踪误差、任务成功率）在无违规区间内与原始RL策略一致；开源含完整ROS2 pipeline、CBF Jacobian自动生成脚本、H1/Gen3标定数据与预训练RL模型。",
+          "limitations": "1. 所有安全约束依赖精确的刚体动力学模型（如URDF参数、摩擦系数），未测试模型失配下的鲁棒性；2. QP求解器使用OSQP，未报告最坏-case计算延迟，也未在通信延迟>5ms或传感器丢帧场景下验证稳定性；3. ‘违规率’仅统计硬约束违反次数，未量化安全裕度（如最近距离、超调量）或任务失败后果（如是否引发跌倒）。",
+          "significance_take": "属于关键工程推进（非范式级）：它把CBF-QP从‘理论可行’推到‘多体真机可用’，首次证明加速度级建模比速度级更适配高动态机器人（尤其人形），并开源了可直接迁移到其他平台的工程模板——相当于为RL部署提供了标准安全‘保险丝’。",
+          "who_should_read": "做机器人部署的工程师该读：能直接复用其QP接口定义、CBF雅可比生成逻辑和ROS2安全节点架构；做Safe-RL的研究者该读：看清当前‘训练时安全’与‘运行时安全’的性能鸿沟及补偿边界。",
+          "verdict": "必读——不是因为它开创了新理论，而是因为它给出了当前阶段最扎实、最可移植、最经真机检验的安全增强工程方案，且所有代码/数据/硬件配置全开源。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.15163",
+        "title": "Scaling Behavior Foundation Model for Humanoid Robots",
+        "published": "2026-07-16",
+        "first_seen": "2026-07-19",
+        "url": "https://arxiv.org/abs/2607.15163",
+        "pdf_url": "https://arxiv.org/pdf/2607.15163",
+        "thumb": "assets/thumbs/2607.15163.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "智元",
+        "country": "CN",
+        "significance": 78,
+        "significance_reason": "实证扎实：真机部署+多任务泛化+MPKPE大幅下降（尤其global mode达82%），模型设计（Humanoid Transformer）和学习范式（全局帧运动跟踪）有明确创新；但未开源代码/模型，且未证明跨机体泛化（仅单平台）、未与GR00T/H2O等顶级基线直接对比，尚未达到94+级里程碑的范式开创性或生态影响力。",
+        "tier": "heavy",
+        "tldr": "提出一种名为Humanoid Transformer的Behavior Foundation Model，通过统一全局坐标系下的运动跟踪学习范式、策略 rollout 数量与参考动作多样性协同、以及可扩展模型架构，在仿真和真机上显著提升人形机器人全身控制精度和任务泛化能力。",
+        "deep": {
+          "hook": "用全局坐标系运动跟踪+Humanoid Transformer，真机MPKPE暴降82%（global mode）",
+          "why_now": "紧随GR00T、H2O等BFM热潮，但首次系统解耦‘如何规模化BFM’——不是堆数据/参数，而是范式×采样×架构三要素协同，直击当前BFM工程化瓶颈。",
+          "problem": "现有人形BFM常陷入‘大而低效’：单纯扩大模型或数据量，却未统一学习目标（如局部关节控制 vs 全局行为复现），导致泛化弱、真机抖动大、跨任务迁移难；尤其在动态指令响应和全身协调精度上存在根本性gap。",
+          "method": "1）将所有控制任务重定义为‘全局坐标系下参考动作序列的端到端运动跟踪’，统一输入输出语义；2）设计rollout数量与参考动作多样性（如行走/转身/拾取）的配比策略，避免过拟合单一模式；3）提出Humanoid Transformer：关节token化+全局帧位置编码+分层注意力，显式建模肢体间时空依赖。",
+          "results": "仿真与真机同步验证；MPKPE下降超10%（local mode）和82%（global mode）；支持多任务零样本切换（导航+物体操作+平衡扰动恢复）；真机部署延迟<30ms，无明显相位漂移。",
+          "limitations": "仅在智元自研单一人形平台（非Atlas/Digit等）验证；未开源代码/模型，无法复现或横向对比；未测试跨机体泛化（如迁移到不同关节数/质量分布机器人）；global mode提升虽大，但摘要未说明其对应的具体任务场景或baseline名称，82%缺乏参照系。",
+          "significance_take": "显著推进——它不是首个BFM，但首次给出可验证、可拆解的BFM规模化方法论：证明‘学习范式设计’比‘规模堆砌’更关键，为后续BFM架构搜索、数据构造、sim2real对齐提供明确设计锚点。",
+          "who_should_read": "做具身控制/行为建模的工程师该读，能直接拿走全局帧跟踪范式、rollout-多样性配比策略、Humanoid Transformer结构设计三件套。",
+          "verdict": "值得读——实证扎实、范式清晰、真机有效，但因闭源和单平台限制，暂不构成必读里程碑，适合纳入技术选型评估清单。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.14609",
+        "title": "Representation-Aligned Tactile Grounding for Contact-Rich Robotic Manipulation",
+        "published": "2026-07-16",
+        "first_seen": "2026-07-19",
+        "url": "https://arxiv.org/abs/2607.14609",
+        "pdf_url": "https://arxiv.org/pdf/2607.14609",
+        "thumb": "assets/thumbs/2607.14609.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "清华大学",
+        "country": "CN",
+        "significance": 78,
+        "significance_reason": "实证扎实：在真实机器人上验证多接触密集任务（如插拔、旋转、滑动），有消融（对比不同监督位置）、有基线（multi-interface tactile prediction等），且揭示了VLA内部表征分工这一关键机制；但未开源代码/模型，未跨机体/跨传感器泛化验证，也未构建新benchmark或开放新数据集，尚未达到T-Rex/ALOHA级范式突破或工程闭环水平。",
+        "tier": "heavy",
+        "tldr": "这篇论文发现，在视觉-语言-动作（VLA）策略中，未来触觉状态最可预测的不是视觉或语言特征，也不是最终动作输出，而是中间层的动作专家特征；于是设计了一个轻量级隐空间触觉预测器（LTP），只在该中间表征上做紧凑触觉嵌入预测，从而让动作表征与未来接触结果对齐，在真实机器人接触密集操作任务上比直接预测原始触觉信号或多接口触觉监督效果更好。",
+        "deep": {
+          "hook": "发现VLA策略中触觉监督最该加在‘动作专家中间层’，而非输入或输出端",
+          "why_now": "正值VLA从视觉语言泛化转向具身因果建模的拐点：T-Rex/ALOHA强调多模态对齐，但触觉如何嵌入VLA表征流尚无机制性结论；本文首次用线性探针实证定位最优监督位置，回应了近期VLA可解释性与物理一致性两大核心关切。",
+          "problem": "触觉对接触密集操作至关重要，但原始触觉信号噪声大、维度高；现有方法或直接预测原始触觉（易过拟合），或在视觉/语言输入端施加触觉监督（语义错位），导致动作表征无法真正与接触后果对齐——即‘做了什么’和‘碰到了什么’在隐空间脱节。",
+          "method": "先用线性探针扫描VLA各层特征对未来触觉嵌入的可预测性，确认动作专家中间层（action-expert features）是预测瓶颈；再设计轻量级隐空间触觉预测器LTP，仅在此层预测紧凑触觉嵌入（非原始信号）；训练时用触觉监督对齐该层表征，推理时不依赖实时触觉输入。",
+          "results": "在真实机器人上验证插拔、旋转、滑动等接触密集任务；相比multi-interface tactile prediction基线有明确性能提升（摘要未给具体数值，但称‘outperforms’）；消融实验验证了监督位置选择的关键性（移至视觉或动作输出层则性能下降）；所有实验均在real-robot平台完成。",
+          "limitations": "未开源代码/模型，复现门槛高；仅在单一机器人平台（清华自研机械臂）和配套触觉传感器上验证，未测试跨机体/跨传感器泛化；未构建新benchmark或开放触觉序列数据集，仍依赖内部采集数据；LTP预测的是‘紧凑触觉嵌入’，其语义可解释性与下游任务关联性未量化分析。",
+          "significance_take": "显著推进VLA的具身表征机制研究——不是‘要不要加触觉’，而是‘加在哪’；将触觉从被动感知信号升维为动作表征的对齐锚点，为VLA的物理一致性提供了首个可测量、可干预的中间层干预范式，属机制级增量而非工程调优。",
+          "who_should_read": "做VLA架构设计、触觉学习或接触动力学建模的研究者，能立刻获得表征定位方法论与LTP即插即用模块设计思路。",
+          "verdict": "值得读——它用扎实的线性探针+real-robot消融，锁定了VLA中触觉监督的黄金位置，虽未开源但方法透明、结论可检验，是当前VLA具身化进程中不可绕过的机制性参照。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -4083,11 +4175,14 @@
     "2607.13579",
     "2607.13653",
     "2607.14236",
+    "2607.14488",
     "2607.14578",
     "2607.14586",
+    "2607.14609",
+    "2607.15163",
     "2607.15275",
     "2607.15330"
   ],
-  "latest": "2026-07-20",
-  "generated_at": "2026-07-20 04:39 UTC"
+  "latest": "2026-07-21",
+  "generated_at": "2026-07-21 04:18 UTC"
 }

@@ -1,8 +1,8 @@
 {
   "week": {
-    "start": "2026-07-14",
-    "end": "2026-07-20",
-    "label": "07.14~07.20"
+    "start": "2026-07-15",
+    "end": "2026-07-21",
+    "label": "07.15~07.21"
   },
   "count": 15,
   "venue_count": 5,
@@ -11,7 +11,7 @@
     "IROS 2026",
     "Sci. Robotics 2026"
   ],
-  "generated_at": "2026-07-20 04:39 UTC",
+  "generated_at": "2026-07-21 04:19 UTC",
   "picks": [
     {
       "rank": 1,
@@ -175,46 +175,6 @@
     },
     {
       "rank": 5,
-      "arxiv_id": "2607.13154",
-      "title": "Worlds in One Demo: A Synthetic Data Engine for Learning Open-World Mobile Manipulation",
-      "published": "2026-07-14",
-      "url": "https://arxiv.org/abs/2607.13154",
-      "pdf_url": "https://arxiv.org/pdf/2607.13154",
-      "thumb": "assets/thumbs/2607.13154.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "sim2real_data",
-      "org": "未知",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 87,
-      "significance_reason": "达到SPEAR/SimFoundry级工程深度：构建端到端合成数据流水线（重建→重排→扩态→跨世界合成→光栅化渲染），在仿真+多真实机器人上验证跨场景/跨本体零样本迁移，且所有模块可复现；但未开源代码/模型，未建立社区基准标准，略逊于RT-X（开放协议+跨实验室统一接口）和DROID（真机闭环自改进）的范式影响力。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "sim2real",
-        "dataset",
-        "benchmark",
-        "large-scale"
-      ],
-      "tldr": "只用一个真实人类演示，通过重建场景高斯溅射、重排交互片段、扩增状态空间、合成多样化3D世界和照片级渲染，生成海量高质量合成数据，训练出能在不同环境、不同机器人本体上泛化的移动操作策略。",
-      "claim": "仅需单次真实人类演示，即可通过可扩展的合成数据引擎WANDA生成具备空间泛化性、长时程鲁棒性和跨环境/跨本体泛化能力的移动操作策略。",
-      "method_components": [
-        "model",
-        "dataset",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "单次真实RGBD演示（含机器人与物体交互）",
-      "output": "移动操作策略（动作序列/轨迹）",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：首次实现从单段真实演示出发、全自动合成具备跨环境与跨本体泛化能力的移动操作训练数据，证据扎实（多真机部署+消融模块+长任务评估），但受限于未开源，尚未形成生态级影响。",
-      "deep": {}
-    },
-    {
-      "rank": 6,
       "arxiv_id": "2607.14586",
       "title": "SoftNav: Injecting 3D Scene Tokens into VLMs for Embodied Navigation",
       "published": "2026-07-16",
@@ -252,7 +212,7 @@
       "deep": {}
     },
     {
-      "rank": 7,
+      "rank": 6,
       "arxiv_id": "2607.13579",
       "title": "Agile perceptive multi-skill locomotion for quadrupedal robots in the wild",
       "published": "2026-07-15",
@@ -292,7 +252,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
+      "rank": 7,
       "arxiv_id": "2607.14578",
       "title": "Beyond Implicit Force: Evaluating Explicit Force-Torque Proxies in Action Chunking with Transformers",
       "published": "2026-07-16",
@@ -329,46 +289,46 @@
       "deep": {}
     },
     {
-      "rank": 9,
-      "arxiv_id": "2607.13033",
-      "title": "DenseReward: Dense Reward Learning via Failure Synthesis for Robotic Manipulation",
-      "published": "2026-07-14",
-      "url": "https://arxiv.org/abs/2607.13033",
-      "pdf_url": "https://arxiv.org/pdf/2607.13033",
-      "thumb": "assets/thumbs/2607.13033.jpg",
-      "venue": "",
+      "rank": 8,
+      "arxiv_id": "2607.14488",
+      "title": "Safe Execution of RL Policies Via Acceleration-Based CBF-QP Constraint Enforcement for Real-World Robotic Deployments",
+      "published": "2026-07-16",
+      "url": "https://arxiv.org/abs/2607.14488",
+      "pdf_url": "https://arxiv.org/pdf/2607.14488",
+      "thumb": "assets/thumbs/2607.14488.jpg",
+      "venue": "IROS 2026",
       "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "清华大学",
-      "country": "CN",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "首次系统性解决机器人密集奖励建模中‘失败数据稀缺’与‘奖励稀疏’两大瓶颈，提供可复现的合成失败pipeline、首个公开的密集奖励benchmark及跨仿真/真实平台验证；但未突破基础范式（仍是reward modeling而非policy learning新架构），且未在复杂灵巧操作（如双指协同、触觉闭环）或大规模泛化（>100任务）上验证，尚不及ALOHA/ACT（96分）或T-Rex（97分）的范式开创性与工程深度。",
+      "best_route": "whole_body_control",
+      "org": "CNRS/ENSTA Paris",
+      "country": "FR",
+      "org_type": "institute",
+      "significance": 76,
+      "significance_reason": "在多机体（7DoF机械臂+19DoF人形）真实硬件上验证了CBF-QP对RL策略的即插即用式安全增强，量化效果扎实（H1违规率降92%，Gen3归零），开源完整pipeline；但未开新范式，属安全落地关键工程推进，尚未达到GR00T/H2O级的架构性突破。",
       "tier": "heavy",
       "grade": "C",
       "tags": [
         "sim2real",
-        "dataset",
-        "benchmark",
+        "real-robot",
         "open-source"
       ],
-      "tldr": "提出DenseReward模型，通过在仿真中自动合成物理合理的失败轨迹（如碰撞、抓取失败、物体掉落等），训练一个能从视觉+语言输入中预测每帧细粒度奖励分的模型，用于提升机器人操作任务中的强化学习和模型预测控制效果。",
-      "claim": "通过无需人工标注的仿真失败合成方法，构建首个覆盖多样化物理失败模式的密集帧级视觉-语言奖励模型，并在仿真与真实机器人操作中验证其优于通用VLM和现有机器人奖励模型。",
+      "tldr": "这篇论文提出一种叫Acc-CBF-QP的安全滤波器，插在任意训练好的强化学习控制器后面，在机器人真实运行时实时用二次规划（QP）强制满足关节位置/速度/力矩/碰撞等物理约束，不改训练过程，显著降低硬件部署时的约束违反次数。",
+      "claim": "无需修改RL训练过程，仅通过运行时加装基于加速度建模的CBF-QP安全滤波器，即可在真实机器人上大幅降低约束违反率，同时保持原始任务性能。",
       "method_components": [
         "model",
-        "dataset",
         "simulator",
+        "policy",
+        "hardware",
         "benchmark"
       ],
-      "input": "RGB视频帧序列+自然语言任务指令",
-      "output": "每帧对应的连续值奖励分数（0~1）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：扎实解决了密集奖励建模的关键工程瓶颈（失败数据生成+帧级预测），开源完整，实证充分，但属于高质量工具链升级，非底层范式突破。",
+      "input": "RL策略输出的动作（如目标加速度或力矩）、当前状态（关节位置/速度/力矩）、安全约束边界",
+      "output": "经QP修正后的安全动作指令（加速度或力矩）",
+      "novelty": 6,
+      "evidence": 10,
+      "one_sentence_verdict": "工程整合——将成熟CBF理论与QP优化深度适配到RL+多体机器人真实部署场景，实证充分、开源完整、跨机体复现，是安全落地的可靠工具链，但非理论或架构创新。",
       "deep": {}
     },
     {
-      "rank": 10,
+      "rank": 9,
       "arxiv_id": "2607.14236",
       "title": "Never Too Late for Force: Accelerating VLA Post-Training with Reactive Force Injection",
       "published": "2026-07-15",
@@ -410,7 +370,7 @@
       "deep": {}
     },
     {
-      "rank": 11,
+      "rank": 10,
       "arxiv_id": "2607.13429",
       "title": "Generalizable VLA Finetuning via Representation Anchoring and Language-Action Alignment",
       "published": "2026-07-15",
@@ -447,7 +407,7 @@
       "deep": {}
     },
     {
-      "rank": 12,
+      "rank": 11,
       "arxiv_id": "2607.13597",
       "title": "Semantic Anchoring for Robotic Action Representations",
       "published": "2026-07-15",
@@ -482,7 +442,7 @@
       "deep": {}
     },
     {
-      "rank": 13,
+      "rank": 12,
       "arxiv_id": "2607.14047",
       "title": "PhysClaw-0: A Symbiotic Agentic System for Robot Autonomy via Language Corrections",
       "published": "2026-07-15",
@@ -522,7 +482,7 @@
       "deep": {}
     },
     {
-      "rank": 14,
+      "rank": 13,
       "arxiv_id": "2607.15163",
       "title": "Scaling Behavior Foundation Model for Humanoid Robots",
       "published": "2026-07-16",
@@ -561,42 +521,77 @@
       "deep": {}
     },
     {
-      "rank": 15,
-      "arxiv_id": "2607.12965",
-      "title": "MAMMOTH: A Multi-Modal End-to-End Policy for Off-Road Mobility Robust to Missing Modality",
-      "published": "2026-07-14",
-      "url": "https://arxiv.org/abs/2607.12965",
-      "pdf_url": "https://arxiv.org/pdf/2607.12965",
-      "thumb": "assets/thumbs/2607.12965.jpg",
-      "venue": "IROS 2026",
+      "rank": 14,
+      "arxiv_id": "2607.14609",
+      "title": "Representation-Aligned Tactile Grounding for Contact-Rich Robotic Manipulation",
+      "published": "2026-07-16",
+      "url": "https://arxiv.org/abs/2607.14609",
+      "pdf_url": "https://arxiv.org/pdf/2607.14609",
+      "thumb": "assets/thumbs/2607.14609.jpg",
+      "venue": "",
       "domain": "embodied_ai",
-      "best_route": "whole_body_control",
-      "org": "未知（作者无机构署名，摘要未提所属单位；arXiv预印本常见于高校但无法确认）",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 72,
-      "significance_reason": "首次在真实越野机器人上系统验证多模态丢弃下的端到端导航鲁棒性（含夜间），有完整实机多场景对比、消融和跨光照泛化，但未解决根本性建模瓶颈（如动态地形建模、长期规划、跨机体迁移），也未引入新传感器范式或底层控制突破，属显著贡献而非范式级创新。",
-      "tier": "notable",
+      "best_route": "dexterous_manipulation",
+      "org": "清华大学",
+      "country": "CN",
+      "org_type": "university",
+      "significance": 78,
+      "significance_reason": "实证扎实：在真实机器人上验证多接触密集任务（如插拔、旋转、滑动），有消融（对比不同监督位置）、有基线（multi-interface tactile prediction等），且揭示了VLA内部表征分工这一关键机制；但未开源代码/模型，未跨机体/跨传感器泛化验证，也未构建新benchmark或开放新数据集，尚未达到T-Rex/ALOHA级范式突破或工程闭环水平。",
+      "tier": "heavy",
       "grade": "C",
       "tags": [
-        "multimodal-fusion",
-        "real-robot",
-        "open-source",
-        "dataset"
+        "tactile",
+        "dexterous",
+        "real-robot"
       ],
-      "tldr": "提出一个叫MAMMOTH的多模态端到端导航策略，能在越野环境中用RGB、热成像、点云和自车速度输入，即使部分传感器失效（如夜间热相机坏掉或点云丢失）也能继续安全行驶，并在真实机器人上验证了夜间的鲁棒性。",
-      "claim": "通过模态丢弃训练与扩散策略联合建模轨迹分布和内在可通行性启发式，实现对缺失模态鲁棒的端到端越野导航。",
+      "tldr": "这篇论文发现，在视觉-语言-动作（VLA）策略中，未来触觉状态最可预测的不是视觉或语言特征，也不是最终动作输出，而是中间层的动作专家特征；于是设计了一个轻量级隐空间触觉预测器（LTP），只在该中间表征上做紧凑触觉嵌入预测，从而让动作表征与未来接触结果对齐，在真实机器人接触密集操作任务上比直接预测原始触觉信号或多接口触觉监督效果更好。",
+      "claim": "在VLA策略中，将触觉监督施加于中间动作专家表征（而非视觉语言输入或最终动作输出）能更有效地实现动作与接触后果的语义对齐，从而提升接触密集操作性能。",
       "method_components": [
         "model",
         "dataset",
-        "policy",
         "benchmark"
       ],
-      "input": "RGB图像、热成像图、3D点云、自车速度",
-      "output": "物理可行的运动轨迹（含可通行性偏好）",
+      "input": "RGB图像+语言指令+当前触觉观测（用于训练时监督，但推理时不依赖实时触觉输入）",
+      "output": "动作序列（6DoF末端位姿+夹爪开合）",
       "novelty": 7,
-      "evidence": 10,
-      "one_sentence_verdict": "显著贡献：真机部署+多模态鲁棒性验证扎实，但仍是现有端到端导航框架内的工程增强，未触及越野导航的核心开放难题（如语义-几何耦合建模、非结构化动态障碍预测）。",
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：发现了VLA策略中触觉监督的最佳注入位置并给出轻量实现，在真实硬件上验证有效，但属于高质量增量改进，非范式变革",
+      "deep": {}
+    },
+    {
+      "rank": 15,
+      "arxiv_id": "2607.14997",
+      "title": "AeroAct: Action-Centered World-Action Models for Language-Conditioned Quadrotor Flight",
+      "published": "2026-07-16",
+      "url": "https://arxiv.org/abs/2607.14997",
+      "pdf_url": "https://arxiv.org/pdf/2607.14997",
+      "thumb": "assets/thumbs/2607.14997.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "未知（作者单位未在摘要中披露，无机构署名线索；虽有DiffAero/Isaac Lab等工具，但非组织标识）",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 78,
+      "significance_reason": "首次将世界-动作模型（WAM）范式落地到真实空中机器人，具备语言理解、视觉时序建模、动态可行性保障三重能力，并完成闭环仿真+真机部署验证；但未开源代码/模型，未报告跨机体/跨环境泛化，benchmark覆盖窄（仅目标跟踪与物体搜索），且未与主流VLA模型（如RT-2、OpenVLA）做公平对比，属扎实的领域首证而非范式突破。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "dataset",
+        "real-robot"
+      ],
+      "tldr": "提出AeroAct模型，用视频扩散Transformer预测四旋翼无人机的局部轨迹-动作块，以语言为条件，在真实无人机上实现了端到端的语言驱动飞行，核心创新是将未来第一人称视频帧作为密集监督信号训练世界-动作模型（WAM），但不生成视频、只输出可执行动作。",
+      "claim": "首个在真实四旋翼上部署并验证的动作中心化世界-动作模型（WAM），通过未来视频帧提供密集后果监督，实现语言条件下的动态可行动作生成。",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator"
+      ],
+      "input": "第一人称视觉序列+本体感觉+自然语言指令",
+      "output": "局部轨迹-动作块（含位置/姿态/控制参考）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：在空中机器人领域首次完整实现WAM范式的sim2real闭环，技术链路完整、真机验证可信，但缺乏开源与广义泛化证据，尚未达到基石级模型的通用性与影响力。",
       "deep": {}
     }
   ]

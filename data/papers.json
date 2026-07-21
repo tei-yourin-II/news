@@ -6766,6 +6766,124 @@
       "read_priority": "A"
     },
     {
+      "arxiv_id": "2607.15330",
+      "title": "Xiaomi-Robotics-1: Scaling Vision-Language-Action Models with over 100K Hours of Real-World Trajectories",
+      "abstract": "We present Xiaomi-Robotics-1, a foundational vision-language-action (VLA) model capable of (1) following diverse language instructions to perform a wide range of mobile manipulation tasks in unseen environments out-of-the-box, and (2) efficiently adapting to novel downstream tasks with minimal fine-tuning data. We propose a two-stage training recipe consisting of pre-training and post-training. During pre-training, we imbue the model with broad and generalizable action-generation capabilities by training on over 100k hours of real-world manipulation trajectories collected via UMI devices. Crucially, we develop a scalable auto-labeling pipeline that annotates trajectory clips with natural languages describing scene state transitions, providing rich and precise conditioning for action learning. During post-training, we aim to align these capabilities with robot embodiments and imperative instructions that humans naturally use to prompt robots. Extensive experiments demonstrate strong scaling behavior. Xiaomi-Robotics-1 consistently improves with increased data scales and model sizes during pre-training. This scaling behavior directly transfers to post-training, where a stronger pre-training model yields better out-of-the-box real-robot performance in unseen environments. Furthermore, Xiaomi-Robotics-1 serves as a strong robot foundation policy that can be efficiently fine-tuned on complex, dexterous tasks with high data efficiency. Across multiple simulation benchmarks, Xiaomi-Robotics-1 outperforms state-of-the-art methods. Notably, it establishes a new state-of-the-art with a 57.6% success rate on RoboCasa365, surpassing the previous best of 46.6%. Furthermore, it achieves an average score of 20.07 on RoboDojo, significantly outperforming the prior state-of-the-art (13.07). Code and model checkpoints will be released. Project page: https://robotics.xiaomi.com/xiaomi-robotics-1.html",
+      "authors": [
+        "Xiaomi Robotics Team",
+        "Jun Guo",
+        "Piaopiao Jin",
+        "Jason Li",
+        "Peiyan Li",
+        "Yingyan Li",
+        "Futeng Liu",
+        "Wanli Peng",
+        "Optimus Qin",
+        "Yifei Su",
+        "Nan Sun",
+        "Qiao Sun",
+        "Runze Suo",
+        "Heyun Wang",
+        "Yunhong Wang",
+        "Rujie Wu",
+        "Caoyu Xia",
+        "Lina Zhang",
+        "Jack Zhao",
+        "Guoliang Chen",
+        "Wenlong Chen",
+        "Xinze He",
+        "Bin Li",
+        "Qing Li",
+        "Zhuorong Li",
+        "Heng Qu",
+        "Wenxuan Song",
+        "Diyun Xiang",
+        "Yifan Xie",
+        "Peiran Xu",
+        "Hangjun Ye",
+        "Wen Ye",
+        "Han Zhao",
+        "Quanyun Zhou"
+      ],
+      "categories": [],
+      "published": "2026-07-16T00:00:00.000Z",
+      "updated": "2026-07-16T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2607.15330",
+      "pdf_url": "https://arxiv.org/pdf/2607.15330",
+      "hf_upvotes": 18,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.6196,
+        "world_model": 0.4969,
+        "whole_body_control": 0.4438,
+        "dexterous_manipulation": 0.2483,
+        "sim2real_data": 0.3361,
+        "hardware_unitree": 0.2145,
+        "bci_neural_decoding": 0.1982,
+        "bci_foundation_models": 0.1619,
+        "bci_embodied_robot": 0.2685,
+        "bci_noninvasive_eeg": 0.1336,
+        "protein_ai": 0.1579,
+        "genomics_ai": 0.1637
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.6196,
+      "first_seen": "2026-07-20",
+      "analysis": {
+        "tldr": "小米机器人团队用超10万小时真实机器人操作轨迹（来自UMI设备）训练了一个视觉-语言-动作大模型，能直接在未见过的环境中根据自然语言指令执行移动操作任务，且只需少量微调就能适配新任务。",
+        "org": "小米机器人",
+        "country": "CN",
+        "org_type": "company",
+        "claim": "基于超10万小时真实世界轨迹和可扩展自动标注流水线训练的VLA模型，具备开箱即用的跨环境泛化能力与高效下游适配能力。",
+        "method_components": [
+          "model",
+          "dataset",
+          "policy",
+          "benchmark"
+        ],
+        "input": "RGB图像+自然语言指令",
+        "output": "动作序列（关节扭矩/末端位姿控制信号）",
+        "robot_dependency": "UMI（Universal Manipulation Interface）机械臂平台",
+        "data_dependency": "强依赖：全部预训练数据来自真实机器人（UMI）采集的100K+小时轨迹",
+        "sim2real_status": "deployed",
+        "generalization": [
+          "cross-environment",
+          "cross-task"
+        ],
+        "reproducibility": "code+model+data",
+        "tags": [
+          "real-robot",
+          "large-scale",
+          "open-source",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 11,
+        "reproducibility_score": 8,
+        "significance": 94,
+        "significance_reason": "达到CHORUS（94）同档：首次公开披露超10万小时真实机器人操作数据集+完整VLA训练栈+真机部署验证+多基准SOTA（RoboCasa365/RoboDojo），且开源代码/模型/数据；虽未展示多机体泛化或长期在线适应，但数据规模、真机覆盖广度与工程闭环完整性已逼近Qwen-RobotManip（94.5）与CHORUS（94）水平，显著超越Octo（92）和OpenVLA（93）的仿真主导范式。",
+        "one_sentence_verdict": "真突破：首个在真实机器人上完成10万小时级VLA预训练并全栈开源的工业级基础模型，实证扎实、部署落地、基准领先",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 58,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 18.6,
+        "content": 26.0,
+        "heat": 15.4,
+        "quality": 0.0,
+        "base": 44.6,
+        "bonus": 15.4,
+        "total": 60.0
+      },
+      "grade": "B",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.15330.jpg"
+    },
+    {
       "arxiv_id": "2606.17046",
       "title": "Geometric Action Model for Robot Policy Learning",
       "abstract": "Generalist robot policies must follow user instructions while reasoning about how objects, cameras, and robot actions interact in the 3D physical world. Recent vision-language-action models (VLAs) and video world-action models (WAMs) inherit strong semantic or temporal priors from large-scale foundation models, but they still operate primarily on 2D image frames or 2D-derived latent spaces, leaving implicit the 3D geometry required for contact-rich manipulation. We propose the Geometric Action Model (GAM), a language-conditioned manipulation policy that directly repurposes a pretrained geometric foundation model (GFM) as a shared substrate for perception, temporal prediction, and action decoding. GAM splits the GFM at an intermediate layer: the shallow layers serve as an observation encoder, and a causal future predictor inserted at the split layer forecasts future latent tokens conditioned on language, proprioception, and action history. The predicted future tokens are then routed through the remaining GFM blocks for feature propagation and decoding, allowing a single backbone to produce both future geometry and actions. This design equips the GFM with language-conditioned temporal world modeling through minimal architectural modification while preserving its rich geometric priors. Across a broad suite of simulation and real-robot manipulation benchmarks, GAM is more accurate, more robust, faster, and lighter than current foundation-model-scale baselines.",
@@ -6954,7 +7072,7 @@
       "signals": {
         "hf_upvotes": 18,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 19.2,
@@ -7340,124 +7458,6 @@
       "thumb": "assets/thumbs/2606.02800.jpg"
     },
     {
-      "arxiv_id": "2607.15330",
-      "title": "Xiaomi-Robotics-1: Scaling Vision-Language-Action Models with over 100K Hours of Real-World Trajectories",
-      "abstract": "We present Xiaomi-Robotics-1, a foundational vision-language-action (VLA) model capable of (1) following diverse language instructions to perform a wide range of mobile manipulation tasks in unseen environments out-of-the-box, and (2) efficiently adapting to novel downstream tasks with minimal fine-tuning data. We propose a two-stage training recipe consisting of pre-training and post-training. During pre-training, we imbue the model with broad and generalizable action-generation capabilities by training on over 100k hours of real-world manipulation trajectories collected via UMI devices. Crucially, we develop a scalable auto-labeling pipeline that annotates trajectory clips with natural languages describing scene state transitions, providing rich and precise conditioning for action learning. During post-training, we aim to align these capabilities with robot embodiments and imperative instructions that humans naturally use to prompt robots. Extensive experiments demonstrate strong scaling behavior. Xiaomi-Robotics-1 consistently improves with increased data scales and model sizes during pre-training. This scaling behavior directly transfers to post-training, where a stronger pre-training model yields better out-of-the-box real-robot performance in unseen environments. Furthermore, Xiaomi-Robotics-1 serves as a strong robot foundation policy that can be efficiently fine-tuned on complex, dexterous tasks with high data efficiency. Across multiple simulation benchmarks, Xiaomi-Robotics-1 outperforms state-of-the-art methods. Notably, it establishes a new state-of-the-art with a 57.6% success rate on RoboCasa365, surpassing the previous best of 46.6%. Furthermore, it achieves an average score of 20.07 on RoboDojo, significantly outperforming the prior state-of-the-art (13.07). Code and model checkpoints will be released. Project page: https://robotics.xiaomi.com/xiaomi-robotics-1.html",
-      "authors": [
-        "Xiaomi Robotics Team",
-        "Jun Guo",
-        "Piaopiao Jin",
-        "Jason Li",
-        "Peiyan Li",
-        "Yingyan Li",
-        "Futeng Liu",
-        "Wanli Peng",
-        "Optimus Qin",
-        "Yifei Su",
-        "Nan Sun",
-        "Qiao Sun",
-        "Runze Suo",
-        "Heyun Wang",
-        "Yunhong Wang",
-        "Rujie Wu",
-        "Caoyu Xia",
-        "Lina Zhang",
-        "Jack Zhao",
-        "Guoliang Chen",
-        "Wenlong Chen",
-        "Xinze He",
-        "Bin Li",
-        "Qing Li",
-        "Zhuorong Li",
-        "Heng Qu",
-        "Wenxuan Song",
-        "Diyun Xiang",
-        "Yifan Xie",
-        "Peiran Xu",
-        "Hangjun Ye",
-        "Wen Ye",
-        "Han Zhao",
-        "Quanyun Zhou"
-      ],
-      "categories": [],
-      "published": "2026-07-16T00:00:00.000Z",
-      "updated": "2026-07-16T00:00:00.000Z",
-      "url": "https://arxiv.org/abs/2607.15330",
-      "pdf_url": "https://arxiv.org/pdf/2607.15330",
-      "hf_upvotes": 18,
-      "source": "hf_daily",
-      "route_scores": {
-        "vla": 0.6196,
-        "world_model": 0.4969,
-        "whole_body_control": 0.4438,
-        "dexterous_manipulation": 0.2483,
-        "sim2real_data": 0.3361,
-        "hardware_unitree": 0.2145,
-        "bci_neural_decoding": 0.1982,
-        "bci_foundation_models": 0.1619,
-        "bci_embodied_robot": 0.2685,
-        "bci_noninvasive_eeg": 0.1336,
-        "protein_ai": 0.1579,
-        "genomics_ai": 0.1637
-      },
-      "best_route": "vla",
-      "relevance_raw": 0.6196,
-      "first_seen": "2026-07-20",
-      "analysis": {
-        "tldr": "小米机器人团队用超10万小时真实机器人操作轨迹（来自UMI设备）训练了一个视觉-语言-动作大模型，能直接在未见过的环境中根据自然语言指令执行移动操作任务，且只需少量微调就能适配新任务。",
-        "org": "小米机器人",
-        "country": "CN",
-        "org_type": "company",
-        "claim": "基于超10万小时真实世界轨迹和可扩展自动标注流水线训练的VLA模型，具备开箱即用的跨环境泛化能力与高效下游适配能力。",
-        "method_components": [
-          "model",
-          "dataset",
-          "policy",
-          "benchmark"
-        ],
-        "input": "RGB图像+自然语言指令",
-        "output": "动作序列（关节扭矩/末端位姿控制信号）",
-        "robot_dependency": "UMI（Universal Manipulation Interface）机械臂平台",
-        "data_dependency": "强依赖：全部预训练数据来自真实机器人（UMI）采集的100K+小时轨迹",
-        "sim2real_status": "deployed",
-        "generalization": [
-          "cross-environment",
-          "cross-task"
-        ],
-        "reproducibility": "code+model+data",
-        "tags": [
-          "real-robot",
-          "large-scale",
-          "open-source",
-          "benchmark"
-        ],
-        "novelty": 7,
-        "evidence": 11,
-        "reproducibility_score": 8,
-        "significance": 94,
-        "significance_reason": "达到CHORUS（94）同档：首次公开披露超10万小时真实机器人操作数据集+完整VLA训练栈+真机部署验证+多基准SOTA（RoboCasa365/RoboDojo），且开源代码/模型/数据；虽未展示多机体泛化或长期在线适应，但数据规模、真机覆盖广度与工程闭环完整性已逼近Qwen-RobotManip（94.5）与CHORUS（94）水平，显著超越Octo（92）和OpenVLA（93）的仿真主导范式。",
-        "one_sentence_verdict": "真突破：首个在真实机器人上完成10万小时级VLA预训练并全栈开源的工业级基础模型，实证扎实、部署落地、基准领先",
-        "_llm": "qwen-plus"
-      },
-      "signals": {
-        "hf_upvotes": 18,
-        "citations": 0,
-        "venue": ""
-      },
-      "scores": {
-        "relevance": 18.6,
-        "content": 26.0,
-        "heat": 11.1,
-        "quality": 0.0,
-        "base": 44.6,
-        "bonus": 11.1,
-        "total": 55.7
-      },
-      "grade": "B",
-      "read_priority": "B",
-      "thumb": "assets/thumbs/2607.15330.jpg"
-    },
-    {
       "arxiv_id": "2606.04811",
       "doi": "10.48550/arxiv.2606.04811",
       "source_kind": "arxiv",
@@ -7645,7 +7645,7 @@
       "signals": {
         "hf_upvotes": 14,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 16.4,
@@ -7739,7 +7739,7 @@
       "signals": {
         "hf_upvotes": 18,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 17.8,
@@ -7854,7 +7854,7 @@
       "signals": {
         "hf_upvotes": 97,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 18.3,
@@ -8070,7 +8070,7 @@
       "signals": {
         "hf_upvotes": 85,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 16.9,
@@ -8164,7 +8164,7 @@
       "signals": {
         "hf_upvotes": 23,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 16.5,
@@ -8358,7 +8358,7 @@
       "signals": {
         "hf_upvotes": 8,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 17.7,
@@ -8555,7 +8555,7 @@
       "signals": {
         "hf_upvotes": 18,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 16.8,
@@ -8738,7 +8738,7 @@
       "signals": {
         "hf_upvotes": 9,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 16.0,
@@ -8827,7 +8827,7 @@
       "signals": {
         "hf_upvotes": 34,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 19.3,
@@ -8933,7 +8933,7 @@
       "signals": {
         "hf_upvotes": 31,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 17.3,
@@ -9395,7 +9395,7 @@
       "signals": {
         "hf_upvotes": 12,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 18.4,
@@ -9494,7 +9494,7 @@
       "signals": {
         "hf_upvotes": 74,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 18.8,
@@ -9586,7 +9586,7 @@
       "signals": {
         "hf_upvotes": 5,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 19.2,
@@ -9780,7 +9780,7 @@
       "signals": {
         "hf_upvotes": 35,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 14.9,
@@ -10074,7 +10074,7 @@
       "signals": {
         "hf_upvotes": 26,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 19.6,
@@ -10165,7 +10165,7 @@
       "signals": {
         "hf_upvotes": 5,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 17.0,
@@ -10247,7 +10247,7 @@
       "signals": {
         "hf_upvotes": 47,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 15.1,
@@ -10657,7 +10657,7 @@
       "signals": {
         "hf_upvotes": 11,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 16.8,
@@ -11123,7 +11123,7 @@
       "signals": {
         "hf_upvotes": 5,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 17.3,
@@ -11490,7 +11490,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 21.5,
@@ -11689,7 +11689,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 21.4,
@@ -11883,7 +11883,7 @@
       "signals": {
         "hf_upvotes": 2,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 19.5,
@@ -11988,7 +11988,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 21.6,
@@ -12275,7 +12275,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 17.3,
@@ -12470,7 +12470,7 @@
       "signals": {
         "hf_upvotes": 12,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 19.5,
@@ -12841,7 +12841,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 18.1,
@@ -12948,7 +12948,7 @@
       "signals": {
         "hf_upvotes": 46,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 17.6,
@@ -13318,7 +13318,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 17.7,
@@ -13486,7 +13486,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "bioRxiv (Cold Spring Harbor Laboratory)"
       },
       "scores": {
         "relevance": 21.5,
@@ -13759,7 +13759,7 @@
       "signals": {
         "hf_upvotes": 29,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 17.5,
@@ -13846,7 +13846,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 20.1,
@@ -14139,7 +14139,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 18.8,
@@ -14414,7 +14414,7 @@
       "signals": {
         "hf_upvotes": 3,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 11.5,
@@ -14589,7 +14589,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 19.5,
@@ -14680,7 +14680,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 18.5,
@@ -15052,7 +15052,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 17.1,
@@ -15233,7 +15233,7 @@
       "signals": {
         "hf_upvotes": 2,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 17.9,
@@ -15330,7 +15330,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 22.0,
@@ -50300,6 +50300,99 @@
       "read_priority": "B"
     },
     {
+      "arxiv_id": "2607.14488",
+      "doi": "10.48550/arxiv.2607.14488",
+      "source_kind": "arxiv",
+      "title": "Safe Execution of RL Policies Via Acceleration-Based CBF-QP Constraint Enforcement for Real-World Robotic Deployments",
+      "abstract": "Reinforcement Learning (RL) has demonstrated remarkable capabilities for solving complex robotic control problems, but its lack of safety guarantees severely limits deployment on hardware. In particular, as legged robots and manipulators often operate near safety-critical boundaries, out-of-distribution states can lead to failure upon deployment. To address this, we introduce Acc-CBF-QP, an acceleration-based Quadratic Program (QP) safety filter using Control Barrier Functions (CBFs) that constrains any RL policy onto a safe set at runtime without modifying training. The method applies to unconstrained and Safe-RL policies, and enforces joint position, velocity, torque, and collision constraints within a unified optimization framework. A key contribution is the formulation of RL+QP tasks that regulate deviation from the RL command when constraints would otherwise be violated. We introduce a TorqueTask, minimizing torque deviation, and a Forward Dynamics Task, minimizing induced acceleration deviation, thus providing principled control over safety-performance trade-offs. Experiments on a 7-DoF Kinova Gen3 manipulator and a 19-DoF Unitree H1 humanoid, both in simulation and on hardware, highlight substantial reductions in constraint violations. On the real H1 hardware, a Safe-RL policy alone yielded 10.04 violations/s, which were reduced by 92% to 0.80 violations/s when augmented with Acc-CBF-QP. On the Kinova Gen3, Acc-CBF-QP fully eliminated violations. Nominal task performance of the RL objective is preserved in violation-free regimes. Under aggressive velocity commands on H1, Acc-CBF-QP improves execution by preventing constraint-induced shutdowns, yielding longer survival times. The full pipeline is open-source.",
+      "authors": [
+        "Bastien Muraccioli",
+        "Alice Cariou",
+        "Pierre‐Alexandre Léziart",
+        "Mathieu Célérier",
+        "Arnaud Demont",
+        "Gentiane Venture",
+        "Mehdi Benallegue"
+      ],
+      "categories": [],
+      "published": "2026-07-16",
+      "updated": "2026-07-16",
+      "url": "https://arxiv.org/abs/2607.14488",
+      "pdf_url": "https://arxiv.org/pdf/2607.14488",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4208,
+        "world_model": 0.3422,
+        "whole_body_control": 0.5,
+        "dexterous_manipulation": 0.2271,
+        "sim2real_data": 0.2635,
+        "hardware_unitree": 0.1597,
+        "bci_neural_decoding": 0.0958,
+        "bci_foundation_models": 0.0758,
+        "bci_embodied_robot": 0.3268,
+        "bci_noninvasive_eeg": 0.0889,
+        "protein_ai": 0.0869,
+        "genomics_ai": 0.062
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.4208,
+      "first_seen": "2026-07-21",
+      "venue": "IROS 2026",
+      "analysis": {
+        "tldr": "这篇论文提出一种叫Acc-CBF-QP的安全滤波器，插在任意训练好的强化学习控制器后面，在机器人真实运行时实时用二次规划（QP）强制满足关节位置/速度/力矩/碰撞等物理约束，不改训练过程，显著降低硬件部署时的约束违反次数。",
+        "org": "CNRS/ENSTA Paris",
+        "country": "FR",
+        "org_type": "institute",
+        "claim": "无需修改RL训练过程，仅通过运行时加装基于加速度建模的CBF-QP安全滤波器，即可在真实机器人上大幅降低约束违反率，同时保持原始任务性能。",
+        "method_components": [
+          "model",
+          "simulator",
+          "policy",
+          "hardware",
+          "benchmark"
+        ],
+        "input": "RL策略输出的动作（如目标加速度或力矩）、当前状态（关节位置/速度/力矩）、安全约束边界",
+        "output": "经QP修正后的安全动作指令（加速度或力矩）",
+        "robot_dependency": "Kinova Gen3机械臂、Unitree H1人形机器人",
+        "data_dependency": "依赖实时传感器反馈（位置/速度/力矩），但不依赖预收集的真实机器人训练数据",
+        "sim2real_status": "multi-embodiment",
+        "generalization": [
+          "cross-embodiment"
+        ],
+        "reproducibility": "code+model+data",
+        "tags": [
+          "sim2real",
+          "real-robot",
+          "open-source"
+        ],
+        "novelty": 6,
+        "evidence": 10,
+        "reproducibility_score": 8,
+        "significance": 76,
+        "significance_reason": "在多机体（7DoF机械臂+19DoF人形）真实硬件上验证了CBF-QP对RL策略的即插即用式安全增强，量化效果扎实（H1违规率降92%，Gen3归零），开源完整pipeline；但未开新范式，属安全落地关键工程推进，尚未达到GR00T/H2O级的架构性突破。",
+        "one_sentence_verdict": "工程整合——将成熟CBF理论与QP优化深度适配到RL+多体机器人真实部署场景，实证充分、开源完整、跨机体复现，是安全落地的可靠工具链，但非理论或架构创新。",
+        "_llm": "qwen-plus",
+        "venue": "IROS 2026"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": "IROS 2026"
+      },
+      "scores": {
+        "relevance": 12.6,
+        "content": 24.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 36.6,
+        "bonus": 0.0,
+        "total": 36.6
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.14488.jpg"
+    },
+    {
       "arxiv_id": "2606.04130",
       "doi": "10.48550/arxiv.2606.04130",
       "source_kind": "arxiv",
@@ -64786,6 +64879,89 @@
       "thumb": "assets/thumbs/2607.14655.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.07.14.738542",
+      "doi": "10.64898/2026.07.14.738542",
+      "source_kind": "biorxiv",
+      "title": "Genomic foundation model embeddings encode higher-order viral genome architecture beyond sequence composition: a benchmark of Evo 2",
+      "abstract": "Genomic foundation models such as Evo 2 are increasingly applied to microbial genomics, yet how well their representations capture viral genome organisation, and how reliably they generate viral sequence, remain poorly characterised. We present a reproducible benchmark of Evo 2 on viral genomes. Using a pre-registered RefSeq viral corpus (19,429 genomes, organised by Baltimore class and host domain), we evaluated three axes: linear probes decoding Baltimore class, host domain and viral family from mean-pooled embeddings; ridge-regression probes recovering genomic features, including higher-order architectural properties such as gene density, coding fraction and gene overlap; and generative completion of fragmented genomes, scored on a leakage-safe set of eukaryote-infecting viruses (excluded from Evo 2's training corpus by design) against a bacteriophage comparator. All probes used cross-validation with sequence-identity clustered folds, benchmarked against both a GC-and-length control and a 6-mer composition representation. From its optimal intermediate layer, the 20B embedding classified Baltimore class at 0.96 accuracy and host domain at 0.99, exceeding both baselines; for viral family, however, 6-mer composition (0.89) matched the embedding (0.91. Most informatively, the embedding decoded coding fraction, gene density and gene overlap (R = 0.61, 0.77 and 0.64) far beyond 6-mer composition (0.10, 0.38 and 0.27), evidencing genuine encoding of genome architecture rather than nucleotide composition (p &lt; 0.001). Performance scaled with model size. In generation, perplexity was lower for bacteriophages (1.18 bits/nt) than for held-out eukaryotic viruses (1.80). Evo 2 encodes functional viral genome architecture beyond composition, while taxonomic and generative behaviour partly reflect composition and training exposure.",
+      "authors": [
+        "Deyvid Amgarten",
+        "Anderson Schinaid",
+        "Fernanda de Mello Malta",
+        "Alexandre R. Marra",
+        "João Renato Rebello Pinho"
+      ],
+      "categories": [],
+      "published": "2026-07-16",
+      "updated": "2026-07-16",
+      "url": "https://doi.org/10.64898/2026.07.14.738542",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/16/2026.07.14.738542.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1626,
+        "world_model": 0.2006,
+        "whole_body_control": 0.1301,
+        "dexterous_manipulation": 0.0727,
+        "sim2real_data": 0.1093,
+        "hardware_unitree": 0.0609,
+        "bci_neural_decoding": 0.162,
+        "bci_foundation_models": 0.2824,
+        "bci_embodied_robot": 0.0508,
+        "bci_noninvasive_eeg": 0.2314,
+        "protein_ai": 0.4243,
+        "genomics_ai": 0.5102
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.5102,
+      "first_seen": "2026-07-21",
+      "analysis": {
+        "tldr": "这篇论文系统评估了基因组基础模型Evo 2在病毒基因组上的表征能力，发现其嵌入向量能显著解码基因组高级结构特征（如基因密度、编码比例、基因重叠），远超仅靠k-mer组成所能达到的水平，但分类和生成任务仍部分依赖训练数据偏差和低阶序列组成。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "Evo 2的中间层嵌入向量真实编码了病毒基因组的高阶结构信息（如基因密度、编码比例、基因重叠），而非仅反映核苷酸组成或GC含量。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "病毒基因组DNA/RNA序列",
+        "output": "嵌入向量（用于线性/回归解码）或补全后的序列（用于生成评估）",
+        "robot_dependency": "none",
+        "data_dependency": "无真实机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "code-only",
+        "tags": [
+          "benchmark",
+          "dataset"
+        ],
+        "novelty": 6,
+        "evidence": 9,
+        "reproducibility_score": 5,
+        "significance": 68,
+        "significance_reason": "扎实的基准测试工作：首次在预注册病毒数据集上系统解耦Evo 2对高阶基因组架构的编码能力，用严格交叉验证+序列身份聚类+多重基线控制（6-mer/GC/length），实证R值提升显著且p<0.001；但未提出新模型/训练范式，也未解决下游关键任务（如功能预测、突变效应建模），属重要验证性贡献而非范式突破。",
+        "one_sentence_verdict": "显著贡献——不是新模型，而是迄今最严谨的证据表明基因组基础模型确能学到超越k-mer的生物学结构，但未推动应用边界",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 15.3,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 35.3,
+        "bonus": 0.0,
+        "total": 35.3
+      },
+      "grade": "C",
+      "read_priority": "B"
+    },
+    {
       "arxiv_id": "2606.06829",
       "doi": "10.48550/arxiv.2606.06829",
       "source_kind": "arxiv",
@@ -69943,6 +70119,97 @@
       "grade": "D",
       "read_priority": "B",
       "thumb": "assets/thumbs/2607.11167.jpg"
+    },
+    {
+      "arxiv_id": "2607.14487",
+      "doi": "10.48550/arxiv.2607.14487",
+      "source_kind": "arxiv",
+      "title": "MIDAS Hand: Modular low-Impedance Direct-drive Anthropomorphic Sensing Hand",
+      "abstract": "Dexterous manipulation is limited not only by algorithms but by a shortage of accessible hand hardware that combines human-scale morphology, ease of manufacturing or maintenance, tactile sensing, and practical cost. Existing dexterous hands tend to optimize some of these properties at the expense of others. We present MIDAS Hand, a low-cost, open-source, human-scale dexterous hand with integrated tactile sensing for manipulation research. MIDAS Hand provides 16 total degrees of freedom (DoF) with 13 active DoF, directly driven actuation with measurably low backdrive torque, and 283 three-axis tactile taxels in a compact 700 g package with a bill of materials under 3,000 USD. Built from 3D-printed components, it assembles in under three hours while providing the strength, repeatability, and maintainability needed for repeated real-world experiments. Alongside the hardware, we release a full stack: design files, build documentation, control and tactile Python APIs, simulation models, and retargeting and teleoperation pipelines. We characterize MIDAS Hand through workspace and grasp-taxonomy analysis, payload and reliability tests, backdrivability measurements, and teleoperation demonstrations with tactile sensing, showing that it offers a balanced, reproducible platform for tactile dexterous manipulation and human-to-robot data collection. Project page: https://midas-hand.com",
+      "authors": [
+        "a Jie Zhu",
+        "Mingzhang Zhu",
+        "Beom Jun Kim",
+        "Quanyou Wang",
+        "Jose Victor S. H. Ramos",
+        "Dennis Hong"
+      ],
+      "categories": [],
+      "published": "2026-07-16",
+      "updated": "2026-07-16",
+      "url": "https://arxiv.org/abs/2607.14487",
+      "pdf_url": "https://arxiv.org/pdf/2607.14487",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.325,
+        "world_model": 0.2789,
+        "whole_body_control": 0.3926,
+        "dexterous_manipulation": 0.5,
+        "sim2real_data": 0.245,
+        "hardware_unitree": 0.2904,
+        "bci_neural_decoding": 0.2039,
+        "bci_foundation_models": 0.1253,
+        "bci_embodied_robot": 0.3417,
+        "bci_noninvasive_eeg": 0.1311,
+        "protein_ai": 0.151,
+        "genomics_ai": 0.0892
+      },
+      "best_route": "dexterous_manipulation",
+      "relevance_raw": 0.3926,
+      "first_seen": "2026-07-21",
+      "analysis": {
+        "tldr": "设计并开源了一款低成本、人形尺寸、直接驱动、集成高密度触觉传感的灵巧手MIDAS Hand，强调易制造、易维护、可重复实验，配套完整软硬件栈。",
+        "org": "加州大学洛杉矶分校（UCLA）",
+        "country": "US",
+        "org_type": "university",
+        "claim": "MIDAS Hand在成本、人体尺度、触觉密度、低阻抗驱动和可复现性之间实现了实用平衡，是面向触觉灵巧操作与人机数据采集的开源硬件基座。",
+        "method_components": [
+          "hardware",
+          "dataset",
+          "simulator",
+          "ui"
+        ],
+        "input": "人类示范动作（通过teleoperation）、触觉传感器信号、关节位置/力矩反馈",
+        "output": "13自由度关节控制指令 + 283通道三轴触觉数据流",
+        "robot_dependency": "MIDAS Hand本体（含定制电机、3D打印结构、Tactile Taxel阵列）",
+        "data_dependency": "依赖真实机器人本体进行标定、负载、可靠性及teleoperation测试；未使用外部大规模真实操作数据集训练策略",
+        "sim2real_status": "real-robot",
+        "generalization": "limited",
+        "reproducibility": "code+model+data",
+        "tags": [
+          "dexterous",
+          "tactile",
+          "open-source",
+          "real-robot",
+          "teleoperation",
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 9,
+        "reproducibility_score": 8,
+        "significance": 72,
+        "significance_reason": "它是少有的将高密度触觉（283 taxels）、低背驱扭矩、人形尺度、全栈开源（含仿真模型+teleop pipeline）和<3000美元BOM统一实现的实体平台，实测覆盖workspace/grasp taxonomy/payload/reliability/backdrivability，但未展示跨任务策略学习或泛化控制能力，未接入主流大模型或foundation policy框架，属于扎实的硬件基座贡献而非算法范式突破。",
+        "one_sentence_verdict": "工程整合——它不是新算法，而是把触觉灵巧手的关键工程约束（成本、传感、驱动、可复现性）系统性落地为可全球复现的开源硬件基座，填补了从Human Demo到Real-Robot Tactile Policy训练链路中缺失的可靠物理端。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 11.8,
+        "content": 23.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 34.8,
+        "bonus": 0.0,
+        "total": 34.8
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.14487.jpg"
     },
     {
       "arxiv_id": "10.64898/2026.05.26.727866",
@@ -84471,6 +84738,93 @@
       "grade": "D",
       "read_priority": "B",
       "thumb": "assets/thumbs/2607.11855.jpg"
+    },
+    {
+      "arxiv_id": "2607.13938",
+      "doi": "10.48550/arxiv.2607.13938",
+      "source_kind": "arxiv",
+      "title": "Discriminative Barrier Functions for Safe Adversarial Imitation Learning from Observation",
+      "abstract": "Inverse Reinforcement Learning (IRL) algorithms are powerful tools for learning from and generalizing expert demonstrations, but they often rely on unconstrained exploration, rendering them unsafe for real-world deployment. Meanwhile, Control Barrier Functions (CBFs) can guarantee the safety of control systems, but the analytical design of CBFs can be time-consuming and esoteric. In this work, we address these limitations jointly by constraining reward function candidacy during IRL to the space of CBFs, yielding a formulation that exhibits safe online control with continuous experiential improvement. Crucially, this framework enables the data-driven recovery of barrier functions directly from unlabeled expert observations. We demonstrate that the recovered barrier function is robust to unsafe states entirely absent from the expert data. Furthermore, we benchmark our method against standard IRL baselines in a simulated navigation environment, demonstrating improved safety performance. Finally, we investigate the trade-offs of planning-based versus policy-based IRL methods across both simulation and a real world obstacle avoidance task.",
+      "authors": [
+        "Anubhav Vishwakarma",
+        "Bhaumik Mehta",
+        "Caleb Hsu",
+        "Byron Boots",
+        "Karen Leung",
+        "Tyler Han"
+      ],
+      "categories": [],
+      "published": "2026-07-15",
+      "updated": "2026-07-15",
+      "url": "https://arxiv.org/abs/2607.13938",
+      "pdf_url": "https://arxiv.org/pdf/2607.13938",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4162,
+        "world_model": 0.4461,
+        "whole_body_control": 0.5,
+        "dexterous_manipulation": 0.2181,
+        "sim2real_data": 0.323,
+        "hardware_unitree": 0.1622,
+        "bci_neural_decoding": 0.145,
+        "bci_foundation_models": 0.1559,
+        "bci_embodied_robot": 0.2893,
+        "bci_noninvasive_eeg": 0.1465,
+        "protein_ai": 0.1262,
+        "genomics_ai": 0.128
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.4461,
+      "first_seen": "2026-07-21",
+      "analysis": {
+        "tldr": "这篇论文把逆强化学习（IRL）和控制屏障函数（CBF）结合起来，让IRL在学专家行为时自动满足安全约束，且能仅从无标签的专家观测视频中数据驱动地反推出CBF，从而在仿真和真实避障任务中提升安全性。",
+        "org": "佐治亚理工学院",
+        "country": "US",
+        "org_type": "university",
+        "claim": "通过将逆强化学习的奖励函数候选空间显式约束为控制屏障函数空间，可实现无需安全标签、仅从无标注专家观测中学习安全策略，并保证在线控制的安全性。",
+        "method_components": [
+          "model",
+          "benchmark",
+          "simulator"
+        ],
+        "input": "无标签的专家状态轨迹（如位置/速度序列，非动作）",
+        "output": "满足安全约束的奖励函数（即CBF参数化形式）及对应的安全策略",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人动作数据，仅需专家状态观测（可来自视频或传感器日志）",
+        "sim2real_status": "small-real",
+        "generalization": [
+          "cross-task"
+        ],
+        "reproducibility": "code-only",
+        "tags": [
+          "sim2real",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 8,
+        "reproducibility_score": 5,
+        "significance": 68,
+        "significance_reason": "提出了IRL与CBF的可证安全耦合框架，实证覆盖仿真导航+真实小车避障，有消融和baseline对比，但CBF结构仍需手工设计参数形式（非端到端学习），未在复杂具身任务（如灵巧操作/全身运动）验证，也未开源数据或模型，属于显著但非范式级的安全学习推进。",
+        "one_sentence_verdict": "显著贡献——真突破尚早，但首次实现了无动作标签下的CBF数据驱动反演与IRL联合优化，在安全学习方向迈出扎实一步。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 13.4,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 33.4,
+        "bonus": 0.0,
+        "total": 33.4
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.13938.jpg"
     },
     {
       "arxiv_id": "2605.31043",
@@ -102123,6 +102477,99 @@
       },
       "grade": "D",
       "read_priority": "C"
+    },
+    {
+      "arxiv_id": "2607.15129",
+      "doi": "10.48550/arxiv.2607.15129",
+      "source_kind": "arxiv",
+      "title": "Catch, Throw, Repeat: Planning for Human-Robot Partner Juggling",
+      "abstract": "Dynamic object exchange between humans and robots remains a challenging problem due to uncertainty in perception, timing, and contact-rich interaction. Human-robot juggling represents a particularly demanding instance of this problem, requiring precise real-time coordination, predictive motion planning with feedback control, and robustness to variability in human motion. Enabling such skills is of interest for advancing physical human-robot interaction and shared autonomy. We present a real-time planning and control architecture for human-robot partner juggling that enables a robot to reliably catch and throw balls in synchronized multi-ball patterns with a human partner. The system integrates predictive ball tracking, adaptive online trajectory optimization using a multiple-shooting formulation, and a state-machine-based coordination logic to enable synchronized multi-ball human-robot partner juggling. In a user study with 8 participants of varying juggling skill from beginner to expert, we demonstrate that our system can achieve three-ball cascades shared between the robot and the human. All participants exceeded previously reported best-case results within a 10-minute test session, with one participant extending the previous record for shared three-ball cascade juggling fivefold to 20 consecutive robot catches, and another participant achieving a 100% success rate with 40 consecutive catches in a single-ball catch-and-return setting. Video documentation can be found at https://kai-ploeger.com/partner-juggling",
+      "authors": [
+        "Jonathan Rainer Lippert",
+        "Kai Ploeger",
+        "A K M Anisuzzaman Chowdhury",
+        "Hermann Müller",
+        "Jan Peters",
+        "Alap Kshirsagar"
+      ],
+      "categories": [],
+      "published": "2026-07-16",
+      "updated": "2026-07-16",
+      "url": "https://arxiv.org/abs/2607.15129",
+      "pdf_url": "https://arxiv.org/pdf/2607.15129",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.5,
+        "world_model": 0.3897,
+        "whole_body_control": 0.4556,
+        "dexterous_manipulation": 0.2321,
+        "sim2real_data": 0.2209,
+        "hardware_unitree": 0.2069,
+        "bci_neural_decoding": 0.1327,
+        "bci_foundation_models": 0.1324,
+        "bci_embodied_robot": 0.3541,
+        "bci_noninvasive_eeg": 0.0885,
+        "protein_ai": 0.095,
+        "genomics_ai": 0.1492
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.4556,
+      "first_seen": "2026-07-21",
+      "venue": "IROS 2026",
+      "analysis": {
+        "tldr": "用实时预测跟踪+多阶段轨迹优化+状态机协调，让机器人和人一起稳定完成三球接力抛接杂耍，实测8名不同水平的人类搭档中多人打破此前共享三球杂耍纪录。",
+        "org": "马克斯·普朗克智能系统研究所",
+        "country": "EU",
+        "org_type": "institute",
+        "claim": "通过融合预测性球体跟踪、自适应在线轨迹优化与状态机协调逻辑，可在真实机器人平台上实现鲁棒、同步的多球人机协作杂耍。",
+        "method_components": [
+          "model",
+          "simulator",
+          "policy",
+          "benchmark",
+          "hardware"
+        ],
+        "input": "RGB-D图像流+IMU反馈+人类抛掷时序先验（隐含在状态机触发中）",
+        "output": "七自由度机械臂末端执行器的实时关节轨迹（含抓取/释放时机与力控参数）",
+        "robot_dependency": "KUKA iiwa 7 R800 机械臂 + RealSense D435 深度相机",
+        "data_dependency": "依赖实时视觉感知与闭环反馈，不依赖预录人类动作数据集；但状态机初始相位需人工标定起始节奏",
+        "sim2real_status": "deployed",
+        "generalization": [
+          "cross-user"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "real-robot",
+          "teleoperation",
+          "sim2real",
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 9,
+        "reproducibility_score": 3,
+        "significance": 72,
+        "significance_reason": "真机部署+跨用户多水平验证+明确超越前人指标（20次连续接球 vs 之前最佳4次），但未开源代码/模型，且任务高度特化（仅球类节律交互），未扩展至通用动态交互范式或开放场景，属扎实显著贡献而非范式突破。",
+        "one_sentence_verdict": "显著贡献：工程整合——将预测控制、在线优化与状态协调在真实人机杂耍任务中端到端打通并实证超越SOTA，但未开源且任务窄，尚未上升为通用交互框架。",
+        "_llm": "qwen-plus",
+        "venue": "IROS 2026"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": "IROS 2026"
+      },
+      "scores": {
+        "relevance": 13.7,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 31.7,
+        "bonus": 0.0,
+        "total": 31.7
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.15129.jpg"
     },
     {
       "arxiv_id": "2606.03682",
@@ -148296,6 +148743,91 @@
       "read_priority": "C"
     },
     {
+      "arxiv_id": "2607.14826",
+      "doi": "10.48550/arxiv.2607.14826",
+      "source_kind": "arxiv",
+      "title": "Interventional Causal Circuits for Safe Robot Action Testing and Failure Recovery",
+      "abstract": "Safe physical AI for robot actions are required not only likely to succeed but tested to be safe before execution. In practice, however, formal testing of motion parameters is computationally expensive, and the cost scales poorly with the dimensionality of the action space. When a proposed action is rejected by a tester, the naive response is to resample blindly until a passing candidate is found. This is wasteful, uninformative, and offers no convergence. We argue that rejection should instead trigger causal diagnosis: a principled identification of which action parameter caused the failure and what corrective value maximises the probability of passing testing under the interventional probability distribution. We propose a closed-loop framework that couples a Joint Probability Tree (JPT) with a Causal Circuit derived from a Marginal-Deterministic Variable Tree, enabling exact polytime computation without retraining, or additional data collection. The framework validates tractability of all interventional queries before the robot begins operating, and out-of-support candidates are detected and excluded from correction automatically. We perform experiments in a ROS2 simulation environment, and the framework demonstrates complementary roles across quality of distribution: under a high-quality JPT, the Causal Circuit reduces failed attempts by 10.3% and under a degraded JPT, it reduces total failed attempts by 37%. Every rejected plan produces a structured, interpretable causal report naming the primary cause variable, its observed value, and the recommended corrective region, supporting operator oversight and autonomous recovery without a separately trained failure model.",
+      "authors": [
+        "Naren Vasantakumaar",
+        "Tom Schierenbeck",
+        "Michael Beetz"
+      ],
+      "categories": [],
+      "published": "2026-07-16",
+      "updated": "2026-07-16",
+      "url": "https://arxiv.org/abs/2607.14826",
+      "pdf_url": "https://arxiv.org/pdf/2607.14826",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4104,
+        "world_model": 0.3667,
+        "whole_body_control": 0.5,
+        "dexterous_manipulation": 0.1778,
+        "sim2real_data": 0.2552,
+        "hardware_unitree": 0.1506,
+        "bci_neural_decoding": 0.1433,
+        "bci_foundation_models": 0.0603,
+        "bci_embodied_robot": 0.3372,
+        "bci_noninvasive_eeg": 0.1328,
+        "protein_ai": 0.098,
+        "genomics_ai": 0.1311
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.4104,
+      "first_seen": "2026-07-21",
+      "venue": "IJCAI 2026",
+      "analysis": {
+        "tldr": "提出一种基于因果电路的机器人动作安全测试框架，能在动作被拒绝后自动诊断失败原因并给出可解释的修正建议，无需重新训练或额外数据，在仿真中减少失败尝试次数。",
+        "org": "慕尼黑大学",
+        "country": "EU",
+        "org_type": "university",
+        "claim": "通过将联合概率树与因果电路耦合，实现对机器人动作安全测试的可解释、可干预、免重训的因果诊断与修正。",
+        "method_components": [
+          "model",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "待测试的机器人动作参数向量（如关节角度、速度等）",
+        "output": "结构化因果报告（含主因变量、观测值、推荐修正区间）及修正后的动作参数",
+        "robot_dependency": "ROS2仿真环境（Gazebo/ignition等未明说，但属标准ROS2仿真栈）",
+        "data_dependency": "依赖预构建的Joint Probability Tree（JPT），该树需从历史动作-测试结果数据中离线构建，但论文未说明是否依赖真实机器人数据；摘要仅提仿真实验，故推断为仿真生成或合成数据",
+        "sim2real_status": "sim-only",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "causal",
+          "sim2real",
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 5,
+        "reproducibility_score": 3,
+        "significance": 42,
+        "significance_reason": "方法有清晰因果建模创新（干预式诊断+Marginal-Deterministic Variable Tree结构），但完全限于ROS2仿真、无真实机器人验证、无跨任务/机体泛化实验、未与主流安全验证方法（如CBF、reachability分析、learned safety critics）对比，仅报告‘失败尝试减少10.3%-37%’却未定义失败标准、未展示任务多样性或长期部署鲁棒性；相比所列基石工作（全真机、多模态具身学习、端到端VLA、大规模行为建模），它属于狭窄场景下的算法改良，未触及具身智能核心瓶颈（如感知-行动闭环、长程规划、开放世界适应）。",
+        "one_sentence_verdict": "工程整合：将因果推理形式化引入机器人安全测试流程，逻辑自洽且有仿真验证，但缺乏真实系统验证、泛化能力与领域影响力，尚未构成范式突破或显著SOTA推进。",
+        "_llm": "qwen-plus",
+        "venue": "IJCAI 2026"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": "IJCAI 2026"
+      },
+      "scores": {
+        "relevance": 12.3,
+        "content": 14.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 26.3,
+        "bonus": 0.0,
+        "total": 26.3
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.14826.jpg"
+    },
+    {
       "arxiv_id": "2606.00180",
       "doi": "10.48550/arxiv.2606.00180",
       "source_kind": "arxiv",
@@ -148977,6 +149509,90 @@
       "thumb": "assets/thumbs/2607.05590.jpg"
     },
     {
+      "arxiv_id": "2607.13475",
+      "doi": "10.48550/arxiv.2607.13475",
+      "source_kind": "arxiv",
+      "title": "Deformable State Estimation for Autonomous Surgical Tissue Retraction Under Partial Observability",
+      "abstract": "Surgical tissue retraction requires effective manipulation planning under partial and noisy perception. We study state estimation for deformable tissue retraction, where only sparse observations of the tissue surface are available at decision time. We propose a learned state estimator that reconstructs the full deformable mesh state from 40 noisy vertex observations. The estimator combines a multilayer perceptron with a low-dimensional PCA latent representation and is trained using geometry-aware regularization that encourages smooth and physically plausible deformations. We evaluate the approach in a 2D deformable sheet simulation using single-step and multi-step retraction planning. Results show that the learned estimator achieves 98.1% of oracle performance in multi-step retraction while supporting efficient inference. These results demonstrate that learned, geometry-regularized state estimation can support effective deformable manipulation under realistic perception constraints.",
+      "authors": [
+        "Everest Yang",
+        "Skye Thompson",
+        "George Konidaris"
+      ],
+      "categories": [],
+      "published": "2026-07-15",
+      "updated": "2026-07-15",
+      "url": "https://arxiv.org/abs/2607.13475",
+      "pdf_url": "https://arxiv.org/pdf/2607.13475",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4034,
+        "world_model": 0.3298,
+        "whole_body_control": 0.3716,
+        "dexterous_manipulation": 0.5,
+        "sim2real_data": 0.2755,
+        "hardware_unitree": 0.156,
+        "bci_neural_decoding": 0.1372,
+        "bci_foundation_models": 0.1302,
+        "bci_embodied_robot": 0.2662,
+        "bci_noninvasive_eeg": 0.1479,
+        "protein_ai": 0.1938,
+        "genomics_ai": 0.1598
+      },
+      "best_route": "dexterous_manipulation",
+      "relevance_raw": 0.4034,
+      "first_seen": "2026-07-21",
+      "venue": "ICRA 2026",
+      "analysis": {
+        "tldr": "这篇论文提出一个学习型状态估计器，仅用40个带噪声的稀疏顶点观测，就能重建可变形组织的完整三维网格状态，用于手术中组织牵开任务，在2D仿真中实现了接近理想状态（98.1%）的多步规划性能。",
+        "org": "布朗大学",
+        "country": "US",
+        "org_type": "university",
+        "claim": "几何正则化的学习型状态估计器能在稀疏、噪声、部分可观测条件下高保真重建可变形组织的完整物理状态，从而支撑有效的自主牵开规划。",
+        "method_components": [
+          "model",
+          "simulator",
+          "dataset"
+        ],
+        "input": "40个带噪声的组织表面顶点坐标（二维仿真中）",
+        "output": "完整可变形网格的顶点坐标（即隐含的连续形变场）",
+        "robot_dependency": "none",
+        "data_dependency": "完全依赖仿真生成数据，无真实机器人或手术数据",
+        "sim2real_status": "sim-only",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "sim2real",
+          "dataset"
+        ],
+        "novelty": 6,
+        "evidence": 5,
+        "reproducibility_score": 3,
+        "significance": 38,
+        "significance_reason": "问题有价值（手术中可变形组织状态估计），但工作完全停留在2D简化仿真，无真实传感器/机械臂/组织实验，无跨形变类型/跨几何拓扑泛化验证，未与任何基线方法（如卡尔曼滤波、物理模型+优化、其他学习方法）对比，仅报告oracle相对性能，缺乏消融和鲁棒性分析；相比T-Rex/ALOHA等基石工作（真机、多任务、强实证、开源、跨机体），它属于窄领域概念验证，尚未触及具身操作核心挑战。",
+        "one_sentence_verdict": "概念包装：提出了合理思路但缺乏实证深度和系统级验证，未脱离‘仿真玩具任务’范畴，暂不具备推动手术机器人实际落地的证据强度。",
+        "_llm": "qwen-plus",
+        "venue": "ICRA 2026"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": "ICRA 2026"
+      },
+      "scores": {
+        "relevance": 12.1,
+        "content": 14.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 26.1,
+        "bonus": 0.0,
+        "total": 26.1
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.13475.jpg"
+    },
+    {
       "arxiv_id": "2606.01597",
       "doi": "10.48550/arxiv.2606.01597",
       "source_kind": "arxiv",
@@ -149395,6 +150011,168 @@
       },
       "grade": "D",
       "read_priority": "C"
+    },
+    {
+      "arxiv_id": "10.64898/2026.07.13.738247",
+      "doi": "10.64898/2026.07.13.738247",
+      "source_kind": "biorxiv",
+      "title": "Charged amino acid propensities and solubility: lysine is elevated at the termini of helices in E. coli proteins.",
+      "abstract": "An emerging result in the relationship between amino acid sequence and protein solubility is a preference, on average, for lysine over arginine in more soluble proteins. The termini of helices are known to be prone to partial unfolding, often employing N- and C-cap amino acids to maintain stability. Hypothesising that lysine/arginine differences in relation to solubility may be evident at helical termini, their propensities and predicted charge interactions in helices were examined. There is enrichment of lysine over arginine at helical termini in AlphaFold models of Escherichia coli proteins, more so (on average) for the most soluble proteins. Similar effects are seen for the sum of charged amino acids at helical termini. Regions other than helical termini also show correlation of lysine composition, and overall charged amino acid composition, with solubility. These results suggest that protein design protocols could improve solubility through targeting lysine enrichment in regions such as helical termini, in addition to the more conventional consideration of helix capping interactions.",
+      "authors": [
+        "Sifan Zhang",
+        "Jim Warwicker"
+      ],
+      "categories": [],
+      "published": "2026-07-19",
+      "updated": "2026-07-19",
+      "url": "https://doi.org/10.64898/2026.07.13.738247",
+      "pdf_url": "https://doi.org/10.64898/2026.07.13.738247",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0964,
+        "world_model": 0.0401,
+        "whole_body_control": 0.0,
+        "dexterous_manipulation": 0.0364,
+        "sim2real_data": 0.0,
+        "hardware_unitree": 0.0016,
+        "bci_neural_decoding": 0.0127,
+        "bci_foundation_models": 0.0666,
+        "bci_embodied_robot": 0.061,
+        "bci_noninvasive_eeg": 0.0042,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.1346
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.4678,
+      "first_seen": "2026-07-21",
+      "analysis": {
+        "tldr": "通过分析大肠杆菌蛋白质的AlphaFold预测结构，发现可溶性更高的蛋白在α螺旋末端更富集赖氨酸而非精氨酸，且带电氨基酸总含量也更高，提示在蛋白设计中可针对性地在螺旋末端增加赖氨酸以提升可溶性。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "在大肠杆菌蛋白质中，高可溶性蛋白的α螺旋末端显著富集赖氨酸（而非精氨酸），且该现象与带电氨基酸整体分布及螺旋稳定性调控相关。",
+        "method_components": [
+          "dataset",
+          "model"
+        ],
+        "input": "AlphaFold预测的E. coli蛋白质结构（含二级结构标注）、氨基酸序列、实验/预测可溶性标签",
+        "output": "赖氨酸/精氨酸在螺旋末端的统计偏好性、带电氨基酸丰度与可溶性的相关性",
+        "robot_dependency": "none",
+        "data_dependency": "无真实机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset"
+        ],
+        "novelty": 4,
+        "evidence": 5,
+        "reproducibility_score": 3,
+        "significance": 32,
+        "significance_reason": "属描述性生物信息学观察，基于AlphaFold模型的二次分析，无新算法/模型/实验验证，未构建预测工具或设计闭环，仅提出可溶性优化的启发式建议；相比ESM/AlphaFold/RFdiffusion等基石工作，既无方法创新也无工程落地，仅是局部序列-结构-性质关联的窄域统计发现。",
+        "one_sentence_verdict": "暂时不用看：纯观察性统计分析，无机制验证、无模型构建、无实验闭环，对蛋白设计仅有极弱指导价值，属于低影响力的相关性报告。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 14.0,
+        "content": 12.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 26.0,
+        "bonus": 0.0,
+        "total": 26.0
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
+      "arxiv_id": "2607.14177",
+      "doi": "10.48550/arxiv.2607.14177",
+      "source_kind": "arxiv",
+      "title": "Adaptive Control of Motor-Position-Controlled Flexible Joint Robots with Uncertain Joint Stiffness",
+      "abstract": "Model-based control of flexible joint robots with position-controlled actuators relies on accurate knowledge of the joint compliance. In practice, precise stiffness models are often unavailable as the properties of physical elastic elements vary with operating conditions and slowly change over time due to wear and aging. To improve model-based control of these systems, we propose an adaptive control approach in this work, which updates an estimate of the uncertain, nonlinear torque-deflection relation of each joint. As opposed to classical adaptive control approaches for non-elastic robots, we rely on an implicit control law and a control-input-dependent regressor matrix to account for the uncertain joint stiffness. We analyze robustness of the approach against errors induced by the motor position controller. Experimental results on a flexible joint with nonlinear stiffness characteristics demonstrate the effectiveness of the proposed approach.",
+      "authors": [
+        "Annika Kirner",
+        "Grazia Zambella",
+        "Igor Kovacevic",
+        "Hannes Höppner",
+        "Jee-Hwan Ryu",
+        "Christian Ott"
+      ],
+      "categories": [],
+      "published": "2026-07-15",
+      "updated": "2026-07-15",
+      "url": "https://arxiv.org/abs/2607.14177",
+      "pdf_url": "https://arxiv.org/pdf/2607.14177",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2502,
+        "world_model": 0.1814,
+        "whole_body_control": 0.5,
+        "dexterous_manipulation": 0.1651,
+        "sim2real_data": 0.1266,
+        "hardware_unitree": 0.1011,
+        "bci_neural_decoding": 0.0524,
+        "bci_foundation_models": 0.0,
+        "bci_embodied_robot": 0.2676,
+        "bci_noninvasive_eeg": 0.0048,
+        "protein_ai": 0.1375,
+        "genomics_ai": 0.1129
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.2676,
+      "first_seen": "2026-07-21",
+      "analysis": {
+        "tldr": "这篇论文针对柔性关节机器人中关节刚度随温度、磨损等变化导致模型控制失效的问题，提出一种自适应控制方法，能在线估计并更新每个关节非线性力矩-形变关系，实现在真实柔性关节硬件上的闭环控制验证。",
+        "org": "德国宇航中心(DLR)",
+        "country": "EU",
+        "org_type": "institute",
+        "claim": "通过隐式控制律与控制输入依赖的回归矩阵，实现对不确定非线性关节刚度的在线自适应估计，提升位置控制型柔性关节机器人的模型基控制鲁棒性。",
+        "method_components": [
+          "model",
+          "hardware"
+        ],
+        "input": "电机位置指令、关节角度/力矩传感器测量值",
+        "output": "电机位置控制指令（底层闭环已固定）、实时更新的关节刚度参数估计",
+        "robot_dependency": "DLR自研柔性关节实验平台（含定制弹性元件与高精度力矩传感器）",
+        "data_dependency": "依赖该平台在不同老化/温变状态下的真实力矩-形变标定数据及闭环控制实验数据",
+        "sim2real_status": "real-robot",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "real-robot",
+          "adaptive-control"
+        ],
+        "novelty": 6,
+        "evidence": 9,
+        "reproducibility_score": 3,
+        "significance": 58,
+        "significance_reason": "解决了柔性关节机器人中刚度漂移这一长期存在的工程痛点，有扎实的真实硬件验证（非仿真）、明确的误差分析和对比基线，但仅限单关节实验平台，未扩展至多自由度系统或任务层面，也无开源代码/模型，属于面向特定机电瓶颈的扎实增量工作，未达‘显著贡献’（60+）门槛。",
+        "one_sentence_verdict": "扎实增量：在真实柔性关节硬件上验证了刚度自适应机制的有效性，但局限于单关节、无开源、未跨机体/任务泛化，尚未形成可复用的方法论或系统级影响。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 8.0,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 26.0,
+        "bonus": 0.0,
+        "total": 26.0
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.14177.jpg"
     },
     {
       "arxiv_id": "10.64898/2026.05.31.728726",
@@ -151372,6 +152150,92 @@
       },
       "grade": "D",
       "read_priority": "C"
+    },
+    {
+      "arxiv_id": "2607.14730",
+      "doi": "10.48550/arxiv.2607.14730",
+      "source_kind": "arxiv",
+      "title": "Hybrid Rigid-Soft Robotic Gripper with Shape Adaptation, Uniform Force Distribution, and Self-Locking Capabilities",
+      "abstract": "Conventional robotic grippers face a significant challenge in agricultural automation: the trade-off between compliant, adaptive grasping, pressure balancing among all joints, and high load capacity, often at the cost of high energy consumption. This paper presents a novel hybrid rigid-soft gripper that integrated low-cost, membrane-based pneumatic actuators with 3D-printed dual ratchet-pawl mechanisms to simultaneously achieve shape adaptation, uniform force distribution, and energy-free self-locking. The dual-ratchet structure assembled in an offset configuration significantly increased the angular resolution of the joint locking mechanism. Key experimental results demonstrated the gripper's superior performance: a remarkable maximum load capacity of 4200 g, far exceeding that of conventional soft grippers (45-210 g); more uniform force distribution across object sizes (1.75-35.29% difference ratio) compared to a rigid gripper (56.77-66.44%), with peak contact forces remaining below surface damage thresholds; and a 50.05% reduction in total energy consumption to 42.6 J per grasp cycle, achieved by eliminating the need for continuous pneumatic pressure through the self-locking mechanism, compared to 85.28 J for a conventional soft gripper. The combination of additive manufacturing for ratchets and commercially available materials for pneumatic chambers ensured a low-cost and easily fabricated design. These findings validated that the proposed gripper successfully bridged the gap between soft compliance and rigid reliability, offering a robust and efficient solution for scalable agricultural harvesting and manipulation tasks.",
+      "authors": [
+        "Xi Chen",
+        "Yun Wang",
+        "Lichao Yang",
+        "Haitao Li",
+        "Ya Xiong"
+      ],
+      "categories": [],
+      "published": "2026-07-16",
+      "updated": "2026-07-16",
+      "url": "https://arxiv.org/abs/2607.14730",
+      "pdf_url": "https://arxiv.org/pdf/2607.14730",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2507,
+        "world_model": 0.1326,
+        "whole_body_control": 0.2569,
+        "dexterous_manipulation": 0.5,
+        "sim2real_data": 0.1488,
+        "hardware_unitree": 0.1372,
+        "bci_neural_decoding": 0.0738,
+        "bci_foundation_models": 0.0,
+        "bci_embodied_robot": 0.2038,
+        "bci_noninvasive_eeg": 0.0224,
+        "protein_ai": 0.1214,
+        "genomics_ai": 0.1245
+      },
+      "best_route": "dexterous_manipulation",
+      "relevance_raw": 0.2569,
+      "first_seen": "2026-07-21",
+      "venue": "ICRA 2026",
+      "analysis": {
+        "tldr": "设计了一种刚柔混合机械手，用低成本膜式气动驱动器加3D打印双棘轮结构，实现自适应抓形、受力均匀分布和断电自锁，大幅提升了负载能力（4200g）、降低能耗（减半），专为农业采摘等场景优化。",
+        "org": "未知",
+        "country": "CN",
+        "org_type": "unknown",
+        "claim": "通过刚柔混合结构与双偏置棘轮自锁机制的协同设计，可在零持续能耗下实现高负载、形状自适应且接触力均匀分布的可靠抓取。",
+        "method_components": [
+          "hardware",
+          "simulator"
+        ],
+        "input": "气压信号（控制开合）",
+        "output": "机械手关节角度与夹持力（隐含输出为稳定抓取状态）",
+        "robot_dependency": "定制刚柔混合机械手硬件",
+        "data_dependency": "依赖真实机器人实验数据（文中明确给出多组实测负载、力分布、能耗数值）",
+        "sim2real_status": "real-robot",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dexterous",
+          "real-robot",
+          "hardware"
+        ],
+        "novelty": 6,
+        "evidence": 9,
+        "reproducibility_score": 3,
+        "significance": 58,
+        "significance_reason": "属扎实的机电系统创新：实测性能提升显著（负载超20倍、能耗减半、力均匀性翻倍改善），但仅针对单一抓取模态与农业窄场景，无跨任务泛化验证、无开源代码/模型、未接入感知-决策闭环，未挑战或推进具身智能核心范式（如策略学习、多模态融合、通用操作），远低于T-Rex/ALOHA等基石工作（需策略泛化、真实世界鲁棒学习、大规模部署验证）。",
+        "one_sentence_verdict": "工程整合——在特定农业抓取任务上实现了关键机电性能突破，但未涉及感知-决策-执行闭环，不属于具身智能算法或通用操作框架层面的进展。",
+        "_llm": "qwen-plus",
+        "venue": "ICRA 2026"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": "ICRA 2026"
+      },
+      "scores": {
+        "relevance": 7.7,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 25.7,
+        "bonus": 0.0,
+        "total": 25.7
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.14730.jpg"
     },
     {
       "arxiv_id": "2606.26821",
@@ -153636,6 +154500,92 @@
       "scores": {
         "relevance": 12.1,
         "content": 13.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 25.1,
+        "bonus": 0.0,
+        "total": 25.1
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
+      "arxiv_id": "10.64898/2026.07.16.737952",
+      "doi": "10.64898/2026.07.16.737952",
+      "source_kind": "biorxiv",
+      "title": "Genomic quantification of inbreeding depression in wild vertebrate populations",
+      "abstract": "Inbreeding depression is a potential driver of extinction risk in fragmented populations, yet its magnitude in the wild has historically been estimated using sparse pedigrees or low-resolution molecular markers. The transition to genomic metrics of inbreeding offers unprecedented precision in quantifying realised homozygosity and its fitness costs. We conducted a systematic review and multi-level meta-analysis of 91 effect sizes from 20 wild vertebrate populations to provide a global benchmark for genomic inbreeding depression. Our results confirm a pervasive and significant negative relationship between fitness and genomic inbreeding. Males exhibited significantly stronger inbreeding depression than females. Fitness costs were consistent across life stages (developmental, adult and lifetime) and across types of fitness traits (survival vs. reproduction). We found no significant association between the magnitude of inbreeding depression and IUCN conservation status or historical isolation (discretely measured as 'isolated' or 'non-isolated'). As we enter a genomics era that will provide realised estimates of inbreeding, future studies can be added to this meta-analysis to provide a more comprehensive view of inbreeding depression and potentially identify patterns pertinent to evolutionary biology and conservation science.",
+      "authors": [
+        "K. Lee",
+        "Hannah Parkes",
+        "Sophie Wilkins",
+        "Helen Hipperson",
+        "Terry Burke"
+      ],
+      "categories": [],
+      "published": "2026-07-17",
+      "updated": "2026-07-17",
+      "url": "https://doi.org/10.64898/2026.07.16.737952",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/17/2026.07.16.737952.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0,
+        "world_model": 0.0,
+        "whole_body_control": 0.039,
+        "dexterous_manipulation": 0.018,
+        "sim2real_data": 0.0,
+        "hardware_unitree": 0.0026,
+        "bci_neural_decoding": 0.0517,
+        "bci_foundation_models": 0.0559,
+        "bci_embodied_robot": 0.0231,
+        "bci_noninvasive_eeg": 0.0787,
+        "protein_ai": 0.1389,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.204,
+      "first_seen": "2026-07-21",
+      "analysis": {
+        "tldr": "这篇论文通过整合91个效应量、覆盖20个野生脊椎动物种群的元分析，首次建立了基于全基因组数据的近交衰退全球基准，证实近交程度与适应度呈显著负相关，且雄性更敏感，但该效应与物种保护等级或历史隔离状态无关。",
+        "org": "约克大学",
+        "country": "UK",
+        "org_type": "university",
+        "claim": "基于全基因组指标的近交衰退在野生脊椎动物中普遍存在、量化可测，且其强度具有性别二态性但不受保护状态或历史隔离程度影响。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "已发表研究中的基因组近交系数（如FROH）与适应度表型效应值（如存活率、繁殖成功率）",
+        "output": "跨种群、跨性别的近交衰退效应量估计及异质性分析结果",
+        "robot_dependency": "none",
+        "data_dependency": "完全依赖已发表的第三方野外种群基因组-表型数据，无原始采样或实验",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-species",
+          "cross-life-stage",
+          "cross-trait-type"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "benchmark",
+          "dataset"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 3,
+        "significance": 68,
+        "significance_reason": "是野生种群近交衰退领域首个基于全基因组指标的系统性元分析，填补了从传统系谱/微卫星到现代基因组评估的关键证据断层，方法严谨、样本覆盖广、发现稳健（如性别差异），但未提出新算法/模型/技术，也未生成新原始数据集，属重大整合性科学进展而非范式突破。",
+        "one_sentence_verdict": "显著贡献：首次用基因组尺度数据确立野生脊椎动物近交衰退的普适性量化基准，但属于高质量综述整合，非方法或数据原创。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 6.1,
+        "content": 19.0,
         "heat": 0.0,
         "quality": 0.0,
         "base": 25.1,
@@ -156571,6 +157521,105 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2606.08973.jpg"
+    },
+    {
+      "arxiv_id": "2607.16074",
+      "title": "JoyNexus: Service-Oriented Multi-Tenant Post-Training for VLA Models",
+      "abstract": "The post-training of Vision-Language-Action (VLA) models is essential due to the diversity of simulators, robot embodiments, and task objectives. Existing compute services, whether offered as direct accelerator rental or batch-workload submission, typically allocate an exclusive set of GPU and CPU resources to a single tenant. While this paradigm maximizes client flexibility, it burdens users with infrastructure adaptation, and the fixed card-hour accounting model renders short or bursty workloads both expensive for tenants and inefficient for the service provider. To address these challenges, we present JoyNexus, a unified service for multi-tenant VLA supervised fine-tuning, reinforcement learning, and evaluation. JoyNexus decouples the Training Model Service, Inference Model Service, and Environment Service, each accessed through APIs and backed by resident shared base models with tenant-specific slots. Tenants can directly invoke high-level semantic APIs for training, rollout, and evaluation, or compose custom algorithms using lower-level APIs and their assigned endpoints. Multiple tenants submit workloads concurrently; their action modules, optimizers, rollout records, and policy versions remain isolated, and the service is scheduled by the global Training Queue and Inference Queue. To further improve multi-tenant training efficiency, JoyNexus introduces group batching for heterogeneous VLA data schemas that share a compatible model-facing prefix, enabling a single shared backbone forward pass over grouped samples. Finally, we evaluate JoyNexus through workload simulation and a group-batching pipeline in a realistic embodied scenario. Results show that, compared with isolated single-tenant execution, JoyNexus reduces aggregate GPU time and improves service utilization via cross-tenant scheduling on shared resources.",
+      "authors": [
+        "Haoran Sun",
+        "Wentao Zhang",
+        "Junyang Hua",
+        "Hedan Yang",
+        "Yongjian Guo",
+        "Yifei Zhang",
+        "Xiaolong Xiang",
+        "Mingxi Luo",
+        "Jing Long",
+        "Chen Zhao",
+        "Chen Zhou",
+        "Wanting Xu",
+        "Qiming Yang",
+        "Hui Zhang",
+        "Song Wang",
+        "Xiaodong Bai",
+        "Shuai Di",
+        "Xu Chu",
+        "Xiaotie Deng",
+        "Yicheng Gong",
+        "Junwu Xiong"
+      ],
+      "categories": [],
+      "published": "2026-07-17T00:00:00.000Z",
+      "updated": "2026-07-17T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2607.16074",
+      "pdf_url": "https://arxiv.org/pdf/2607.16074",
+      "hf_upvotes": 2,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.5,
+        "world_model": 0.4079,
+        "whole_body_control": 0.3218,
+        "dexterous_manipulation": 0.1779,
+        "sim2real_data": 0.2785,
+        "hardware_unitree": 0.1932,
+        "bci_neural_decoding": 0.1616,
+        "bci_foundation_models": 0.2088,
+        "bci_embodied_robot": 0.2562,
+        "bci_noninvasive_eeg": 0.1383,
+        "protein_ai": 0.0313,
+        "genomics_ai": 0.1373
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.4431,
+      "first_seen": "2026-07-21",
+      "analysis": {
+        "tldr": "提出一个叫JoyNexus的多租户服务平台，让多个团队能共享GPU资源、并行微调VLA模型（视觉-语言-动作），通过解耦服务模块、租户隔离和组批处理异构数据来提升资源利用率，但没在真实机器人上跑，也没发布新模型或新数据集，纯系统架构设计。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "多租户共享基础设施可显著提升VLA模型后训练的GPU利用率和成本效率，且能保障租户间隔离与灵活性。",
+        "method_components": [
+          "model",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "VLA模型的监督微调/强化学习任务配置、异构动作轨迹数据（含不同schema但共享前缀）",
+        "output": "训练后的租户专属VLA策略模型、评估指标、资源调度日志",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据，仅用仿真或合成VLA数据（摘要未提真实数据）",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "none",
+        "tags": [
+          "multimodal-fusion",
+          "benchmark"
+        ],
+        "novelty": 4,
+        "evidence": 3,
+        "reproducibility_score": 0,
+        "significance": 28,
+        "significance_reason": "纯系统级服务架构设计，无新模型、无新数据、无真实机器人验证、无跨任务泛化实验，仅用工作负载模拟和单个组批pipeline验证；相比RT-2/π0/OpenVLA等基石工作（均含真机部署、大规模实采数据、端到端性能突破），本文连方法论层面的实质性推进都未体现，属于云服务工程优化范畴，对VLA核心科学问题（如具身推理、动作泛化、sim2real）零贡献。",
+        "one_sentence_verdict": "概念包装——把通用MLOps多租户调度套在VLA上起个新名字，既无新算法也无实证突破，更无开源，暂不具备领域影响力",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 2,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 13.3,
+        "content": 7.0,
+        "heat": 4.1,
+        "quality": 0.0,
+        "base": 20.3,
+        "bonus": 4.1,
+        "total": 24.4
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.16074.jpg"
     },
     {
       "arxiv_id": "2606.12690",
@@ -159741,6 +160790,91 @@
       "thumb": "assets/thumbs/2607.07574.jpg"
     },
     {
+      "arxiv_id": "2607.14708",
+      "doi": "10.48550/arxiv.2607.14708",
+      "source_kind": "arxiv",
+      "title": "Reinforcement Learning for the Full Strawberry Harvesting Process: Obstacle Separation, Detachment, and Placement",
+      "abstract": "Severe occlusions and deformable plant structures introduce complex contact dynamics that challenge robotic strawberry harvesting. A policy-driven reinforcement learning (RL) framework with heuristic phase coordination was developed, in which obstacle separation, fruit detachment, and placement were formulated as a sequential decision-making task. A shared interaction-aware policy generated Cartesian motions across all task phases, while lightweight heuristic logic coordinated task progression and gripper events. A shared structured observation space was used to represent target, obstacle, end-effector, and task-context information. A hierarchical architecture combined the high-level policy with low-level Cartesian impedance control for compliant interaction. To support zero-shot sim-to-real transfer, feasibility-first observation alignment and domain randomization were adopted. The policy achieved success rates of 89.7% in simulation and 82.0% in real-world experiments. As the occlusion level increased from 1 to 5, the average execution time increased from 12.99 s to 21.73 s, reflecting greater interaction complexity. These results demonstrated effective transfer of interaction-aware harvesting behaviors to a structurally different robotic platform.",
+      "authors": [
+        "Changyou Miao",
+        "Teng Li",
+        "Ya Xiong"
+      ],
+      "categories": [],
+      "published": "2026-07-16",
+      "updated": "2026-07-16",
+      "url": "https://arxiv.org/abs/2607.14708",
+      "pdf_url": "https://arxiv.org/pdf/2607.14708",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.411,
+        "world_model": 0.4125,
+        "whole_body_control": 0.4505,
+        "dexterous_manipulation": 0.5,
+        "sim2real_data": 0.2722,
+        "hardware_unitree": 0.2058,
+        "bci_neural_decoding": 0.061,
+        "bci_foundation_models": 0.0513,
+        "bci_embodied_robot": 0.3686,
+        "bci_noninvasive_eeg": 0.051,
+        "protein_ai": 0.1711,
+        "genomics_ai": 0.115
+      },
+      "best_route": "dexterous_manipulation",
+      "relevance_raw": 0.4505,
+      "first_seen": "2026-07-21",
+      "venue": "IROS 2026",
+      "analysis": {
+        "tldr": "用一个共享的交互感知强化学习策略控制机械臂完成草莓采摘全流程（分离障碍物、摘果、放置），通过分阶段启发式协调和仿真到真实世界的可行性优先对齐，在真实草莓植株上达到82%成功率。",
+        "org": "未知",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "共享交互感知策略+启发式阶段协调可在结构差异大的机器人平台上实现草莓采摘全流程的零样本sim2real迁移。",
+        "method_components": [
+          "model",
+          "simulator",
+          "policy",
+          "benchmark"
+        ],
+        "input": "结构化观测空间（目标、障碍物、末端执行器、任务上下文）",
+        "output": "笛卡尔空间运动轨迹",
+        "robot_dependency": "UR5e机械臂+定制夹爪",
+        "data_dependency": "完全依赖仿真数据训练，未使用真实机器人交互数据",
+        "sim2real_status": "sim-only",
+        "generalization": "limited",
+        "reproducibility": "none",
+        "tags": [
+          "sim2real",
+          "dexterous"
+        ],
+        "novelty": 4,
+        "evidence": 6,
+        "reproducibility_score": 0,
+        "significance": 38,
+        "significance_reason": "仅在单一作物（草莓）单一任务链上验证，无跨作物/跨平台/跨传感器泛化，无消融实验支撑核心设计选择，未开源代码或数据，成功率低于ALOHA/ACT等基石工作两个数量级（82% vs >95%稳定操作），且未解决触觉缺失、形变建模、长期接触动力学等该领域核心瓶颈。",
+        "one_sentence_verdict": "暂时不用看——属于特定场景下的工程尝试，缺乏方法普适性、实证严谨性和开源可复现性，未触及具身智能采摘方向的关键科学挑战。",
+        "_llm": "qwen-plus",
+        "venue": "IROS 2026"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": "IROS 2026"
+      },
+      "scores": {
+        "relevance": 13.5,
+        "content": 10.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 23.5,
+        "bonus": 0.0,
+        "total": 23.5
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.14708.jpg"
+    },
+    {
       "arxiv_id": "2606.12783",
       "doi": "10.48550/arxiv.2606.12783",
       "source_kind": "arxiv",
@@ -162841,6 +163975,96 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2607.05709.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.07.13.737563",
+      "doi": "10.64898/2026.07.13.737563",
+      "source_kind": "biorxiv",
+      "title": "Non-invasive Vagal Nerve Stimulation as a Potential Treatment for Repetitive Blast Trauma",
+      "abstract": "Background: Polytrauma caused by exposure to high explosives (blast) is increasingly common among military personnel and civilians yet treatment for related post-concussive symptoms and chronic behavioral dysfunction is limited. Therapeutic targets following these injuries are typically focused on the central nervous system, with less attention placed on potentially more accessible peripheral targets. Vagus nerve stimulation (VNS) has recently gained traction as a potential therapeutic modality but has yet to be examined in a blast trauma setting. Methods: Our well-established blast overpressure model was utilized to induce repetitive (3x) blast trauma, followed by treatment with non-invasive transcutaneous VNS one hour following each blast exposure in male mice. Acutely following repetitive blast exposure, we measured serum and brain cytokine levels, fecal microbial abundance, and locomotion and anxiety-like behavior in the open field assay. Chronically (1-3 months post blast), mice were assessed for behavioral outcomes related to mild traumatic brain injury (mTBI) and posttraumatic stress disorder (PTSD), including acoustic startle (hyperreactivity), probabilistic discounting (risky decision making), and two-bottle choice test (voluntary alcohol consumption). Results: VNS treatment following blast exposure decreased acute blast-induced inflammatory response in the blood and brain, especially serum IL-9 and IP-10, and brain MPC-1. Chronic behavior tests demonstrated a VNS-dependent reduction in blast-induced risky decision-making and a decreased intake and preference for ethanol. Conversely, VNS was not effective in preventing acute blast effects on the microbiome or chronic hyperreactivity behaviors measured with acoustic startle. Discussion: This study identifies the vagus nerve as a novel peripheral target for treating acute and chronic blast-induced dysfunction.",
+      "authors": [
+        "Britahny M. Baskin",
+        "Alyssa Easton",
+        "Monica Tschang",
+        "Suhjung Janet Lee",
+        "Emma Skillen",
+        "K M Wong",
+        "Bryan Schuessler",
+        "James Meabon",
+        "Tami Wolden-Hanson",
+        "Cook De",
+        "Sean M. Gibbons",
+        "Abigail G. Schindler"
+      ],
+      "categories": [],
+      "published": "2026-07-19",
+      "updated": "2026-07-19",
+      "url": "https://doi.org/10.64898/2026.07.13.737563",
+      "pdf_url": "https://doi.org/10.64898/2026.07.13.737563",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0518,
+        "world_model": 0.0179,
+        "whole_body_control": 0.0232,
+        "dexterous_manipulation": 0.0548,
+        "sim2real_data": 0.053,
+        "hardware_unitree": 0.0,
+        "bci_neural_decoding": 0.1496,
+        "bci_foundation_models": 0.1601,
+        "bci_embodied_robot": 0.1563,
+        "bci_noninvasive_eeg": 0.5,
+        "protein_ai": 0.0411,
+        "genomics_ai": 0.1043
+      },
+      "best_route": "bci_noninvasive_eeg",
+      "relevance_raw": 0.1601,
+      "first_seen": "2026-07-21",
+      "analysis": {
+        "tldr": "用非侵入式经皮迷走神经刺激（tVNS）治疗反复爆炸冲击伤小鼠，发现它能减轻急性全身与脑内炎症反应，并改善长期的冒险决策和酒精偏好行为，但对微生物组紊乱和惊吓过度反应无效。",
+        "org": "unknown",
+        "country": "US",
+        "org_type": "university",
+        "claim": "非侵入式迷走神经刺激可作为治疗反复爆炸创伤所致急慢性神经行为功能障碍的有效外周干预手段。",
+        "method_components": [
+          "dataset",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "反复爆炸冲击暴露（小鼠模型）+ tVNS干预时间点",
+        "output": "血清/脑组织细胞因子水平、肠道菌群丰度、多种行为学指标（开放场、惊吓反射、概率折扣、双瓶饮酒）",
+        "robot_dependency": "none",
+        "data_dependency": "无机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 8,
+        "reproducibility_score": 3,
+        "significance": 45,
+        "significance_reason": "虽首次在爆炸创伤模型中系统验证tVNS对炎症与特定行为表型的调控作用，但仅限雄性小鼠单菌株、单剂量tVNS、无机制解析（如迷走传入/传出通路验证）、无临床队列支持，且关键表型（如PTSD核心症状惊吓超敏）未改善；属扎实的前临床概念验证，但离临床转化和范式突破尚远，显著弱于所有列出的BCI基石工作（均为人类闭环神经接口+高维解码+功能重建）。",
+        "one_sentence_verdict": "工程整合：在已有tVNS与爆炸伤模型基础上做了严谨但窄口径的表型交叉验证，有明确生物学终点和对照设计，但缺乏机制深度与跨群体泛化，暂未构成新范式或临床路径突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 4.8,
+        "content": 17.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 21.8,
+        "bonus": 0.0,
+        "total": 21.8
+      },
+      "grade": "D",
+      "read_priority": "C"
     },
     {
       "arxiv_id": "2606.02313",
