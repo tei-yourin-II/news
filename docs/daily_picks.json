@@ -4139,6 +4139,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-07-23": [
+      {
+        "arxiv_id": "2607.18367",
+        "title": "AlayaWorld: Interactive Long-Horizon World Modeling -- Full Technical Report",
+        "published": "2026-07-20",
+        "first_seen": "2026-07-22",
+        "url": "https://arxiv.org/abs/2607.18367",
+        "pdf_url": "https://arxiv.org/pdf/2607.18367",
+        "thumb": "assets/thumbs/2607.18367.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "AlayaWorld Team",
+        "country": "CN",
+        "significance": 78,
+        "significance_reason": "技术整合扎实：提出具象化的持久状态建模机制（sink frame+几何对齐内存）、残差自监督训练、四步蒸馏推理，在iWorld-Bench上验证了长时序生成稳定性；但未开放代码/模型权重，仅提供项目页，且无真实交互闭环验证（如API调用或游戏引擎集成），也未证明跨域泛化能力，距World Models（97）等基石级工作仍缺长期状态因果建模与可干预性实证。",
+        "tier": "heavy",
+        "tldr": "提出AlayaWorld模型，一个能根据文本/图像/视频输入实时生成可交互、长时序（秒级）、24fps高清视频世界的扩散Transformer模型，核心创新是带持久状态的分块自回归生成架构和四步采样蒸馏方法。",
+        "deep": {
+          "hook": "首个支持秒级交互、24fps高清生成、带持久状态记忆的视频世界模型",
+          "why_now": "接续World Models（2023）、Videollava-1.5（2024）、Sora技术报告（2024）对‘世界建模’的范式追问，首次将‘可干预性’与‘长时序一致性’在统一架构中显式建模，踩中具身智能对‘可编辑时空基底’的迫切需求",
+          "problem": "现有视频生成模型无法维持跨秒级的物理/空间/语义一致性；世界模型多停留于隐式状态或短序列（<1s），缺乏显式的持久状态锚点与相机轨迹耦合机制；交互闭环常被简化为prompt重写，而非真实时动作反馈驱动",
+          "method": "提出‘分块自回归+持久状态锚定’架构：每段生成以‘sink帧’（长期视觉锚点）为根，叠加几何对齐的空间记忆（3D-aware memory bank）和压缩时序历史（temporal bottleneck）；训练采用残差自监督——用模型自身roll-out的历史预测误差作为监督信号；推理用四步离散蒸馏：先分布匹配→再self-forcing++（用前序chunk输出重注入）→最后一致性蒸馏（强制相邻chunk边界对齐）",
+          "results": "在iWorld-Bench上实现长时序生成SOTA（摘要明确‘achieves the best performance over long-horizon generation’）；支持24fps、540p/720p视频世界生成；推理速度提升显著（摘要称‘reducing inference from approximately 30 sampling steps to four steps per chunk’）",
+          "limitations": "未提供真实交互闭环验证（如API接入Unity/Unreal或机器人控制接口）；无跨域泛化测试（如训练于合成场景，未在真实视频或具身任务如ALFRED上验证）；未开源代码/权重，仅project-page，复现不可行；‘sink帧’持久性未定量评估（如10秒后关键物体召回率）",
+          "significance_take": "显著推进但非范式级：首次将‘持久状态’从隐式RNN记忆升格为显式可读写视觉锚点，并与相机运动解耦建模，为后续构建可编辑、可干预的世界基底提供了结构化接口；但仍未解决因果干预（如‘推倒杯子’后是否触发正确连锁反应）这一世界模型核心命题",
+          "who_should_read": "做视频生成、具身VLM、仿真环境构建的工程师可直接借鉴其sink帧+几何内存设计，用于提升长序列时空连贯性",
+          "verdict": "值得读——方法论清晰、组件拆解扎实，是当前少有的把‘世界’当可操作对象而非单纯生成目标来设计的系统，但须清醒认知其仍处于‘开环世界模拟’阶段，离闭环具身交互尚有本质距离",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.15065",
+        "title": "DriftWorld: Fast World Modeling through Drifting",
+        "published": "2026-07-16",
+        "first_seen": "2026-07-22",
+        "url": "https://arxiv.org/abs/2607.15065",
+        "pdf_url": "https://arxiv.org/pdf/2607.15065",
+        "thumb": "assets/thumbs/2607.15065.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "MIT",
+        "country": "US",
+        "significance": 82,
+        "significance_reason": "在世界模型核心性能维度（速度×精度×实用性）上实现实质性突破：30+fps单步 rollout + 0.99策略评分相关性 + 多基准SOTA决策性能，证据扎实（5个主流benchmark、消融隐含于对比基线、推理加速量化明确），虽未开新范式（如DreamerV3的通用RL框架或World Models的端到端闭环），但属当前扩散世界模型实用化路径中最有效的工程-算法协同突破，达到‘重磅’级别。",
+        "tier": "heavy",
+        "tldr": "提出DriftWorld，一种基于‘漂移生成模型’的动作条件世界模型，用单次前向传播替代扩散模型的多步采样，在视觉机器人操作任务中实现30+fps的快速、准确帧预测，显著加速在线规划和离线策略评估。",
+        "deep": {
+          "hook": "单次前向推理30+fps预测未来帧，把扩散世界模型从‘慢思考’变成‘快直觉’",
+          "why_now": "紧随DreamerV3、GenSim等扩散/自回归世界模型爆发期，直击其推理速度致命短板；同期无其他工作在保持SOTA精度前提下实现10×以上实时级加速",
+          "problem": "扩散世界模型虽生成质量高，但多步采样导致单次rollout耗时高（通常<2fps），无法支撑在线动作搜索或大规模策略评估；现有加速方案（如蒸馏、步数剪枝）常以牺牲保真度为代价，难以兼顾速度与控制可用性。",
+          "method": "提出‘漂移生成模型’：训练时让模型学习从当前观测+动作序列直接映射到未来帧的‘确定性漂移路径’，而非建模噪声逆过程；用轻量动作编码器+时空注意力融合动作条件，全程无采样，纯单次前向；损失函数显式约束帧间动态一致性与动作因果性。",
+          "results": "在Bridge-V2、RT-1、Language Table、Push-T、Robomimic共5个主流视觉操作基准上达成SOTA决策性能；推理速度30+fps，平均比扩散基线快17×；离线策略评分与真实性能相关性达0.99；所有结果均基于公开benchmark报告，未使用私有数据或仿真特化设置。",
+          "limitations": "仅验证于simulated视觉操作任务（无真机部署证据）；未提供消融实验验证‘漂移’设计各组件贡献（如动作编码器结构、动态一致性损失权重）；未测试跨任务泛化（如训练于Bridge-V2后迁移到新场景）；代码开源但依赖特定闭源渲染器（未说明是否支持标准PyBullet/Gymnasium接口）。",
+          "significance_take": "显著推进——不是范式革命，而是关键工程瓶颈的精准爆破：首次将扩散级生成质量与实时推理统一于单一架构，为世界模型从‘实验室demo’走向‘嵌入式规划模块’提供了可复现、可量化、可集成的技术路径。",
+          "who_should_read": "做具身规划/世界模型落地的工程师该读，能直接获得低延迟rollout部署方案与跨benchmark验证的精度-速度权衡标尺。",
+          "verdict": "必读——它用扎实的5基准SOTA和17×加速证明：在不改扩散先验的前提下，‘放弃采样’本身就是最优解，且已跑通全链路。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.14698",
+        "title": "Lights, Camera, Malfunction: When Illumination Robustness Leaves VLA Models Blind to Color",
+        "published": "2026-07-16",
+        "first_seen": "2026-07-22",
+        "url": "https://arxiv.org/abs/2607.14698",
+        "pdf_url": "https://arxiv.org/pdf/2607.14698",
+        "thumb": "assets/thumbs/2607.14698.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "东京大学",
+        "country": "JP",
+        "significance": 82,
+        "significance_reason": "首次系统揭示VLA模型在物理光照扰动下的崩溃机制，并指出主流防御（对抗训练+数据增强）存在根本性感知偏置缺陷；通过真机部署验证问题严重性与解决方案有效性，证据链完整（攻击→诊断→归因→修复→多任务真机验证），但未开源代码/模型，且未挑战跨机体泛化或构建新基准，尚未达RT-2级范式突破。",
+        "tier": "heavy",
+        "tldr": "这篇论文发现当前VLA机器人模型在光照变化下会彻底失效，提出一种物理层面的聚光灯攻击（FLARE）让模型‘失明’；进一步指出常用对抗训练反而让模型抛弃颜色信息、只认形状，导致真实彩色任务成功率暴跌至47.5%；为此设计了保留色彩信息的对抗训练方法ChromaGuard，在真机上将彩色任务成功率从0%（被攻击时）和47.5%（被错误防御后）提升到92.5%（被攻击时）和97.5%（正常时）。",
+        "deep": {
+          "hook": "VLA模型被一盏聚光灯‘致盲’，而常用对抗训练反而让它‘色盲’——这篇论文揪出光照鲁棒性背后的感知背叛",
+          "why_now": "继RT-2、OpenVLA等VLA模型密集落地后，本文首次在物理世界层面系统暴露其光照脆弱性，直接回应2024年ICRA/CoRL多篇关于sim2real光照泛化失败的实证报告，并挑战了当前主流防御范式（如VoxPoser、RT-X对抗增强）隐含的色彩无关假设。",
+          "problem": "VLA模型在仿真中表现强劲，但真实光照微扰（如台灯偏移、阴影投射）即可导致任务崩溃；更隐蔽的问题是：为提升鲁棒性而采用的对抗训练+数据增强，常将彩色输入转为灰度或加噪，无意中教会模型忽略颜色——而真实操作任务（如‘拿红色杯子’‘避开黄色胶带’）高度依赖色度语义。",
+          "method": "提出FLARE攻击：用可调LED聚光灯在物理场景中精准投射高亮斑点，不修改图像像素、不接触模型，仅改变光照场即令VLA策略失效；设计诊断性灰度测试，量化模型是否‘习得色盲’；进而提出ChromaGuard——在对抗训练中强制保留HSV色度通道（H/S），冻结亮度V通道扰动，约束梯度更新仅作用于色彩不变特征子空间。",
+          "results": "在6-DoF真机平台（UR5e+RealSense）上验证：FLARE使基线VLA任务成功率归零；标准对抗训练后模型灰度任务成功率达96.3%，但彩色任务仅47.5%；ChromaGuard在相同设置下实现彩色任务97.5%（正常）和92.5%（被FLARE攻击时）成功率。",
+          "limitations": "未开源代码/模型，复现门槛高；实验仅限单机械臂平台与5个彩色依赖任务（摘要未列具体任务名），未测试跨机体（如Franka vs UR）、跨光照源（LED vs自然光）或长期光照漂移；ChromaGuard依赖手工定义的HSV空间，未验证其在广色域（如Pantone指令）或低照度下的鲁棒性。",
+          "significance_take": "显著推进而非范式级突破：它不是提出新VLA架构，而是首次完成‘漏洞发现→机制归因→感知偏差定量化→物理闭环修复’全链条，将光照鲁棒性从‘经验加固’推向‘感知保真约束’，为后续工作设立必须检验的color-aware baseline。",
+          "who_should_read": "做VLA部署的工程师该读——能立刻检查自己模型是否已‘色盲’，并用ChromaGuard的HSV冻结策略快速修补现有训练pipeline。",
+          "verdict": "必读：它是首篇用真机攻击+感知诊断+可部署修复三重证据，戳破VLA光照鲁棒性幻觉的硬核工作，所有声称‘已在真实光照下部署VLA’的团队都应复现其灰度诊断协议。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -4271,13 +4363,16 @@
     "2607.14578",
     "2607.14586",
     "2607.14609",
+    "2607.14698",
+    "2607.15065",
     "2607.15163",
     "2607.15275",
     "2607.15330",
     "2607.15448",
     "2607.15982",
+    "2607.18367",
     "2607.19343"
   ],
-  "latest": "2026-07-22",
-  "generated_at": "2026-07-22 04:21 UTC"
+  "latest": "2026-07-23",
+  "generated_at": "2026-07-23 04:20 UTC"
 }
