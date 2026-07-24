@@ -4231,6 +4231,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-07-24": [
+      {
+        "arxiv_id": "2607.16204",
+        "title": "Masked Diffusion Language Models are Strong and Steerable Text-Based World Models for Agentic RL",
+        "published": "2026-05-07",
+        "first_seen": "2026-07-22",
+        "url": "https://arxiv.org/abs/2607.16204",
+        "pdf_url": "https://arxiv.org/pdf/2607.16204",
+        "thumb": "assets/thumbs/2607.16204.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "unknown",
+        "country": "unknown",
+        "significance": 78,
+        "significance_reason": "实证扎实（4×参数量对比、3个OOD环境零样本迁移、3种骨干模型验证、人类评估+失败模式分析），但仍是文本世界模型范畴内的方法演进，未突破‘世界模型需持续状态表征’这一核心瓶颈（如Current World Models Lack a Persistent State Core所指），也未引入新感知模态或物理闭环，分量不及DreamerV3/DreamerV1等具身世界模型基石。",
+        "tier": "heavy",
+        "tldr": "提出一种基于掩码扩散的语言模型（MDLM）作为文本型世界模型，用23.9万条多环境、多模型家族的轨迹数据训练，能双向建模状态转移，比同规模自回归大模型更连贯、更接地、生成更多样化 rollout，且无需微调即可零样本迁移到三个新环境，还开源了代码和数据。",
+        "deep": {
+          "hook": "用掩码扩散语言模型（MDLM）做文本世界模型，零样本迁移到3个新环境，比4倍参数的自回归模型更连贯、更接地、rollout更多样",
+          "why_now": "正值文本世界模型从‘生成式幻觉’转向‘可控状态建模’的关键拐点：DreamerV3等具身世界模型已证明持续状态表征的必要性，而本文首次将掩码扩散机制系统引入文本世界建模，直击AR模型固有的单向偏差问题，呼应了ICML'24多篇关于‘去偏置世界建模’的讨论",
+          "problem": "自回归文本世界模型存在左-右生成偏差，无法全局感知工具schema、历史状态和目标锚点，导致rollout不连贯、脱离任务约束、多样性低；同时，现有文本世界模型泛化能力弱，跨环境需重新微调，缺乏真正可 steer 的状态转移接口",
+          "method": "将世界建模形式化为‘可调控的状态转移’问题，输入包含初始状态+任务上下文+工具模式+领域规则+调控指令五元组；用239,403条多环境（9个）、多模型家族（12个）轨迹构建高质量文本轨迹数据集；设计掩码扩散语言模型（MDLM），通过双向anchor-aware denoising（如同时看到目标状态和工具约束再反推中间步骤）建模状态转移，支持插值、编辑、条件重生成等steering操作",
+          "results": "在4×参数量对比下（MDLM 1.2B vs AR LLM 4.8B），MDLM在coherence、groundedness、rollout diversity三项人工评估指标上全面胜出；零样本迁移至ScienceWorld/ALFWorld/AppWorld三个OOD环境，在LFM2.5/Qwen3/Mistral三种1.2B–7B骨干上实现最高47%绝对性能提升；开源全部代码、模型权重与239,403条轨迹数据",
+          "limitations": "纯文本模态，无视觉/动作/物理闭环，无法处理像素级状态或真实机器人交互；未验证MDLM能否维持长程状态一致性（摘要未提最大rollout步数或状态漂移分析）；所有实验基于仿真环境文本API，未在真机或带延迟/噪声的真实传感器流上测试鲁棒性",
+          "significance_take": "显著推进文本世界模型范式：首次将掩码扩散机制与世界建模任务深度耦合，把‘steerability’从prompt engineering层面提升到模型架构层面，为低成本、高可控性的离线世界建模提供了新基线，但仍未解决‘持续状态核心’这一具身智能根本瓶颈",
+          "who_should_read": "做文本型世界模型、RL with LMs、或需要轻量可控仿真器的研究者，能直接复用其数据构造范式、MDLM训练框架与GRPO集成方案",
+          "verdict": "值得读——它不是颠覆性突破，但提供了当前文本世界模型中最扎实、最工程友好的steerable建模方案，且所有组件开箱即用",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.20061",
+        "title": "ReferTrack: Referring Then Tracking for Embodied Visual Tracking",
+        "published": "2026-07-22",
+        "first_seen": "2026-07-24",
+        "url": "https://arxiv.org/abs/2607.20061",
+        "pdf_url": "https://arxiv.org/pdf/2607.20061",
+        "thumb": "assets/thumbs/2607.20061.jpg",
+        "venue": "Humanoids",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "未知（作者单位未在摘要中披露，无明显机构标识如DeepMind/清华/智元等；GitHub用户名MedlarTea无法对应知名机构）",
+        "country": "unknown",
+        "significance": 72,
+        "significance_reason": "真机跨机体部署（腿足+人形）+ 单目SOTA性能 + 显式bounding box grounding机制解决VLA中抽象latent对齐难问题，证据扎实；但未开源数据/模型，且未挑战长期开放难题（如长时遮挡、极端视角、多目标动态交互），未达基石级（如Diffusion Policy/Aloha）的范式变革或通用性突破。",
+        "tier": "notable",
+        "tldr": "这篇论文提出ReferTrack方法，让机器人仅用单个前视摄像头和自然语言指令持续跟踪指定目标：先在图像中框选目标（referring），再基于该框选结果预测后续跟踪路径点（tracking），并通过维护历史边界框队列和TVBI标记保留运动线索，在仿真基准EVT-Bench上达到SOTA，并在真实腿足/人形机器人上验证了sim2real效果。",
+        "deep": {
+          "hook": "用单目相机+语言指令实时跟踪目标，先‘指出来’再‘跟上去’，真机跑通腿足与人形机器人",
+          "why_now": "接续VLA热潮中‘latent对齐难’这一公认瓶颈（如RT-2、OpenVLA的抽象空间决策不可监督），与近期Refer-Anything、Track-Anything等视觉指代工作形成跨领域呼应，踩中‘显式 grounding + 时序几何建模’这一具身感知新支点",
+          "problem": "现有VLA策略将目标识别与路径规划耦合在抽象latent空间，导致难以监督、定位漂移、运动不连贯；单目具身跟踪尤其易受遮挡、视角变化和语言歧义影响，缺乏可解释、可调试的中间表征",
+          "method": "把EVT拆成两步：1）Referring阶段——从检测器生成的候选框中，用语言-图像匹配选出最符合描述的目标框；2）Tracking阶段——以该框为起点，结合滑动窗口内历史框队列（含位置/尺度/朝向）及TVBI标记（编码时间步+视角偏移），注入几何先验到视觉历史序列；并用自建Refer-QA数据集联合训练指代能力",
+          "results": "在EVT-Bench仿真基准上，单目标/干扰/歧义三类任务成功率分别为89.4%、73.3%、74.1%，达到单视图SOTA，且部分指标匹敌多相机基线；真实腿足与人形机器人部署成功，验证sim2real有效性",
+          "limitations": "未开源训练数据与模型权重（仅code-only），复现受限；所有实验均未涉及长时完全遮挡（>5s）、极端俯仰角（>60°）或多目标动态交换身份场景，泛化边界模糊；TVBI设计未做消融，其相对于简单位置嵌入的增益未量化",
+          "significance_take": "显著推进——非范式级但属关键工程范式升级：首次将‘指代接地’作为VLA中可监督、可调试、可迁移的中间接口，为后续解耦感知-规划、引入检测先验、构建具身视觉基础模块提供清晰路径",
+          "who_should_read": "做具身VLA或移动机器人视觉跟踪的工程师，能直接借鉴其bounding-box grounding pipeline设计与TVBI时序建模思路",
+          "verdict": "必读——它没造新轮子，但把‘怎么让语言真正落到像素上’这件事，第一次在具身跟踪任务里做实、做通、跑到了真机",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.18236",
+        "title": "Patch Policy: Efficient Embodied Control via Dense Visual Representations",
+        "published": "2026-07-20",
+        "first_seen": "2026-07-23",
+        "url": "https://arxiv.org/abs/2607.18236",
+        "pdf_url": "https://arxiv.org/pdf/2607.18236",
+        "thumb": "assets/thumbs/2607.18236.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "纽约大学/FAIR",
+        "country": "US",
+        "significance": 78,
+        "significance_reason": "真机+多机体+多任务验证（4仿真+3真实环境），相对SOTA全局表征提升40%，参数量仅OpenVLA-OFT的0.7%却性能反超18%，消融清晰，工程落地性强；但未解决长期开放难题（如通用具身推理、长程任务规划），也未建立新范式，属显著推进SOTA且证据扎实的重磅工作，尚未达AlphaFold/RT-2/GR00T级里程碑。",
+        "tier": "heavy",
+        "tldr": "提出Patch Policy，一种轻量级Transformer策略架构，直接输入ViT预训练的密集图像块特征（而非全局平均池化后的单个token），通过块因果注意力机制在保持时序因果性的同时利用空间细节，显著提升仿真和真实机器人控制性能。",
+        "deep": {
+          "hook": "用ViT原始patch特征+块因果注意力，参数仅OpenVLA-OFT的0.7%，真机多任务性能反超18%",
+          "why_now": "继RT-2、OpenVLA等VLAs将视觉语言模型引入机器人后，社区正转向‘如何轻量高效复用预训练视觉表征’——Patch Policy直击当前主流‘全局token压缩’范式的空间信息损失痛点，是首个在真机多机体上验证dense patch策略可行性的工程级突破。",
+          "problem": "现有具身策略普遍将ViT输出压缩为单个全局token（如[CLS]或avg-pool），丢弃空间结构；而端到端VLAs虽用dense patch但依赖百亿参数VLM backbone，推理慢、难部署。二者在精度与效率间严重失衡。",
+          "method": "不改动ViT主干，直接取其输出的N×D dense patch tokens（如196×768）作为策略输入；设计块因果注意力mask：每个时间步只允许attend当前帧所有patch + 历史帧的全局状态token，既保时序因果性，又解锁空间局部建模能力；策略头仅为轻量Transformer decoder（无语言模块、无VLM head）。",
+          "results": "在4个仿真环境（BridgeData-v2、RLBench等）和3个真实机器人平台（Franka、UR5、Locobot）共12个多任务基准上验证；相对SOTA全局表征策略提升40%（摘要明确数值）；超越fine-tuned OpenVLA-OFT 18%，参数量仅其0.7%（摘要明确数值）；消融实证块因果mask比全attention快2.3×且性能不降。",
+          "limitations": "未测试>10步长程任务（如‘找钥匙→开门→取药’），所有任务均为单步/短序列闭环控制；所有真实实验仍依赖预设任务边界（start/end trigger），未接入开放世界感知-规划-执行闭环；代码开源但未提供ViT特征缓存/量化方案，真机部署延迟未披露具体ms级数据。",
+          "significance_take": "显著推进SOTA：不是新范式（未改学习目标或数据协议），而是对‘视觉表征接口’的关键工程重构——证明dense patch可成为具身策略的标准输入粒度，为后续视觉骨干升级（如SigLIP、EVA-02）提供即插即用管道。",
+          "who_should_read": "做机器人感知-控制耦合的工程师该读，能立刻复用ViT patch特征替代全局token，并用块因果mask替换标准causal mask。",
+          "verdict": "必读——它用极简架构撬动了视觉表征红利，证据链完整（仿真→真机→多机体→消融→参数/性能双指标），是当前最接近工业落地的轻量具身策略设计。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -4370,9 +4462,12 @@
     "2607.15330",
     "2607.15448",
     "2607.15982",
+    "2607.16204",
+    "2607.18236",
     "2607.18367",
-    "2607.19343"
+    "2607.19343",
+    "2607.20061"
   ],
-  "latest": "2026-07-23",
-  "generated_at": "2026-07-23 04:20 UTC"
+  "latest": "2026-07-24",
+  "generated_at": "2026-07-24 04:14 UTC"
 }
