@@ -1,8 +1,8 @@
 {
   "week": {
-    "start": "2026-07-18",
-    "end": "2026-07-24",
-    "label": "07.18~07.24"
+    "start": "2026-07-19",
+    "end": "2026-07-25",
+    "label": "07.19~07.25"
   },
   "count": 15,
   "venue_count": 4,
@@ -11,7 +11,7 @@
     "ICRA 2026",
     "IROS 2026"
   ],
-  "generated_at": "2026-07-24 04:15 UTC",
+  "generated_at": "2026-07-25 04:07 UTC",
   "picks": [
     {
       "rank": 1,
@@ -53,6 +53,43 @@
     },
     {
       "rank": 2,
+      "arxiv_id": "2607.20061",
+      "title": "ReferTrack: Referring Then Tracking for Embodied Visual Tracking",
+      "published": "2026-07-22",
+      "url": "https://arxiv.org/abs/2607.20061",
+      "pdf_url": "https://arxiv.org/pdf/2607.20061",
+      "thumb": "assets/thumbs/2607.20061.jpg",
+      "venue": "Humanoids",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "未知（作者单位未在摘要中披露，无明显机构标识如DeepMind/清华/智元等；GitHub用户名MedlarTea无法对应知名机构）",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 72,
+      "significance_reason": "真机跨机体部署（腿足+人形）+ 单目SOTA性能 + 显式bounding box grounding机制解决VLA中抽象latent对齐难问题，证据扎实；但未开源数据/模型，且未挑战长期开放难题（如长时遮挡、极端视角、多目标动态交互），未达基石级（如Diffusion Policy/Aloha）的范式变革或通用性突破。",
+      "tier": "notable",
+      "grade": "B",
+      "tags": [
+        "sim2real",
+        "multimodal-fusion",
+        "real-robot"
+      ],
+      "tldr": "这篇论文提出ReferTrack方法，让机器人仅用单个前视摄像头和自然语言指令持续跟踪指定目标：先在图像中框选目标（referring），再基于该框选结果预测后续跟踪路径点（tracking），并通过维护历史边界框队列和TVBI标记保留运动线索，在仿真基准EVT-Bench上达到SOTA，并在真实腿足/人形机器人上验证了sim2real效果。",
+      "claim": "将具身视觉跟踪拆解为显式、可监督的‘指代-跟踪’两阶段范式，通过图像空间边界框 grounding 和时序几何特征注入，显著提升单目VLA策略在目标识别与运动一致性上的性能。",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark"
+      ],
+      "input": "单目RGB图像 + 自然语言目标描述",
+      "output": "跟踪路径点序列（waypoints）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：将指代理解与轨迹规划解耦并显式grounding到图像空间，配合时序bbox建模，在单目EVT任务上实现稳健落地，但未开辟新范式或解决根本性瓶颈。",
+      "deep": {}
+    },
+    {
+      "rank": 3,
       "arxiv_id": "2607.18367",
       "title": "AlayaWorld: Interactive Long-Horizon World Modeling -- Full Technical Report",
       "published": "2026-07-20",
@@ -90,44 +127,46 @@
       "deep": {}
     },
     {
-      "rank": 3,
-      "arxiv_id": "2607.20061",
-      "title": "ReferTrack: Referring Then Tracking for Embodied Visual Tracking",
+      "rank": 4,
+      "arxiv_id": "2607.20785",
+      "title": "Robostral Navigate",
       "published": "2026-07-22",
-      "url": "https://arxiv.org/abs/2607.20061",
-      "pdf_url": "https://arxiv.org/pdf/2607.20061",
-      "thumb": "assets/thumbs/2607.20061.jpg",
-      "venue": "Humanoids",
+      "url": "https://arxiv.org/abs/2607.20785",
+      "pdf_url": "https://arxiv.org/pdf/2607.20785",
+      "thumb": "assets/thumbs/2607.20785.jpg",
+      "venue": "",
       "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "未知（作者单位未在摘要中披露，无明显机构标识如DeepMind/清华/智元等；GitHub用户名MedlarTea无法对应知名机构）",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 72,
-      "significance_reason": "真机跨机体部署（腿足+人形）+ 单目SOTA性能 + 显式bounding box grounding机制解决VLA中抽象latent对齐难问题，证据扎实；但未开源数据/模型，且未挑战长期开放难题（如长时遮挡、极端视角、多目标动态交互），未达基石级（如Diffusion Policy/Aloha）的范式变革或通用性突破。",
-      "tier": "notable",
+      "best_route": "vla",
+      "org": "Meta",
+      "country": "US",
+      "org_type": "company",
+      "significance": 76,
+      "significance_reason": "真机零验证、纯仿真刷榜，但跨机体泛化设计扎实（图像空间输出+前缀缓存+树形mask），性能显著超越所有单目及部分多传感器方法，属扎实增量推进；未达RT-2/π0级范式突破，也未开源代码/模型，故低于90分档。",
+      "tier": "heavy",
       "grade": "C",
       "tags": [
-        "sim2real",
         "multimodal-fusion",
-        "real-robot"
+        "sim2real",
+        "benchmark"
       ],
-      "tldr": "这篇论文提出ReferTrack方法，让机器人仅用单个前视摄像头和自然语言指令持续跟踪指定目标：先在图像中框选目标（referring），再基于该框选结果预测后续跟踪路径点（tracking），并通过维护历史边界框队列和TVBI标记保留运动线索，在仿真基准EVT-Bench上达到SOTA，并在真实腿足/人形机器人上验证了sim2real效果。",
-      "claim": "将具身视觉跟踪拆解为显式、可监督的‘指代-跟踪’两阶段范式，通过图像空间边界框 grounding 和时序几何特征注入，显著提升单目VLA策略在目标识别与运动一致性上的性能。",
+      "tldr": "用一个80亿参数的纯视觉-语言模型，只靠单目RGB视频流就能预测导航路点（在当前图像上指点击目标位置），不依赖深度相机、多摄像头或地图，在仿真中训练后直接跨轮式/腿式/飞行机器人部署，且在两个主流室内导航基准上刷出SOTA。",
+      "claim": "仅用单目RGB视频流、无需机器人本体坐标建模、不依赖深度或多传感器，即可实现跨机体通用、可零校准部署的端到端视觉导航策略。",
       "method_components": [
         "model",
         "dataset",
+        "simulator",
+        "policy",
         "benchmark"
       ],
-      "input": "单目RGB图像 + 自然语言目标描述",
-      "output": "跟踪路径点序列（waypoints）",
+      "input": "单目RGB图像序列",
+      "output": "图像空间中的二维路点坐标（指向下一目标位置）",
       "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：将指代理解与轨迹规划解耦并显式grounding到图像空间，配合时序bbox建模，在单目EVT任务上实现稳健落地，但未开辟新范式或解决根本性瓶颈。",
+      "evidence": 8,
+      "one_sentence_verdict": "工程整合：将VLA范式成功迁移到纯单目导航任务，架构设计有巧思（图像空间路点+跨机体解耦），但缺乏真实世界验证和开源支撑，属于高质量仿真驱动的系统级整合，非原理性突破。",
       "deep": {}
     },
     {
-      "rank": 4,
+      "rank": 5,
       "arxiv_id": "2607.18236",
       "title": "Patch Policy: Efficient Embodied Control via Dense Visual Representations",
       "published": "2026-07-20",
@@ -164,7 +203,7 @@
       "deep": {}
     },
     {
-      "rank": 5,
+      "rank": 6,
       "arxiv_id": "2607.20207",
       "title": "SeededGrasp: Language-Guided Grasping in Complex Scenes with Multiple Embodiments",
       "published": "2026-07-22",
@@ -204,7 +243,7 @@
       "deep": {}
     },
     {
-      "rank": 6,
+      "rank": 7,
       "arxiv_id": "2607.18016",
       "title": "Closing the Loop in Humanoid VLA: Persistent 3D Object Tokens for Verifiable Loco-Manipulation",
       "published": "2026-07-20",
@@ -241,7 +280,7 @@
       "deep": {}
     },
     {
-      "rank": 7,
+      "rank": 8,
       "arxiv_id": "2607.18060",
       "title": "RoboHarness: Memory-Driven Orchestration of Heterogeneous Robot Policies for Long-Horizon Planning",
       "published": "2026-07-20",
@@ -279,7 +318,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
+      "rank": 9,
       "arxiv_id": "2607.18840",
       "title": "WorldScape Policy 2.0: Empowering Steerable World Action Modeling with Reasoning-Augmented Memory",
       "published": "2026-07-21",
@@ -319,7 +358,45 @@
       "deep": {}
     },
     {
-      "rank": 9,
+      "rank": 10,
+      "arxiv_id": "2607.17438",
+      "title": "Multi-scale closed-loop melt pool control for LPBF via policy optimization",
+      "published": "2026-07-19",
+      "url": "https://arxiv.org/abs/2607.17438",
+      "pdf_url": "https://arxiv.org/pdf/2607.17438",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "sim2real_data",
+      "org": "苏黎世联邦理工学院",
+      "country": "EU",
+      "org_type": "university",
+      "significance": 78,
+      "significance_reason": "首次在真实金属LPBF产线级设备上完成sim-to-real策略优化部署，有完整物理实验（多组对比、消融、量化指标）、显著优于工程常用贝叶斯调参基线，且揭示新物理现象；但仅针对单一设备型号与材料（Ti6Al4V），未跨几何/材料/平台泛化，开源程度有限（仅项目页，无代码模型）。",
+      "tier": "heavy",
+      "grade": "D",
+      "tags": [
+        "sim2real",
+        "real-robot",
+        "large-scale"
+      ],
+      "tldr": "这篇论文用双闭环策略（层内反馈+层间前馈）控制激光粉末床熔融（LPBF）金属3D打印中的熔池温度，全程离线训练、无需在线调参，在真实金属打印设备上验证了比贝叶斯优化调参基线更低的跟踪误差和更少的输入越界，还发现了高频激励可抑制熔道肿胀的新现象。",
+      "claim": "仅用单层无控打印数据离线训练的多尺度闭环控制器，可在真实LPBF系统中实现鲁棒温度跟踪，且性能超越人工/贝叶斯调参方法。",
+      "method_components": [
+        "model",
+        "policy",
+        "simulator",
+        "benchmark"
+      ],
+      "input": "红外热像仪测得的熔池表面温度序列、激光功率与扫描速度指令",
+      "output": "实时调整的激光功率与扫描速度控制信号",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合——将强化学习策略优化扎实落地到高价值工业制造闭环控制，证据充分、效果实测显著，但未突破控制范式或构建通用平台，属高水平应用型创新。",
+      "deep": {}
+    },
+    {
+      "rank": 11,
       "arxiv_id": "2607.18527",
       "title": "DASH Robot: Minimalistic Design and Optimal Aerial-Terrestrial Locomotion via Contact-Implicit Control",
       "published": "2026-07-20",
@@ -356,7 +433,7 @@
       "deep": {}
     },
     {
-      "rank": 10,
+      "rank": 12,
       "arxiv_id": "2607.17876",
       "title": "Leveraging Two Robotic Arms for Tight Assembly Performance Gains",
       "published": "2026-07-20",
@@ -396,44 +473,7 @@
       "deep": {}
     },
     {
-      "rank": 11,
-      "arxiv_id": "2607.16602",
-      "title": "PAVXploreRL: Physical-Action-Visual World Model Reinforcement Learning with Action Exploration",
-      "published": "2026-07-18",
-      "url": "https://arxiv.org/abs/2607.16602",
-      "pdf_url": "https://arxiv.org/pdf/2607.16602",
-      "thumb": "assets/thumbs/2607.16602.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "Social-AI-Studio",
-      "country": "CN",
-      "org_type": "institute",
-      "significance": 72,
-      "significance_reason": "首次将PAV三目标解耦为可奖励驱动的显式优化项，并验证其对策略评估偏差的实质性抑制（对比Ctrl-World），实验覆盖多个标准仿真benchmarks且有平均5.6%增益和消融，但未在真实机器人上验证、未开源数据、未挑战长期开放难题（如持续状态建模或跨任务迁移），属扎实的范式增强而非基石突破。",
-      "tier": "notable",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "sim2real",
-        "benchmark"
-      ],
-      "tldr": "提出PAVXploreRL框架，在预训练潜空间世界模型基础上，用强化学习显式优化物理合理性、动作忠实性、视觉保真度（PAV）三大目标，并通过噪声驱动的OOD动作探索提升泛化能力，无需配对视频监督，作为策略评估器能显著降低专家数据世界模型的性能高估偏差。",
-      "claim": "显式建模并联合优化物理合理性（P）、动作忠实性（A）和视觉保真度（V）的世界模型，可通过无配对视频的OOD动作探索实现对未见动作的鲁棒泛化，从而提升策略评估的可靠性。",
-      "method_components": [
-        "model",
-        "policy",
-        "benchmark"
-      ],
-      "input": "潜空间动作序列+初始观测隐状态",
-      "output": "预测的未来潜空间观测序列（含物理/动作/视觉三重约束）",
-      "novelty": 7,
-      "evidence": 8,
-      "one_sentence_verdict": "显著贡献：在世界模型的评估可靠性维度做出有实证支撑的改进，但未触及状态持久性、跨任务泛化或真机部署等更高阶瓶颈，属于高质量增量而非范式转移。",
-      "deep": {}
-    },
-    {
-      "rank": 12,
+      "rank": 13,
       "arxiv_id": "2607.17323",
       "title": "From Perception to Assistance: Open-Vocabulary Shared Autonomy for Robotic Manipulation",
       "published": "2026-07-19",
@@ -474,7 +514,7 @@
       "deep": {}
     },
     {
-      "rank": 13,
+      "rank": 14,
       "arxiv_id": "2607.17977",
       "title": "RynnBrain 1.1: Towards More Capable and Generalizable Embodied Foundation Model",
       "published": "2026-07-20",
@@ -509,42 +549,6 @@
       "novelty": 6,
       "evidence": 8,
       "one_sentence_verdict": "工程整合：完成了跨机型部署与多任务联合训练，实证充分但开源不足、消融缺失、基准局限，尚未构成范式级突破",
-      "deep": {}
-    },
-    {
-      "rank": 14,
-      "arxiv_id": "2607.17574",
-      "title": "Predictive Training with Latent Imagination for Visual Quadruped Navigation",
-      "published": "2026-07-20",
-      "url": "https://arxiv.org/abs/2607.17574",
-      "pdf_url": "https://arxiv.org/pdf/2607.17574",
-      "thumb": "assets/thumbs/2607.17574.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "未知（作者单位未在摘要中披露，无机构署名线索）",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 72,
-      "significance_reason": "方法设计清晰（JEPA-style latent prediction + zero-cost inference discard），在仿真和真实Go2上均验证了动态避障提升与零样本sim2real能力，证据链完整（多场景+真机+消融隐含于‘predictive training signal alone’表述），但未开源代码/模型/数据，且未与DreamerV3等强基线对比，也未证明其预测机制优于简单未来帧重建或时序建模变体，属扎实显著贡献而非范式突破。",
-      "tier": "notable",
-      "grade": "D",
-      "tags": [
-        "sim2real",
-        "real-robot"
-      ],
-      "tldr": "这篇论文给四足机器人导航的LSTM-SRU策略加了一个训练时用、推理时完全丢弃的潜空间预测模块（JEPA风格+SIGReg正则），让模型在训练中学会隐式预测障碍物运动趋势，从而提升避障成功率，且在Unitree Go2上实现了无需微调的零样本sim2real迁移。",
-      "claim": "仅通过训练阶段引入轻量潜空间预测监督，不增加推理开销，即可显著提升四足机器人在动态障碍环境中的导航鲁棒性，并实现零样本sim2real迁移。",
-      "method_components": [
-        "model",
-        "simulator",
-        "benchmark"
-      ],
-      "input": "RGB图像+IMU/本体感知数据（隐含于四足导航任务，默认输入）",
-      "output": "低层级动作指令（如关节扭矩或速度命令，由LSTM-SRU backbone输出）",
-      "novelty": 6,
-      "evidence": 8,
-      "one_sentence_verdict": "显著贡献：工程上干净有效，真机验证充分，但缺乏开源与深度基线对比，尚未达到World Models系里程碑级分量。",
       "deep": {}
     },
     {

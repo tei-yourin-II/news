@@ -8470,6 +8470,98 @@
       "thumb": "assets/thumbs/2606.17200.jpg"
     },
     {
+      "arxiv_id": "2607.20061",
+      "title": "ReferTrack: Referring Then Tracking for Embodied Visual Tracking",
+      "abstract": "Embodied visual tracking (EVT) requires a mobile agent to continuously follow a specific target described in natural language using only onboard vision. While recent vision-language-action (VLA) policies unify target identification and trajectory planning, their chain-of-thought (CoT) reasoning often operates in abstract spatial latents that are difficult to supervise and weakly aligned with explicit image-space detections. To address this, we introduce ReferTrack, a referring-then-tracking paradigm that grounds EVT using a single forward-facing camera. Our model first selects the target from an indexed set of bounding boxes, then decodes tracking waypoints conditioned on this image-grounded decision. To preserve target motion cues over time, ReferTrack maintains a sliding-window queue of previously selected bounding boxes, injecting their geometric features into the visual history via temporal-viewpoint-bbox indicator (TVBI) tokens. We further enhance target identification by co-training on a custom Refer-QA dataset. On EVT-Bench, ReferTrack achieves state-of-the-art single-view performance with success rates of 89.4%, 73.3%, and 74.1% on the single-target, distracted, and ambiguity tracking splits, respectively -- matching or even surpassing several multi-camera baselines on identification-heavy tasks. Finally, real-world deployments on legged and humanoid robots validate its robust sim-to-real transfer capabilities. Code is available at https://github.com/MedlarTea/referTrack.",
+      "authors": [
+        "Hanjing Ye",
+        "Tianle Zeng",
+        "Jiazhao Zhang",
+        "Shaoan Wang",
+        "Zibo Zhang",
+        "Weisi Situ",
+        "Yuchen Zhou",
+        "Yonggen Ling",
+        "Hong Zhang"
+      ],
+      "categories": [],
+      "published": "2026-07-22T00:00:00.000Z",
+      "updated": "2026-07-22T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2607.20061",
+      "pdf_url": "https://arxiv.org/pdf/2607.20061",
+      "hf_upvotes": 6,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.5396,
+        "world_model": 0.4197,
+        "whole_body_control": 0.3716,
+        "dexterous_manipulation": 0.5,
+        "sim2real_data": 0.1895,
+        "hardware_unitree": 0.1677,
+        "bci_neural_decoding": 0.1435,
+        "bci_foundation_models": 0.2558,
+        "bci_embodied_robot": 0.2349,
+        "bci_noninvasive_eeg": 0.2193,
+        "protein_ai": 0.0445,
+        "genomics_ai": 0.0784
+      },
+      "best_route": "dexterous_manipulation",
+      "relevance_raw": 0.5396,
+      "first_seen": "2026-07-24",
+      "venue": "Humanoids",
+      "analysis": {
+        "tldr": "这篇论文提出ReferTrack方法，让机器人仅用单个前视摄像头和自然语言指令持续跟踪指定目标：先在图像中框选目标（referring），再基于该框选结果预测后续跟踪路径点（tracking），并通过维护历史边界框队列和TVBI标记保留运动线索，在仿真基准EVT-Bench上达到SOTA，并在真实腿足/人形机器人上验证了sim2real效果。",
+        "org": "未知（作者单位未在摘要中披露，无明显机构标识如DeepMind/清华/智元等；GitHub用户名MedlarTea无法对应知名机构）",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "将具身视觉跟踪拆解为显式、可监督的‘指代-跟踪’两阶段范式，通过图像空间边界框 grounding 和时序几何特征注入，显著提升单目VLA策略在目标识别与运动一致性上的性能。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "单目RGB图像 + 自然语言目标描述",
+        "output": "跟踪路径点序列（waypoints）",
+        "robot_dependency": "腿足机器人、人形机器人（真实平台）",
+        "data_dependency": "依赖真实机器人部署数据用于验证，但核心训练未说明使用真实轨迹数据（仅提及sim-to-real transfer验证，未提real-data fine-tuning）",
+        "sim2real_status": "deployed",
+        "generalization": [
+          "cross-embodiment"
+        ],
+        "reproducibility": "code-only",
+        "tags": [
+          "sim2real",
+          "multimodal-fusion",
+          "real-robot"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 5,
+        "significance": 72,
+        "significance_reason": "真机跨机体部署（腿足+人形）+ 单目SOTA性能 + 显式bounding box grounding机制解决VLA中抽象latent对齐难问题，证据扎实；但未开源数据/模型，且未挑战长期开放难题（如长时遮挡、极端视角、多目标动态交互），未达基石级（如Diffusion Policy/Aloha）的范式变革或通用性突破。",
+        "one_sentence_verdict": "工程整合：将指代理解与轨迹规划解耦并显式grounding到图像空间，配合时序bbox建模，在单目EVT任务上实现稳健落地，但未开辟新范式或解决根本性瓶颈。",
+        "_llm": "qwen-plus",
+        "venue": "Humanoids"
+      },
+      "signals": {
+        "hf_upvotes": 45,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 16.2,
+        "content": 21.0,
+        "heat": 14.4,
+        "quality": 0.0,
+        "base": 37.2,
+        "bonus": 14.4,
+        "total": 51.6
+      },
+      "grade": "B",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.20061.jpg"
+    },
+    {
       "arxiv_id": "2607.00272",
       "title": "ASPIRE: Agentic /Skills Discovery for Robotics",
       "abstract": "Traditional robot programming is challenging: it requires orchestrating multimodal perception, managing physical contact dynamics, and handling diverse configurations and execution failures. We introduce ASPIRE (Agentic Skill Programming through Iterative Robot Exploration), a continual learning system that autonomously writes and refines robot control programs in a code-as-policy paradigm while compounding experience into a reusable skill library. ASPIRE discovers skills that persist across tasks, simulation and real-world settings, and embodiments. It operates in an open-ended loop with three components: (1) a closed-loop robot execution engine that exposes fine-grained multimodal traces, enabling autonomous failure diagnosis, repair synthesis, and validation; (2) a continually expanding skill library that distills validated fixes into reusable, transferable knowledge; and (3) evolutionary search that generates diverse task sequences and control programs to explore beyond single-trajectory refinement. ASPIRE surpasses prior methods by up to 77% on LIBERO-Pro manipulation under perturbation, 72% on Robosuite bimanual handover, and 32% on BEHAVIOR-1K long-horizon household tasks. Its accumulated library also enables zero-shot generalization to unseen long-horizon tasks: on LIBERO-Pro Long, ASPIRE achieves 31% success versus 4% for prior methods despite their use of test-time reasoning and retries. Finally, simulation-discovered skills provide initial evidence of sim-to-real transfer, substantially reducing real-robot programming effort across different embodiments and robot APIs.",
@@ -12373,98 +12465,6 @@
       "thumb": "assets/thumbs/2606.07217.jpg"
     },
     {
-      "arxiv_id": "2607.20061",
-      "title": "ReferTrack: Referring Then Tracking for Embodied Visual Tracking",
-      "abstract": "Embodied visual tracking (EVT) requires a mobile agent to continuously follow a specific target described in natural language using only onboard vision. While recent vision-language-action (VLA) policies unify target identification and trajectory planning, their chain-of-thought (CoT) reasoning often operates in abstract spatial latents that are difficult to supervise and weakly aligned with explicit image-space detections. To address this, we introduce ReferTrack, a referring-then-tracking paradigm that grounds EVT using a single forward-facing camera. Our model first selects the target from an indexed set of bounding boxes, then decodes tracking waypoints conditioned on this image-grounded decision. To preserve target motion cues over time, ReferTrack maintains a sliding-window queue of previously selected bounding boxes, injecting their geometric features into the visual history via temporal-viewpoint-bbox indicator (TVBI) tokens. We further enhance target identification by co-training on a custom Refer-QA dataset. On EVT-Bench, ReferTrack achieves state-of-the-art single-view performance with success rates of 89.4%, 73.3%, and 74.1% on the single-target, distracted, and ambiguity tracking splits, respectively -- matching or even surpassing several multi-camera baselines on identification-heavy tasks. Finally, real-world deployments on legged and humanoid robots validate its robust sim-to-real transfer capabilities. Code is available at https://github.com/MedlarTea/referTrack.",
-      "authors": [
-        "Hanjing Ye",
-        "Tianle Zeng",
-        "Jiazhao Zhang",
-        "Shaoan Wang",
-        "Zibo Zhang",
-        "Weisi Situ",
-        "Yuchen Zhou",
-        "Yonggen Ling",
-        "Hong Zhang"
-      ],
-      "categories": [],
-      "published": "2026-07-22T00:00:00.000Z",
-      "updated": "2026-07-22T00:00:00.000Z",
-      "url": "https://arxiv.org/abs/2607.20061",
-      "pdf_url": "https://arxiv.org/pdf/2607.20061",
-      "hf_upvotes": 6,
-      "source": "hf_daily",
-      "route_scores": {
-        "vla": 0.5396,
-        "world_model": 0.4197,
-        "whole_body_control": 0.3716,
-        "dexterous_manipulation": 0.5,
-        "sim2real_data": 0.1895,
-        "hardware_unitree": 0.1677,
-        "bci_neural_decoding": 0.1435,
-        "bci_foundation_models": 0.2558,
-        "bci_embodied_robot": 0.2349,
-        "bci_noninvasive_eeg": 0.2193,
-        "protein_ai": 0.0445,
-        "genomics_ai": 0.0784
-      },
-      "best_route": "dexterous_manipulation",
-      "relevance_raw": 0.5396,
-      "first_seen": "2026-07-24",
-      "venue": "Humanoids",
-      "analysis": {
-        "tldr": "这篇论文提出ReferTrack方法，让机器人仅用单个前视摄像头和自然语言指令持续跟踪指定目标：先在图像中框选目标（referring），再基于该框选结果预测后续跟踪路径点（tracking），并通过维护历史边界框队列和TVBI标记保留运动线索，在仿真基准EVT-Bench上达到SOTA，并在真实腿足/人形机器人上验证了sim2real效果。",
-        "org": "未知（作者单位未在摘要中披露，无明显机构标识如DeepMind/清华/智元等；GitHub用户名MedlarTea无法对应知名机构）",
-        "country": "unknown",
-        "org_type": "unknown",
-        "claim": "将具身视觉跟踪拆解为显式、可监督的‘指代-跟踪’两阶段范式，通过图像空间边界框 grounding 和时序几何特征注入，显著提升单目VLA策略在目标识别与运动一致性上的性能。",
-        "method_components": [
-          "model",
-          "dataset",
-          "benchmark"
-        ],
-        "input": "单目RGB图像 + 自然语言目标描述",
-        "output": "跟踪路径点序列（waypoints）",
-        "robot_dependency": "腿足机器人、人形机器人（真实平台）",
-        "data_dependency": "依赖真实机器人部署数据用于验证，但核心训练未说明使用真实轨迹数据（仅提及sim-to-real transfer验证，未提real-data fine-tuning）",
-        "sim2real_status": "deployed",
-        "generalization": [
-          "cross-embodiment"
-        ],
-        "reproducibility": "code-only",
-        "tags": [
-          "sim2real",
-          "multimodal-fusion",
-          "real-robot"
-        ],
-        "novelty": 7,
-        "evidence": 9,
-        "reproducibility_score": 5,
-        "significance": 72,
-        "significance_reason": "真机跨机体部署（腿足+人形）+ 单目SOTA性能 + 显式bounding box grounding机制解决VLA中抽象latent对齐难问题，证据扎实；但未开源数据/模型，且未挑战长期开放难题（如长时遮挡、极端视角、多目标动态交互），未达基石级（如Diffusion Policy/Aloha）的范式变革或通用性突破。",
-        "one_sentence_verdict": "工程整合：将指代理解与轨迹规划解耦并显式grounding到图像空间，配合时序bbox建模，在单目EVT任务上实现稳健落地，但未开辟新范式或解决根本性瓶颈。",
-        "_llm": "qwen-plus",
-        "venue": "Humanoids"
-      },
-      "signals": {
-        "hf_upvotes": 6,
-        "citations": 0,
-        "venue": "Humanoids"
-      },
-      "scores": {
-        "relevance": 16.2,
-        "content": 21.0,
-        "heat": 7.3,
-        "quality": 0.0,
-        "base": 37.2,
-        "bonus": 7.3,
-        "total": 44.5
-      },
-      "grade": "C",
-      "read_priority": "B",
-      "thumb": "assets/thumbs/2607.20061.jpg"
-    },
-    {
       "arxiv_id": "2606.15768",
       "title": "LaWAM: Latent World Action Models for Efficient Dynamics-Aware Robot Policies",
       "abstract": "Vision-Language-Action models (VLAs) leverage large-scale vision-language pretraining for semantic robot control, but often lack explicit foresight into how robot actions change the scene. World-Action Models (WAMs) address this limitation by conditioning policies on predicted futures, yet existing approaches typically rely on computationally expensive video generation with substantial pixel-level redundancy. We present LaWAM, a Latent World Action Model that exposes predictive dynamics to robot policies through compact latent visual subgoals instead of reconstructed future video. At the core of LaWAM is a latent-action-conditioned Latent World Model (LaWM). We obtain LaWM by training a latent action model in the latent space of a pretrained vision foundation model and repurposing its forward decoder to predict future observation features for scene evolution. LaWAM then conditions action generation on these predicted latent visual subgoals to enable dynamics-aware robot control. LaWAM achieves state-of-the-art or competitive success rates (SRs) across LIBERO (98.6% SR), RoboTwin (91.22% SR), and real-world manipulation tasks while retaining low-latency inference. LaWAM runs in 187 ms per action-chunk prediction and achieves up to 24x lower wall-clock latency than pixel-space WAMs.",
@@ -14524,6 +14524,103 @@
       "grade": "C",
       "read_priority": "B",
       "thumb": "assets/thumbs/2607.07370.jpg"
+    },
+    {
+      "arxiv_id": "2607.20785",
+      "title": "Robostral Navigate",
+      "abstract": "Deploying navigation systems at scale requires a recipe that minimizes sensor assumptions, generalizes across robot embodiments, and trains efficiently. Yet, today's best systems depend on depth sensors, multi-camera rigs, or pre-built maps, limiting the hardware they support and increasing deployment cost. We introduce Robostral Navigate, an 8B vision-language model built around this scalability objective. The model consumes only a stream of monocular RGB images - the most ubiquitous sensor across robotic platforms and predicts waypoints by pointing to the next target location in the current camera view. Operating purely in image space, rather than robot-specific coordinates, makes the policy naturally robust to changes in camera intrinsics and scene scale, enabling deployment across wheeled, legged, and aerial robots without recalibration. We generate 2.4 million trajectories across 350k simulated scenes to reduce the reliance on real-world data collection and scale easily. We further introduce a prefix-caching training recipe that packs entire episodes into single training sequences, reducing training tokens by 22x and cutting training time from months to days. A tree-based attention mask prevents conditioning on previous ground-truth actions, encouraging visually grounded action prediction, and reinforcement learning is used to further improve exploration and recovery capabilities. On the Room-to-Room and Room-Across-Room in Continuous Environments (R2R-CE and RxR-CE) benchmarks, Robostral Navigate sets a new state of the art. On R2R-CE, it achieves a 77.4% success rate, surpassing the best monocular method by 10.5 points and the strongest depth- or multi-camera system by 5.3 points despite using only a single RGB camera. On RxR-CE, it reaches 75.1% success rate, outperforming all monocular baselines.",
+      "authors": [
+        "Arjun Majumdar",
+        "Avinash Sooriyarachchi",
+        "Benjamin Tibi",
+        "Chris Bamford",
+        "Elliot Chane-Sane",
+        "Guillaume Lample",
+        "Khyathi Raghavi Chandu",
+        "Ludovic Ho Fuh",
+        "Mathieu Poiree",
+        "Olivier Duchenne",
+        "Rosalie Millner",
+        "Srijan Mishra",
+        "Theo Cachet",
+        "Thomas Chabal"
+      ],
+      "categories": [],
+      "published": "2026-07-22T00:00:00.000Z",
+      "updated": "2026-07-22T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2607.20785",
+      "pdf_url": "https://arxiv.org/pdf/2607.20785",
+      "hf_upvotes": 8,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.5496,
+        "world_model": 0.4885,
+        "whole_body_control": 0.4008,
+        "dexterous_manipulation": 0.1889,
+        "sim2real_data": 0.3017,
+        "hardware_unitree": 0.204,
+        "bci_neural_decoding": 0.1002,
+        "bci_foundation_models": 0.146,
+        "bci_embodied_robot": 0.2424,
+        "bci_noninvasive_eeg": 0.1547,
+        "protein_ai": 0.0785,
+        "genomics_ai": 0.1228
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.5496,
+      "first_seen": "2026-07-25",
+      "analysis": {
+        "tldr": "用一个80亿参数的纯视觉-语言模型，只靠单目RGB视频流就能预测导航路点（在当前图像上指点击目标位置），不依赖深度相机、多摄像头或地图，在仿真中训练后直接跨轮式/腿式/飞行机器人部署，且在两个主流室内导航基准上刷出SOTA。",
+        "org": "Meta",
+        "country": "US",
+        "org_type": "company",
+        "claim": "仅用单目RGB视频流、无需机器人本体坐标建模、不依赖深度或多传感器，即可实现跨机体通用、可零校准部署的端到端视觉导航策略。",
+        "method_components": [
+          "model",
+          "dataset",
+          "simulator",
+          "policy",
+          "benchmark"
+        ],
+        "input": "单目RGB图像序列",
+        "output": "图像空间中的二维路点坐标（指向下一目标位置）",
+        "robot_dependency": "none",
+        "data_dependency": "完全依赖合成数据（2.4M仿真轨迹），无真实机器人数据",
+        "sim2real_status": "sim-only",
+        "generalization": [
+          "cross-embodiment"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "sim2real",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 8,
+        "reproducibility_score": 3,
+        "significance": 76,
+        "significance_reason": "真机零验证、纯仿真刷榜，但跨机体泛化设计扎实（图像空间输出+前缀缓存+树形mask），性能显著超越所有单目及部分多传感器方法，属扎实增量推进；未达RT-2/π0级范式突破，也未开源代码/模型，故低于90分档。",
+        "one_sentence_verdict": "工程整合：将VLA范式成功迁移到纯单目导航任务，架构设计有巧思（图像空间路点+跨机体解耦），但缺乏真实世界验证和开源支撑，属于高质量仿真驱动的系统级整合，非原理性突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 8,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 16.5,
+        "content": 18.0,
+        "heat": 8.3,
+        "quality": 0.0,
+        "base": 34.5,
+        "bonus": 8.3,
+        "total": 42.8
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.20785.jpg"
     },
     {
       "arxiv_id": "2606.08530",
@@ -17310,7 +17407,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 21.6,
@@ -65660,6 +65757,94 @@
       "grade": "C",
       "read_priority": "B",
       "thumb": "assets/thumbs/2606.31682.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.07.16.738731",
+      "doi": "10.64898/2026.07.16.738731",
+      "source_kind": "biorxiv",
+      "title": "The topology of transmembrane protein-protein interaction interfaces is encoded in their physicochemical features",
+      "abstract": "Transmembrane (TM) protein-protein interactions (PPIs) are essential mediators of signal transduction, transport of solutes and communication, yet the biophysical features that characterize their diverse topologies remain poorly understood. To reduce this knowledge gap we use the human solute carrier (SLC) interactome to study whether physicochemical features of PPI interfaces encode information about their TM topology (i.e., their position and arrangement with respect to the membrane). To this end we predicted structures for 2,055 experimentally validated PPIs using AlphaFold v3.0, performed molecular dynamics simulations and annotated the PPI interfaces by TM coverage. As a result every interface is characterized by 63 physicochemical, structural and energy features. A reproducible machine learning workflow allows us to study the interdependence between these interface properties and interface topology. We found that amino acid composition and secondary structure contributed most to distinguishing soluble from fully membrane-embedded interfaces. Membrane-embedded interfaces contained a larger fraction of hydrophobic residues and α-helices, while charged residues were depleted. For partially and full membrane-embedded interfaces amino acid composition and secondary structure get more similar and differences are increasingly observed in charge and energy related features. As particularly noteworthy we find that PPI interface characteristics vary with the number of annotated TM segments mainly through differences in proportions of secondary structure, charge, and flexibility. We hence conclude that PPI interface characteristics harbor substantial information about TM interface topology and provide a framework for the study and design of membrane protein interaction interfaces.",
+      "authors": [
+        "Lisa Allmesberger-Riegler",
+        "Fabian Frommelt",
+        "Brianda L. Santini",
+        "Giulio Superti‐Furga",
+        "Evandro Ferrada",
+        "Peter Sykacek"
+      ],
+      "categories": [],
+      "published": "2026-07-21",
+      "updated": "2026-07-21",
+      "url": "https://doi.org/10.64898/2026.07.16.738731",
+      "pdf_url": "https://doi.org/10.64898/2026.07.16.738731",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1847,
+        "world_model": 0.174,
+        "whole_body_control": 0.1651,
+        "dexterous_manipulation": 0.1623,
+        "sim2real_data": 0.0946,
+        "hardware_unitree": 0.128,
+        "bci_neural_decoding": 0.1884,
+        "bci_foundation_models": 0.1671,
+        "bci_embodied_robot": 0.1718,
+        "bci_noninvasive_eeg": 0.1602,
+        "protein_ai": 0.5187,
+        "genomics_ai": 0.2279
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.5187,
+      "first_seen": "2026-07-25",
+      "analysis": {
+        "tldr": "这篇论文用AlphaFold3预测了2055个人类溶质载体蛋白相互作用结构，结合分子动力学和界面注释，系统分析了跨膜蛋白互作界面的63个物理化学特征，发现氨基酸组成、二级结构、电荷和能量特征能有效区分不同跨膜拓扑类型（全胞外/跨膜/全膜内），并揭示了TM段数量如何通过结构柔性与电荷分布影响界面特性。",
+        "org": "维也纳医科大学",
+        "country": "EU",
+        "org_type": "university",
+        "claim": "跨膜蛋白-蛋白相互作用界面的物理化学特征（尤其是氨基酸组成、二级结构、电荷和能量属性）编码了其跨膜拓扑类型信息，且该编码规律随跨膜螺旋数量变化而系统性改变。",
+        "method_components": [
+          "model",
+          "dataset",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "AlphaFold3预测的PPI复合物结构 + 分子动力学轨迹 + 实验验证的SLC互作数据",
+        "output": "63维界面特征向量 + 拓扑分类判别模型 + 特征贡献度排序（如氨基酸组成、α-螺旋占比、净电荷等）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-task"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark",
+          "multimodal-fusion"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 72,
+        "significance_reason": "首次在大规模（2055对）、结构解析（AF3+MD）、多维度特征（63维）和实验锚定（SLC interactome）框架下，实证揭示跨膜PPI界面物理化学特征与拓扑类型的可解码关系，并给出可解释的驱动因素（如TM段数→二级结构比例→电荷分布→界面嵌入深度），但未提出新算法模型或生成能力，也未验证预测指导设计，属显著机制性发现而非范式突破。",
+        "one_sentence_verdict": "显著贡献：用扎实的计算流程和可解释分析填补了跨膜PPI界面拓扑编码机制的空白，但未跨越到预测设计或实验闭环，尚未达到基石级分量。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 15.6,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 35.6,
+        "bonus": 0.0,
+        "total": 35.6
+      },
+      "grade": "C",
+      "read_priority": "B"
     },
     {
       "arxiv_id": "2606.06218",
@@ -121455,6 +121640,101 @@
       "thumb": "assets/thumbs/2607.17769.jpg"
     },
     {
+      "arxiv_id": "2607.18332",
+      "doi": "10.48550/arxiv.2607.18332",
+      "source_kind": "arxiv",
+      "title": "ChemHyperMag: Physics-informed magnetic hypergraph learning improves molecular ADMET prediction",
+      "abstract": "Accurate prediction of ADMET (Absorption, Distribution, Metabolism, Excretion, and Toxicity) is important for drug discovery. Most predictors use undirected molecular graphs and pairwise edges. This choice misses asymmetric interactions, nonreversible dynamics, and motif level effects from functional groups and ring systems. We propose ChemHyperMag for multitask ADMET prediction under missing labels. ChemHyperMag builds a functional group hypergraph from rings, BRICS fragments, Bemis-Murcko scaffolds, and bonds. It also defines a potential driven nonreversible flow guided by electronegativity and Gasteiger partial charges. The resulting circulation is encoded by a Hermitian magnetic Laplacian and processed with a magnetic Chebyshev encoder. We perturb magnetic phases to form stochastic views and train with an InfoNCE objective. Experiments on multiple ADMET benchmarks show improvements over recent methods with fewer labeled samples and no conformers. ChemHyperMag is scalable and provides interpretable directional signals through its magnetic phases.",
+      "authors": [
+        "Hexiao Ding",
+        "Hongzhao Chen",
+        "Jing Lan",
+        "Yufeng Jiang",
+        "Zihong Luo",
+        "Zehua Xiong",
+        "Tianlong Ruan",
+        "Yunlin Mao",
+        "Nga Chun Ng",
+        "Gwing Kei Yip",
+        "Guiping Cheng",
+        "Kate Inyoung Oh",
+        "Jing Cai",
+        "L C-C Lin",
+        "Jung Sun Yoo"
+      ],
+      "categories": [],
+      "published": "2026-07-19",
+      "updated": "2026-07-19",
+      "url": "https://arxiv.org/abs/2607.18332",
+      "pdf_url": "https://arxiv.org/pdf/2607.18332",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1262,
+        "world_model": 0.1603,
+        "whole_body_control": 0.1278,
+        "dexterous_manipulation": 0.1456,
+        "sim2real_data": 0.1031,
+        "hardware_unitree": 0.0227,
+        "bci_neural_decoding": 0.1234,
+        "bci_foundation_models": 0.1857,
+        "bci_embodied_robot": 0.1053,
+        "bci_noninvasive_eeg": 0.1602,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2617
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3524,
+      "first_seen": "2026-07-25",
+      "venue": "ICML 2026",
+      "analysis": {
+        "tldr": "提出ChemHyperMag模型，用物理引导的磁性超图学习建模分子中功能基团间的非对称、不可逆相互作用，提升ADMET多任务预测性能，尤其在标签缺失和无构象信息条件下表现更优。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "通过引入基于电负性和Gasteiger电荷驱动的非可逆流与Hermitian磁拉普拉斯算子，构建可解释的方向性分子表征，显著提升小样本、无构象条件下的ADMET多任务预测鲁棒性。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "分子SMILES字符串（隐式生成超图结构）",
+        "output": "ADMET多任务分类/回归分数（如hERG抑制、CYP代谢活性、口服生物利用度等）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "code-only",
+        "tags": [
+          "multimodal-fusion"
+        ],
+        "novelty": 7,
+        "evidence": 8,
+        "reproducibility_score": 5,
+        "significance": 62,
+        "significance_reason": "方法有实质性创新（磁性超图+物理驱动流+Hermitian谱编码），在多个ADMET基准上验证了小样本优势和无构象鲁棒性，但未开源数据、未提供预训练模型、未做湿实验验证或临床相关性分析，且泛化性仅限于标准ADMET任务，未跨分子类型/靶点/疾病场景验证，属扎实但边界明确的显著贡献。",
+        "one_sentence_verdict": "显著贡献：真突破尚缺实证闭环，但物理引导的磁性超图建模为分子表征提供了新范式，证据扎实但落地深度有限",
+        "_llm": "qwen-plus",
+        "venue": "ICML 2026"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": "ICML 2026"
+      },
+      "scores": {
+        "relevance": 10.6,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 30.6,
+        "bonus": 0.0,
+        "total": 30.6
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.18332.jpg"
+    },
+    {
       "arxiv_id": "2606.01072",
       "doi": "10.48550/arxiv.2606.01072",
       "source_kind": "arxiv",
@@ -122324,6 +122604,96 @@
       },
       "grade": "D",
       "read_priority": "C"
+    },
+    {
+      "arxiv_id": "2607.17132",
+      "doi": "10.48550/arxiv.2607.17132",
+      "source_kind": "arxiv",
+      "title": "BoxTwin: Learning Elastoplastic Articulated Object Dynamics from Videos",
+      "abstract": "Digital twins enable robots to anticipate and adapt to physical interactions, but existing models struggle with elastoplastic articulated objects (EAOs) that exhibit nonlinear elasticity, plastic yielding, and damage accumulation. We present BoxTwin, an interactive digital twin framework that learns the full dynamics of EAOs from videos. Our pipeline reconstructs the scene, identifies a physics aware constitutive model for each EAO. Experiments on manual folding and dual arm manipulation of EAOs show that BoxTwin accurately tracks joint trajectories and reproduces post contact plastic behavior over long horizons. By integrating video driven reconstruction with elastoplastic damage modeling, BoxTwin advances digital twins toward predictive, adaptive control of deformable articulated objects in unstructured environments.",
+      "authors": [
+        "Heng Zhang",
+        "Gehan Zheng",
+        "K Zhang",
+        "Jay Song",
+        "Shivansh Patel",
+        "Hu S",
+        "Yunzhu Li",
+        "Changxi Zheng",
+        "Peter Yichen Chen"
+      ],
+      "categories": [],
+      "published": "2026-07-19",
+      "updated": "2026-07-19",
+      "url": "https://arxiv.org/abs/2607.17132",
+      "pdf_url": "https://arxiv.org/pdf/2607.17132",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.414,
+        "world_model": 0.4255,
+        "whole_body_control": 0.4846,
+        "dexterous_manipulation": 0.2614,
+        "sim2real_data": 0.5,
+        "hardware_unitree": 0.2094,
+        "bci_neural_decoding": 0.069,
+        "bci_foundation_models": 0.1488,
+        "bci_embodied_robot": 0.2663,
+        "bci_noninvasive_eeg": 0.1051,
+        "protein_ai": 0.2111,
+        "genomics_ai": 0.194
+      },
+      "best_route": "sim2real_data",
+      "relevance_raw": 0.4846,
+      "first_seen": "2026-07-25",
+      "analysis": {
+        "tldr": "用单目视频重建弹性-塑性铰接物体（如可折叠纸盒、金属薄板）的三维结构和材料属性，构建能预测长期塑性变形（如永久弯折、损伤累积）的数字孪生模型，支持机器人在非结构化环境中进行折叠和双臂协同操作。",
+        "org": "MIT",
+        "country": "US",
+        "org_type": "university",
+        "claim": "仅从单目视频即可端到端学习弹性-塑性铰接物体的几何、运动学与本构动力学（含屈服、塑性流动与损伤演化），实现长时程接触后塑性行为的准确复现。",
+        "method_components": [
+          "model",
+          "dataset",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "单目RGB视频序列（含手动操作或机器人交互）",
+        "output": "物体关节轨迹 + 塑性应变场 + 损伤状态演化 + 可仿真的物理参数化数字孪生模型",
+        "robot_dependency": "none",
+        "data_dependency": "依赖人工标注的视频帧+少量真实操作视频（未说明是否含真机闭环控制数据）",
+        "sim2real_status": "sim-only",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 6,
+        "reproducibility_score": 3,
+        "significance": 58,
+        "significance_reason": "首次将弹塑性本构建模（含损伤力学）嵌入视频驱动的数字孪生框架，问题定义有新意；但实验仅限两类简化EAO（纸盒/金属片）、无真机闭环验证、无跨物体/跨形变模式泛化测试，且仿真器未开源、基线对比缺失（未与NeRF+MPM、DeepMD等现有方法比），属扎实但窄域的增量贡献。",
+        "one_sentence_verdict": "扎实增量：解决了视频驱动弹塑性建模的可行性，但缺乏真机验证、泛化性和开源支撑，尚未达到数字孪生领域里程碑级推进。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 14.5,
+        "content": 16.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 30.5,
+        "bonus": 0.0,
+        "total": 30.5
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.17132.jpg"
     },
     {
       "arxiv_id": "2606.01777",
@@ -138136,6 +138506,87 @@
       "read_priority": "C"
     },
     {
+      "arxiv_id": "10.64898/2026.07.17.739093",
+      "doi": "10.64898/2026.07.17.739093",
+      "source_kind": "biorxiv",
+      "title": "A highly contiguous genome assembly of <i>Cyclamen persicum</i> to accelerate functional genomics and breeding",
+      "abstract": "Cyclamen is an economically important ornamental plant widely cultivated for its diverse floral characteristics and adaptation to cool climates. Despite its horticultural significance, genomic resources for this species remain limited, hindering molecular studies and genomics-assisted breeding. Here, we report the first highly contiguous nuclear genome assembly of C. persicum generated using high-fidelity long-read sequencing. The assembled genome spans 1.48 Gb, consisting of 126 contigs with an N50 length of 52.3 Mb. Telomeric repeat analysis identified eight contigs containing telomeric sequences at both ends, suggesting the presence of near-complete chromosome assemblies. Genome completeness assessment using BUSCO indicated 98.1% completeness. Repetitive sequences occupied 82.9% of the assembly, with long terminal repeat retrotransposons accounting for 42.1% of the genome. A total of 40,223 protein-coding genes were predicted, with a complete BUSCO score of 95.7%. Comparative orthogroup analysis with five representative eudicot species identified 430 orthogroups specific to C. persicum and 363 orthogroups shared exclusively between C. persicum and Primula kwangtungensis , indicating the presence of both lineage-specific and Primulaceae-conserved gene families. These findings provide critical insights into gene family evolution within Primulaceae and establish an essential comparative framework for future genomic studies. The genome resource presented here provides an invaluable foundation for investigating genome evolution, gene function, and trait-associated loci in cyclamen, effectively facilitating molecular breeding and genetic improvement in this ornamental species.",
+      "authors": [
+        "Kenta Shirasawa",
+        "Yusuke Akita",
+        "Yuki Mizunoe",
+        "T. Takamura"
+      ],
+      "categories": [],
+      "published": "2026-07-21",
+      "updated": "2026-07-21",
+      "url": "https://doi.org/10.64898/2026.07.17.739093",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/21/2026.07.17.739093.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0225,
+        "world_model": 0.0023,
+        "whole_body_control": 0.122,
+        "dexterous_manipulation": 0.0717,
+        "sim2real_data": 0.0565,
+        "hardware_unitree": 0.0985,
+        "bci_neural_decoding": 0.1207,
+        "bci_foundation_models": 0.0716,
+        "bci_embodied_robot": 0.1007,
+        "bci_noninvasive_eeg": 0.0426,
+        "protein_ai": 0.2736,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.2989,
+      "first_seen": "2026-07-25",
+      "analysis": {
+        "tldr": "这篇论文发布了第一个高质量、高连续性的仙客来（Cyclamen persicum）核基因组组装，基于高保真长读长测序，包含近完整染色体级contig、高BUSCO完整性、全面重复序列注释和4万多个蛋白编码基因预测，并开展了比较基因组分析以揭示仙客来特有及报春花科保守的基因家族。",
+        "org": "日本国家农业与食品研究机构（NARO）",
+        "country": "JP",
+        "org_type": "institute",
+        "claim": "首次构建了高度连续、染色体水平接近完整的仙客来核基因组组装，为该重要观赏植物的功能基因组学和分子育种提供了不可替代的基础资源。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "高保真长读长测序数据（HiFi reads）",
+        "output": "高质量核基因组组装（1.48 Gb，126条contig，N50=52.3 Mb）、基因注释（40,223个蛋白编码基因）、重复序列分类、比较正交群分析结果",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 62,
+        "significance_reason": "属典型高质量物种基因组资源建设工作：技术扎实（HiFi+telomere验证+BUSCO双评估+深度repeat/gene注释+跨物种orthogroup分析），填补仙客来领域长期空白，支撑后续QTL定位、CRISPR靶点设计、同源基因功能推演等；但未提出新算法/模型，未解决跨物种泛基因组或三维结构等更高阶问题，影响力限于单一经济植物育种圈层，远未达AlphaFold2/ESM/RFdiffusion等范式级突破量级。",
+        "one_sentence_verdict": "显著贡献：是仙客来领域首个真正可用的染色体级基因组资源，实证充分、注释完整、分析严谨，但属于高质量基建而非方法论或范式突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 9.0,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 29.0,
+        "bonus": 0.0,
+        "total": 29.0
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "2606.01205",
       "title": "ImagineUAV: Aerial Vision-Language Navigation via World-Action Modeling and Kinodynamic Planning",
       "abstract": "Vision-language navigation (VLN) for UAVs demands grounding free-form instructions into 6-DoF flight under partial observability. While Vision-Language-Action (VLA) models excel at semantic reasoning, they suffer from brittleness due to geometric inconsistency and dynamics mismatch. To address this, we propose ImagineUAV, an imagination-driven framework leveraging cascaded world-action modeling. Instead of direct regression, ImagineUAV employs a latent video diffusion model to generate instruction-conditioned future observations, explicitly imagining environmental evolution, from which 6-DoF motions are inferred via an action extractor. A kinodynamic planner then refines these estimates into collision-free trajectories. Additionally, a step-distilled inference pipeline ensures real-time execution. With only 1.3B parameters, ImagineUAV outperforms prior VLN and VLA baselines on benchmarks and real-world flights, validating the practicality of imagination-driven aerial navigation.",
@@ -142380,6 +142831,89 @@
       },
       "grade": "D",
       "read_priority": "C"
+    },
+    {
+      "arxiv_id": "2607.16998",
+      "doi": "10.48550/arxiv.2607.16998",
+      "source_kind": "arxiv",
+      "title": "User-Driven Learning from Demonstration: A Trajectory and Impedance Learning Method",
+      "abstract": "This paper presents a method for user-driven robot Learning from Demonstration (LfD) that reduces user effort while ensuring compliant and precise reproduction. The method eliminates repeated teaching for the same task and enables real-time learning from a single demonstration. Demonstrated motions are reproduced with high precision, while impedance variations are learned in real time to provide both compliance and robustness against perturbations. This mitigates potential safety issues in Human-Robot Interaction (HRI) that arise from conventional time-indexed trajectories lacking compliance. The proposed approach integrates a three-dimensional (3D) Fast Diffeomorphic Matching (FDM) algorithm with a Dynamical System (DS)-based motion generator to achieve real-time single-shot demonstration learning and reproduction. An Extended Kalman Filter (EKF) framework compensates for reproduction errors and recovers from external interactions. Furthermore, an impedance parameterization function is incorporated to learn impedance variations from demonstrations and maintain surface contact for specific applications. The proposed approach is validated through comprehensive experiments on a 7 Degree-of-Freedom (DOF) KUKA LWR IV+ robot.",
+      "authors": [
+        "Zi-Qi Yang",
+        "Mehrdad R. Kermani"
+      ],
+      "categories": [],
+      "published": "2026-07-18",
+      "updated": "2026-07-18",
+      "url": "https://arxiv.org/abs/2607.16998",
+      "pdf_url": "https://arxiv.org/pdf/2607.16998",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4333,
+        "world_model": 0.4323,
+        "whole_body_control": 0.5488,
+        "dexterous_manipulation": 0.2777,
+        "sim2real_data": 0.3156,
+        "hardware_unitree": 0.2309,
+        "bci_neural_decoding": 0.1197,
+        "bci_foundation_models": 0.1158,
+        "bci_embodied_robot": 0.3625,
+        "bci_noninvasive_eeg": 0.1136,
+        "protein_ai": 0.1709,
+        "genomics_ai": 0.0322
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.5488,
+      "first_seen": "2026-07-25",
+      "analysis": {
+        "tldr": "提出一种用户示教一次就能同时学轨迹和阻抗参数的方法，用3D快速微分同胚匹配+动力学系统生成器+扩展卡尔曼滤波，在KUKA机械臂上实现高精度复现和实时抗扰动柔顺控制。",
+        "org": "未知（作者单位未在摘要中体现，仅知姓氏与常见华人/伊朗名组合，无机构线索）",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "仅需单次人类示教，即可同步学习高精度运动轨迹与实时可调的阻抗参数，从而在真实机器人上实现兼具精确性、柔顺性和扰动恢复能力的示教复现。",
+        "method_components": [
+          "model",
+          "policy",
+          "hardware",
+          "simulator"
+        ],
+        "input": "人类示教的末端轨迹（隐含力/触觉未明说，但阻抗学习暗示可能含力信号）",
+        "output": "实时生成的关节级运动轨迹 + 动态调整的关节/末端阻抗参数",
+        "robot_dependency": "KUKA LWR IV+ 7-DOF机械臂",
+        "data_dependency": "依赖真实机器人上的单次示教数据（非大规模离线数据集）",
+        "sim2real_status": "real-robot",
+        "generalization": "limited",
+        "reproducibility": "none",
+        "tags": [
+          "teleoperation",
+          "real-robot",
+          "dexterous"
+        ],
+        "novelty": 5,
+        "evidence": 7,
+        "reproducibility_score": 0,
+        "significance": 42,
+        "significance_reason": "方法整合了已有技术（FDM、DS、EKF、阻抗参数化），在单一KUKA平台上验证了单次示教下轨迹+阻抗联合学习的可行性，但未跨机体/任务泛化，无开源代码或基准对比，未挑战任何长期开放难题（如零样本泛化、多任务统一表征、人机自然交互建模），属于扎实但窄域的工程改进。",
+        "one_sentence_verdict": "工程整合：将多个成熟模块串联用于解决特定HRI柔顺性问题，有真实硬件验证但封闭、不可复现、泛化性弱，暂未构成领域推进。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 16.5,
+        "content": 12.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 28.5,
+        "bonus": 0.0,
+        "total": 28.5
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.16998.jpg"
     },
     {
       "arxiv_id": "2606.00449",
@@ -149212,6 +149746,92 @@
       "thumb": "assets/thumbs/2607.06438.jpg"
     },
     {
+      "arxiv_id": "2607.17054",
+      "doi": "10.48550/arxiv.2607.17054",
+      "source_kind": "arxiv",
+      "title": "SHAPE: Simultaneous Water Hydraulic Actuation and Position Estimation of a Sensorless Remote Actuator through a Thin and Long Flexible Tube",
+      "abstract": "Robot sensors and electronic equipment are prone to failure in harsh environments. With water hydraulic drive, thin and long tubes enable remote operation without actuator-side sensors. Furthermore, the elasticity of the tubes reduces the impedance of the joints (actuators), benefiting robot tasks involving unexpected contact with the environment or vibrations. However, owing to the low impedance and limited camera visibility, accurately positioning the joint (or end effector) to the target location under varying load conditions is challenging. This study proposes a novel method that employs water-filled flexible tubes to enable the transmission of driving power and actuator-side information to and from the actuator, respectively, without actuator-side sensors. By modeling volumetric loss during transmission based on pressure fluctuations and incorporating minor air entrapment, simultaneous power transmission and position estimation is achieved through a tube up to 50 m. Thus, it becomes possible to use a feedback control framework that was previously difficult to implement in sensorless systems. Experimental validation confirms stable position control of a sensorless water hydraulic cylinder under varying loads. Furthermore, a field parameter-identification method accounts for tube and air entrainment variability without requiring actuator-side sensors. These contributions promote reliable remote control of robots in harsh environments.",
+      "authors": [
+        "Yuki Nakamura",
+        "Shuto Yoshimura",
+        "Tomoyuki Noda",
+        "Yoshihiro Nakata"
+      ],
+      "categories": [],
+      "published": "2026-07-19",
+      "updated": "2026-07-19",
+      "url": "https://arxiv.org/abs/2607.17054",
+      "pdf_url": "https://arxiv.org/pdf/2607.17054",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2523,
+        "world_model": 0.1764,
+        "whole_body_control": 0.2862,
+        "dexterous_manipulation": 0.5,
+        "sim2real_data": 0.0887,
+        "hardware_unitree": 0.1357,
+        "bci_neural_decoding": 0.0,
+        "bci_foundation_models": 0.0,
+        "bci_embodied_robot": 0.1979,
+        "bci_noninvasive_eeg": 0.0,
+        "protein_ai": 0.0224,
+        "genomics_ai": 0.0304
+      },
+      "best_route": "dexterous_manipulation",
+      "relevance_raw": 0.2862,
+      "first_seen": "2026-07-25",
+      "analysis": {
+        "tldr": "这篇论文用注水的细长柔性管同时实现液压驱动和无传感器位置估计，通过建模压力波动中的容积损耗（含微量空气滞留），在50米长管上实现了对无传感器水压缸的闭环位置控制，解决了恶劣环境下远程机器人因无法装传感器导致的定位不准问题。",
+        "org": "东京大学",
+        "country": "JP",
+        "org_type": "university",
+        "claim": "仅靠水填充的柔性管本身，无需执行器端任何传感器，即可同步完成动力传输与高鲁棒性位置估计，并支持负载变化下的稳定反馈控制。",
+        "method_components": [
+          "model",
+          "hardware"
+        ],
+        "input": "驱动侧输入压力信号、实时压力读数（仅在驱动端）、管长与材质参数",
+        "output": "执行器端位移/位置估计值、闭环控制下的目标位置跟踪动作",
+        "robot_dependency": "定制水液压缸+50m水填充硅胶管系统",
+        "data_dependency": "完全依赖真实硬件实验数据；无仿真、无公开数据集；所有验证均在物理平台上完成",
+        "sim2real_status": "real-robot",
+        "generalization": [
+          "cross-load"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "sensorless",
+          "hydraulic",
+          "real-robot",
+          "teleoperation"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 3,
+        "significance": 68,
+        "significance_reason": "解决了长期存在的‘无传感器远程液压执行器闭环控制’工程难题，在真实50米长管、多负载扰动下实现稳定位置控制，有扎实实机验证和参数自辨识方法；但未跨机体/跨任务泛化，未开源代码模型，影响力限于特种液压机器人子领域，远未达T-Rex/ALOHA级范式突破或通用策略层级。",
+        "one_sentence_verdict": "显著贡献：真机驱动+估计一体化设计在苛刻场景下切实可行，但属垂直领域工程突破，非通用AI或具身智能范式演进。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 8.6,
+        "content": 19.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 27.6,
+        "bonus": 0.0,
+        "total": 27.6
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.17054.jpg"
+    },
+    {
       "arxiv_id": "2606.03268",
       "doi": "10.48550/arxiv.2606.03268",
       "source_kind": "arxiv",
@@ -153409,6 +154029,97 @@
       "read_priority": "C"
     },
     {
+      "arxiv_id": "10.64898/2026.07.16.738966",
+      "doi": "10.64898/2026.07.16.738966",
+      "source_kind": "biorxiv",
+      "title": "From tiny to massive: exploring genome evolution in the model 1 grass genus Brachypodium",
+      "abstract": "Brachypodium is a powerful model system for investigating grass genome evolution, yet genomic resources remain concentrated in the three annual species, whereas perennial species are less sampled. Here, we present chromosome-level assemblies for two perennial species, Brachypodium mexicanum and B. arbuscula, which represent the earliest-diverging lineages of the genus and the earliest-diverging lineage of the core perennial clade, respectively. Synteny-based phylogenomics indicate that B. mexicanum is a meso-allotetraploid composed of two closely related but temporally distinct x=10 subgenomes, here designed as P and U, each carrying subgenome-specific chromosome rearrangements. We further show that the unusually large B. mexicanum genome, in contrast to the reduced genomes of most other Brachypodium species, is primarily due to transposable elements distributed across all chromosomal regions. By contrast, the diploid genome of the earliest-diverging core perennial, B. arbuscula, contains few transposable elements, whereas the most recent diverged diploid perennial B. sylvaticum shows evidence of a secondary TEs proliferation. Comparisons of lineage-specific and functionally enriched orthogroups among B. mexicanum, core perennial species and annual species suggest that ancestral hybridization between annual and perennial lineages may have contributed to the origin of allotetraploid B. mexicanum. These assemblies provide a framework for testing how polyploidy, descending dysploidy, transposable-element turnover, and life-history evolution jointly shaped genome architecture in Brachypodium.",
+      "authors": [
+        "Chunlin Chen",
+        "Rubén Sancho",
+        "Miguel Rufo Campos",
+        "Bruno Contreras‐Moreira",
+        "Jeremy Schmutz",
+        "Jerry Jenkins",
+        "K. Barry",
+        "Lipzen Anna",
+        "Maxim Koriabine",
+        "Joanne Eichenberger",
+        "黎磊 Li Lei",
+        "John P. Vogel",
+        "David L. Des Marais",
+        "Pilar Catalán"
+      ],
+      "categories": [],
+      "published": "2026-07-21",
+      "updated": "2026-07-21",
+      "url": "https://doi.org/10.64898/2026.07.16.738966",
+      "pdf_url": "https://doi.org/10.64898/2026.07.16.738966",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0726,
+        "world_model": 0.0047,
+        "whole_body_control": 0.1263,
+        "dexterous_manipulation": 0.0712,
+        "sim2real_data": 0.0814,
+        "hardware_unitree": 0.1009,
+        "bci_neural_decoding": 0.0461,
+        "bci_foundation_models": 0.0668,
+        "bci_embodied_robot": 0.0418,
+        "bci_noninvasive_eeg": 0.0222,
+        "protein_ai": 0.2113,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.238,
+      "first_seen": "2026-07-25",
+      "analysis": {
+        "tldr": "这篇论文为两个多年生早分化须芒草属植物（B. mexicanum 和 B. arbuscula）构建了染色体水平基因组，发现前者是近期形成的异源四倍体，其巨大基因组主要由全基因组散布的转座元件驱动，而后者作为核心多年生类群最早分支却保持小而干净的二倍体基因组，由此揭示须芒草属中多倍化、转座元件爆发与生活史演化协同塑造基因组结构的机制。",
+        "org": "美国能源部联合基因组研究所（JGI）/ USDA-ARS",
+        "country": "US",
+        "org_type": "institute",
+        "claim": "Brachypodium mexicanum 是一个由两个时间上分离但亲缘相近的 x=10 亚基因组构成的中古异源四倍体，其异常庞大的基因组规模主要源于全染色体区域广泛分布的转座元件扩增，而非基因重复或染色体加倍本身；而该属多年生谱系的早期分支 B. arbuscula 却维持紧凑二倍体基因组，表明转座元件动态与多倍化事件在生活史演化中存在非对称耦合。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "高覆盖度长读长测序数据（PacBio HiFi + Omni-C）、Hi-C、RNA-seq",
+        "output": "两个物种的染色体级别基因组组装、亚基因组划分、共线性图谱、转座元件注释与谱系特异性正交基因簇分析",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "code-only",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 68,
+        "significance_reason": "提供了高质量、进化关键节点的染色体级别基因组（尤其填补了多年生早期分支空白），实证揭示了同一属内多倍化与TE爆发的解耦现象及生活史关联，但未提出新算法/模型，未构建可泛化预测框架，也未验证功能机制（如TE活性调控或表观遗传响应），属于扎实的比较基因组学增量贡献，未达‘开新范式’或‘解决长期开放难题’层级。",
+        "one_sentence_verdict": "显著贡献：填补关键进化节点基因组空白并实证揭示TE-多倍化-生活史的非对称协同，但缺乏机制解析与通用工具，属于高水平比较基因组学工作，非突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 7.1,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 27.1,
+        "bonus": 0.0,
+        "total": 27.1
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "2606.02424",
       "doi": "10.48550/arxiv.2606.02424",
       "source_kind": "arxiv",
@@ -154516,6 +155227,92 @@
       "thumb": "assets/thumbs/2607.05883.jpg"
     },
     {
+      "arxiv_id": "2607.17438",
+      "doi": "10.48550/arxiv.2607.17438",
+      "source_kind": "arxiv",
+      "title": "Multi-scale closed-loop melt pool control for LPBF via policy optimization",
+      "abstract": "Laser powder bed fusion (LPBF) is a metal additive manufacturing process where temperature stabilization is of vital importance to avoid defects such as distortion and cracking. Existing control methods require manual tuning, increasing the risk of part failure when printing complex geometries. This paper introduces a dual-loop, data-driven control strategy to stabilize the surface temperature, ensuring robustness and near-optimal performance in the presence of disturbances. The proposed method integrates (i) an in-layer linear output feedback control with gains optimized through policy gradient, and (ii) a layer-to-layer feedforward control combining temperature trajectory optimization and iterative learning control. Simulation results show that the multi-scale controller effectively stabilizes the temperature even under significant model mismatch and measurement noise. Experimental results demonstrate that a simplified, hardware-constrained version of this method matches the state-of-the-art performance of in-situ data-driven methods, reducing mean tracking error by 3.4% and mean input-constraint violation by 47.5% relative to a Bayesian Optimization-tuned baseline. For this physical LPBF validation, the controller is tuned entirely offline using uncontrolled print data from a single calibration layer. Our experiments also demonstrate a new class of high-frequency excitation dynamics that result in reduced vector head swelling, opening up new avenues of research in the additive manufacturing community. This work marks one of the first successful applications of sim-to-real policy optimization in LPBF processes.",
+      "authors": [
+        "Junan Lin",
+        "Riccardo Zuliani",
+        "Barış Kavas",
+        "Markus Bambach",
+        "John Lygeros",
+        "Efe C. Balta"
+      ],
+      "categories": [],
+      "published": "2026-07-19",
+      "updated": "2026-07-19",
+      "url": "https://arxiv.org/abs/2607.17438",
+      "pdf_url": "https://arxiv.org/pdf/2607.17438",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1864,
+        "world_model": 0.2305,
+        "whole_body_control": 0.1904,
+        "dexterous_manipulation": 0.146,
+        "sim2real_data": 0.5,
+        "hardware_unitree": 0.0495,
+        "bci_neural_decoding": 0.1128,
+        "bci_foundation_models": 0.0303,
+        "bci_embodied_robot": 0.0859,
+        "bci_noninvasive_eeg": 0.0513,
+        "protein_ai": 0.1667,
+        "genomics_ai": 0.0775
+      },
+      "best_route": "sim2real_data",
+      "relevance_raw": 0.2305,
+      "first_seen": "2026-07-25",
+      "analysis": {
+        "tldr": "这篇论文用双闭环策略（层内反馈+层间前馈）控制激光粉末床熔融（LPBF）金属3D打印中的熔池温度，全程离线训练、无需在线调参，在真实金属打印设备上验证了比贝叶斯优化调参基线更低的跟踪误差和更少的输入越界，还发现了高频激励可抑制熔道肿胀的新现象。",
+        "org": "苏黎世联邦理工学院",
+        "country": "EU",
+        "org_type": "university",
+        "claim": "仅用单层无控打印数据离线训练的多尺度闭环控制器，可在真实LPBF系统中实现鲁棒温度跟踪，且性能超越人工/贝叶斯调参方法。",
+        "method_components": [
+          "model",
+          "policy",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "红外热像仪测得的熔池表面温度序列、激光功率与扫描速度指令",
+        "output": "实时调整的激光功率与扫描速度控制信号",
+        "robot_dependency": "LPBF工业打印机（EOS M290）",
+        "data_dependency": "依赖单层无控打印的真实热图像数据用于离线训练，不依赖带标签的闭环交互数据",
+        "sim2real_status": "deployed",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "sim2real",
+          "real-robot",
+          "large-scale"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 78,
+        "significance_reason": "首次在真实金属LPBF产线级设备上完成sim-to-real策略优化部署，有完整物理实验（多组对比、消融、量化指标）、显著优于工程常用贝叶斯调参基线，且揭示新物理现象；但仅针对单一设备型号与材料（Ti6Al4V），未跨几何/材料/平台泛化，开源程度有限（仅项目页，无代码模型）。",
+        "one_sentence_verdict": "工程整合——将强化学习策略优化扎实落地到高价值工业制造闭环控制，证据充分、效果实测显著，但未突破控制范式或构建通用平台，属高水平应用型创新。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 6.9,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 26.9,
+        "bonus": 0.0,
+        "total": 26.9
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "10.64898/2026.06.09.731156",
       "doi": "10.64898/2026.06.09.731156",
       "source_kind": "biorxiv",
@@ -155250,6 +156047,90 @@
       "scores": {
         "relevance": 13.8,
         "content": 13.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 26.8,
+        "bonus": 0.0,
+        "total": 26.8
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
+      "arxiv_id": "10.64898/2026.07.14.738479",
+      "doi": "10.64898/2026.07.14.738479",
+      "source_kind": "biorxiv",
+      "title": "Mutualisms as engines for rapid adaptation: Rhizobium evolution facilitates plant drought resistance",
+      "abstract": "Mutualisms play critical roles in organismal stress tolerance; yet environmental stressors may simultaneously alter the evolution of the mutualism itself. Stress may have particularly strong impacts on the evolution of microbial mutualists due to their capacity for rapid genetic change. Here we used a legume-rhizobia mutualism, in which plants exchange carbon for symbiotically fixed nitrogen, to evaluate how mutualisms evolve in response to stressors. We experimentally evolved populations of Rhizobium leguminasarum in a full factorial design, manipulating drought and nitrogen. We quantified genomic changes in Rhizobium populations as well as their quality as partners with their plant host, Trifolium repens. Drought selected for context-dependent stress benefits to the host; drought-adapted Rhizobium strains provided increased benefits to the host under drought, but fewer benefits to the host in well-watered environments. Conversely, nitrogen fertilization selected for decreased Rhizobium partner quality. Comparative genomics indicated that selection on standing structural variants along the symbiotic plasmid may underpin these drought benefits, specifically along genes associated with desiccation tolerance. These results suggest that stress can expand the benefits rhizobia provide to their legume hosts beyond nitrogen fixation, with rapid symbiont evolution an engine in promoting adaptive plant phenotypes.",
+      "authors": [
+        "Kevin Ricks",
+        "Chase Schwarz",
+        "Meghan Blaszynski",
+        "Destiny Gonzalez",
+        "Jennifer A. Lau",
+        "Katy Heath",
+        "Anthony Yannarell"
+      ],
+      "categories": [],
+      "published": "2026-07-20",
+      "updated": "2026-07-20",
+      "url": "https://doi.org/10.64898/2026.07.14.738479",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/20/2026.07.14.738479.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0685,
+        "world_model": 0.0967,
+        "whole_body_control": 0.0546,
+        "dexterous_manipulation": 0.0205,
+        "sim2real_data": 0.0308,
+        "hardware_unitree": 0.0461,
+        "bci_neural_decoding": 0.0357,
+        "bci_foundation_models": 0.0941,
+        "bci_embodied_robot": 0.1308,
+        "bci_noninvasive_eeg": 0.0573,
+        "protein_ai": 0.1575,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.2272,
+      "first_seen": "2026-07-25",
+      "analysis": {
+        "tldr": "通过实验进化让根瘤菌在干旱或氮肥条件下演化，发现干旱环境筛选出的根瘤菌株能特异性提升宿主白车轴草的抗旱能力（但降低其在水分充足时的表现），这种效应与共生质粒上已有的结构变异（尤其涉及脱水耐受基因）相关。",
+        "org": "伊利诺伊大学厄巴纳-香槟分校",
+        "country": "US",
+        "org_type": "university",
+        "claim": "干旱压力可驱动根瘤菌快速进化，使其在胁迫环境下特异性增强宿主植物抗旱性，该适应性提升独立于固氮功能，由共生质粒上的结构变异介导。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "不同处理（干旱/湿润、高氮/低氮）下的根瘤菌种群演化实验条件",
+        "output": "根瘤菌基因组变异谱、与宿主互作表型（植株生物量、固氮效率、胁迫响应指标）",
+        "robot_dependency": "none",
+        "data_dependency": "无机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 58,
+        "significance_reason": "扎实的进化生物学实证工作：全因子实验设计+多代定向演化+宿主表型量化+比较基因组定位结构变异，证实微生物互作伙伴可被环境压力快速‘重编程’以提供非经典功能（抗旱性），但仅限单一菌种-植物组合，未验证跨物种泛化性，也未构建预测模型或干预工具，属显著但窄域贡献。",
+        "one_sentence_verdict": "扎实增量：提供了微生物互作体在环境压力下功能可塑性的高质量实验证据，但未突破系统尺度或形成可迁移方法，暂未达领域基石级分量。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 6.8,
+        "content": 20.0,
         "heat": 0.0,
         "quality": 0.0,
         "base": 26.8,
@@ -159820,6 +160701,92 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2607.15880.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.07.14.738384",
+      "doi": "10.64898/2026.07.14.738384",
+      "source_kind": "biorxiv",
+      "title": "EBD-DTI: Episodic Bridge Diffusion for Zero-Shot Cold-Start Drug-Target Interaction Prediction",
+      "abstract": "Abstract Predicting drug–target interactions (DTI) for entirely unseen drugs or proteins—the cold-start problem—remains a critical challenge in computational drug discovery. While sequence-based methods naturally support zero-shot generalization, they often ignore relational topology, and existing graph-based approaches either rely on global diffusion that blurs the boundary between inductive and transductive evaluation or require a few known interaction samples at test time (few-shot). We present EBD-DTI, a framework that enables zero-shot inference in graph-based DTI models without requiring any known interactions for unseen entities. The key innovation is episodic cold-start training : at each epoch, a random subset of training entities is masked and treated as pseudo-cold, forcing the model to learn cold-start inference with explicit gradient supervision. A bridge-conditioned local subgraph, together with multi-hop diffusion, provides cold entities with relational context from their nearest observed neighbors. Experiments on three benchmarks (BioSNAP, BindingDB, and DrugBank) demonstrate that EBD-DTI achieves competitive or superior performance compared to state-of-the-art methods under strict zero-shot evaluation, with episodic training improving AUC by up to 12%.",
+      "authors": [
+        "Jiongxin Liu",
+        "Jiameng Le",
+        "Chuanru Wei",
+        "Mingming Liu",
+        "Zixuan Yin"
+      ],
+      "categories": [],
+      "published": "2026-07-20",
+      "updated": "2026-07-20",
+      "url": "https://doi.org/10.64898/2026.07.14.738384",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/20/2026.07.14.738384.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.245,
+        "world_model": 0.2399,
+        "whole_body_control": 0.1881,
+        "dexterous_manipulation": 0.1391,
+        "sim2real_data": 0.1649,
+        "hardware_unitree": 0.0474,
+        "bci_neural_decoding": 0.0862,
+        "bci_foundation_models": 0.2285,
+        "bci_embodied_robot": 0.101,
+        "bci_noninvasive_eeg": 0.2066,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2867
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.2964,
+      "first_seen": "2026-07-25",
+      "analysis": {
+        "tldr": "提出EBD-DTI模型，用‘情节式冷启动训练’强制模型在训练时反复模拟对全新药物或靶点（零样本）的预测任务，并通过桥接条件下的局部子图+多跳扩散，让冷启动实体从其最近已知邻居中获取关系上下文，从而在不依赖任何测试时已知交互的前提下完成零样本DTI预测。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "通过情节式冷启动训练与桥接条件局部扩散，首次实现纯零样本（zero-shot, no test-time known interactions）下图神经网络驱动的药物-靶点相互作用预测。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "药物SMILES序列、靶点氨基酸序列、药物-靶点二分图拓扑结构（含已知交互边）",
+        "output": "药物与靶点之间是否发生相互作用的概率得分",
+        "robot_dependency": "none",
+        "data_dependency": "无真实机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-task"
+        ],
+        "reproducibility": "unknown",
+        "tags": [
+          "multimodal-fusion",
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 8,
+        "reproducibility_score": 2,
+        "significance": 68,
+        "significance_reason": "解决了图模型在DTI中长期存在的零样本评估失真问题（避免隐式transductive泄露），方法设计有实质性创新（情节掩码+桥接子图扩散），在三大标准数据集上实证提升显著（AUC↑12%），但未开源代码/模型，未与最先进基础模型（如dtSFM、ESM系列）对比，也未验证跨物种/临床前到临床的泛化，属扎实且有明确技术增量的领域重要进展，但未达基石级分量。",
+        "one_sentence_verdict": "显著贡献：真推进了零样本DTI的评估范式与建模能力，但因缺乏开源和与顶层基础模型对标，尚属扎实增量而非范式突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 8.9,
+        "content": 17.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 25.9,
+        "bonus": 0.0,
+        "total": 25.9
+      },
+      "grade": "D",
+      "read_priority": "C"
     },
     {
       "arxiv_id": "2606.02280",
@@ -166852,6 +167819,87 @@
       "thumb": "assets/thumbs/2607.11673.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.07.15.738324",
+      "doi": "10.64898/2026.07.15.738324",
+      "source_kind": "biorxiv",
+      "title": "Molecular Basis of High-light Adaptation in Cyanobacteria and Cyanophages through the D1/D2 subunits of Photosystem II",
+      "abstract": "High-light (HL) stress imposes substantial pressure on oxygenic photosynthesis by promoting the formation of reactive oxygen species (ROS) and photodamage in Photosystem II (PSII), particularly within its reaction-center core subunits D1 and D2. Prochlorococcus and Synechococcus, along with their cyanophages, dominate oligotrophic oceans and experience persistent HL exposure, yet the molecular basis of PSII adaptation in these systems remains poorly understood. In this manuscript, we integrate large-scale phylogenetic analysis with residue-level sequence comparison and AlphaFold3-based structural prediction to investigate D1/D2 across Prochlorococcus ecotypes, Synechococcus, and their associated cyanophages. Prochlorococcus species are known to form ecotypes based on light conditions, and the D1 and D2 phylogenies showed consistent organization across our phylogenetic trees. Synechococcus does not fall into the same light-based ecotypes, but we found that D1 and D2 isoforms still form meaningful clusters for these species. Cyanophage-encoded D1 and D2 sequences did not form separate viral clades, but instead were embedded within host-associated diversity and showed closer affinity to HL-adapted Prochlorococcus than to low-light-adapted (LL) lineages. Mapping ecotype- and phage-associated substitutions onto predicted D1/D2 structures, with reference to experimental PSII structures, suggested that some LL-to-HL variants in Prochlorococcus may enhance resistance to ROS-associated damage. Some LL-to-HL substitutions increase methionine and cysteine enrichment near redox-active cofactors, potentially improving redox buffering and ROS scavenging. In contrast, others may favor more efficient electron transfer, reduce charge recombination, and thereby limit ROS production. These results support a model in which PSII adaptation in cyanobacteria is shaped by fine-scale protein-level tuning linked to ecological diversification and cyanophage-host coevolution, with viral-host interactions contributing to the evolutionary optimization of oxygenic photosynthesis under HL stress.",
+      "authors": [
+        "Rulong Ma",
+        "Ruonan Wu",
+        "Greg Morrison"
+      ],
+      "categories": [],
+      "published": "2026-07-21",
+      "updated": "2026-07-21",
+      "url": "https://doi.org/10.64898/2026.07.15.738324",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/21/2026.07.15.738324.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1464,
+        "world_model": 0.1213,
+        "whole_body_control": 0.1001,
+        "dexterous_manipulation": 0.0649,
+        "sim2real_data": 0.0314,
+        "hardware_unitree": 0.0847,
+        "bci_neural_decoding": 0.0673,
+        "bci_foundation_models": 0.1128,
+        "bci_embodied_robot": 0.0786,
+        "bci_noninvasive_eeg": 0.1186,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.163
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.2165,
+      "first_seen": "2026-07-25",
+      "analysis": {
+        "tldr": "通过整合大规模系统发育分析、残基序列比对和AlphaFold3结构预测，揭示了蓝细菌（Prochlorococcus/Synechococcus）及其噬菌体D1/D2蛋白中与高光适应相关的保守氨基酸替换，并从结构角度解释这些替换如何通过增强ROS清除或优化电子传递来缓解光损伤。",
+        "org": "unknown",
+        "country": "US",
+        "org_type": "unknown",
+        "claim": "蓝细菌PSII核心亚基D1/D2的精细氨基酸替换是其高光适应的分子基础，且该适应过程受宿主-噬菌体共进化塑造。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "D1/D2蛋白序列（来自Prochlorococcus各生态型、Synechococcus及关联噬菌体）",
+        "output": "系统发育树、关键适应性替换位点、AlphaFold3预测结构模型、结构功能解释（如残基微环境变化对ROS缓冲/电子传递的影响）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 8,
+        "reproducibility_score": 4,
+        "significance": 68,
+        "significance_reason": "扎实的跨物种比较蛋白质组学研究，结合AlphaFold3结构建模给出机制假说，但未实验验证关键突变功能，也未构建新模型或生成新数据资源（如专用数据库/训练模型），属于高质量机制解析型工作，显著优于普通生物信息论文但未达AI×科学领域基石级（如ESM/AlphaFold系列）的范式突破或通用工具价值。",
+        "one_sentence_verdict": "显著贡献：提供了高光适应的结构-功能解释框架，证据链完整但缺乏湿实验验证，属机制驱动型扎实增量，非突破也非包装。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 6.5,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 24.5,
+        "bonus": 0.0,
+        "total": 24.5
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "10.64898/2026.05.31.729167",
       "doi": "10.64898/2026.05.31.729167",
       "source_kind": "biorxiv",
@@ -168290,6 +169338,86 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2607.18075.jpg"
+    },
+    {
+      "arxiv_id": "2607.18586",
+      "doi": "10.48550/arxiv.2607.18586",
+      "source_kind": "arxiv",
+      "title": "Bridging the Sim-to-Real Gap under Real-Time Constraints in Autonomous Racing",
+      "abstract": "Autonomous racing exposes the sim-to-real gap under extreme operating conditions characterized by high speed, tight stability margins, and stringent real-time constraints. Although simulation is indispensable for development, controllers that perform well in simulation often degrade abruptly on physical platforms due to interacting effects of dynamics mismatch, estimation delay, and execution-layer latency. This paper frames sim-to-real transfer in autonomous racing as a full-stack, real-time systems problem. We introduce a structured three-layer perspective (Physical/Cyber/Execution) to analyze how mismatches propagate and amplify through closed-loop feedback. We present diagnostic metrics beyond nominal lap time, including performance flip, stability-oriented measures, sensitivity to delay and noise, and latency distribution characterization. Mitigation strategies are synthesized from a deployment-oriented viewpoint, emphasizing execution-aware and delay-aware design. Finally, we outline benchmarking guidelines that enable reproducible and fair sim-to-real evaluation under compute and timing constraints. The resulting framework clarifies cross-layer failure mechanisms and provides practical design principles for deployable autonomous racing systems operating near dynamic limits.",
+      "authors": [
+        "Hossein Maghsoumi",
+        "Yaser P. Fallah"
+      ],
+      "categories": [],
+      "published": "2026-07-20",
+      "updated": "2026-07-20",
+      "url": "https://arxiv.org/abs/2607.18586",
+      "pdf_url": "https://arxiv.org/pdf/2607.18586",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2117,
+        "world_model": 0.5,
+        "whole_body_control": 0.2725,
+        "dexterous_manipulation": 0.117,
+        "sim2real_data": 0.2577,
+        "hardware_unitree": 0.1357,
+        "bci_neural_decoding": 0.1401,
+        "bci_foundation_models": 0.027,
+        "bci_embodied_robot": 0.1378,
+        "bci_noninvasive_eeg": 0.0314,
+        "protein_ai": 0.1315,
+        "genomics_ai": 0.0645
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.275,
+      "first_seen": "2026-07-25",
+      "analysis": {
+        "tldr": "这篇论文没做新算法或新模型，而是系统性地把自动驾驶赛车中的仿真到现实迁移问题重新定义为一个实时闭环系统的跨层工程问题，提出三层分析框架（物理/网络/执行）、一套诊断指标（不只是圈速，还包括稳定性、延迟敏感性等），并给出面向部署的设计原则和基准测试规范。",
+        "org": "佛罗里达大学",
+        "country": "US",
+        "org_type": "university",
+        "claim": "自主赛车中的sim-to-real gap本质是物理层、网络层与执行层之间不匹配在实时闭环中耦合放大所致，需用全栈系统视角建模、诊断与缓解，而非仅靠控制器或仿真精度改进。",
+        "method_components": [
+          "benchmark",
+          "simulator"
+        ],
+        "input": "仿真与实车运行时的传感器数据、控制指令、时序日志",
+        "output": "跨层失配诊断指标（如performance flip、延迟分布、稳定性边界退化量）、缓解设计原则、基准测试协议",
+        "robot_dependency": "无人赛车平台（如MIT Racecar、AWS DeepRacer等通用小型竞速平台）",
+        "data_dependency": "依赖少量真实赛车平台上的闭环测试数据用于验证诊断指标，但未报告大规模真实数据采集",
+        "sim2real_status": "small-real",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "sim2real",
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 7,
+        "reproducibility_score": 3,
+        "significance": 52,
+        "significance_reason": "贡献在于范式转换——将sim2real从‘调控制器’问题升维为‘实时闭环系统工程’问题，并给出可测量、可归因的诊断工具链；但未开源代码/模型，未在多个机体/赛道/控制器上验证，实机实验规模小，未超越World Models系列等基石工作的理论深度或通用性，属扎实的领域定向方法论推进，非通用突破。",
+        "one_sentence_verdict": "工程整合：它把分散的sim2real痛点整合成一套可诊断、可部署的系统框架，但缺乏开源实现与多场景实证，尚未构成方法论级突破",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 8.2,
+        "content": 16.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 24.2,
+        "bonus": 0.0,
+        "total": 24.2
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.18586.jpg"
     },
     {
       "arxiv_id": "2606.05903",
@@ -171085,6 +172213,175 @@
       "thumb": "assets/thumbs/2607.13633.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.07.13.738128",
+      "doi": "10.64898/2026.07.13.738128",
+      "source_kind": "biorxiv",
+      "title": "Whole-genome resequencing identified loci underwent divergent selection and improved local adaptability in groundnut (Arachis hypogaea)",
+      "abstract": "There is an urgent need to expand groundnut genomics knowledge base to improve yield and adaptability in the target environments. Whole-genome sequencing can discover selective sweeps in the genomic regions distinguishing adaptive from non-adaptive germplasm within target environments. When combined with genome-wide association studies (GWAS), this approach can reveal genes underpinning local adaptability and yield advantage. The objective of this study was to establish a genome-wide quantitative framework form identifying genomic regions under selection, with a particular focus on narrowing down regions associated with important yield and adaptive traits. Moreover, validation of elite haplotype distributions in an independent fully sequenced groundnut panel. A panel of 197 groundnut accessions was subjected to whole-genome sequencing and phenotypic evaluation to dissect the collection into adaptive and non-adaptive subsets to uncover the genomic regions under selection. This was then combined with GWAS to uncover genetic variants governing agronomic traits associated with yield and adaptability. The stringent single and multi-trait analysis identified 60 loci for 12 agronomic traits, of which seven loci controlled multiple yield related traits and were pleiotropic. Within our diversity panel, 48 genomic regions showed signs of selection. Among these selective sweeps, six positively selected loci were co-localized with trait associated loci. A large genomic region on chr2 spanning ~78 Mb was under divergent selection and harbored genes underpinning yield and 20-pod length. A F-box transcription factor, Arahy.37HYKA, on chr9, and an alanine transferase protein gene, Arahy.E9MTVL, on chr12 carried peak SNPs associated with yield and related traits. We further cross-validated our results in another groundnut355 panel, where the corresponding genes within LD blocks showed significant effects on HKW, pod length and pod weight. The genomic resources developed here provide a high-resolution variation map to delineate the genes underpinning yield and developmental traits in groundnut, improved our understanding of the genetic basis of important agronomic traits, and provide a valuable resource for further functional genomics studies and groundnut improvement programs.",
+      "authors": [
+        "Muhammad Jahanzaib",
+        "Kunhui He",
+        "Sana-ur Rehman",
+        "Ihsan Ullah",
+        "Haris Khurshid",
+        "Muhammad Jawad Umer",
+        "Sunil Gangurde",
+        "Awais Rasheed",
+        "Hui Li"
+      ],
+      "categories": [],
+      "published": "2026-07-18",
+      "updated": "2026-07-18",
+      "url": "https://doi.org/10.64898/2026.07.13.738128",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/18/2026.07.13.738128.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0684,
+        "world_model": 0.0933,
+        "whole_body_control": 0.0041,
+        "dexterous_manipulation": 0.0727,
+        "sim2real_data": 0.008,
+        "hardware_unitree": 0.0478,
+        "bci_neural_decoding": 0.0486,
+        "bci_foundation_models": 0.0934,
+        "bci_embodied_robot": 0.0299,
+        "bci_noninvasive_eeg": 0.0747,
+        "protein_ai": 0.1875,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.3147,
+      "first_seen": "2026-07-25",
+      "analysis": {
+        "tldr": "对197份花生种质进行全基因组重测序和表型分析，结合选择清除分析与GWAS，定位了60个农艺性状相关位点（含7个一因多效位点），发现48个受选择区域，其中6个与性状位点共定位，并在独立355份种质面板中验证了关键基因（如Arahy.37HYKA、Arahy.E9MTVL）对百果重、荚果长/重的显著效应，构建了高分辨率花生变异图谱。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "通过整合全基因组选择清除分析与多性状GWAS，系统识别并跨群体验证了驱动花生本地适应性与产量提升的关键基因组区域及候选功能基因。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "197份花生种质的全基因组重测序数据 + 多项农艺性状表型数据",
+        "output": "60个显著关联位点、48个选择清除区域、6个共定位关键位点、2个经独立群体验证的功能候选基因（Arahy.37HYKA, Arahy.E9MTVL）及其LD区块内表型效应",
+        "robot_dependency": "none",
+        "data_dependency": "无机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 4,
+        "evidence": 7,
+        "reproducibility_score": 3,
+        "significance": 48,
+        "significance_reason": "属扎实的作物群体基因组学应用研究：完成标准选择清除+GWAS整合分析，发现多个可验证位点，但未提出新算法/模型，未构建可泛化预测工具，未实现功能验证（如CRISPR编辑或转基因），也未突破花生遗传研究长期瓶颈（如高质量单倍型图谱缺失、复杂性状解析精度低等）；相比ESM-2/AlphaFold2等基石工作，其方法论、通用性、技术深度和领域变革性均不在同一量级，属于农业基因组领域常规但质量良好的增量贡献。",
+        "one_sentence_verdict": "扎实增量——完成了标准流程下的可靠位点挖掘与跨群体验证，但无新方法、无功能实证、无普适模型，暂未达到推动范式转变或解决核心瓶颈的水平。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 9.4,
+        "content": 14.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 23.4,
+        "bonus": 0.0,
+        "total": 23.4
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
+      "arxiv_id": "2607.18641",
+      "doi": "10.48550/arxiv.2607.18641",
+      "source_kind": "arxiv",
+      "title": "Fabric Pneumatic Artificial Muscles Based on the Drawstring Principle",
+      "abstract": "Pneumatic artificial muscles have wide applications in robotics and industrial fields. Conventional pneumatic artificial muscles generate extra radial deformation during axial contraction, which severely wastes available working space. Inspired by the widely adopted drawstring principle in textile products, this paper proposes a novel drawstring fabric pneumatic artificial muscle (DPAM). Unlike traditional counterparts, the proposed DPAM produces no extra radial deformation during contraction, greatly improving structural compactness. The DPAM exhibits outstanding mechanical performance: a load capacity over 800 times its self-weight, a maximum contraction ratio of 44%, and a power density up to 4.98 kW/kg, alongside excellent scalability. Two representative application scenarios, bionic robots and industrial production lines, are demonstrated to validate its practicability. The DPAM can be easily expanded within a two-dimensional plane, as verified by the fabricated DPAM matrix. This work not only presents a high-performance novel pneumatic artificial muscle but also inspires researchers to draw design inspiration from conventional textile structures to address existing challenges in soft robotics.",
+      "authors": [
+        "Chendong Liu",
+        "D Yang",
+        "Y Sophia Dai",
+        "Lu Jiang",
+        "Hong Liu"
+      ],
+      "categories": [],
+      "published": "2026-07-21",
+      "updated": "2026-07-21",
+      "url": "https://arxiv.org/abs/2607.18641",
+      "pdf_url": "https://arxiv.org/pdf/2607.18641",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1813,
+        "world_model": 0.1467,
+        "whole_body_control": 0.2469,
+        "dexterous_manipulation": 0.5,
+        "sim2real_data": 0.1269,
+        "hardware_unitree": 0.1515,
+        "bci_neural_decoding": 0.1386,
+        "bci_foundation_models": 0.0034,
+        "bci_embodied_robot": 0.1759,
+        "bci_noninvasive_eeg": 0.011,
+        "protein_ai": 0.1657,
+        "genomics_ai": 0.0775
+      },
+      "best_route": "dexterous_manipulation",
+      "relevance_raw": 0.2469,
+      "first_seen": "2026-07-25",
+      "analysis": {
+        "tldr": "提出一种基于抽绳原理的织物气动人工肌肉（DPAM），通过结构设计消除传统气动肌肉收缩时的径向膨胀，从而提升空间紧凑性，并在负载能力、收缩率和功率密度等指标上表现优异，还展示了二维阵列扩展能力和两个应用样例。",
+        "org": "北京航空航天大学",
+        "country": "CN",
+        "org_type": "university",
+        "claim": "基于纺织品抽绳原理设计的织物气动人工肌肉（DPAM）可实现轴向收缩无径向变形，兼具高负载、高收缩比、高功率密度和良好可扩展性。",
+        "method_components": [
+          "hardware",
+          "dataset"
+        ],
+        "input": "压缩空气压力输入",
+        "output": "轴向收缩位移与输出力",
+        "robot_dependency": "none",
+        "data_dependency": "未使用真实机器人闭环控制数据，仅静态/准静态力学测试",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dexterous",
+          "large-scale"
+        ],
+        "novelty": 6,
+        "evidence": 7,
+        "reproducibility_score": 3,
+        "significance": 42,
+        "significance_reason": "属扎实的软体执行器结构创新，性能指标亮眼但未接入闭环机器人系统、无跨任务泛化验证、无开源代码/模型、未对比主流软体驱动器（如McKibben、Fiber-Reinforced）在相同任务中的实际表现，更接近高性能器件原型而非推动具身智能范式的进展；远低于T-Rex/ALOHA/Diffusion Policy等定义新范式或解决核心闭环学习难题的基石工作。",
+        "one_sentence_verdict": "工程整合：是软体执行器领域的优秀结构设计，但未进入机器人闭环控制栈，缺乏任务级验证与开源支撑，暂未构成对具身智能或机器人学习范式的实质性推进。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 7.4,
+        "content": 16.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 23.4,
+        "bonus": 0.0,
+        "total": 23.4
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.18641.jpg"
+    },
+    {
       "arxiv_id": "2606.01170",
       "doi": "10.48550/arxiv.2606.01170",
       "source_kind": "arxiv",
@@ -171505,6 +172802,92 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2606.24842.jpg"
+    },
+    {
+      "arxiv_id": "2607.17839",
+      "doi": "10.48550/arxiv.2607.17839",
+      "source_kind": "arxiv",
+      "title": "Receiver-Centered Robot-to-Human Handover with Grasp-Aware Object Orientation",
+      "abstract": "Collaborative robots are increasingly sharing workspaces with human operators, making tool handover a frequent and safety-critical micro-interaction. However, traditional static handovers often lead to awkward grasps when handling asymmetric industrial tools. This paper presents a receiver-centered voice-driven adaptive handover system for mechanical tools, built on a Franka cobot. Using an LLM for intention recognition and MediaPipe for real-time 3D hand tracking, the framework dynamically adjusts the end-effector's orientation to present tools in an ergonomically optimal, handle-first pose. A within-subjects study compared this adaptive approach with an object-agnostic static baseline. The results demonstrate that the adaptive system reduces the grasp delay for asymmetric tools, improving the fluency of the interaction. Furthermore, the adaptive strategy improved specific trust-related perceptions, particularly motion predictability and perceived task simplicity.",
+      "authors": [
+        "Federico Biagi",
+        "Dario Onfiani",
+        "Simone Silenzi",
+        "Luigi Biagiotti"
+      ],
+      "categories": [],
+      "published": "2026-07-20",
+      "updated": "2026-07-20",
+      "url": "https://arxiv.org/abs/2607.17839",
+      "pdf_url": "https://arxiv.org/pdf/2607.17839",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4694,
+        "world_model": 0.347,
+        "whole_body_control": 0.4213,
+        "dexterous_manipulation": 0.5,
+        "sim2real_data": 0.2163,
+        "hardware_unitree": 0.2553,
+        "bci_neural_decoding": 0.2087,
+        "bci_foundation_models": 0.1801,
+        "bci_embodied_robot": 0.4202,
+        "bci_noninvasive_eeg": 0.1434,
+        "protein_ai": 0.0725,
+        "genomics_ai": 0.076
+      },
+      "best_route": "dexterous_manipulation",
+      "relevance_raw": 0.4694,
+      "first_seen": "2026-07-25",
+      "analysis": {
+        "tldr": "这篇论文做了一个语音驱动的机械臂工具交接系统，让机器人根据人类伸手接物时的手部朝向，实时调整工具握柄朝向，使人类能更自然、更快地抓取不对称工业工具，实验验证了它比固定朝向交接更能减少抓取延迟并提升人对机器人动作可预测性的感知。",
+        "org": "未知（作者名无明显机构标识，摘要未提所属单位，论文未署机构）",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "以接收者（人）手部姿态为中心动态调整工具朝向的交接策略，相比静态交接，能显著降低不对称工具交接中的抓取延迟，并提升人对机器人运动可预测性和任务简易性的主观信任感知。",
+        "method_components": [
+          "model",
+          "simulator",
+          "policy",
+          "benchmark"
+        ],
+        "input": "语音指令 + MediaPipe实时3D手部关键点坐标",
+        "output": "机械臂末端执行器的目标朝向（handle-first姿态）",
+        "robot_dependency": "Franka Emika Panda机械臂",
+        "data_dependency": "依赖真实机器人与真人交互数据（within-subjects study），但未说明是否使用预采集真实抓取数据训练模型，仅用于评估",
+        "sim2real_status": "real-robot",
+        "generalization": [
+          "cross-user"
+        ],
+        "reproducibility": "none",
+        "tags": [
+          "teleoperation",
+          "real-robot"
+        ],
+        "novelty": 4,
+        "evidence": 5,
+        "reproducibility_score": 0,
+        "significance": 38,
+        "significance_reason": "仅在单台Franka上针对有限类不对称工具做了单维度（抓取延迟+两个主观量表）的within-subject对比，无跨机体/跨工具泛化验证，无消融实验，未开源代码或数据，未与领域SOTA（如ALOHA/ACT/Diffusion Policy等具身决策框架）对比，属于特定场景下的工程优化，未触及手部姿态理解、抓取规划或人机协同决策等核心科学问题。",
+        "one_sentence_verdict": "暂时不用看——是限定场景（Franka+语音+MediaPipe+特定工具）下的交互微调，缺乏方法普适性、实证深度和开源支撑，未达到具身智能领域当前主流贡献门槛。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 14.1,
+        "content": 9.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 23.1,
+        "bonus": 0.0,
+        "total": 23.1
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.17839.jpg"
     },
     {
       "arxiv_id": "10.64898/2026.06.16.732711",
@@ -173536,6 +174919,86 @@
       "read_priority": "C"
     },
     {
+      "arxiv_id": "2607.18737",
+      "doi": "10.48550/arxiv.2607.18737",
+      "source_kind": "arxiv",
+      "title": "Motion Primitive Discovery in a Humanoid Robot via Self-Organising Maps for Phase Recognition",
+      "abstract": "Understanding the computational basis of action recognition is a central challenge in social cognition as well as in human-robot interaction. Inspired by the Mirror Neuron System (MNS), we propose a two-level architecture for motor primitive discovery and online phase recognition applied to the NICO humanoid robot. At the first level, two Self-Organising Maps (SOMs) learn topographic representations of arm kinematics (A-SOM) and hand kinematics (H-SOM) from simulated trials covering seven motor actions. The maps are trained on non-redundant features identified through hierarchical correlation analysis of motion trajectories. The results show that the two SOMs encode complementary aspects of motor behaviour. At the second level, an Echo State Network (ESN) evaluates whether temporal trajectories of SOM activations, represented by consecutive best-matching units, are sufficient for online recognition of the currently executed movement phase. The results show that SOM-based trajectories preserve the dominant phase-discriminative structure of the movement, while contextual information provides only a secondary refinement. Our contribution is the integration of established SOM and ESN methods within an MNS-inspired architecture for motor primitive representation and online phase recognition. The results are compatible with the computational hypothesis that self-organised motor representations, when temporally integrated, can support accurate online recognition of ongoing movement phases.",
+      "authors": [
+        "Radovan Gregor",
+        "Igor Farkaš"
+      ],
+      "categories": [],
+      "published": "2026-07-21",
+      "updated": "2026-07-21",
+      "url": "https://arxiv.org/abs/2607.18737",
+      "pdf_url": "https://arxiv.org/pdf/2607.18737",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4886,
+        "world_model": 0.4477,
+        "whole_body_control": 0.5069,
+        "dexterous_manipulation": 0.2239,
+        "sim2real_data": 0.2427,
+        "hardware_unitree": 0.2238,
+        "bci_neural_decoding": 0.3757,
+        "bci_foundation_models": 0.2947,
+        "bci_embodied_robot": 0.4582,
+        "bci_noninvasive_eeg": 0.205,
+        "protein_ai": 0.2012,
+        "genomics_ai": 0.1191
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.5069,
+      "first_seen": "2026-07-25",
+      "analysis": {
+        "tldr": "用自组织映射（SOM）分别学习手臂和手部运动学特征，再用回声状态网络（ESN）对SOM激活序列做时序建模，实现在NICO人形机器人仿真中对7个动作的在线相位识别。",
+        "org": "未知",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "自组织形成的运动表征（经SOM编码）在时序整合后足以支撑高精度在线运动相位识别，上下文信息仅起次要修正作用。",
+        "method_components": [
+          "model",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "仿真生成的七类动作的臂部与手部关节角度轨迹",
+        "output": "当前运动所处相位（如抓取前/中/后）的实时分类标签",
+        "robot_dependency": "NICO humanoid robot（仿真模型）",
+        "data_dependency": "完全依赖仿真数据，无真实机器人数据",
+        "sim2real_status": "sim-only",
+        "generalization": "limited",
+        "reproducibility": "none",
+        "tags": [
+          "sim2real"
+        ],
+        "novelty": 3,
+        "evidence": 4,
+        "reproducibility_score": 0,
+        "significance": 28,
+        "significance_reason": "纯仿真小规模（7动作）、单机体（NICO）、无真实硬件验证、无跨任务/跨机体泛化实验；方法为SOM+ESN经典组合，无新模型或新表示学习机制；未与任何现代基线（如Transformer时序模型、VAE+RNN、对比学习相位分割等）比较；贡献仅为旧方法在MNS启发下的拼接应用，未解决具身智能中相位识别的实际瓶颈（如噪声鲁棒性、延迟、多源异步输入）。",
+        "one_sentence_verdict": "概念包装：将神经科学启发的旧方法（SOM+ESN）套用于简单仿真动作相位识别，无实证突破、无开源、无泛化、无真实部署，仅具教学演示价值。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 15.2,
+        "content": 7.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 22.2,
+        "bonus": 0.0,
+        "total": 22.2
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.18737.jpg"
+    },
+    {
       "arxiv_id": "2607.14550",
       "doi": "10.48550/arxiv.2607.14550",
       "source_kind": "arxiv",
@@ -173616,6 +175079,95 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2607.14550.jpg"
+    },
+    {
+      "arxiv_id": "2607.17840",
+      "doi": "10.48550/arxiv.2607.17840",
+      "source_kind": "arxiv",
+      "title": "A Compact 3D-Printed Soft Finger with Cyclic Hydraulic Actuation",
+      "abstract": "Hydraulic soft fingers offer compliant and gentle manipulation, but their practical deployment is limited by bulky fluidic hardware, fabrication complexity, and insufficient design validation. This paper presents a compact 3D-printed soft hydraulic finger driven by a miniature cyclic peristaltic loop. The finger integrates compliant bellows, rigid connectors, and fluidic ports, while an Abaqus fluid-structure model is used to guide selection of wall thickness, pitch angle, and bellows length. The selected design is validated through baseline-corrected chamber-pressure measurements and vision-based angle tracking. Results show that the quasi-static finite-element model captures the main pressure-angle trends, with remaining offsets mainly attributed to bonding-induced stiffness and hydraulic losses. Vision-feedback control further enables repeatable angle tracking over a large bending range. Finally, grasping tests on fragile and deformable objects, including tofu and blueberries, demonstrate gentle, slip-free contact without visible damage. Overall, this work establishes a reproducible pipeline from FEA-guided design to closed-loop validation for compact 3D-printed hydraulic soft fingers.",
+      "authors": [
+        "Zefang Mao",
+        "Yunjia Li",
+        "Victoria Bamgboye",
+        "Sara Ben Haj Hammouda",
+        "Aika Ono",
+        "Wen Fan",
+        "C E Wu",
+        "Dandan Zhang"
+      ],
+      "categories": [],
+      "published": "2026-07-20",
+      "updated": "2026-07-20",
+      "url": "https://arxiv.org/abs/2607.17840",
+      "pdf_url": "https://arxiv.org/pdf/2607.17840",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2135,
+        "world_model": 0.1384,
+        "whole_body_control": 0.2008,
+        "dexterous_manipulation": 0.5,
+        "sim2real_data": 0.1322,
+        "hardware_unitree": 0.1225,
+        "bci_neural_decoding": 0.0653,
+        "bci_foundation_models": 0.0,
+        "bci_embodied_robot": 0.1828,
+        "bci_noninvasive_eeg": 0.0362,
+        "protein_ai": 0.1633,
+        "genomics_ai": 0.1306
+      },
+      "best_route": "dexterous_manipulation",
+      "relevance_raw": 0.2354,
+      "first_seen": "2026-07-25",
+      "analysis": {
+        "tldr": "用3D打印做出一个紧凑型软体液压手指，靠微型循环蠕动泵驱动，通过有限元仿真指导结构设计（壁厚/螺距/长度），再用压力测量和视觉角度跟踪验证模型，并实现对豆腐、蓝莓等易损物体的无滑移轻柔抓取。",
+        "org": "未知",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "基于Abaqus流固耦合仿真指导的3D打印软体液压手指设计流程，可实现紧凑结构、可重复弯曲控制与脆弱物体无损抓取。",
+        "method_components": [
+          "model",
+          "hardware",
+          "benchmark"
+        ],
+        "input": "周期性液压驱动信号（由微型蠕动泵产生）",
+        "output": "手指弯曲角度（通过视觉跟踪获得）及抓取力/接触状态（定性观察）",
+        "robot_dependency": "自研3D打印软体手指+微型蠕动泵系统",
+        "data_dependency": "依赖自制硬件实测数据（压力传感器+视觉），无外部机器人平台或真实任务数据集",
+        "sim2real_status": "small-real",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dexterous",
+          "soft-robotics",
+          "3d-printing",
+          "hydraulic-actuation"
+        ],
+        "novelty": 5,
+        "evidence": 7,
+        "reproducibility_score": 3,
+        "significance": 38,
+        "significance_reason": "属扎实的软体执行器工程实现：有FEA指导、闭环视觉控制、脆弱物抓取验证，但仅限单指单任务，无跨机体/跨任务泛化，未接入主流机器人平台（如Franka/Panda），无开源代码或模型，也未与现有软体操控基准（如SoftGripperBench）对标；相比T-Rex/ALOHA等90+分基石工作，它不涉及感知-决策-控制闭环、学习范式、多指协同或大规模数据驱动，仅是单模块硬件迭代。",
+        "one_sentence_verdict": "工程整合：完成了从仿真设计到实物闭环验证的完整链条，但局限于单一软体手指的机械实现，未触及具身智能核心问题（学习、泛化、系统集成），暂不具备范式突破或规模化应用潜力。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 7.1,
+        "content": 15.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 22.1,
+        "bonus": 0.0,
+        "total": 22.1
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.17840.jpg"
     },
     {
       "arxiv_id": "2606.11818",
@@ -176009,6 +177561,84 @@
       "read_priority": "C"
     },
     {
+      "arxiv_id": "10.64898/2026.07.14.738550",
+      "doi": "10.64898/2026.07.14.738550",
+      "source_kind": "biorxiv",
+      "title": "A Bayesian method for estimation of plant soil water content with application to low-cost horticultural robotics",
+      "abstract": "Abstract Climate change represents a challenge to food security by interfering with the environmental conditions needed for productive plant growth. While technology can be used for partial mitigation, access to technology is inequitable. Low-cost microcontrollers, such as the ESP32, have recently lowered the barrier for entry into prototyping smart devices. ESP32s equipped with capacitive moisture sensors have been suggested for low-cost smart plant watering systems. However, measuring moisture in soil is complex, potentially destructive, and requires careful calibration in order to characterise the response curve mapping soil water content to sensor measurements. Here, we developed a Bayesian method for estimating the inverse response curve from capacitive moisture sensor data, known water doses, and prior uncertainty, bypassing the need for destructive gravimetry. This method constitutes the core calibration module of the open-source OpenHCult software system for low-cost horticultural automation.",
+      "authors": [
+        "Joel Southgate"
+      ],
+      "categories": [],
+      "published": "2026-07-20",
+      "updated": "2026-07-20",
+      "url": "https://doi.org/10.64898/2026.07.14.738550",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/20/2026.07.14.738550.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2114,
+        "world_model": 0.2923,
+        "whole_body_control": 0.5,
+        "dexterous_manipulation": 0.1022,
+        "sim2real_data": 0.1274,
+        "hardware_unitree": 0.1083,
+        "bci_neural_decoding": 0.143,
+        "bci_foundation_models": 0.1155,
+        "bci_embodied_robot": 0.1963,
+        "bci_noninvasive_eeg": 0.1233,
+        "protein_ai": 0.1378,
+        "genomics_ai": 0.1458
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.2923,
+      "first_seen": "2026-07-25",
+      "analysis": {
+        "tldr": "这篇论文提出一种贝叶斯方法，用低成本电容式土壤湿度传感器（如ESP32+电极）结合已知浇水剂量和先验不确定性，反推土壤含水量与传感器读数之间的映射关系，从而避免破坏性称重法（gravimetry）校准，支撑开源园艺机器人系统OpenHCult。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "无需破坏性称重实验，仅凭电容传感器读数、已知灌水量和贝叶斯建模即可高置信度估计土壤真实含水量。",
+        "method_components": [
+          "model",
+          "dataset"
+        ],
+        "input": "电容式传感器原始读数 + 已知施加的水量（体积/质量） + 土壤类型先验分布",
+        "output": "土壤体积含水量（m³/m³）后验概率分布",
+        "robot_dependency": "none",
+        "data_dependency": "未使用真实机器人运行数据；仅依赖实验室级传感器+人工浇水的离线标定数据",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "open-source",
+          "dataset"
+        ],
+        "novelty": 4,
+        "evidence": 5,
+        "reproducibility_score": 3,
+        "significance": 32,
+        "significance_reason": "属农业传感中的工程改良：解决低成本硬件标定痛点，但未建立新范式、未验证跨土质/多传感器/长期漂移鲁棒性，无真实机器人闭环验证，也未与主流土壤水文模型（如HYDRUS）或商业标定方案对比性能，贡献窄且实证单薄。",
+        "one_sentence_verdict": "暂时不用看——是嵌入式园艺工具链中一个有实用价值但科学深度和系统影响力均有限的标定模块，不属于具身智能/脑机接口/AI×科学三大主赛道的核心进展。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 8.8,
+        "content": 12.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 20.8,
+        "bonus": 0.0,
+        "total": 20.8
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "10.64898/2026.07.03.736358",
       "doi": "10.64898/2026.07.03.736358",
       "source_kind": "biorxiv",
@@ -177913,6 +179543,89 @@
       "grade": "D",
       "read_priority": "D",
       "thumb": "assets/thumbs/2606.13032.jpg"
+    },
+    {
+      "arxiv_id": "2607.18598",
+      "doi": "10.48550/arxiv.2607.18598",
+      "source_kind": "arxiv",
+      "title": "Designing for What Cannot Be Seen: Supporting Embodied String Learning for Musicians with Blindness and Low-Vision",
+      "abstract": "Bowed string instruments demand fine-grained bodily coordination that is typically taught through visual demonstration, creating persistent barriers for musicians with blindness and low-vision (BLV). To understand these challenges and explore new design opportunities, we conducted a design study with four advanced string musicians with BLV and three of their instructors. Our team, spanning violin performance and music education, disability studies in music, HCI design, and engineering employed a qualitative, multi-method approach including practice video analysis, lesson observation, expert interviews. Our analysis identifies recurring difficulties in right-hand bow control, left-hand coordination, score access, and memory-intensive practice. Building on these findings, we conducted an exploratory design ideation phase informed by empirical findings and feedback from one musician with BLV. We developed speculative design directions that could potentially address identified breakdowns, while acknowledging that these concepts require further evaluation with instructors and in deployed contexts.",
+      "authors": [
+        "Shi Shi",
+        "Lingyun Chen",
+        "Zitao Zhang",
+        "Amanda R. Draper",
+        "Eli Blevis"
+      ],
+      "categories": [],
+      "published": "2026-07-21",
+      "updated": "2026-07-21",
+      "url": "https://arxiv.org/abs/2607.18598",
+      "pdf_url": "https://arxiv.org/pdf/2607.18598",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2636,
+        "world_model": 0.2389,
+        "whole_body_control": 0.2472,
+        "dexterous_manipulation": 0.2131,
+        "sim2real_data": 0.1292,
+        "hardware_unitree": 0.1334,
+        "bci_neural_decoding": 0.2782,
+        "bci_foundation_models": 0.1757,
+        "bci_embodied_robot": 0.5,
+        "bci_noninvasive_eeg": 0.1099,
+        "protein_ai": 0.0667,
+        "genomics_ai": 0.0577
+      },
+      "best_route": "bci_embodied_robot",
+      "relevance_raw": 0.2782,
+      "first_seen": "2026-07-25",
+      "analysis": {
+        "tldr": "这篇论文研究了视障和低视力弦乐演奏者在学习弓弦乐器时面临的具身协调障碍（如运弓控制、左手配合、乐谱获取），通过观察4位视障演奏者和3位教师的教学实践，总结出关键难点，并提出了若干尚未经实证检验的 speculative 设计方向。",
+        "org": "印第安纳大学",
+        "country": "US",
+        "org_type": "university",
+        "claim": "视障弦乐学习者的具身技能习得障碍根植于视觉主导的教学范式，需通过以触觉、听觉与身体反馈为中心的新型交互设计来重构学习支持系统。",
+        "method_components": [
+          "dataset",
+          "ui"
+        ],
+        "input": "教学视频、课堂观察记录、专家访谈文本",
+        "output": "定性问题归纳、推测性设计方案（非可运行原型）",
+        "robot_dependency": "none",
+        "data_dependency": "无真实机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "tactile",
+          "teleoperation"
+        ],
+        "novelty": 5,
+        "evidence": 4,
+        "reproducibility_score": 2,
+        "significance": 28,
+        "significance_reason": "属HCI+音乐教育交叉的探索性定性研究，未构建可测量系统、未验证任何设计有效性、无代码/模型/硬件实现，仅产出推测性概念；相比基石工作（如高精度脑机语音合成、脊髓接口恢复自然行走），既无技术突破也无临床/工程闭环，贡献限于问题识别与初步设计启发。",
+        "one_sentence_verdict": "暂时不用看：纯定性问题分析+未验证的 speculative 设计，无实证、无实现、无复现材料，尚未进入可评估的技术贡献阶段。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 8.3,
+        "content": 11.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 19.3,
+        "bonus": 0.0,
+        "total": 19.3
+      },
+      "grade": "D",
+      "read_priority": "D"
     },
     {
       "arxiv_id": "2606.12742",
