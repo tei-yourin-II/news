@@ -4507,6 +4507,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-07-27": [
+      {
+        "arxiv_id": "2607.18660",
+        "title": "MVP-Tac: A Miniaturized Dual-Modal Vision and Photoelastic Tactile Sensor for Robot-Assisted Minimally Invasive Surgery",
+        "published": "2026-07-21",
+        "first_seen": "2026-07-27",
+        "url": "https://arxiv.org/abs/2607.18660",
+        "pdf_url": "https://arxiv.org/pdf/2607.18660",
+        "thumb": "assets/thumbs/2607.18660.jpg",
+        "venue": "IROS 2026",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "佐治亚理工学院",
+        "country": "US",
+        "significance": 78,
+        "significance_reason": "属具身智能在医疗机器人领域的关键硬件突破：解决RMIS中视觉与触觉长期互斥的根本矛盾，提供首个经真实腔道约束验证、开源可复现、具备定量力标定与临床相关硬度判别能力的共位双模态传感器；虽未跨机体泛化或接入VLA大模型闭环，但硬件创新扎实、实证完整（力标定+双肿瘤分类+结肠镜全流程），显著优于纯仿真触觉工作，但尚未达到RT-2/Octo级范式变革量级。",
+        "tier": "heavy",
+        "tldr": "提出一种微型化双模态传感器MVP-Tac，把视觉相机和光弹触觉传感集成在同一紧凑探头上，通过可切换的半透明膜和偏振光路，在机器人辅助微创手术中同时/交替提供高保真视觉导航和定量触觉硬度感知，并在组织仿体和模拟结肠镜场景中验证了肿瘤定位与硬度分类能力。",
+        "deep": {
+          "hook": "首个能在临床级微创器械尺寸内共位集成视觉导航+定量触觉的开源硬件MVP-Tac",
+          "why_now": "接续2023–2025年触觉传感‘仿真泛滥、真机缺位’困局，踩中具身智能从纯算法向‘可部署硬件-任务闭环’迁移的关键拐点；与IROS 2025多篇纯仿真触觉工作形成鲜明对比，是少有的在真实腔道约束下完成双模态全流程验证的硬件论文",
+          "problem": "RMIS中视觉与触觉长期互斥：现有触觉方案（如压阻/电容阵列）破坏光学通路或体积超标，导致术中必须牺牲导航视觉换触觉，临床不可接受；而纯仿真触觉研究无法回答‘能否塞进5mm器械通道并同时看清+摸准’这一根本工程问题",
+          "method": "用微型反射式光弹成像替代传统接触式传感——把光弹弹性体贴在探头前端，受力后产生应力干涉条纹，由同一嵌入式相机通过偏振光路捕获；再用半透明膜+可控LED照明实现‘视觉模式’（透射可见光成像）与‘触觉模式’（反射偏振干涉成像）的物理切换，无需移动部件或牺牲视场",
+          "results": "力标定覆盖0–2 N全量程；组织仿体上暴露肿瘤分类准确率97%，皮下肿瘤92%；模拟结肠镜中同步完成腔壁3D光度重建（视觉）与局部结节硬度判别（触觉），所有硬件设计、固件、标定数据已开源",
+          "limitations": "仅在组织仿体和模拟结肠环境验证，未见活体组织或动物实验；硬度分类仅限二分类（暴露/皮下），未验证连续力估计精度或更细粒度病理区分（如良恶性）；未与任何运动控制策略或VLA模型耦合，仍是开环感知模块",
+          "significance_take": "显著推进‘具身感知硬件’路线：不是算法微调，而是重新定义传感器物理架构——它证明‘共位双模态’在5mm尺度下物理可行且可标定，为后续触觉-视觉联合策略（如基于硬度引导的视觉ROI聚焦）提供了不可绕过的硬件基座",
+          "who_should_read": "医疗机器人硬件工程师读可直接复用其偏振光路设计与膜切换机制；具身智能研究者读能厘清‘仿真触觉’与‘临床可部署触觉’之间的鸿沟在哪",
+          "verdict": "必读——这是近三年来少有把‘临床约束’当硬边界而非软假设来解的具身传感工作，不靠大模型堆砌，靠光路、材料、封装的扎实迭代",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.19479",
+        "title": "ModPack: An Extensible Teleoperation Interface for Bimanual Mobile Manipulation",
+        "published": "2026-07-21",
+        "first_seen": "2026-07-26",
+        "url": "https://arxiv.org/abs/2607.19479",
+        "pdf_url": "https://arxiv.org/pdf/2607.19479",
+        "thumb": "assets/thumbs/2607.19479.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "哥伦比亚大学",
+        "country": "US",
+        "significance": 78,
+        "significance_reason": "真机验证跨两个异构平台、支持多模块即插即用、开源全栈（含硬件设计），工程完成度高且复用性强；但未展示策略性能SOTA突破、未引入新学习范式或感知-控制新机制，属重大工程整合而非理论/算法突破，略低于ALOHA/ACT（96分）等定义新学习范式的标杆。",
+        "tier": "heavy",
+        "tldr": "提出一个可插拔的穿戴式‘背包’硬件接口，把计算、供电、通信和存储集成在单个模块里，让不同双手机器人平台能快速接入多种遥操作功能（如关节级控制+力反馈、移动抓取、主动感知），并在两个真实机器人上验证了数据采集和策略学习的复用性。",
+        "deep": {
+          "hook": "一个可插即用的‘机器人背包’，让双手机器人秒变遥操作终端",
+          "why_now": "继ALOHA/ACT定义端到端学习范式后，领域正从‘算法先行’转向‘系统基建’——ModPack直击真机部署中硬件碎片化、接口不统一、模块难复用的工程瓶颈，呼应2024年具身智能落地对可扩展遥操作基础设施的迫切需求",
+          "problem": "现有遥操作系统高度绑定特定机器人（如仅适配Franka或UR），更换平台需重写驱动、重调通信协议、重配传感器标定；功能模块（力反馈/移动控制/主动感知）彼此耦合，无法独立增删；导致数据采集成本高、策略迁移困难、开源复现门槛极高",
+          "method": "设计一款自包含穿戴式‘背包’硬件：集成Jetson Orin、IMU/EMG传感器、5G/WiFi双模通信、大容量SD卡与稳压电源，所有计算与数据流均在背包内闭环；软件层抽象出统一设备接口（UDI），将机器人底层差异（关节命名/运动学/底盘协议）映射为标准化动作空间；上层功能模块（如haptic teleop、mobile grasp）作为独立ROS2包，通过UDI注册即插即用，无需修改核心框架",
+          "results": "在两个异构平台验证：1）Husky+UR5e双臂移动平台 & 2）Locobot+Franka双臂平台；成功复用同一套遥操作数据采集流程与训练脚本；开源全栈（含PCB设计文件、ROS2驱动、UI代码及采集数据集）；摘要明确指出‘experiments across two distinct robot platforms and real-world mobile manipulation tasks’",
+          "limitations": "未报告任何策略性能指标（如任务成功率、完成时间），未与ALOHA/ACT等基线对比；所有实验均为人类遥操作采集数据，未验证所采数据训练出的策略是否泛化；硬件依赖Jetson Orin，未说明低算力平台兼容性；‘active perception’模块仅描述存在，无具体实现细节或评估",
+          "significance_take": "属范式级工程基建——不是改进某个算法，而是重建遥操作的‘Linux内核’：首次将硬件抽象层（背包）、接口标准（UDI）、模块治理（ROS2插件机制）三者协同落地，为多体具身系统提供可复用的‘操作系统雏形’，其价值类比ROS之于早期机器人研究",
+          "who_should_read": "做真机具身系统的研究者和工程师：能直接复用硬件设计、UDI接口规范和模块模板，省去90%的跨平台适配工作",
+          "verdict": "必读——它不教你新算法，但帮你甩掉重复造轮子的枷锁；真机落地派的‘工具箱’已更新，现在缺的不是想法，是能跑通的底座",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.21582",
+        "title": "Scale Up Strategically: Learning Compositional Generalization via Bias-Aware Evaluation and Data Collection for Robotic Manipulation",
+        "published": "2026-07-23",
+        "first_seen": "2026-07-26",
+        "url": "https://arxiv.org/abs/2607.21582",
+        "pdf_url": "https://arxiv.org/pdf/2607.21582",
+        "thumb": "assets/thumbs/2607.21582.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "NVIDIA",
+        "country": "US",
+        "significance": 78,
+        "significance_reason": "首次将 compositional generalization 失败归因到可测量的指令因子级 bias，并给出可操作的诊断-干预闭环（FDR/FDH → bias-aware data collection），在真实机器人上用减半数据达成性能提升，证据扎实（6个foundation policy分析+sim+real验证+消融），但未引入新模型架构或控制范式，属强工程驱动的范式改进，未达T-Rex/ALOHA级里程碑。",
+        "tier": "heavy",
+        "tldr": "这篇论文发现当前机器人语言策略模型在理解指令时严重依赖颜色等显眼线索，而忽视动词、尺寸等关键语义成分；为此提出一套可量化的诊断框架（FDR/FDH），并据此指导数据采集——只用一半示范数据就提升了跨指令组合的泛化能力，在仿真和真实机器人上都验证了效果。",
+        "deep": {
+          "hook": "首次量化指令中各语义因子（颜色/动词/尺寸等）的 grounding 偏差，并用它指导数据采集——减半数据量，泛化能力反升",
+          "why_now": "继ALOHA、OpenVLA后，社区正从‘堆数据+大模型’转向‘精准数据工程’；本文直击当前foundation policy在真实场景组合失败的核心病因（非模型容量不足，而是数据偏差），呼应了ICRA’24/CoRL’24多篇对‘shortcut learning’的反思浪潮",
+          "problem": "机器人语言策略常靠颜色等显眼线索走捷径，而非真正理解动词、尺寸等抽象语义；导致指令稍一重组（如‘把小红块放到左边’→‘把大蓝块放到右边’）就崩溃；现有评估无法定位是哪类语义没学好，更无闭环干预手段",
+          "method": "提出FDR（因子间主导率）和FDH（全局主导层级）两个可计算指标，用6个foundation policy在统一benchmark上测量各指令因子（颜色/物体/动词/空间/尺寸）的grounding强度；发现‘颜色≥物体≥空间≥动词≥尺寸’的稳定偏差排序；据此设计bias-aware采样：在固定总预算下，优先收集动词、尺寸等低FDH因子的新示范（如补采‘推大球’‘拉小盒’等稀缺组合）",
+          "results": "在仿真与真实Franka机器人上验证：用仅50%原始示范数据（按FDH指导重分配），6个foundation policy在跨因子组合任务上的成功率均提升；消融实验证明FDH指导的数据比随机/均匀采样更有效；6个policy的FDH排序高度一致（摘要明确给出color ≥ object ≥ spatial ≥ verb ≥ size）",
+          "limitations": "1. 所有实验基于预训练foundation policy微调，未验证该框架对从零训练模型是否同样有效；2. FDH依赖人工定义的5类指令因子，未处理因子间交互（如‘左上方’含空间+方位复合语义），也未覆盖时序或逻辑结构（如‘先A再B’）",
+          "significance_take": "范式级改进：将‘组合泛化弱’这一模糊问题，转化为可测量、可排序、可干预的因子级grounding偏差问题；不是换模型，而是重构数据生产逻辑——类似CV中从‘大数据’到‘高质量标注’的跃迁，为具身智能建立首个instruction-factor-aware的数据治理框架",
+          "who_should_read": "做机器人语言策略的数据工程师、评估研究员和部署工程师，能直接拿走FDR/FDH诊断工具链和bias-aware采样模板，用于自己pipeline的debug与优化",
+          "verdict": "必读：它不造新模型，但给出了当前最扎实、最易落地的组合泛化破局路径——当别人还在争论‘要不要更大模型’时，它已证明‘少采一半错数据，比多采一倍混杂数据更管用’",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -4650,14 +4742,17 @@
     "2607.18016",
     "2607.18236",
     "2607.18367",
+    "2607.18660",
     "2607.19343",
+    "2607.19479",
     "2607.19749",
     "2607.20061",
     "2607.20207",
     "2607.20679",
     "2607.20785",
-    "2607.20912"
+    "2607.20912",
+    "2607.21582"
   ],
-  "latest": "2026-07-26",
-  "generated_at": "2026-07-26 04:33 UTC"
+  "latest": "2026-07-27",
+  "generated_at": "2026-07-27 04:42 UTC"
 }
