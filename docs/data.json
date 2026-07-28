@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-27 04:41 UTC",
-  "count": 2177,
+  "generated_at": "2026-07-28 04:02 UTC",
+  "count": 2178,
   "routes": [
     {
       "id": "vla",
@@ -77,14 +77,14 @@
       "name": "蛋白质计算 / 设计",
       "tier": "core",
       "domain": "ai_science",
-      "count": 1134
+      "count": 1135
     },
     {
       "id": "genomics_ai",
       "name": "基因组 / 基因 AI",
       "tier": "core",
       "domain": "ai_science",
-      "count": 1295
+      "count": 1296
     }
   ],
   "edges": [
@@ -4379,6 +4379,46 @@
       "weight": 0.207
     },
     {
+      "source": "2607.20785",
+      "target": "route:vla",
+      "weight": 0.55
+    },
+    {
+      "source": "2607.20785",
+      "target": "route:world_model",
+      "weight": 0.488
+    },
+    {
+      "source": "2607.20785",
+      "target": "route:whole_body_control",
+      "weight": 0.401
+    },
+    {
+      "source": "2607.20785",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.189
+    },
+    {
+      "source": "2607.20785",
+      "target": "route:sim2real_data",
+      "weight": 0.302
+    },
+    {
+      "source": "2607.20785",
+      "target": "route:hardware_unitree",
+      "weight": 0.204
+    },
+    {
+      "source": "2607.20785",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.242
+    },
+    {
+      "source": "2607.20785",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.155
+    },
+    {
       "source": "2607.08974",
       "target": "route:vla",
       "weight": 0.669
@@ -4562,46 +4602,6 @@
       "source": "2607.07370",
       "target": "route:bci_embodied_robot",
       "weight": 0.409
-    },
-    {
-      "source": "2607.20785",
-      "target": "route:vla",
-      "weight": 0.55
-    },
-    {
-      "source": "2607.20785",
-      "target": "route:world_model",
-      "weight": 0.488
-    },
-    {
-      "source": "2607.20785",
-      "target": "route:whole_body_control",
-      "weight": 0.401
-    },
-    {
-      "source": "2607.20785",
-      "target": "route:dexterous_manipulation",
-      "weight": 0.189
-    },
-    {
-      "source": "2607.20785",
-      "target": "route:sim2real_data",
-      "weight": 0.302
-    },
-    {
-      "source": "2607.20785",
-      "target": "route:hardware_unitree",
-      "weight": 0.204
-    },
-    {
-      "source": "2607.20785",
-      "target": "route:bci_embodied_robot",
-      "weight": 0.242
-    },
-    {
-      "source": "2607.20785",
-      "target": "route:bci_noninvasive_eeg",
-      "weight": 0.155
     },
     {
       "source": "2606.08530",
@@ -63504,6 +63504,16 @@
       "weight": 0.255
     },
     {
+      "source": "10.64898/2026.07.22.740010",
+      "target": "route:protein_ai",
+      "weight": 0.5
+    },
+    {
+      "source": "10.64898/2026.07.22.740010",
+      "target": "route:genomics_ai",
+      "weight": 0.368
+    },
+    {
       "source": "10.64898/2026.05.27.728199",
       "target": "route:bci_neural_decoding",
       "weight": 0.247
@@ -95257,6 +95267,81 @@
       }
     },
     {
+      "arxiv_id": "2607.20785",
+      "title": "Robostral Navigate",
+      "authors": [
+        "Arjun Majumdar",
+        "Avinash Sooriyarachchi",
+        "Benjamin Tibi",
+        "Chris Bamford",
+        "Elliot Chane-Sane",
+        "Guillaume Lample"
+      ],
+      "published": "2026-07-22T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2607.20785",
+      "pdf_url": "https://arxiv.org/pdf/2607.20785",
+      "source": "hf_daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2607.20785.jpg",
+      "best_route": "vla",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "hardware_unitree",
+        "bci_embodied_robot",
+        "bci_noninvasive_eeg"
+      ],
+      "tags": [
+        "multimodal-fusion",
+        "sim2real",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 16.5,
+        "content": 18.0,
+        "heat": 8.7,
+        "quality": 0.0,
+        "base": 34.5,
+        "bonus": 8.7,
+        "total": 43.2
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "tldr": "用一个80亿参数的纯视觉-语言模型，只靠单目RGB视频流就能预测导航路点（在当前图像上指点击目标位置），不依赖深度相机、多摄像头或地图，在仿真中训练后直接跨轮式/腿式/飞行机器人部署，且在两个主流室内导航基准上刷出SOTA。",
+      "org": "Meta",
+      "orgs": [
+        "Meta"
+      ],
+      "country": "US",
+      "org_type": "company",
+      "novelty": 7,
+      "significance": 76,
+      "significance_reason": "真机零验证、纯仿真刷榜，但跨机体泛化设计扎实（图像空间输出+前缀缓存+树形mask），性能显著超越所有单目及部分多传感器方法，属扎实增量推进；未达RT-2/π0级范式突破，也未开源代码/模型，故低于90分档。",
+      "tier": "heavy",
+      "verdict": "工程整合：将VLA范式成功迁移到纯单目导航任务，架构设计有巧思（图像空间路点+跨机体解耦），但缺乏真实世界验证和开源支撑，属于高质量仿真驱动的系统级整合，非原理性突破。",
+      "claim": "仅用单目RGB视频流、无需机器人本体坐标建模、不依赖深度或多传感器，即可实现跨机体通用、可零校准部署的端到端视觉导航策略。",
+      "input": "单目RGB图像序列",
+      "output": "图像空间中的二维路点坐标（指向下一目标位置）",
+      "sim2real_status": "sim-only",
+      "reproducibility": "project-page",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 9,
+        "citations": 0,
+        "venue": "arXiv (Cornell University)"
+      }
+    },
+    {
       "arxiv_id": "2607.08974",
       "title": "CLAP: Direct VLM-to-VLA Adaptation via Language-Action Grounding",
       "authors": [
@@ -95555,81 +95640,6 @@
       ],
       "signals": {
         "hf_upvotes": 0,
-        "citations": 0,
-        "venue": "arXiv (Cornell University)"
-      }
-    },
-    {
-      "arxiv_id": "2607.20785",
-      "title": "Robostral Navigate",
-      "authors": [
-        "Arjun Majumdar",
-        "Avinash Sooriyarachchi",
-        "Benjamin Tibi",
-        "Chris Bamford",
-        "Elliot Chane-Sane",
-        "Guillaume Lample"
-      ],
-      "published": "2026-07-22T00:00:00.000Z",
-      "url": "https://arxiv.org/abs/2607.20785",
-      "pdf_url": "https://arxiv.org/pdf/2607.20785",
-      "source": "hf_daily",
-      "venue": "",
-      "thumb": "assets/thumbs/2607.20785.jpg",
-      "best_route": "vla",
-      "domain": "embodied_ai",
-      "routes": [
-        "vla",
-        "world_model",
-        "whole_body_control",
-        "dexterous_manipulation",
-        "sim2real_data",
-        "hardware_unitree",
-        "bci_embodied_robot",
-        "bci_noninvasive_eeg"
-      ],
-      "tags": [
-        "multimodal-fusion",
-        "sim2real",
-        "benchmark"
-      ],
-      "scores": {
-        "relevance": 16.5,
-        "content": 18.0,
-        "heat": 8.3,
-        "quality": 0.0,
-        "base": 34.5,
-        "bonus": 8.3,
-        "total": 42.8
-      },
-      "grade": "C",
-      "read_priority": "B",
-      "tldr": "用一个80亿参数的纯视觉-语言模型，只靠单目RGB视频流就能预测导航路点（在当前图像上指点击目标位置），不依赖深度相机、多摄像头或地图，在仿真中训练后直接跨轮式/腿式/飞行机器人部署，且在两个主流室内导航基准上刷出SOTA。",
-      "org": "Meta",
-      "orgs": [
-        "Meta"
-      ],
-      "country": "US",
-      "org_type": "company",
-      "novelty": 7,
-      "significance": 76,
-      "significance_reason": "真机零验证、纯仿真刷榜，但跨机体泛化设计扎实（图像空间输出+前缀缓存+树形mask），性能显著超越所有单目及部分多传感器方法，属扎实增量推进；未达RT-2/π0级范式突破，也未开源代码/模型，故低于90分档。",
-      "tier": "heavy",
-      "verdict": "工程整合：将VLA范式成功迁移到纯单目导航任务，架构设计有巧思（图像空间路点+跨机体解耦），但缺乏真实世界验证和开源支撑，属于高质量仿真驱动的系统级整合，非原理性突破。",
-      "claim": "仅用单目RGB视频流、无需机器人本体坐标建模、不依赖深度或多传感器，即可实现跨机体通用、可零校准部署的端到端视觉导航策略。",
-      "input": "单目RGB图像序列",
-      "output": "图像空间中的二维路点坐标（指向下一目标位置）",
-      "sim2real_status": "sim-only",
-      "reproducibility": "project-page",
-      "method_components": [
-        "model",
-        "dataset",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "signals": {
-        "hf_upvotes": 8,
         "citations": 0,
         "venue": "arXiv (Cornell University)"
       }
@@ -179195,7 +179205,7 @@
       "pdf_url": "https://arxiv.org/pdf/2607.12423",
       "source": "daily",
       "venue": "",
-      "thumb": "",
+      "thumb": "assets/thumbs/2607.12423.jpg",
       "best_route": "world_model",
       "domain": "embodied_ai",
       "routes": [
@@ -196790,6 +196800,69 @@
       "reproducibility": "none",
       "method_components": [
         "model",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "10.64898/2026.07.22.740010",
+      "title": "Proteomic mapping of the dengue virus NS1 microenvironment in infected cells identifies novel host dependency factors including TM9SF3",
+      "authors": [
+        "Siena M. Centofanti",
+        "Alex Colella",
+        "Nusha Chegeni",
+        "Kamelya Aliakbari",
+        "Gustavo Bracho",
+        "Eva Hesping"
+      ],
+      "published": "2026-07-22",
+      "url": "https://doi.org/10.64898/2026.07.22.740010",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/22/2026.07.22.740010.full.pdf",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "protein_ai",
+      "domain": "ai_science",
+      "routes": [
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 11.2,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 29.2,
+        "bonus": 0.0,
+        "total": 29.2
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "用APEX2邻近标记结合定量蛋白质组学，在活病毒感染细胞中绘制登革病毒NS1蛋白的原位互作微环境，发现51个NS1邻近宿主蛋白，通过功能缺失验证确认TM9SF3是新宿主依赖因子，其敲除显著抑制病毒颗粒产生和NS1分泌。",
+      "org": "未知（作者单位未在摘要中披露，无机构缩写或标志性实验室线索）",
+      "orgs": [],
+      "country": "unknown",
+      "org_type": "unknown",
+      "novelty": 6,
+      "significance": 52,
+      "significance_reason": "方法上规范应用APEX2-proteomics于活病毒体系，发现TM9SF3等新靶点并完成基础功能验证（KO+病毒产量/NS1检测），但未提供结构机制、体外生化验证、动物模型表型或化合物干预数据；相比AlphaFold2/ESM系列等范式级工具或dtSFM等靶向生成模型，属扎实但窄口径的靶点发现工作，未突破技术边界，也未构建可泛化模型或资源平台。",
+      "tier": "worth",
+      "verdict": "扎实增量：技术路线成熟可靠，靶点验证到细胞表型层面，但缺乏机制深度与转化闭环，暂未达到新靶点发现类工作的高分阈值（如90+需含结构/体内/药物响应证据）",
+      "claim": "登革病毒NS1蛋白在感染细胞内的原位蛋白微环境包含多个新宿主依赖因子，其中TM9SF3通过维持高尔基体完整性与糖基化保真度，是NS1功能执行和病毒复制所必需的关键宿主因子。",
+      "input": "感染登革病毒的活细胞 + APEX2标记的NS1报告病毒",
+      "output": "NS1邻近蛋白列表（51个）及其功能验证结果（如TM9SF3对病毒产量/NS1水平的影响）",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "dataset",
         "benchmark"
       ],
       "signals": {

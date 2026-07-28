@@ -14146,6 +14146,103 @@
       "thumb": "assets/thumbs/2607.14076.jpg"
     },
     {
+      "arxiv_id": "2607.20785",
+      "title": "Robostral Navigate",
+      "abstract": "Deploying navigation systems at scale requires a recipe that minimizes sensor assumptions, generalizes across robot embodiments, and trains efficiently. Yet, today's best systems depend on depth sensors, multi-camera rigs, or pre-built maps, limiting the hardware they support and increasing deployment cost. We introduce Robostral Navigate, an 8B vision-language model built around this scalability objective. The model consumes only a stream of monocular RGB images - the most ubiquitous sensor across robotic platforms and predicts waypoints by pointing to the next target location in the current camera view. Operating purely in image space, rather than robot-specific coordinates, makes the policy naturally robust to changes in camera intrinsics and scene scale, enabling deployment across wheeled, legged, and aerial robots without recalibration. We generate 2.4 million trajectories across 350k simulated scenes to reduce the reliance on real-world data collection and scale easily. We further introduce a prefix-caching training recipe that packs entire episodes into single training sequences, reducing training tokens by 22x and cutting training time from months to days. A tree-based attention mask prevents conditioning on previous ground-truth actions, encouraging visually grounded action prediction, and reinforcement learning is used to further improve exploration and recovery capabilities. On the Room-to-Room and Room-Across-Room in Continuous Environments (R2R-CE and RxR-CE) benchmarks, Robostral Navigate sets a new state of the art. On R2R-CE, it achieves a 77.4% success rate, surpassing the best monocular method by 10.5 points and the strongest depth- or multi-camera system by 5.3 points despite using only a single RGB camera. On RxR-CE, it reaches 75.1% success rate, outperforming all monocular baselines.",
+      "authors": [
+        "Arjun Majumdar",
+        "Avinash Sooriyarachchi",
+        "Benjamin Tibi",
+        "Chris Bamford",
+        "Elliot Chane-Sane",
+        "Guillaume Lample",
+        "Khyathi Raghavi Chandu",
+        "Ludovic Ho Fuh",
+        "Mathieu Poiree",
+        "Olivier Duchenne",
+        "Rosalie Millner",
+        "Srijan Mishra",
+        "Theo Cachet",
+        "Thomas Chabal"
+      ],
+      "categories": [],
+      "published": "2026-07-22T00:00:00.000Z",
+      "updated": "2026-07-22T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2607.20785",
+      "pdf_url": "https://arxiv.org/pdf/2607.20785",
+      "hf_upvotes": 8,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.5496,
+        "world_model": 0.4885,
+        "whole_body_control": 0.4008,
+        "dexterous_manipulation": 0.1889,
+        "sim2real_data": 0.3017,
+        "hardware_unitree": 0.204,
+        "bci_neural_decoding": 0.1002,
+        "bci_foundation_models": 0.146,
+        "bci_embodied_robot": 0.2424,
+        "bci_noninvasive_eeg": 0.1547,
+        "protein_ai": 0.0785,
+        "genomics_ai": 0.1228
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.5496,
+      "first_seen": "2026-07-25",
+      "analysis": {
+        "tldr": "用一个80亿参数的纯视觉-语言模型，只靠单目RGB视频流就能预测导航路点（在当前图像上指点击目标位置），不依赖深度相机、多摄像头或地图，在仿真中训练后直接跨轮式/腿式/飞行机器人部署，且在两个主流室内导航基准上刷出SOTA。",
+        "org": "Meta",
+        "country": "US",
+        "org_type": "company",
+        "claim": "仅用单目RGB视频流、无需机器人本体坐标建模、不依赖深度或多传感器，即可实现跨机体通用、可零校准部署的端到端视觉导航策略。",
+        "method_components": [
+          "model",
+          "dataset",
+          "simulator",
+          "policy",
+          "benchmark"
+        ],
+        "input": "单目RGB图像序列",
+        "output": "图像空间中的二维路点坐标（指向下一目标位置）",
+        "robot_dependency": "none",
+        "data_dependency": "完全依赖合成数据（2.4M仿真轨迹），无真实机器人数据",
+        "sim2real_status": "sim-only",
+        "generalization": [
+          "cross-embodiment"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "sim2real",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 8,
+        "reproducibility_score": 3,
+        "significance": 76,
+        "significance_reason": "真机零验证、纯仿真刷榜，但跨机体泛化设计扎实（图像空间输出+前缀缓存+树形mask），性能显著超越所有单目及部分多传感器方法，属扎实增量推进；未达RT-2/π0级范式突破，也未开源代码/模型，故低于90分档。",
+        "one_sentence_verdict": "工程整合：将VLA范式成功迁移到纯单目导航任务，架构设计有巧思（图像空间路点+跨机体解耦），但缺乏真实世界验证和开源支撑，属于高质量仿真驱动的系统级整合，非原理性突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 9,
+        "citations": 0,
+        "venue": "arXiv (Cornell University)"
+      },
+      "scores": {
+        "relevance": 16.5,
+        "content": 18.0,
+        "heat": 8.7,
+        "quality": 0.0,
+        "base": 34.5,
+        "bonus": 8.7,
+        "total": 43.2
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.20785.jpg"
+    },
+    {
       "arxiv_id": "2607.08974",
       "doi": "10.48550/arxiv.2607.08974",
       "source_kind": "arxiv",
@@ -14524,103 +14621,6 @@
       "grade": "C",
       "read_priority": "B",
       "thumb": "assets/thumbs/2607.07370.jpg"
-    },
-    {
-      "arxiv_id": "2607.20785",
-      "title": "Robostral Navigate",
-      "abstract": "Deploying navigation systems at scale requires a recipe that minimizes sensor assumptions, generalizes across robot embodiments, and trains efficiently. Yet, today's best systems depend on depth sensors, multi-camera rigs, or pre-built maps, limiting the hardware they support and increasing deployment cost. We introduce Robostral Navigate, an 8B vision-language model built around this scalability objective. The model consumes only a stream of monocular RGB images - the most ubiquitous sensor across robotic platforms and predicts waypoints by pointing to the next target location in the current camera view. Operating purely in image space, rather than robot-specific coordinates, makes the policy naturally robust to changes in camera intrinsics and scene scale, enabling deployment across wheeled, legged, and aerial robots without recalibration. We generate 2.4 million trajectories across 350k simulated scenes to reduce the reliance on real-world data collection and scale easily. We further introduce a prefix-caching training recipe that packs entire episodes into single training sequences, reducing training tokens by 22x and cutting training time from months to days. A tree-based attention mask prevents conditioning on previous ground-truth actions, encouraging visually grounded action prediction, and reinforcement learning is used to further improve exploration and recovery capabilities. On the Room-to-Room and Room-Across-Room in Continuous Environments (R2R-CE and RxR-CE) benchmarks, Robostral Navigate sets a new state of the art. On R2R-CE, it achieves a 77.4% success rate, surpassing the best monocular method by 10.5 points and the strongest depth- or multi-camera system by 5.3 points despite using only a single RGB camera. On RxR-CE, it reaches 75.1% success rate, outperforming all monocular baselines.",
-      "authors": [
-        "Arjun Majumdar",
-        "Avinash Sooriyarachchi",
-        "Benjamin Tibi",
-        "Chris Bamford",
-        "Elliot Chane-Sane",
-        "Guillaume Lample",
-        "Khyathi Raghavi Chandu",
-        "Ludovic Ho Fuh",
-        "Mathieu Poiree",
-        "Olivier Duchenne",
-        "Rosalie Millner",
-        "Srijan Mishra",
-        "Theo Cachet",
-        "Thomas Chabal"
-      ],
-      "categories": [],
-      "published": "2026-07-22T00:00:00.000Z",
-      "updated": "2026-07-22T00:00:00.000Z",
-      "url": "https://arxiv.org/abs/2607.20785",
-      "pdf_url": "https://arxiv.org/pdf/2607.20785",
-      "hf_upvotes": 8,
-      "source": "hf_daily",
-      "route_scores": {
-        "vla": 0.5496,
-        "world_model": 0.4885,
-        "whole_body_control": 0.4008,
-        "dexterous_manipulation": 0.1889,
-        "sim2real_data": 0.3017,
-        "hardware_unitree": 0.204,
-        "bci_neural_decoding": 0.1002,
-        "bci_foundation_models": 0.146,
-        "bci_embodied_robot": 0.2424,
-        "bci_noninvasive_eeg": 0.1547,
-        "protein_ai": 0.0785,
-        "genomics_ai": 0.1228
-      },
-      "best_route": "vla",
-      "relevance_raw": 0.5496,
-      "first_seen": "2026-07-25",
-      "analysis": {
-        "tldr": "用一个80亿参数的纯视觉-语言模型，只靠单目RGB视频流就能预测导航路点（在当前图像上指点击目标位置），不依赖深度相机、多摄像头或地图，在仿真中训练后直接跨轮式/腿式/飞行机器人部署，且在两个主流室内导航基准上刷出SOTA。",
-        "org": "Meta",
-        "country": "US",
-        "org_type": "company",
-        "claim": "仅用单目RGB视频流、无需机器人本体坐标建模、不依赖深度或多传感器，即可实现跨机体通用、可零校准部署的端到端视觉导航策略。",
-        "method_components": [
-          "model",
-          "dataset",
-          "simulator",
-          "policy",
-          "benchmark"
-        ],
-        "input": "单目RGB图像序列",
-        "output": "图像空间中的二维路点坐标（指向下一目标位置）",
-        "robot_dependency": "none",
-        "data_dependency": "完全依赖合成数据（2.4M仿真轨迹），无真实机器人数据",
-        "sim2real_status": "sim-only",
-        "generalization": [
-          "cross-embodiment"
-        ],
-        "reproducibility": "project-page",
-        "tags": [
-          "multimodal-fusion",
-          "sim2real",
-          "benchmark"
-        ],
-        "novelty": 7,
-        "evidence": 8,
-        "reproducibility_score": 3,
-        "significance": 76,
-        "significance_reason": "真机零验证、纯仿真刷榜，但跨机体泛化设计扎实（图像空间输出+前缀缓存+树形mask），性能显著超越所有单目及部分多传感器方法，属扎实增量推进；未达RT-2/π0级范式突破，也未开源代码/模型，故低于90分档。",
-        "one_sentence_verdict": "工程整合：将VLA范式成功迁移到纯单目导航任务，架构设计有巧思（图像空间路点+跨机体解耦），但缺乏真实世界验证和开源支撑，属于高质量仿真驱动的系统级整合，非原理性突破。",
-        "_llm": "qwen-plus"
-      },
-      "signals": {
-        "hf_upvotes": 8,
-        "citations": 0,
-        "venue": "arXiv (Cornell University)"
-      },
-      "scores": {
-        "relevance": 16.5,
-        "content": 18.0,
-        "heat": 8.3,
-        "quality": 0.0,
-        "base": 34.5,
-        "bonus": 8.3,
-        "total": 42.8
-      },
-      "grade": "C",
-      "read_priority": "B",
-      "thumb": "assets/thumbs/2607.20785.jpg"
     },
     {
       "arxiv_id": "2606.08530",
@@ -118153,7 +118153,8 @@
         "total": 31.2
       },
       "grade": "D",
-      "read_priority": "C"
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.12423.jpg"
     },
     {
       "arxiv_id": "10.64898/2026.07.14.736885",
@@ -139947,6 +139948,93 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2607.18715.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.07.22.740010",
+      "doi": "10.64898/2026.07.22.740010",
+      "source_kind": "biorxiv",
+      "title": "Proteomic mapping of the dengue virus NS1 microenvironment in infected cells identifies novel host dependency factors including TM9SF3",
+      "abstract": "ABSTRACT Dengue virus (DENV) is endemic in over 100 countries and causes approximately 100 million symptomatic infections annually, with symptoms ranging from mild febrile illness to life-threatening severe vascular leakage and haemorrhagic fever. There are currently no approved antiviral therapies available to treat DENV infections. The DENV non-structural protein 1 (NS1) is essential for viral RNA replication and infectious virus particle production, while secreted NS1 contributes to immune evasion and pathogenicity. Towards the identification of novel NS1-host protein interactions that are critical to these functions, an APEX2 proximity labelling-coupled quantitative proteomics approach was employed to map the proteomic composition of the NS1 microenvironment in live infected cells. Our analysis identified a panel of 51 NS1-proximal host proteins, including established DENV host dependency factors (HDFs) involved in NS1 folding and N -glycosylation, as well as previously unrecognised host factors. Loss-of-function approaches were used to determine the importance of these NS1-proximal host proteins to DENV infection, identifying several novel HDFs, including transmembrane 9 superfamily member 3 (TM9SF3). Importantly, the knockout of TM9SF3 was shown to impair DENV infectious virion production and intracellular NS1 abundance and secretion, consistent with the recently described roles of TM9SF3 in Golgi integrity and glycosylation fidelity. Together, this study demonstrates the successful application of APEX2 proximity labelling-coupled quantitative proteomics to the identification of functionally relevant NS1-associated host proteins that may inform the development of future antiviral therapies. IMPORTANCE The DENV NS1 protein is a non-enzymatic, multifunctional glycoprotein that plays multiple distinct roles in viral replication organelle formation, viral RNA replication and infectious virus particle production. It is also secreted from infected cells as an oligomeric lipoparticle that participates in immune evasion and vascular damage. Many of its enigmatic roles are thought to be mediated via its interactions with other viral proteins and host proteins. Here, we have employed an infectious NS1-tagged DENV reporter virus and proximity biotinylation-coupled mass spectrometry to characterise the protein microenvironment of NS1 during viral infection. We have then employed functional genomics approaches to identify NS1-proximal host factors that contribute to the viral replication cycle. Amongst the novel host factors that were identified was TM9SF3, which has recently emerged as a Golgi-resident Golgiphagy receptor that is important for maintenance of Golgi integrity and glycosylation fidelity and may represent a future DENV antiviral drug target.",
+      "authors": [
+        "Siena M. Centofanti",
+        "Alex Colella",
+        "Nusha Chegeni",
+        "Kamelya Aliakbari",
+        "Gustavo Bracho",
+        "Eva Hesping",
+        "Michael J. Roach",
+        "Jillian M. Carr",
+        "Tim Chataway",
+        "Nicholas S. Eyre"
+      ],
+      "categories": [],
+      "published": "2026-07-22",
+      "updated": "2026-07-22",
+      "url": "https://doi.org/10.64898/2026.07.22.740010",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/22/2026.07.22.740010.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0451,
+        "world_model": 0.0979,
+        "whole_body_control": 0.0,
+        "dexterous_manipulation": 0.0241,
+        "sim2real_data": 0.047,
+        "hardware_unitree": 0.0497,
+        "bci_neural_decoding": 0.1303,
+        "bci_foundation_models": 0.1447,
+        "bci_embodied_robot": 0.0517,
+        "bci_noninvasive_eeg": 0.1045,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.3683
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3724,
+      "first_seen": "2026-07-28",
+      "analysis": {
+        "tldr": "用APEX2邻近标记结合定量蛋白质组学，在活病毒感染细胞中绘制登革病毒NS1蛋白的原位互作微环境，发现51个NS1邻近宿主蛋白，通过功能缺失验证确认TM9SF3是新宿主依赖因子，其敲除显著抑制病毒颗粒产生和NS1分泌。",
+        "org": "未知（作者单位未在摘要中披露，无机构缩写或标志性实验室线索）",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "登革病毒NS1蛋白在感染细胞内的原位蛋白微环境包含多个新宿主依赖因子，其中TM9SF3通过维持高尔基体完整性与糖基化保真度，是NS1功能执行和病毒复制所必需的关键宿主因子。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "感染登革病毒的活细胞 + APEX2标记的NS1报告病毒",
+        "output": "NS1邻近蛋白列表（51个）及其功能验证结果（如TM9SF3对病毒产量/NS1水平的影响）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 8,
+        "reproducibility_score": 4,
+        "significance": 52,
+        "significance_reason": "方法上规范应用APEX2-proteomics于活病毒体系，发现TM9SF3等新靶点并完成基础功能验证（KO+病毒产量/NS1检测），但未提供结构机制、体外生化验证、动物模型表型或化合物干预数据；相比AlphaFold2/ESM系列等范式级工具或dtSFM等靶向生成模型，属扎实但窄口径的靶点发现工作，未突破技术边界，也未构建可泛化模型或资源平台。",
+        "one_sentence_verdict": "扎实增量：技术路线成熟可靠，靶点验证到细胞表型层面，但缺乏机制深度与转化闭环，暂未达到新靶点发现类工作的高分阈值（如90+需含结构/体内/药物响应证据）",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 11.2,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 29.2,
+        "bonus": 0.0,
+        "total": 29.2
+      },
+      "grade": "D",
+      "read_priority": "C"
     },
     {
       "arxiv_id": "10.64898/2026.05.27.728199",

@@ -1,8 +1,8 @@
 {
   "week": {
-    "start": "2026-07-21",
-    "end": "2026-07-27",
-    "label": "07.21~07.27"
+    "start": "2026-07-22",
+    "end": "2026-07-28",
+    "label": "07.22~07.28"
   },
   "count": 15,
   "venue_count": 4,
@@ -11,7 +11,7 @@
     "IROS 2026",
     "RA-L"
   ],
-  "generated_at": "2026-07-27 04:43 UTC",
+  "generated_at": "2026-07-28 04:04 UTC",
   "picks": [
     {
       "rank": 1,
@@ -52,44 +52,6 @@
     },
     {
       "rank": 2,
-      "arxiv_id": "2607.19343",
-      "title": "Masked Visual Actions for Unified World Modeling",
-      "published": "2026-07-21",
-      "url": "https://arxiv.org/abs/2607.19343",
-      "pdf_url": "https://arxiv.org/pdf/2607.19343",
-      "thumb": "assets/thumbs/2607.19343.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "斯坦福",
-      "country": "US",
-      "org_type": "university",
-      "significance": 92,
-      "significance_reason": "实证扎实：跨多场景/多机体验证前向 rollout 与真实执行结果显著相关（policy evaluation）、支持 model-based planning 中候选未来排序、并完成 inverse modeling 的端到端像素级动作合成；微调数据量极小（15h），且复用现有视频基础模型，逼近 DreamerV3/Genie 级别世界建模的统一性与实用性，但尚未证明长期状态一致性（缺 persistent state core）",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "sim2real",
-        "benchmark"
-      ],
-      "tldr": "提出‘遮罩视觉动作’（MVA）接口，将机器人动作编码为视频像素空间中部分可见的实体运动轨迹，用仅15小时遮罩视频数据微调通用视频模型，使其既能前向预测动作后果，也能反向生成达成目标物体运动所需的机器人动作。",
-      "claim": "只需在像素空间对视频模型施加遮罩式动作表示（Masked Visual Actions），即可统一实现前向动力学建模与逆向行为合成，无需专用架构或大量真实机器人交互数据。",
-      "method_components": [
-        "model",
-        "dataset",
-        "simulator",
-        "benchmark"
-      ],
-      "input": "原始视频帧序列 + 像素级遮罩掩码（指定哪些区域是动作轨迹、哪些是观测场景）",
-      "output": "补全后的视频帧序列（即预测的场景动态响应或反推的机器人动作轨迹）",
-      "novelty": 8,
-      "evidence": 9,
-      "one_sentence_verdict": "真突破：首次将通用视频模型通过纯像素空间遮罩操作，无架构修改地同时支撑前向预测与逆向控制，证据链完整（真实 rollout 相关性+规划增益+逆向合成），且数据效率远超同类世界模型",
-      "deep": {}
-    },
-    {
-      "rank": 3,
       "arxiv_id": "2607.20061",
       "title": "ReferTrack: Referring Then Tracking for Embodied Visual Tracking",
       "published": "2026-07-22",
@@ -126,46 +88,7 @@
       "deep": {}
     },
     {
-      "rank": 4,
-      "arxiv_id": "2607.18660",
-      "title": "MVP-Tac: A Miniaturized Dual-Modal Vision and Photoelastic Tactile Sensor for Robot-Assisted Minimally Invasive Surgery",
-      "published": "2026-07-21",
-      "url": "https://arxiv.org/abs/2607.18660",
-      "pdf_url": "https://arxiv.org/pdf/2607.18660",
-      "thumb": "assets/thumbs/2607.18660.jpg",
-      "venue": "IROS 2026",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "佐治亚理工学院",
-      "country": "US",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "属具身智能在医疗机器人领域的关键硬件突破：解决RMIS中视觉与触觉长期互斥的根本矛盾，提供首个经真实腔道约束验证、开源可复现、具备定量力标定与临床相关硬度判别能力的共位双模态传感器；虽未跨机体泛化或接入VLA大模型闭环，但硬件创新扎实、实证完整（力标定+双肿瘤分类+结肠镜全流程），显著优于纯仿真触觉工作，但尚未达到RT-2/Octo级范式变革量级。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "tactile",
-        "dexterous",
-        "open-source",
-        "real-robot",
-        "dataset"
-      ],
-      "tldr": "提出一种微型化双模态传感器MVP-Tac，把视觉相机和光弹触觉传感集成在同一紧凑探头上，通过可切换的半透明膜和偏振光路，在机器人辅助微创手术中同时/交替提供高保真视觉导航和定量触觉硬度感知，并在组织仿体和模拟结肠镜场景中验证了肿瘤定位与硬度分类能力。",
-      "claim": "通过微型化反射式光弹成像与嵌入式视觉共位集成，首次实现可在临床级微创手术器械尺寸约束下同步支持导航视觉与定量触觉反馈的硬件方案。",
-      "method_components": [
-        "sensor",
-        "dataset",
-        "hardware"
-      ],
-      "input": "接触力引起的光弹干涉图像 + 可见光反射图像",
-      "output": "力大小（0–2 N标定值）+ 组织硬度类别（暴露/皮下肿瘤二分类）",
-      "novelty": 8,
-      "evidence": 11,
-      "one_sentence_verdict": "真突破：不是算法刷榜，而是攻克微创手术机器人触觉-视觉共存这一十年悬而未决的硬件瓶颈，且所有验证均在真实受限腔道中完成，开源设计具备临床转化明确路径。",
-      "deep": {}
-    },
-    {
-      "rank": 5,
+      "rank": 3,
       "arxiv_id": "2607.20912",
       "title": "URF: A Unified Robot Control-Policy Framework for Stable Contact Aware Manipulation",
       "published": "2026-07-23",
@@ -204,7 +127,7 @@
       "deep": {}
     },
     {
-      "rank": 6,
+      "rank": 4,
       "arxiv_id": "2607.20679",
       "title": "Towards Capability-Aware Traversability Navigation for Unstructured Environments",
       "published": "2026-07-22",
@@ -243,7 +166,7 @@
       "deep": {}
     },
     {
-      "rank": 7,
+      "rank": 5,
       "arxiv_id": "2607.20785",
       "title": "Robostral Navigate",
       "published": "2026-07-22",
@@ -282,46 +205,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
-      "arxiv_id": "2607.19479",
-      "title": "ModPack: An Extensible Teleoperation Interface for Bimanual Mobile Manipulation",
-      "published": "2026-07-21",
-      "url": "https://arxiv.org/abs/2607.19479",
-      "pdf_url": "https://arxiv.org/pdf/2607.19479",
-      "thumb": "assets/thumbs/2607.19479.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "哥伦比亚大学",
-      "country": "US",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "真机验证跨两个异构平台、支持多模块即插即用、开源全栈（含硬件设计），工程完成度高且复用性强；但未展示策略性能SOTA突破、未引入新学习范式或感知-控制新机制，属重大工程整合而非理论/算法突破，略低于ALOHA/ACT（96分）等定义新学习范式的标杆。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "teleoperation",
-        "open-source",
-        "real-robot",
-        "hardware",
-        "dataset"
-      ],
-      "tldr": "提出一个可插拔的穿戴式‘背包’硬件接口，把计算、供电、通信和存储集成在单个模块里，让不同双手机器人平台能快速接入多种遥操作功能（如关节级控制+力反馈、移动抓取、主动感知），并在两个真实机器人上验证了数据采集和策略学习的复用性。",
-      "claim": "通过硬件-软件协同的模块化设计，实现跨机器人平台、跨功能模块的即插即用遥操作系统，显著提升遥操作系统的可扩展性与复用性。",
-      "method_components": [
-        "hardware",
-        "ui",
-        "dataset"
-      ],
-      "input": "穿戴式背包采集的用户肢体运动信号（含IMU/肌电等）、任务指令、环境传感器数据（如RGB-D）",
-      "output": "双臂关节控制指令 + 移动底盘控制指令 + 主动感知动作决策",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：解决了遥操作系统长期存在的硬件耦合与功能固化问题，提供首个开源、可复用、真机验证的模块化穿戴接口，但未推动底层学习或控制范式变革。",
-      "deep": {}
-    },
-    {
-      "rank": 9,
+      "rank": 6,
       "arxiv_id": "2607.20207",
       "title": "SeededGrasp: Language-Guided Grasping in Complex Scenes with Multiple Embodiments",
       "published": "2026-07-22",
@@ -361,7 +245,7 @@
       "deep": {}
     },
     {
-      "rank": 10,
+      "rank": 7,
       "arxiv_id": "2607.21582",
       "title": "Scale Up Strategically: Learning Compositional Generalization via Bias-Aware Evaluation and Data Collection for Robotic Manipulation",
       "published": "2026-07-23",
@@ -398,7 +282,7 @@
       "deep": {}
     },
     {
-      "rank": 11,
+      "rank": 8,
       "arxiv_id": "2607.19745",
       "title": "EgoRecovery: Acquiring Failure Recovery Ability Through Human Recovery Demonstration",
       "published": "2026-07-22",
@@ -437,7 +321,7 @@
       "deep": {}
     },
     {
-      "rank": 12,
+      "rank": 9,
       "arxiv_id": "2607.19876",
       "title": "KineBench: Benchmarking Embodied World Models via IDM-Free Kinematic Grounding",
       "published": "2026-07-22",
@@ -474,7 +358,7 @@
       "deep": {}
     },
     {
-      "rank": 13,
+      "rank": 10,
       "arxiv_id": "2607.19714",
       "title": "Morphing MILR: Design and control of a cable-driven limbless robot with rolling joints for maneuvering in complex environments",
       "published": "2026-07-22",
@@ -511,7 +395,7 @@
       "deep": {}
     },
     {
-      "rank": 14,
+      "rank": 11,
       "arxiv_id": "2607.20033",
       "title": "Robots Acquire Manipulation Skills in Seconds from a Single Human Video",
       "published": "2026-07-22",
@@ -549,7 +433,7 @@
       "deep": {}
     },
     {
-      "rank": 15,
+      "rank": 12,
       "arxiv_id": "2607.19903",
       "title": "What Matters in Humanoid General Motion Tracking? An Empirical Study",
       "published": "2026-07-22",
@@ -586,6 +470,122 @@
       "novelty": 5,
       "evidence": 10,
       "one_sentence_verdict": "工程整合：它不发明新模型，而是用严谨对照实验厘清了人形运动跟踪中哪些设计真有用、哪些只是调参幻觉，且全部落地到真机，是当前具身智能领域稀缺的‘可信赖工程知识’产出。",
+      "deep": {}
+    },
+    {
+      "rank": 13,
+      "arxiv_id": "2607.20392",
+      "title": "Distributed Acoustic Localization Array Deployed Using a Soft Everting Vine Robot",
+      "published": "2026-07-22",
+      "url": "https://arxiv.org/abs/2607.20392",
+      "pdf_url": "https://arxiv.org/pdf/2607.20392",
+      "thumb": "assets/thumbs/2607.20392.jpg",
+      "venue": "IROS 2026",
+      "domain": "embodied_ai",
+      "best_route": "world_model",
+      "org": "加州大学圣迭戈分校",
+      "country": "US",
+      "org_type": "university",
+      "significance": 68,
+      "significance_reason": "首次将软体生长机器人与分布式声学定位深度耦合，实证覆盖多种形变构型、麦克风部署方式及噪声条件，真机多配置定量验证（非单点演示），但未跨机体泛化、未接入闭环搜救任务链、未开源代码/模型，属显著工程创新而非范式突破；远低于World Models系列（94+）所代表的通用世界建模层级。",
+      "tier": "notable",
+      "grade": "D",
+      "tags": [
+        "tactile",
+        "dexterous",
+        "real-robot",
+        "dataset",
+        "benchmark"
+      ],
+      "tldr": "用软体翻转式藤蔓机器人（可自主生长变形）搭载分布式麦克风阵列，在狭小非结构化环境中实时定位声源（如被困者），提出一种能同时处理远场和近场声源的动态SRP-PHAT算法，并通过不同麦克风安装位置、机器人形态和噪声条件下的系统性实验验证定位精度。",
+      "claim": "软体藤蔓机器人本体可作为分布式声学感知平台，其动态形变能力与麦克风空间分布协同提升受限空间内声源三维定位鲁棒性与适应性。",
+      "method_components": [
+        "model",
+        "hardware",
+        "dataset",
+        "benchmark"
+      ],
+      "input": "多通道音频信号（5麦克风阵列采集的时域波形）+ 机器人实时位形（关节/曲率参数）",
+      "output": "声源在三维空间中的坐标位置（近场）或方位角/俯仰角（远场）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "显著贡献：真机驱动的软体感知新范式，但限于专用任务与封闭实验，尚未形成可复用的方法论框架。",
+      "deep": {}
+    },
+    {
+      "rank": 14,
+      "arxiv_id": "2607.21588",
+      "title": "AXIS: A Growable Community-Driven Data Engine for Scalable Robot Manipulation",
+      "published": "2026-07-23",
+      "url": "https://arxiv.org/abs/2607.21588",
+      "pdf_url": "https://arxiv.org/pdf/2607.21588",
+      "thumb": "assets/thumbs/2607.21588.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "sim2real_data",
+      "org": "未知（作者无明确机构署名，未提实验室/公司，仅列个人姓名；摘要未提及所属单位）",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 72,
+      "significance_reason": "实质性推进了机器人数据基建范式：首次将‘社区众包+浏览器遥操作+全自动任务/数据质检/增强’闭环落地，规模（207任务/50K+轨迹）和评测协议（held-out task snapshot + perturbation robustness）优于多数同类工作；但未开源代码/模型，缺乏跨机体/跨传感器实证，也未与RT-X等基石级数据集做联合训练或迁移对比，属扎实且具工程影响力的显著贡献，尚未达开范式级别。",
+      "tier": "notable",
+      "grade": "C",
+      "tags": [
+        "teleoperation",
+        "dataset",
+        "benchmark",
+        "open-source"
+      ],
+      "tldr": "提出AXIS系统，通过浏览器远程操控+自动任务生成+数据清洗增强流水线，构建了含207个任务、5万条轨迹的可扩展机器人操作数据集与评测基准，并验证了其对VLA模型持续预训练的有效性。",
+      "claim": "社区驱动、可生长的数据引擎AXIS能规模化采集高质量操作演示，并通过自动化流程将原始交互转化为可直接用于VLA模型训练和评估的标准化数据，显著提升模型在扰动下的泛化能力。",
+      "method_components": [
+        "dataset",
+        "benchmark",
+        "simulator",
+        "policy"
+      ],
+      "input": "浏览器端遥操作输入（键盘/鼠标/手柄）+自然语言任务描述+RGB视频流",
+      "output": "结构化轨迹数据（动作序列+状态观测+成功标签）+任务快照+标准化评测分数",
+      "novelty": 6,
+      "evidence": 8,
+      "one_sentence_verdict": "工程整合：完成了从众包采集到评测闭环的全栈数据引擎落地，证据扎实、规模可观，但缺乏开源与跨平台实证，尚未构成范式突破。",
+      "deep": {}
+    },
+    {
+      "rank": 15,
+      "arxiv_id": "2607.19695",
+      "title": "NavVerse: Benchmarking Indoor-to-Outdoor Embodied Navigation in Continuous Robot Simulation",
+      "published": "2026-07-22",
+      "url": "https://arxiv.org/abs/2607.19695",
+      "pdf_url": "https://arxiv.org/pdf/2607.19695",
+      "thumb": "assets/thumbs/2607.19695.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "world_model",
+      "org": "密歇根大学",
+      "country": "US",
+      "org_type": "university",
+      "significance": 68,
+      "significance_reason": "首次系统性定义并评测室内-室外连续导航这一关键现实瓶颈任务，数据规模大、物理仿真严谨、评估维度完整（成功/效率/安全），且实证揭示了VLAs与模块化方法的权衡；但仍是benchmark建设工作，未提出新算法或架构，也未部署真机验证，分量不及World Models系列等范式级工作。",
+      "tier": "notable",
+      "grade": "C",
+      "tags": [
+        "benchmark",
+        "sim2real",
+        "large-scale"
+      ],
+      "tldr": "构建了一个名为NavVerse的仿真基准，专门测试机器人在真实尺度室内-室外连续场景中导航的能力，包含100个室内、50个城市室外和50个室内外衔接场景，共10000个任务实例，评估指标涵盖成功率、路径效率和安全性，并用多种主流方法做了零样本测试，发现现有模型在跨环境适应上表现很差。",
+      "claim": "当前具身导航模型在真实尺度、物理仿真支持的室内到室外连续导航任务上存在严重适应瓶颈，现有方法无法可靠处理边界穿越、动力学约束与语义上下文切换。",
+      "method_components": [
+        "benchmark",
+        "simulator",
+        "dataset"
+      ],
+      "input": "RGB-D图像+语义目标指令（如‘去银行’）",
+      "output": "动作序列（连续控制信号）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "显著贡献：填补了具身导航中跨物理域连续任务的评测空白，证据扎实、开源完备，但属于高质量基础设施建设，非算法或范式突破。",
       "deep": {}
     }
   ]

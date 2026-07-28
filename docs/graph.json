@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27",
+  "generated_at": "2026-07-28",
   "nodes": [
     {
       "id": "cs-ai_science-0",
@@ -2199,6 +2199,14 @@
       "country": ""
     },
     {
+      "id": "2607.20785",
+      "type": "paper",
+      "label": "Robostral Navigate",
+      "domain": "embodied_ai",
+      "sig": 76,
+      "country": "US"
+    },
+    {
       "id": "2607.08974",
       "type": "paper",
       "label": "CLAP: Direct VLM-to-VLA Adaptation via Language-Action Grounding",
@@ -2237,14 +2245,6 @@
       "domain": "embodied_ai",
       "sig": 87,
       "country": "CN"
-    },
-    {
-      "id": "2607.20785",
-      "type": "paper",
-      "label": "Robostral Navigate",
-      "domain": "embodied_ai",
-      "sig": 76,
-      "country": "US"
     },
     {
       "id": "2606.08530",
@@ -16549,6 +16549,14 @@
       "country": ""
     },
     {
+      "id": "10.64898/2026.07.22.740010",
+      "type": "paper",
+      "label": "Proteomic mapping of the dengue virus NS1 microenvironment in infected cells identifies novel host dependency factors including TM9SF3",
+      "domain": "ai_science",
+      "sig": 52,
+      "country": ""
+    },
+    {
       "id": "10.64898/2026.05.27.728199",
       "type": "paper",
       "label": "Evolutionary genomics based on PacBio HiFi long-read sequencing data reveals the importance of structural variants in shaping population-specific differences between Chinese and Indian rhesus macaques ( <i>Macaca mulatta</i> )",
@@ -24835,6 +24843,21 @@
       "type": "route"
     },
     {
+      "source": "2607.20785",
+      "target": "route:vla",
+      "type": "route"
+    },
+    {
+      "source": "2607.20785",
+      "target": "org:Meta",
+      "type": "by"
+    },
+    {
+      "source": "org:Meta",
+      "target": "co:US",
+      "type": "in"
+    },
+    {
       "source": "2607.08974",
       "target": "route:vla",
       "type": "route"
@@ -24887,21 +24910,6 @@
     {
       "source": "org:智元机器人",
       "target": "co:CN",
-      "type": "in"
-    },
-    {
-      "source": "2607.20785",
-      "target": "route:vla",
-      "type": "route"
-    },
-    {
-      "source": "2607.20785",
-      "target": "org:Meta",
-      "type": "by"
-    },
-    {
-      "source": "org:Meta",
-      "target": "co:US",
       "type": "in"
     },
     {
@@ -39940,6 +39948,11 @@
       "type": "route"
     },
     {
+      "source": "10.64898/2026.07.22.740010",
+      "target": "route:protein_ai",
+      "type": "route"
+    },
+    {
       "source": "10.64898/2026.05.27.728199",
       "target": "route:genomics_ai",
       "type": "route"
@@ -46923,6 +46936,18 @@
       "w": 0.63
     },
     {
+      "source": "2607.20785",
+      "target": "2606.10832",
+      "type": "similar",
+      "w": 0.58
+    },
+    {
+      "source": "2607.20785",
+      "target": "2607.13624",
+      "type": "similar",
+      "w": 0.57
+    },
+    {
       "source": "2607.08974",
       "target": "2607.13429",
       "type": "similar",
@@ -46993,18 +47018,6 @@
       "target": "2606.08102",
       "type": "similar",
       "w": 0.69
-    },
-    {
-      "source": "2607.20785",
-      "target": "2606.10832",
-      "type": "similar",
-      "w": 0.58
-    },
-    {
-      "source": "2607.20785",
-      "target": "2607.13624",
-      "type": "similar",
-      "w": 0.57
     },
     {
       "source": "2606.08530",
@@ -66237,6 +66250,18 @@
       "w": 0.58
     },
     {
+      "source": "10.64898/2026.07.22.740010",
+      "target": "10.64898/2026.05.31.728572",
+      "type": "similar",
+      "w": 0.68
+    },
+    {
+      "source": "10.64898/2026.07.22.740010",
+      "target": "10.64898/2026.06.26.734713",
+      "type": "similar",
+      "w": 0.58
+    },
+    {
       "source": "2606.04452",
       "target": "2606.08647",
       "type": "similar",
@@ -71385,8 +71410,8 @@
       "w": 0.77
     },
     {
-      "source": "org:UC Berkeley",
-      "target": "org:Google",
+      "source": "org:Google",
+      "target": "org:UC Berkeley",
       "type": "collab",
       "w": 1
     },
@@ -71415,14 +71440,14 @@
       "w": 1
     },
     {
-      "source": "org:UC Berkeley",
-      "target": "org:UCSF",
+      "source": "org:UCSF",
+      "target": "org:UC Berkeley",
       "type": "collab",
       "w": 2
     },
     {
-      "source": "org:NVIDIA",
-      "target": "org:Arc Institute",
+      "source": "org:Arc Institute",
+      "target": "org:NVIDIA",
       "type": "collab",
       "w": 1
     },
@@ -71433,14 +71458,14 @@
       "w": 2
     },
     {
-      "source": "org:NVIDIA",
-      "target": "org:Stanford",
+      "source": "org:Stanford",
+      "target": "org:NVIDIA",
       "type": "collab",
       "w": 2
     },
     {
-      "source": "org:中科院自动化所",
-      "target": "org:清华大学",
+      "source": "org:清华大学",
+      "target": "org:中科院自动化所",
       "type": "collab",
       "w": 1
     },
@@ -71487,8 +71512,8 @@
       "w": 1
     },
     {
-      "source": "org:UC San Diego",
-      "target": "org:Google DeepMind",
+      "source": "org:Google DeepMind",
+      "target": "org:UC San Diego",
       "type": "collab",
       "w": 1
     },
@@ -71499,14 +71524,14 @@
       "w": 2
     },
     {
-      "source": "org:北京大学",
-      "target": "org:银河通用",
+      "source": "org:银河通用",
+      "target": "org:北京大学",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:MIT",
-      "target": "org:ETH Zurich",
+      "source": "org:ETH Zurich",
+      "target": "org:MIT",
       "type": "collab",
       "w": 1
     },
@@ -71517,8 +71542,8 @@
       "w": 1
     },
     {
-      "source": "org:CMU",
-      "target": "org:MIT",
+      "source": "org:MIT",
+      "target": "org:CMU",
       "type": "collab",
       "w": 1
     },
@@ -71547,8 +71572,8 @@
       "w": 1
     },
     {
-      "source": "org:DLR",
-      "target": "org:TU Berlin",
+      "source": "org:TU Berlin",
+      "target": "org:DLR",
       "type": "collab",
       "w": 1
     },
@@ -71571,14 +71596,14 @@
       "w": 1
     },
     {
-      "source": "org:INSERM",
-      "target": "org:UC San Diego",
+      "source": "org:UC San Diego",
+      "target": "org:INSERM",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:Brandman 为核心",
-      "target": "org:Brown",
+      "source": "org:Brown",
+      "target": "org:Brandman 为核心",
       "type": "collab",
       "w": 1
     },
@@ -71613,20 +71638,20 @@
       "w": 1
     },
     {
-      "source": "org:Stanford",
-      "target": "org:Brown",
+      "source": "org:Brown",
+      "target": "org:Stanford",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:哈佛医学院",
-      "target": "org:Brown",
+      "source": "org:Brown",
+      "target": "org:哈佛医学院",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:麻省总医院",
-      "target": "org:Brown",
+      "source": "org:Brown",
+      "target": "org:麻省总医院",
       "type": "collab",
       "w": 1
     },
@@ -71661,8 +71686,8 @@
       "w": 1
     },
     {
-      "source": "org:麻省总医院",
-      "target": "org:哈佛医学院",
+      "source": "org:哈佛医学院",
+      "target": "org:麻省总医院",
       "type": "collab",
       "w": 1
     },
@@ -71715,14 +71740,14 @@
       "w": 1
     },
     {
-      "source": "org:Technical University of Munich",
-      "target": "org:TU Munich",
+      "source": "org:TU Munich",
+      "target": "org:Technical University of Munich",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:俄勒冈州立大学",
-      "target": "org:Georgia Tech",
+      "source": "org:Georgia Tech",
+      "target": "org:俄勒冈州立大学",
       "type": "collab",
       "w": 1
     },
@@ -71739,26 +71764,26 @@
       "w": 1
     },
     {
-      "source": "org:Animesh Garg",
-      "target": "org:Alán Aspuru-Guzik虽属哈佛但此处为合作",
+      "source": "org:Alán Aspuru-Guzik虽属哈佛但此处为合作",
+      "target": "org:Animesh Garg",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:University of Montreal",
-      "target": "org:Alán Aspuru-Guzik虽属哈佛但此处为合作",
+      "source": "org:Alán Aspuru-Guzik虽属哈佛但此处为合作",
+      "target": "org:University of Montreal",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:University of Toronto",
-      "target": "org:Alán Aspuru-Guzik虽属哈佛但此处为合作",
+      "source": "org:Alán Aspuru-Guzik虽属哈佛但此处为合作",
+      "target": "org:University of Toronto",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:主导单位为加拿大高校）",
-      "target": "org:Alán Aspuru-Guzik虽属哈佛但此处为合作",
+      "source": "org:Alán Aspuru-Guzik虽属哈佛但此处为合作",
+      "target": "org:主导单位为加拿大高校）",
       "type": "collab",
       "w": 1
     },
@@ -71769,32 +71794,32 @@
       "w": 1
     },
     {
-      "source": "org:麦吉尔大学",
-      "target": "org:Alán Aspuru-Guzik虽属哈佛但此处为合作",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:University of Montreal",
-      "target": "org:Animesh Garg",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:University of Toronto",
-      "target": "org:Animesh Garg",
+      "source": "org:Alán Aspuru-Guzik虽属哈佛但此处为合作",
+      "target": "org:麦吉尔大学",
       "type": "collab",
       "w": 1
     },
     {
       "source": "org:Animesh Garg",
-      "target": "org:主导单位为加拿大高校）",
+      "target": "org:University of Montreal",
       "type": "collab",
       "w": 1
     },
     {
       "source": "org:Animesh Garg",
-      "target": "org:属加拿大机器人与AI强校",
+      "target": "org:University of Toronto",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:主导单位为加拿大高校）",
+      "target": "org:Animesh Garg",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:属加拿大机器人与AI强校",
+      "target": "org:Animesh Garg",
       "type": "collab",
       "w": 1
     },
@@ -71811,38 +71836,38 @@
       "w": 1
     },
     {
-      "source": "org:University of Montreal",
-      "target": "org:主导单位为加拿大高校）",
+      "source": "org:主导单位为加拿大高校）",
+      "target": "org:University of Montreal",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:University of Montreal",
-      "target": "org:属加拿大机器人与AI强校",
+      "source": "org:属加拿大机器人与AI强校",
+      "target": "org:University of Montreal",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:University of Montreal",
-      "target": "org:麦吉尔大学",
+      "source": "org:麦吉尔大学",
+      "target": "org:University of Montreal",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:University of Toronto",
-      "target": "org:主导单位为加拿大高校）",
+      "source": "org:主导单位为加拿大高校）",
+      "target": "org:University of Toronto",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:University of Toronto",
-      "target": "org:属加拿大机器人与AI强校",
+      "source": "org:属加拿大机器人与AI强校",
+      "target": "org:University of Toronto",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:University of Toronto",
-      "target": "org:麦吉尔大学",
+      "source": "org:麦吉尔大学",
+      "target": "org:University of Toronto",
       "type": "collab",
       "w": 1
     },
@@ -71853,20 +71878,20 @@
       "w": 1
     },
     {
-      "source": "org:麦吉尔大学",
-      "target": "org:主导单位为加拿大高校）",
+      "source": "org:主导单位为加拿大高校）",
+      "target": "org:麦吉尔大学",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:麦吉尔大学",
-      "target": "org:属加拿大机器人与AI强校",
+      "source": "org:属加拿大机器人与AI强校",
+      "target": "org:麦吉尔大学",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:Skolkovo理工学院",
-      "target": "org:俄罗斯人工智能研究所",
+      "source": "org:俄罗斯人工智能研究所",
+      "target": "org:Skolkovo理工学院",
       "type": "collab",
       "w": 1
     },
@@ -71877,32 +71902,32 @@
       "w": 1
     },
     {
-      "source": "org:Google",
-      "target": "org:Princeton",
+      "source": "org:Princeton",
+      "target": "org:Google",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:University of Montreal",
-      "target": "org:魁北克人工智能研究所",
+      "source": "org:魁北克人工智能研究所",
+      "target": "org:University of Montreal",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:University of Toronto",
-      "target": "org:Vector Institute",
+      "source": "org:Vector Institute",
+      "target": "org:University of Toronto",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:加拿大基因组中心",
-      "target": "org:麦吉尔大学",
+      "source": "org:麦吉尔大学",
+      "target": "org:加拿大基因组中心",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:CNRS",
-      "target": "org:ENSTA Paris",
+      "source": "org:ENSTA Paris",
+      "target": "org:CNRS",
       "type": "collab",
       "w": 1
     },
@@ -71913,8 +71938,8 @@
       "w": 1
     },
     {
-      "source": "org:非高校",
-      "target": "org:Davian Robotics",
+      "source": "org:Davian Robotics",
+      "target": "org:非高校",
       "type": "collab",
       "w": 1
     },
@@ -71925,8 +71950,8 @@
       "w": 1
     },
     {
-      "source": "org:哈佛医学院",
-      "target": "org:哈佛大学",
+      "source": "org:哈佛大学",
+      "target": "org:哈佛医学院",
       "type": "collab",
       "w": 2
     },
@@ -71943,14 +71968,14 @@
       "w": 1
     },
     {
-      "source": "org:University of Washington",
-      "target": "org:Elledge为通讯作者之一",
+      "source": "org:Elledge为通讯作者之一",
+      "target": "org:University of Washington",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:但主导科学问题是Elledge实验室与Julien",
-      "target": "org:Elledge为通讯作者之一",
+      "source": "org:Elledge为通讯作者之一",
+      "target": "org:但主导科学问题是Elledge实验室与Julien",
       "type": "collab",
       "w": 1
     },
@@ -71961,8 +71986,8 @@
       "w": 1
     },
     {
-      "source": "org:布莱根妇女医院",
-      "target": "org:Elledge为通讯作者之一",
+      "source": "org:Elledge为通讯作者之一",
+      "target": "org:布莱根妇女医院",
       "type": "collab",
       "w": 1
     },
@@ -71979,26 +72004,26 @@
       "w": 1
     },
     {
-      "source": "org:University of Washington",
-      "target": "org:Google DeepMind",
+      "source": "org:Google DeepMind",
+      "target": "org:University of Washington",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:但主导科学问题是Elledge实验室与Julien",
-      "target": "org:Google DeepMind",
+      "source": "org:Google DeepMind",
+      "target": "org:但主导科学问题是Elledge实验室与Julien",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:哈佛医学院",
-      "target": "org:Google DeepMind",
+      "source": "org:Google DeepMind",
+      "target": "org:哈佛医学院",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:布莱根妇女医院",
-      "target": "org:Google DeepMind",
+      "source": "org:Google DeepMind",
+      "target": "org:布莱根妇女医院",
       "type": "collab",
       "w": 1
     },
@@ -72009,54 +72034,54 @@
       "w": 1
     },
     {
+      "source": "org:Google DeepMind",
+      "target": "org:综合判断以哈佛医学院",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:但主导科学问题是Elledge实验室与Julien",
+      "target": "org:University of Washington",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:哈佛医学院",
+      "target": "org:University of Washington",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:布莱根妇女医院",
+      "target": "org:University of Washington",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:布莱根妇女医院为主）",
+      "target": "org:University of Washington",
+      "type": "collab",
+      "w": 1
+    },
+    {
       "source": "org:综合判断以哈佛医学院",
-      "target": "org:Google DeepMind",
+      "target": "org:University of Washington",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:University of Washington",
-      "target": "org:但主导科学问题是Elledge实验室与Julien",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:University of Washington",
+      "source": "org:但主导科学问题是Elledge实验室与Julien",
       "target": "org:哈佛医学院",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:University of Washington",
+      "source": "org:但主导科学问题是Elledge实验室与Julien",
       "target": "org:布莱根妇女医院",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:University of Washington",
-      "target": "org:布莱根妇女医院为主）",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:University of Washington",
-      "target": "org:综合判断以哈佛医学院",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:但主导科学问题是Elledge实验室与Julien",
-      "target": "org:哈佛医学院",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:布莱根妇女医院",
-      "target": "org:但主导科学问题是Elledge实验室与Julien",
-      "type": "collab",
-      "w": 1
-    },
-    {
       "source": "org:但主导科学问题是Elledge实验室与Julien",
       "target": "org:布莱根妇女医院为主）",
       "type": "collab",
@@ -72081,8 +72106,8 @@
       "w": 1
     },
     {
-      "source": "org:哈佛医学院",
-      "target": "org:综合判断以哈佛医学院",
+      "source": "org:综合判断以哈佛医学院",
+      "target": "org:哈佛医学院",
       "type": "collab",
       "w": 1
     },
@@ -72105,8 +72130,8 @@
       "w": 1
     },
     {
-      "source": "org:牛津大学",
-      "target": "org:Google DeepMind",
+      "source": "org:Google DeepMind",
+      "target": "org:牛津大学",
       "type": "collab",
       "w": 1
     },
@@ -72117,8 +72142,8 @@
       "w": 1
     },
     {
-      "source": "org:Robert Platt来自Tufts",
-      "target": "org:Robin Walters来自Boston University）",
+      "source": "org:Robin Walters来自Boston University）",
+      "target": "org:Robert Platt来自Tufts",
       "type": "collab",
       "w": 1
     },
@@ -72129,14 +72154,14 @@
       "w": 1
     },
     {
-      "source": "org:Robert Platt来自Tufts",
-      "target": "org:塔夫茨大学",
+      "source": "org:塔夫茨大学",
+      "target": "org:Robert Platt来自Tufts",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:Robert Platt来自Tufts",
-      "target": "org:波士顿大学",
+      "source": "org:波士顿大学",
+      "target": "org:Robert Platt来自Tufts",
       "type": "collab",
       "w": 1
     },
@@ -72159,14 +72184,14 @@
       "w": 1
     },
     {
-      "source": "org:北京大学",
-      "target": "org:塔夫茨大学",
+      "source": "org:塔夫茨大学",
+      "target": "org:北京大学",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:北京大学",
-      "target": "org:波士顿大学",
+      "source": "org:波士顿大学",
+      "target": "org:北京大学",
       "type": "collab",
       "w": 1
     },
@@ -72177,14 +72202,14 @@
       "w": 1
     },
     {
-      "source": "org:苏黎世大学医院",
-      "target": "org:ETH Zurich",
+      "source": "org:ETH Zurich",
+      "target": "org:苏黎世大学医院",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:首尔国立大学",
-      "target": "org:KAIST",
+      "source": "org:KAIST",
+      "target": "org:首尔国立大学",
       "type": "collab",
       "w": 1
     },
@@ -72195,134 +72220,134 @@
       "w": 1
     },
     {
-      "source": "org:Max Planck",
-      "target": "org:Cornelia Fermuller",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:UC Berkeley",
-      "target": "org:Cornelia Fermuller",
+      "source": "org:Cornelia Fermuller",
+      "target": "org:Max Planck",
       "type": "collab",
       "w": 1
     },
     {
       "source": "org:Cornelia Fermuller",
-      "target": "org:且项目主页域名未体现企业）",
+      "target": "org:UC Berkeley",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:因第一作者Botao He隶属UMD",
-      "target": "org:Cornelia Fermuller",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:综合判断以马里兰大学为主",
-      "target": "org:Cornelia Fermuller",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:马克斯·普朗克研究所",
+      "source": "org:且项目主页域名未体现企业）",
       "target": "org:Cornelia Fermuller",
       "type": "collab",
       "w": 1
     },
     {
       "source": "org:Cornelia Fermuller",
-      "target": "org:马里兰大学",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Max Planck",
-      "target": "org:Jiayuan Mao",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:UC Berkeley",
-      "target": "org:Jiayuan Mao",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Jiayuan Mao",
-      "target": "org:且项目主页域名未体现企业）",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:因第一作者Botao He隶属UMD",
-      "target": "org:Jiayuan Mao",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:综合判断以马里兰大学为主",
-      "target": "org:Jiayuan Mao",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:马克斯·普朗克研究所",
-      "target": "org:Jiayuan Mao",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Jiayuan Mao",
-      "target": "org:马里兰大学",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:UC Berkeley",
-      "target": "org:Max Planck",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Max Planck",
-      "target": "org:且项目主页域名未体现企业）",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:因第一作者Botao He隶属UMD",
-      "target": "org:Max Planck",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:综合判断以马里兰大学为主",
-      "target": "org:Max Planck",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Max Planck",
-      "target": "org:马克斯·普朗克研究所",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Max Planck",
-      "target": "org:马里兰大学",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:UC Berkeley",
-      "target": "org:且项目主页域名未体现企业）",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:UC Berkeley",
       "target": "org:因第一作者Botao He隶属UMD",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Cornelia Fermuller",
+      "target": "org:综合判断以马里兰大学为主",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:马克斯·普朗克研究所",
+      "target": "org:Cornelia Fermuller",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Cornelia Fermuller",
+      "target": "org:马里兰大学",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Jiayuan Mao",
+      "target": "org:Max Planck",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Jiayuan Mao",
+      "target": "org:UC Berkeley",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:且项目主页域名未体现企业）",
+      "target": "org:Jiayuan Mao",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:因第一作者Botao He隶属UMD",
+      "target": "org:Jiayuan Mao",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:综合判断以马里兰大学为主",
+      "target": "org:Jiayuan Mao",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:马克斯·普朗克研究所",
+      "target": "org:Jiayuan Mao",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Jiayuan Mao",
+      "target": "org:马里兰大学",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:UC Berkeley",
+      "target": "org:Max Planck",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:且项目主页域名未体现企业）",
+      "target": "org:Max Planck",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:因第一作者Botao He隶属UMD",
+      "target": "org:Max Planck",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:综合判断以马里兰大学为主",
+      "target": "org:Max Planck",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:马克斯·普朗克研究所",
+      "target": "org:Max Planck",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:马里兰大学",
+      "target": "org:Max Planck",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:且项目主页域名未体现企业）",
+      "target": "org:UC Berkeley",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:因第一作者Botao He隶属UMD",
+      "target": "org:UC Berkeley",
       "type": "collab",
       "w": 1
     },
@@ -72333,26 +72358,26 @@
       "w": 1
     },
     {
-      "source": "org:UC Berkeley",
-      "target": "org:马克斯·普朗克研究所",
+      "source": "org:马克斯·普朗克研究所",
+      "target": "org:UC Berkeley",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:UC Berkeley",
-      "target": "org:马里兰大学",
+      "source": "org:马里兰大学",
+      "target": "org:UC Berkeley",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:因第一作者Botao He隶属UMD",
-      "target": "org:且项目主页域名未体现企业）",
+      "source": "org:且项目主页域名未体现企业）",
+      "target": "org:因第一作者Botao He隶属UMD",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:综合判断以马里兰大学为主",
-      "target": "org:且项目主页域名未体现企业）",
+      "source": "org:且项目主页域名未体现企业）",
+      "target": "org:综合判断以马里兰大学为主",
       "type": "collab",
       "w": 1
     },
@@ -72375,8 +72400,8 @@
       "w": 1
     },
     {
-      "source": "org:因第一作者Botao He隶属UMD",
-      "target": "org:马克斯·普朗克研究所",
+      "source": "org:马克斯·普朗克研究所",
+      "target": "org:因第一作者Botao He隶属UMD",
       "type": "collab",
       "w": 1
     },
@@ -72387,8 +72412,8 @@
       "w": 1
     },
     {
-      "source": "org:综合判断以马里兰大学为主",
-      "target": "org:马克斯·普朗克研究所",
+      "source": "org:马克斯·普朗克研究所",
+      "target": "org:综合判断以马里兰大学为主",
       "type": "collab",
       "w": 1
     },
@@ -72411,26 +72436,26 @@
       "w": 1
     },
     {
-      "source": "org:法国国家健康与医学研究院",
-      "target": "org:索邦大学",
+      "source": "org:索邦大学",
+      "target": "org:法国国家健康与医学研究院",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:Byeongtak Lee为默沙东计算化学负责人",
-      "target": "org:且工作聚焦工业界药物发现全流程）",
+      "source": "org:且工作聚焦工业界药物发现全流程）",
+      "target": "org:Byeongtak Lee为默沙东计算化学负责人",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:Byeongtak Lee为默沙东计算化学负责人",
-      "target": "org:辉瑞",
+      "source": "org:辉瑞",
+      "target": "org:Byeongtak Lee为默沙东计算化学负责人",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:Byeongtak Lee为默沙东计算化学负责人",
-      "target": "org:默沙东",
+      "source": "org:默沙东",
+      "target": "org:Byeongtak Lee为默沙东计算化学负责人",
       "type": "collab",
       "w": 1
     },
@@ -72453,8 +72478,8 @@
       "w": 1
     },
     {
-      "source": "org:UC Berkeley",
-      "target": "org:Michel Nivard所属的UvA",
+      "source": "org:Michel Nivard所属的UvA",
+      "target": "org:UC Berkeley",
       "type": "collab",
       "w": 1
     },
@@ -72465,8 +72490,8 @@
       "w": 1
     },
     {
-      "source": "org:Michel Nivard所属的UvA",
-      "target": "org:德克萨斯大学奥斯汀分校",
+      "source": "org:德克萨斯大学奥斯汀分校",
+      "target": "org:Michel Nivard所属的UvA",
       "type": "collab",
       "w": 1
     },
@@ -72489,8 +72514,8 @@
       "w": 1
     },
     {
-      "source": "org:阿姆斯特丹大学",
-      "target": "org:Michel Nivard所属的UvA",
+      "source": "org:Michel Nivard所属的UvA",
+      "target": "org:阿姆斯特丹大学",
       "type": "collab",
       "w": 1
     },
@@ -72501,14 +72526,14 @@
       "w": 1
     },
     {
-      "source": "org:UC Berkeley",
-      "target": "org:德克萨斯大学奥斯汀分校",
+      "source": "org:德克萨斯大学奥斯汀分校",
+      "target": "org:UC Berkeley",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:UC Berkeley",
-      "target": "org:科罗拉多大学博尔德分校",
+      "source": "org:科罗拉多大学博尔德分校",
+      "target": "org:UC Berkeley",
       "type": "collab",
       "w": 1
     },
@@ -72561,54 +72586,54 @@
       "w": 1
     },
     {
-      "source": "org:科罗拉多大学博尔德分校",
-      "target": "org:德克萨斯大学奥斯汀分校",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:综合判断以阿姆斯特丹大学为最主要署名机构）",
-      "target": "org:德克萨斯大学奥斯汀分校",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:通讯作者Mijke Rhemtulla",
-      "target": "org:德克萨斯大学奥斯汀分校",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:阿姆斯特丹大学",
-      "target": "org:德克萨斯大学奥斯汀分校",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:综合判断以阿姆斯特丹大学为最主要署名机构）",
+      "source": "org:德克萨斯大学奥斯汀分校",
       "target": "org:科罗拉多大学博尔德分校",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:通讯作者Mijke Rhemtulla",
-      "target": "org:科罗拉多大学博尔德分校",
+      "source": "org:德克萨斯大学奥斯汀分校",
+      "target": "org:综合判断以阿姆斯特丹大学为最主要署名机构）",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:阿姆斯特丹大学",
-      "target": "org:科罗拉多大学博尔德分校",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:综合判断以阿姆斯特丹大学为最主要署名机构）",
+      "source": "org:德克萨斯大学奥斯汀分校",
       "target": "org:通讯作者Mijke Rhemtulla",
       "type": "collab",
       "w": 1
     },
     {
+      "source": "org:德克萨斯大学奥斯汀分校",
+      "target": "org:阿姆斯特丹大学",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:综合判断以阿姆斯特丹大学为最主要署名机构）",
+      "target": "org:科罗拉多大学博尔德分校",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:通讯作者Mijke Rhemtulla",
+      "target": "org:科罗拉多大学博尔德分校",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:科罗拉多大学博尔德分校",
+      "target": "org:阿姆斯特丹大学",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:通讯作者Mijke Rhemtulla",
+      "target": "org:综合判断以阿姆斯特丹大学为最主要署名机构）",
+      "type": "collab",
+      "w": 1
+    },
+    {
       "source": "org:综合判断以阿姆斯特丹大学为最主要署名机构）",
       "target": "org:阿姆斯特丹大学",
       "type": "collab",
@@ -72621,8 +72646,8 @@
       "w": 1
     },
     {
-      "source": "org:德国航空航天中心",
-      "target": "org:柏林夏里特医学院",
+      "source": "org:柏林夏里特医学院",
+      "target": "org:德国航空航天中心",
       "type": "collab",
       "w": 1
     },
@@ -72633,8 +72658,8 @@
       "w": 1
     },
     {
-      "source": "org:Columbia",
-      "target": "org:Connolly等临床神经血管专家",
+      "source": "org:Connolly等临床神经血管专家",
+      "target": "org:Columbia",
       "type": "collab",
       "w": 1
     },
@@ -72657,14 +72682,14 @@
       "w": 1
     },
     {
-      "source": "org:Orbach",
-      "target": "org:Columbia",
+      "source": "org:Columbia",
+      "target": "org:Orbach",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:以Ed Boyden",
-      "target": "org:Columbia",
+      "source": "org:Columbia",
+      "target": "org:以Ed Boyden",
       "type": "collab",
       "w": 1
     },
@@ -72687,84 +72712,84 @@
       "w": 1
     },
     {
-      "source": "org:MIT",
-      "target": "org:Connolly等临床神经血管专家",
+      "source": "org:Connolly等临床神经血管专家",
+      "target": "org:MIT",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:McGovern",
-      "target": "org:Connolly等临床神经血管专家",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Orbach",
-      "target": "org:Connolly等临床神经血管专家",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:以Ed Boyden",
-      "target": "org:Connolly等临床神经血管专家",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:哈佛医学院",
-      "target": "org:Connolly等临床神经血管专家",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:摘要作者含Sisti",
-      "target": "org:Connolly等临床神经血管专家",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:MIT",
-      "target": "org:Elisa Konofagou为核心",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:McGovern",
-      "target": "org:Elisa Konofagou为核心",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Orbach",
-      "target": "org:Elisa Konofagou为核心",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:以Ed Boyden",
-      "target": "org:Elisa Konofagou为核心",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:哈佛医学院",
-      "target": "org:Elisa Konofagou为核心",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:摘要作者含Sisti",
-      "target": "org:Elisa Konofagou为核心",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:MIT",
+      "source": "org:Connolly等临床神经血管专家",
       "target": "org:McGovern",
       "type": "collab",
       "w": 1
     },
     {
+      "source": "org:Connolly等临床神经血管专家",
+      "target": "org:Orbach",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Connolly等临床神经血管专家",
+      "target": "org:以Ed Boyden",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Connolly等临床神经血管专家",
+      "target": "org:哈佛医学院",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Connolly等临床神经血管专家",
+      "target": "org:摘要作者含Sisti",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:MIT",
+      "target": "org:Elisa Konofagou为核心",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:McGovern",
+      "target": "org:Elisa Konofagou为核心",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Orbach",
+      "target": "org:Elisa Konofagou为核心",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:以Ed Boyden",
+      "target": "org:Elisa Konofagou为核心",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:哈佛医学院",
+      "target": "org:Elisa Konofagou为核心",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:摘要作者含Sisti",
+      "target": "org:Elisa Konofagou为核心",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:McGovern",
+      "target": "org:MIT",
+      "type": "collab",
+      "w": 1
+    },
+    {
       "source": "org:MIT",
       "target": "org:Orbach",
       "type": "collab",
@@ -72783,8 +72808,8 @@
       "w": 1
     },
     {
-      "source": "org:MIT",
-      "target": "org:摘要作者含Sisti",
+      "source": "org:摘要作者含Sisti",
+      "target": "org:MIT",
       "type": "collab",
       "w": 1
     },
@@ -72808,31 +72833,31 @@
     },
     {
       "source": "org:McGovern",
-      "target": "org:摘要作者含Sisti",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Orbach",
-      "target": "org:以Ed Boyden",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Orbach",
-      "target": "org:哈佛医学院",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Orbach",
       "target": "org:摘要作者含Sisti",
       "type": "collab",
       "w": 1
     },
     {
       "source": "org:以Ed Boyden",
-      "target": "org:哈佛医学院",
+      "target": "org:Orbach",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:哈佛医学院",
+      "target": "org:Orbach",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:摘要作者含Sisti",
+      "target": "org:Orbach",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:哈佛医学院",
+      "target": "org:以Ed Boyden",
       "type": "collab",
       "w": 1
     },
@@ -72849,20 +72874,20 @@
       "w": 1
     },
     {
-      "source": "org:University of Montreal",
-      "target": "org:米兰大学",
+      "source": "org:米兰大学",
+      "target": "org:University of Montreal",
       "type": "collab",
       "w": 2
     },
     {
-      "source": "org:University of Montreal",
-      "target": "org:罗马大学",
+      "source": "org:罗马大学",
+      "target": "org:University of Montreal",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:罗马大学",
-      "target": "org:米兰大学",
+      "source": "org:米兰大学",
+      "target": "org:罗马大学",
       "type": "collab",
       "w": 1
     },
@@ -72873,20 +72898,20 @@
       "w": 1
     },
     {
-      "source": "org:BRIC）",
-      "target": "org:丹麦哥本哈根大学",
+      "source": "org:丹麦哥本哈根大学",
+      "target": "org:BRIC）",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:Innovation Centre",
-      "target": "org:丹麦哥本哈根大学",
+      "source": "org:丹麦哥本哈根大学",
+      "target": "org:Innovation Centre",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:CNRS",
-      "target": "org:Christophe Leterrier",
+      "source": "org:Christophe Leterrier",
+      "target": "org:CNRS",
       "type": "collab",
       "w": 1
     },
@@ -72903,14 +72928,14 @@
       "w": 1
     },
     {
-      "source": "org:CNRS",
-      "target": "org:以UCL",
+      "source": "org:以UCL",
+      "target": "org:CNRS",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:CNRS",
-      "target": "org:伦敦国王学院",
+      "source": "org:伦敦国王学院",
+      "target": "org:CNRS",
       "type": "collab",
       "w": 1
     },
@@ -72921,14 +72946,14 @@
       "w": 1
     },
     {
-      "source": "org:CNRS",
-      "target": "org:作者含Dylan M. Owen",
+      "source": "org:作者含Dylan M. Owen",
+      "target": "org:CNRS",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:CNRS",
-      "target": "org:法国国家健康与医学研究院",
+      "source": "org:法国国家健康与医学研究院",
+      "target": "org:CNRS",
       "type": "collab",
       "w": 1
     },
@@ -72981,14 +73006,14 @@
       "w": 1
     },
     {
-      "source": "org:KCL））",
-      "target": "org:以UCL",
+      "source": "org:以UCL",
+      "target": "org:KCL））",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:KCL））",
-      "target": "org:伦敦国王学院",
+      "source": "org:伦敦国王学院",
+      "target": "org:KCL））",
       "type": "collab",
       "w": 1
     },
@@ -72999,14 +73024,14 @@
       "w": 1
     },
     {
-      "source": "org:KCL））",
-      "target": "org:作者含Dylan M. Owen",
+      "source": "org:作者含Dylan M. Owen",
+      "target": "org:KCL））",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:KCL））",
-      "target": "org:法国国家健康与医学研究院",
+      "source": "org:法国国家健康与医学研究院",
+      "target": "org:KCL））",
       "type": "collab",
       "w": 1
     },
@@ -73023,8 +73048,8 @@
       "w": 1
     },
     {
-      "source": "org:伦敦大学学院",
-      "target": "org:Ricardo Henriques",
+      "source": "org:Ricardo Henriques",
+      "target": "org:伦敦大学学院",
       "type": "collab",
       "w": 1
     },
@@ -73065,20 +73090,20 @@
       "w": 1
     },
     {
-      "source": "org:伦敦大学学院",
-      "target": "org:伦敦国王学院",
+      "source": "org:伦敦国王学院",
+      "target": "org:伦敦大学学院",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:作者含Dylan M. Owen",
-      "target": "org:伦敦国王学院",
+      "source": "org:伦敦国王学院",
+      "target": "org:作者含Dylan M. Owen",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:法国国家健康与医学研究院",
-      "target": "org:伦敦国王学院",
+      "source": "org:伦敦国王学院",
+      "target": "org:法国国家健康与医学研究院",
       "type": "collab",
       "w": 1
     },
@@ -73113,336 +73138,336 @@
       "w": 1
     },
     {
-      "source": "org:德国马克斯·普朗克分子植物生理研究所",
-      "target": "org:马丁·路德·哈勒维滕贝格大学",
+      "source": "org:马丁·路德·哈勒维滕贝格大学",
+      "target": "org:德国马克斯·普朗克分子植物生理研究所",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:巴黎高科",
-      "target": "org:索邦大学",
+      "source": "org:索邦大学",
+      "target": "org:巴黎高科",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:阿根廷国立科技大学",
-      "target": "org:CITeS研究所",
+      "source": "org:CITeS研究所",
+      "target": "org:阿根廷国立科技大学",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:Grinstaff等为关键作者",
+      "source": "org:Bechara",
+      "target": "org:Grinstaff等为关键作者",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Bechara",
+      "target": "org:Grinstaff组参与药物设计）",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Kahne",
+      "target": "org:Bechara",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Kahne组贡献化学生物学与HDX-MS",
+      "target": "org:Bechara",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Kruse实验室主导结构药理学工作",
       "target": "org:Bechara",
       "type": "collab",
       "w": 1
     },
     {
       "source": "org:Bechara",
-      "target": "org:Grinstaff组参与药物设计）",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Bechara",
-      "target": "org:Kahne",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Bechara",
-      "target": "org:Kahne组贡献化学生物学与HDX-MS",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Bechara",
-      "target": "org:Kruse实验室主导结构药理学工作",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Bechara",
       "target": "org:哈佛医学院",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Bechara",
-      "target": "org:布罗德研究所",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Bechara",
-      "target": "org:波士顿大学",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Grinstaff等为关键作者",
-      "target": "org:Grinstaff组参与药物设计）",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Grinstaff等为关键作者",
-      "target": "org:Kahne",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Grinstaff等为关键作者",
-      "target": "org:Kahne组贡献化学生物学与HDX-MS",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Grinstaff等为关键作者",
-      "target": "org:Kruse实验室主导结构药理学工作",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Grinstaff等为关键作者",
-      "target": "org:哈佛医学院",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Grinstaff等为关键作者",
-      "target": "org:布罗德研究所",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Grinstaff等为关键作者",
-      "target": "org:波士顿大学",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Grinstaff组参与药物设计）",
-      "target": "org:Kahne",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Grinstaff组参与药物设计）",
-      "target": "org:Kahne组贡献化学生物学与HDX-MS",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Grinstaff组参与药物设计）",
-      "target": "org:Kruse实验室主导结构药理学工作",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Grinstaff组参与药物设计）",
-      "target": "org:哈佛医学院",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Grinstaff组参与药物设计）",
-      "target": "org:布罗德研究所",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Grinstaff组参与药物设计）",
-      "target": "org:波士顿大学",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Kahne组贡献化学生物学与HDX-MS",
-      "target": "org:Kahne",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Kahne",
-      "target": "org:Kruse实验室主导结构药理学工作",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:哈佛医学院",
-      "target": "org:Kahne",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Kahne",
-      "target": "org:布罗德研究所",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:波士顿大学",
-      "target": "org:Kahne",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Kahne组贡献化学生物学与HDX-MS",
-      "target": "org:Kruse实验室主导结构药理学工作",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:哈佛医学院",
-      "target": "org:Kahne组贡献化学生物学与HDX-MS",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Kahne组贡献化学生物学与HDX-MS",
-      "target": "org:布罗德研究所",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:波士顿大学",
-      "target": "org:Kahne组贡献化学生物学与HDX-MS",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:哈佛医学院",
-      "target": "org:Kruse实验室主导结构药理学工作",
       "type": "collab",
       "w": 1
     },
     {
       "source": "org:布罗德研究所",
-      "target": "org:Kruse实验室主导结构药理学工作",
+      "target": "org:Bechara",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:波士顿大学",
-      "target": "org:Kruse实验室主导结构药理学工作",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:哈佛医学院",
-      "target": "org:布罗德研究所",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:哈佛医学院",
+      "source": "org:Bechara",
       "target": "org:波士顿大学",
       "type": "collab",
       "w": 1
     },
     {
+      "source": "org:Grinstaff组参与药物设计）",
+      "target": "org:Grinstaff等为关键作者",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Kahne",
+      "target": "org:Grinstaff等为关键作者",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Kahne组贡献化学生物学与HDX-MS",
+      "target": "org:Grinstaff等为关键作者",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Kruse实验室主导结构药理学工作",
+      "target": "org:Grinstaff等为关键作者",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:哈佛医学院",
+      "target": "org:Grinstaff等为关键作者",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:布罗德研究所",
+      "target": "org:Grinstaff等为关键作者",
+      "type": "collab",
+      "w": 1
+    },
+    {
       "source": "org:波士顿大学",
+      "target": "org:Grinstaff等为关键作者",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Kahne",
+      "target": "org:Grinstaff组参与药物设计）",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Kahne组贡献化学生物学与HDX-MS",
+      "target": "org:Grinstaff组参与药物设计）",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Kruse实验室主导结构药理学工作",
+      "target": "org:Grinstaff组参与药物设计）",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:哈佛医学院",
+      "target": "org:Grinstaff组参与药物设计）",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:布罗德研究所",
+      "target": "org:Grinstaff组参与药物设计）",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:波士顿大学",
+      "target": "org:Grinstaff组参与药物设计）",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Kahne组贡献化学生物学与HDX-MS",
+      "target": "org:Kahne",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Kruse实验室主导结构药理学工作",
+      "target": "org:Kahne",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Kahne",
+      "target": "org:哈佛医学院",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:布罗德研究所",
+      "target": "org:Kahne",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Kahne",
+      "target": "org:波士顿大学",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Kahne组贡献化学生物学与HDX-MS",
+      "target": "org:Kruse实验室主导结构药理学工作",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Kahne组贡献化学生物学与HDX-MS",
+      "target": "org:哈佛医学院",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Kahne组贡献化学生物学与HDX-MS",
       "target": "org:布罗德研究所",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:Hansen属DTU",
-      "target": "org:Leonid A. Mirny为主导",
+      "source": "org:Kahne组贡献化学生物学与HDX-MS",
+      "target": "org:波士顿大学",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:Mirny属Harvard Medical School）",
-      "target": "org:Hansen属DTU",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:丹麦技术大学",
-      "target": "org:Hansen属DTU",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:以Anders S. Hansen",
-      "target": "org:Hansen属DTU",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Hansen属DTU",
+      "source": "org:Kruse实验室主导结构药理学工作",
       "target": "org:哈佛医学院",
       "type": "collab",
       "w": 1
     },
     {
+      "source": "org:Kruse实验室主导结构药理学工作",
+      "target": "org:布罗德研究所",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Kruse实验室主导结构药理学工作",
+      "target": "org:波士顿大学",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:布罗德研究所",
+      "target": "org:哈佛医学院",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:波士顿大学",
+      "target": "org:哈佛医学院",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:布罗德研究所",
+      "target": "org:波士顿大学",
+      "type": "collab",
+      "w": 1
+    },
+    {
       "source": "org:Hansen属DTU",
-      "target": "org:哥本哈根大学",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Mirny属Harvard Medical School）",
       "target": "org:Leonid A. Mirny为主导",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:丹麦技术大学",
-      "target": "org:Leonid A. Mirny为主导",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:以Anders S. Hansen",
-      "target": "org:Leonid A. Mirny为主导",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:哈佛医学院",
-      "target": "org:Leonid A. Mirny为主导",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:哥本哈根大学",
-      "target": "org:Leonid A. Mirny为主导",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Mirny属Harvard Medical School）",
-      "target": "org:丹麦技术大学",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:以Anders S. Hansen",
+      "source": "org:Hansen属DTU",
       "target": "org:Mirny属Harvard Medical School）",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:Mirny属Harvard Medical School）",
-      "target": "org:哈佛医学院",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Mirny属Harvard Medical School）",
-      "target": "org:哥本哈根大学",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:以Anders S. Hansen",
+      "source": "org:Hansen属DTU",
       "target": "org:丹麦技术大学",
       "type": "collab",
       "w": 1
     },
     {
+      "source": "org:Hansen属DTU",
+      "target": "org:以Anders S. Hansen",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Hansen属DTU",
+      "target": "org:哈佛医学院",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Hansen属DTU",
+      "target": "org:哥本哈根大学",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Leonid A. Mirny为主导",
+      "target": "org:Mirny属Harvard Medical School）",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Leonid A. Mirny为主导",
+      "target": "org:丹麦技术大学",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Leonid A. Mirny为主导",
+      "target": "org:以Anders S. Hansen",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Leonid A. Mirny为主导",
+      "target": "org:哈佛医学院",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Leonid A. Mirny为主导",
+      "target": "org:哥本哈根大学",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Mirny属Harvard Medical School）",
+      "target": "org:丹麦技术大学",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Mirny属Harvard Medical School）",
+      "target": "org:以Anders S. Hansen",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Mirny属Harvard Medical School）",
+      "target": "org:哈佛医学院",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Mirny属Harvard Medical School）",
+      "target": "org:哥本哈根大学",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:丹麦技术大学",
+      "target": "org:以Anders S. Hansen",
+      "type": "collab",
+      "w": 1
+    },
+    {
       "source": "org:丹麦技术大学",
       "target": "org:哈佛医学院",
       "type": "collab",
@@ -73455,8 +73480,8 @@
       "w": 1
     },
     {
-      "source": "org:以Anders S. Hansen",
-      "target": "org:哈佛医学院",
+      "source": "org:哈佛医学院",
+      "target": "org:以Anders S. Hansen",
       "type": "collab",
       "w": 1
     },
@@ -73473,8 +73498,8 @@
       "w": 1
     },
     {
-      "source": "org:柏林洪堡大学",
-      "target": "org:马克斯·普朗克人类发展研究所",
+      "source": "org:马克斯·普朗克人类发展研究所",
+      "target": "org:柏林洪堡大学",
       "type": "collab",
       "w": 1
     },
@@ -73485,20 +73510,20 @@
       "w": 1
     },
     {
-      "source": "org:亥姆霍兹感染研究中心",
-      "target": "org:德国环境健康研究中心",
+      "source": "org:德国环境健康研究中心",
+      "target": "org:亥姆霍兹感染研究中心",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:NVIDIA",
-      "target": "org:Google DeepMind",
+      "source": "org:Google DeepMind",
+      "target": "org:NVIDIA",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:主要作者Haohui Huang等近年工作集中于国内机器人感知-控制交叉方向",
-      "target": "org:Google DeepMind",
+      "source": "org:Google DeepMind",
+      "target": "org:主要作者Haohui Huang等近年工作集中于国内机器人感知-控制交叉方向",
       "type": "collab",
       "w": 1
     },
@@ -73515,200 +73540,200 @@
       "w": 1
     },
     {
-      "source": "org:摘要未明示机构",
-      "target": "org:Google DeepMind",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:江苏理工学院",
-      "target": "org:Google DeepMind",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:非顶尖梯队）",
-      "target": "org:Google DeepMind",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:主要作者Haohui Huang等近年工作集中于国内机器人感知-控制交叉方向",
-      "target": "org:NVIDIA",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:但作者名与国内高校常见署名模式匹配",
-      "target": "org:NVIDIA",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:NVIDIA",
-      "target": "org:常州大学",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:摘要未明示机构",
-      "target": "org:NVIDIA",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:江苏理工学院",
-      "target": "org:NVIDIA",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:非顶尖梯队）",
-      "target": "org:NVIDIA",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:主要作者Haohui Huang等近年工作集中于国内机器人感知-控制交叉方向",
-      "target": "org:Stanford",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:但作者名与国内高校常见署名模式匹配",
-      "target": "org:Stanford",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Stanford",
-      "target": "org:常州大学",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:摘要未明示机构",
-      "target": "org:Stanford",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:江苏理工学院",
-      "target": "org:Stanford",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:非顶尖梯队）",
-      "target": "org:Stanford",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:但作者名与国内高校常见署名模式匹配",
-      "target": "org:主要作者Haohui Huang等近年工作集中于国内机器人感知-控制交叉方向",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:主要作者Haohui Huang等近年工作集中于国内机器人感知-控制交叉方向",
-      "target": "org:常州大学",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:摘要未明示机构",
-      "target": "org:主要作者Haohui Huang等近年工作集中于国内机器人感知-控制交叉方向",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:江苏理工学院",
-      "target": "org:主要作者Haohui Huang等近年工作集中于国内机器人感知-控制交叉方向",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:非顶尖梯队）",
-      "target": "org:主要作者Haohui Huang等近年工作集中于国内机器人感知-控制交叉方向",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:但作者名与国内高校常见署名模式匹配",
-      "target": "org:常州大学",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:摘要未明示机构",
-      "target": "org:但作者名与国内高校常见署名模式匹配",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:江苏理工学院",
-      "target": "org:但作者名与国内高校常见署名模式匹配",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:非顶尖梯队）",
-      "target": "org:但作者名与国内高校常见署名模式匹配",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:摘要未明示机构",
-      "target": "org:常州大学",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:江苏理工学院",
-      "target": "org:常州大学",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:非顶尖梯队）",
-      "target": "org:常州大学",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:江苏理工学院",
+      "source": "org:Google DeepMind",
       "target": "org:摘要未明示机构",
       "type": "collab",
       "w": 1
     },
     {
+      "source": "org:Google DeepMind",
+      "target": "org:江苏理工学院",
+      "type": "collab",
+      "w": 1
+    },
+    {
       "source": "org:非顶尖梯队）",
-      "target": "org:摘要未明示机构",
+      "target": "org:Google DeepMind",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:主要作者Haohui Huang等近年工作集中于国内机器人感知-控制交叉方向",
+      "target": "org:NVIDIA",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:但作者名与国内高校常见署名模式匹配",
+      "target": "org:NVIDIA",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:常州大学",
+      "target": "org:NVIDIA",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:摘要未明示机构",
+      "target": "org:NVIDIA",
       "type": "collab",
       "w": 1
     },
     {
       "source": "org:江苏理工学院",
+      "target": "org:NVIDIA",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:非顶尖梯队）",
+      "target": "org:NVIDIA",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:主要作者Haohui Huang等近年工作集中于国内机器人感知-控制交叉方向",
+      "target": "org:Stanford",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:但作者名与国内高校常见署名模式匹配",
+      "target": "org:Stanford",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:常州大学",
+      "target": "org:Stanford",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:摘要未明示机构",
+      "target": "org:Stanford",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:江苏理工学院",
+      "target": "org:Stanford",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:非顶尖梯队）",
+      "target": "org:Stanford",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:但作者名与国内高校常见署名模式匹配",
+      "target": "org:主要作者Haohui Huang等近年工作集中于国内机器人感知-控制交叉方向",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:常州大学",
+      "target": "org:主要作者Haohui Huang等近年工作集中于国内机器人感知-控制交叉方向",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:摘要未明示机构",
+      "target": "org:主要作者Haohui Huang等近年工作集中于国内机器人感知-控制交叉方向",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:江苏理工学院",
+      "target": "org:主要作者Haohui Huang等近年工作集中于国内机器人感知-控制交叉方向",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:非顶尖梯队）",
+      "target": "org:主要作者Haohui Huang等近年工作集中于国内机器人感知-控制交叉方向",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:但作者名与国内高校常见署名模式匹配",
+      "target": "org:常州大学",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:但作者名与国内高校常见署名模式匹配",
+      "target": "org:摘要未明示机构",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:但作者名与国内高校常见署名模式匹配",
+      "target": "org:江苏理工学院",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:但作者名与国内高校常见署名模式匹配",
       "target": "org:非顶尖梯队）",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:CNR-Istituto di Chimica del Riconoscimento Molecolare 等）",
-      "target": "org:意大利国家研究委员会",
+      "source": "org:常州大学",
+      "target": "org:摘要未明示机构",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:CNR-Istituto di Chimica del Riconoscimento Molecolare 等）",
-      "target": "org:米兰大学",
+      "source": "org:常州大学",
+      "target": "org:江苏理工学院",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:非顶尖梯队）",
+      "target": "org:常州大学",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:摘要未明示机构",
+      "target": "org:江苏理工学院",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:非顶尖梯队）",
+      "target": "org:摘要未明示机构",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:非顶尖梯队）",
+      "target": "org:江苏理工学院",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:意大利国家研究委员会",
+      "target": "org:CNR-Istituto di Chimica del Riconoscimento Molecolare 等）",
       "type": "collab",
       "w": 1
     },
     {
       "source": "org:米兰大学",
-      "target": "org:意大利国家研究委员会",
+      "target": "org:CNR-Istituto di Chimica del Riconoscimento Molecolare 等）",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:意大利国家研究委员会",
+      "target": "org:米兰大学",
       "type": "collab",
       "w": 1
     },
@@ -73761,206 +73786,206 @@
       "w": 1
     },
     {
-      "source": "org:Arizona State University",
+      "source": "org:Adaptive Biotechnologies",
+      "target": "org:Arizona State University",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Cristian Tomasetti等有ASU",
       "target": "org:Adaptive Biotechnologies",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:Cristian Tomasetti等有ASU",
-      "target": "org:Adaptive Biotechnologies",
-      "type": "collab",
-      "w": 1
-    },
-    {
       "source": "org:John A. Altin 长期隶属Adaptive",
       "target": "org:Adaptive Biotechnologies",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:Adaptive Biotechnologies",
-      "target": "org:Johns Hopkins关联",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Adaptive Biotechnologies",
-      "target": "org:Kamel Lahouel",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Adaptive Biotechnologies",
-      "target": "org:但核心方法依赖AF3且无AF3团队署名",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Adaptive Biotechnologies",
-      "target": "org:故取 Adaptive Biotechnologies）",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Arizona State University",
-      "target": "org:Adaptive为数据与免疫生物学主导方",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Cristian Tomasetti等有ASU",
-      "target": "org:Adaptive为数据与免疫生物学主导方",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:John A. Altin 长期隶属Adaptive",
-      "target": "org:Adaptive为数据与免疫生物学主导方",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Adaptive为数据与免疫生物学主导方",
-      "target": "org:Johns Hopkins关联",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Adaptive为数据与免疫生物学主导方",
-      "target": "org:Kamel Lahouel",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Adaptive为数据与免疫生物学主导方",
-      "target": "org:但核心方法依赖AF3且无AF3团队署名",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Adaptive为数据与免疫生物学主导方",
-      "target": "org:故取 Adaptive Biotechnologies）",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Arizona State University",
-      "target": "org:Cristian Tomasetti等有ASU",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Arizona State University",
-      "target": "org:John A. Altin 长期隶属Adaptive",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Arizona State University",
-      "target": "org:Johns Hopkins关联",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Arizona State University",
-      "target": "org:Kamel Lahouel",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Arizona State University",
-      "target": "org:但核心方法依赖AF3且无AF3团队署名",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Arizona State University",
-      "target": "org:故取 Adaptive Biotechnologies）",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:John A. Altin 长期隶属Adaptive",
-      "target": "org:Cristian Tomasetti等有ASU",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Cristian Tomasetti等有ASU",
-      "target": "org:Johns Hopkins关联",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Cristian Tomasetti等有ASU",
-      "target": "org:Kamel Lahouel",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Cristian Tomasetti等有ASU",
-      "target": "org:但核心方法依赖AF3且无AF3团队署名",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Cristian Tomasetti等有ASU",
-      "target": "org:故取 Adaptive Biotechnologies）",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:John A. Altin 长期隶属Adaptive",
-      "target": "org:Johns Hopkins关联",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:John A. Altin 长期隶属Adaptive",
-      "target": "org:Kamel Lahouel",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:John A. Altin 长期隶属Adaptive",
-      "target": "org:但核心方法依赖AF3且无AF3团队署名",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:John A. Altin 长期隶属Adaptive",
-      "target": "org:故取 Adaptive Biotechnologies）",
-      "type": "collab",
-      "w": 1
-    },
-    {
       "source": "org:Johns Hopkins关联",
-      "target": "org:Kamel Lahouel",
+      "target": "org:Adaptive Biotechnologies",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:Johns Hopkins关联",
-      "target": "org:但核心方法依赖AF3且无AF3团队署名",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Johns Hopkins关联",
-      "target": "org:故取 Adaptive Biotechnologies）",
+      "source": "org:Kamel Lahouel",
+      "target": "org:Adaptive Biotechnologies",
       "type": "collab",
       "w": 1
     },
     {
       "source": "org:但核心方法依赖AF3且无AF3团队署名",
+      "target": "org:Adaptive Biotechnologies",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Adaptive Biotechnologies",
+      "target": "org:故取 Adaptive Biotechnologies）",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Adaptive为数据与免疫生物学主导方",
+      "target": "org:Arizona State University",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Adaptive为数据与免疫生物学主导方",
+      "target": "org:Cristian Tomasetti等有ASU",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:John A. Altin 长期隶属Adaptive",
+      "target": "org:Adaptive为数据与免疫生物学主导方",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Adaptive为数据与免疫生物学主导方",
+      "target": "org:Johns Hopkins关联",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Adaptive为数据与免疫生物学主导方",
       "target": "org:Kamel Lahouel",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Adaptive为数据与免疫生物学主导方",
+      "target": "org:但核心方法依赖AF3且无AF3团队署名",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Adaptive为数据与免疫生物学主导方",
+      "target": "org:故取 Adaptive Biotechnologies）",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Cristian Tomasetti等有ASU",
+      "target": "org:Arizona State University",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:John A. Altin 长期隶属Adaptive",
+      "target": "org:Arizona State University",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Johns Hopkins关联",
+      "target": "org:Arizona State University",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Kamel Lahouel",
+      "target": "org:Arizona State University",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:但核心方法依赖AF3且无AF3团队署名",
+      "target": "org:Arizona State University",
       "type": "collab",
       "w": 1
     },
     {
       "source": "org:故取 Adaptive Biotechnologies）",
+      "target": "org:Arizona State University",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:John A. Altin 长期隶属Adaptive",
+      "target": "org:Cristian Tomasetti等有ASU",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Johns Hopkins关联",
+      "target": "org:Cristian Tomasetti等有ASU",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Kamel Lahouel",
+      "target": "org:Cristian Tomasetti等有ASU",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:但核心方法依赖AF3且无AF3团队署名",
+      "target": "org:Cristian Tomasetti等有ASU",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Cristian Tomasetti等有ASU",
+      "target": "org:故取 Adaptive Biotechnologies）",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:John A. Altin 长期隶属Adaptive",
+      "target": "org:Johns Hopkins关联",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:John A. Altin 长期隶属Adaptive",
       "target": "org:Kamel Lahouel",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:John A. Altin 长期隶属Adaptive",
+      "target": "org:但核心方法依赖AF3且无AF3团队署名",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:John A. Altin 长期隶属Adaptive",
+      "target": "org:故取 Adaptive Biotechnologies）",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Johns Hopkins关联",
+      "target": "org:Kamel Lahouel",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Johns Hopkins关联",
+      "target": "org:但核心方法依赖AF3且无AF3团队署名",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Johns Hopkins关联",
+      "target": "org:故取 Adaptive Biotechnologies）",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Kamel Lahouel",
+      "target": "org:但核心方法依赖AF3且无AF3团队署名",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Kamel Lahouel",
+      "target": "org:故取 Adaptive Biotechnologies）",
       "type": "collab",
       "w": 1
     },
@@ -73971,86 +73996,86 @@
       "w": 1
     },
     {
-      "source": "org:德国国家癌症中心",
-      "target": "org:海德堡大学医院",
+      "source": "org:海德堡大学医院",
+      "target": "org:德国国家癌症中心",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:James O. McInerney为核心",
+      "source": "org:Eren为宏基因组可视化工具Anvio主要作者",
+      "target": "org:James O. McInerney为核心",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:McInerney为系统发育与pangenome领域权威）",
       "target": "org:Eren为宏基因组可视化工具Anvio主要作者",
       "type": "collab",
       "w": 1
     },
     {
       "source": "org:Eren为宏基因组可视化工具Anvio主要作者",
-      "target": "org:McInerney为系统发育与pangenome领域权威）",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Eren为宏基因组可视化工具Anvio主要作者",
       "target": "org:北京大学",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Eren为宏基因组可视化工具Anvio主要作者",
-      "target": "org:夏威夷大学",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Eren为宏基因组可视化工具Anvio主要作者",
-      "target": "org:阿贡国家",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:James O. McInerney为核心",
-      "target": "org:McInerney为系统发育与pangenome领域权威）",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:James O. McInerney为核心",
-      "target": "org:北京大学",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:James O. McInerney为核心",
-      "target": "org:夏威夷大学",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:James O. McInerney为核心",
-      "target": "org:阿贡国家",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:北京大学",
-      "target": "org:McInerney为系统发育与pangenome领域权威）",
       "type": "collab",
       "w": 1
     },
     {
       "source": "org:夏威夷大学",
-      "target": "org:McInerney为系统发育与pangenome领域权威）",
+      "target": "org:Eren为宏基因组可视化工具Anvio主要作者",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:阿贡国家",
-      "target": "org:McInerney为系统发育与pangenome领域权威）",
+      "source": "org:Eren为宏基因组可视化工具Anvio主要作者",
+      "target": "org:阿贡国家",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:北京大学",
+      "source": "org:McInerney为系统发育与pangenome领域权威）",
+      "target": "org:James O. McInerney为核心",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:James O. McInerney为核心",
+      "target": "org:北京大学",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:夏威夷大学",
+      "target": "org:James O. McInerney为核心",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:James O. McInerney为核心",
+      "target": "org:阿贡国家",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:McInerney为系统发育与pangenome领域权威）",
+      "target": "org:北京大学",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:McInerney为系统发育与pangenome领域权威）",
       "target": "org:夏威夷大学",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:McInerney为系统发育与pangenome领域权威）",
+      "target": "org:阿贡国家",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:夏威夷大学",
+      "target": "org:北京大学",
       "type": "collab",
       "w": 1
     },
@@ -74061,8 +74086,8 @@
       "w": 1
     },
     {
-      "source": "org:阿贡国家",
-      "target": "org:夏威夷大学",
+      "source": "org:夏威夷大学",
+      "target": "org:阿贡国家",
       "type": "collab",
       "w": 1
     },
@@ -74073,38 +74098,38 @@
       "w": 1
     },
     {
-      "source": "org:主要通讯作者Ilya A. Vakser长期任职于堪萨斯大学计算生物学团队）",
-      "target": "org:University of Kansas等推断",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:堪萨斯大学",
-      "target": "org:University of Kansas等推断",
-      "type": "collab",
-      "w": 1
-    },
-    {
       "source": "org:University of Kansas等推断",
-      "target": "org:堪萨斯大学医学中心",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:堪萨斯大学",
       "target": "org:主要通讯作者Ilya A. Vakser长期任职于堪萨斯大学计算生物学团队）",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:主要通讯作者Ilya A. Vakser长期任职于堪萨斯大学计算生物学团队）",
-      "target": "org:堪萨斯大学医学中心",
+      "source": "org:University of Kansas等推断",
+      "target": "org:堪萨斯大学",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:堪萨斯大学",
-      "target": "org:堪萨斯大学医学中心",
+      "source": "org:堪萨斯大学医学中心",
+      "target": "org:University of Kansas等推断",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:主要通讯作者Ilya A. Vakser长期任职于堪萨斯大学计算生物学团队）",
+      "target": "org:堪萨斯大学",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:堪萨斯大学医学中心",
+      "target": "org:主要通讯作者Ilya A. Vakser长期任职于堪萨斯大学计算生物学团队）",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:堪萨斯大学医学中心",
+      "target": "org:堪萨斯大学",
       "type": "collab",
       "w": 1
     },
@@ -74115,8 +74140,8 @@
       "w": 1
     },
     {
-      "source": "org:澳大利亚联邦科学与工业研究组织",
-      "target": "org:西澳大学",
+      "source": "org:西澳大学",
+      "target": "org:澳大利亚联邦科学与工业研究组织",
       "type": "collab",
       "w": 1
     },
@@ -74163,38 +74188,38 @@
       "w": 1
     },
     {
-      "source": "org:University of Montreal",
+      "source": "org:但Jerbi与Massimini为关键方法论与临床验证双核心",
+      "target": "org:University of Montreal",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:取更偏基础机制与临床转化的米兰大学）",
+      "target": "org:University of Montreal",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:巴黎大学",
+      "target": "org:University of Montreal",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:摘要未突出单一主导机构",
+      "target": "org:University of Montreal",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:取更偏基础机制与临床转化的米兰大学）",
       "target": "org:但Jerbi与Massimini为关键方法论与临床验证双核心",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:University of Montreal",
-      "target": "org:取更偏基础机制与临床转化的米兰大学）",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:University of Montreal",
-      "target": "org:巴黎大学",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:University of Montreal",
-      "target": "org:摘要未突出单一主导机构",
       "type": "collab",
       "w": 1
     },
     {
       "source": "org:但Jerbi与Massimini为关键方法论与临床验证双核心",
-      "target": "org:取更偏基础机制与临床转化的米兰大学）",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:巴黎大学",
-      "target": "org:但Jerbi与Massimini为关键方法论与临床验证双核心",
+      "target": "org:巴黎大学",
       "type": "collab",
       "w": 1
     },
@@ -74211,8 +74236,8 @@
       "w": 1
     },
     {
-      "source": "org:巴黎大学",
-      "target": "org:取更偏基础机制与临床转化的米兰大学）",
+      "source": "org:取更偏基础机制与临床转化的米兰大学）",
+      "target": "org:巴黎大学",
       "type": "collab",
       "w": 1
     },
@@ -74235,8 +74260,8 @@
       "w": 1
     },
     {
-      "source": "org:巴黎大学",
-      "target": "org:米兰大学",
+      "source": "org:米兰大学",
+      "target": "org:巴黎大学",
       "type": "collab",
       "w": 1
     },
@@ -74247,8 +74272,8 @@
       "w": 1
     },
     {
-      "source": "org:Heidelberg University",
-      "target": "org:德国海德堡大学",
+      "source": "org:德国海德堡大学",
+      "target": "org:Heidelberg University",
       "type": "collab",
       "w": 1
     },
@@ -74259,8 +74284,8 @@
       "w": 1
     },
     {
-      "source": "org:Heidelberg University",
-      "target": "org:通讯作者Helge B. Bode为海德堡大学微生物与分子生物技术教授",
+      "source": "org:通讯作者Helge B. Bode为海德堡大学微生物与分子生物技术教授",
+      "target": "org:Heidelberg University",
       "type": "collab",
       "w": 1
     },
@@ -74307,8 +74332,8 @@
       "w": 1
     },
     {
-      "source": "org:芝加哥大学",
-      "target": "org:阿贡国家",
+      "source": "org:阿贡国家",
+      "target": "org:芝加哥大学",
       "type": "collab",
       "w": 1
     },
@@ -74325,14 +74350,14 @@
       "w": 1
     },
     {
-      "source": "org:EMBRAPA",
-      "target": "org:主要作者隶属EMBRAPA Arroz e Feijão",
+      "source": "org:主要作者隶属EMBRAPA Arroz e Feijão",
+      "target": "org:EMBRAPA",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:EMBRAPA",
-      "target": "org:巴西农业研究公司）",
+      "source": "org:巴西农业研究公司）",
+      "target": "org:EMBRAPA",
       "type": "collab",
       "w": 1
     },
@@ -74343,20 +74368,20 @@
       "w": 1
     },
     {
-      "source": "org:巴西农业研究公司）",
-      "target": "org:主要作者隶属EMBRAPA Arroz e Feijão",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:巴西水稻核心种质库",
-      "target": "org:主要作者隶属EMBRAPA Arroz e Feijão",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:巴西水稻核心种质库",
+      "source": "org:主要作者隶属EMBRAPA Arroz e Feijão",
       "target": "org:巴西农业研究公司）",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:主要作者隶属EMBRAPA Arroz e Feijão",
+      "target": "org:巴西水稻核心种质库",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:巴西农业研究公司）",
+      "target": "org:巴西水稻核心种质库",
       "type": "collab",
       "w": 1
     },
@@ -74367,8 +74392,8 @@
       "w": 1
     },
     {
-      "source": "org:UCL",
-      "target": "org:Diamond Light Source",
+      "source": "org:Diamond Light Source",
+      "target": "org:UCL",
       "type": "collab",
       "w": 1
     },
@@ -74398,103 +74423,103 @@
     },
     {
       "source": "org:UCL",
-      "target": "org:Institute of Cancer Research London",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:以ICR为主导）",
-      "target": "org:Institute of Cancer Research London",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:伦敦大学学院",
-      "target": "org:Institute of Cancer Research London",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:帝国理工学院",
       "target": "org:Institute of Cancer Research London",
       "type": "collab",
       "w": 1
     },
     {
       "source": "org:Institute of Cancer Research London",
-      "target": "org:英国癌症研究所",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:UCL",
       "target": "org:以ICR为主导）",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:UCL",
-      "target": "org:伦敦大学学院",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:UCL",
-      "target": "org:帝国理工学院",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:UCL",
-      "target": "org:英国癌症研究所",
-      "type": "collab",
-      "w": 1
-    },
-    {
       "source": "org:伦敦大学学院",
-      "target": "org:以ICR为主导）",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:以ICR为主导）",
-      "target": "org:帝国理工学院",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:以ICR为主导）",
-      "target": "org:英国癌症研究所",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:伦敦大学学院",
-      "target": "org:帝国理工学院",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:伦敦大学学院",
-      "target": "org:英国癌症研究所",
+      "target": "org:Institute of Cancer Research London",
       "type": "collab",
       "w": 1
     },
     {
       "source": "org:帝国理工学院",
+      "target": "org:Institute of Cancer Research London",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:英国癌症研究所",
+      "target": "org:Institute of Cancer Research London",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:UCL",
+      "target": "org:以ICR为主导）",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:伦敦大学学院",
+      "target": "org:UCL",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:UCL",
+      "target": "org:帝国理工学院",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:UCL",
       "target": "org:英国癌症研究所",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:贝斯以色列女执事医疗中心",
-      "target": "org:哈佛医学院",
+      "source": "org:伦敦大学学院",
+      "target": "org:以ICR为主导）",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:Joshua Akey团队为主",
-      "target": "org:Broad属哈佛体系",
+      "source": "org:帝国理工学院",
+      "target": "org:以ICR为主导）",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:英国癌症研究所",
+      "target": "org:以ICR为主导）",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:伦敦大学学院",
+      "target": "org:帝国理工学院",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:伦敦大学学院",
+      "target": "org:英国癌症研究所",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:英国癌症研究所",
+      "target": "org:帝国理工学院",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:哈佛医学院",
+      "target": "org:贝斯以色列女执事医疗中心",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Broad属哈佛体系",
+      "target": "org:Joshua Akey团队为主",
       "type": "collab",
       "w": 1
     },
@@ -74511,32 +74536,32 @@
       "w": 1
     },
     {
-      "source": "org:University of Washington",
-      "target": "org:Broad属哈佛体系",
+      "source": "org:Broad属哈佛体系",
+      "target": "org:University of Washington",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:以Elinor Karlsson",
+      "source": "org:Broad属哈佛体系",
+      "target": "org:以Elinor Karlsson",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:但本工作更偏学术",
       "target": "org:Broad属哈佛体系",
       "type": "collab",
       "w": 1
     },
     {
       "source": "org:Broad属哈佛体系",
-      "target": "org:但本工作更偏学术",
+      "target": "org:取最核心且高产机构：Broad研究所）",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:取最核心且高产机构：Broad研究所）",
+      "source": "org:哈佛大学",
       "target": "org:Broad属哈佛体系",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Broad属哈佛体系",
-      "target": "org:哈佛大学",
       "type": "collab",
       "w": 1
     },
@@ -74547,32 +74572,32 @@
       "w": 1
     },
     {
-      "source": "org:Joshua Akey团队为主",
-      "target": "org:Karlsson为Broad研究所",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Joshua Akey团队为主",
-      "target": "org:UMass Med",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:University of Washington",
+      "source": "org:Karlsson为Broad研究所",
       "target": "org:Joshua Akey团队为主",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:以Elinor Karlsson",
+      "source": "org:UMass Med",
       "target": "org:Joshua Akey团队为主",
       "type": "collab",
       "w": 1
     },
     {
       "source": "org:Joshua Akey团队为主",
-      "target": "org:但本工作更偏学术",
+      "target": "org:University of Washington",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Joshua Akey团队为主",
+      "target": "org:以Elinor Karlsson",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:但本工作更偏学术",
+      "target": "org:Joshua Akey团队为主",
       "type": "collab",
       "w": 1
     },
@@ -74583,68 +74608,68 @@
       "w": 1
     },
     {
-      "source": "org:Joshua Akey团队为主",
-      "target": "org:哈佛大学",
+      "source": "org:哈佛大学",
+      "target": "org:Joshua Akey团队为主",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:Joshua Akey团队为主",
+      "source": "org:麻省大学医学院",
+      "target": "org:Joshua Akey团队为主",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Karlsson为Broad研究所",
+      "target": "org:UMass Med",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Karlsson为Broad研究所",
+      "target": "org:University of Washington",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Karlsson为Broad研究所",
+      "target": "org:以Elinor Karlsson",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:但本工作更偏学术",
+      "target": "org:Karlsson为Broad研究所",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Karlsson为Broad研究所",
+      "target": "org:取最核心且高产机构：Broad研究所）",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:哈佛大学",
+      "target": "org:Karlsson为Broad研究所",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:Karlsson为Broad研究所",
       "target": "org:麻省大学医学院",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:Karlsson为Broad研究所",
-      "target": "org:UMass Med",
+      "source": "org:UMass Med",
+      "target": "org:University of Washington",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:University of Washington",
-      "target": "org:Karlsson为Broad研究所",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:以Elinor Karlsson",
-      "target": "org:Karlsson为Broad研究所",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Karlsson为Broad研究所",
-      "target": "org:但本工作更偏学术",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:取最核心且高产机构：Broad研究所）",
-      "target": "org:Karlsson为Broad研究所",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:Karlsson为Broad研究所",
-      "target": "org:哈佛大学",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:麻省大学医学院",
-      "target": "org:Karlsson为Broad研究所",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:University of Washington",
-      "target": "org:UMass Med",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:以Elinor Karlsson",
-      "target": "org:UMass Med",
+      "source": "org:UMass Med",
+      "target": "org:以Elinor Karlsson",
       "type": "collab",
       "w": 1
     },
@@ -74673,92 +74698,92 @@
       "w": 1
     },
     {
-      "source": "org:University of Washington",
-      "target": "org:以Elinor Karlsson",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:University of Washington",
-      "target": "org:但本工作更偏学术",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:University of Washington",
-      "target": "org:取最核心且高产机构：Broad研究所）",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:University of Washington",
-      "target": "org:哈佛大学",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:University of Washington",
-      "target": "org:麻省大学医学院",
-      "type": "collab",
-      "w": 1
-    },
-    {
       "source": "org:以Elinor Karlsson",
-      "target": "org:但本工作更偏学术",
+      "target": "org:University of Washington",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:但本工作更偏学术",
+      "target": "org:University of Washington",
       "type": "collab",
       "w": 1
     },
     {
       "source": "org:取最核心且高产机构：Broad研究所）",
-      "target": "org:以Elinor Karlsson",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:以Elinor Karlsson",
-      "target": "org:哈佛大学",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:以Elinor Karlsson",
-      "target": "org:麻省大学医学院",
-      "type": "collab",
-      "w": 1
-    },
-    {
-      "source": "org:取最核心且高产机构：Broad研究所）",
-      "target": "org:但本工作更偏学术",
+      "target": "org:University of Washington",
       "type": "collab",
       "w": 1
     },
     {
       "source": "org:哈佛大学",
-      "target": "org:但本工作更偏学术",
+      "target": "org:University of Washington",
       "type": "collab",
       "w": 1
     },
     {
       "source": "org:麻省大学医学院",
-      "target": "org:但本工作更偏学术",
+      "target": "org:University of Washington",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:但本工作更偏学术",
+      "target": "org:以Elinor Karlsson",
       "type": "collab",
       "w": 1
     },
     {
       "source": "org:取最核心且高产机构：Broad研究所）",
+      "target": "org:以Elinor Karlsson",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:哈佛大学",
+      "target": "org:以Elinor Karlsson",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:麻省大学医学院",
+      "target": "org:以Elinor Karlsson",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:但本工作更偏学术",
+      "target": "org:取最核心且高产机构：Broad研究所）",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:但本工作更偏学术",
       "target": "org:哈佛大学",
       "type": "collab",
       "w": 1
     },
     {
-      "source": "org:取最核心且高产机构：Broad研究所）",
+      "source": "org:但本工作更偏学术",
       "target": "org:麻省大学医学院",
       "type": "collab",
       "w": 1
     },
     {
+      "source": "org:哈佛大学",
+      "target": "org:取最核心且高产机构：Broad研究所）",
+      "type": "collab",
+      "w": 1
+    },
+    {
       "source": "org:麻省大学医学院",
-      "target": "org:哈佛大学",
+      "target": "org:取最核心且高产机构：Broad研究所）",
+      "type": "collab",
+      "w": 1
+    },
+    {
+      "source": "org:哈佛大学",
+      "target": "org:麻省大学医学院",
       "type": "collab",
       "w": 1
     },
@@ -74775,8 +74800,8 @@
       "w": 1
     },
     {
-      "source": "org:Ashoka Trust for Research in Ecology",
-      "target": "org:the Environment",
+      "source": "org:the Environment",
+      "target": "org:Ashoka Trust for Research in Ecology",
       "type": "collab",
       "w": 1
     }
