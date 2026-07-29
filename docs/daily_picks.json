@@ -4691,6 +4691,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-07-29": [
+      {
+        "arxiv_id": "2607.21686",
+        "title": "Persistent Computational State: A Session-Centric Runtime for Generative World Models",
+        "published": "2026-07-23",
+        "first_seen": "2026-07-29",
+        "url": "https://arxiv.org/abs/2607.21686",
+        "pdf_url": "https://arxiv.org/pdf/2607.21686",
+        "thumb": "assets/thumbs/2607.21686.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "unknown",
+        "country": "unknown",
+        "significance": 78,
+        "significance_reason": "直击世界模型落地的核心工程瓶颈——状态管理，提出PCS概念并实证其决定性作用（RNG破坏即崩溃），运行时设计简洁高效（0.012ms开销），但未开源代码/模型/测量数据，也未在标准世界模型基准（如World Model Bench、Genie Eval）上量化对比，缺乏跨模型泛化验证（仅提‘三类模型’未列名），故强于一般增量但未达基石级（如DreamerV3需真机闭环+多任务+消融+开源）",
+        "tier": "heavy",
+        "tldr": "这篇论文指出当前生成式世界模型（如视频预测模型）在‘分叉-回溯-续跑’这类交互式仿真任务中表现差，并非因为模型架构不行，而是因为服务运行时（runtime）错误地丢弃了不可重算的计算状态（如随机数生成器状态、KV缓存、记忆银行等），作者定义了‘持久化计算状态’（PCS）这一最小必要状态集，设计了以会话（session）为中心的轻量级运行时，实现毫秒级快照/恢复，使世界模型真正支持可重复、可回溯的仿真交互。",
+        "deep": {
+          "hook": "世界模型仿真失败的真凶不是模型，而是运行时乱删随机数状态！",
+          "why_now": "紧接Genie、Videollava、DreamerV3等生成式世界模型爆发期，直击其‘分叉-回溯’交互范式落地时普遍崩溃的工程根因，与近期World Model Bench强调可复现仿真形成方法论呼应。",
+          "problem": "当前生成式世界模型在仿真任务（如规划中分叉多条轨迹、回溯到某帧重推）中行为不可复现、不一致；社区归因为模型能力不足，大改架构/训练；但作者指出：同一模型在正确保存状态时能字节级复现，问题出在服务运行时盲目沿用LLM请求式范式，丢弃了不可重算的核心状态（如RNG、KV缓存、记忆银行）。",
+          "method": "提出‘持久化计算状态’（PCS）概念——即模型生成过程中不可通过输入重算的最小必要状态集（含RNG seed、KV cache slice、memory bank entry等）；设计会话（session）为中心的轻量运行时，将PCS与用户会话绑定，支持毫秒级快照/恢复；关键创新是‘测量驱动发现PCS’——不依赖模型文档，而通过状态扰动实验（如仅篡改RNG）定位非可重算部分。",
+          "results": "在三类未具名生成式世界模型上验证：恢复完整PCS后，分叉-回溯-续跑实现字节级精确复现；仅破坏RNG状态即导致生成崩溃；PCS快照/恢复开销仅0.012ms（对比1.85s生成步）；实测支持1024个常驻会话，内存瓶颈从GPU显存转向主机内存；世界记忆淘汰策略需按‘对返回点的相关性’而非‘访问时间’。",
+          "limitations": "未开源代码、模型或任何测量数据；未在World Model Bench、Genie Eval等标准基准上报告量化指标（如回溯成功率、分叉一致性分数）；所谓‘三类模型’未列名称/结构/规模，跨模型泛化性无实证；全部实验限于仿真环境，零真机闭环验证。",
+          "significance_take": "显著推进（非范式级）：首次将世界模型落地瓶颈精准锚定至运行时状态管理，并给出可测量、可工程化的PCS定义与会话运行时方案；但因缺乏开源、基准对比与真机验证，尚不能替代DreamerV3等端到端闭环工作成为新基线。",
+          "who_should_read": "做世界模型服务化、仿真平台或机器人决策栈的工程师——能立刻拿走PCS识别方法论和会话运行时设计原则。",
+          "verdict": "值得读：它用极简实验（RNG扰动）戳破了‘必须重训模型’的认知泡沫，但因无代码无基准，不能直接复现或集成，需自行验证PCS边界。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.20653",
+        "title": "PhysCoRe: Physics-Corrected Residual World Models for Material-Aware Deformable Dynamics",
+        "published": "2026-07-22",
+        "first_seen": "2026-07-29",
+        "url": "https://arxiv.org/abs/2607.20653",
+        "pdf_url": "https://arxiv.org/pdf/2607.20653",
+        "thumb": "assets/thumbs/2607.20653.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "清华",
+        "country": "CN",
+        "significance": 76,
+        "significance_reason": "真机验证+跨物体泛化+可解释置信度输出+在线材料识别闭环，证据扎实；但未部署到闭环控制任务、未开源代码/模型、未构建新benchmark或大规模数据集，相比DreamerV3/WEAVER等基石工作仍属显著推进而非范式突破。",
+        "tier": "heavy",
+        "tldr": "提出PhysCoRe框架，用可微分MPM物理仿真器作为核心，搭配两个神经网络模块（Material from Motion用于从视觉推断物体粒子级弹性参数，Residual from Dynamics用于学习并修正仿真器的系统性动力学偏差），在真实变形物体操作序列上实现了更准、更可信的动态预测，并支持在线材料识别和置信度引导的主动探索。",
+        "deep": {
+          "hook": "用可微分MPM+双神经模块，在真机上实现变形物体材料参数在线识别与带空间置信度的形变预测",
+          "why_now": "继DreamerV3（纯学习）、WEAVER（物理引导）之后，PhysCoRe首次将可微分连续介质仿真（MPM）与残差校正、不确定性驱动探索闭环耦合，踩中‘物理先验×数据效率×可解释性’三重趋势",
+          "problem": "变形物体建模难在：1）材料参数（如杨氏模量）无法直接观测，传统优化需大量交互且不泛化；2）纯学习模型易违反物理约束、外推失效；3）现有世界模型缺乏对预测可信度的空间量化，难以支撑主动探索",
+          "method": "PhysCoRe构建三层耦合架构：底层是可微分MPM仿真器（提供物理结构）；中间层Material from Motion（MfM）网络从RGB视频帧序列回归每个粒子的弹性参数；顶层Residual from Dynamics（RfD）网络学习MPM输出与真实状态间的动力学残差，并输出逐空间位置的预测置信度分布；MfM的不确定性被显式用于引导机器人下一步触探最不确定区域",
+          "results": "在真实机器人操作的变形物体（布料、软胶、海绵）视频序列上验证：1）预测精度显著优于SOTA基线（摘要明确称‘outperforms state-of-the-art baselines’）；2）置信度分布与真实误差空间分布高度一致（摘要称‘reliable distribution across the object’s geometry’）；3）支持跨物体在线材料识别（‘online material identification on novel objects’）",
+          "limitations": "1）未部署到闭环控制任务（仅预测，未验证是否能驱动策略）；2）未开源代码/模型，复现门槛高；3）未构建新benchmark或大规模数据集，实验基于‘real deformable-object manipulation sequences’但未说明规模/多样性；4）MPM仿真本身计算开销大，未报告实时性指标",
+          "significance_take": "显著推进而非范式突破：它把可微分物理仿真从‘辅助损失项’升级为‘可修正的动态骨架’，并首次将材料参数估计、残差校正、空间置信度生成、主动探索整合进统一框架，为具身系统理解软体物性提供了可落地的技术栈雏形",
+          "who_should_read": "做软体操作、世界模型、sim2real迁移的研究者和工程师，能直接获得‘如何用少量交互在线标定材料参数’和‘如何让预测自带几何感知置信度’的完整设计范式",
+          "verdict": "必读——它是当前少有的、在真机上同时解决材料特异性建模、物理一致性保障与预测可信度量化三个硬问题的工作，技术链条完整、证据扎实，虽未开源但方法论极具迁移价值",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.20392",
+        "title": "Distributed Acoustic Localization Array Deployed Using a Soft Everting Vine Robot",
+        "published": "2026-07-22",
+        "first_seen": "2026-07-27",
+        "url": "https://arxiv.org/abs/2607.20392",
+        "pdf_url": "https://arxiv.org/pdf/2607.20392",
+        "thumb": "assets/thumbs/2607.20392.jpg",
+        "venue": "IROS 2026",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "加州大学圣迭戈分校",
+        "country": "US",
+        "significance": 68,
+        "significance_reason": "首次将软体生长机器人与分布式声学定位深度耦合，实证覆盖多种形变构型、麦克风部署方式及噪声条件，真机多配置定量验证（非单点演示），但未跨机体泛化、未接入闭环搜救任务链、未开源代码/模型，属显著工程创新而非范式突破；远低于World Models系列（94+）所代表的通用世界建模层级。",
+        "tier": "notable",
+        "tldr": "用软体翻转式藤蔓机器人（可自主生长变形）搭载分布式麦克风阵列，在狭小非结构化环境中实时定位声源（如被困者），提出一种能同时处理远场和近场声源的动态SRP-PHAT算法，并通过不同麦克风安装位置、机器人形态和噪声条件下的系统性实验验证定位精度。",
+        "deep": {
+          "hook": "软体藤蔓机器人边生长边布设麦克风阵列，首次实现受限空间内近/远场声源的实时三维定位",
+          "why_now": "接续2023–2025年软体机器人感知集成（如EPFL的触觉藤蔓、MIT的气动听觉皮肤）与分布式声学定位（如ICRA'24的SRP-PHAT on UAVs）两条线，踩中‘具身感知硬件-算法联合设计’这一当前工程落地关键缺口；IROS 2026接收强化其系统级可信度。",
+          "problem": "传统搜救机器人在坍塌废墟、管道等狭小非结构化环境中难以部署刚性麦克风阵列——固定基座无法适应形变空间，远程麦克风又牺牲近场定位精度。软体机器人虽能穿行，但其本体形变会破坏麦克风几何标定，导致经典DOA算法（如SRP-PHAT）失效。",
+          "method": "将5个MEMS麦克风按三种物理位置（体内加压腔/内尾腔/外壁）嵌入软体翻转式藤蔓机器人本体；提出动态SRP-PHAT框架：实时融合机器人位形传感器（曲率+伸长量）更新麦克风三维坐标，并自适应切换远场（方位角/俯仰角）与近场（三维笛卡尔坐标）定位模式；不依赖预建地图或声源先验。",
+          "results": "真机实验覆盖4种机器人构型（线性/双线性/圆形/正弦形）、3种麦克风安装位、多SNR（未给具体dB值，摘要仅称‘measured the change in accuracy as SNR changes’）及不同接近方向/距离；报告‘near-field localization with high accuracy after only three microphones have everted’；明确完成‘vine robot growing into arbitrary shape while carrying microphones’的端到端演示。",
+          "limitations": "未验证跨机体泛化（仅UCSD定制藤蔓平台）；未接入闭环任务链（如定位→导航→通信确认）；所有实验均为开环静态声源定位，未测试移动声源或多人声源分离；未开源代码/模型，复现依赖项目页（project-page）且无benchmark数据集公开。",
+          "significance_take": "属显著工程创新而非范式突破：它把软体机器人从‘被动载体’升级为‘可编程分布式传感基底’，证明本体形变可被算法主动利用（而非仅需补偿），为‘形态即感知’（morphology-as-sensor）提供了首个可量化、多构型实证，但未挑战感知-决策-行动耦合的更高层级。",
+          "who_should_read": "做软体机器人系统集成、灾害搜救硬件原型、或分布式声学定位算法的工程师——能直接复用其麦克风布设策略、动态SRP-PHAT实现逻辑与真机标定流程。",
+          "verdict": "必读：它是少有的将软体本体动力学、麦克风物理部署、声学算法三者深度耦合并完成多变量真机扫参的工作，工程细节密度远超同类仿真论文，但需自行补全闭环验证。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -4843,11 +4935,14 @@
     "2607.19876",
     "2607.20061",
     "2607.20207",
+    "2607.20392",
+    "2607.20653",
     "2607.20679",
     "2607.20785",
     "2607.20912",
-    "2607.21582"
+    "2607.21582",
+    "2607.21686"
   ],
-  "latest": "2026-07-28",
-  "generated_at": "2026-07-28 04:03 UTC"
+  "latest": "2026-07-29",
+  "generated_at": "2026-07-29 04:07 UTC"
 }

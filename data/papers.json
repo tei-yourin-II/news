@@ -18874,7 +18874,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 20.2,
@@ -55222,6 +55222,129 @@
       "thumb": "assets/thumbs/2607.14997.jpg"
     },
     {
+      "arxiv_id": "2607.21964",
+      "doi": "10.48550/arxiv.2607.21964",
+      "source_kind": "arxiv",
+      "title": "ACME: A Multi-Cultural, Multi-Embodiment Social-Navigation Dataset",
+      "abstract": "Understanding how robots and humans move in shared spaces is essential for designing effective social robot navigation policies and predicting human behavior. However, existing datasets often lack the diversity needed to capture differences in culture, geography, and human-robot interaction-factors that strongly shape appropriate social behavior. To address this gap, we introduce ACME: A Cross-cultural, Multi-Embodiment dataset for social navigation. A large-scale data collection effort across 8 sites in 5 countries, using 7 robot embodiments, ACME is a large and diverse multi-modal dataset aimed at advancing social navigation research, providing 29.35 hours of onboard robot data and 43.5 hours of overhead pedestrian tracking data. Unlike prior datasets, it focuses on capturing goal-driven social navigation behavior in complex social scenarios with explicit robot-crowd interaction through robot speech. To facilitate learning navigation policies and predicting pedestrian trajectories, ACME provides 3D and 2D scene features, odometry, interaction information, and human-annotated pedestrian trajectory labels. We make ACME easy to use by providing both human-readable data for each sensor modality as well as raw binary data. Our qualitative and quantitative analyses show that our dataset captures more challenging scenarios and a broader distribution of pedestrian behavior than previous datasets.",
+      "authors": [
+        "Shashank Rao Marpally",
+        "A F Wang",
+        "Atharva Ghotavadekar",
+        "Renato Alexandre Ribeiro",
+        "Nhat Le",
+        "Pilar Bachiller-Burgos",
+        "P S Goyal",
+        "Subham Agrawal",
+        "Yasuhiro Nitta",
+        "Howard Ziyu Han",
+        "Daeun Song",
+        "Masaki Kuribayashi",
+        "K. Uehara",
+        "Xiyue Wang",
+        "Yangzhe Kong",
+        "Duc M. Nguyen",
+        "Amirreza Payandeh",
+        "Gerardo Pérez-González",
+        "Alejandro Torrejón-Harto",
+        "Jeeho Ahn",
+        "Tisha Jain",
+        "Andrew Stratton",
+        "Elvin Yang",
+        "Jorge de Heuvel",
+        "Nico Ostermann-Myrau",
+        "Sai Anudeep Sajja",
+        "Mithilya Raj",
+        "Daisuke Sato",
+        "Gaston Rouquette",
+        "Nikolas Martelaro",
+        "Maki Sugimoto",
+        "Hironobu Takagi",
+        "Chieko Asakawa",
+        "Maren Bennewitz",
+        "Aaron Steinfeld",
+        "Xuesu Xiao",
+        "Christoforos Mavrogiannis",
+        "Harold Soh"
+      ],
+      "categories": [],
+      "published": "2026-07-24",
+      "updated": "2026-07-24",
+      "url": "https://arxiv.org/abs/2607.21964",
+      "pdf_url": "https://arxiv.org/pdf/2607.21964",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.5,
+        "world_model": 0.4846,
+        "whole_body_control": 0.4113,
+        "dexterous_manipulation": 0.1851,
+        "sim2real_data": 0.2729,
+        "hardware_unitree": 0.2014,
+        "bci_neural_decoding": 0.1522,
+        "bci_foundation_models": 0.2307,
+        "bci_embodied_robot": 0.3582,
+        "bci_noninvasive_eeg": 0.1786,
+        "protein_ai": 0.1766,
+        "genomics_ai": 0.1663
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.485,
+      "first_seen": "2026-07-29",
+      "analysis": {
+        "tldr": "构建了一个跨文化、多机器人形态的社交导航数据集ACME，覆盖5国8地7种机器人，在真实场景中采集了29.35小时机器人本体数据和43.5小时俯视行人轨迹数据，重点记录带语音交互的目标导向社交行为，并提供3D/2D场景特征、里程计、交互标注和人工校验的行人轨迹。",
+        "org": "unknown",
+        "country": "Other",
+        "org_type": "mixed",
+        "claim": "现有社交导航数据集缺乏文化、地理与机器人形态多样性，导致模型泛化能力受限；ACME通过大规模跨地域多机体实采，首次系统性覆盖目标驱动下的语音增强型人-群交互社交导航行为。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "多模态传感器数据（RGB-D、IMU、麦克风、激光雷达）、机器人本体状态（odometry）、3D/2D场景几何特征、人类语音指令及交互事件标注",
+        "output": "人工标注的行人2D/3D轨迹、交互事件标签（如避让、跟随、等待、语音响应）、场景级社交意图标签",
+        "robot_dependency": "7种不同形态机器人（含轮式、类人、服务型等）",
+        "data_dependency": "完全依赖真实机器人在开放城市/校园/商场等场景中采集的数据，无仿真合成成分",
+        "sim2real_status": "real-robot",
+        "generalization": [
+          "cross-culture",
+          "cross-embodiment",
+          "cross-scenario"
+        ],
+        "reproducibility": "code-only",
+        "tags": [
+          "dataset",
+          "benchmark",
+          "multimodal-fusion",
+          "real-robot",
+          "large-scale"
+        ],
+        "novelty": 8,
+        "evidence": 10,
+        "reproducibility_score": 4,
+        "significance": 68,
+        "significance_reason": "是首个真正实现跨文化+多机体+语音交互+人工精标轨迹的社交导航实采数据集，规模与标注维度显著超越ETH, SDD, JAAD, TRAJ等传统基准，但未提出新算法/模型/训练范式，也未验证下游任务性能提升，属高质量基础设施贡献而非方法论突破。",
+        "one_sentence_verdict": "显著贡献——填补了社交导航领域长期缺失的高保真、多维异构实采数据空白，但因未耦合可复现的基线模型或任务验证，尚不能构成方法论层面的真突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 14.5,
+        "content": 22.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 36.5,
+        "bonus": 0.0,
+        "total": 36.5
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.21964.jpg"
+    },
+    {
       "arxiv_id": "2605.29564",
       "doi": "10.48550/arxiv.2605.29564",
       "source_kind": "arxiv",
@@ -75767,6 +75890,95 @@
       "thumb": "assets/thumbs/2607.14487.jpg"
     },
     {
+      "arxiv_id": "2607.20670",
+      "doi": "10.48550/arxiv.2607.20670",
+      "source_kind": "arxiv",
+      "title": "ODeform: Learning Continuous 4D Motion for Shape Deformation with Neural ODEs",
+      "abstract": "Modeling continuous object deformation is important for many computer vision and robotics tasks, such as manipulation and simulation. Existing approaches rely on learning-based methods or physics simulators to model shape deformations. However, these approaches either use discrete time steps or are too computationally intensive for real-time applications. We present ODeform, a novel extension of Neural Ordinary Differential Equations to continuous 4D dynamics of deformable objects in 3D space. Our method transforms 3D point clouds and physical conditions (like material properties) into a unified latent space. By solving the resulting ordinary differential equations over time, we model deformations as continuous flows within this learned embedding, eliminating the need for discrete time steps while maintaining computational efficiency. We evaluate our approach on unseen physical parameter configurations, showing improved motion prediction accuracy over baseline methods. Our experiments further demonstrate a successful transfer to real 3D captured objects with novel shapes, along with effective interpolation and extrapolation of the learned dynamics. Our code and data will be made publicly available.",
+      "authors": [
+        "Yordanka Velikova",
+        "Mahdi Saleh",
+        "Liming Kuang",
+        "Benjamin Busam"
+      ],
+      "categories": [],
+      "published": "2026-07-22",
+      "updated": "2026-07-22",
+      "url": "https://arxiv.org/abs/2607.20670",
+      "pdf_url": "https://arxiv.org/pdf/2607.20670",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.3989,
+        "world_model": 0.5,
+        "whole_body_control": 0.3769,
+        "dexterous_manipulation": 0.2184,
+        "sim2real_data": 0.2704,
+        "hardware_unitree": 0.1207,
+        "bci_neural_decoding": 0.1393,
+        "bci_foundation_models": 0.1492,
+        "bci_embodied_robot": 0.1758,
+        "bci_noninvasive_eeg": 0.1274,
+        "protein_ai": 0.2025,
+        "genomics_ai": 0.1533
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.4595,
+      "first_seen": "2026-07-29",
+      "venue": "IROS 2026",
+      "analysis": {
+        "tldr": "用神经常微分方程（Neural ODE）建模可变形物体在3D空间中连续的4D形变运动（3D空间+时间），把点云和物理参数映射到统一隐空间，通过ODE求解器生成连续形变轨迹，避免离散时间步，同时支持跨物理参数泛化、新形状迁移、以及形变动力学的插值与外推。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "神经常微分方程可用于建模可变形物体的连续4D形变动力学，实现无需离散时间步、计算高效、且具备跨参数/跨形状泛化能力的形变预测。",
+        "method_components": [
+          "model",
+          "dataset",
+          "simulator"
+        ],
+        "input": "3D点云 + 物理条件（如材料属性）",
+        "output": "连续时间下的4D形变轨迹（即每个时刻的3D点云演化）",
+        "robot_dependency": "none",
+        "data_dependency": "未说明依赖真实机器人数据，仅提及‘real 3D captured objects’但未明确是否来自真实机器人操作或传感器采集；推测主要基于仿真或静态扫描数据",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-task",
+          "cross-scene"
+        ],
+        "reproducibility": "code+model+data",
+        "tags": [
+          "multimodal-fusion",
+          "dataset",
+          "open-source"
+        ],
+        "novelty": 6,
+        "evidence": 7,
+        "reproducibility_score": 8,
+        "significance": 52,
+        "significance_reason": "虽将Neural ODE创新应用于4D形变建模，并展示跨参数/新形状泛化及插值外推能力，但未涉及机器人闭环控制、实时交互或具身任务验证；对比基石论文（如DreamerV3/WEAVER等世界模型工作），它缺乏状态记忆、动作闭环、环境交互或长期规划维度，本质是静态形变动力学拟合，而非面向具身智能的通用世界建模，属扎实但窄域的增量贡献。",
+        "one_sentence_verdict": "工程整合：将Neural ODE有效迁移到4D形变建模，实证充分且开源完整，但未触及具身智能核心挑战（如动作闭环、实时决策、多步规划），属于高质量方法迁移而非范式突破。",
+        "_llm": "qwen-plus",
+        "venue": "IROS 2026"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": "IROS 2026"
+      },
+      "scores": {
+        "relevance": 13.8,
+        "content": 21.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 34.8,
+        "bonus": 0.0,
+        "total": 34.8
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.20670.jpg"
+    },
+    {
       "arxiv_id": "10.64898/2026.05.26.727866",
       "doi": "10.64898/2026.05.26.727866",
       "source_kind": "biorxiv",
@@ -83698,6 +83910,89 @@
       "read_priority": "B"
     },
     {
+      "arxiv_id": "10.64898/2026.07.23.740359",
+      "doi": "10.64898/2026.07.23.740359",
+      "source_kind": "biorxiv",
+      "title": "FARM: Forecasting Antibiotic Resistance in <i>Mycobacterium tuberculosis</i> using biophysics and machine learning",
+      "abstract": "Antibiotic-resistant tuberculosis remains a major public health challenge, and rapid diagnosis of resistant infections based on genomic markers holds promise for improving time to effective treatment. However, the vast majority of clinically observed variants in resistance-associated genes remain of uncertain significance, limiting the utility of predictors. Here we develop a multimodal forecasting framework, FARM (Forecasting Antibiotic Resistance in Mycobacterium tuberculosis ) to determine whether a newly observed mutation in a resistance gene may indeed cause resistance. Our framework combines structural context, biophysical energy features, protein language model features, and mutational AAIndex physicochemical descriptors. Using 345 labeled mutations from the World Health Organization 2021 catalogue, we train interpretable models that distinguish resistance-associated from non-resistance-associated variants with holdout AUCs of 0.843-0.943. In a novel temporal evaluation of 62 mutations reclassified after the training data was released, the selected Combined model achieved 80.7% recall of resistant reclassifications (resistant-class F1=86.8; AUC=0.735). Applied to 4,525 current uncertain-significance mutations, the framework prioritizes 696 candidate resistance mutations, including genes associated with the new antibiotics bedaquiline, delamanid, and pretomanid. These forecasts are intended to support future catalogue updates and experimental follow-up.",
+      "authors": [
+        "Mahbuba Tasmin",
+        "Shrishti Barethiya",
+        "Yu Wang",
+        "Lulu Kang",
+        "Jianhan Chen",
+        "Anna G. Green"
+      ],
+      "categories": [],
+      "published": "2026-07-25",
+      "updated": "2026-07-25",
+      "url": "https://doi.org/10.64898/2026.07.23.740359",
+      "pdf_url": "https://doi.org/10.64898/2026.07.23.740359",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2117,
+        "world_model": 0.2804,
+        "whole_body_control": 0.1988,
+        "dexterous_manipulation": 0.1362,
+        "sim2real_data": 0.1415,
+        "hardware_unitree": 0.0484,
+        "bci_neural_decoding": 0.1465,
+        "bci_foundation_models": 0.1995,
+        "bci_embodied_robot": 0.0969,
+        "bci_noninvasive_eeg": 0.1985,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.3951
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.4695,
+      "first_seen": "2026-07-29",
+      "analysis": {
+        "tldr": "用结构信息、生物物理能量、蛋白语言模型和氨基酸理化特征融合建模，预测结核分枝杆菌中未知意义突变是否导致抗生素耐药，验证了对新出现耐药突变的回溯识别能力，并为4525个临床意义不明突变提供了696个高置信度耐药候选。",
+        "org": "西北大学/芝加哥大学/印第安纳大学（依据作者单位：Lulu Kang-西北大学统计系；Jianhan Chen-印第安纳大学生物化学；Anna G. Green-芝加哥大学微生物学）",
+        "country": "US",
+        "org_type": "university",
+        "claim": "整合结构上下文、生物物理能量、蛋白语言模型表征与氨基酸理化描述符的多模态框架FARM，能可靠预测结核分枝杆菌中临床意义不明突变的耐药性功能影响。",
+        "method_components": [
+          "model",
+          "dataset"
+        ],
+        "input": "突变位点（基因+氨基酸变化）及其对应蛋白三维结构上下文、MM/GBSA估算的结合自由能变化、ESM-2嵌入向量、AAIndex理化特征",
+        "output": "二分类预测（是否导致耐药）及概率得分",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖机器人数据",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "dataset"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 78,
+        "significance_reason": "在耐药预测这一关键临床转化问题上，首次系统整合结构生物物理+PLM+理化特征进行可解释建模，并通过严格的时间外推（temporal holdout）验证泛化性——62个WHO后续新归类突变中实现80.7%耐药召回，远超单模态基线；但未开源代码/模型，仅提供项目页，且未在独立临床队列或湿实验中验证预测结果，尚未形成闭环验证。",
+        "one_sentence_verdict": "重磅：方法设计扎实、评估严谨（含时间外推）、生物学可解释性强，显著推进耐药突变功能注释的实用化水平，但缺乏开源与实验验证，未达里程碑级。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 14.1,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 34.1,
+        "bonus": 0.0,
+        "total": 34.1
+      },
+      "grade": "D",
+      "read_priority": "B"
+    },
+    {
       "arxiv_id": "2605.30581",
       "title": "Prior Availability in Industrial Visual Sim-to-Real: A Review of CAD-Guided and CAD-Unavailable Regimes",
       "abstract": "Industrial visual sim-to-real is often described as transferring from synthetic images to real images, but industrial deployment usually involves a broader mismatch between available evidence and required decisions. A system may be built from CAD renderings, simulated RGB-D observations, normal reference images, synthetic defects, pretrained feature spaces, or language prompts, yet deployed under different sensors, lighting, materials, fixtures, calibration, production variation, and rare defect modes. This review reframes industrial visual sim-to-real as a domain-gap problem organized by prior availability. We distinguish CAD-available settings, where explicit object geometry can support rendering, calibration, pose estimation, segmentation, and test-time geometric verification; CAD-unavailable settings, where geometry is replaced by normal-reference appearance, feature distributions, teacher-student residuals, synthetic anomaly assumptions, foundation features, or vision-language priors; and boundary-prior settings, where approximate models, templates, reference views, or semantic correspondences preserve only part of the CAD role. This framing connects CAD-based detection and 6D pose-estimation literature with industrial anomaly and surface-inspection literature that is usually reviewed separately. To make the taxonomy concrete, we use empirical anchors on T-LESS/BOP, MVTec AD, and VisA. The anchors show that CAD render count alone does not close transfer; source-distribution design, detector capacity, and small real calibration can matter more. They also show that CAD at test time creates a distinct verification channel through mask, pose, and depth consistency, whereas CAD-unavailable inspection relies on calibrated normality and feature deviation. The review therefore argues against a single cross-task leaderboard and instead asks what prior grounds the deployment decision.",
@@ -85876,6 +86171,92 @@
       "grade": "D",
       "read_priority": "B",
       "thumb": "assets/thumbs/2607.15566.jpg"
+    },
+    {
+      "arxiv_id": "2607.20653",
+      "doi": "10.48550/arxiv.2607.20653",
+      "source_kind": "arxiv",
+      "title": "PhysCoRe: Physics-Corrected Residual World Models for Material-Aware Deformable Dynamics",
+      "abstract": "Predicting how deformable objects evolve under robotic manipulation is a longstanding challenge. Existing approaches typically rely on per-object optimization to fit material parameters, which can be slow and cannot generalize, while end-to-end learned alternatives extrapolate poorly and often violate basic physical structure. We present PhysCoRe, a physics-corrected residual world model that couples a differentiable Material Point Method (MPM) simulator with two feed-forward neural networks. A material refinement module, Material from Motion (MfM), infers per-particle elasticity from visual observations, grounding the simulator in object-specific physics. A residual correction module, Residual from Dynamics (RfD), learns the discrepancy and predicts corrections to the simulator's internal dynamics, absorbing systematic biases that the analytical model cannot capture. This design also supports online material identification on novel objects. MfM adapts from limited interactions, and its predictive uncertainty steers further exploration toward the regions where its estimate is least confident. Experiments on real deformable-object manipulation sequences show that PhysCoRe outperforms state-of-the-art baselines in prediction accuracy, and that its predicted confidence forms a reliable distribution across the object's geometry, providing a natural signal for future confidence-guided exploration.",
+      "authors": [
+        "H Yin",
+        "Shuohan Tao",
+        "Yongsheng Chen",
+        "Lu Gan"
+      ],
+      "categories": [],
+      "published": "2026-07-22",
+      "updated": "2026-07-22",
+      "url": "https://arxiv.org/abs/2607.20653",
+      "pdf_url": "https://arxiv.org/pdf/2607.20653",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.3721,
+        "world_model": 0.5,
+        "whole_body_control": 0.3461,
+        "dexterous_manipulation": 0.2404,
+        "sim2real_data": 0.3,
+        "hardware_unitree": 0.1248,
+        "bci_neural_decoding": 0.1551,
+        "bci_foundation_models": 0.1859,
+        "bci_embodied_robot": 0.2187,
+        "bci_noninvasive_eeg": 0.1673,
+        "protein_ai": 0.3304,
+        "genomics_ai": 0.1881
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.4966,
+      "first_seen": "2026-07-29",
+      "analysis": {
+        "tldr": "提出PhysCoRe框架，用可微分MPM物理仿真器作为核心，搭配两个神经网络模块（Material from Motion用于从视觉推断物体粒子级弹性参数，Residual from Dynamics用于学习并修正仿真器的系统性动力学偏差），在真实变形物体操作序列上实现了更准、更可信的动态预测，并支持在线材料识别和置信度引导的主动探索。",
+        "org": "清华",
+        "country": "CN",
+        "org_type": "university",
+        "claim": "将可微分物理仿真与数据驱动残差校正耦合，能以少量交互实现物体特异性材料参数在线估计，并在真实变形体操作中实现高精度、带几何空间置信度分布的动态预测。",
+        "method_components": [
+          "model",
+          "simulator",
+          "dataset"
+        ],
+        "input": "RGB视频序列（含机器人操作过程中的变形物体）",
+        "output": "未来帧的物体形变状态（粒子位置/速度）及每个空间位置的预测置信度分布",
+        "robot_dependency": "none",
+        "data_dependency": "依赖真实机器人采集的变形物体操作视频序列（摘要明确说‘Experiments on real deformable-object manipulation sequences’）",
+        "sim2real_status": "small-real",
+        "generalization": [
+          "cross-object"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "sim2real",
+          "dataset",
+          "multimodal-fusion"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 3,
+        "significance": 76,
+        "significance_reason": "真机验证+跨物体泛化+可解释置信度输出+在线材料识别闭环，证据扎实；但未部署到闭环控制任务、未开源代码/模型、未构建新benchmark或大规模数据集，相比DreamerV3/WEAVER等基石工作仍属显著推进而非范式突破。",
+        "one_sentence_verdict": "工程整合：将可微分MPM与双神经模块深度耦合，在真实变形体预测任务中达成高精度与置信度可解释性，但缺乏开源与闭环控制验证，尚未达到世界模型基石级影响力。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 14.9,
+        "content": 19.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 33.9,
+        "bonus": 0.0,
+        "total": 33.9
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.20653.jpg"
     },
     {
       "arxiv_id": "2605.29591",
@@ -93816,6 +94197,87 @@
       "read_priority": "B"
     },
     {
+      "arxiv_id": "2607.22000",
+      "doi": "10.48550/arxiv.2607.22000",
+      "source_kind": "arxiv",
+      "title": "Music-JEPA: Learning a World Model of Sound from Action",
+      "abstract": "Joint Embedding Predictive Architectures (JEPA) have recently emerged as a paradigm for learning world models by predicting latent representations, offering a promising direction for self-supervised learning. While initial attempts have applied JEPA to the music domain, it remains unclear how such frameworks can naturally support the formation of a world model for music. In this work, we propose to learn a world model of piano sound using JEPA by framing music as an action-conditioned system: the audio is treated as the state, and the pianoroll as the instrument action. Given a current audio state and an action, the model predicts the resulting future audio state, mirroring how humans learn musical sound through interaction. The model is trained in a fully offline setting using paired audio-pianoroll data, without environment interaction. Experiments show that the learned model captures the relationships between musical actions and their resulting sound. The resulting representations support downstream tasks, including beat tracking, composer identification, and key estimation, and enable piano transcription via planning, by searching for actions that best explain a target sound.",
+      "authors": [
+        "Ziyu Wang",
+        "Kun Fang",
+        "Yann LeCun"
+      ],
+      "categories": [],
+      "published": "2026-07-24",
+      "updated": "2026-07-24",
+      "url": "https://arxiv.org/abs/2607.22000",
+      "pdf_url": "https://arxiv.org/pdf/2607.22000",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.3365,
+        "world_model": 0.5083,
+        "whole_body_control": 0.3107,
+        "dexterous_manipulation": 0.1258,
+        "sim2real_data": 0.1863,
+        "hardware_unitree": 0.1089,
+        "bci_neural_decoding": 0.2689,
+        "bci_foundation_models": 0.2819,
+        "bci_embodied_robot": 0.1806,
+        "bci_noninvasive_eeg": 0.1208,
+        "protein_ai": 0.2017,
+        "genomics_ai": 0.0943
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.5083,
+      "first_seen": "2026-07-29",
+      "analysis": {
+        "tldr": "用JEPA框架把钢琴演奏建模为‘动作（音符序列）→声音状态（音频）’的预测问题，仅靠离线配对数据训练出能反向规划（即给定一段音频，搜索最可能对应的音符序列）和支撑多个音乐理解下游任务的世界模型。",
+        "org": "Meta",
+        "country": "US",
+        "org_type": "company",
+        "claim": "通过将音乐建模为动作-状态交互系统，JEPA可在纯离线音频-乐谱配对数据上学习具备因果结构与反向规划能力的音乐世界模型。",
+        "method_components": [
+          "model",
+          "dataset"
+        ],
+        "input": "当前音频片段（频谱或时域表示）+ 动作（钢琴卷帘/音符序列）",
+        "output": "预测的未来音频状态（潜变量表示）",
+        "robot_dependency": "none",
+        "data_dependency": "完全依赖合成/录制的配对音频-钢琴卷帘数据，无真实乐器交互数据",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "code-only",
+        "tags": [
+          "multimodal-fusion",
+          "dataset"
+        ],
+        "novelty": 6,
+        "evidence": 7,
+        "reproducibility_score": 5,
+        "significance": 58,
+        "significance_reason": "虽将JEPA首次系统迁移到音乐领域并展示反向规划能力，但未引入新架构、未验证跨乐器/跨风格泛化、无真实演奏闭环验证、下游任务指标未超越SOTA、且世界模型核心缺失持续状态记忆（如RNN/LSTM隐状态或memory-augmented latent core），实质是JEPA在新模态上的稳健复现，非范式突破。",
+        "one_sentence_verdict": "工程整合：把JEPA成功适配到音乐建模任务，展示了跨模态动作-状态建模的可行性，但未解决世界模型领域长期存在的状态持久性、具身闭环、跨分布泛化等核心挑战。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 15.2,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 33.2,
+        "bonus": 0.0,
+        "total": 33.2
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.22000.jpg"
+    },
+    {
       "arxiv_id": "2606.04718",
       "doi": "10.48550/arxiv.2606.04718",
       "source_kind": "arxiv",
@@ -95456,6 +95918,92 @@
       },
       "grade": "D",
       "read_priority": "B"
+    },
+    {
+      "arxiv_id": "2607.22434",
+      "doi": "10.48550/arxiv.2607.22434",
+      "source_kind": "arxiv",
+      "title": "Robot Learning to Communicate through Projected Visual Abstractions",
+      "abstract": "Humans routinely communicate through abstractions of their bodies, including shadows, silhouettes, and reflections. Yet robots remain largely confined to expressing themselves through their physical morphology. Enabling robots to communicate through such projected visual abstractions requires reasoning not only about bodily motion but also about how that motion is transformed into an external representation perceived by an observer. Among these abstractions, shadows provide a particularly compelling example because they emerge directly from the robot's embodiment while remaining visually distinct from the body itself. Here, we present a robotic system capable of dynamic shadow expression using a 21-degree-of-freedom dexterous hand with compliant soft skin and a learned shadow self-model. The soft-skinned embodiment reduces light leakage to produce visually continuous silhouettes, while the differentiable self-model learns the mapping between hand configurations and projected shadow appearance through task-agnostic self-exploration. Given a target shadow image or video, the robot optimizes its hand configurations through gradient-based search over 1 the learned self-model and refines the solution through collision-aware simulation to obtain physically feasible motions. For dynamic shadow performance, we further introduce expressive-region objectives, temporal smoothness regularization, and keyframe-based optimization to preserve visually important motion cues while reducing optimization complexity. We demonstrate robotic shadow expression across sign-language gestures, hand-shadow puppetry, and animal motion imitation in both simulation and physical experiments. These results establish a framework for enabling robots to manipulate projected visual abstractions of themselves for communication and visual storytelling.",
+      "authors": [
+        "D Yan",
+        "Boyuan Wang",
+        "Jiaxun Liu",
+        "Boyuan Chen"
+      ],
+      "categories": [],
+      "published": "2026-07-24",
+      "updated": "2026-07-24",
+      "url": "https://arxiv.org/abs/2607.22434",
+      "pdf_url": "https://arxiv.org/pdf/2607.22434",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.5,
+        "world_model": 0.369,
+        "whole_body_control": 0.5028,
+        "dexterous_manipulation": 0.2576,
+        "sim2real_data": 0.2427,
+        "hardware_unitree": 0.2376,
+        "bci_neural_decoding": 0.1198,
+        "bci_foundation_models": 0.169,
+        "bci_embodied_robot": 0.2727,
+        "bci_noninvasive_eeg": 0.1133,
+        "protein_ai": 0.0822,
+        "genomics_ai": 0.0172
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.5028,
+      "first_seen": "2026-07-29",
+      "analysis": {
+        "tldr": "这篇论文让机器人用手投射出可控的动态影子（比如手语、皮影戏、动物动作），通过学习手形到影子的映射模型，再用梯度优化生成能实现目标影子图像的手部动作序列，并在仿真和真机上都做了验证。",
+        "org": "未知",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "机器人可通过学习自身形态到投影视觉抽象（特别是影子）的映射，并基于该模型进行可微优化，实现面向通信与叙事的动态影子表达。",
+        "method_components": [
+          "model",
+          "simulator",
+          "policy"
+        ],
+        "input": "目标影子图像或视频",
+        "output": "手部关节配置序列（即动作轨迹）",
+        "robot_dependency": "21自由度灵巧手+软皮肤+投影光源+相机",
+        "data_dependency": "依赖真实机器人采集的影子-姿态配对数据用于训练自模型，但摘要未说明是否使用外部真实影子数据集或仅靠自探索采集",
+        "sim2real_status": "multi-embodiment",
+        "generalization": [
+          "cross-task"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "dexterous",
+          "sim2real",
+          "multimodal-fusion"
+        ],
+        "novelty": 7,
+        "evidence": 8,
+        "reproducibility_score": 3,
+        "significance": 62,
+        "significance_reason": "首次系统性将‘投影视觉抽象’作为机器人主动通信模态建模，技术链完整（自建模→可微优化→物理可行性精调→多任务演示），且含真机实验；但任务范围窄（仅影子）、未接入语言/交互闭环、无跨机体泛化验证、未与主流VLA/具身智能基座模型对比，属显著但非范式级贡献。",
+        "one_sentence_verdict": "工程整合：把影子作为新通信通道的技术链条走通了，有真机、有优化、有演示，但未嵌入更大智能框架，也未解决通用具身表达的根本瓶颈。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 15.1,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 33.1,
+        "bonus": 0.0,
+        "total": 33.1
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.22434.jpg"
     },
     {
       "arxiv_id": "10.64898/2026.06.01.729118",
@@ -102511,6 +103059,178 @@
       "thumb": "assets/thumbs/2607.16506.jpg"
     },
     {
+      "arxiv_id": "2607.26037",
+      "title": "Wonder: Video World Model Done Better",
+      "abstract": "We present Wonder, a general-purpose video world model for real-time, camera-controllable world exploration. Given an image or a conditional video, Wonder constructs a playable world where users can navigate interactively by moving the camera, discovering unseen regions, and revisiting previously observed areas in real time and over a long-term horizon. Achieving this capability requires a system-level co-design of control method, memory mechanism, and training strategy. We introduce a novel camera conditioning with a dense coordinate field whose renderings provide spatially aligned motion and orientation cues, allowing the model to interpret camera motion directly as visual evidence. To support fast and precise memory retrieval over a growing generation context, we propose an efficient sparse attention-based memory mechanism, enabling the model to selectively attend to a small set of relevant context tokens at inference time, regardless of actual context length. We further develop several techniques to rectify the self-forcing-style distillation pipeline, improving the student model's ability to respect control signals, as well as maintaining diverse generation modes and long-term memory from the teacher. Together, these components enable Wonder to synthesize diverse, minute-scale videos at 16 FPS while preserving coherent geometry, appearance, and dynamics across long rollouts. Beyond image-to-video generation, Wonder naturally supports video-conditioned generation, allowing existing dynamic scenes to be re-shot in real time.",
+      "authors": [
+        "Jiacong Xu",
+        "Hanwen Jiang",
+        "Zhixin Shu",
+        "Kalyan Sunkavalli",
+        "Vishal M. Patel",
+        "Yiqun Mei"
+      ],
+      "categories": [],
+      "published": "2026-07-28T00:00:00.000Z",
+      "updated": "2026-07-28T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2607.26037",
+      "pdf_url": "https://arxiv.org/pdf/2607.26037",
+      "hf_upvotes": 3,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.3774,
+        "world_model": 0.5097,
+        "whole_body_control": 0.2671,
+        "dexterous_manipulation": 0.1659,
+        "sim2real_data": 0.2189,
+        "hardware_unitree": 0.0979,
+        "bci_neural_decoding": 0.1719,
+        "bci_foundation_models": 0.2645,
+        "bci_embodied_robot": 0.1092,
+        "bci_noninvasive_eeg": 0.1743,
+        "protein_ai": 0.1384,
+        "genomics_ai": 0.1407
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.5097,
+      "first_seen": "2026-07-29",
+      "analysis": {
+        "tldr": "提出一个叫Wonder的视频世界模型，能根据单张图或一段视频生成可实时交互式移动相机视角的长时序、高帧率（16FPS）、几何与动态一致的分钟级视频，核心创新是坐标场相机条件建模、稀疏注意力记忆机制、以及改进的自蒸馏训练流程。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "通过系统级协同设计控制、记忆与训练三模块，Wonder首次实现了在单模型中同时满足实时相机交互控制、长时序一致性、高生成质量与高效推理的世界模型能力。",
+        "method_components": [
+          "model",
+          "simulator"
+        ],
+        "input": "单张图像或条件视频 + 实时相机位姿指令（通过坐标场编码）",
+        "output": "可交互导航的长时序视频流（分钟级、16FPS）",
+        "robot_dependency": "none",
+        "data_dependency": "完全依赖合成/互联网视频数据，无真实机器人或传感器数据",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "none",
+        "tags": [
+          "multimodal-fusion",
+          "sim2real"
+        ],
+        "novelty": 7,
+        "evidence": 5,
+        "reproducibility_score": 0,
+        "significance": 48,
+        "significance_reason": "虽在视频世界模型架构上做了有启发性的工程整合（坐标场条件+稀疏记忆+蒸馏修正），但未开源代码/模型/数据，无真实任务评测（如闭环控制、下游规划）、无跨场景/跨相机泛化实验，未与World Models/DreamerV3/Genie等基石工作做定量对比，仅展示定性视频结果；属于扎实但封闭的增量工作，未达‘显著贡献’门槛（60分），更接近高质量demo级技术整合。",
+        "one_sentence_verdict": "工程整合：三项技术点有巧思，但缺乏开放性、实证广度与领域接口验证，目前仅能视为高完成度的视频生成demo，暂不具备推动世界模型范式演进的实际影响力。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 3,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 15.3,
+        "content": 12.0,
+        "heat": 5.2,
+        "quality": 0.0,
+        "base": 27.3,
+        "bonus": 5.2,
+        "total": 32.5
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.26037.jpg"
+    },
+    {
+      "arxiv_id": "2607.21802",
+      "doi": "10.48550/arxiv.2607.21802",
+      "source_kind": "arxiv",
+      "title": "StARS: Socially Appropriate Robot Actions via a Recommender System-Driven Approach",
+      "abstract": "Social appropriateness in human-robot interaction (HRI) is not universal: different people can judge the same robot action differently in the same situation. To capture this inter-subject variability, we reformulate socially appropriate action generation as a preference modelling problem inspired by recommender systems, treating annotators as users, contexts/scenes as items, and appropriateness scores over a set of candidate robot actions as targets. We propose StARS, a novel model-agnostic framework that integrates collaborative filtering with learnable scene representations to generate user-specific appropriateness scores over candidate robot actions. StARS is model-agnostic: it can be integrated with various scene encoders and backbones, enabling personalisation without redesigning the underlying model. We evaluate StARS on two socially aware robotics datasets, MannersDB+ and SocNav1, and analyse robustness under sparse preference feedback. Across datasets and backbones, StARS consistently improves performance and agreement with annotators, supporting personalised action selection aligned with user norms. Our code is publicly available at https://github.com/Cambridge-AFAR/StARS.git.",
+      "authors": [
+        "Erencem Ozbey",
+        "Fethiye Irmak Doğan",
+        "Jin Huang",
+        "Hatice Gunes"
+      ],
+      "categories": [],
+      "published": "2026-07-23",
+      "updated": "2026-07-23",
+      "url": "https://arxiv.org/abs/2607.21802",
+      "pdf_url": "https://arxiv.org/pdf/2607.21802",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.5,
+        "world_model": 0.4075,
+        "whole_body_control": 0.3243,
+        "dexterous_manipulation": 0.1713,
+        "sim2real_data": 0.2305,
+        "hardware_unitree": 0.1847,
+        "bci_neural_decoding": 0.1184,
+        "bci_foundation_models": 0.1872,
+        "bci_embodied_robot": 0.2966,
+        "bci_noninvasive_eeg": 0.1455,
+        "protein_ai": 0.1139,
+        "genomics_ai": 0.1533
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.4837,
+      "first_seen": "2026-07-29",
+      "venue": "IROS 2026",
+      "analysis": {
+        "tldr": "这篇论文把机器人社交行为是否得体的问题，建模成一个类似电影推荐系统的偏好预测问题：把不同人（标注者）当作用户，把场景当作商品，把他们对候选动作的打分当作偏好，用协同过滤+场景表征来预测谁在什么场景下觉得哪个动作更得体。",
+        "org": "剑桥大学",
+        "country": "UK",
+        "org_type": "university",
+        "claim": "社会得体的机器人动作选择应建模为用户偏好建模问题，而非统一规则或通用策略学习，且可通过推荐系统范式实现个性化适配。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "场景图像/文本描述 + 候选机器人动作集合 + （可选）用户历史偏好（稀疏）",
+        "output": "每个候选动作对应的具体用户（标注者）的 appropriateness 打分",
+        "robot_dependency": "none",
+        "data_dependency": "完全依赖人工标注的静态偏好数据，无真实机器人交互数据",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-user"
+        ],
+        "reproducibility": "code-only",
+        "tags": [
+          "multimodal-fusion",
+          "dataset",
+          "benchmark",
+          "open-source"
+        ],
+        "novelty": 7,
+        "evidence": 6,
+        "reproducibility_score": 5,
+        "significance": 48,
+        "significance_reason": "首次将HRI中的社会得体性建模为推荐系统任务，思路新颖；但仅在两个小规模、静态、离线标注的数据集（MannersDB+, SocNav1）上验证，无真实机器人部署、无动作执行闭环、无跨文化/跨年龄/跨能力用户泛化实验，实证深度和广度远未达基石级工作（如RT-2、OpenVLA等需真机多任务+大规模轨迹+模型即策略），属于扎实但窄域的方法论迁移。",
+        "one_sentence_verdict": "工程整合：将推荐系统范式迁移到HRI偏好建模，代码开源、设计清晰，但仍是离线打分预测，未触达动作生成与执行闭环，暂不具备直接驱动机器人的工程可用性。",
+        "_llm": "qwen-plus",
+        "venue": "IROS 2026"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": "IROS 2026"
+      },
+      "scores": {
+        "relevance": 14.5,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 32.5,
+        "bonus": 0.0,
+        "total": 32.5
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.21802.jpg"
+    },
+    {
       "arxiv_id": "2605.31173",
       "doi": "10.48550/arxiv.2605.31173",
       "source_kind": "arxiv",
@@ -103821,6 +104541,93 @@
       "grade": "D",
       "read_priority": "B",
       "thumb": "assets/thumbs/2607.20679.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.07.25.740226",
+      "doi": "10.64898/2026.07.25.740226",
+      "source_kind": "biorxiv",
+      "title": "Machine learning-assisted directed evolution of plant Rubisco",
+      "abstract": "Ribulose-1,5-bisphosphate carboxylase/oxygenase (Rubisco) is foundational to life on Earth, catalyzing carbon dioxide (CO2) fixation to generate biomass. However, Rubisco is a slow and inefficient enzyme that has proven challenging to engineer. We applied the structure-informed machine learning (ML) model ESM-IF1 to identify plausible amino acid sites in the large subunit of Nicotiana tabacum Rubisco to target for directed evolution. ML-assisted library design followed by selection in Rubisco-dependent Escherichia coli identified multiple enriched variants displaying improved catalytic efficiency. Several improved variants carried amino acid changes not found in the evolutionary lineage of plants, despite being assembly competent in plant chloroplasts, demonstrating that ML-assisted protein design can explore functional sequence space beyond what is observed from natural sequence diversity. Most prominently, the T391I substitution improved carboxylation rate by 29% and aerobic carboxylation efficiency by 43%. Our findings demonstrate the utility of ML-assisted evolution for engineering Rubisco with improved carboxylation efficiency and potential for enhancing crop productivity.",
+      "authors": [
+        "Julie L. McDonald",
+        "Jiacheng Lin",
+        "Y ZHAO",
+        "Brian Hie",
+        "Rosemary Birch",
+        "Mary Gehring",
+        "Bryan D Bryson",
+        "Spencer M. Whitney",
+        "Matthew D. Shoulders",
+        "Robert H. Wilson"
+      ],
+      "categories": [],
+      "published": "2026-07-27",
+      "updated": "2026-07-27",
+      "url": "https://doi.org/10.64898/2026.07.25.740226",
+      "pdf_url": "https://doi.org/10.64898/2026.07.25.740226",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2024,
+        "world_model": 0.2609,
+        "whole_body_control": 0.1973,
+        "dexterous_manipulation": 0.168,
+        "sim2real_data": 0.1481,
+        "hardware_unitree": 0.0926,
+        "bci_neural_decoding": 0.1942,
+        "bci_foundation_models": 0.1618,
+        "bci_embodied_robot": 0.1465,
+        "bci_noninvasive_eeg": 0.1374,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.354
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.4472,
+      "first_seen": "2026-07-29",
+      "analysis": {
+        "tldr": "用ESM-IF1模型预测烟草Rubisco大亚基的关键可突变位点，设计小规模突变库，在大肠杆菌中筛选出多个催化效率提升的变体，其中T391I单点突变使羧化速率提高29%，且该突变在植物进化史上从未出现但能在叶绿体中正确组装。",
+        "org": "MIT",
+        "country": "US",
+        "org_type": "university",
+        "claim": "结构感知的机器学习模型（ESM-IF1）可指导Rubisco定向进化，发现自然界未探索但功能增强的非同源氨基酸替换，突破自然进化约束。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "Rubisco大亚基三维结构+多序列比对+ESM-IF1嵌入",
+        "output": "推荐突变位点列表及优先级排序",
+        "robot_dependency": "none",
+        "data_dependency": "无真实机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "code-only",
+        "tags": [
+          "multimodal-fusion"
+        ],
+        "novelty": 7,
+        "evidence": 8,
+        "reproducibility_score": 4,
+        "significance": 76,
+        "significance_reason": "首次将ESM系列结构感知模型成功用于Rubisco功能增强的实验闭环（预测→建库→筛选→验证），获得有生理意义的单点突变（T391I），且在植物叶绿体中组装成功；但仅验证1个植物来源Rubisco、未做作物表型测试、未开源完整实验数据与突变库测序原始数据，证据链止步于大肠杆菌筛选和体外酶活，未达AlphaFold级范式颠覆或RFdiffusion级生成能力突破。",
+        "one_sentence_verdict": "重磅——扎实推进了ML驱动的光合关键酶工程，实证充分（真菌/细菌双系统验证+结构解释+叶绿体兼容性），但尚未跨越到作物产量提升等下游验证，属领域内显著跃升而非范式革命。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 13.4,
+        "content": 19.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 32.4,
+        "bonus": 0.0,
+        "total": 32.4
+      },
+      "grade": "D",
+      "read_priority": "B"
     },
     {
       "arxiv_id": "10.64898/2026.05.30.729005",
@@ -107351,6 +108158,100 @@
       "grade": "D",
       "read_priority": "B",
       "thumb": "assets/thumbs/2607.18154.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.07.24.740587",
+      "doi": "10.64898/2026.07.24.740587",
+      "source_kind": "biorxiv",
+      "title": "Deep-learning predictions of biomolecular structures : persistent limitations and new horizons extended by explicit ion addition",
+      "abstract": "The advent of deep learning-driven tools such as AlphaFold has revolutionized the prediction of biomolecular structures, offering unprecedented accuracy and accessibility for proteins, RNA, and their complexes. While these tools have demonstrated remarkable success in benchmarking competitions and enabled experimentalists to generate models with ease, their widespread use has also highlighted persistent challenges. These include difficulties in assessing model confidence, limitations in predicting transmembrane domains, nucleic acids, conformational diversity, and interactions with ions or ligands, as well as the tendency to misfold intrinsically disordered regions (IDRs). In this perspective, we critically evaluate the strengths and limitations of current AI-based structure prediction tools through illustrative examples with a particular emphasis on the impact of explicit ion modelling. We notably report how the explicit addition of a few potassium cations to the prediction of IDRs or G-quadruplexes can trigger massive conformational switches compared to \"dry\" predictions. On this basis, we suggest modelling sequences both \"dry\" and in the presence of explicit potassium cations as a simple, practical way to sample alternative conformations and to expose disordered regions that current predictors tend to over-fold. We discuss the importance of reporting confidence metrics in publications to avoid overinterpretation. Furthermore, we address the unique challenges of RNA structure prediction, where data scarcity and structural complexity limit the performance of both classical and deep learning methods. Our analysis underscores the need for continued methodological advancements, integration of complementary computational tools, and expansion of high-quality experimental datasets.",
+      "authors": [
+        "Jules Marien",
+        "Sujith Sritharan",
+        "Beatrice Caviglia",
+        "Raphaëlle Versini",
+        "Lucas Auclair",
+        "Pierre Barraud",
+        "Carine Tisné",
+        "Alaa Reguei",
+        "Samuel Murail",
+        "Fabrice Leclerc",
+        "Élise Duboué-Dijon",
+        "JianJun Tao",
+        "Nathalie Basdevant",
+        "Marc Baaden",
+        "Chantal Prévost",
+        "Sophie Sacquin-Mora",
+        "Antoine Taly"
+      ],
+      "categories": [],
+      "published": "2026-07-26",
+      "updated": "2026-07-26",
+      "url": "https://doi.org/10.64898/2026.07.24.740587",
+      "pdf_url": "https://doi.org/10.64898/2026.07.24.740587",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2078,
+        "world_model": 0.2945,
+        "whole_body_control": 0.1629,
+        "dexterous_manipulation": 0.1597,
+        "sim2real_data": 0.1724,
+        "hardware_unitree": 0.0577,
+        "bci_neural_decoding": 0.2,
+        "bci_foundation_models": 0.1685,
+        "bci_embodied_robot": 0.1103,
+        "bci_noninvasive_eeg": 0.1549,
+        "protein_ai": 0.6045,
+        "genomics_ai": 0.3486
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.6045,
+      "first_seen": "2026-07-29",
+      "analysis": {
+        "tldr": "这篇论文不是提出新模型，而是通过具体案例分析指出当前AI结构预测工具（如AlphaFold）在预测含离子体系（如G-四链体、无序区）时的重大缺陷，并实证发现仅显式添加几个钾离子就能引发构象剧变，据此建议将‘干预测’和‘加钾预测’并行作为廉价有效的构象采样策略。",
+        "org": "法国国家科学研究中心（CNRS）",
+        "country": "FR",
+        "org_type": "institute",
+        "claim": "显式引入少量钾离子可显著改变AI预测的生物大分子构象（尤其对IDRs和G-四链体），是暴露当前模型过度折叠倾向、低成本拓展构象多样性的实用路径。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "氨基酸/核苷酸序列 + 显式指定的K⁺离子位置（少量）",
+        "output": "三维结构预测结果（含构象变化对比）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "benchmark"
+        ],
+        "novelty": 4,
+        "evidence": 7,
+        "reproducibility_score": 3,
+        "significance": 52,
+        "significance_reason": "属高质量批判性综述+定向实证分析：有明确实验验证（K⁺触发构象开关）、揭示被主流忽略的关键失效模式（离子缺失导致IDR/G4误折叠），但未发布新模型/数据/代码，也未系统性改进算法，贡献限于方法论警示与轻量级实践建议，显著低于ESMFold/AlphaFold2等基石工作。",
+        "one_sentence_verdict": "扎实增量——用可复现的小规模计算实证指出了AI结构预测中一个被长期忽视的物理建模盲区（离子效应），但未构建新工具，属于重要但非突破性的方法论提醒。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 18.1,
+        "content": 14.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 32.1,
+        "bonus": 0.0,
+        "total": 32.1
+      },
+      "grade": "D",
+      "read_priority": "B"
     },
     {
       "arxiv_id": "2606.05143",
@@ -129941,6 +130842,199 @@
       },
       "grade": "D",
       "read_priority": "C"
+    },
+    {
+      "arxiv_id": "10.64898/2026.07.24.740446",
+      "doi": "10.64898/2026.07.24.740446",
+      "source_kind": "biorxiv",
+      "title": "Integrated genomics and transcriptomics reveal mechanisms of extreme dietary adaptation in vampire bats",
+      "abstract": "Vampire bats are the only tetrapods that feed exclusively on blood. To uncover the molecular basis of this extreme dietary specialization, we generated six new reference genomes, including genomes of all three vampire bat species, and integrated comparative analyses of gene sequence evolution (selection signatures, duplications, and losses) with transcriptomic data from six major organs to identify shifts in gene expression. Our integrative analyses reveal sequence or expression changes in 150 genes that illuminate the genetic mechanisms underlying sanguivory. Through comparative analyses and experiments, we show that the enlarged vampire bat stomach has increased connective tissue content enabling extreme expansion, is pH-neutral, and exhibits reduced mucus production, together providing molecular insights into its shift from a digestive to an absorptive organ for water, electrolytes, and vitamins. We further uncover pathway-level molecular changes underlying altered gastrointestinal motility; trypsin-dependent protein digestion; upregulated amino acid catabolism with key aspects diverging from other mammals; impaired dietary fat digestion counterbalanced by increased fatty acid synthesis; defective sugar metabolism and natural insulin deficiency; enhanced heme iron absorption; and adult splenic erythropoiesis. Together, these findings reveal the molecular adaptations that enable one of the most extreme dietary transitions among vertebrates.",
+      "authors": [
+        "Shenglin Liu",
+        "Mariella  Bontempo Freitas",
+        "Sirlene  Souza Rodrigues Sartori",
+        "Michele Albertini",
+        "Evgeny Leushkin",
+        "Ine Alvarez van Tussenbroek",
+        "Ariadna E. Morales",
+        "Martin Pippel",
+        "Tom Brown",
+        "Alex Filipe Ramos de Sousa",
+        "Rosinéa Aparecida de Paula",
+        "Ilias Patmanidis",
+        "Willem Jespers",
+        "Leon Hilgers",
+        "Xueling Yi",
+        "Bernhard Bein",
+        "Yury Malovichko",
+        "Tilman Schell",
+        "Carola Greve",
+        "Sylke Winkler",
+        "Alexander Ben Hamadou",
+        "Moritz Blumer",
+        "Gisa Prange",
+        "Julio Cesar Hechavarria Cueria",
+        "Manfred Koessl",
+        "York Winter",
+        "Sean Dilrosun",
+        "Stephert Daniel Bechan",
+        "Mark D. Engstrom",
+        "Deirdre Jafferally",
+        "Zacharias Norman",
+        "Francisco Sornoza",
+        "Liliana M. Davalos",
+        "Burton Lim",
+        "Sonja Vernes",
+        "Michael Hiller"
+      ],
+      "categories": [],
+      "published": "2026-07-24",
+      "updated": "2026-07-24",
+      "url": "https://doi.org/10.64898/2026.07.24.740446",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/07/24/2026.07.24.740446.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0245,
+        "world_model": 0.046,
+        "whole_body_control": 0.1139,
+        "dexterous_manipulation": 0.0214,
+        "sim2real_data": 0.0216,
+        "hardware_unitree": 0.0725,
+        "bci_neural_decoding": 0.0653,
+        "bci_foundation_models": 0.0455,
+        "bci_embodied_robot": 0.0,
+        "bci_noninvasive_eeg": 0.0845,
+        "protein_ai": 0.1901,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.2696,
+      "first_seen": "2026-07-29",
+      "analysis": {
+        "tldr": "通过生成三种吸血蝙蝠的高质量基因组并整合多器官转录组数据，系统识别出150个在序列或表达层面发生适应性改变的基因，揭示了吸血蝙蝠从普通哺乳动物食性转向专性吸血所需的全套分子机制，包括胃功能重构、蛋白/脂肪/糖代谢重编程、铁吸收增强和成体脾脏造血等。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "吸血蝙蝠的极端食血适应由150个基因的序列演化与器官特异性表达协同驱动，其胃肠、代谢与造血系统的分子重构共同支撑这一脊椎动物中最极端的食性转变。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "六种新组装的蝙蝠参考基因组（含全部三种吸血蝙蝠）+ 六大器官的RNA-seq转录组数据",
+        "output": "150个受正向选择、拷贝数变异或差异表达调控的适应性基因列表及其功能注释；多通路级分子机制解释（如胃结构-功能转换、代谢通路重布线）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 8,
+        "evidence": 10,
+        "reproducibility_score": 4,
+        "significance": 78,
+        "significance_reason": "提供了首个覆盖全物种、多器官、基因组+转录组整合的吸血蝙蝠适应性演化图谱，实证扎实（新基因组+多组织RNA-seq+实验验证胃生理），机制深度达通路级，但属单一物种极端表型解析，未构建通用模型或预测工具，影响力限于演化生物学与比较生理学，尚未达到AlphaFold2/ESM系列等跨领域基础模型级分量。",
+        "one_sentence_verdict": "真突破：首次以多组学整合方式系统解构脊椎动物最极端食性适应的完整分子逻辑链，证据链完整（基因组演化信号+器官表达变化+生理实验验证），非概念包装或数据堆砌。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 8.1,
+        "content": 22.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 30.1,
+        "bonus": 0.0,
+        "total": 30.1
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
+      "arxiv_id": "2607.21686",
+      "doi": "10.48550/arxiv.2607.21686",
+      "source_kind": "arxiv",
+      "title": "Persistent Computational State: A Session-Centric Runtime for Generative World Models",
+      "abstract": "Generative world models are increasingly driven as simulators: a planner forks a state, rolls out futures, backtracks, and returns to a visited viewpoint. Recent benchmarks establish that current video world models fail this usage, and attribute it to the model, prescribing new architectures and training objectives. We show this attribution is incomplete, and for an important class of models simply wrong. Snapshotting the state the runtime already holds -- an observation plus RNG state, a memory bank, or a windowed KV context, by architecture -- and restoring it after a genuine excursion reproduces the never-left continuation byte-identically on all three; corrupting only the RNG degrades it. The capability was never missing: request-centric serving discarded it, inheriting from language-model serving the assumption that runtime state is recomputable -- but world-model state carries a non-recomputable kernel. We define Persistent Computational State (PCS), the minimal non-recomputable state that must survive across requests, show it can be discovered by measurement, and build a session-centric runtime over it. Checkpoint and restore cost 0.012 ms against a 1.85 s generation step; resident sessions become host- rather than device-bounded (measured to 1,024); and world memory must be evicted by relevance to the return, not recency -- the inverse of LLM practice.",
+      "authors": [
+        "Zhen Lin"
+      ],
+      "categories": [],
+      "published": "2026-07-23",
+      "updated": "2026-07-23",
+      "url": "https://arxiv.org/abs/2607.21686",
+      "pdf_url": "https://arxiv.org/pdf/2607.21686",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.3746,
+        "world_model": 0.5018,
+        "whole_body_control": 0.2791,
+        "dexterous_manipulation": 0.1471,
+        "sim2real_data": 0.2491,
+        "hardware_unitree": 0.138,
+        "bci_neural_decoding": 0.1896,
+        "bci_foundation_models": 0.2098,
+        "bci_embodied_robot": 0.099,
+        "bci_noninvasive_eeg": 0.1622,
+        "protein_ai": 0.148,
+        "genomics_ai": 0.1675
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.5018,
+      "first_seen": "2026-07-29",
+      "analysis": {
+        "tldr": "这篇论文指出当前生成式世界模型（如视频预测模型）在‘分叉-回溯-续跑’这类交互式仿真任务中表现差，并非因为模型架构不行，而是因为服务运行时（runtime）错误地丢弃了不可重算的计算状态（如随机数生成器状态、KV缓存、记忆银行等），作者定义了‘持久化计算状态’（PCS）这一最小必要状态集，设计了以会话（session）为中心的轻量级运行时，实现毫秒级快照/恢复，使世界模型真正支持可重复、可回溯的仿真交互。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "当前世界模型在分叉-回溯类仿真任务中的失败主因不是模型能力不足，而是传统请求式（request-centric）运行时主动丢弃了不可重算的计算状态；引入会话级持久化状态（PCS）即可在不改模型的前提下恢复字节级一致的连续生成行为。",
+        "method_components": [
+          "model",
+          "simulator",
+          "runtime"
+        ],
+        "input": "初始观测序列（如图像帧或token序列）+ 用户发起的分叉/回溯/续跑指令",
+        "output": "字节级精确复现的生成序列（如后续视频帧或token流）",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据，纯仿真/离线生成场景",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "none",
+        "tags": [
+          "sim2real",
+          "benchmark"
+        ],
+        "novelty": 8,
+        "evidence": 7,
+        "reproducibility_score": 0,
+        "significance": 78,
+        "significance_reason": "直击世界模型落地的核心工程瓶颈——状态管理，提出PCS概念并实证其决定性作用（RNG破坏即崩溃），运行时设计简洁高效（0.012ms开销），但未开源代码/模型/测量数据，也未在标准世界模型基准（如World Model Bench、Genie Eval）上量化对比，缺乏跨模型泛化验证（仅提‘三类模型’未列名），故强于一般增量但未达基石级（如DreamerV3需真机闭环+多任务+消融+开源）",
+        "one_sentence_verdict": "工程整合：精准识别并解决世界模型运行时状态丢失这一被长期忽视的关键缺陷，但缺乏开源与跨基准实证，尚未构成范式突破",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 15.1,
+        "content": 15.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 30.1,
+        "bonus": 0.0,
+        "total": 30.1
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.21686.jpg"
     },
     {
       "arxiv_id": "2606.00762",
@@ -156491,6 +157585,180 @@
       "thumb": "assets/thumbs/2607.18365.jpg"
     },
     {
+      "arxiv_id": "2607.20992",
+      "doi": "10.48550/arxiv.2607.20992",
+      "source_kind": "arxiv",
+      "title": "Distributed Model-Based Diffusion For Scalable Multi-Robot Trajectory Optimization",
+      "abstract": "Trajectory optimization for multi-robot systems remains a critical challenge, particularly when navigating highly non-convex, non-linear, and non-differentiable environments. While Model-Based Diffusion (MBD) has recently emerged as a promising sampling-based optimization paradigm for single-robot trajectory generation, extending it to multi-robot systems results in a centralized, high-dimensional inference problem that (i) suffers from poor sample efficiency due to the curse of dimensionality and (ii) requires global access to all robots' dynamics, constraints, and objectives. To address this, we propose Distributed Model-Based Diffusion (DMBD), a distributed server-robot framework that decomposes the reverse diffusion process into local conditional reverse diffusion processes. This decomposition enables each robot to iteratively perform denoising independently within its own control subspace while conditioning on the current trajectory estimates of the other robots that are aggregated and broadcast by the server. Extensive simulations in goal swapping, multi-floor coverage, parking, and rush-hour scenarios demonstrate that DMBD achieves strong scalability, solving many challenging coordination tasks in sub-seconds and significantly outperforming existing baselines.",
+      "authors": [
+        "Haejoon Lee",
+        "Xinyi Wang",
+        "Taekyung Kim",
+        "Dimitra Panagou"
+      ],
+      "categories": [],
+      "published": "2026-07-23",
+      "updated": "2026-07-23",
+      "url": "https://arxiv.org/abs/2607.20992",
+      "pdf_url": "https://arxiv.org/pdf/2607.20992",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4454,
+        "world_model": 0.412,
+        "whole_body_control": 0.3859,
+        "dexterous_manipulation": 0.1617,
+        "sim2real_data": 0.5,
+        "hardware_unitree": 0.1672,
+        "bci_neural_decoding": 0.0439,
+        "bci_foundation_models": 0.1137,
+        "bci_embodied_robot": 0.2259,
+        "bci_noninvasive_eeg": 0.0869,
+        "protein_ai": 0.1149,
+        "genomics_ai": 0.1192
+      },
+      "best_route": "sim2real_data",
+      "relevance_raw": 0.4454,
+      "first_seen": "2026-07-29",
+      "analysis": {
+        "tldr": "提出一种分布式模型驱动的扩散方法（DMBD），让多机器人各自在本地做轨迹去噪优化，服务器只负责聚合和广播其他机器人的当前轨迹估计，从而避免集中式高维扩散带来的维度灾难和全局动力学依赖。",
+        "org": "密歇根大学",
+        "country": "US",
+        "org_type": "university",
+        "claim": "通过将模型驱动扩散过程分解为机器人本地条件反向扩散+服务器协调广播，可实现高扩展性、低通信开销的多机器人轨迹协同优化。",
+        "method_components": [
+          "model",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "各机器人初始状态、目标位置、局部动力学模型、环境约束（如障碍物）、其他机器人当前轨迹估计（由服务器广播）",
+        "output": "各机器人优化后的轨迹（时间-状态序列）",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据，纯仿真",
+        "sim2real_status": "sim-only",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "benchmark",
+          "sim2real"
+        ],
+        "novelty": 6,
+        "evidence": 5,
+        "reproducibility_score": 3,
+        "significance": 48,
+        "significance_reason": "方法设计有启发性（解耦扩散+条件本地化），但仅在仿真中验证4类场景，无真实机器人实验、无跨机体/跨任务泛化测试、无消融验证关键模块贡献，未开源代码或模型，相比DROID/ALOHA等真机驱动的里程碑工作差距显著，属于扎实但窄的算法改进。",
+        "one_sentence_verdict": "工程整合：把扩散模型适配到分布式多机器人优化框架里，逻辑自洽且仿真有效，但缺乏实证深度与开放性，暂未触及领域瓶颈。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 13.4,
+        "content": 14.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 27.4,
+        "bonus": 0.0,
+        "total": 27.4
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.20992.jpg"
+    },
+    {
+      "arxiv_id": "2607.22320",
+      "doi": "10.48550/arxiv.2607.22320",
+      "source_kind": "arxiv",
+      "title": "A Monolithic Hand with Asymmetric Origami Bending and Dual-chamber Actuators",
+      "abstract": "The passive adaptability inherent in soft robotic hands affords them advantages in applications that require safe and compliant interaction. However, existing soft robotic hands often struggle to simultaneously achieve adequate output performance and easy manufacturing due to their complicated structures. In this paper, we introduce the asymmetric origami bending (AOB) pattern for generating bending motion and the asymmetric dual-chamber (ADC) design for obtaining multifunction capability. The AOB single (AOB-S) chamber and AOB dual-chamber (AOB-D) units are designed and constitute the finger and palm actuators of the proposed Origami-inspired SOft Robotic (OSOR) hand. The OSOR hand achieves bio-inspired fingers-palm motions and adequate output performance within a monolithic structure that significantly simplifies the manufacturing process. By defining the asymmetric ratio to characterize the geometric asymmetry of the unit, the analytical models of the AOB and ADC structures are proposed. The Finite Element Analysis tool for the design of AOB actuators is obtained by geometric analysis. The asymmetric origami design grants the integrated manufacturing of the OSOR hand through a Selective Laser Sintering printing process with a single thermoplastic polyurethane material. The model and simulations are validated by experimental results. Experiments show the finger and palm maximum bending motion range of 203° and 40°, respectively, with output forces of 6.3 N and 16 N. The OSOR hand is capable of pinching a piece of tissue, stably grasping water bottles with two fingers, palm-only grasping, and completing the power grasps in the taxonomy of manufacturing grasps. The compactness, performance, and easy manufacturing of the proposed hand benefit the development of the soft robotic hand with new possibilities.",
+      "authors": [
+        "Nan Huang",
+        "Yuming Zhu",
+        "Zicong Zhang",
+        "Jianhui Liu",
+        "Xiaohuang Liu",
+        "Dihan Liu",
+        "Jiansheng Dai",
+        "Sicong Liu"
+      ],
+      "categories": [],
+      "published": "2026-07-24",
+      "updated": "2026-07-24",
+      "url": "https://arxiv.org/abs/2607.22320",
+      "pdf_url": "https://arxiv.org/pdf/2607.22320",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2452,
+        "world_model": 0.1077,
+        "whole_body_control": 0.2311,
+        "dexterous_manipulation": 0.227,
+        "sim2real_data": 0.1318,
+        "hardware_unitree": 0.5,
+        "bci_neural_decoding": 0.0169,
+        "bci_foundation_models": 0.0,
+        "bci_embodied_robot": 0.1457,
+        "bci_noninvasive_eeg": 0.0,
+        "protein_ai": 0.133,
+        "genomics_ai": 0.1319
+      },
+      "best_route": "hardware_unitree",
+      "relevance_raw": 0.2452,
+      "first_seen": "2026-07-29",
+      "analysis": {
+        "tldr": "提出一种基于不对称折纸弯曲（AOB）和双腔气动结构（ADC）的单体软体机械手，用单一材料3D打印实现手指与手掌协同运动，兼顾大弯曲角度、足够输出力和简易制造。",
+        "org": "北京航空航天大学",
+        "country": "CN",
+        "org_type": "university",
+        "claim": "通过不对称折纸弯曲模式与双腔气动单元的耦合设计，可在单体结构、单一材料、一次3D打印中实现兼具高顺应性、大运动范围、多模态抓取能力且易于制造的软体机械手。",
+        "method_components": [
+          "model",
+          "simulator",
+          "hardware",
+          "dataset"
+        ],
+        "input": "气压输入（未显式建模外部感知或指令）",
+        "output": "手指/手掌的弯曲位移与输出力",
+        "robot_dependency": "自研OSOR软体手硬件平台",
+        "data_dependency": "依赖自制真实机器人实验数据（含位移、力、抓取视频）",
+        "sim2real_status": "real-robot",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dexterous",
+          "soft-robotics",
+          "origami",
+          "3d-printing",
+          "real-robot"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 68,
+        "significance_reason": "在软体手结构创新上具实质性推进：首次将不对称折纸弯曲与双腔气动集成于单体打印结构，实测达到203°指节弯曲+16N掌部输出力+多类工业抓取，远超多数纯仿真或小力软手（如PneuNet变种），但未跨机体泛化、无学习控制、未接入感知闭环，仍属高质量结构机器人学增量工作，未达‘开新范式’或‘解决长期开放难题’层级。",
+        "one_sentence_verdict": "显著贡献：结构设计真突破+真机验证扎实，但限于单一体型与开环气动驱动，属于高水平工程整合，非概念包装",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 7.4,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 27.4,
+        "bonus": 0.0,
+        "total": 27.4
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "2606.06245",
       "doi": "10.48550/arxiv.2606.06245",
       "source_kind": "arxiv",
@@ -160299,6 +161567,95 @@
       "read_priority": "C"
     },
     {
+      "arxiv_id": "2607.22030",
+      "doi": "10.48550/arxiv.2607.22030",
+      "source_kind": "arxiv",
+      "title": "Impedance Control of Ship-Borne Manipulators via Optimization-based Task-Space Inverse Dynamics",
+      "abstract": "Ship-borne manipulators operating in maritime environments are subject to stochastic wave-induced base motions that introduce kinematic disturbances and dynamic coupling, degrading trajectory tracking accuracy and complicating safe, contact-rich manipulation. This paper proposes a torque-level optimization-based control framework that integrates high-precision trajectory tracking with task-space impedance for ship-borne manipulators. The controller is formulated using task-space inverse dynamics (TSID) and solved via quadratic programming to explicitly compensate for the dynamic coupling introduced by base motion. To enable accurate feedforward compensation, an error-state Kalman filter (ESKF) is developed to estimate the base state by fusing inertial measurements with end-effector pose feedback. The framework is validated in simulation and real-world experiments using a 7-DOF manipulator mounted on a 6-DOF Stewart platform. The proposed method reduces real-world end-effector position tracking error by over 25.7% compared with the best baseline. Furthermore, the controller enables dynamic peg-in-hole insertion with 1~mm clearance under base motion, increasing the success rate while reducing average contact forces by 45%, demonstrating precise and compliant manipulation in contact-rich environments.",
+      "authors": [
+        "Lingxiao Meng",
+        "Bi-Ke Zhu",
+        "Xuheng Gao",
+        "Zhe Zhang",
+        "Jiankun Yang",
+        "Jiankun Wang",
+        "Haibo Lu",
+        "Max Q. -H. Meng"
+      ],
+      "categories": [],
+      "published": "2026-07-24",
+      "updated": "2026-07-24",
+      "url": "https://arxiv.org/abs/2607.22030",
+      "pdf_url": "https://arxiv.org/pdf/2607.22030",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.5,
+        "world_model": 0.2971,
+        "whole_body_control": 0.3307,
+        "dexterous_manipulation": 0.156,
+        "sim2real_data": 0.1774,
+        "hardware_unitree": 0.1731,
+        "bci_neural_decoding": 0.1109,
+        "bci_foundation_models": 0.0976,
+        "bci_embodied_robot": 0.2074,
+        "bci_noninvasive_eeg": 0.066,
+        "protein_ai": 0.1264,
+        "genomics_ai": 0.1038
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.3307,
+      "first_seen": "2026-07-29",
+      "analysis": {
+        "tldr": "针对船载机械臂受海浪导致基座随机运动干扰的问题，提出一种基于任务空间逆动力学（TSID）和二次规划的力矩级阻抗控制器，并用误差状态卡尔曼滤波（ESKF）融合IMU与末端位姿估计基座运动，实现在晃动平台上高精度轨迹跟踪和柔顺插孔操作。",
+        "org": "哈尔滨工业大学",
+        "country": "CN",
+        "org_type": "university",
+        "claim": "通过TSID+QP框架联合基座运动估计与任务空间阻抗控制，可在真实晃动平台上实现船载机械臂的高精度轨迹跟踪与低接触力柔顺操作。",
+        "method_components": [
+          "model",
+          "simulator",
+          "policy",
+          "hardware"
+        ],
+        "input": "IMU数据 + 末端位姿反馈 + 参考轨迹（位置/速度/加速度） + 阻抗参数",
+        "output": "关节力矩指令",
+        "robot_dependency": "7-DOF机械臂 + 6-DOFStewart平台",
+        "data_dependency": "依赖真实机器人平台采集的IMU、末端位姿及力/力矩数据用于ESKF标定与闭环验证；未使用大规模离线数据集",
+        "sim2real_status": "multi-embodiment",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "sim2real",
+          "real-robot",
+          "tactile"
+        ],
+        "novelty": 5,
+        "evidence": 9,
+        "reproducibility_score": 3,
+        "significance": 58,
+        "significance_reason": "解决了船载机械臂在动态基座下的关键控制问题，有扎实的真实平台验证（Stewart平台模拟晃动+7-DOF臂+peg-in-hole任务）、量化提升（25.7%误差下降、45%接触力降低）和消融支撑（ESKF vs. open-loop），但属特定场景（海洋作业）的工程级改进，未引入新范式、未开源代码/模型、未跨机体/任务泛化，远未达RT-2/Octo/OpenVLA等通用机器人基础模型量级。",
+        "one_sentence_verdict": "工程整合：在特定强扰动场景下实现了控制链路的完整闭环设计与实机验证，但非范式突破，也无通用性或开源支撑",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 9.9,
+        "content": 17.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 26.9,
+        "bonus": 0.0,
+        "total": 26.9
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.22030.jpg"
+    },
+    {
       "arxiv_id": "10.64898/2026.06.09.731156",
       "doi": "10.64898/2026.06.09.731156",
       "source_kind": "biorxiv",
@@ -163755,6 +165112,88 @@
       },
       "grade": "D",
       "read_priority": "C"
+    },
+    {
+      "arxiv_id": "2607.19809",
+      "doi": "10.48550/arxiv.2607.19809",
+      "source_kind": "arxiv",
+      "title": "Dreamer-CPC: Message Learning with World Models for Decentralized Multi-agent Reinforcement Learning",
+      "abstract": "In multi-agent reinforcement learning (MARL), inter-agent communication is effective for improving performance under partial observability. Representation learning-based approaches enable decentralized agents to learn messages grounded in their own observations, but they rely only on current observations and cannot convey information accumulated over time. We propose Dreamer-CPC, a decentralized model-based MARL method that integrates message learning based on Collective Predictive Coding (CPC) into the world model of DreamerV3. Each agent independently maintains a world model and a message module, and infers and exchanges messages from the latent states of the world model that reflect the history of past observations and actions. We evaluated Dreamer-CPC in two environments: Observer, a non-cooperative information-sharing task, and CatchApple, a newly introduced task in which task-relevant observations are temporarily missing. In both environments, Dreamer-CPC outperformed IPPO-CPC, an existing CPC-based method that generates messages from current observations, as well as no-communication baselines. In particular, in CatchApple, Dreamer-CPC achieved 4 to 5 times the episode return of IPPO-CPC, demonstrating effective coordination where other methods fail due to missing observations. These results suggest that communication grounded in the latent dynamics of world models can support decentralized decision-making when current observations alone are insufficient.",
+      "authors": [
+        "Taisuke Takayama",
+        "Naoto Yoshida",
+        "Taniguchi T"
+      ],
+      "categories": [],
+      "published": "2026-07-22",
+      "updated": "2026-07-22",
+      "url": "https://arxiv.org/abs/2607.19809",
+      "pdf_url": "https://arxiv.org/pdf/2607.19809",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.3809,
+        "world_model": 0.5096,
+        "whole_body_control": 0.3576,
+        "dexterous_manipulation": 0.142,
+        "sim2real_data": 0.2549,
+        "hardware_unitree": 0.1526,
+        "bci_neural_decoding": 0.1975,
+        "bci_foundation_models": 0.3011,
+        "bci_embodied_robot": 0.2732,
+        "bci_noninvasive_eeg": 0.1432,
+        "protein_ai": 0.0504,
+        "genomics_ai": 0.0809
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.5096,
+      "first_seen": "2026-07-29",
+      "analysis": {
+        "tldr": "提出Dreamer-CPC，让多智能体各自建世界模型，并从模型的隐状态历史中提取信息生成通信消息（而非只用当前观测），在观测缺失任务中显著提升协同效果。",
+        "org": "未知",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "基于世界模型隐状态历史的消息学习，比仅依赖当前观测的消息学习更能支撑部分可观测下的去中心化多智能体协同决策。",
+        "method_components": [
+          "model",
+          "benchmark"
+        ],
+        "input": "局部观测序列+自身动作序列",
+        "output": "用于跨智能体交换的紧凑消息向量",
+        "robot_dependency": "none",
+        "data_dependency": "无真实机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "limited"
+        ],
+        "reproducibility": "none",
+        "tags": [
+          "multimodal-fusion"
+        ],
+        "novelty": 6,
+        "evidence": 5,
+        "reproducibility_score": 0,
+        "significance": 42,
+        "significance_reason": "仅在两个自建小规模仿真环境（Observer/CatchApple）验证，无真实系统、无跨任务泛化、无消融分析消息机制与世界模型耦合的必要性，未开源代码/模型，相比DreamerV3等96+分基石工作属于窄域方法改进，实证强度远低于‘扎实增量’门槛（需真机/多任务/消融/开源）",
+        "one_sentence_verdict": "暂时不用看：纯仿真小任务验证，无开源、无消融、无泛化证据，属概念可行性演示，尚未达到可复现可评估的科研交付标准",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 15.3,
+        "content": 11.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 26.3,
+        "bonus": 0.0,
+        "total": 26.3
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.19809.jpg"
     },
     {
       "arxiv_id": "2606.00180",
@@ -170647,6 +172086,85 @@
       "thumb": "assets/thumbs/2607.18709.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.07.24.740580",
+      "doi": "10.64898/2026.07.24.740580",
+      "source_kind": "biorxiv",
+      "title": "Functional Deorphanization and Subtype-Selective Pharmacology of Three Tyramine Receptors in the Disease Vector, Aedes aegypti",
+      "abstract": "Biogenic amines such as tyramine (TA) and octopamine (OA) are central regulators of insect physiology and behaviour, acting through G protein-coupled receptors (GPCRs) to control reproduction, locomotion, metabolism, olfaction and hydromineral homeostasis. Although TA was once considered solely a biosynthetic precursor to OA, it is now recognized as an independent signaling molecule acting through distinct tyramine receptors (TARs). Owing to their invertebrate-specific roles and absence in vertebrates, TARs represent promising molecular targets for selective insecticide development. In the mosquito Aedes aegypti, a major arboviral vector of dengue and Zika viruses, the functional and pharmacological properties of TARs have not been characterized. Here, we functionally deorphanized and comparatively characterized three putative A. aegypti tyramine receptors (AaTAR1-AaTAR3) using a heterologous assay, revealing subtype-specific pharmacological profiles and antagonist sensitivities. All three receptors were robustly activated by TA in a concentration-dependent manner, whereas OA exhibited significantly lower potency on each receptor subtype, consistent with a strong preference for TA. All three TARs were unresponsive to dopamine and serotonin, even when using supraphysiological concentrations, indicating high ligand specificity. Antagonist profiling revealed pronounced subtype-specific pharmacology: yohimbine strongly suppressed AaTAR1, phentolamine most effectively inhibited AaTAR2, whereas AaTAR3 exhibited reduced sensitivity to several classical aminergic antagonists, suggesting a pharmacologically distinct subtype. These findings establish that AaTAR1, AaTAR2 and AaTAR3 are bona fide functional tyramine receptors, define their ligand selectivity and subtype-specific pharmacology, and provide a comparative framework for understanding mosquito tyraminergic signaling, highlighting their potential as targets for next-generation vector control strategies.",
+      "authors": [
+        "Salwa Afifi",
+        "Jean‐Paul Paluzzi"
+      ],
+      "categories": [],
+      "published": "2026-07-27",
+      "updated": "2026-07-27",
+      "url": "https://doi.org/10.64898/2026.07.24.740580",
+      "pdf_url": "https://doi.org/10.64898/2026.07.24.740580",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.099,
+        "world_model": 0.1043,
+        "whole_body_control": 0.0908,
+        "dexterous_manipulation": 0.0596,
+        "sim2real_data": 0.011,
+        "hardware_unitree": 0.1003,
+        "bci_neural_decoding": 0.1323,
+        "bci_foundation_models": 0.1024,
+        "bci_embodied_robot": 0.0753,
+        "bci_noninvasive_eeg": 0.1125,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2331
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.2331,
+      "first_seen": "2026-07-29",
+      "analysis": {
+        "tldr": "这篇论文在埃及伊蚊中成功鉴定并表征了三个酪胺受体（AaTAR1-3）的功能与药理特性，确认它们是真正的酪胺特异性GPCR，并发现三者对不同拮抗剂具有显著差异的敏感性，为开发靶向这些受体的新型蚊虫特异性杀虫剂提供了实验依据。",
+        "org": "多伦多大学",
+        "country": "CA",
+        "org_type": "university",
+        "claim": "AaTAR1、AaTAR2和AaTAR3均为功能性的、酪胺特异性的G蛋白偶联受体，且具有亚型选择性的药理学特征，可作为埃及伊蚊特异性干预的可行靶点。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "重组表达的蚊源酪胺受体（AaTAR1-3）+ 外源配体（酪胺、章鱼胺、多巴胺、5-HT及多种拮抗剂）",
+        "output": "受体激活/抑制的浓度依赖性响应曲线（cAMP或钙信号等第二信使读数）",
+        "robot_dependency": "none",
+        "data_dependency": "无真实机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 8,
+        "reproducibility_score": 4,
+        "significance": 48,
+        "significance_reason": "属扎实的分子药理学表征工作：完成三个孤儿GPCR的功能去孤儿化、明确配体选择性与拮抗剂谱，但未构建预测模型、未生成新化合物、未开展体内验证或杀虫效力测试；相比ESM/AlphaFold/RFdiffusion等基石级工作，其技术深度、通用性与范式影响力均弱一个量级；属于重要但窄域的靶点验证，符合‘显著贡献’下限，但因缺乏计算建模、结构解析、体内功能关联或开源工具链，无法达到60分以上。",
+        "one_sentence_verdict": "工程整合：完成了关键靶点的功能验证与药理分型，是药物发现前期必要但非突破性的实验基础工作，尚未进入设计-验证闭环。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 7.0,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 25.0,
+        "bonus": 0.0,
+        "total": 25.0
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "2606.18208",
       "doi": "10.48550/arxiv.2606.18208",
       "source_kind": "arxiv",
@@ -174216,6 +175734,91 @@
       "read_priority": "C"
     },
     {
+      "arxiv_id": "2607.21960",
+      "doi": "10.48550/arxiv.2607.21960",
+      "source_kind": "arxiv",
+      "title": "Adaptive Undulatory Locomotion of Snake-like Robots in Dynamic Viscous Environments via Deep Reinforcement Learning",
+      "abstract": "This paper demonstrates how deep reinforcement learning (DRL) enables adaptive locomotion of snake-like robots in dynamically changing viscous environments, overcoming the inherent performance limitations of classical predefined control methods. The lack of direct onboard sensors for fluid properties necessitates formulating this task as a partially observable Markov decision process. By employing an asymmetric actor-critic framework, a teacher policy trained using privileged information available only in the physics simulator distills its knowledge into a student policy that relies solely on proprioceptive sensor information. Simulation results across a wide range of dynamic viscosity changes ($10^{-7}$ to $10^{-2} m^2/s$) reveal that the DRL agent autonomously acquires non-sinusoidal adaptive gaits. These gaits improve propulsion velocity and transport efficiency, breaking the inherent limits of conventional sinusoidal and kinematic control. The findings establish that implicit environment inference via privileged information distillation is an effective approach to bypass the constraints of classical models under unpredictable fluid dynamics.",
+      "authors": [
+        "Tsuyoshi Kimoto",
+        "Akio Yamano",
+        "Kohei Honda",
+        "Takashi Iwasa"
+      ],
+      "categories": [],
+      "published": "2026-07-24",
+      "updated": "2026-07-24",
+      "url": "https://arxiv.org/abs/2607.21960",
+      "pdf_url": "https://arxiv.org/pdf/2607.21960",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4431,
+        "world_model": 0.4228,
+        "whole_body_control": 0.5,
+        "dexterous_manipulation": 0.172,
+        "sim2real_data": 0.2481,
+        "hardware_unitree": 0.1272,
+        "bci_neural_decoding": 0.1321,
+        "bci_foundation_models": 0.114,
+        "bci_embodied_robot": 0.2204,
+        "bci_noninvasive_eeg": 0.0911,
+        "protein_ai": 0.0555,
+        "genomics_ai": 0.0642
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.4431,
+      "first_seen": "2026-07-29",
+      "analysis": {
+        "tldr": "用深度强化学习训练蛇形机器人在粘度动态变化的流体环境中自主调整运动模式，不依赖外部流体传感器，而是通过仿真中‘教师-学生’知识蒸馏实现仅靠本体感知的自适应游动。",
+        "org": "东京工业大学",
+        "country": "JP",
+        "org_type": "university",
+        "claim": "在无流体状态直接观测条件下，通过特权信息蒸馏的DRL框架可使蛇形机器人在动态粘性环境中实现超越传统正弦波控制的自适应波动运动。",
+        "method_components": [
+          "model",
+          "simulator",
+          "policy"
+        ],
+        "input": "本体感知信号（关节角度、角速度等）",
+        "output": "关节力矩/目标轨迹（连续动作空间）",
+        "robot_dependency": "仿真中的蛇形机器人模型（未指定具体平台）",
+        "data_dependency": "完全不依赖真实机器人数据，仅使用物理仿真生成训练数据",
+        "sim2real_status": "sim-only",
+        "generalization": [
+          "cross-environment"
+        ],
+        "reproducibility": "none",
+        "tags": [
+          "sim2real",
+          "dexterous"
+        ],
+        "novelty": 6,
+        "evidence": 5,
+        "reproducibility_score": 0,
+        "significance": 38,
+        "significance_reason": "属具身智能中特定形态（蛇形）+特定环境（粘性流体）的仿真验证工作，方法为已知的teacher-student distillation变体，无真实机器人实验、无跨机体泛化、无开源证据，贡献限于单一形态在仿真粘度扰动下的控制策略改进，远未达基石论文所要求的范式突破、多任务通用性或真实部署价值。",
+        "one_sentence_verdict": "暂时不用看：纯仿真、无代码、无真机验证、问题设定高度特化，属于窄领域增量探索，尚未证明对具身智能主干技术有实质性推进。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 13.3,
+        "content": 11.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 24.3,
+        "bonus": 0.0,
+        "total": 24.3
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.21960.jpg"
+    },
+    {
       "arxiv_id": "10.64898/2026.06.05.730388",
       "doi": "10.64898/2026.06.05.730388",
       "source_kind": "biorxiv",
@@ -175355,6 +176958,88 @@
       },
       "grade": "D",
       "read_priority": "C"
+    },
+    {
+      "arxiv_id": "2607.21227",
+      "doi": "10.48550/arxiv.2607.21227",
+      "source_kind": "arxiv",
+      "title": "FORGE-plus: Force-Budgeted Recovery for Contact-Rich Assembly with a Frozen LLM Supervisor",
+      "abstract": "Force-conditioned reinforcement learning (RL) enables tight-clearance assembly under a commanded force ceiling, but practical deployment requires determining an appropriate force limit for each object and recovering from insertion failures without exceeding it. We present a two-layer framework in which a frozen, text-only large language model (LLM) assigns a per-object force ceiling before execution and selects recovery maneuvers from a fixed action menu using compact textual force signatures. The LLM never controls force directly: a low-level controller enforces the force ceiling, the recovery policy cannot increase it, and the hidden breaking-force threshold is known only to the evaluator. We evaluate the framework on fragile bottle placement and 0.4 mm diametral-clearance gear insertion using two grippers (Robotiq 2F-140 and Franka Panda hand). A single policy passes 256/256 evaluation episodes on both fragile and robust objects without breakage, correctly predicts release timing, and completes a full table-pick-and-insert pipeline with a mean peak force of 5.4 N. Under injected in-grip slip, the force-signature recovery strategy resolves 40% and 64% of failures on the two grippers, whereas a press-harder baseline is either ineffective or causes frequent breakage. We also report negative results, including the failure of PPO to solve the task under strict force constraints and unsuccessful learned release strategies. All experiments are conducted in rigid-body simulation with hidden force-threshold breakage; no sim-to-real claim is made.",
+      "authors": [
+        "Kyupaeck Jeff Rah",
+        "Midum Oh"
+      ],
+      "categories": [],
+      "published": "2026-07-23",
+      "updated": "2026-07-23",
+      "url": "https://arxiv.org/abs/2607.21227",
+      "pdf_url": "https://arxiv.org/pdf/2607.21227",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4324,
+        "world_model": 0.2922,
+        "whole_body_control": 0.3761,
+        "dexterous_manipulation": 0.5,
+        "sim2real_data": 0.2599,
+        "hardware_unitree": 0.1783,
+        "bci_neural_decoding": 0.1365,
+        "bci_foundation_models": 0.0727,
+        "bci_embodied_robot": 0.3008,
+        "bci_noninvasive_eeg": 0.116,
+        "protein_ai": 0.1933,
+        "genomics_ai": 0.1242
+      },
+      "best_route": "dexterous_manipulation",
+      "relevance_raw": 0.4324,
+      "first_seen": "2026-07-29",
+      "analysis": {
+        "tldr": "提出一个两层框架：用冻结的纯文本大语言模型（LLM）为每个物体预设力上限并选择文字描述的恢复动作，底层控制器严格执行该力限；在仿真中验证了其在易碎瓶放置和微间隙齿轮插入任务中零破损、高成功率，但全程未做任何真实机器人实验，也未开放代码或数据。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "冻结的纯文本LLM可作为无需微调的高层监督器，通过力签名（force signature）指导力受限下的接触密集装配失败恢复，且不直接输出力控制信号。",
+        "method_components": [
+          "model",
+          "simulator",
+          "policy",
+          "benchmark"
+        ],
+        "input": "物体名称/类型文本 + 当前状态简述（如‘齿轮卡住’）",
+        "output": "力上限数值 + 文本形式的恢复动作指令（如‘轻微旋转后重试’）",
+        "robot_dependency": "none",
+        "data_dependency": "完全不依赖真实机器人数据",
+        "sim2real_status": "sim-only",
+        "generalization": "limited",
+        "reproducibility": "none",
+        "tags": [
+          "sim2real",
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 5,
+        "reproducibility_score": 0,
+        "significance": 32,
+        "significance_reason": "虽将LLM用于力预算分配与恢复决策有新意，但仅在单一仿真环境、两个固定任务、无真实硬件验证、无开源材料、未对比主流力控RL方法（如DexDiffuser/FT-RL）；PPO失败等负面结果未深入归因，且‘force signature’本质是人工设计的离散动作编码，非真正感知-动作闭环；远未达T-Rex/ALOHA/FTP-1等基石级工作的实证深度、泛化性或系统完整性。",
+        "one_sentence_verdict": "概念包装——用LLM做力预算+文本恢复策略听起来新颖，但缺乏真实世界验证、可复现性、跨任务泛化和底层机理分析，本质是仿真中的有限场景演示",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 13.0,
+        "content": 11.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 24.0,
+        "bonus": 0.0,
+        "total": 24.0
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2607.21227.jpg"
     },
     {
       "arxiv_id": "2606.10934",
@@ -184112,6 +185797,87 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2607.00571.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.07.23.740390",
+      "doi": "10.64898/2026.07.23.740390",
+      "source_kind": "biorxiv",
+      "title": "An Integrated Proteomics and Genomics Approach to Identify Essential Protein Kinases During Human Trophoblast Development",
+      "abstract": "In the developing human placenta, three subtypes of trophoblast cells, cytotrophoblasts (CTBs), extravillous trophoblasts (EVTs), and syncytiotrophoblasts (STBs), mediate critical functions essential for a successful pregnancy. CTBs constitute the stem/progenitor compartment and differentiate into STBs and EVTs within the floating and anchoring villi, respectively. STBs establish the maternal-fetal exchange interface and secrets human chorionic gonadotropin (hCG), a hormone vital for the maintenance of early pregnancy. EVTs anchor the maternal endometrium and invade the uterine tissue to remodel maternal cells, supporting implantation and progression of pregnancy. In this study, we used human trophoblast stem cells (hTSCs) as a model system and performed quantitative, label-free liquid chromatography tandem Mass Spectrometry (LC/MS/MS) to profile proteome and phosphoproteome in TSC stem state (analogous to undifferentiated CTBs) and following their differentiation to STBs and EVTs. Through a multiomics approach, we integrated our proteomics data with global gene expression profiles to correlate cell type specific gene and protein expression during human trophoblast development. We also identified global phosphoproteome and analyzed kinases that are specifically active in hTSC stem state, as well as in differentiated STBs and EVTs. We experimentally validated specific kinases, such as BUB1B, PAK6, PKYMT1 and TNIK are essential for maintaining the hTSC stem state. Additionally, atypical protein kinase C isoforms PKC zeta is essential for STB development, while PTK2B, SRC, TRIO and LYN are important for EVT development. Our findings highlight key kinases uniquely required for specific stages of trophoblast development during human placentation and suggest that pharmacological inhibition of these kinases could negatively impact the placentation process during pregnancy.",
+      "authors": [
+        "Rajnish Kumar",
+        "Purbasa Dasgupta",
+        "Soma Ray",
+        "Soumen Paul"
+      ],
+      "categories": [],
+      "published": "2026-07-24",
+      "updated": "2026-07-24",
+      "url": "https://doi.org/10.64898/2026.07.23.740390",
+      "pdf_url": "https://doi.org/10.64898/2026.07.23.740390",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0392,
+        "world_model": 0.0168,
+        "whole_body_control": 0.1179,
+        "dexterous_manipulation": 0.0126,
+        "sim2real_data": 0.0,
+        "hardware_unitree": 0.0458,
+        "bci_neural_decoding": 0.0636,
+        "bci_foundation_models": 0.158,
+        "bci_embodied_robot": 0.034,
+        "bci_noninvasive_eeg": 0.1168,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.3088
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3088,
+      "first_seen": "2026-07-29",
+      "analysis": {
+        "tldr": "用人类胎盘滋养层干细胞模型，结合定量蛋白质组、磷酸化蛋白质组和转录组数据，系统鉴定出在滋养层干细胞维持、合体滋养层分化和绒毛外滋养层分化中各自必需的关键蛋白激酶，并通过实验验证了多个激酶的功能必要性。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "特定蛋白激酶（如BUB1B、PAK6、PKCζ、PTK2B等）在人类滋养层发育的不同阶段具有不可替代的功能性作用，其药理抑制将损害胎盘形成。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "人类滋养层干细胞及其分化产物（STBs/EVTs）的蛋白质组、磷酸化蛋白质组和转录组数据",
+        "output": "阶段特异性的必需蛋白激酶列表及其实验验证结果",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "none",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 5,
+        "evidence": 6,
+        "reproducibility_score": 0,
+        "significance": 38,
+        "significance_reason": "虽为高质量生物学发现（多组学整合+功能验证），但属经典分子机制研究范式，未引入新算法/模型/技术平台，无开源代码或可复用数据资源，未构建通用工具或数据库，也未解决领域级开放难题（如胎盘类器官建模、跨物种泛化、动态发育建模等），影响力限于生殖与发育生物学子领域。",
+        "one_sentence_verdict": "扎实增量：实验设计严谨、验证充分，但属于传统分子表型研究，缺乏计算方法创新或资源开放性，暂未达到AI×生物领域主流高分工作的范式突破或工程辐射力。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 9.3,
+        "content": 11.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 20.3,
+        "bonus": 0.0,
+        "total": 20.3
+      },
+      "grade": "D",
+      "read_priority": "C"
     },
     {
       "arxiv_id": "2606.03223",
