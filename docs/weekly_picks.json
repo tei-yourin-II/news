@@ -1,16 +1,16 @@
 {
   "week": {
-    "start": "2026-07-25",
-    "end": "2026-07-31",
-    "label": "07.25~07.31"
+    "start": "2026-07-26",
+    "end": "2026-08-01",
+    "label": "07.26~08.01"
   },
   "count": 15,
-  "venue_count": 3,
+  "venue_count": 4,
   "venues": [
     "IROS 2026",
     "RA-L 2026"
   ],
-  "generated_at": "2026-07-31 04:29 UTC",
+  "generated_at": "2026-08-01 04:29 UTC",
   "picks": [
     {
       "rank": 1,
@@ -57,6 +57,45 @@
     },
     {
       "rank": 2,
+      "arxiv_id": "2607.28625",
+      "title": "ACE-Data-0: Human-Centric Ambient Capture as Embodied Data Engine",
+      "published": "2026-07-30",
+      "url": "https://arxiv.org/abs/2607.28625",
+      "pdf_url": "https://arxiv.org/pdf/2607.28625",
+      "thumb": "assets/thumbs/2607.28625.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "未知（作者无机构署名，摘要未提所属单位；虽有中文名但无法确认归属，如清华/浙大/中科院/智元/宇树等均无依据）",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 87,
+      "significance_reason": "达到RT-2（97）和OpenVLA（93）之间的量级：它不是模型架构突破，但以工程规模与采集深度填补了具身AI最硬的‘人类行为真值’空白——首次同时提供触觉+接触监督+长程任务+自然指令+多机体同步，且全部来自真实家庭而非实验室/工厂；相比π0（95）偏重仿真合成、Qwen-RobotManip（94.5）聚焦机械臂单点操作，ACE-Data-0是目前唯一覆盖‘人如何真实生活’全链条的开源级数据引擎，直接支撑世界模型、VLA和模仿学习三大方向，但尚未开源代码/模型/原始传感器数据，故略低于RT-2/OpenVLA层级。",
+      "tier": "heavy",
+      "grade": "B",
+      "tags": [
+        "dataset",
+        "benchmark",
+        "multimodal-fusion",
+        "tactile",
+        "real-robot"
+      ],
+      "tldr": "构建了一个叫ACE的人体中心化环境采集系统，用多视角视频、全身/手部动作捕捉、物体6D位姿、音频和触觉信号同步录制真实家庭环境中人类完成200类家务任务的150小时数据，形成ACE-Data-0数据集，并配套提出分层评测基准，暴露现有SOTA模型在接触、遮挡、自我运动和长时序下的严重缺陷。",
+      "claim": "人类具身智能的数据瓶颈源于感知-动作闭环被碎片化采集，而ACE通过空间标定+时间同步的双尺度环境采集范式，首次实现家庭场景下全模态、全身体、全交互链路的统一记录，使ACE-Data-0成为首个覆盖原子操作→长程任务→人-场景交互且含触觉与接触监督的真实人类行为数据集。",
+      "method_components": [
+        "dataset",
+        "simulator",
+        "benchmark"
+      ],
+      "input": "多视角RGB视频（egocentric+exocentric）、全身及手指关节运动、物体6DoF轨迹、音频、触觉信号",
+      "output": "同步对齐的多模态时序流（含动作、物体状态、接触事件、声学反馈等）",
+      "novelty": 8,
+      "evidence": 10,
+      "one_sentence_verdict": "真突破：不是算法创新，而是以可复现的硬件-流程-标注体系，首次将人类具身行为数据采集提升到时空一致、模态对齐、任务自然的工业级标准，为整个领域提供了不可替代的ground truth基础设施。",
+      "deep": {}
+    },
+    {
+      "rank": 3,
       "arxiv_id": "2607.25798",
       "title": "Transformer Transformer: A Unified Model for Motion-Conditioned Robot Co-design",
       "published": "2026-07-28",
@@ -95,7 +134,7 @@
       "deep": {}
     },
     {
-      "rank": 3,
+      "rank": 4,
       "arxiv_id": "2607.23782",
       "title": "$N_0$-VTLA: Scaling Vision-Tactile-Language-Action Model with Latent Tactile Tokens",
       "published": "2026-07-26",
@@ -132,45 +171,6 @@
       "novelty": 8,
       "evidence": 10,
       "one_sentence_verdict": "真突破：它不是刷榜或仿真包装，而是以真实触觉数据规模、部署验证广度和离线策略改进实效，实质性填补了VLA领域长期缺失的触觉原生建模空白。",
-      "deep": {}
-    },
-    {
-      "rank": 4,
-      "arxiv_id": "2607.28625",
-      "title": "ACE-Data-0: Human-Centric Ambient Capture as Embodied Data Engine",
-      "published": "2026-07-30",
-      "url": "https://arxiv.org/abs/2607.28625",
-      "pdf_url": "https://arxiv.org/pdf/2607.28625",
-      "thumb": "assets/thumbs/2607.28625.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "未知（作者无机构署名，摘要未提所属单位；虽有中文名但无法确认归属，如清华/浙大/中科院/智元/宇树等均无依据）",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 87,
-      "significance_reason": "达到RT-2（97）和OpenVLA（93）之间的量级：它不是模型架构突破，但以工程规模与采集深度填补了具身AI最硬的‘人类行为真值’空白——首次同时提供触觉+接触监督+长程任务+自然指令+多机体同步，且全部来自真实家庭而非实验室/工厂；相比π0（95）偏重仿真合成、Qwen-RobotManip（94.5）聚焦机械臂单点操作，ACE-Data-0是目前唯一覆盖‘人如何真实生活’全链条的开源级数据引擎，直接支撑世界模型、VLA和模仿学习三大方向，但尚未开源代码/模型/原始传感器数据，故略低于RT-2/OpenVLA层级。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "dataset",
-        "benchmark",
-        "multimodal-fusion",
-        "tactile",
-        "real-robot"
-      ],
-      "tldr": "构建了一个叫ACE的人体中心化环境采集系统，用多视角视频、全身/手部动作捕捉、物体6D位姿、音频和触觉信号同步录制真实家庭环境中人类完成200类家务任务的150小时数据，形成ACE-Data-0数据集，并配套提出分层评测基准，暴露现有SOTA模型在接触、遮挡、自我运动和长时序下的严重缺陷。",
-      "claim": "人类具身智能的数据瓶颈源于感知-动作闭环被碎片化采集，而ACE通过空间标定+时间同步的双尺度环境采集范式，首次实现家庭场景下全模态、全身体、全交互链路的统一记录，使ACE-Data-0成为首个覆盖原子操作→长程任务→人-场景交互且含触觉与接触监督的真实人类行为数据集。",
-      "method_components": [
-        "dataset",
-        "simulator",
-        "benchmark"
-      ],
-      "input": "多视角RGB视频（egocentric+exocentric）、全身及手指关节运动、物体6DoF轨迹、音频、触觉信号",
-      "output": "同步对齐的多模态时序流（含动作、物体状态、接触事件、声学反馈等）",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：不是算法创新，而是以可复现的硬件-流程-标注体系，首次将人类具身行为数据采集提升到时空一致、模态对齐、任务自然的工业级标准，为整个领域提供了不可替代的ground truth基础设施。",
       "deep": {}
     },
     {
@@ -441,45 +441,82 @@
     },
     {
       "rank": 12,
-      "arxiv_id": "2607.24083",
-      "title": "Learning Reusable Hybrid Motion Priors for Humanoid Locomotion from Motion Imitation",
-      "published": "2026-07-27",
-      "url": "https://arxiv.org/abs/2607.24083",
-      "pdf_url": "https://arxiv.org/pdf/2607.24083",
-      "thumb": "assets/thumbs/2607.24083.jpg",
-      "venue": "",
+      "arxiv_id": "2607.25781",
+      "title": "Tripody: An Overconstrained 3-SPR-like Parallel Robot for High-Reach Construction Tasks",
+      "published": "2026-07-28",
+      "url": "https://arxiv.org/abs/2607.25781",
+      "pdf_url": "https://arxiv.org/pdf/2607.25781",
+      "thumb": "assets/thumbs/2607.25781.jpg",
+      "venue": "RA-L 2026",
       "domain": "embodied_ai",
       "best_route": "whole_body_control",
-      "org": "未知（作者无明确机构署名，摘要未提所属单位；arXiv版本作者 affiliations 为空或非知名实验室）",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 78,
-      "significance_reason": "实质性推进了运动先验复用范式：首次将RVQ结构引入人形运动蒸馏，实现离散化、冻结式HMP接口，在仿真多任务+真机部署双重验证，有消融（rotation trick）、可解释性分析（码本阶段数对应步态复杂度），但未覆盖全身操作、未接入视觉/语言多模态、未展示跨机体迁移，相比GR00T N1/H2O等基石仍缺规模性、通用性与端到端闭环能力。",
-      "tier": "heavy",
-      "grade": "C",
+      "org": "苏黎世联邦理工学院",
+      "country": "EU",
+      "org_type": "university",
+      "significance": 68,
+      "significance_reason": "工程上扎实：真机部署、多工况刚度量化对比、全工作空间毫米级闭环定位验证、开环钻孔任务可行性实证；但属特定场景（天花板施工）下的机械构型优化，未提出新控制范式、未开源代码/模型、未跨机体/任务泛化，贡献集中于机电协同设计，未达基石论文的范式级影响。",
+      "tier": "notable",
+      "grade": "D",
       "tags": [
-        "sim2real",
         "dexterous",
-        "benchmark"
+        "real-robot",
+        "large-scale"
       ],
-      "tldr": "这篇论文把人类动作捕捉数据蒸馏成一个冻结的、可复用的混合运动先验（HMP），它由带残差向量量化（RVQ）的编码器-解码器构成，下游任务策略只需选择离散码本条目就能控制人形机器人行走，无需重新训练HMP本身，并在仿真和Unitree G1真机上验证了速度跟踪等任务。",
-      "claim": "通过三阶段蒸馏流程，可将运动模仿学到的专家策略压缩为冻结的、离散化、可复用的混合运动先验（HMP），作为下游多样化人形运动任务的统一动作接口，且该HMP具备可解释的码本结构与泛化能力。",
+      "tldr": "设计了一种名为Tripody的3-DoF轮式并联机器人，通过用万向节替代传统3-SPR结构的球铰、故意过约束机构，并利用微小弹性形变吸收运动不兼容性，在轻量化（33kg）前提下实现1.7–3.4m高程伸展、32kg持续负载、毫米级定位精度（实测闭环<0.6mm）和显著提升的抗扭刚度（最高提升454%），专用于室内天花板施工任务。",
+      "claim": "过约束但弹性兼容的3-SPR-like并联构型可在轻量化前提下同时满足高伸展比、高负载、高刚度（尤其抗扭）与毫米级定位精度，是面向真实天花板施工的可行机器人架构。",
       "method_components": [
-        "model",
-        "dataset",
+        "hardware",
         "simulator",
-        "policy",
-        "benchmark"
+        "policy"
       ],
-      "input": "本体感觉信号（关节角度/角速度等）",
-      "output": "关节力矩/目标动作序列",
-      "novelty": 7,
+      "input": "SE(3)位姿指令（由全站仪闭环反馈或前向运动学模型生成）",
+      "output": "三支腿伸缩量（即末端执行器在x-y-z空间的平移位姿）",
+      "novelty": 6,
       "evidence": 9,
-      "one_sentence_verdict": "真突破——它不是刷榜或包装，而是首次构建出可冻结、可离散选择、可解释、且真机落地的运动先验接口，解决了运动模仿策略难以直接迁移到任务策略的核心工程瓶颈。",
+      "one_sentence_verdict": "工程整合——在高伸展轻量化并联机器人领域做出高质量机电-控制协同实现，但局限于单一施工场景，无算法范式突破或广泛复用性",
       "deep": {}
     },
     {
       "rank": 13,
+      "arxiv_id": "2607.26337",
+      "title": "Reeling It In: Flexible Needle Pick Up via Thread Manipulation for Autonomous Suturing",
+      "published": "2026-07-28",
+      "url": "https://arxiv.org/abs/2607.26337",
+      "pdf_url": "https://arxiv.org/pdf/2607.26337",
+      "thumb": "assets/thumbs/2607.26337.jpg",
+      "venue": "IROS 2026",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "加州大学圣地亚哥分校",
+      "country": "US",
+      "org_type": "university",
+      "significance": 68,
+      "significance_reason": "解决了微创手术机器人中长期存在的‘针不可靠拾取’这一具体但关键的临床瓶颈，真机验证覆盖遮挡/滑动/非直面等典型失败场景，有完整闭环策略与消融（如对比直接抓 vs 线辅助），但未开源代码/模型，且未扩展至多机体或多任务基准，属显著工程级贡献而非范式突破。",
+      "tier": "notable",
+      "grade": "D",
+      "tags": [
+        "dexterous",
+        "teleoperation",
+        "real-robot",
+        "multimodal-fusion"
+      ],
+      "tldr": "提出用缝合线作为辅助工具间接拾取掉落或遮挡的缝合针，通过重建线和组织、安全选点、稳定提线、双手协同跟线等步骤实现自主缝合中的鲁棒针拾取，避免直接抓针导致的组织损伤或针滑移。",
+      "claim": "利用缝合线作为可操作的被动辅助工具，实现对遮挡、非直面、组织表面滑动针的鲁棒、安全、间接自主拾取。",
+      "method_components": [
+        "model",
+        "simulator",
+        "policy",
+        "hardware"
+      ],
+      "input": "内窥镜RGB图像 + 机器人本体状态（关节角度、力反馈）",
+      "output": "双臂协同的连续动作序列（提线、跟线、闭合抓取）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "显著贡献：真机验证扎实、问题定义精准、方案临床相关性强，但受限于单一平台、无开源、未构建通用策略，属于高价值垂直场景工程整合，非概念包装也非真突破。",
+      "deep": {}
+    },
+    {
+      "rank": 14,
       "arxiv_id": "2607.24036",
       "title": "WARL: Wrench-Augmented Reinforcement Learning for Task-Agnostic Learning in Legged Robots",
       "published": "2026-07-27",
@@ -516,7 +553,7 @@
       "deep": {}
     },
     {
-      "rank": 14,
+      "rank": 15,
       "arxiv_id": "2607.23515",
       "title": "LEACL: LLM-Enhanced Automatic Curriculum Learning for Reinforcement Learning in Long-Horizon Manipulation Tasks",
       "published": "2026-07-26",
@@ -548,43 +585,6 @@
       "novelty": 7,
       "evidence": 6,
       "one_sentence_verdict": "工程整合：将LLM用于课程生成是合理尝试，但实证薄弱、复现不可靠、未突破仿真到现实或任务泛化的关键障碍。",
-      "deep": {}
-    },
-    {
-      "rank": 15,
-      "arxiv_id": "2607.24538",
-      "title": "NEO: NeRF It Once, Edit It Many Times for Continuous Object Manipulation",
-      "published": "2026-07-27",
-      "url": "https://arxiv.org/abs/2607.24538",
-      "pdf_url": "https://arxiv.org/pdf/2607.24538",
-      "thumb": "assets/thumbs/2607.24538.jpg",
-      "venue": "RA-L 2026",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "波兰理工大学",
-      "country": "EU",
-      "org_type": "university",
-      "significance": 42,
-      "significance_reason": "首次将NeRF编辑与机器人操作意图关联并构建专用基准，但未接入真实机器人闭环控制，所有实验停留在仿真渲染/视觉评估层面，无动作生成、无物理交互验证，也未证明其编辑结果能提升下游操控性能（如抓取成功率）；相比RT-2/Octo/OpenVLA等真正打通感知-语言-动作链的里程碑工作，它只覆盖了‘感知侧预演’这一孤立环节，且未在真实硬件或标准机器人任务上验证价值。",
-      "tier": "worth",
-      "grade": "D",
-      "tags": [
-        "multimodal-fusion",
-        "dataset",
-        "benchmark"
-      ],
-      "tldr": "这篇论文提出NEO框架，用语言指令驱动NeRF场景编辑（比如移除物体、模拟抓取后的场景），让机器人能在执行动作前‘预演’编辑后的3D场景，并构建了首个面向机器人操作的NeRF编辑评测基准NEO-Dataset。",
-      "claim": "语言引导的NeRF场景编辑可被系统化用于机器人操作前的状态预测与规划，且其质量可通过多视角一致的渐进式修复与知识蒸馏式权重编辑显著提升。",
-      "method_components": [
-        "model",
-        "dataset",
-        "benchmark"
-      ],
-      "input": "多视角RGB图像+自然语言指令（如'移除桌上的杯子'）",
-      "output": "编辑后的NeRF场景表示（含几何与外观）",
-      "novelty": 7,
-      "evidence": 5,
-      "one_sentence_verdict": "工程整合：把NeRF编辑、语言引导、多视角一致性做了有条理的串联，并产出首个相关benchmark，但未触达机器人操作的核心闭环问题，属于高质量子模块工具，非范式突破。",
       "deep": {}
     }
   ]
