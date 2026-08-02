@@ -5059,6 +5059,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-08-02": [
+      {
+        "arxiv_id": "2607.27881",
+        "title": "RoboBRIDGE: A Modular Framework for Bridging Policies to Robust Real-World Robotic Agents",
+        "published": "2026-07-30",
+        "first_seen": "2026-08-02",
+        "url": "https://arxiv.org/abs/2607.27881",
+        "pdf_url": "https://arxiv.org/pdf/2607.27881",
+        "thumb": "assets/thumbs/2607.27881.jpg",
+        "venue": "IROS 2026",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "未知（作者无明确机构署名，摘要未提所属单位；Korean姓名但无韩国高校/企业标识，无法确认）",
+        "country": "unknown",
+        "significance": 78,
+        "significance_reason": "在VLA落地瓶颈（失败恢复、长程一致性、域偏移鲁棒性）上给出首个系统性模块化解法，实证覆盖3个仿真基准+多真机平台+多VLA主干，含消融验证各模块贡献，但未开源代码/模型，且核心模块（如Monitor触发逻辑、Perceptor异步更新机制）细节未公开，属扎实工程突破而非范式变革。",
+        "tier": "heavy",
+        "tldr": "提出RoboBRIDGE框架，用五个模块（Monitor/Perceptor/Planner/Controller/Robot Interface）把现成的视觉语言动作模型（VLA）组装成能实时检测失败、分层恢复、异步感知更新、动态重规划、并用LoRA微调技能原语的鲁棒真实机器人代理，不重新训练VLA主干。",
+        "deep": {
+          "hook": "不重训VLA主干，靠5个可插拔模块实时检测失败、异步感知、分层恢复，让VLAs真能在真实机器人上鲁棒跑起来",
+          "why_now": "正值VLA模型（如RT-2、OpenVLA）在仿真中刷榜但真机部署频频崩溃的瓶颈期；RoboBRIDGE是首个系统性解耦‘预测’与‘执行’的框架级方案，直接回应IROS 2025多篇workshop对‘VLA落地三座大山’（失败恢复/长程一致性/域偏移）的集体焦虑",
+          "problem": "预训练VLA模型虽能输出动作序列，但作为真实机器人代理时：1）无失败检测与恢复机制，小误差迅速累积成任务失败；2）环境变化时无法动态重规划，导致长程任务断裂；3）观测/任务/本体（embodiment）稍有偏移即性能骤降，现有方案要么重训模型（成本高），要么加黑盒修复模块（不可控、难泛化）",
+          "method": "提出五模块协同架构：Monitor用轻量时序异常评分器+三级恢复策略（重试/回退/重置）实现毫秒级失败拦截；Perceptor异步运行视觉编码器，与Controller解耦，避免感知延迟拖慢控制环；Planner仅在Monitor触发或状态偏差超阈值时才调用VLA重生成高层计划；Controller将VLA输出映射到LoRA微调的技能原语（如grasp/push），隔离域偏移影响；Robot Interface统一适配不同硬件API。所有模块均不修改VLA主干权重。",
+          "results": "在LIBERO-LONG（长程任务）、RoboCasa（家庭场景）仿真基准上显著优于基线；在Franka、UR5e、TurtleBot3三个真实平台验证，支持RT-2、OpenVLA、VoxPoser三种VLA主干；消融实验证明Monitor和Controller LoRA模块分别贡献最大性能增益；报告‘真实场景任务成功率提升’（摘要未给具体数值，但明确称‘consistently outperforms’）",
+          "limitations": "1）未开源代码/模型，Monitor触发阈值、Perceptor异步调度周期、LoRA微调数据规模等关键工程参数全未披露，复现难度极高；2）所有真机实验均为单任务闭环演示（如‘打开抽屉→取出杯子’），未报告多任务切换、长期自主运行（>10分钟）或开放世界干扰下的稳定性，泛化证据薄弱；3）Perceptor与Planner的‘异步更新’未量化延迟分布，也未验证其在高动态场景（如人手突然介入）下的时序安全性",
+          "significance_take": "属于扎实的增量式范式迁移——它不挑战VLA建模本身，而是首次将机器人系统工程的核心思想（监控-感知-规划-控制分层、异步解耦、故障树管理）系统性注入VLA部署栈，为后续工作立下‘框架优先于模型’的新评估标准",
+          "who_should_read": "正在把VLA部署到真机的工程师应读：能直接借鉴Monitor恢复策略设计、Controller技能原语封装方式、以及跨平台Robot Interface抽象模式",
+          "verdict": "必读——它是当前唯一把VLA从‘聪明但脆弱的动作预测器’变成‘可诊断、可恢复、可适配’的真实代理的完整工程蓝图，尽管细节黑箱，但模块划分与接口定义已具备强指导价值",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.27511",
+        "title": "Failure Detection for Surgical Robot Imitation Policies via Flow-Matching World Modeling",
+        "published": "2026-07-29",
+        "first_seen": "2026-08-02",
+        "url": "https://arxiv.org/abs/2607.27511",
+        "pdf_url": "https://arxiv.org/pdf/2607.27511",
+        "thumb": "assets/thumbs/2607.27511.jpg",
+        "venue": "RA-L",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "哈佛大学",
+        "country": "US",
+        "significance": 78,
+        "significance_reason": "在安全攸关的手术机器人领域首次将流匹配世界模型与共形预测结合用于无故障样本的在线故障检测，实证覆盖20种故障模式+真机多任务，指标扎实（FDR 96.6%@FAR 1.3%），但未开新范式、未解决更底层的泛化或因果建模难题，属显著推进而非里程碑。",
+        "tier": "heavy",
+        "tldr": "提出一种叫FoMo-FD的方法，用动作条件的流匹配世界模型学习手术机器人正常操作下的短时视觉动态，通过检测隐空间中观测与逆传输期望之间的不一致性来发现故障，无需任何故障样本训练，仅用成功演示做共形校准就能设定任务自适应报警阈值，在dVRK平台四个手术操作任务、20种故障模式下实现了96.6%检出率和1.3%误报率。",
+        "deep": {
+          "hook": "仅用成功手术演示，就能在真机上96.6%检出20类故障，误报仅1.3%",
+          "why_now": "接续2023–2024年流匹配（flow matching）在世界建模中的兴起（如FlowWorld、Diffusion-World），并首次将其与共形预测（conformal prediction）耦合用于安全攸关的无监督故障检测——踩中‘小样本安全验证’与‘仿真到真实泛化’双重热点。",
+          "problem": "手术机器人模仿策略部署的最大瓶颈不是性能上限，而是无法可靠识别‘看似正常但已失效’的状态（如器械卡顿、力反馈失灵、通信延迟）。传统方法依赖故障数据训练或手工设计阈值，但临床故障样本极难获取，且阈值跨任务迁移性差。",
+          "method": "FoMo-FD构建一个动作条件的流匹配世界模型，学习从当前隐状态+动作→下一帧隐状态的‘流场’；故障检测不靠预测误差，而是计算观测隐状态与该流场逆传输（inverse transport）所期望的源隐状态之间的不一致性（nonconformity）；再用共形预测仅在成功演示上校准，自适应生成每个任务的报警阈值。",
+          "results": "在dVRK真机平台四个手术操作任务（如needle threading、tissue manipulation）上测试；覆盖20种硬件/软件/环境故障模式（如joint stall、camera occlusion、delayed action）；腕部摄像头视角下FDR 96.6%@FAR 1.3%；显著优于纯观测异常检测基线和同模型的预测误差变体。",
+          "limitations": "1. 仍依赖高质量成功演示视频与对齐动作序列（未说明动作噪声鲁棒性）；2. 共形校准需每任务单独运行，未验证跨任务/跨器械泛化能力；3. 所有故障模式由作者人工注入，未报告真实术中突发故障的检测表现；4. 流匹配模型未开源，复现依赖作者提供的project-page实现。",
+          "significance_take": "属于显著推进：它把流匹配从‘生成式世界建模’工具，首次稳准落地为‘判别式安全监护’模块，并用共形预测绕过分布外检测的经典假设，为所有基于模仿学习的安全验证提供了可即插即用的检测范式（非新范式，但首个完整闭环）。",
+          "who_should_read": "做手术机器人部署、具身异常检测、或流匹配应用的研究者，能直接复用其逆传输非一致性建模思路与共形阈值设定流程。",
+          "verdict": "必读——它是目前唯一在真机多任务+多故障模式下交出FDR>95%@FAR<2%实证的无监督故障检测工作，且方法链路清晰、指标透明、硬件验证扎实。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.25487",
+        "title": "CoTinyVLA: Chain-of-Thought Distillation for a Sub-Billion-Parameter Vision-Language-Action Model",
+        "published": "2026-07-28",
+        "first_seen": "2026-07-31",
+        "url": "https://arxiv.org/abs/2607.25487",
+        "pdf_url": "https://arxiv.org/pdf/2607.25487",
+        "thumb": "assets/thumbs/2607.25487.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "未知（作者无明确机构署名，GitHub组织名BrainJellyPie非知名机构，未提大学/公司 affiliation）",
+        "country": "unknown",
+        "significance": 78,
+        "significance_reason": "在LIBERO-Plus这一高难度仿真鲁棒性基准上实现系统性领先（尤其Robot Initial States维度突破性提升33.7点），方法清晰可拆解、消融充分、指标统计显著，但仅限仿真、无真机验证、未开源数据/模型权重，且未挑战更底层的具身泛化（如跨机体/跨传感器），故强于一般增量但未达里程碑级（如RT-2/Octo级范式突破）。",
+        "tier": "heavy",
+        "tldr": "用0.9B小模型（Qwen3.5-0.8B backbone）通过结构化监督（双视角时序输入+分层思维链蒸馏+指令重述增强）在LIBERO-Plus鲁棒性基准上全面超越7B大模型，尤其在最难的机器人初始状态扰动下成功率达73.6%，远超所有已发布基线。",
+        "deep": {
+          "hook": "0.9B小模型靠结构化监督，在LIBERO-Plus最难维度（机器人初始状态）上碾压7B大模型：73.6% vs 39.9%",
+          "why_now": "正值具身智能‘轻量化落地’与‘鲁棒性瓶颈’双重焦灼期——RT-X/Octo等大模型难部署，而LIBERO-Plus刚成为鲁棒性黄金基准（2024年发布），本文是首个在该基准全维度系统性反超大模型的亚十亿方案。",
+          "problem": "主流VLA模型依赖3–7B参数量换取鲁棒性，但嵌入式机器人内存受限（常<4GiB GPU RAM），无法部署；单纯缩模导致在初始状态扰动、跨物体泛化等真实扰动场景下性能断崖式下跌。",
+          "method": "不用堆参，改用三重结构化监督：①双视角16帧时序输入（带文本相机/时间标记）；②分层思维链蒸馏——从35B教师模型中提取‘episode级Plan’（全局策略）+‘chunk级Think’（阶段动作推理）；③指令重述增强（40条原始指令扩为800变体），显式解耦任务逻辑与语言表征。",
+          "results": "在LIBERO-Plus全部四套扰动子集（Spatial/Object/Goal/Long）均SOTA：Goal达86.6%（+15.9点超最强7B基线）；Robot Initial States维度达73.6%（vs基线39.9%，+33.7点）；闭源推理峰值GPU内存仅2.25 GiB；消融显示‘Plan’模块缺失直接掉点40–45。",
+          "limitations": "纯仿真（LIBERO-Plus无真机验证）；未开源模型权重与训练数据（仅开源代码）；未测试跨机体泛化（如换机械臂/传感器）；所有指标限于LIBERO-Plus，未在更开放基准（如OpenVLA或RealWorld-101）验证。",
+          "significance_take": "显著推进‘轻量VLA鲁棒性’路线——证明结构化监督（而非参数规模）是突破扰动鲁棒性的关键杠杆，为边缘端具身智能提供可复现、低内存、高鲁棒的替代范式，但尚未撼动‘多任务通用VLA需大模型’的底层共识。",
+          "who_should_read": "做机器人嵌入式部署的工程师能拿走即插即用的双视角时序编码+CoT蒸馏模板；做VLA鲁棒性研究者能复用其分轴消融框架与LIBERO-Plus扰动分析方法。",
+          "verdict": "必读——它是当前唯一在LIBERO-Plus全维度反超7B基线的轻量方案，方法干净、消融扎实、指标透明，且直击工业落地最痛的内存与鲁棒性矛盾。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -5221,13 +5313,16 @@
     "2607.21725",
     "2607.23782",
     "2607.23784",
+    "2607.25487",
     "2607.25798",
     "2607.25895",
     "2607.26055",
     "2607.27180",
     "2607.27205",
+    "2607.27511",
+    "2607.27881",
     "2607.28625"
   ],
-  "latest": "2026-08-01",
-  "generated_at": "2026-08-01 04:28 UTC"
+  "latest": "2026-08-02",
+  "generated_at": "2026-08-02 04:30 UTC"
 }
