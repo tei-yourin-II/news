@@ -1,8 +1,8 @@
 {
   "week": {
-    "start": "2026-07-27",
-    "end": "2026-08-02",
-    "label": "07.27~08.02"
+    "start": "2026-07-28",
+    "end": "2026-08-03",
+    "label": "07.28~08.03"
   },
   "count": 15,
   "venue_count": 4,
@@ -11,7 +11,7 @@
     "RA-L",
     "RA-L 2026"
   ],
-  "generated_at": "2026-08-02 04:30 UTC",
+  "generated_at": "2026-08-03 04:35 UTC",
   "picks": [
     {
       "rank": 1,
@@ -321,44 +321,6 @@
     },
     {
       "rank": 9,
-      "arxiv_id": "2607.24481",
-      "title": "ArmnetBench v0.1: Parallel Real-World Evaluation of Manipulation Policies on a Low-Cost Arm Farm",
-      "published": "2026-07-27",
-      "url": "https://arxiv.org/abs/2607.24481",
-      "pdf_url": "https://arxiv.org/pdf/2607.24481",
-      "thumb": "assets/thumbs/2607.24481.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "sim2real_data",
-      "org": "ArmnetBench团队（作者无明确机构署名，摘要未提所属单位；从SO-101硬件、LeRobot/RoboMeter格式支持及命名风格推断为独立研究组或初创导向团队）",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 78,
-      "significance_reason": "显著推进了真实世界机器人评估范式：首次实现低成本臂集群上的全真机、多策略、多任务、人工细粒度标注（三档）并行评测，并完整开源；虽未提出新算法或新模型，但填补了RT-X级数据规模与ALOHA级真机严谨性之间的关键工程-评估空白，是通往通用操纵策略验证的必要基础设施，但尚未达到Open X-Embodiment（跨平台泛化数据集）或ALOHA（端到端学习闭环）的范式开创高度。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "benchmark",
-        "dataset",
-        "real-robot",
-        "open-source"
-      ],
-      "tldr": "搭建了一个由低成本SO-101机械臂组成的‘臂农场’，在真实世界中并行运行2518次策略测试，对7个操纵策略在12个任务（含单臂/双臂）上做人工三档标注（成功/亚优/失败），并开源全部带标签的轨迹数据。",
-      "claim": "真实世界机器人操纵策略的规模化、可复现、多策略并行评估必须依托低成本硬件集群与标准化标注协议，而非依赖高端平台或仿真替代。",
-      "method_components": [
-        "benchmark",
-        "dataset",
-        "hardware"
-      ],
-      "input": "机械臂本体状态（关节/末端位姿）、RGB图像（推测，因SO-101含摄像头且属视觉引导型平台）、任务指令（隐含于12任务定义中）",
-      "output": "动作序列（底层控制信号或高层动作块，未明说但属policy rollout输出）",
-      "novelty": 6,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合——它不是新算法突破，而是构建了当前最扎实、最透明、最易复现的真实世界操纵策略横向评测基线，把‘谁真能干活’这件事第一次做到了可大规模量化的程度。",
-      "deep": {}
-    },
-    {
-      "rank": 10,
       "arxiv_id": "2607.25487",
       "title": "CoTinyVLA: Chain-of-Thought Distillation for a Sub-Billion-Parameter Vision-Language-Action Model",
       "published": "2026-07-28",
@@ -395,46 +357,7 @@
       "deep": {}
     },
     {
-      "rank": 11,
-      "arxiv_id": "2607.24083",
-      "title": "Learning Reusable Hybrid Motion Priors for Humanoid Locomotion from Motion Imitation",
-      "published": "2026-07-27",
-      "url": "https://arxiv.org/abs/2607.24083",
-      "pdf_url": "https://arxiv.org/pdf/2607.24083",
-      "thumb": "assets/thumbs/2607.24083.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "whole_body_control",
-      "org": "未知（作者无明确机构署名，摘要未提所属单位；arXiv版本作者 affiliations 为空或非知名实验室）",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 78,
-      "significance_reason": "实质性推进了运动先验复用范式：首次将RVQ结构引入人形运动蒸馏，实现离散化、冻结式HMP接口，在仿真多任务+真机部署双重验证，有消融（rotation trick）、可解释性分析（码本阶段数对应步态复杂度），但未覆盖全身操作、未接入视觉/语言多模态、未展示跨机体迁移，相比GR00T N1/H2O等基石仍缺规模性、通用性与端到端闭环能力。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "sim2real",
-        "dexterous",
-        "benchmark"
-      ],
-      "tldr": "这篇论文把人类动作捕捉数据蒸馏成一个冻结的、可复用的混合运动先验（HMP），它由带残差向量量化（RVQ）的编码器-解码器构成，下游任务策略只需选择离散码本条目就能控制人形机器人行走，无需重新训练HMP本身，并在仿真和Unitree G1真机上验证了速度跟踪等任务。",
-      "claim": "通过三阶段蒸馏流程，可将运动模仿学到的专家策略压缩为冻结的、离散化、可复用的混合运动先验（HMP），作为下游多样化人形运动任务的统一动作接口，且该HMP具备可解释的码本结构与泛化能力。",
-      "method_components": [
-        "model",
-        "dataset",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "本体感觉信号（关节角度/角速度等）",
-      "output": "关节力矩/目标动作序列",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "真突破——它不是刷榜或包装，而是首次构建出可冻结、可离散选择、可解释、且真机落地的运动先验接口，解决了运动模仿策略难以直接迁移到任务策略的核心工程瓶颈。",
-      "deep": {}
-    },
-    {
-      "rank": 12,
+      "rank": 10,
       "arxiv_id": "2607.26434",
       "title": "Reinforcement Learning on Cost-Constrained Quadrupedal Hardware",
       "published": "2026-07-29",
@@ -471,7 +394,7 @@
       "deep": {}
     },
     {
-      "rank": 13,
+      "rank": 11,
       "arxiv_id": "2607.26315",
       "title": "MoMo: Dial Motion Mode in Robot Manipulation with Spatiotemporal Action Tokenization",
       "published": "2026-07-28",
@@ -506,6 +429,84 @@
       "novelty": 7,
       "evidence": 9,
       "one_sentence_verdict": "工程整合：将动作表征从‘做什么’拓展到‘怎么做得不同’，实证充分但生态位偏窄，尚未构成范式突破",
+      "deep": {}
+    },
+    {
+      "rank": 12,
+      "arxiv_id": "2607.27784",
+      "title": "DexDirect: Direct Kinesthetic Arm Guidance for Efficient Dexterous Demonstration Collection",
+      "published": "2026-07-30",
+      "url": "https://arxiv.org/abs/2607.27784",
+      "pdf_url": "https://arxiv.org/pdf/2607.27784",
+      "thumb": "assets/thumbs/2607.27784.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "加州大学洛杉矶分校",
+      "country": "US",
+      "org_type": "university",
+      "significance": 78,
+      "significance_reason": "实证扎实：真机多任务对比（cube pick-and-place）、显著优于两个强基线（AnyTeleop/TeleDex）、NASA-TLX主观量表验证认知减负、扩散策略达90%成功率；但未跨机体/跨用户泛化，未开源代码模型，且仍属高效示教接口范畴，未触及策略学习本质突破，略逊于ALOHA/ACT/YUBI等定义新范式的系统级工作。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "dexterous",
+        "teleoperation",
+        "dataset",
+        "real-robot"
+      ],
+      "tldr": "提出一种低成本、低设置门槛的双模态示教方法：人直接用手拖拽重力补偿的6自由度机械臂本体，同时用单个普通摄像头实时捕捉操作者另一只手的姿态，并映射到13自由度灵巧手，大幅提升了灵巧操作示范采集的成功率和操作者主观体验。",
+      "claim": "直接动觉引导（拖拽机械臂）结合单目视觉手部姿态重定向，能以极低硬件成本实现高成功率、低认知负荷的灵巧操作示范采集。",
+      "method_components": [
+        "hardware",
+        "simulator",
+        "dataset",
+        "policy"
+      ],
+      "input": "操作者拖拽机械臂的物理力/位姿 + 单摄像头拍摄的操作者空闲手图像",
+      "output": "13-DoF灵巧手+6-DoF机械臂的联合关节轨迹",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：在灵巧示教接口设计上做出高质量、可落地的工程优化，证据充分但未开辟新学习范式",
+      "deep": {}
+    },
+    {
+      "rank": 13,
+      "arxiv_id": "2607.28596",
+      "title": "FA-RDP: A Frequency-Adaptive Reactive Diffusion Policy for Contact-Rich Manipulation",
+      "published": "2026-07-30",
+      "url": "https://arxiv.org/abs/2607.28596",
+      "pdf_url": "https://arxiv.org/pdf/2607.28596",
+      "thumb": "assets/thumbs/2607.28596.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "上海交通大学",
+      "country": "CN",
+      "org_type": "university",
+      "significance": 78,
+      "significance_reason": "实证扎实：在3个真实接触-rich任务（插销、拧盖、穿绳）上真机验证，对比Diffusion Policy/ACT等基线，量化展示多样性（KL散度）与成功率双优，且消融证明MCD和频率切换均有效；但未跨机体/跨传感器泛化，未开源数据与模型权重，复现门槛高，尚未达到ALOHA/ACT级部署广度或T-Rex级触觉闭环深度。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "diffusion",
+        "tactile",
+        "reactive",
+        "multimodal-fusion"
+      ],
+      "tldr": "提出一种频率可自适应的扩散策略FA-RDP，能在接触前用低频多步采样保持动作多样性，接触后自动切到高频单步采样以快速响应力反馈，解决传统扩散策略固定频率导致的‘多样性-反应性’两难问题。",
+      "claim": "在接触丰富的操作任务中，通过动态切换扩散策略的推理频率（低频多步 vs 高频单步）并结合流形一致性蒸馏，可在不牺牲预接触动作多样性的同时显著提升接触后的实时力响应能力。",
+      "method_components": [
+        "model",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "input": "RGB图像+六维力/力矩传感器信号",
+      "output": "关节速度或末端执行器动作块",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：在扩散策略框架内系统性解耦‘多样性’与‘反应性’这一真实瓶颈，真机验证充分，但开源不全、泛化有限，属高质量方法改进而非范式突破",
       "deep": {}
     },
     {
