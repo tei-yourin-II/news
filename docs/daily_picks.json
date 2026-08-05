@@ -5335,6 +5335,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-08-05": [
+      {
+        "arxiv_id": "2607.29172",
+        "title": "CLIFT: Turning Gemini Robotics On-Device into Humanoid Specialists via Non-Invasive Closed-Loop Iterative Fine-Tuning",
+        "published": "2026-07-31",
+        "first_seen": "2026-08-05",
+        "url": "https://arxiv.org/abs/2607.29172",
+        "pdf_url": "https://arxiv.org/pdf/2607.29172",
+        "thumb": "assets/thumbs/2607.29172.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "谷歌DeepMind",
+        "country": "US",
+        "significance": 87,
+        "significance_reason": "首次在真实人形机器人上验证了纯API托管模式下的闭环策略进化可行性，实证突破‘闭源模型=开环适应’的认知边界；两轮CLIFT即达近100%成功率，远超单次SFT与开源VLA基线，且覆盖高难度接触式操作（如插拔、翻转、抓取变形物体），证据扎实（真机+多任务+消融对比+跨机体验证），但未开源代码/数据，未构建新基准或开放模型，故略低于GR00T N1/WholeBodyVLA级里程碑。",
+        "tier": "heavy",
+        "tldr": "在不接触模型权重和梯度的前提下，通过将真实人形机器人部署时的奖励反馈（如成功/失败）自动转化为监督训练数据，反复调用闭源机器人基础模型（GROD）的托管微调API，仅用两轮闭环迭代就让其在敏捷接触式操作任务上从失败提升到近完美成功率。",
+        "deep": {
+          "hook": "不碰权重、不调梯度，仅用两轮API微调+真机反馈，让闭源人形机器人从频频失败到近100%成功",
+          "why_now": "紧随GROD发布与托管SFT API落地，首次实证挑战‘闭源=开环’共识；同期WholeBodyVLA/GR00T强调开源权重，CLIFT反向证明API范式下闭环进化可行",
+          "problem": "最强机器人基础模型（如GROD）闭源且仅开放托管SFT API，用户无法做RL或在线优化；而人形机器人在接触式操作中因sim2real gap、控制器延迟、本体动力学失配等，单次SFT策略严重偏离真实部署表现",
+          "method": "CLIFT将真机执行后的二元奖励（成功/失败）自动转译为高质量监督样本：失败轨迹被重标注为‘修正动作序列’（基于专家回放或运动学可行性约束），成功轨迹增强为正样本；每轮用这些数据调用GROD托管SFT API生成新策略，形成‘部署→反馈→转译→微调’闭环；全程不访问模型内部、不修改API接口",
+          "results": "在真实Unitree H1人形机器人上验证：两轮CLIFT后，在插拔USB、翻转立方体、抓取软质变形物体等6个接触密集任务中达近100%成功率；显著优于单次SFT及开源VLA基线（摘要未给具体数值，但明确称‘substantially outperforms’）；跨机体验证显示迁移至不同硬件仍有效",
+          "limitations": "未开源CLIFT数据转译代码与奖励映射规则，复现门槛高；所有任务均为预定义、短时程（<30s）、单步目标，未测试长程任务分解或零样本泛化；依赖GROD托管API的响应稳定性与延迟，未披露API调用频次/耗时/成本",
+          "significance_take": "范式级突破：首次将‘闭源模型+托管API’从静态适配工具升级为可进化的部署伙伴，证明策略进化不必以开源为前提——这重构了商业机器人模型的协作逻辑，而非单纯技术增量",
+          "who_should_read": "正在接入闭源机器人API的工程团队能立刻借鉴CLIFT的数据转译框架；具身智能研究者需重估‘权重访问’在策略进化中的必要性",
+          "verdict": "必读：它用扎实真机证据推翻了一个隐含假设——不是所有闭环学习都必须触碰梯度，而这是当前工业界最渴求的落地路径",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2608.02603",
+        "title": "WorldExam: Benchmarking World Models from Apparent Appearance to Inherent Reactivity",
+        "published": "2026-08-03",
+        "first_seen": "2026-08-05",
+        "url": "https://arxiv.org/abs/2608.02603",
+        "pdf_url": "https://arxiv.org/pdf/2608.02603",
+        "thumb": "assets/thumbs/2608.02603.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "清华大学",
+        "country": "CN",
+        "significance": 78,
+        "significance_reason": "首次定义并实证验证‘世界反应性’这一关键维度，构建覆盖四大层级、跨三类驱动范式的开源基准，20模型实测揭示当前所有主流范式存在根本性能力断层；虽未提出新模型，但填补了世界模型评估范式的结构性空白，证据扎实、可复现、影响面广，但尚未引发方法论级变革或直接推动SOTA模型迭代。",
+        "tier": "heavy",
+        "tldr": "提出WorldExam基准，首次系统性评测世界模型的‘内在反应性’——即模型能否根据场景状态推断并生成未明确指定但物理/因果合理的后续变化，而非只追求画面好看或指令字面执行。",
+        "deep": {
+          "hook": "首次定义并评测‘世界反应性’——模型能否生成未明说但物理合理的场景响应",
+          "why_now": "继2023–2024年Controllable Video Gen爆发（如Vidu、Genie、Sora）后，学界亟需跳出FID/CLIPScore陷阱；WorldExam直击当前世界模型评估的范式盲区，与ICLR’25多篇质疑‘视频生成≠世界建模’的论文形成方法论呼应",
+          "problem": "现有基准只验‘画面像不像’或‘指令执不执行’，却无法检验模型是否真正理解场景内在因果：比如推倒积木后，是否自发生成散落、碰撞、阴影变化等未指定但必然发生的物理响应；这种‘隐含反应缺失’导致模型在真实交互中失效",
+          "method": "构建四层递进式诊断基准WorldExam：从视觉质量→控制服从性→空间一致性→世界反应性（核心创新），后者通过8个精心设计的任务（如‘物体滑落斜坡’‘液体倾倒溅射’）强制模型生成输入未明说但物理必需的后续帧；统一支持相机/动作/语言三类驱动范式输入，所有case含ground-truth反应标注",
+          "results": "在1,474个case上实测20个主流模型（含Genie、Latte、CogVideoX等），发现：所有模型在World Reactivity层得分显著低于前三层；语言驱动模型在交互任务上相对最优但控制失真严重；无一模型在四大层级均达>0.75归一化得分",
+          "limitations": "全部测试基于仿真视频（未接入真机闭环）；‘反应合理性’依赖人工标注+小规模专家验证，未引入可扩展的自动物理验证器（如PyBullet rollout比对）；任务覆盖仍限于刚体/流体基础物理，未涉及社会性因果（如他人意图响应）或长程状态维持",
+          "significance_take": "范式级——它不是增量改进，而是首次将‘世界模型’的能力主张从‘生成能力’转向‘反应契约’：定义了什么叫‘合格的世界模型’，并给出可测量、可拆解、可归因的诊断框架，为后续方法设计提供靶点",
+          "who_should_read": "做可控视频生成/具身仿真/世界模型的研究者应精读其四层评估逻辑，拿走可即插即用的诊断模板和失败模式图谱",
+          "verdict": "必读——它不教你怎么建模型，但教会你怎么判断一个模型是否真的‘懂世界’；当前所有声称‘世界模型’的论文都该用WorldExam重跑一遍",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2607.29613",
+        "title": "WCM: A World Critic Model for Vision-Language-Action Reinforcement Learning",
+        "published": "2026-07-31",
+        "first_seen": "2026-08-05",
+        "url": "https://arxiv.org/abs/2607.29613",
+        "pdf_url": "https://arxiv.org/pdf/2607.29613",
+        "thumb": "assets/thumbs/2607.29613.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "复旦大学",
+        "country": "CN",
+        "significance": 78,
+        "significance_reason": "在VLA-RL critic 设计范式上做出实质性改进：首次将 world model 目标（LeJEPA式未来 latent 预测）与 critic 联合训练，实证覆盖149任务+7真机任务，跨分布泛化显著，但未开源代码/模型，且未挑战多机体/长时程/开放世界等更难维度，属扎实重磅推进，未达RT-2/π0级范式开创地位。",
+        "tier": "heavy",
+        "tldr": "提出世界批评模型WCM，让视觉-语言-动作模型的强化学习 critic 不再只回归标量奖励，而是同时预测未来隐状态并估计价值，从而显式建模时序动态，在149个仿真任务和7个真实机器人操作任务上提升泛化性和稳定性。",
+        "deep": {
+          "hook": "让 critic 不只打分，还预测未来隐状态：WCM 首次将 world model 目标嵌入 critic 训练",
+          "why_now": "继 RT-2、Pi0、OpenVLA-OFT 等 VLA 模型爆发后，critic 设计成为 RL 微调瓶颈；本文直击近期主流（如 VLA-RL 中单帧 critic）的时序建模缺陷，踩中‘从感知到动态推理’的演进关键节点",
+          "problem": "现有 VLA-RL 的 critic 多基于单帧视觉-语言特征回归标量价值，无法建模部分可观测环境中的时序依赖；单纯堆历史帧会因高维视觉空间导致计算爆炸，且标量回归信号太弱，不足以驱动跨时间步的状态演化学习",
+          "method": "WCM 是一个轻量级 LeJEPA 架构 critic：输入多帧观测序列，同时输出两个目标——1）未来隐状态预测（类似世界模型的 latent rollout），2）当前状态价值估计；二者共享 backbone，通过联合损失函数强制 critic 表征显式编码环境动态结构",
+          "results": "在 149 个仿真任务（覆盖四个 benchmark）上达成 SOTA，在分布外泛化场景提升显著；在 7 个真实机器人操作任务上，与 OpenVLA-OFT 和 Pi0.5 结合使用 off-policy RL，实现稳定部署",
+          "limitations": "未开源代码/模型；实验未覆盖多机体协同、长时程（>100 step）任务、开放世界交互等更具挑战性维度；所有真机实验均属 small-real setting（未报告硬件型号/部署延迟/失败恢复机制），且未做消融验证隐状态预测对价值估计的贡献权重",
+          "significance_take": "属扎实重磅推进：不是增量 patch（如加 attention 或 history buffer），而是重构 critic 的监督目标范式——将 world model 的自监督目标与 RL 价值学习耦合，为 VLA-RL 提供首个可扩展的动态感知 critic 设计原则",
+          "who_should_read": "做 VLA-RL 微调、critic 架构设计或 sim2real 迁移的研究者/工程师，能直接获得可插拔的 critic 替换方案与动态表征训练范式",
+          "verdict": "必读——它用极简设计（LeJEPA + 双头输出）暴露了当前 VLA-RL critic 的根本性表征缺陷，并给出可复现、可集成、已实证有效的解法",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -5511,8 +5603,11 @@
     "2607.27881",
     "2607.28560",
     "2607.28596",
-    "2607.28625"
+    "2607.28625",
+    "2607.29172",
+    "2607.29613",
+    "2608.02603"
   ],
-  "latest": "2026-08-04",
-  "generated_at": "2026-08-04 04:06 UTC"
+  "latest": "2026-08-05",
+  "generated_at": "2026-08-05 04:04 UTC"
 }
