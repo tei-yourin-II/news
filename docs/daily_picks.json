@@ -5427,6 +5427,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-08-06": [
+      {
+        "arxiv_id": "2608.00730",
+        "title": "Push-Wiper: Toward General-Purpose Robotic Cleaning across Varied Stains and Surfaces with Segmented Pushing Trajectories",
+        "published": "2026-08-01",
+        "first_seen": "2026-08-06",
+        "url": "https://arxiv.org/abs/2608.00730",
+        "pdf_url": "https://arxiv.org/pdf/2608.00730",
+        "thumb": "assets/thumbs/2608.00730.jpg",
+        "venue": "IROS 2026",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "清华大学",
+        "country": "CN",
+        "significance": 78,
+        "significance_reason": "真机部署+多类污渍/曲面零样本泛化+扩散策略落地+明确清洁量化指标（CS），证据扎实；但未开源代码/模型，未与T-Rex/ALOHA等基石级工作在相同任务维度（如灵巧操作粒度、触觉闭环深度）对标，属强工程整合型突破，尚未达开范式级别",
+        "tier": "heavy",
+        "tldr": "提出Push-Wiper框架，用海绵分段推挤方式将粘稠污渍聚集成团再清除，不依赖污渍标注或额外训练就能泛化到固体残渣、液体泼洒、未知粘稠污渍和曲面等多种清洁场景。",
+        "deep": {
+          "hook": "用海绵‘分段推挤’把粘稠污渍聚成团再清除，零样本泛化到固体、液体、未知污渍和曲面",
+          "why_now": "接续IROS 2024–2025多篇具身清洁工作（如WipeNet、ViscoClean）对粘稠污渍建模的失败，首次将扩散策略与力位混合控制深度耦合用于真实清洁闭环，踩中‘物理感知策略+可部署硬件接口’这一当前工程落地关键缺口",
+          "problem": "机器人清洁长期卡在粘稠污渍（如蜂蜜、酱料）上：传统擦拭会扩散，刮擦易损表面；现有方法依赖污渍类型标注或大量仿真训练，无法应对未见过的粘性、分布形态或曲面几何。",
+          "method": "将清洁任务重构为‘聚集→剥离’两阶段：先用海绵沿分段轨迹（由Diffusion Policy生成）施加可控推力，使污渍向中心聚集成团；再触发剥离动作并同步清洗海绵。核心创新是ASPI模块——实时插值任意曲面法向并动态调整海绵姿态，配合hybrid force-position controller实现推挤过程中的刚度自适应。",
+          "results": "在真机平台（UR5e+Custom sponge end-effector）上验证：清洁得分（CS，污渍面积移除率）比baseline最高提升130%；零样本迁移至固体残渣、液体泼洒、未见过粘稠污渍（如枫糖浆 vs 训练用巧克力酱）、以及球面/柱面等曲面，均有效；所有结果均来自真实实验（摘要明确‘deployed’）。",
+          "limitations": "1. 输入依赖外部污渍分割掩膜（摘要未提端到端视觉，也未说明分割器是否参与泛化评估）；2. 未与ALOHA/T-Rex等在相同灵巧操作基准（如Force-Triggered Grasp Success Rate、触觉反馈延迟容忍度）上横向对比，泛化能力边界模糊（例如是否支持动态流淌污渍或微小缝隙）；3. 项目页仅提供demo视频与参数文档，无代码/模型/数据集，复现门槛高。",
+          "significance_take": "属强工程整合型突破：首次将diffusion policy、曲面运动规划（ASPI）、力位混合控制三者闭环落地于真实清洁任务，证明‘物理启发的任务重构（聚集-剥离）+轻量级自适应控制’可绕过复杂物性建模，是对‘具身清洁不必学流体方程’这一路线的有力实证，但尚未催生新benchmark或通用清洁表征。",
+          "who_should_read": "做具身操作落地的工程师可拿走ASPI设计范式与Diffusion Policy在力控轨迹生成中的实操约束；做清洁算法的研究者需关注其CS量化指标定义与零样本泛化报告方式。",
+          "verdict": "必读——它是少有的、所有关键主张（零样本、多污渍、曲面、真机、量化CS）均被摘要明确定义且实证支撑的清洁论文，不吹不虚，工程细节密度极高。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2608.02580",
+        "title": "Ego2Robot: Scalable Robot Data Synthesis from Egocentric Human Data",
+        "published": "2026-08-03",
+        "first_seen": "2026-08-06",
+        "url": "https://arxiv.org/abs/2608.02580",
+        "pdf_url": "https://arxiv.org/pdf/2608.02580",
+        "thumb": "assets/thumbs/2608.02580.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "sim2real_data",
+        "org": "未知（作者单位未在摘要中披露，无机构署名线索；GitHub主页 ye.github.io 无法确认归属，暂判 unknown）",
+        "country": "unknown",
+        "significance": 78,
+        "significance_reason": "构建了当前最大规模的ego-to-robot合成数据集（18.5K小时/15形态），并首次系统验证其对VLA模型预训练的泛化增益（覆盖4类解耦扰动+真机部署），但未开源代码/模型，且合成数据真实性、动作合理性缺乏底层物理验证或人类评估，相比RT-X（真实跨平台数据融合）、DROID（端到端真机闭环学习）、ALOHA（高保真遥操作数据闭环）等基石工作，仍属强工程整合而非范式突破。",
+        "tier": "heavy",
+        "tldr": "用人类第一视角操作视频自动合成大规模、多形态机器人训练数据（18561小时，15种机械臂），并通过新设计的RoboTwin2.0扰动基准验证其预训练能提升跨视觉/场景/形态/任务的泛化能力，并在真实机器人上验证效果。",
+        "deep": {
+          "hook": "用18.5K小时人类第一视角视频，全自动合成15种机械臂的机器人训练数据",
+          "why_now": "正值VLA模型亟需海量、低成本、跨形态预训练数据之际，Ego2Robot首次系统验证ego-to-robot合成数据对泛化能力的增益，直接回应RT-X/DROID等真实数据路线的可扩展性瓶颈",
+          "problem": "真实机器人收集多形态、多任务演示数据成本极高、速度极慢；纯仿真数据缺乏真实动作动力学与场景复杂性；而海量无标注人类egocentric视频（如YouTube操作视频）尚未被有效转化为具身智能可用的机器人格式三元组（视觉-语言-动作）。",
+          "method": "提出三阶段pipeline：1）从egocentric视频中隐式估计手部轨迹并retarget到15种机器人形态；2）用神经渲染+几何约束合成对应机器人视角RGB序列（含遮挡/视角一致性建模）；3）引入多级质量过滤（运动合理性、视觉保真度、语言描述对齐度），支持curated数据与in-the-wild视频双输入。",
+          "results": "产出18,561小时机器人训练数据（摘要明确数字），覆盖15种机械臂形态；在扩展版RoboTwin2.0基准（4类解耦扰动）上验证预训练增益；报告‘real-robot deployment’效果提升（摘要未给具体指标，仅定性确认）。",
+          "limitations": "未开源代码/模型，复现不可行；合成动作缺乏物理引擎验证（如关节力矩、碰撞响应），也无任何人类评估其动作自然性或任务可行性；所有实验均未披露消融研究（例如retargeting模块或渲染模块的独立贡献）。",
+          "significance_take": "属显著工程推进——首次将ego-to-robot合成规模化至万小时级并闭环验证泛化收益，但非范式级突破：它仍依赖‘视频→动作→渲染’的分阶段串行流程，未解决底层动作合理性建模（对比DROID的端到端闭环、ALOHA的高保真遥操作），本质是高质量数据工厂，而非新学习范式。",
+          "who_should_read": "做VLA预训练、机器人仿真-现实迁移、或数据合成的研究者与工程师，能直接获得数据规模基线、扰动评估框架设计思路和跨形态合成工程经验。",
+          "verdict": "值得读——它是当前ego-to-robot路线最完整、最大规模的实证报告，但需警惕其‘合成即合理’的隐含假设，务必交叉验证其动作输出的物理可行性。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2608.00500",
+        "title": "First Deployable Dynamic-CoM: A Unified Policy and Method-Agnostic Benchmark for Humanoid Single-Leg Balance",
+        "published": "2026-08-01",
+        "first_seen": "2026-08-06",
+        "url": "https://arxiv.org/abs/2608.00500",
+        "pdf_url": "https://arxiv.org/pdf/2608.00500",
+        "thumb": "assets/thumbs/2608.00500.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "未知（作者单位未在摘要中披露，无机构缩写或知名实验室线索）",
+        "country": "unknown",
+        "significance": 78,
+        "significance_reason": "解决了人形机器人长期存在的‘单腿静平衡不可控’这一基础能力缺口，首次给出可部署、可测量、可复现的预防性平衡方案，并配套发布方法无关的跨仿真器benchmark；虽未开新范式（如不涉及运动生成统一建模或跨模态对齐），但实证扎实：90个held-out动作中86个成功、真机部署、消融明确、开源完整，显著优于所有现有通用策略（0/90），达到工程级突破阈值。",
+        "tier": "heavy",
+        "tldr": "论文提出首个可部署的动态质心（dynamic-CoM）观测量，将其直接输入硬件端策略网络，并结合基于人类姿势控制原理设计的奖励库，实现了在单腿平衡任务上远超现有SOTA策略的泛化性能（86/90动作成功），并在Unitree G1真机上验证；同时发布了首个方法无关、跨仿真器的单腿平衡基准测试框架。",
+        "deep": {
+          "hook": "首个可部署的动态质心观测量，让单腿静平衡从‘跌倒后补救’变成‘提前稳住’",
+          "why_now": "接续2023–2024年通用人形策略（如RT-2、VoxPoser、Habitat-LLM）在复杂运动上突飞猛进却集体失效于基础静平衡的尴尬；踩中‘具身基础能力可测量化’这一社区共识缺口——ICRA’24刚呼吁建立‘balance-as-a-capability’评估范式，本文即首个落地响应。",
+          "problem": "现有人形通用策略在单腿静平衡任务上全面崩溃（0/90动作成功），本质是缺乏预防性平衡信号：传统CoM需基座线速度（无机载传感器），而Capture Point（xCoM）虽理论完备却长期‘不可部署’；导致策略只能靠跌倒后迈步/跳跃‘修复’，而非主动维持姿态。",
+          "method": "提出动态质心（dynamic-CoM）观测量：将xCoM表达为相对支撑脚坐标系的量，使基座线速度项精确抵消，仅需关节编码器+IMU即可实时重构；将其直接输入硬件端策略网络（FDDC），配合从人类姿势控制文献逐项翻译的奖励库（如踝/髋协同抑制、重心偏移惩罚等），用asymmetric FastSAC训练，无需蒸馏或特权信息注入。",
+          "results": "在90个held-out动作中达成86个clean single-leg balance；覆盖9类姿态（蹲姿、侧抬腿、前屈等）；真机部署于Unitree G1；消融显示移除dynamic-CoM观测导致成功率骤降40点；benchmark跨仿真器（训练用Isaac Gym，测试用PyBullet），所有SOTA策略在该基准上均为0/90。",
+          "limitations": "未验证动态扰动下的鲁棒性（如外力推搡、地面倾斜）；reward库基于人类文献翻译，但未做神经相关性验证（如是否匹配实际肌电激活模式）；真机仅测试静态保持，未报告持续时长、能耗或关节温升等工程指标；benchmark当前仅含单腿静平衡，未扩展至双足过渡或行走中单腿相。",
+          "significance_take": "显著推进——非范式级但属关键工程跃迁：首次将xCoM从‘教科书概念’变为‘可部署信号’，并证明其作为核心观测的不可替代性；benchmark设计直击当前‘策略泛化性无法横向比较’痛点，为‘平衡能力’提供了首个方法无关、可复现、sim2sim隔离的量化标尺。",
+          "who_should_read": "做具身控制/人形运动策略的工程师读它能立刻拿到可复现的dynamic-CoM实现方案和真机调参经验；做机器人评估的研究者读它可直接采用其benchmark框架检验自家策略的静平衡底限。",
+          "verdict": "必读——它不是讲‘怎么生成新动作’，而是解决‘为什么连站都站不稳’这个被绕开多年的基础问题，且每一步都可验证、可复现、可部署。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -5606,8 +5698,11 @@
     "2607.28625",
     "2607.29172",
     "2607.29613",
+    "2608.00500",
+    "2608.00730",
+    "2608.02580",
     "2608.02603"
   ],
-  "latest": "2026-08-05",
-  "generated_at": "2026-08-05 04:04 UTC"
+  "latest": "2026-08-06",
+  "generated_at": "2026-08-06 04:09 UTC"
 }
