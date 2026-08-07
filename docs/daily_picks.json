@@ -5519,6 +5519,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-08-07": [
+      {
+        "arxiv_id": "2608.01824",
+        "title": "ReTouch: Empowering Contact-Rich Dexterous Manipulation with Online-Refined Tactile Prediction",
+        "published": "2026-08-03",
+        "first_seen": "2026-08-07",
+        "url": "https://arxiv.org/abs/2608.01824",
+        "pdf_url": "https://arxiv.org/pdf/2608.01824",
+        "thumb": "assets/thumbs/2608.01824.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "香港大学",
+        "country": "HK",
+        "significance": 93,
+        "significance_reason": "真机部署+7任务闭环验证+18.4/23.8pp提升+新高质量触觉-灵巧操作数据集（XHT-Dataset），方法设计（触觉patch编码+高频联合预测-修正）直击触觉延迟与失配痛点，实证强度和系统完整性接近HiFi-UMI/FTP-1级，但尚未展示跨机体泛化或大规模策略复用能力，略逊于T-Rex的范式开创性。",
+        "tier": "heavy",
+        "tldr": "提出ReTouch模型，用视觉-语言-动作框架在线持续修正触觉预测，实现高精度、强鲁棒的接触密集型灵巧操作，在7个真实机器人任务上显著超越基线。",
+        "deep": {
+          "hook": "真机闭环在线修正触觉预测，7个接触密集任务成功率跃升18.4–23.8pp",
+          "why_now": "继HiFi-UMI（多模态闭环）、T-Rex（触觉驱动策略）后，ReTouch首次将触觉预测纳入VLA的高频在线修正环，直击触觉延迟与状态失配这一阻碍灵巧操作落地的核心瓶颈，呼应近期‘感知-动作紧耦合’范式转向。",
+          "problem": "触觉传感器存在固有延迟（~10–50ms）、噪声大、空间分辨率低；传统开环VLA模型将触觉视为静态输入，无法应对接触状态突变（如滑动、脱手、形变）；现有方法要么忽略触觉时序动态性，要么依赖仿真预训练导致sim2real gap。",
+          "method": "ReTouch构建双通路闭环：1）Tactile-Patch Encoder将XHand 64-channel触觉图切分为带手指ID的局部patch，保留空间-本体感知结构；2）高频动作模块每50ms同步预测下一动作块+未来3步触觉状态，并用刚采集的真实触觉反馈实时修正预测误差——形成‘预测→执行→观测→修正’微秒级对齐环。",
+          "results": "在自建XHT-Dataset（900条真实演示，7个接触密集任务：拧瓶盖、插USB、捏软球、翻书页等）上，ReTouch真机闭环测试平均成功率较最强基线提升18.4pp（标准条件）和23.8pp（挑战条件，含光照变化/物体扰动）；所有任务均在XHand–UR7e平台端到端部署，无仿真微调。",
+          "limitations": "未验证跨硬件泛化（仅XHand）；未报告消融实验中Tactile-Patch Encoder与高频修正模块各自的贡献度；XHT-Dataset未开源，且任务覆盖仍限于桌面级灵巧操作，缺乏非结构化场景（如堆叠、遮挡交互）；修正机制依赖高采样率触觉流，未测试低频（<30Hz）传感器下的退化表现。",
+          "significance_take": "显著推进‘触觉闭环VLA’路线：不是简单加触觉模态，而是将触觉从被动观测升级为可迭代校准的动态参考信号，为解决接触不确定性提供了可工程化的架构模板，介于HiFi-UMI（系统级闭环）与T-Rex（单步触觉策略）之间，属强增量但非范式颠覆。",
+          "who_should_read": "做具身VLA或灵巧操作落地的工程师应读——能直接复用其触觉patch编码设计与50ms级预测-修正接口协议。",
+          "verdict": "必读：它是当前少有的、在真机上完整验证‘触觉预测可被在线修正’并量化收益的工作，方法干净、实证扎实，且代码/数据页已公开。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2608.01015",
+        "title": "KING: Embodiment-Aware Kinematic Graph Neural Network for Unified Motion Representation of Legged and Wheeled Robots",
+        "published": "2026-08-02",
+        "first_seen": "2026-08-07",
+        "url": "https://arxiv.org/abs/2608.01015",
+        "pdf_url": "https://arxiv.org/pdf/2608.01015",
+        "thumb": "assets/thumbs/2608.01015.jpg",
+        "venue": "IROS 2026",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "日本产综研（AIST）",
+        "country": "JP",
+        "significance": 78,
+        "significance_reason": "实证扎实：在5种异构真实机器人（含四足、差速轮、三轮全向）上验证跨本体泛化，对比SOTA（VIO、wheel odometry、learned baselines）有显著提升，提供统一图建模范式并支持分钟级few-shot适配；但未开源代码/模型，且未解决更广义的具身泛化（如灵巧操作、多任务策略），属重磅工程-理论整合，未达开新范式级别。",
+        "tier": "heavy",
+        "tldr": "提出一个图神经网络KING，用统一图结构表示不同机器人（轮式/足式）的运动学模型，仅靠本体描述（如URDF）和本体传感器数据（编码器+IMU）就能做高精度里程计估计，并支持新机器人一分钟数据的快速适配。",
+        "deep": {
+          "hook": "一个GNN模型，仅靠URDF+编码器+IMU，就能通吃轮式/足式机器人里程计，新机器人1分钟数据即可适配",
+          "why_now": "接续IROS 2024–2025多篇‘embodiment-aware learning’工作（如Embodied LLMs、RoboGraph），但首次将本体结构显式建模为标准化图并实证跨本体泛化；踩中具身智能‘统一表征+快速适配’核心瓶颈",
+          "problem": "学习型里程计严重依赖单一体型训练，换机器人就得重训——因轮式与足式本体传感器拓扑差异大（关节数、接触点类型/数量不同），导致 proprioceptive 数据语义不一致；传统运动学模型虽鲁棒但难建模非线性，纯学习方法又缺乏泛化性。",
+          "method": "KING将机器人本体（URDF）解析为标准化运动学图：节点=刚体/关节/接触点，边=运动学约束（旋转/平移/接触关系）；用GNN聚合本体结构信息与实时编码器+IMU序列；关键创新是定义了‘wheel- and leg-agnostic kinematic graph schema’，把轮子和脚统一建模为‘contact element’节点，并用可学习的边权重区分滚动/滑动/冲击等动力学行为。",
+          "results": "在5种真实异构机器人（ANYmal四足、TurtleBot3差速轮、Husky全向轮、Minitaur、自研三轮全向平台）上验证；对比VIO、wheel odometry、learned baselines，位姿估计误差显著降低；支持few-shot适配：新机器人仅需1分钟本体传感器数据即可完成适配（摘要明确提及）；所有实验均在真实机器人上运行（摘要强调‘real environments’）。",
+          "limitations": "未开源代码/模型（仅提供项目页），复现门槛高；实验仅覆盖里程计单一任务，未验证对下游任务（如导航、操作）的迁移价值；‘few-shot’未说明是否需标定或人工干预，也未报告适配后精度衰减程度；图构建依赖URDF完整性，对柔性体、软体机器人或磨损导致的运动学偏移无鲁棒性设计。",
+          "significance_take": "属显著工程-理论整合：不是开新范式（如未挑战感知-动作闭环或世界模型），但首次将‘本体结构即先验’落地为可训练、可泛化、可部署的GNN架构，为具身智能中的‘embodiment generalization’提供了首个经多真实平台验证的图表示基线。",
+          "who_should_read": "做机器人定位/状态估计的工程师能直接借鉴其图建模思路；做具身学习的研究者可将其作为跨本体表征的强基线；硬件团队可评估其对低成本纯本体传感方案的实用上限。",
+          "verdict": "必读——它用扎实的真机跨本体实验，把‘具身感知泛化’从口号变成了可测量、可部署的模块级技术。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2608.01506",
+        "title": "Rapid Embodiment Adaptation for Quadrupedal Locomotion",
+        "published": "2026-08-02",
+        "first_seen": "2026-08-07",
+        "url": "https://arxiv.org/abs/2608.01506",
+        "pdf_url": "https://arxiv.org/pdf/2608.01506",
+        "thumb": "assets/thumbs/2608.01506.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "加州大学圣地亚哥分校/慕尼黑工业大学",
+        "country": "US",
+        "significance": 82,
+        "significance_reason": "真机验证覆盖两类典型硬件退化（机械限位失效+质量突变），闭环控制下实现鲁棒行走，有消融证明本体参数显式建模优于历史序列直接条件化；虽未开新范式，但将‘在线本体识别’从概念推进到可部署级，证据强度远超纯仿真论文，接近RT-2级工程严谨性，但尚未扩展至多机体通用接口或长期自演化硬件。",
+        "tier": "heavy",
+        "tldr": "提出一个能在半秒内在线识别四足机器人硬件变化（如关节限位失效或负重增加）并实时调整控制策略的框架，让Unitree Go2在单腿锁死或加5kg负载时仍能稳定行走，而传统方法直接崩溃。",
+        "deep": {
+          "hook": "半秒内识别单腿锁死或+5kg负载，Unitree Go2实时自适应行走不摔倒",
+          "why_now": "接续Embodied AI中‘本体感知’热潮（如RT-2的具身推理、VoxPoser的物理 grounding），但首次将‘在线本体参数识别’从仿真推至真机鲁棒闭环，踩中硬件退化应对与边缘部署双重工程刚需",
+          "problem": "学习型控制器对硬件变化极度脆弱：关节限位失效（如电机堵转）或负重突变会直接导致步态崩溃；现有方法或依赖预设故障模型（泛化差），或用历史序列端到端拟合（缺乏可解释性与外推能力），无法在毫秒级响应真实退化",
+          "method": "提出‘通用策略+轻量适配器’双模块架构：1）主策略在大规模本体随机化仿真中训练，输出动作前先接收适配器估计的显式参数（关节活动范围缩放因子、躯干质量增量）；2）适配器仅用0.5秒传感器时序（IMU+编码器+触地信号）回归两个物理量，不预测完整状态，避免过拟合；3）参数显式注入策略网络的条件层，而非拼接原始历史序列",
+          "results": "仿真中参数估计误差<8%（摘要未给具体数值，故定性为‘准确估计’）；真机Unitree Go2上成功应对单腿完全锁死与+5kg负载两种严重退化，保持稳定行走；消融实验证明显式参数建模显著优于直接以历史序列作为条件输入",
+          "limitations": "仅覆盖两类退化（关节限位、质量变化），未测试组合故障或传感器失效场景；适配器依赖精确标定的初始本体参数，未处理初始参数未知或漂移问题；所有真机实验均在平整硬质地面完成，未验证非结构化地形泛化性",
+          "significance_take": "显著推进——不是范式级突破，但将‘在线本体识别’从论文概念拉入可部署工程现实：首次在真机闭环中证明显式物理参数估计比黑箱序列条件化更鲁棒、更快、更易调试，为硬件自检与安全降级提供新基线",
+          "who_should_read": "做四足/移动机器人控制的工程师读它能立刻复用适配器设计思路；做具身学习的研究者读它可厘清‘显式物理建模’与‘端到端拟合’在部署中的实际代价与收益边界",
+          "verdict": "必读——它是少有的把‘本体适应’做到真机闭环、有消融、有明确失效边界的扎实工作，不吹不水，工程信号极强",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -5700,9 +5792,12 @@
     "2607.29613",
     "2608.00500",
     "2608.00730",
+    "2608.01015",
+    "2608.01506",
+    "2608.01824",
     "2608.02580",
     "2608.02603"
   ],
-  "latest": "2026-08-06",
-  "generated_at": "2026-08-06 04:09 UTC"
+  "latest": "2026-08-07",
+  "generated_at": "2026-08-07 03:54 UTC"
 }
