@@ -1,8 +1,8 @@
 {
   "week": {
-    "start": "2026-08-03",
-    "end": "2026-08-09",
-    "label": "08.03~08.09"
+    "start": "2026-08-04",
+    "end": "2026-08-10",
+    "label": "08.04~08.10"
   },
   "count": 15,
   "venue_count": 4,
@@ -11,7 +11,7 @@
     "IROS 2026",
     "RA-L"
   ],
-  "generated_at": "2026-08-09 03:09 UTC",
+  "generated_at": "2026-08-10 03:17 UTC",
   "picks": [
     {
       "rank": 1,
@@ -55,46 +55,6 @@
     },
     {
       "rank": 2,
-      "arxiv_id": "2608.01824",
-      "title": "ReTouch: Empowering Contact-Rich Dexterous Manipulation with Online-Refined Tactile Prediction",
-      "published": "2026-08-03",
-      "url": "https://arxiv.org/abs/2608.01824",
-      "pdf_url": "https://arxiv.org/pdf/2608.01824",
-      "thumb": "assets/thumbs/2608.01824.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "香港大学",
-      "country": "HK",
-      "org_type": "university",
-      "significance": 93,
-      "significance_reason": "真机部署+7任务闭环验证+18.4/23.8pp提升+新高质量触觉-灵巧操作数据集（XHT-Dataset），方法设计（触觉patch编码+高频联合预测-修正）直击触觉延迟与失配痛点，实证强度和系统完整性接近HiFi-UMI/FTP-1级，但尚未展示跨机体泛化或大规模策略复用能力，略逊于T-Rex的范式开创性。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "tactile",
-        "dexterous",
-        "real-robot",
-        "dataset",
-        "benchmark"
-      ],
-      "tldr": "提出ReTouch模型，用视觉-语言-动作框架在线持续修正触觉预测，实现高精度、强鲁棒的接触密集型灵巧操作，在7个真实机器人任务上显著超越基线。",
-      "claim": "通过在线闭环修正触觉预测的VLA架构，可显著提升灵巧手在接触密集、动态变化物理交互下的操作鲁棒性与成功率。",
-      "method_components": [
-        "model",
-        "dataset",
-        "hardware",
-        "benchmark"
-      ],
-      "input": "RGB图像+语言指令+实时触觉传感器读数（来自XHand）",
-      "output": "动作块（action chunks）及未来触觉状态预测",
-      "novelty": 7,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：首次将触觉预测纳入VLA闭环执行流并完成多任务真机部署，解决了触觉信号滞后导致的动作漂移问题，证据扎实、工程完整、效果显著。",
-      "deep": {}
-    },
-    {
-      "rank": 3,
       "arxiv_id": "2608.05674",
       "title": "JoyAI-RA 0.5: Scaling Robot Manipulation Learning via Dual Action Alignment",
       "published": "2026-08-06",
@@ -135,7 +95,7 @@
       "deep": {}
     },
     {
-      "rank": 4,
+      "rank": 3,
       "arxiv_id": "2608.03116",
       "title": "Shooting for Contact: Contact-Implicit Multiple Shooting for Dynamic Motion Retargeting",
       "published": "2026-08-04",
@@ -172,80 +132,7 @@
       "deep": {}
     },
     {
-      "rank": 5,
-      "arxiv_id": "2608.02603",
-      "title": "WorldExam: Benchmarking World Models from Apparent Appearance to Inherent Reactivity",
-      "published": "2026-08-03",
-      "url": "https://arxiv.org/abs/2608.02603",
-      "pdf_url": "https://arxiv.org/pdf/2608.02603",
-      "thumb": "assets/thumbs/2608.02603.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "清华大学",
-      "country": "CN",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "首次定义并实证验证‘世界反应性’这一关键维度，构建覆盖四大层级、跨三类驱动范式的开源基准，20模型实测揭示当前所有主流范式存在根本性能力断层；虽未提出新模型，但填补了世界模型评估范式的结构性空白，证据扎实、可复现、影响面广，但尚未引发方法论级变革或直接推动SOTA模型迭代。",
-      "tier": "heavy",
-      "grade": "B",
-      "tags": [
-        "benchmark",
-        "dataset",
-        "open-source"
-      ],
-      "tldr": "提出WorldExam基准，首次系统性评测世界模型的‘内在反应性’——即模型能否根据场景状态推断并生成未明确指定但物理/因果合理的后续变化，而非只追求画面好看或指令字面执行。",
-      "claim": "世界模型的真实能力不应仅由视觉质量或指令字面匹配度衡量，而必须通过分层诊断其对场景内在因果动态的建模能力，尤其是未显式指定条件下的合理反应生成。",
-      "method_components": [
-        "benchmark",
-        "dataset"
-      ],
-      "input": "视频帧序列+控制信号（相机运动/动作指令/自然语言）",
-      "output": "后续视频帧序列（含隐含因果响应）",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：不是模型创新，而是评估范式的实质性突破——它把世界模型从‘画得像’的幻觉测试，拉回到‘想得对’的因果推理检验，且证据充分、开源完备、结论不可回避。",
-      "deep": {}
-    },
-    {
-      "rank": 6,
-      "arxiv_id": "2608.02580",
-      "title": "Ego2Robot: Scalable Robot Data Synthesis from Egocentric Human Data",
-      "published": "2026-08-03",
-      "url": "https://arxiv.org/abs/2608.02580",
-      "pdf_url": "https://arxiv.org/pdf/2608.02580",
-      "thumb": "assets/thumbs/2608.02580.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "sim2real_data",
-      "org": "未知（作者单位未在摘要中披露，无机构署名线索；GitHub主页 ye.github.io 无法确认归属，暂判 unknown）",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 78,
-      "significance_reason": "构建了当前最大规模的ego-to-robot合成数据集（18.5K小时/15形态），并首次系统验证其对VLA模型预训练的泛化增益（覆盖4类解耦扰动+真机部署），但未开源代码/模型，且合成数据真实性、动作合理性缺乏底层物理验证或人类评估，相比RT-X（真实跨平台数据融合）、DROID（端到端真机闭环学习）、ALOHA（高保真遥操作数据闭环）等基石工作，仍属强工程整合而非范式突破。",
-      "tier": "heavy",
-      "grade": "B",
-      "tags": [
-        "dataset",
-        "benchmark",
-        "sim2real"
-      ],
-      "tldr": "用人类第一视角操作视频自动合成大规模、多形态机器人训练数据（18561小时，15种机械臂），并通过新设计的RoboTwin2.0扰动基准验证其预训练能提升跨视觉/场景/形态/任务的泛化能力，并在真实机器人上验证效果。",
-      "claim": "从海量无标注人类第一视角视频中规模化合成高质量、多形态机器人训练数据，可作为视觉-语言-动作模型的有效预训练源，并显著提升其在分布外扰动下的泛化能力与真实机器人部署表现。",
-      "method_components": [
-        "dataset",
-        "simulator",
-        "benchmark"
-      ],
-      "input": "原始egocentric人类操作视频（RGB+手部轨迹隐含信息）",
-      "output": "机器人格式的视觉-语言-动作三元组数据（含合成机器人臂视觉、关节动作序列、任务语言描述）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：实现了从人类视频到多形态机器人数据的规模化合成与系统性泛化验证，但缺乏物理一致性保障和开源支撑，尚未达到开新范式或解决长期开放难题的量级。",
-      "deep": {}
-    },
-    {
-      "rank": 7,
+      "rank": 4,
       "arxiv_id": "2608.03387",
       "title": "RoboReact: Agentic Skill Distillation from Generated Egocentric Videos for Generalizable Whole-Body Manipulation",
       "published": "2026-08-04",
@@ -284,7 +171,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
+      "rank": 5,
       "arxiv_id": "2608.03563",
       "title": "Unified Visuomotor Targets: Supervising VLAs Beyond Physical Actions",
       "published": "2026-08-04",
@@ -320,7 +207,7 @@
       "deep": {}
     },
     {
-      "rank": 9,
+      "rank": 6,
       "arxiv_id": "2608.05975",
       "title": "TRACE: Learned Proprioceptive Odometry for Legged Robots under Unreliable Contact Conditions",
       "published": "2026-08-06",
@@ -358,7 +245,7 @@
       "deep": {}
     },
     {
-      "rank": 10,
+      "rank": 7,
       "arxiv_id": "2608.03103",
       "title": "A Hierarchical Approach to Imitation Learning for Manipulation Tasks Requiring Time Varying Forces",
       "published": "2026-08-04",
@@ -396,7 +283,7 @@
       "deep": {}
     },
     {
-      "rank": 11,
+      "rank": 8,
       "arxiv_id": "2608.04964",
       "title": "WorldCycle: Self-Verifiable Reinforcement Learning for Long-Horizon Video World Models",
       "published": "2026-08-05",
@@ -432,7 +319,7 @@
       "deep": {}
     },
     {
-      "rank": 12,
+      "rank": 9,
       "arxiv_id": "2608.04996",
       "title": "DreamWAM: Beyond RGB Future Prediction for World Action Models",
       "published": "2026-08-05",
@@ -469,7 +356,7 @@
       "deep": {}
     },
     {
-      "rank": 13,
+      "rank": 10,
       "arxiv_id": "2608.03052",
       "title": "How Should Vision-Language-Action Models Use Proprioceptive State?",
       "published": "2026-08-04",
@@ -504,46 +391,44 @@
       "deep": {}
     },
     {
-      "rank": 14,
-      "arxiv_id": "2608.02547",
-      "title": "Why Does Action Chunking Improve Behavioral Cloning Performance in Robotic Control?",
-      "published": "2026-08-03",
-      "url": "https://arxiv.org/abs/2608.02547",
-      "pdf_url": "https://arxiv.org/pdf/2608.02547",
-      "thumb": "assets/thumbs/2608.02547.jpg",
+      "rank": 11,
+      "arxiv_id": "2608.05715",
+      "title": "Hijacking Robots with a Piece of Paper: A Systematic Study of Physical Prompt Injection in VLM-Controlled Robots",
+      "published": "2026-08-06",
+      "url": "https://arxiv.org/abs/2608.05715",
+      "pdf_url": "https://arxiv.org/pdf/2608.05715",
+      "thumb": "assets/thumbs/2608.05715.jpg",
       "venue": "",
       "domain": "embodied_ai",
-      "best_route": "whole_body_control",
-      "org": "谷歌DeepMind",
-      "country": "US",
-      "org_type": "company",
+      "best_route": "vla",
+      "org": "新加坡科技设计局",
+      "country": "SG",
+      "org_type": "institute",
       "significance": 78,
-      "significance_reason": "揭示了动作分块长期被误读的机制本质（隐式集成），并给出可复现、可替代、可放大的工程方案（随机延迟集成+显式集成策略），在多个真实机器人平台验证，有消融与跨机体对比，但未开源全部数据/模型，且未颠覆范式（如未改变BC基础框架），属扎实的重大机制性突破，但未达开新范式级（如RT-2/GR00T级）。",
+      "significance_reason": "首次系统性揭示VLM机器人在真实物理世界中的prompt injection脆弱性，提供首个可复现实机攻击基准（20 prompts × 3 scenes × 3 command types × 3 models × 3 robots = 5670 trials），证据扎实（全实机、跨模型、含推理链分析与三类防御验证），但未提出新模型/架构，属重大安全范式发现而非能力突破。",
       "tier": "heavy",
       "grade": "C",
       "tags": [
-        "sim2real",
-        "benchmark",
+        "multimodal-fusion",
         "real-robot",
-        "multimodal-fusion"
+        "benchmark"
       ],
-      "tldr": "这篇论文通过系统实验发现，动作分块（action chunking）之所以有效，并非因为之前认为的时间一致性、视野缩短或表征学习，而是因为它隐式实现了多延迟策略的集成效果；作者据此提出用随机延迟策略集成来替代动作分块，甚至设计显式集成策略，在仿真和真实机器人上达到并超越原动作分块性能。",
-      "claim": "动作分块的核心优势源于隐式集成（implicit ensembling）——即同时建模多种观测-动作时序关系（如 a_t|o_t, a_t|o_{t−1}, …），而非其表面结构带来的非马尔可夫性或误差抑制。",
+      "tldr": "这篇论文发现只要在机器人摄像头视野里放一张带特定文字的纸（比如‘STOP’或‘IGNORE PREVIOUS COMMAND’），就能骗过视觉语言模型（VLM）控制器，让机器人错误执行指令；作者系统构造了20种物理提示注入攻击，在3个主流VLM上实测成功率最高达29.4%，并测试了三种简单但有效的防御方法。",
+      "claim": "VLM控制的机器人存在可复现、高成功率、人类可读的物理提示注入漏洞，且该漏洞可通过轻量级防御（如文本掩码）近乎完全阻断。",
       "method_components": [
         "model",
-        "simulator",
         "benchmark",
-        "real-robot"
+        "dataset"
       ],
-      "input": "机器人观测序列（如关节状态、图像等）及历史动作（视具体策略而定）",
-      "output": "动作块（chunked actions）或单步动作（delayed policy）",
+      "input": "RGB图像+自然语言指令",
+      "output": "机器人动作决策（是否执行/改执行/拒绝）",
       "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：首次证伪主流归因，确立隐式集成为核心机制，并给出可落地的无chunking替代方案和性能增强架构，证据链完整、跨平台实证充分。",
+      "evidence": 11,
+      "one_sentence_verdict": "真突破：首次以严格实证确立VLM机器人物理世界prompt注入是真实、可量化、可防御的系统性安全威胁，填补AI安全与具身智能交叉的关键空白。",
       "deep": {}
     },
     {
-      "rank": 15,
+      "rank": 12,
       "arxiv_id": "2608.05215",
       "title": "VLAff: Vision-Language-Affordance Model for Unified Actionable Affordances",
       "published": "2026-08-05",
@@ -577,6 +462,116 @@
       "novelty": 7,
       "evidence": 8,
       "one_sentence_verdict": "显著贡献：真推进了affordance建模的粒度与规模，但受限于开源缺失和基线对比不足，尚未达到基石级VLA模型的工程完备性与范式影响力。",
+      "deep": {}
+    },
+    {
+      "rank": 13,
+      "arxiv_id": "2608.03483",
+      "title": "Continue or Replan? Bernoulli-Continuation Policy Learning for Adaptive Horizon Execution",
+      "published": "2026-08-04",
+      "url": "https://arxiv.org/abs/2608.03483",
+      "pdf_url": "https://arxiv.org/pdf/2608.03483",
+      "thumb": "assets/thumbs/2608.03483.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "sim2real_data",
+      "org": "微软亚洲研究院",
+      "country": "CN",
+      "org_type": "institute",
+      "significance": 78,
+      "significance_reason": "真机双任务+50任务基准+跨策略迁移（LIBERO/LIBERO-PRO）+跨仿真设置泛化均有扎实提升，且方法轻量、即插即用、无训练开销，但未开源代码/模型，也未挑战长期开放难题（如通用世界模型或零样本具身泛化），属显著推进SOTA的工程型突破，未达基石级（如RT-X/DROID）的范式重构或大规模基础构建层级。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "benchmark",
+        "multimodal-fusion"
+      ],
+      "tldr": "提出一种轻量级插件式策略头（BCP），让现有VLA模型能动态决定每段动作执行多久再重新规划，而非固定步数后强制重规划，从而在不改动原模型的前提下显著提升任务成功率和跨设置泛化能力。",
+      "claim": "通过将执行时长建模为序列化的伯努利继续决策，引入序贯、前缀共享的归纳偏置，并用轨迹级强化学习联合优化任务成功与重规划效率，可使冻结的VLA模型实现自适应执行时长选择。",
+      "method_components": [
+        "model",
+        "benchmark",
+        "simulator"
+      ],
+      "input": "视觉-语言指令+当前观测（RGB图像等）",
+      "output": "每个时间步的‘继续执行’或‘立即重规划’二元决策，最终导出动态长度的动作块",
+      "novelty": 7,
+      "evidence": 10,
+      "one_sentence_verdict": "真突破：在不修改基模型前提下，以极小代价解决VLA中僵化执行时长这一被广泛忽视却严重影响成功率的关键缺陷，实证充分、部署有效、泛化稳健。",
+      "deep": {}
+    },
+    {
+      "rank": 14,
+      "arxiv_id": "2608.05799",
+      "title": "XEWorld: Can Action-Conditioned World Models Generalize to Unseen Robot Embodiments?",
+      "published": "2026-08-06",
+      "url": "https://arxiv.org/abs/2608.05799",
+      "pdf_url": "https://arxiv.org/pdf/2608.05799",
+      "thumb": "assets/thumbs/2608.05799.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "world_model",
+      "org": "未知",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 78,
+      "significance_reason": "它首次系统性设计并公开了可控的跨本体世界模型评测基准（XEWorld），用严谨消融实验证伪了‘世界模型已隐式学得物理’的流行假设，揭示了视觉-动力学耦合这一核心瓶颈；虽未提出新模型，但诊断深度和实验设计强度达到重磅级别（对标WEAVER/DreamerV3级工作），但因未提供开源代码/模型且未在真机验证，略逊于94+分档的里程碑工作。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "benchmark",
+        "dataset"
+      ],
+      "tldr": "这篇论文构建了一个叫XEWorld的跨机器人本体测试平台，专门检验动作条件化世界模型能否零样本泛化到从未见过的机器人外形上，结果发现现有模型本质是2D视觉匹配器，只靠外观相似性泛化，完全无法把关节动作映射成合理视觉变化，也不理解物理动力学，暴露了当前世界模型在具身泛化上的根本缺陷。",
+      "claim": "当前动作条件化世界模型不具备跨机器人本体的零样本泛化能力，其失败根源在于将视觉外观与物理动力学耦合建模，而非解耦学习。",
+      "method_components": [
+        "simulator",
+        "benchmark",
+        "dataset"
+      ],
+      "input": "初始图像帧 + 关节级动作序列（数值型）",
+      "output": "未来多帧图像序列（像素空间预测）",
+      "novelty": 8,
+      "evidence": 10,
+      "one_sentence_verdict": "工程整合——它不是新模型，而是高精度‘CT扫描仪’：用精心构造的基准和扎实实验，首次定量证明当前世界模型泛化本质是视觉抄袭而非物理推理，为后续解耦架构指明了不可绕过的靶点。",
+      "deep": {}
+    },
+    {
+      "rank": 15,
+      "arxiv_id": "2608.03727",
+      "title": "Track4Action: Distilling World-Centric 3D Tracker into Vision-Language-Action Policies",
+      "published": "2026-08-04",
+      "url": "https://arxiv.org/abs/2608.03727",
+      "pdf_url": "https://arxiv.org/pdf/2608.03727",
+      "thumb": "assets/thumbs/2608.03727.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "上海交通大学",
+      "country": "CN",
+      "org_type": "university",
+      "significance": 78,
+      "significance_reason": "实证扎实：在LIBERO-Plus（零样本）、RoboTwin 2.0（清洁/随机化）、4个真实双臂任务上均取得显著提升（+7.6~25.0点），且跨仿真与物理平台一致有效；但核心思想（用世界模型/追踪器蒸馏作监督）属已有范式演进（如RT-2用文本-动作对齐、π0用世界模型预测），未开新范式，也未解决长期开放难题（如通用具身因果推理），尚未达到RT-2/π0级里程碑地位。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "benchmark"
+      ],
+      "tldr": "这篇论文提出Track4Action框架，通过蒸馏一个冻结的、世界中心式的3D追踪器（Track4World）从演示视频片段中提取出的3D世界状态变化特征，作为监督信号来训练视觉-语言-动作（VLA）策略，使策略能隐式理解动作如何改变3D世界几何与运动；训练时用该特征对齐，部署时完全不依赖3D追踪器或视频片段。",
+      "claim": "世界中心式3D追踪器蒸馏出的帧间过渡特征可作为特权监督信号，显著提升VLA策略在零样本泛化、仿真与真实双臂操作任务中的性能，且部署时无需追踪器或视频输入。",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark"
+      ],
+      "input": "当前帧RGB图像+语言指令",
+      "output": "机器人关节动作序列（或末端执行器控制指令）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：将3D世界追踪器作为可蒸馏的特权监督源，系统性验证其对VLA策略泛化性的增益，实证充分但方法路径延续已有思路，非概念或范式突破",
       "deep": {}
     }
   ]
