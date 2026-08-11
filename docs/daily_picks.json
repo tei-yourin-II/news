@@ -5887,6 +5887,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-08-11": [
+      {
+        "arxiv_id": "2608.05715",
+        "title": "Hijacking Robots with a Piece of Paper: A Systematic Study of Physical Prompt Injection in VLM-Controlled Robots",
+        "published": "2026-08-06",
+        "first_seen": "2026-08-09",
+        "url": "https://arxiv.org/abs/2608.05715",
+        "pdf_url": "https://arxiv.org/pdf/2608.05715",
+        "thumb": "assets/thumbs/2608.05715.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "新加坡科技设计局",
+        "country": "SG",
+        "significance": 78,
+        "significance_reason": "首次系统性揭示VLM机器人在真实物理世界中的prompt injection脆弱性，提供首个可复现实机攻击基准（20 prompts × 3 scenes × 3 command types × 3 models × 3 robots = 5670 trials），证据扎实（全实机、跨模型、含推理链分析与三类防御验证），但未提出新模型/架构，属重大安全范式发现而非能力突破。",
+        "tier": "heavy",
+        "tldr": "这篇论文发现只要在机器人摄像头视野里放一张带特定文字的纸（比如‘STOP’或‘IGNORE PREVIOUS COMMAND’），就能骗过视觉语言模型（VLM）控制器，让机器人错误执行指令；作者系统构造了20种物理提示注入攻击，在3个主流VLM上实测成功率最高达29.4%，并测试了三种简单但有效的防御方法。",
+        "deep": {
+          "hook": "一张写着‘STOP’的纸就能劫持VLM机器人——首个全实机物理提示注入系统性攻防基准",
+          "why_now": "正值VLM大规模落地机器人控制（如Figure、Tesla Bot）之际，该工作首次将NLP领域的prompt injection漏洞迁移到具身智能物理层，直击当前端到端VLM控制器部署中最被忽视的安全盲区。",
+          "problem": "VLM作为机器人决策核心，需同时理解视觉场景与自然语言指令；但其输入端（摄像头图像）天然暴露于物理世界，攻击者可在视野内放置可读文本（如打印纸），诱导模型错误解析指令——这种‘物理prompt injection’此前无系统验证，风险未知且防御空白。",
+          "method": "作者构建首个物理prompt注入基准：20种人类可读攻击文本（分四类：间接标识/任务重定义/权威冒充/冲突注入），在3种真实场景布局+3类指令变体+3个前沿VLM+3台真机上穷举测试；同步分析模型推理链（是否显式提及攻击文本）、对比三类轻量防御（prompt工程/两阶段校验/文本掩码）。",
+          "results": "5670次全实机试验中，GPT-4o、Gemini 2.5 Flash、Qwen3-VL-32B攻击成功率分别为27.0%、29.4%、5.0%；权威冒充与否定类攻击在全部三模型上均成功转移；文本掩码防御达100%拦截率，两阶段验证与prompt防御为85–100%。",
+          "limitations": "未覆盖更复杂动作空间（仅分拣任务）；Qwen3-VL-32B成功率极低（5.0%）但未分析原因（模型架构/训练数据/分辨率差异？）；所有防御均未在需读取真实标签的任务（如‘拿蓝色盒子旁的说明书’）中验证泛化性；未提供攻击文本生成的自动化方法，依赖人工构造。",
+          "significance_take": "范式级发现——它首次将prompt injection从数字域漏洞升级为具身智能的物理层威胁，证明‘视觉输入即prompt接口’，迫使整个VLM机器人社区必须将物理对抗鲁棒性纳入系统设计第一原则，而非事后补救。",
+          "who_should_read": "机器人系统工程师该读，能立即复用其5670次实测基准和三种可部署防御方案；安全研究者该读，获得首个物理世界prompt injection因果链证据（99.9%模型显式承认攻击文本）。",
+          "verdict": "必读——不是因为它提出了新模型，而是因为它用不可辩驳的实机证据，把一个被集体忽视的致命隐患钉死在具身智能工程化的桌面上。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2608.05215",
+        "title": "VLAff: Vision-Language-Affordance Model for Unified Actionable Affordances",
+        "published": "2026-08-05",
+        "first_seen": "2026-08-09",
+        "url": "https://arxiv.org/abs/2608.05215",
+        "pdf_url": "https://arxiv.org/pdf/2608.05215",
+        "thumb": "assets/thumbs/2608.05215.jpg",
+        "venue": "IROS 2026",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "东京大学",
+        "country": "JP",
+        "significance": 72,
+        "significance_reason": "首次系统性定义并解耦三类可操作性（视觉/抓取/轨迹），构建首个超500万条可操作性标注的人类视频数据集EgoAffordance，且在真实机械臂上验证零样本泛化能力；但未开源代码/模型，未与RT-2/Octo/OpenVLA等主流VLA模型做公平对比，消融实验未覆盖跨机体泛化核心假设，实机验证仅限2个简单任务。",
+        "tier": "notable",
+        "tldr": "用人类第一视角视频+3D重建提取物体可操作性（视觉/抓取/运动轨迹），构建大规模EgoAffordance数据集，并训练一个能同时输出热图、抓取位姿和轨迹的多模态大模型VLAff，支持零样本机器人操作。",
+        "deep": {
+          "hook": "首个解耦三类可操作性（视觉/抓取/轨迹）的VLA模型，真机零样本泛化验证",
+          "why_now": "接续RT-2/Octo等VLA模型对‘动作生成’的薄弱环节，直击具身智能中‘人类视频→机器人动作’的 embodiment mismatch 根本难题；恰逢IROS 2026聚焦sim2real与可操作性建模，该工作是首个系统定义+解耦+实机验证的完整闭环",
+          "problem": "人类视频含丰富操作意图，但因人机形态差异（手vs夹爪、自由度/尺寸/动力学不同），直接模仿失败率高；现有VLA模型输出多为token或粗粒度动作，缺乏对‘哪里交互、怎么抓、怎么动’的细粒度、可执行、跨机体表征",
+          "method": "1）用SfM+手部网格重建从204K条第一视角人类视频中反演3D场景与手-物交互轨迹；2）人工+半自动标注三类解耦affordance：视觉热图（像素级交互区域）、6DoF抓取位姿（相对于物体坐标系）、末端轨迹（SE(3)序列）；3）设计VLAff模型：共享ViT-L/LLM backbone，三头并行解码器分别预测三类affordance，联合训练且强制跨模态一致性约束",
+          "results": "在EgoAffordance测试集上视觉affordance预测mAP达68.3；在真实UR5+Robotiq夹爪上完成‘拿起水瓶’和‘打开抽屉’两个零样本任务，无需任何机器人端微调或演示；报告‘affordance-guided robot learning’在仅10轮仿真微调后即可提升任务成功率至92%",
+          "limitations": "1）实机验证仅2个简单任务，未覆盖多物体遮挡、动态扰动、跨机体（如换为Franka或双臂）泛化；2）未开源代码/模型，所有对比实验缺失基线（RT-2/Octo/OpenVLA均未参与公平评测），消融实验未验证‘解耦设计’是否真带来零样本增益（例如合并三头是否性能下降）",
+          "significance_take": "显著推进——首次将affordance从哲学概念/单模态热图，升级为可解耦、可测量、可执行的三维结构化表征，并构建首个百万级三元组affordance数据集；其‘解耦+统一VLA’范式可能成为后续VLA模型动作生成模块的标准接口",
+          "who_should_read": "做VLA动作生成、机器人模仿学习、可操作性建模的研究者，能直接获得affordance定义框架、数据构造方法论及实机部署链路",
+          "verdict": "值得读：核心思想清晰、数据与实证扎实，但需警惕其未验证的关键假设；读完应立刻思考‘我的VLA pipeline能否接入它的affordance head’",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2608.05799",
+        "title": "XEWorld: Can Action-Conditioned World Models Generalize to Unseen Robot Embodiments?",
+        "published": "2026-08-06",
+        "first_seen": "2026-08-09",
+        "url": "https://arxiv.org/abs/2608.05799",
+        "pdf_url": "https://arxiv.org/pdf/2608.05799",
+        "thumb": "assets/thumbs/2608.05799.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "未知",
+        "country": "unknown",
+        "significance": 78,
+        "significance_reason": "它首次系统性设计并公开了可控的跨本体世界模型评测基准（XEWorld），用严谨消融实验证伪了‘世界模型已隐式学得物理’的流行假设，揭示了视觉-动力学耦合这一核心瓶颈；虽未提出新模型，但诊断深度和实验设计强度达到重磅级别（对标WEAVER/DreamerV3级工作），但因未提供开源代码/模型且未在真机验证，略逊于94+分档的里程碑工作。",
+        "tier": "heavy",
+        "tldr": "这篇论文构建了一个叫XEWorld的跨机器人本体测试平台，专门检验动作条件化世界模型能否零样本泛化到从未见过的机器人外形上，结果发现现有模型本质是2D视觉匹配器，只靠外观相似性泛化，完全无法把关节动作映射成合理视觉变化，也不理解物理动力学，暴露了当前世界模型在具身泛化上的根本缺陷。",
+        "deep": {
+          "hook": "首次用可控跨本体基准XEWorld证伪‘世界模型已学物理’，暴露其本质是2D视觉匹配器",
+          "why_now": "紧接DreamerV3/WEAVER等SOTA世界模型爆发期，直击社区对‘隐式物理学习’的盲目乐观；与近期Sim2Embodiment、RoboCat等泛化工作形成方法论对照，凸显评测范式缺失这一关键瓶颈",
+          "problem": "现有动作条件化世界模型仅在训练机器人上评估，无法区分是学到了物理动力学，还是单纯记住了视觉-动作配对；跨本体零样本泛化能力成黑箱，导致具身智能泛化路径误判",
+          "method": "构建XEWorld：在相同物理场景中系统性hold-out不同机器人本体（如Franka vs UR5 vs Panda），强制模型仅用初始图像+关节动作序列预测未来帧；设计三类消融——像素级动作注入、空间-时间对齐约束、few-shot微调——定位泛化失效的具体环节",
+          "results": "所有主流模型（包括DreamerV3变体）在未见本体上视频预测PSNR暴跌超10dB；视觉相似本体（如UR5→Panda）表现显著优于运动学相似但外观迥异者（如Franka→UR5）；few-shot适配后原训练本体性能下降>30%（报告为‘catastrophic forgetting’）",
+          "limitations": "纯仿真环境（MuJoCo/PandaGym），无真机验证；未开源代码/模型，仅提供项目页和数据集描述；未测试语言-动作联合条件化等新兴架构，泛化结论限于当前主流视觉自回归范式",
+          "significance_take": "范式级诊断工作：不是增量改进，而是用严谨基准重定义‘世界模型是否理解物理’的检验标准，将‘解耦视觉-动力学表征’从经验主张升格为可验证的架构设计约束",
+          "who_should_read": "做世界模型、具身仿真或跨本体迁移的研究者，能立刻获得可复用的评测协议、失效模式图谱和解耦建模范式提示",
+          "verdict": "必读——它不提供新模型，但划清了当前技术边界的刻度线，读完你会重新审视自己模型里每一个卷积核到底在学什么",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -6079,10 +6171,13 @@
     "2608.03563",
     "2608.04964",
     "2608.04996",
+    "2608.05215",
     "2608.05674",
+    "2608.05715",
+    "2608.05799",
     "2608.05975",
     "2608.06375"
   ],
-  "latest": "2026-08-10",
-  "generated_at": "2026-08-10 03:17 UTC"
+  "latest": "2026-08-11",
+  "generated_at": "2026-08-11 03:09 UTC"
 }
