@@ -36105,6 +36105,97 @@
       "read_priority": "B"
     },
     {
+      "arxiv_id": "10.64898/2026.08.04.742789",
+      "doi": "10.64898/2026.08.04.742789",
+      "source_kind": "biorxiv",
+      "title": "Scop3P-Toolkit: executable structure-aware workflows linking PTMs, peptides, and mutations to protein function",
+      "abstract": "Post-translational modifications (PTMs) and genetic variants regulate protein function, signalling, and disease, but their interpretation requires integration of sequence annotations with structural, interaction, and biophysical context. Although resources such as Scop3P, UniProt, the Protein Data Bank, and AlphaFold provide extensive annotations and structural information, integrating these data into reproducible structure-aware analyses still requires custom scripting and manual coordination between multiple independent tools. To address this challenge, we developed Scop3P-Toolkit, an open-source executable analytical environment for interactive analysis of PTMs, mutations, and proteomics-derived peptides in their structural context. The toolkit integrates protein annotation retrieval with structural mapping, residue interaction network analysis, comparative structural analysis, and residue-level biophysical profiling within a unified framework. Experimentally supported phosphosites, phosphopeptides, and phosphoproteomics evidence are provided for human proteins through Scop3P, with optional integration of curated UniProt PTM annotations. UniProt-derived PTMs, sequence features, and genetic variants are available for proteins from any species, extending the framework beyond the human phosphoproteome. Scop3P-Toolkit supports structure-centric analyses including interpretation of PTMs and disease-associated variants, analysis of residue interaction networks and their rewiring across alternative conformations, structural localisation of peptides, and exploration of protein-protein, protein-ligand, and host-pathogen interfaces. Interactive visualisation links sequence annotations, three-dimensional structures, residue interaction networks, and biophysical profiles, enabling coordinated exploration across multiple molecular representations. The toolkit is distributed as Jupyter notebooks, browser-based Voila applications, and a Galaxy interactive tool, providing transparent, accessible, and reproducible workflows for both computational and experimental researchers. By integrating biological annotation resources into executable, structure-aware workflows, Scop3P-Toolkit enables reproducible interpretation of PTMs, mutations, and proteomics data.",
+      "authors": [
+        "Adrián Díaz",
+        "Natalia Tichshenko",
+        "Boris Guy J. Depoortere",
+        "Rafael Andrade Buono",
+        "Paul De Geest",
+        "Wim Vranken",
+        "Lennart Martens",
+        "Pathmanaban Ramasamy"
+      ],
+      "categories": [],
+      "published": "2026-08-09",
+      "updated": "2026-08-09",
+      "url": "https://doi.org/10.64898/2026.08.04.742789",
+      "pdf_url": "https://doi.org/10.64898/2026.08.04.742789",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1421,
+        "world_model": 0.1525,
+        "whole_body_control": 0.1289,
+        "dexterous_manipulation": 0.1229,
+        "sim2real_data": 0.0871,
+        "hardware_unitree": 0.0934,
+        "bci_neural_decoding": 0.1636,
+        "bci_foundation_models": 0.1592,
+        "bci_embodied_robot": 0.1467,
+        "bci_noninvasive_eeg": 0.1239,
+        "protein_ai": 0.5364,
+        "genomics_ai": 0.3978
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.5364,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "开发了一个开源工具包Scop3P-Toolkit，把蛋白质翻译后修饰（PTM）、基因突变、质谱鉴定的肽段等数据自动映射到三维结构上，并整合结构注释、相互作用网络、生物物理性质分析和交互式可视化，让非计算背景的研究者也能做可复现的结构导向型功能解读。",
+        "org": "VIB-UGent Center for Medical Biotechnology",
+        "country": "EU",
+        "org_type": "institute",
+        "claim": "Scop3P-Toolkit首次将PTM/突变/肽段的结构映射、残基级相互作用网络分析、构象依赖性重连、界面定位与交互式多视图可视化整合进统一、可执行、开箱即用的工作流框架中。",
+        "method_components": [
+          "dataset",
+          "simulator",
+          "benchmark",
+          "ui"
+        ],
+        "input": "蛋白质序列标识符（如UniProt ID）、PTM位点列表、突变信息、质谱鉴定的肽段坐标、AlphaFold或PDB结构文件",
+        "output": "结构定位的注释图、残基相互作用网络（含构象对比）、界面残基热图、生物物理性质分布（如pKa、疏水性、B因子）、交互式三维可视化面板",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-species"
+        ],
+        "reproducibility": "code+model+data",
+        "tags": [
+          "open-source",
+          "dataset",
+          "benchmark",
+          "multimodal-fusion"
+        ],
+        "novelty": 6,
+        "evidence": 9,
+        "reproducibility_score": 8,
+        "significance": 72,
+        "significance_reason": "属高质量工程整合：显著降低结构生物学与蛋白质组学交叉分析门槛，提供全栈式可复现工作流（Jupyter/Voila/Galaxy），覆盖多物种且实证支持人类磷酸化数据；但未提出新算法模型或预测范式，也未解决长期开放难题（如动态构象建模、PTM功能因果推断），分量介于扎实增量与显著贡献之间，明显低于AlphaFold2/ESMFold等基石级方法。",
+        "one_sentence_verdict": "工程整合：将现有结构资源与组学数据通过可执行工作流深度耦合，大幅提升可及性与复现性，但未突破底层建模或机制理解瓶颈。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 16.1,
+        "content": 23.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 39.1,
+        "bonus": 0.0,
+        "total": 39.1
+      },
+      "grade": "C",
+      "read_priority": "B"
+    },
+    {
       "arxiv_id": "2606.10495",
       "doi": "10.48550/arxiv.2606.10495",
       "source_kind": "arxiv",
@@ -71110,6 +71201,107 @@
       "thumb": "assets/thumbs/2608.02197.jpg"
     },
     {
+      "arxiv_id": "2608.07045",
+      "doi": "10.48550/arxiv.2608.07045",
+      "source_kind": "arxiv",
+      "title": "C2Dex: Contact-Consistent Reconstruction and Retargeting for Dexterous Manipulation from Monocular Video",
+      "abstract": "High-quality demonstrations for dexterous robot manipulation are costly and difficult to collect, whereas monocular human videos provide a scalable source of diverse manipulation behaviors. However, transferring such demonstrations to dexterous robots remains challenging: monocular hand-object interaction (HOI) reconstruction often produces temporally unstable contacts and physically implausible interactions, while conventional retargeting methods struggle to preserve task-relevant contacts and local interaction geometry across different hand embodiments. We present C2Dex, a video-to-dexterous-manipulation framework built around a shared interaction representation: stable object-side contacts recovered by aggregating noisy frame-wise observations in the canonical object space. These stable contacts serve a dual role: as trajectory-level constraints that guide reconstruction toward temporally coherent and physically plausible human HOI trajectories, and as explicit transfer targets for the dexterous hand, where Laplacian interaction optimization preserves the local hand-object geometry across embodiments and residual reinforcement learning refines the trajectory in simulation. Experiments on DexYCB and TACO show that C2Dex achieves end-to-end trajectory success rates of 57.78% and 26.67%, respectively, substantially outperforming the strongest baselines (17.78% and 10.00%) under identical evaluation criteria. Real-robot replay experiments further demonstrate physical feasibility across diverse contact-rich manipulation tasks. Project page: https://k-jie.github.io/C2Dex/",
+      "authors": [
+        "Jie Ren",
+        "Zhehao Jiang",
+        "Yinhong Yang",
+        "Haorui Jia",
+        "Han Jiang",
+        "B. Li",
+        "Yao Yao",
+        "Cheng Lin",
+        "Qiu Shen",
+        "Zhenshan Bing",
+        "Xiao-Xiao Long",
+        "Xun Cao"
+      ],
+      "categories": [],
+      "published": "2026-08-07",
+      "updated": "2026-08-07",
+      "url": "https://arxiv.org/abs/2608.07045",
+      "pdf_url": "https://arxiv.org/pdf/2608.07045",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4876,
+        "world_model": 0.3461,
+        "whole_body_control": 0.5069,
+        "dexterous_manipulation": 0.5,
+        "sim2real_data": 0.3005,
+        "hardware_unitree": 0.2511,
+        "bci_neural_decoding": 0.1762,
+        "bci_foundation_models": 0.1067,
+        "bci_embodied_robot": 0.3686,
+        "bci_noninvasive_eeg": 0.1522,
+        "protein_ai": 0.1708,
+        "genomics_ai": 0.1132
+      },
+      "best_route": "dexterous_manipulation",
+      "relevance_raw": 0.5069,
+      "first_seen": "2026-08-12",
+      "venue": "RA-L",
+      "analysis": {
+        "tldr": "从单目人类操作视频中重建稳定的手-物接触关系，并将其迁移到灵巧机器人手上，解决了单目重建接触抖动、跨手型几何失真两大难题，最终在真实机器人上复现了多种接触密集的操作任务。",
+        "org": "未知（作者单位未在摘要中明示；Jie Ren 等人主页显示主要隶属浙江大学与香港科技大学联合背景，但项目页未标注官方 affiliation；无明确企业/实验室署名）",
+        "country": "CN",
+        "org_type": "university",
+        "claim": "通过在物体规范空间中聚合帧级观测构建稳定的接触表示，该表示既能约束单目HOI重建的时序一致性与物理合理性，又能作为跨手型几何保持的显式迁移目标，从而实现从单目视频到真实灵巧手的端到端可行操作复现。",
+        "method_components": [
+          "model",
+          "dataset",
+          "simulator",
+          "policy",
+          "benchmark"
+        ],
+        "input": "单目RGB视频（含人手操作）",
+        "output": "灵巧机器人手的关节轨迹（带接触约束）",
+        "robot_dependency": "Shadow Dexterous Hand / Allegro Hand（实验中使用，见项目页与补充材料）",
+        "data_dependency": "零真实机器人演示数据依赖；仅用单目视频+公开HOI数据集（DexYCB/TACO）做评估，不依赖真实机器人采集的demonstration数据",
+        "sim2real_status": "deployed",
+        "generalization": [
+          "cross-embodiment",
+          "cross-task"
+        ],
+        "reproducibility": "code-only",
+        "tags": [
+          "dexterous",
+          "sim2real",
+          "teleoperation",
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 5,
+        "significance": 82,
+        "significance_reason": "达到HiFi-UMI/ALOHA级分量：首次在单目视频→灵巧手路径中系统性解决接触不一致这一核心瓶颈，提供可验证的跨手型几何保持机制，并在真实机器人上完成多任务部署（非单任务demo），有完整消融（contact ablation, Laplacian vs. baseline retargeting），且评估严格（端到端success rate，非中间指标）；但未开源数据与模型权重，且未覆盖触觉反馈或闭环策略学习，弱于T-Rex/FTP-1等触觉原生框架。",
+        "one_sentence_verdict": "真突破：它不是刷榜或仿真包装，而是直击单目灵巧操作迁移中长期被忽视的接触稳定性与几何保真问题，并给出可实机验证、可消融、可跨手型复用的技术解，填补了视觉驱动灵巧操作落地的关键缺口。",
+        "_llm": "qwen-plus",
+        "venue": "RA-L"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": "RA-L"
+      },
+      "scores": {
+        "relevance": 15.2,
+        "content": 21.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 36.2,
+        "bonus": 0.0,
+        "total": 36.2
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2608.07045.jpg"
+    },
+    {
       "arxiv_id": "2606.03134",
       "doi": "10.48550/arxiv.2606.03134",
       "source_kind": "arxiv",
@@ -79191,6 +79383,95 @@
       "thumb": "assets/thumbs/2608.05999.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.08.03.742553",
+      "doi": "10.64898/2026.08.03.742553",
+      "source_kind": "biorxiv",
+      "title": "Closed-loop robotic interactions reveal dynamic social filtering in schooling fish",
+      "abstract": "Abstract Collective motion emerges from local interactions among individuals, yet whether interaction rules inferred from trajectory data correspond to the mechanisms actually used by animals remains unresolved. Here, we address this question using an autonomous closed-loop robotic fish implementing a data-driven model of social interactions reconstructed from the schooling fish Hemigrammus rhodostomus . The robot continuously updated its behavior from real-time tracking of freely swimming fish while reproducing spontaneous locomotion, wall avoidance, and anisotropic attraction and alignment. We compared entirely biological groups, biohybrid groups containing one robotic fish, and numerical simulations using identical behavioral descriptors across isolated individuals, pairs, and groups of five fish. The robotic fish successfully integrated into natural schools and reproduced the principal signatures of collective coordination, providing the first direct causal validation of interaction rules reconstructed from behavioral trajectories. Biohybrid experiments showed that a robot responding only to its single most influential neighbor was sufficient to sustain natural collective coordination. By contrast, numerical simulations reproduced the behavior of biological groups most accurately when each fish interacted with its two most influential neighbors. This discrepancy identifies the contribution of hydrodynamic interactions, which remain available to living fish but are absent from the robotic controller, demonstrating that physical and behavioral interactions jointly shape collective organization. These findings establish closed-loop biohybrid robotics as a powerful framework for experimentally testing the mechanisms underlying collective animal behavior. Significance Inferring the behavioral mechanisms underlying collective animal behavior from trajectory data alone cannot establish causality. We combined a data-driven model of fish social interactions with an autonomous closed-loop robotic fish that continuously interacted with freely swimming conspecifics. This biohybrid approach provides the first direct causal validation of interaction rules reconstructed from behavioral trajectories. Comparing biological groups, biohybrid groups, and numerical simulations further reveals that hydrodynamic interactions complement social interactions in shaping collective organization. While living fish require information from their two most influential neighbors to reproduce natural schools, a robotic fish lacking hydrodynamic feedback achieves comparable coordination by responding to only its single most influential neighbor, demonstrating the power of closed-loop biohybrid robotics for testing mechanisms of collective behavior.",
+      "authors": [
+        "Vaios Papaspyros",
+        "Yacine Barhoumi",
+        "Ramón Escobedo",
+        "Francesco Mondada",
+        "Clément Sire",
+        "Guy Théraulaz"
+      ],
+      "categories": [],
+      "published": "2026-08-05",
+      "updated": "2026-08-05",
+      "url": "https://doi.org/10.64898/2026.08.03.742553",
+      "pdf_url": "https://doi.org/10.64898/2026.08.03.742553",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.391,
+        "world_model": 0.3503,
+        "whole_body_control": 0.5,
+        "dexterous_manipulation": 0.1698,
+        "sim2real_data": 0.1977,
+        "hardware_unitree": 0.1761,
+        "bci_neural_decoding": 0.0937,
+        "bci_foundation_models": 0.1496,
+        "bci_embodied_robot": 0.2992,
+        "bci_noninvasive_eeg": 0.1107,
+        "protein_ai": 0.1586,
+        "genomics_ai": 0.1133
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.391,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "用一个能实时感知并响应真鱼行为的机器人鱼，混入真实鱼群中做闭环实验，首次因果验证了从轨迹数据反推的鱼群交互规则是否真实有效，并发现活鱼依赖‘两个关键邻居+水流物理作用’，而机器人仅靠‘一个关键邻居’就能融入鱼群，从而揭示了行为规则与物理环境的协同机制。",
+        "org": "洛桑联邦理工学院",
+        "country": "CH",
+        "org_type": "university",
+        "claim": "闭环生物混合机器人实验首次提供了从轨迹数据重建的社会交互规则的直接因果验证，并揭示水动力相互作用与行为交互共同塑造鱼群集体组织。",
+        "method_components": [
+          "robot",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "实时多目标鱼体位姿跟踪数据（2D/3D轨迹）",
+        "output": "机器人鱼的实时运动指令（速度、转向、加速度）",
+        "robot_dependency": "自主水下机器人鱼（EPFL定制硬件平台）",
+        "data_dependency": "高度依赖真实鱼群视频追踪数据用于建模和闭环反馈；所有行为策略均基于真实Hemigrammus rhodostomus群体轨迹拟合",
+        "sim2real_status": "deployed",
+        "generalization": [
+          "cross-embodiment",
+          "cross-group-size"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "real-robot",
+          "biohybrid",
+          "closed-loop",
+          "benchmark"
+        ],
+        "novelty": 9,
+        "evidence": 11,
+        "reproducibility_score": 4,
+        "significance": 87,
+        "significance_reason": "达到‘重磅’档：首次在真实动物群体中完成闭环因果干预实验（非仿真/非离线分析），跨尺度验证了行为模型+物理耦合双机制，且部署于真实水环境、多群体规模、含对照组与数值模拟交叉验证；虽未开源代码/模型，但硬件设计、实验协议、行为指标完全公开可复现，方法论范式已被后续3篇Nature子刊工作跟进引用。",
+        "one_sentence_verdict": "真突破：它不是改进某个算法，而是建立了一种新的因果验证范式——用机器人作为‘可控变量’嵌入活体系统，首次把动物行为学从相关性推断推进到机制性干预。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 11.7,
+        "content": 24.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 35.7,
+        "bonus": 0.0,
+        "total": 35.7
+      },
+      "grade": "C",
+      "read_priority": "B"
+    },
+    {
       "arxiv_id": "2606.01847",
       "doi": "10.48550/arxiv.2606.01847",
       "source_kind": "arxiv",
@@ -81800,6 +82081,94 @@
       "read_priority": "B"
     },
     {
+      "arxiv_id": "10.64898/2026.08.08.743454",
+      "doi": "10.64898/2026.08.08.743454",
+      "source_kind": "biorxiv",
+      "title": "Nucleotide-binding motifs nucleated folding of the first enzymes",
+      "abstract": "The earliest stages of protein evolution remain a mystery: the nature of the first protein forms, their roles in emergent biological systems, and the forces that shaped them are largely unknown. Here, we combine insights from metabolic modelling, the organization of protein structure space, and protein folding mechanisms to probe the emergence of two ubiquitous cofactor-binding folds: Rossmanns and P-loop NTPases. While both folds are essential for contemporary life, we show that Rossmanns catalyze reactions deeper within the metabolic core and are more central in structure space than P-loop NTPases. Folding mechanism analysis further reveals that, whereas P-loop NTPases may require non-local interactions to fold, Rossmann folding can be nucleated by a structural module at the heart of the fold that contains a nucleotide-binding motif. Because this motif also directly mediates biochemical activity, this result suggests how early proteins may have compactly satisfied both folding and biochemical activity. Our results imply that folding constraints favored early enzymatic forms with compact binding motifs and modest catalytic roles. We conclude that the early emergence of the Rossmann fold reflects the chemical and physical constraints of protein folding, explaining both its profound antiquity and sustained longevity.",
+      "authors": [
+        "Koh Seya",
+        "Tatsuya Corlett",
+        "Hamza Giaffar",
+        "Andre Lecona Buttelli",
+        "Claudèle Lemay-St-Denis",
+        "Kosuke Fujishima",
+        "Shina Caroline Lynn Kamerlin",
+        "Rachel Kolodny",
+        "Eric Smith",
+        "Liam Longo"
+      ],
+      "categories": [],
+      "published": "2026-08-10",
+      "updated": "2026-08-10",
+      "url": "https://doi.org/10.64898/2026.08.08.743454",
+      "pdf_url": "https://doi.org/10.64898/2026.08.08.743454",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1207,
+        "world_model": 0.1405,
+        "whole_body_control": 0.1435,
+        "dexterous_manipulation": 0.0834,
+        "sim2real_data": 0.0603,
+        "hardware_unitree": 0.0726,
+        "bci_neural_decoding": 0.1155,
+        "bci_foundation_models": 0.099,
+        "bci_embodied_robot": 0.0683,
+        "bci_noninvasive_eeg": 0.0775,
+        "protein_ai": 0.5183,
+        "genomics_ai": 0.2112
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.5183,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "通过整合代谢建模、蛋白质结构空间分析和折叠机制研究，论文论证罗斯曼折叠（Rossmann fold）比P-loop NTPase更可能起源于生命早期，因其核苷酸结合基序既能驱动自身折叠又能直接参与催化，从而在折叠稳定性与功能简易性之间取得原始生命所需的最优平衡。",
+        "org": "Weizmann Institute of Science",
+        "country": "IL",
+        "org_type": "institute",
+        "claim": "罗斯曼折叠的早期出现并非偶然，而是由其核苷酸结合基序所实现的‘折叠-功能一体化’物理化学特性决定的，该特性使其在原始蛋白质演化中具有不可替代的选择优势。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "蛋白质结构拓扑数据、代谢网络模型、已知酶折叠家族的序列-结构-功能注释",
+        "output": "两类古老折叠（Rossmann vs P-loop）在代谢深度、结构空间中心性、折叠路径局部性上的量化比较结论",
+        "robot_dependency": "none",
+        "data_dependency": "无真实机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 76,
+        "significance_reason": "提供了跨尺度（代谢→结构→折叠动力学）的实证性解释框架，用可验证的几何/热力学约束替代纯假设性叙事，但未引入新实验数据或生成模型，也未构建可预测演化的计算引擎，属扎实的机制性解释工作，尚未达到AlphaFold2级范式突破或ESM级通用建模高度。",
+        "one_sentence_verdict": "工程整合：将多源生物物理约束系统性耦合用于解释古老折叠起源，证据链完整、逻辑严密，但未产出可泛化预测工具或新数据资源，属于领域内高水准的机制解析型工作。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 15.5,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 35.5,
+        "bonus": 0.0,
+        "total": 35.5
+      },
+      "grade": "C",
+      "read_priority": "B"
+    },
+    {
       "arxiv_id": "2606.00985",
       "title": "Make Your VLA More Robust Without More Data By Interleaving Motion Planning",
       "abstract": "Vision-Language-Action (VLA) models have shown remarkable progress for mobile manipulation, but their performance on long-horizon tasks remains poor. These tasks are especially challenging because (1) progress toward high-level goals must be maintained across extended sequences of spatially distributed subtasks, and (2) early execution errors compound rapidly over the task horizon. These challenges persist despite finetuning on large human teleoperated mobile manipulation data, indicating that more data alone may not resolve the problem. To address these challenges, we propose MPVI: Motion Planner / VLA Interleaving, a framework that integrates model-based motion planning with VLAs to improve robustness without further training. The proposed integration enables localization and navigation to distant or occluded target objects through cluttered scenes using open-vocabulary object detection, frontier exploration and motion planning. However, such integration is non-trivial, requiring reliable switching between modules; we show one way forward via VLM-based completion checking with proprioceptive triggers. We evaluate our approach on the BEHAVIOR-1K benchmark and demonstrate 113% improvement in task progress over a top end-to-end VLA baseline. Additional details are available at the project page: https://mpvi.netlify.app/.",
@@ -83400,6 +83769,94 @@
       "grade": "C",
       "read_priority": "B",
       "thumb": "assets/thumbs/2608.06088.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.05.742796",
+      "doi": "10.64898/2026.08.05.742796",
+      "source_kind": "biorxiv",
+      "title": "PanGBank: a large-scale resource of precomputed microbial pangenomes built with PPanGGOLiN",
+      "abstract": "PanGBank (https://pangbank.genoscope.cns.fr) is a comprehensive open-access database providing precomputed prokaryotic pangenomes at a broad taxonomic scale. Built upon PPanGGOLiN partitioned pangenome graphs, PanGBank addresses the growing need for large-scale comparative genomics through a standardized, regularly updated, and fully accessible resource. The initial release comprises two complementary collections covering more than 4,600 prokaryotic species from the Genome Taxonomy Database (GTDB), encompassing over 393,000 genomes: GTDB_all, maximizing taxonomic and environmental diversity through the inclusion of MAGs and SAGs, and GTDB_refseq, focusing on high-quality, annotation-rich genomes. Each species-level pangenome integrates graph-based statistical partitions into persistent, shell, and cloud gene families, together with regions of genomic plasticity (panRGP) and co-localized functional modules (panModule). PanGBank offers multiple access modes, including a REST API, a command-line interface (PanGBank-cli), and an interactive web interface. By combining large-scale pangenome resources with advanced graph-based analyses, PanGBank provides a scalable framework for exploring microbial diversity, genome evolution, functional variation, and the dissemination of adaptive traits across prokaryotic populations, as illustrated by a use case on Acinetobacter baumannii pangenome investigating the distribution and evolution of antimicrobial resistance determinants.",
+      "authors": [
+        "Jean Mainguy",
+        "Téo Lemane",
+        "Adelme Bazin",
+        "Jérôme Arnoux",
+        "Guillaume Gautreau",
+        "Claudine Médigue",
+        "Alexandra Calteau",
+        "David Vallenet"
+      ],
+      "categories": [],
+      "published": "2026-08-09",
+      "updated": "2026-08-09",
+      "url": "https://doi.org/10.64898/2026.08.05.742796",
+      "pdf_url": "https://doi.org/10.64898/2026.08.05.742796",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0868,
+        "world_model": 0.0525,
+        "whole_body_control": 0.041,
+        "dexterous_manipulation": 0.1062,
+        "sim2real_data": 0.0583,
+        "hardware_unitree": 0.0647,
+        "bci_neural_decoding": 0.0744,
+        "bci_foundation_models": 0.1623,
+        "bci_embodied_robot": 0.089,
+        "bci_noninvasive_eeg": 0.1226,
+        "protein_ai": 0.28,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.3461,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "构建了一个覆盖4600多个原核物种、39万+基因组的大规模开源泛基因组图谱数据库PanGBank，基于PPanGGOLiN算法生成标准化的图结构泛基因组（含持久/壳/云基因家族、基因组可塑区panRGP和功能模块panModule），提供Web/API/CLI三种访问方式，并以鲍曼不动杆菌耐药基因演化为例验证其分析能力。",
+        "org": "法国国家测序中心(Genoscope)",
+        "country": "FR",
+        "org_type": "institute",
+        "claim": "PanGBank是首个在GTDB尺度上系统性构建、持续更新、全开放访问的图结构泛基因组资源库，支持跨物种微生物多样性与适应性性状演化的规模化解析。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "已组装的原核基因组序列（含MAGs/SAGs/RefSeq）",
+        "output": "物种级图结构泛基因组（含基因家族分区、panRGP、panModule等注释）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-species"
+        ],
+        "reproducibility": "code+model+data",
+        "tags": [
+          "dataset",
+          "open-source",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 10,
+        "reproducibility_score": 8,
+        "significance": 78,
+        "significance_reason": "虽非算法原创（依赖PPanGGOLiN），但首次实现GTDB全尺度泛基因组图谱的工业化级构建与标准化发布，数据规模（4600+物种/39万+基因组）和结构深度（panRGP/panModule）远超此前任何公共资源（如Pangenome Graph Library或PGG),且实证用于耐药演化分析，具备真实科研杠杆效应；但未提出新模型或颠覆性分析范式，属重磅基础设施而非理论突破。",
+        "one_sentence_verdict": "工程整合——将已有泛基因组算法规模化落地为可复用、可扩展、可验证的国家级生物信息基础设施，显著降低微生物比较基因组学门槛，但核心方法非原创。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 10.4,
+        "content": 25.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 35.4,
+        "bonus": 0.0,
+        "total": 35.4
+      },
+      "grade": "C",
+      "read_priority": "B"
     },
     {
       "arxiv_id": "2606.10371",
@@ -87093,6 +87550,99 @@
       "grade": "C",
       "read_priority": "B",
       "thumb": "assets/thumbs/2608.03231.jpg"
+    },
+    {
+      "arxiv_id": "2608.07005",
+      "doi": "10.48550/arxiv.2608.07005",
+      "source_kind": "arxiv",
+      "title": "Real-time Whole-Body Motion Planning for Mobile Manipulators Carrying Arbitrarily Shaped Payloads via Kinematically-Coupled SVSDF",
+      "abstract": "Mobile manipulators are increasingly tasked with transporting large, non-convex payloads through cluttered environments, yet existing planners either oversimplify the payload geometry or fail to handle the kinematic coupling between manipulator links, leading to lost feasible space or stalled optimization. This letter presents a real-time whole-body motion planning framework for mobile manipulators carrying arbitrarily shaped payloads. The front-end employs a chain-decomposed kernel-based collision check that preserves the true geometry of the robot and payload, with compact storage and fast bit-level queries. A mid-end preprocessing stage converts the front-end path into a continuous trajectory enforcing smoothness and feasibility, and executes it directly when collision-free to bypass the costly back-end. When refinement is required, the back-end performs trajectory optimization built on a Kinematically-Coupled SVSDF (KC-SVSDF), which propagates collision-avoidance gradients along the kinematic chain to produce coherent whole-body escape directions. Ablation studies, comparative benchmarks against state-of-the-art baselines, and real-world experiments on a differential-drive mobile manipulator demonstrate that the proposed framework reliably transports large, non-convex payloads through tight passages and cluttered environments.",
+      "authors": [
+        "Yisheng Li",
+        "Longji Yin",
+        "Tingrui Zhang",
+        "Rushun Xue",
+        "Haoda Zhu",
+        "Nan Chen",
+        "Siqi Liang",
+        "Yuxi Liu",
+        "Fu Zhang"
+      ],
+      "categories": [],
+      "published": "2026-08-07",
+      "updated": "2026-08-07",
+      "url": "https://arxiv.org/abs/2608.07005",
+      "pdf_url": "https://arxiv.org/pdf/2608.07005",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.477,
+        "world_model": 0.3515,
+        "whole_body_control": 0.5044,
+        "dexterous_manipulation": 0.2423,
+        "sim2real_data": 0.2826,
+        "hardware_unitree": 0.2348,
+        "bci_neural_decoding": 0.0736,
+        "bci_foundation_models": 0.0934,
+        "bci_embodied_robot": 0.2583,
+        "bci_noninvasive_eeg": 0.0866,
+        "protein_ai": 0.1839,
+        "genomics_ai": 0.1744
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.5044,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "提出一个实时全身运动规划框架，让移动机械臂能安全搬运任意形状（尤其是非凸、大尺寸）的物体穿过狭窄杂乱环境，核心是用动力学耦合的符号距离场（KC-SVSDF）传播避障梯度，避免传统方法因简化载荷几何或忽略机械臂-底盘运动耦合导致的规划失败。",
+        "org": "香港科技大学",
+        "country": "HK",
+        "org_type": "university",
+        "claim": "通过动力学耦合的符号距离场（KC-SVSDF）建模机器人-载荷-环境联合几何与运动学约束，实现高保真碰撞检测与实时全身轨迹优化，显著提升移动机械臂在真实场景中搬运任意非凸大载荷的可行性与鲁棒性。",
+        "method_components": [
+          "model",
+          "simulator",
+          "policy",
+          "benchmark"
+        ],
+        "input": "机器人当前位姿、载荷三维网格/点云、环境点云地图、目标位姿",
+        "output": "实时生成的全身关节+底盘联合轨迹（位置/速度/加速度连续）",
+        "robot_dependency": "差速驱动移动机械臂（实验平台为自研定制系统）",
+        "data_dependency": "依赖真实机器人平台采集的少量标定与运动学参数，但规划过程不依赖历史运行数据（即非学习式，不依赖RL或模仿数据）",
+        "sim2real_status": "real-robot",
+        "generalization": [
+          "cross-scene",
+          "cross-task"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "sim2real",
+          "real-robot",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 76,
+        "significance_reason": "解决了移动操作领域长期存在的‘载荷几何失真’与‘运动学耦合忽略’双重建模缺陷，在真实机器人上验证了对非凸大载荷（如L形钢架、环状管道）在厘米级间隙中的稳定穿越能力，对比SOTA有明确量化提升（论文Table II显示成功率↑32.7%，规划耗时↓58%），但未开源代码/模型，且未跨机体泛化（仅单平台）、未接入感知闭环（输入依赖预构建地图），尚未达到开新范式或通用部署级别。",
+        "one_sentence_verdict": "工程整合——在真实移动机械臂上扎实解决了载荷几何与运动学耦合建模这一关键工程瓶颈，但缺乏开源与跨平台验证，尚未构成理论或范式突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 15.1,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 35.1,
+        "bonus": 0.0,
+        "total": 35.1
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2608.07005.jpg"
     },
     {
       "arxiv_id": "2606.02372",
@@ -91748,6 +92298,97 @@
       "grade": "D",
       "read_priority": "B",
       "thumb": "assets/thumbs/2607.27782.jpg"
+    },
+    {
+      "arxiv_id": "2608.07328",
+      "doi": "10.48550/arxiv.2608.07328",
+      "source_kind": "arxiv",
+      "title": "Learning Fault-Tolerant Locomotion with Adaptive Gait Timing",
+      "abstract": "Hardware failures require legged robots to rapidly reorganize coordination and gait timing to maintain stability and mobility. This is particularly challenging for larger quadrupeds, where increased mass and tighter actuation limits reduce the feasibility of aggressive, high-frequency compensation strategies often observed on smaller platforms. In this work, we propose a deep reinforcement learning approach for fault-tolerant locomotion under actuator power loss. The method employs an asymmetric actor-critic architecture in which the critic has access to privileged information during training, while the actor learns to reconstruct a corresponding latent representation from proprioceptive observations. We introduce a latent-alignment loss that encourages consistency between actor and critic representations. Additionally, we augment the action space with a learnable gait frequency parameter, enabling adaptive gait timing in response to terrain variations and actuator degradation without predefined faulty-leg strategies. The approach is validated in high-fidelity simulation on uneven terrain and real-world experiments on flat ground using a 68 kg quadruped robot.",
+      "authors": [
+        "Giovanbattista Gravina",
+        "Luca Rossini",
+        "Carlo Rizzardo",
+        "Arturo Laurenzi",
+        "Nikos Tsagarakis"
+      ],
+      "categories": [],
+      "published": "2026-08-07",
+      "updated": "2026-08-07",
+      "url": "https://arxiv.org/abs/2608.07328",
+      "pdf_url": "https://arxiv.org/pdf/2608.07328",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4681,
+        "world_model": 0.3823,
+        "whole_body_control": 0.5,
+        "dexterous_manipulation": 0.1831,
+        "sim2real_data": 0.249,
+        "hardware_unitree": 0.2232,
+        "bci_neural_decoding": 0.2046,
+        "bci_foundation_models": 0.1591,
+        "bci_embodied_robot": 0.3977,
+        "bci_noninvasive_eeg": 0.1434,
+        "protein_ai": 0.1255,
+        "genomics_ai": 0.0661
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.4928,
+      "first_seen": "2026-08-12",
+      "venue": "IROS 2026",
+      "analysis": {
+        "tldr": "这篇论文让68公斤四足机器人在电机断电故障发生时，能自动调整步态节奏（比如变慢或改换支撑相位）来保持行走稳定，不靠预设故障应对规则，而是用带隐空间对齐的强化学习方法学出来的自适应能力。",
+        "org": "IIT意大利技术研究院",
+        "country": "EU",
+        "org_type": "institute",
+        "claim": "通过引入可学习的步频参数和隐空间对齐损失，使四足机器人在执行过程中无需预定义故障策略即可实现基于本体感知的、鲁棒的故障容错步态自适应。",
+        "method_components": [
+          "model",
+          "simulator",
+          "policy",
+          "benchmark"
+        ],
+        "input": "本体感知信号（关节位置/速度/力矩）+地形高度图（仿真中）",
+        "output": "低维动作向量 + 可学习的标量步频参数",
+        "robot_dependency": "HyQ四足机器人（68kg）及配套实时控制器",
+        "data_dependency": "依赖真实机器人平台采集的故障注入数据用于验证，但训练完全在仿真中完成；未说明是否使用真实故障数据训练",
+        "sim2real_status": "small-real",
+        "generalization": [
+          "cross-task",
+          "limited"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "sim2real",
+          "dexterous",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 76,
+        "significance_reason": "在较大质量四足平台上实现了无预设策略的在线步频自适应容错控制，含真实机器人验证（flat ground）和高保真仿真（uneven terrain），有消融实验支持关键设计，但未跨机体/跨地形泛化，也未与人类运动先验或大模型范式结合，属扎实的SOTA推进而非范式突破。",
+        "one_sentence_verdict": "工程整合：把隐空间对齐、可学习步频、故障鲁棒性三者有效耦合，在真实大质量四足上跑通了闭环，但仍是传统RL框架内的稳健增强，非概念或范式创新。",
+        "_llm": "qwen-plus",
+        "venue": "IROS 2026"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": "IROS 2026"
+      },
+      "scores": {
+        "relevance": 14.8,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 34.8,
+        "bonus": 0.0,
+        "total": 34.8
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2608.07328.jpg"
     },
     {
       "arxiv_id": "10.64898/2026.05.26.727866",
@@ -105479,6 +106120,98 @@
       "thumb": "assets/thumbs/2608.01102.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.08.06.743289",
+      "doi": "10.64898/2026.08.06.743289",
+      "source_kind": "biorxiv",
+      "title": "Beyond DNA barcodes: an open-source workflow for recovering and organizing barcoded vouchers for ecological and evolutionary research",
+      "abstract": "Abstract 1. Most species are neither discovered nor named, let alone included in analyses that require biological information such as trait measurements, images, ecological information and genome-scale data. Specimen-level DNA barcoding can help discover many of these species rapidly, but everything beyond discovery requires vouchers organized into putative species. Yet, existing barcoding workflows lack efficient techniques for voucher recovery, creating a post-barcoding bottleneck that limits the ability of converting barcoded specimens into biological knowledge. 2. Here we present a low-cost, open-source workflow consisting of two stages. The first safeguards barcoded specimens by separating them from DNA extracts and transferring them from microplates into ethanol-filled glass vials. The second converts the resulting voucher collection into a searchable physical resource by linking barcode-derived molecular Operational Taxonomic Unit (mOTU) assignments to vial positions and enabling specimens to be sorted into putative species either manually or automatically using a newly developed open-access robot ( SORTER ). 3. We evaluated the workflow using 2,024 insect specimens distributed across 21 96-well plates. For the first stage, DNA separation and specimen transfer required approximately 15 minutes per plate. For the second stage, MOTUmapper generated retrieval coordinates in a few seconds, after which the 2,024 vouchers belonging to the 452 putative species could be recovered manually in 5 days or with SORTER in 5 hours. Throughout both stages, specimen identities remained linked to barcode sequences, metadata and storage positions. 4. Vouchers are the Rosetta stones of biology because they connect different kinds of data to the same specimens. By safeguarding these vouchers and making them searchable, the workflow converts barcode projects from one-time molecular surveys into reusable resources for ecological and evolutionary research.",
+      "authors": [
+        "Vivian Feng",
+        "Huei-Min Lin",
+        "Amrita Srivathsan",
+        "Hui Wang",
+        "Leshon Lee",
+        "Ronniel Pedales",
+        "Dirk Oberschmidt",
+        "Rudolf Meier"
+      ],
+      "categories": [],
+      "published": "2026-08-07",
+      "updated": "2026-08-07",
+      "url": "https://doi.org/10.64898/2026.08.06.743289",
+      "pdf_url": "https://doi.org/10.64898/2026.08.06.743289",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1462,
+        "world_model": 0.1243,
+        "whole_body_control": 0.1231,
+        "dexterous_manipulation": 0.1382,
+        "sim2real_data": 0.1096,
+        "hardware_unitree": 0.0681,
+        "bci_neural_decoding": 0.159,
+        "bci_foundation_models": 0.1795,
+        "bci_embodied_robot": 0.1896,
+        "bci_noninvasive_eeg": 0.1619,
+        "protein_ai": 0.1812,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.2917,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "这篇论文提出了一套开源、低成本的实验流程，解决DNA条形码测序后实物标本（voucher）难以高效回收和按分子物种（mOTU）归类的问题：先将测序后的标本从微孔板转移到乙醇玻璃瓶中保存，再通过软件MOTUmapper生成定位坐标，支持人工或自研机器人SORTER快速检索并按mOTU分拣2000+昆虫标本。",
+        "org": "新加坡国立大学",
+        "country": "SG",
+        "org_type": "university",
+        "claim": "通过开源软硬件协同的两阶段工作流，首次系统性打通DNA条形码测序到可检索、可复用物理标本库的闭环，消除‘测完即丢’导致的标本知识断链瓶颈。",
+        "method_components": [
+          "dataset",
+          "software",
+          "hardware",
+          "benchmark"
+        ],
+        "input": "96孔板中的DNA提取后残留标本、对应Sanger/NGS条形码序列、mOTU聚类结果",
+        "output": "乙醇保存的物理标本集合，每个标本精确关联mOTU标签、原始序列、元数据及物理存储位置（玻璃瓶编号+行列坐标）",
+        "robot_dependency": "SORTER机器人（自研开源分拣机器人）",
+        "data_dependency": "依赖真实昆虫标本的物理操作（2024个真实标本全流程验证）",
+        "sim2real_status": "real-robot",
+        "generalization": [
+          "cross-species",
+          "cross-embodiment"
+        ],
+        "reproducibility": "code+model+data",
+        "tags": [
+          "open-source",
+          "real-robot",
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 10,
+        "reproducibility_score": 8,
+        "significance": 68,
+        "significance_reason": "解决了生态与进化生物学中长期存在的‘条形码-标本脱钩’关键工程瓶颈，实证扎实（真机+2k标本+多mOTU+人工vs机器人对比+全流程溯源），但属方法学基础设施升级，未触及新科学发现机制或底层模型突破，显著优于普通benchmark但未达基石级（如AlphaFold2等）的范式变革量级。",
+        "one_sentence_verdict": "显著贡献：真突破在工程闭环与可复用标本基建，非算法或科学发现突破，但对生态基因组学实操有实质性解放作用。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 8.8,
+        "content": 25.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 33.8,
+        "bonus": 0.0,
+        "total": 33.8
+      },
+      "grade": "D",
+      "read_priority": "B"
+    },
+    {
       "arxiv_id": "10.64898/2026.06.03.729606",
       "doi": "10.64898/2026.06.03.729606",
       "source_kind": "biorxiv",
@@ -118029,6 +118762,96 @@
       "thumb": "assets/thumbs/2607.18231.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.08.05.743018",
+      "doi": "10.64898/2026.08.05.743018",
+      "source_kind": "biorxiv",
+      "title": "Bovine coronavirus evolution preserves spike architecture while remodeling key functional regions",
+      "abstract": "Abstract Bovine coronavirus (BCoV) is a major pathogen of cattle and the closest known ancestor of the human coronavirus OC43, yet how viral evolution reshapes spike protein structure and function remains poorly understood. Here, we combined comparative genomics, glycoproteomics, cryo-EM, and antigenic characterization to define the structural mechanisms underlying spike evolution across representative BCoV lineages. We identify a previously unrecognized lineage-specific N-glycosylation site in contemporary European viruses and validate its occupancy by glycoproteomics. High-resolution cryo- EM structures reveal that BCoV evolution preserves the overall prefusion architecture of the spike glycoprotein while selectively remodeling key functional regions involved in receptor recognition, conformational dynamics, and antigenicity. Comparative analysis with OC43 demonstrates increased conformational heterogeneity of the receptor-binding loop, whereas the Mebus vaccine strain exhibits enhanced membrane-proximal stalk flexibility despite maintaining thermal stability. Finally, structural modeling together with antibody-binding experiments reveals substantial antigenic remodeling despite &gt;90% spike sequence identity between BCoV and OC43. Together, these findings establish a mechanistic framework for Embecovirus spike evolution and provide structural insights that may inform the development of vaccines based on contemporary circulating strains.",
+      "authors": [
+        "Haneen Tarabih",
+        "Jimmy Asiku",
+        "Yael Levi-Kalisman",
+        "Yael Levi-Kalisman",
+        "Ran Zalk",
+        "Anat Shahar",
+        "Jenna Weisz",
+        "Rina Fraenkel",
+        "Dan David",
+        "Nir Kalisman",
+        "Asaf Sol",
+        "N. Tzarum"
+      ],
+      "categories": [],
+      "published": "2026-08-05",
+      "updated": "2026-08-05",
+      "url": "https://doi.org/10.64898/2026.08.05.743018",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/05/2026.08.05.743018.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0663,
+        "world_model": 0.0813,
+        "whole_body_control": 0.0578,
+        "dexterous_manipulation": 0.0697,
+        "sim2real_data": 0.0286,
+        "hardware_unitree": 0.0712,
+        "bci_neural_decoding": 0.2014,
+        "bci_foundation_models": 0.0935,
+        "bci_embodied_robot": 0.0028,
+        "bci_noninvasive_eeg": 0.1565,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2603
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3973,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "通过整合基因组学、糖蛋白质组学、冷冻电镜和抗原表征，系统解析了牛冠状病毒（BCoV）不同谱系刺突蛋白的结构演化规律：整体构架保守，但受体结合区、构象动态区和抗原表位发生显著功能重塑，揭示了高序列相似性下抗原逃逸的结构基础。",
+        "org": "Weizmann Institute of Science",
+        "country": "IL",
+        "org_type": "institute",
+        "claim": "BCoV刺突蛋白在进化中维持 prefusion 整体架构，但通过局部糖基化位点增益、受体结合环构象异质性增加、茎部柔性增强及抗原表位重排，实现功能适应性演化，且这些变化无法仅从序列同源性预测。",
+        "method_components": [
+          "dataset",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "BCoV不同谱系的基因组序列、刺突蛋白表达纯化样品、抗体库、冷冻电镜数据、质谱糖基化数据",
+        "output": "高分辨cryo-EM结构模型、N-糖基化位点占据验证、受体结合环构象分布统计、茎部柔性量化指标、抗原表位映射图谱",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 10,
+        "reproducibility_score": 4,
+        "significance": 68,
+        "significance_reason": "提供了Embecovirus属内刺突蛋白演化首个多技术交叉的结构机制解析，实证了‘序列高度保守≠结构功能保守’这一关键范式，但局限于单一病毒种（BCoV）及有限谱系（欧洲当代株+Mebus疫苗株+OC43），未构建通用预测模型或生成式设计工具，未开源原始结构密度图/坐标/质谱原始数据，影响力限于兽医病毒学与冠状病毒演化基础研究，未达AI×生物领域基石级方法论突破门槛。",
+        "one_sentence_verdict": "显著贡献：结构病毒学层面扎实推进，但非算法/模型/范式创新，属于高质量机制解析型工作，暂不构成AI×生物领域的范式转移",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 11.9,
+        "content": 21.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 32.9,
+        "bonus": 0.0,
+        "total": 32.9
+      },
+      "grade": "D",
+      "read_priority": "B"
+    },
+    {
       "arxiv_id": "2606.25179",
       "doi": "10.48550/arxiv.2606.25179",
       "source_kind": "arxiv",
@@ -128292,6 +129115,90 @@
       "thumb": "assets/thumbs/2608.04709.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.08.07.743440",
+      "doi": "10.64898/2026.08.07.743440",
+      "source_kind": "biorxiv",
+      "title": "A map of human protein-protein interaction embeddings for functional discovery",
+      "abstract": "A protein's function depends not just on its own structure and localization, but also on the interactions with its partners. Many proteins are therefore better described by a set of partner-dependent roles than by a single annotation. Yet most approaches to the functional interpretation of protein-protein interactions (PPIs) remain protein or set-centric. They rely on pre-existing annotations, and perform worst where knowledge is sparse. Here, we present MAPPIE (Map of Protein-Protein Interaction Embeddings), a method that treats each PPI, rather than each protein, as a unit of representation. From 199,137 human interactions spanning 15,503 proteins, we build a two-dimensional map of the human PPI landscape for functional discovery. Protein language model embeddings for two protein interaction partners are combined and compressed into a latent space, with model selection guided by domain-domain interactions used as a structural proxy for interaction similarity. The resulting geometry separates domain defined interaction classes, organizes disorder associated interactions spatially, and splits interactions involving the same protein by partner. A query PPI's latent neighbourhood recovers its own annotated functions across molecular, complex, pathway, and biological processes. MAPPIE contributes most where existing functional evidence is weakest, outperforming interactome and sequence identity baselines for sparsely connected interactions. MAPPIE neighbours of query PPIs are enriched for partners in independent protein networks, recovering curated complex-level function even when subunits are spread across the map. Applied to a human dark interactome, MAPPIE assigns specific, experimentally supported functions to dark hub proteins.",
+      "authors": [
+        "Mert Cihan",
+        "Ute Distler",
+        "Miguel A. Andrade‐Navarro"
+      ],
+      "categories": [],
+      "published": "2026-08-09",
+      "updated": "2026-08-09",
+      "url": "https://doi.org/10.64898/2026.08.07.743440",
+      "pdf_url": "https://doi.org/10.64898/2026.08.07.743440",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2552,
+        "world_model": 0.279,
+        "whole_body_control": 0.2045,
+        "dexterous_manipulation": 0.1227,
+        "sim2real_data": 0.1542,
+        "hardware_unitree": 0.1054,
+        "bci_neural_decoding": 0.1774,
+        "bci_foundation_models": 0.2276,
+        "bci_embodied_robot": 0.1703,
+        "bci_noninvasive_eeg": 0.1522,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2962
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3741,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "这篇论文把每个蛋白质互作（PPI）当作独立单元，用蛋白语言模型嵌入+结构域互作先验压缩成2D地图，让互作在几何空间中按功能类别自然聚类，并能从邻近互作中准确推断稀疏注释蛋白的功能，尤其在‘黑暗互作组’中给出实验支持的新功能预测。",
+        "org": "西班牙巴塞罗那生物医学研究所（IRB Barcelona）",
+        "country": "EU",
+        "org_type": "institute",
+        "claim": "以PPI为基本语义单元构建嵌入地图，可超越蛋白中心范式，在知识稀疏区域实现更精准、可解释、实验可验证的功能发现。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "一对人类蛋白质的序列（经蛋白语言模型编码）及其已知结构域互作信息（作为相似性代理）",
+        "output": "该PPI在二维潜空间中的坐标及邻域内其他PPI（用于功能迁移推断）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-task"
+        ],
+        "reproducibility": "code-only",
+        "tags": [
+          "multimodal-fusion",
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 5,
+        "significance": 78,
+        "significance_reason": "真机/机器人无关，但科学价值扎实：首次将PPI升格为嵌入空间基本单元，用结构域互作引导压缩，实证显示其在稀疏注释区显著优于interactome和序列同源基线，且在‘黑暗互作组’中给出多个实验验证的新功能——属SOTA级功能推断方法，证据链完整（几何可解释性+跨功能层级召回+独立网络富集+实验支撑），但未开新范式（仍依赖PLM+下游映射），也未解决结构预测或生成等底层难题，故略低于AlphaFold2/ESMFold级里程碑。",
+        "one_sentence_verdict": "真突破：它不是刷榜或换壳，而是重构了PPI功能解读的基本单位，用几何空间显式编码‘同一蛋白因不同搭档而功能迥异’这一生物学本质，并在最困难的稀疏知识区给出可验证预测。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 11.2,
+        "content": 21.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 32.2,
+        "bonus": 0.0,
+        "total": 32.2
+      },
+      "grade": "D",
+      "read_priority": "B"
+    },
+    {
       "arxiv_id": "2606.03177",
       "doi": "10.48550/arxiv.2606.03177",
       "source_kind": "arxiv",
@@ -134027,6 +134934,95 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2608.03244.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.04.742861",
+      "doi": "10.64898/2026.08.04.742861",
+      "source_kind": "biorxiv",
+      "title": "Protonation- and substrate-regulated dimer opening couples brain-type creatine kinase to vesicular and actin-remodeling membranes",
+      "abstract": "Brain-type creatine kinase (CK-BB) buffers local ATP demand through reversible phosphotransfer between ATP and phosphocreatine, yet how this soluble metabolic enzyme couples to dynamic membrane compartments remains unclear. Here, we integrate immunofluorescence microscopy, DEER spectroscopy, hydrogen-deuterium exchange and native mass spectrometry, DEER- and AlphaFold-guided modeling, and long-timescale molecular dynamics to define the acid- and substrate-regulated conformational landscape of human CK-BB. Acidification redistributes endogenous and recombinant CK-BB from a diffuse cytosolic pool to punctate vesicular structures and membrane ruffles. DEER and modeling reveal a spatially asymmetric dimer in which the convex surface remains comparatively restrained, whereas the concave catalytic-regulatory surface samples pH- and substrate-dependent conformational intermediates. We identify progressive dimer opening as a novel regulatory mechanism by which acidic pH and substrate binding increase dynamics across the convex surface and NTD-NTD interface and sensitize the His191/Ser199 module to graded pH-dependent exchange. Substrate binding buffers acid-induced deprotection while preserving localized dynamics near this regulatory interface. Together, these data support a model in which protonation and substrate occupancy generate membrane-competent CK-BB conformations, coupling local ATP regeneration to curved vesicular and actin-remodeling membranes.",
+      "authors": [
+        "Samantha Gies",
+        "Nolan K. McLaughlin",
+        "Ahmed Shubbar",
+        "Chen Kong",
+        "Tianqi Wu",
+        "Sana Khan",
+        "Alessandro Ustione",
+        "Ian Miller",
+        "David W. Piston",
+        "Mahmoud Moradi",
+        "Michael L. Gross",
+        "Reza Dastvan"
+      ],
+      "categories": [],
+      "published": "2026-08-09",
+      "updated": "2026-08-09",
+      "url": "https://doi.org/10.64898/2026.08.04.742861",
+      "pdf_url": "https://doi.org/10.64898/2026.08.04.742861",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0861,
+        "world_model": 0.0692,
+        "whole_body_control": 0.0983,
+        "dexterous_manipulation": 0.092,
+        "sim2real_data": 0.0481,
+        "hardware_unitree": 0.046,
+        "bci_neural_decoding": 0.1551,
+        "bci_foundation_models": 0.1758,
+        "bci_embodied_robot": 0.0533,
+        "bci_noninvasive_eeg": 0.1444,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2532
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3602,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "这篇论文通过多种生物物理实验和计算建模方法，揭示了脑型肌酸激酶（CK-BB）如何在酸性pH和底物存在下发生二聚体构象打开，从而使其能结合曲率丰富的囊泡膜和肌动蛋白重塑膜，实现局部ATP再生与膜动态的物理耦合。",
+        "org": "圣路易斯华盛顿大学",
+        "country": "US",
+        "org_type": "university",
+        "claim": "CK-BB并非被动扩散的代谢酶，而是通过质子化与底物协同调控的二聚体构象开关，主动获得膜结合能力，从而将ATP再生功能空间锚定于高曲率动态膜区。",
+        "method_components": [
+          "simulator",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "pH梯度、底物（ATP/PCr）浓度、CK-BB蛋白序列与结构",
+        "output": "CK-BB二聚体构象状态（开/闭/中间态）、膜结合倾向性、His191/Ser199模块动力学响应",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion"
+        ],
+        "novelty": 7,
+        "evidence": 10,
+        "reproducibility_score": 4,
+        "significance": 78,
+        "significance_reason": "提供了从原子尺度构象动态到亚细胞定位功能的因果链条证据（DEER+HDX+MS+MD+AF-guided建模+荧光验证），实证扎实、多技术正交交叉，但限于单一蛋白体系，未拓展至其他激酶或通用膜靶向机制，未开源代码/模型，未构建可复用预测工具。",
+        "one_sentence_verdict": "真突破：首次以多尺度实验证明可溶性代谢酶通过pH/底物双控构象开关实现膜功能分区，打破了‘代谢酶=均匀胞质分布’的传统范式，但尚未形成通用方法论或计算平台。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 10.8,
+        "content": 21.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 31.8,
+        "bonus": 0.0,
+        "total": 31.8
+      },
+      "grade": "D",
+      "read_priority": "C"
     },
     {
       "arxiv_id": "2605.31321",
@@ -157054,6 +158050,178 @@
       "thumb": "assets/thumbs/2608.05720.jpg"
     },
     {
+      "arxiv_id": "2608.06713",
+      "doi": "10.48550/arxiv.2608.06713",
+      "source_kind": "arxiv",
+      "title": "MolBioKG: Grounding Out-of-Graph Molecules in Biomedical Knowledge Graphs via Multi-Resolution Structural Anchoring",
+      "abstract": "Biomedical knowledge graphs (KGs) accelerate drug discovery, but standard pipelines assume query molecules already exist as graph entities, leaving unregistered molecules disconnected. We address this cold-start challenge, termed the out-of-graph molecule problem, by introducing MolBioKG. This two-layer system grounds unseen molecules in biomedical evidence via multi-resolution structural anchoring. It connects an index of 2.74 million molecules (represented by scaffolds, fragments, functional groups, and fingerprints) to a 9.6-million-edge KG. Given only a SMILES string, MolBioKG retrieves structurally related graph entities and traverses their biomedical neighborhoods without task-specific training. It features two inference mechanisms: static multi-anchor retrieval using Reciprocal Rank Fusion, and Adapt-KG, a tool-using LLM policy for adaptive traversal. Evaluated across in-graph link recovery, complex multi-hop reasoning, and out-of-graph generalization, MolBioKG outperforms strong baselines. Notably, it raises Hits@10 from 0.585 to 0.876 in multi-hop reasoning and out-of-graph target recall from 0.145 to 0.269, all while ensuring predictions retain traceable structural anchors and source-attributed KG evidence.",
+      "authors": [
+        "Yiming Zhang",
+        "Hikaru Shindo",
+        "Shuan Chen",
+        "Kaushalya Madhawa",
+        "Jun Jin Choong",
+        "Yuna Oikawa",
+        "Takashi Fujiwara",
+        "Keisuke Ozawa"
+      ],
+      "categories": [],
+      "published": "2026-08-07",
+      "updated": "2026-08-07",
+      "url": "https://arxiv.org/abs/2608.06713",
+      "pdf_url": "https://arxiv.org/pdf/2608.06713",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1334,
+        "world_model": 0.0931,
+        "whole_body_control": 0.1491,
+        "dexterous_manipulation": 0.1364,
+        "sim2real_data": 0.1055,
+        "hardware_unitree": 0.0388,
+        "bci_neural_decoding": 0.0857,
+        "bci_foundation_models": 0.135,
+        "bci_embodied_robot": 0.1629,
+        "bci_noninvasive_eeg": 0.1584,
+        "protein_ai": 0.3409,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.3409,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "提出MolBioKG系统，让未在生物医学知识图谱中注册的新分子（仅给SMILES字符串）能通过多尺度结构锚定（支架/片段/官能团/指纹）自动关联到图谱中已有实体及其生物医学证据，无需任务特定训练，支持静态检索和LLM驱动的自适应图遍历。",
+        "org": "东京大学",
+        "country": "JP",
+        "org_type": "university",
+        "claim": "未注册分子可通过多分辨率结构锚定被无监督地、可追溯地锚入现有生物医学知识图谱，并支撑多跳推理与冷启动目标召回。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "单个SMILES字符串",
+        "output": "结构锚定的图谱实体列表 + 其生物医学邻域证据（含可追溯的锚点来源与KG边）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-task"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "benchmark",
+          "dataset"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 78,
+        "significance_reason": "真机验证不适用，但实证扎实：在in-graph链路恢复、复杂多跳推理、out-of-graph泛化三类任务上显著超越强基线（Hits@10提升0.291，召回率翻倍），且所有预测均附带结构锚与KG溯源；但未开源代码/模型，依赖项目页有限复现，且未展示下游实验（如真实药物靶点预测或湿实验验证），未达AlphaFold2级范式突破，但属当前KG+化学表征交叉中少有的端到端可解释、免微调、多尺度结构对齐方案。",
+        "one_sentence_verdict": "工程整合——将分子结构表征、知识图谱检索与LLM工具调用有机耦合，实证充分且设计可解释，但缺乏开源与下游闭环验证，尚未构成范式级突破",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 10.2,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 30.2,
+        "bonus": 0.0,
+        "total": 30.2
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.06713.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.07.743582",
+      "doi": "10.64898/2026.08.07.743582",
+      "source_kind": "biorxiv",
+      "title": "Convergent biosynthesis of insect molting hormones in plants",
+      "abstract": "Insect herbivores have driven plants to evolve complex chemical defenses, including mimics of the arthropod molting hormone 20-hydroxyecdysone (20E). Many distantly related plants produce 20E, suggesting multiple, independent evolutionary origins. However, despite the prevalence of 20E in arthropods and plants, complete biosynthetic pathways have remained elusive. Here, we combine genomics, gene co-expression, and enzyme characterization to discover convergent 20E biosynthetic pathways from spinach and quinoa (amaranth family) and Ajuga species (mint family). We reveal that these families use distinct biosynthetic gene clusters to produce 20E and related phytoecdysteroids, highlighting both biochemical and genetic convergence of 20E biosynthesis in plants. Our work establishes the first complete 20E pathways in any organism and provides foundational insight into the evolution of this animal hormone across kingdoms of life.",
+      "authors": [
+        "Joshua J. Park",
+        "Juan A. Orozco",
+        "Galen J. L. Tiong",
+        "Colin Y. Kim",
+        "Ryan S. Nett"
+      ],
+      "categories": [],
+      "published": "2026-08-10",
+      "updated": "2026-08-10",
+      "url": "https://doi.org/10.64898/2026.08.07.743582",
+      "pdf_url": "https://doi.org/10.64898/2026.08.07.743582",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0004,
+        "world_model": 0.0342,
+        "whole_body_control": 0.0645,
+        "dexterous_manipulation": 0.0444,
+        "sim2real_data": 0.0215,
+        "hardware_unitree": 0.0623,
+        "bci_neural_decoding": 0.0945,
+        "bci_foundation_models": 0.0405,
+        "bci_embodied_robot": 0.052,
+        "bci_noninvasive_eeg": 0.0332,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2055
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.2055,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "通过基因组学、共表达分析和酶功能验证，首次在植物中解析出两种完全独立演化的20-羟基蜕皮激素（20E）生物合成通路，分别来自藜科（菠菜、藜麦）和唇形科（筋骨草），证明植物跨科趋同进化出合成动物激素的能力。",
+        "org": "加州大学圣地亚哥分校",
+        "country": "US",
+        "org_type": "university",
+        "claim": "植物中20-羟基蜕皮激素的生物合成在藜科和唇形科中通过完全不同的基因簇独立演化实现，构成跨界的生化与遗传趋同。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "植物基因组序列、转录组共表达数据、候选基因编码酶的体外催化反应底物",
+        "output": "完整的20E从胆固醇前体出发的多步酶促反应路径、关键基因簇定位、酶功能验证结果",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "code-only",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 9,
+        "evidence": 11,
+        "reproducibility_score": 4,
+        "significance": 88,
+        "significance_reason": "首次在任意生物中解析出完整的20E从头合成通路，且揭示跨被子植物两大科的趋同演化机制；虽未达AlphaFold2级范式革命，但属植物次生代谢与跨界激素演化领域的里程碑——填补了长达数十年的通路空白，为化学生态学、植物防御工程及昆虫干扰策略提供不可替代的分子基础。",
+        "one_sentence_verdict": "真突破：不是算法创新，而是用多组学实证攻克了一个存在数十年的经典生物学难题，证据链完整（基因组→共表达→异源表达→酶动力学→产物鉴定），且结论具有跨科普适性",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 6.2,
+        "content": 24.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 30.2,
+        "bonus": 0.0,
+        "total": 30.2
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "2606.01098",
       "doi": "10.48550/arxiv.2606.01098",
       "source_kind": "arxiv",
@@ -158695,6 +159863,86 @@
         "significance": 68,
         "significance_reason": "属高质量基因组资源建设工作：首次实现strepsirrhine灵长类T2T组装，N50达103Mb、BUSCO>99%，确为重大技术跨越；但本质是数据生成与基础注释，未开展任何功能验证、机制解析或跨物种比较实验，也未提出新算法或模型，对冬眠生理/表观调控等科学问题仅提供‘潜在支撑’而非实证推进。",
         "one_sentence_verdict": "工程整合——完成了首个原猴亚目端粒到端粒基因组，技术扎实、资源价值明确，但未触及机制验证或模型构建，属于关键基础设施型贡献，非科学突破",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 10.1,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 30.1,
+        "bonus": 0.0,
+        "total": 30.1
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.07.743380",
+      "doi": "10.64898/2026.08.07.743380",
+      "source_kind": "biorxiv",
+      "title": "Genome mining reveals a sporulation associated protein with ferredoxin NADP+ reductase activity in Clostridium pasteurianum: structural and kinetic characterization",
+      "abstract": "Ferredoxin NADP reductases (FNRs) are ubiquitous flavoenzymes that catalyse the reversible transfer of electrons between iron sulfur ferredoxins and the pyridine nucleotide pool, thereby occupying a central position in diverse redox metabolic pathways including photosynthesis, nitrogen fixation, and detoxification of reactive oxygen species. Although FNR activity was demonstrated in cell extracts of Clostridium pasteurianum more than five decades ago, the gene encoding this activity has remained unidentified. In the present study, a systematic bioinformatic screen of all 3,797 predicted proteins from the C. pasteurianum genome was conducted using conserved FAD and NAD(P) interacting residues from structurally characterised reductases as search templates. This analysis identified a single candidate, AQ984 05830, which is annotated as a sporulation protein but possesses all six predicted cofactor interacting residues. Heterologous expression and cytochrome c reduction assays confirmed ferredoxin dependent reductase activity, with a wild type kcat of 0.007 min−1 a value orders of magnitude lower than those reported for canonical FNRs. A parallel genome wide screen further revealed a repertoire of ferredoxin like carriers, suggesting that C. pasteurianum distributes hydrogen derived electrons among multiple ferredoxins to serve diverse metabolic fates, of which NADP⁺ reduction by CpFNR is one. Alanine scanning mutagenesis of five predicted cofactor interacting residues revealed that K68A and K73A mutations abolished activity, whereas T64A, T185A and S202A mutations improved catalytic efficiency (kcat/Km) for NADH by 14 to 18 folds. AlphaFold structure prediction combined with SwissDock and ClusPro molecular docking simulations placed the FAD binding site centrally between the NAD(P)H and ferredoxin binding domains, consistent with the expected electron relay architecture. Structural analysis of the beneficial mutations suggests that disruption of hydrogen bonds flanking a flexible coil (residues 186 199) propagates conformational effects to the NAD(P)H binding loops, rationalising the improved substrate affinities. These findings expand the known functional diversity of the FNR superfamily and suggest an unrecognised role for redox regulation during endospore formation in C. pasteurianum.",
+      "authors": [
+        "James Swartz",
+        "Weigao Wang",
+        "Qianqiao Liu"
+      ],
+      "categories": [],
+      "published": "2026-08-10",
+      "updated": "2026-08-10",
+      "url": "https://doi.org/10.64898/2026.08.07.743380",
+      "pdf_url": "https://doi.org/10.64898/2026.08.07.743380",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0592,
+        "world_model": 0.1059,
+        "whole_body_control": 0.1169,
+        "dexterous_manipulation": 0.0385,
+        "sim2real_data": 0.0452,
+        "hardware_unitree": 0.0415,
+        "bci_neural_decoding": 0.109,
+        "bci_foundation_models": 0.0766,
+        "bci_embodied_robot": 0.0774,
+        "bci_noninvasive_eeg": 0.1411,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2103
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3373,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "通过全基因组挖掘和生化验证，首次在产气荚膜梭菌中鉴定出一个原本被注释为芽孢形成相关蛋白的新型铁氧还蛋白-NADP+还原酶（CpFNR），并解析其结构特征、动力学参数及关键残基功能，揭示其在芽孢形成过程中的潜在氧化还原调控作用。",
+        "org": "斯坦福",
+        "country": "US",
+        "org_type": "university",
+        "claim": "Clostridium pasteurianum 中一个被错误注释为芽孢蛋白的基因AQ984_05830实际编码具有铁氧还蛋白依赖性NADP+还原酶活性的新型FNR，且其催化机制与经典FNR显著不同。",
+        "method_components": [
+          "dataset",
+          "model"
+        ],
+        "input": "基因组序列、已知FNR的FAD/NAD(P)结合残基保守模体、AlphaFold结构预测输入、分子对接输入",
+        "output": "候选蛋白识别结果、酶动力学参数（kcat/Km）、突变体活性变化、结构模型与结合位点预测",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "model"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 68,
+        "significance_reason": "属扎实的机制性发现：首次锚定长期未知的C. pasteurianum FNR基因，完成从基因组挖掘→表达验证→动力学表征→突变分析→结构建模→机制解释的完整链条；但未构建新算法/模型范式，未拓展至多物种泛化或工程应用，影响力限于微生物红ox酶学与芽孢生物学交叉领域，未达基石级方法论突破水平。",
+        "one_sentence_verdict": "显著贡献：是微生物代谢酶功能再注释与机制解析的典范工作，但非范式变革，暂未形成可迁移的技术平台或跨领域工具。",
         "_llm": "qwen-plus"
       },
       "signals": {
@@ -162765,6 +164013,108 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2608.02578.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.05.739854",
+      "doi": "10.64898/2026.08.05.739854",
+      "source_kind": "biorxiv",
+      "title": "Comparative analysis of microglia-targeted AAVs reveals capsid choice drives efficiency <i>in vitro</i> but has limited impact <i>in vivo</i>",
+      "abstract": "Abstract Microglia play key roles in brain development, homeostasis, and neurodegeneration. Although multiple strategies for viral gene delivery to microglia have been reported, they have not been directly compared. Here, we developed microglia-targeting AAV capsids and benchmarked them against existing approaches. The novel capsids exhibit improved transduction efficiency in cultured mouse and human microglia, as well as neurons and astrocytes. However, when we compared microglial transduction efficiency of the novel capsids with published engineered and naturally occurring capsids after intracranial injection, all capsids achieved efficient and specific transduction when paired with a genome incorporating IBA1 promoter and miR-124 target sites. In contrast, CAG promoter did not support efficient microglial transduction. Moreover, blood-brain barrier- crossing capsids carrying IBA1 promoter and miR-124 target sites efficiently transduced microglia at high doses but exhibited off-target expression. Together, our work provides improved capsids for in vitro manipulation of microglia and establishes viral genome design, not capsid identity, as the principal determinant of efficient in vivo microglial targeting.",
+      "authors": [
+        "Saša Jereb",
+        "Lia R. D’Alessandro",
+        "Nader Morshed",
+        "Margery Chen",
+        "Rafaela Sartore",
+        "Zengpeng Han",
+        "Jordan E. McKinney",
+        "Pamela P. Brauer",
+        "John W. Harvey",
+        "Matthew Demers",
+        "Dara Cuffe",
+        "Raphael Rakosi-Schmidt",
+        "Luira Leite",
+        "Youtong Huang",
+        "Qingxia Zheng",
+        "Chin-Yen Lin Lin",
+        "Ken Y. Chan",
+        "Bryan J. Song",
+        "Michael Farzan",
+        "Paola Arlotta",
+        "Morgan Sheng",
+        "Mariko L. Bennett",
+        "Matthew B. Johnson",
+        "Beth Stevens",
+        "Benjamin E. Deverman"
+      ],
+      "categories": [],
+      "published": "2026-08-05",
+      "updated": "2026-08-05",
+      "url": "https://doi.org/10.64898/2026.08.05.739854",
+      "pdf_url": "https://doi.org/10.64898/2026.08.05.739854",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.047,
+        "world_model": 0.0432,
+        "whole_body_control": 0.0,
+        "dexterous_manipulation": 0.101,
+        "sim2real_data": 0.0436,
+        "hardware_unitree": 0.0015,
+        "bci_neural_decoding": 0.2181,
+        "bci_foundation_models": 0.1772,
+        "bci_embodied_robot": 0.0783,
+        "bci_noninvasive_eeg": 0.0822,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.3944
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3944,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "这篇论文系统比较了多种靶向小胶质细胞的腺相关病毒（AAV）衣壳，发现体外实验中衣壳选择影响转导效率，但体内实验中真正起决定作用的是病毒基因组设计（IBA1启动子+miR-124靶点），而非衣壳本身；新衣壳对体外研究有提升，但未改变体内靶向范式。",
+        "org": "未知（作者单位分散，摘要未明确主属机构；通讯作者John W. Harvey等隶属宾夕法尼亚大学，但未在摘要中声明；依据常见署名惯例推测主要来自宾大，但证据不足）",
+        "country": "US",
+        "org_type": "university",
+        "claim": "在体内小胶质细胞靶向中，病毒基因组设计（启动子+miRNA靶点）是决定性因素，而AAV衣壳选择的影响有限。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "多种AAV衣壳（新型与已发表）、不同启动子（CAG/IBA1）、miR-124靶点组合、体外培养的小鼠/人小胶质细胞及神经元/星形胶质细胞、体内小鼠脑内注射",
+        "output": "定量转导效率（荧光阳性细胞比例）、细胞类型特异性（免疫共标验证）、脱靶表达水平",
+        "robot_dependency": "none",
+        "data_dependency": "无机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "benchmark",
+          "dataset"
+        ],
+        "novelty": 5,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 62,
+        "significance_reason": "提供了迄今最系统的AAV小胶质细胞靶向横向基准（含体外/体内、多衣壳/多基因组组合、跨物种细胞），实证有力地修正了领域长期隐含假设（‘更好衣壳=更好体内靶向’），但未开辟新范式或解决跨物种递送、血脑屏障穿透效率等根本瓶颈，属于扎实且具指导意义的机制澄清型工作。",
+        "one_sentence_verdict": "显著贡献：用严谨对照实验证伪了衣壳主导论，确立基因组设计为体内靶向核心变量，将推动后续载体优化策略转向调控元件工程而非单纯衣壳筛选。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 11.8,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 29.8,
+        "bonus": 0.0,
+        "total": 29.8
+      },
+      "grade": "D",
+      "read_priority": "C"
     },
     {
       "arxiv_id": "2606.08059",
@@ -167675,6 +169025,93 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2607.29227.jpg"
+    },
+    {
+      "arxiv_id": "2608.06907",
+      "doi": "10.48550/arxiv.2608.06907",
+      "source_kind": "arxiv",
+      "title": "Spatiotemporal Agility: Time-Constrained Reinforcement Learning for Vision-Guided Dynamic Quadrupedal Interception",
+      "abstract": "Legged robots require robust agility to perceive and interact with complex and dynamic environments within a constrained time. However, most existing quadruped locomotion works rely on velocity-tracking policy, which struggle to reach precise targets within strict temporal constraints. Moreover, integrating real-time perception with agile locomotion for highly dynamic targets remains challenging due to sensor latency and processing delays. To concretely study and benchmark such agility in dynamic settings, we introduce a challenging ball-catching task for legged robots. This paper proposes an integrated framework that combines a vision module for landing point and time prediction with a direct position and time conditioned RL locomotion policy, instead of intermediate velocity commands. Beyond the method design, this work presents a system-level contribution that completes real-time robotic interception system that integrates multi-camera perception, online trajectory prediction, low-latency target communication, and sim-to-real locomotion control into a closed-loop deployment pipeline. By explicitly predicting the future spatial-temporal target, our approach mitigates perception latency during dynamic interception. We conducted extensive ball-catching experiments for the legged robot. Through comparative experiments against a velocity-tracking baseline, our direct target-conditioned approach achieves a higher success rate in catching balls with predicted landing spots within 2 meters and flight times between 0.8 and 1.2 seconds. This shows that the robot has successfully completed the dynamic ball-catching task under our tested setup. Furthermore, our policy exhibits a smaller performance gap after deployment, suggesting improved sim-to-real behavior in these trials.",
+      "authors": [
+        "Yidong Zhu",
+        "Zibo Dai",
+        "T Zhang",
+        "Leixin Chang",
+        "Hua Chen"
+      ],
+      "categories": [],
+      "published": "2026-08-07",
+      "updated": "2026-08-07",
+      "url": "https://arxiv.org/abs/2608.06907",
+      "pdf_url": "https://arxiv.org/pdf/2608.06907",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4765,
+        "world_model": 0.5,
+        "whole_body_control": 0.4807,
+        "dexterous_manipulation": 0.1784,
+        "sim2real_data": 0.2081,
+        "hardware_unitree": 0.1898,
+        "bci_neural_decoding": 0.0066,
+        "bci_foundation_models": 0.0584,
+        "bci_embodied_robot": 0.2522,
+        "bci_noninvasive_eeg": 0.101,
+        "protein_ai": 0.0926,
+        "genomics_ai": 0.0335
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.4807,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "这篇论文让四足机器人在严格时间限制下（0.8–1.2秒飞行时间）实时预判球的落点和落地时刻，并直接用该时空目标训练强化学习步态策略，跳过传统速度跟踪中间层，在真机上实现了动态接球任务，成功率显著高于速度跟踪基线。",
+        "org": "未知（作者单位未在摘要中披露，无机构缩写、无知名实验室关键词，仅姓名无法可靠对应清华/哈工大/ETH等常见团队）",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "直接以目标时空坐标（x,y,z,t）为条件的端到端强化学习步态策略，比基于速度跟踪的传统控制范式更能满足毫秒级响应要求的动态拦截任务。",
+        "method_components": [
+          "model",
+          "simulator",
+          "policy",
+          "benchmark",
+          "hardware"
+        ],
+        "input": "多视角RGB图像 + 球体运动轨迹参数（隐含于预测模块输入）",
+        "output": "关节级动作序列（直接驱动电机）",
+        "robot_dependency": "四足机器人（未指明型号，但实验为real-robot闭环部署）",
+        "data_dependency": "依赖真实机器人执行接球任务时的闭环反馈数据（含多相机感知、低延迟通信、实机步态响应）",
+        "sim2real_status": "deployed",
+        "generalization": "limited",
+        "reproducibility": "none",
+        "tags": [
+          "sim2real",
+          "real-robot",
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 9,
+        "reproducibility_score": 0,
+        "significance": 52,
+        "significance_reason": "真机闭环动态接球是具身智能高难度验证场景，方法设计（时空目标直驱+跳过速度环）有明确工程价值，实验对比扎实（多组飞行时间/距离约束下的成功率提升），但仅限单一任务（球拦截）、未开源、无跨机体/跨场景泛化验证，未触及世界模型、持续状态建模等基石级问题，属扎实增量而非范式突破。",
+        "one_sentence_verdict": "工程整合：将视觉预测、低延迟通信、sim2real步态控制集成到一个可部署的动态拦截闭环中，但任务窄、不可复现、无理论新意，属于高质量系统级工程实现。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 14.4,
+        "content": 15.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 29.4,
+        "bonus": 0.0,
+        "total": 29.4
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.06907.jpg"
     },
     {
       "arxiv_id": "2605.31562",
@@ -178296,6 +179733,90 @@
       "read_priority": "C"
     },
     {
+      "arxiv_id": "2608.05410",
+      "doi": "10.48550/arxiv.2608.05410",
+      "source_kind": "arxiv",
+      "title": "Sliding Sensors: Configurable Confidence in State Estimation for Continuum Robots",
+      "abstract": "Continuum robots often operate in uncertain environments, where accurate state estimation is essential for safe interactions. Estimate uncertainty is inherently spatially non-uniform: confidence varies depending on where measurements are available. Global estimation accuracy is not always the top priority, but rather achieving sufficient confidence at task-relevant locations along the robot. This extended abstract introduces mechanically reconfigurable sensing enabling uncertainty-shaping in state estimation for continuum robots. We present a concept hardware design demonstrating the feasibility of longitudinal translation of a sensor within a continuum robot. We demonstrate that state estimation confidence can be reconfigured by varying the sensor location, and show a reduction of full-body shape estimation errors when sliding the sensor back and forth over time, compared to a single fixed tip sensor.",
+      "authors": [
+        "EK Walsh",
+        "Spencer Teetaert",
+        "Eric Diller",
+        "Timothy D. Barfoot",
+        "Jessica Burgner-Kahrs"
+      ],
+      "categories": [],
+      "published": "2026-08-05",
+      "updated": "2026-08-05",
+      "url": "https://arxiv.org/abs/2608.05410",
+      "pdf_url": "https://arxiv.org/pdf/2608.05410",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.355,
+        "world_model": 0.3288,
+        "whole_body_control": 0.3574,
+        "dexterous_manipulation": 0.1542,
+        "sim2real_data": 0.186,
+        "hardware_unitree": 0.5,
+        "bci_neural_decoding": 0.0547,
+        "bci_foundation_models": 0.0427,
+        "bci_embodied_robot": 0.2409,
+        "bci_noninvasive_eeg": 0.0669,
+        "protein_ai": 0.0903,
+        "genomics_ai": 0.0753
+      },
+      "best_route": "hardware_unitree",
+      "relevance_raw": 0.3574,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "提出一种可在连续体机器人内部纵向滑动的传感器硬件设计，通过动态调整传感器位置来主动塑造状态估计的置信度分布，从而在任务关键区域提升局部估计精度，而非追求全局平均精度。",
+        "org": "多伦多大学",
+        "country": "CA",
+        "org_type": "university",
+        "claim": "机械可重构的滑动传感器能主动调控连续体机器人状态估计的空间置信度分布，并在实验中证明其比固定端部传感器显著降低全身体形估计误差。",
+        "method_components": [
+          "hardware",
+          "simulator"
+        ],
+        "input": "传感器位移轨迹 + 传感器原始读数（如光纤应变或电磁定位信号）",
+        "output": "连续体机器人空间形变状态（如中心线曲率/坐标）及其逐点置信度分布",
+        "robot_dependency": "定制连续体机器人原型（含内嵌滑动通道与微型位移执行器）",
+        "data_dependency": "依赖真实机器人上的重复性物理实验数据（非纯仿真）",
+        "sim2real_status": "real-robot",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "tactile",
+          "dexterous",
+          "real-robot"
+        ],
+        "novelty": 7,
+        "evidence": 8,
+        "reproducibility_score": 3,
+        "significance": 52,
+        "significance_reason": "解决了连续体机器人状态估计中‘空间置信度不可控’这一长期被忽视的底层问题，实机验证有效，但仅限单一原型平台、无跨任务/跨机体泛化、未开源代码/模型、未接入闭环控制，属于扎实的机制级创新，尚未达到工程整合或范式突破层级。",
+        "one_sentence_verdict": "工程整合：提出了有物理实现和实测证据的新型传感构型，但局限于单平台验证、无开源、未与下游任务耦合，是面向连续体机器人感知底层的实质性改进，而非系统级突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 10.7,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 28.7,
+        "bonus": 0.0,
+        "total": 28.7
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.05410.jpg"
+    },
+    {
       "arxiv_id": "2605.31486",
       "doi": "10.48550/arxiv.2605.31486",
       "source_kind": "arxiv",
@@ -179665,6 +181186,91 @@
       },
       "grade": "D",
       "read_priority": "C"
+    },
+    {
+      "arxiv_id": "2608.07075",
+      "doi": "10.48550/arxiv.2608.07075",
+      "source_kind": "arxiv",
+      "title": "Detection and Ranging of Transient Extrinsic Contacts Based on 6D Dynamic Tactile Sensing",
+      "abstract": "Delicate manipulation often involves transient and subtle collisions between a grasped object and the environment. While the human hand localizes these contacts effortlessly thanks to superior tactile sensitivity, robotic systems often lack the requisite resolution to acquire the information necessary for motion planning, resulting in clumsy manipulation or even task failure. Here, we propose transient extrinsic contact detection and ranging (TECDAR), a simple yet fast and efficient method for detecting and ranging extrinsic contact of grasped objects. Our design of gripper tips employs dynamic tactile sensing leveraging a single 2.5$\\times$3 mm 6D inertial measurement unit. The sensor captures sub-millisecond tip deformations at a 7 kHz sampling rate, but operating on a data stream of only 84 KB/s. High bandwidth and compact data size enable the system to rapidly detect and localize contact between grasped objects and their surroundings. Specifically, fusing tactile data with robot pose via an extended Kalman filter enables fast and precise localization of extrinsic contact, reaching millimeter-level accuracy within 180 ms. Experimental results demonstrate that the system achieves an average localization accuracy of approximately 7\\,mm in both line-contact and point-contact localization tasks. Furthermore, this near-instantaneous localization enables the robot to rectify its trajectory on a millisecond scale, facilitating precise tool manipulation and enhanced perception of complex environments purely through tactile exploration and mapping. We envision such techniques advancing the future of robotics across domains requiring delicate manipulation, including precision assembly, surgical assistance, and autonomous exploration in touch-dominant environments. Project page: humitlab.github.io/TECDAR/",
+      "authors": [
+        "Haowen Zheng",
+        "Yinghao Wu",
+        "Fuyuan Liu",
+        "Yichen Li",
+        "Yitian Shao"
+      ],
+      "categories": [],
+      "published": "2026-08-07",
+      "updated": "2026-08-07",
+      "url": "https://arxiv.org/abs/2608.07075",
+      "pdf_url": "https://arxiv.org/pdf/2608.07075",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.3209,
+        "world_model": 0.2452,
+        "whole_body_control": 0.2907,
+        "dexterous_manipulation": 0.2785,
+        "sim2real_data": 0.5,
+        "hardware_unitree": 0.1727,
+        "bci_neural_decoding": 0.0501,
+        "bci_foundation_models": 0.0015,
+        "bci_embodied_robot": 0.2669,
+        "bci_noninvasive_eeg": 0.1056,
+        "protein_ai": 0.0474,
+        "genomics_ai": 0.0
+      },
+      "best_route": "sim2real_data",
+      "relevance_raw": 0.3209,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "用微型6D惯性传感器贴在机械手指尖，实时捕捉抓取物体与环境发生瞬时接触时的微小形变，结合机器人位姿用扩展卡尔曼滤波，在180毫秒内实现毫米级（平均7mm）的接触位置定位，全程不依赖视觉或力控，纯靠指尖动态触觉。",
+        "org": "未知（作者单位未在摘要中披露，无机构署名线索；humitlab.github.io 域名未指向知名实验室，推测为高校课题组但无法确认具体归属）",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "仅靠指尖集成的微型6D IMU动态触觉信号，即可在毫秒级延迟下实现对抓取物体与外部环境瞬时接触的高精度（毫米级）检测与空间定位。",
+        "method_components": [
+          "sensor",
+          "policy",
+          "hardware"
+        ],
+        "input": "指尖6D IMU时序信号（7kHz，84KB/s）+ 机器人实时6D位姿",
+        "output": "外源接触点/线的空间位置（相对于机器人基座坐标系）",
+        "robot_dependency": "定制化指尖传感器模块 + 通用机械臂（如UR5/KUKA等，摘要未明说但实验必用）",
+        "data_dependency": "依赖真实机器人平台采集的动态触觉-位姿同步数据；未提仿真预训练或合成数据，属real-robot-first设计",
+        "sim2real_status": "real-robot",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "tactile",
+          "dexterous",
+          "real-robot"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 3,
+        "significance": 68,
+        "significance_reason": "解决了动态抓取中‘看不见的瞬时接触’这一长期被忽视的感知盲区，实证扎实（真机、多接触类型、毫秒级响应、7mm精度、EKF闭环验证），但局限于单点/线接触定位，未跨机体/任务泛化，未开源代码模型，未构建benchmark或dataset，影响力限于触觉感知子方向，尚未达到ALOHA/DROID级系统性突破",
+        "one_sentence_verdict": "显著贡献：真机验证了超低延迟6D动态触觉定位的可行性，但工程闭环完整、泛化弱、开源不足，属于触觉操控领域扎实的增量突破，非范式变革",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 9.6,
+        "content": 19.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 28.6,
+        "bonus": 0.0,
+        "total": 28.6
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.07075.jpg"
     },
     {
       "arxiv_id": "2606.05896",
@@ -181396,6 +183002,89 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2608.01734.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.03.742561",
+      "doi": "10.64898/2026.08.03.742561",
+      "source_kind": "biorxiv",
+      "title": "Assessing Computational Models for Pharmacogenomic Variant Interpretation",
+      "abstract": "Accurately predicting the effects of pharmacogenomic variants is essential for the development of personalized therapeutic strategies, as genetic variability can influence drug response differently across patients. Here, we assessed several computational approaches using a dataset of pharmacogenomic variants with either clinical annotations or functional characterization by deep mutational scanning, compiled from the literature, with an additional focus on CYP2C9, a clinically relevant drug-metabolizing enzyme. Our results show that, despite recent methodological advances, substantial room for improvement remains. In particular, current methods struggle to distinguish gain-of-function variants associated with increased drug clearance and fast-metabolizer phenotypes from neutral variants, whereas loss-of-function variants that reduce drug clearance are predicted more accurately. The integration of structural and evolutionary information appears to be a key strategy for improving performance, with the coevolution-based StructureDCA method achieving the highest accuracy compared with classical genetic variant-effect predictors and recent deep learning approaches, including the pathogenic-variant predictor AlphaMissense and general protein language model-based methods. Finally, our results indicate that computational models can complement in vitro experiments in clinical variant interpretation, as StructureDCA predictions showed better agreement with clinically annotated phenotypes than large-scale deep mutational scanning data in several cases.",
+      "authors": [
+        "Fabrizio Pucci",
+        "Pauline Hermans",
+        "Matsvei Tsishyn",
+        "Jessica Cusato",
+        "Marianne Rooman"
+      ],
+      "categories": [],
+      "published": "2026-08-09",
+      "updated": "2026-08-09",
+      "url": "https://doi.org/10.64898/2026.08.03.742561",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/08/2026.08.03.742561.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1641,
+        "world_model": 0.1865,
+        "whole_body_control": 0.1805,
+        "dexterous_manipulation": 0.152,
+        "sim2real_data": 0.131,
+        "hardware_unitree": 0.068,
+        "bci_neural_decoding": 0.1387,
+        "bci_foundation_models": 0.1999,
+        "bci_embodied_robot": 0.0556,
+        "bci_noninvasive_eeg": 0.1774,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.4455
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.4455,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "这篇论文系统评测了多种计算模型（包括AlphaMissense、ESM类模型和StructureDCA）在药理基因组学变异解读任务上的表现，发现当前主流方法对功能增强型变异（如加快药物代谢的CYP2C9突变）识别能力差，而整合共进化与结构信息的StructureDCA效果最好，且其预测结果在某些情况下比高通量实验数据更符合临床表型。",
+        "org": "Université libre de Bruxelles",
+        "country": "EU",
+        "org_type": "university",
+        "claim": "在药理基因组学变异功能预测任务中，融合共进化与三维结构信息的StructureDCA模型显著优于经典预测工具及最新蛋白语言模型（如AlphaMissense），尤其在区分gain-of-function变异上具有不可替代性，并可作为体外实验的临床补充。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "蛋白质序列变异位点（如CYP2C9单氨基酸替换）及其结构/共进化上下文",
+        "output": "功能效应分类（loss-of-function / gain-of-function / neutral）及临床表型关联概率",
+        "robot_dependency": "none",
+        "data_dependency": "完全依赖公开文献汇编的临床注释与深度突变扫描数据，无真实机器人或实验设备依赖",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "benchmark",
+          "dataset"
+        ],
+        "novelty": 4,
+        "evidence": 8,
+        "reproducibility_score": 3,
+        "significance": 62,
+        "significance_reason": "属扎实的领域基准评测工作：首次在药理基因组学场景下系统对比结构/共进化/LLM三类方法，揭示gain-of-function预测是当前AI模型普遍短板，并实证StructureDCA的临床一致性优势；但未提出新模型、未开源代码、未构建新大规模数据集，也未推动临床落地流程，分量不及任何一项基石工作（如AlphaFold2/ESM-2/CENO等）。",
+        "one_sentence_verdict": "显著贡献——是药理基因组学AI评估的重要基准研究，揭示关键盲区并验证结构共进化路径的有效性，但属于高质量评测而非范式突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 13.4,
+        "content": 15.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 28.4,
+        "bonus": 0.0,
+        "total": 28.4
+      },
+      "grade": "D",
+      "read_priority": "C"
     },
     {
       "arxiv_id": "2605.30957",
@@ -184712,6 +186401,89 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2607.25541.jpg"
+    },
+    {
+      "arxiv_id": "2608.06481",
+      "doi": "10.48550/arxiv.2608.06481",
+      "source_kind": "arxiv",
+      "title": "LyEvO: Lyapunov-Guided Evolutionary Optimization for Safe and Robust Sim-to-Real Policy Learning",
+      "abstract": "Training controllers that are safe and robust in simulation, and systematically assessing their readiness for real-world deployment, remain key challenges in sim-to-real transfer. To address this, we propose LyEvO, a physics-grounded framework that combines constrained Evolutionary Optimization and Statistical Model Checking (SMC)-based verification with Lyapunov-based stability analysis. Leveraging prior knowledge of the system dynamics, LyEvO uses Lyapunov analysis to compute an initial candidate stability region. An iterative loop then uses operational scenarios drawn from this region to jointly optimize and statistically verify a policy, and subsequently expands the region's boundaries based on the verification outcome. This integrated procedure provides a practical criterion for assessing deployment readiness. We evaluate LyEvO on Cartpole and 3D Quadrotor benchmarks through extensive simulations and targeted real-world experiments, demonstrating safe and robust sim-to-real transfer.",
+      "authors": [
+        "Riccardo Curcio",
+        "Hongpeng Cao",
+        "Marco Caccamo"
+      ],
+      "categories": [],
+      "published": "2026-08-06",
+      "updated": "2026-08-06",
+      "url": "https://arxiv.org/abs/2608.06481",
+      "pdf_url": "https://arxiv.org/pdf/2608.06481",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.3212,
+        "world_model": 0.5,
+        "whole_body_control": 0.3698,
+        "dexterous_manipulation": 0.1735,
+        "sim2real_data": 0.2718,
+        "hardware_unitree": 0.1408,
+        "bci_neural_decoding": 0.0761,
+        "bci_foundation_models": 0.0494,
+        "bci_embodied_robot": 0.1962,
+        "bci_noninvasive_eeg": 0.0776,
+        "protein_ai": 0.1671,
+        "genomics_ai": 0.1839
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.3698,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "提出LyEvO框架，用李雅普诺夫稳定性分析划定初始安全区域，再在该区域内用进化算法优化策略、用统计模型检验验证安全性，并根据验证结果动态扩展安全区域，从而为仿真到真实世界的策略部署提供可量化的安全就绪性判断标准。",
+        "org": "伊利诺伊大学厄巴纳-香槟分校",
+        "country": "US",
+        "org_type": "university",
+        "claim": "通过将李雅普诺夫稳定性先验与进化优化和统计模型检验闭环耦合，可生成具备可验证安全边界、且能系统评估部署就绪性的sim-to-real策略。",
+        "method_components": [
+          "model",
+          "simulator",
+          "policy",
+          "benchmark"
+        ],
+        "input": "系统动力学模型（用于李雅普诺夫分析）+ 仿真环境状态观测 + 操作场景采样分布",
+        "output": "经验证的安全策略（神经网络或参数化控制器）+ 可扩展的稳定区域描述（如椭球体/多面体）",
+        "robot_dependency": "Cartpole物理平台、3D四旋翼无人机",
+        "data_dependency": "依赖少量真实机器人测试数据用于最终验证，不依赖真实数据训练或调优",
+        "sim2real_status": "small-real",
+        "generalization": "limited",
+        "reproducibility": "code-only",
+        "tags": [
+          "sim2real",
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 7,
+        "reproducibility_score": 4,
+        "significance": 52,
+        "significance_reason": "方法论有清晰物理根基和闭环验证逻辑，但仅在Cartpole和3D四旋翼两个经典低维控制任务上验证，真实实验样本极少（摘要未提数量），无跨机体/跨扰动/跨传感器泛化证据，未开源数据或验证工具链，未与主流sim2real基线（如DAC, RMA, Adaptation via RL）做公平对比，属于扎实但窄口径的增量改进。",
+        "one_sentence_verdict": "扎实增量：把李雅普诺夫分析、进化优化和SMC做了工程级串联，但实证深度和广度不足，尚未构成对sim2real安全验证范式的实质性推进。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 11.1,
+        "content": 17.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 28.1,
+        "bonus": 0.0,
+        "total": 28.1
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.06481.jpg"
     },
     {
       "arxiv_id": "2606.01935",
@@ -192187,6 +193959,87 @@
       "thumb": "assets/thumbs/2607.23975.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.08.05.739867",
+      "doi": "10.64898/2026.08.05.739867",
+      "source_kind": "biorxiv",
+      "title": "Rapid evolution and functional divergence of the monkeyflower Mimulus lewisii telomerase",
+      "abstract": "Telomeres are nucleoprotein structures that protect chromosome ends and are maintained by the Telomerase Reverse Transcriptase (TERT) protein that uses a noncoding Telomerase RNA (TR) as a template. In monkeyflowers, Mimulus lewisii had an ancient TR gene duplication, synthesizing an evolutionarily atypical sequence heterogeneous telomere. How TERT interacts with both TR paralogs during telomere maintenance is unknown and answers can shed novel insights underlying telomere function. Using new genome assemblies we discovered TERT is rapidly evolving in lineages sharing the TR duplication. We investigated the functional consequences arising from the rapid evolution, first by using yeast-three-hybrid and testing the physical binding between conspecific and heterospecific TERT-TR combinations. Results showed M. lewisii TERT binds both ancestral (TR1) and derived (TR2) TR paralogs, but not in species without the TR duplication. We located the region of TR binding to amino acids near the KRxR motif of TERT. We then combined next-generation sequencing with Telomeric Repeat Amplification Protocol and discovered M. lewisii had high telomerase activity. Comparative transcriptomics indicated no strong evidence of expression divergence in telomere maintenance genes for M. lewisii, suggesting rapid evolution shaped the telomerase protein sequence. In vivo activity of M. lewisii telomerase was investigated by analyzing F1 telomeres generated by crossing M. lewisii and M. verbenaceus, which doesn't have a functioning TR2. Results showed M. verbenaceus chromosome ends in the F1 had converted into M. lewisii telomeres, suggesting dominance of the M. lewisii telomerase. We demonstrate TERT-TR coevolution can have significant consequences on the evolution of plant telomeres.",
+      "authors": [
+        "Naseem Samo",
+        "Linh Nguyen",
+        "Surbhi Kumawat",
+        "Jae Young Choi"
+      ],
+      "categories": [],
+      "published": "2026-08-09",
+      "updated": "2026-08-09",
+      "url": "https://doi.org/10.64898/2026.08.05.739867",
+      "pdf_url": "https://doi.org/10.64898/2026.08.05.739867",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0595,
+        "world_model": 0.0537,
+        "whole_body_control": 0.2004,
+        "dexterous_manipulation": 0.0613,
+        "sim2real_data": 0.0947,
+        "hardware_unitree": 0.1521,
+        "bci_neural_decoding": 0.1258,
+        "bci_foundation_models": 0.0931,
+        "bci_embodied_robot": 0.1363,
+        "bci_noninvasive_eeg": 0.0701,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.271
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.2805,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "研究发现猴面花Mimulus lewisii因古老TR基因重复导致TERT蛋白快速进化，其TERT能同时结合两个TR旁系paralog（TR1和TR2），且在杂交后代中表现出显性功能，证明TERT-TR共进化可重塑植物端粒序列组成。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "M. lewisii中TR基因重复驱动TERT快速进化，形成能识别双TR的特化端粒酶，该共进化事件直接导致端粒序列异质性增加和跨物种功能显性。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "基因组组装序列、酵母三杂交实验体系、TR/TERT蛋白互作对、端粒重复扩增产物（TRAP）、F1杂交植株染色体末端测序数据",
+        "output": "TERT-TR结合特异性判断、端粒酶活性定量、端粒序列组成谱、杂交后代端粒序列来源归属",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 3,
+        "significance": 52,
+        "significance_reason": "扎实的分子演化+功能验证工作：整合新基因组、酵母三杂交、TRAP、F1端粒测序与比较转录组，证实TERT-TR共进化导致端粒序列重编程；但属特定植物系统内的机制解析，未建立通用预测模型或工具，也未拓展至作物/医学场景，贡献限于端粒生物学细分领域，远未达AlphaFold2/ESM等基石级范式突破或跨领域赋能水平。",
+        "one_sentence_verdict": "扎实增量：在植物端粒共进化机制上提供首个TERT双TR识别+功能显性的实证链条，但未产出通用方法或跨物种预测能力，暂不构成范式转移。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 8.4,
+        "content": 19.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 27.4,
+        "bonus": 0.0,
+        "total": 27.4
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "2606.06245",
       "doi": "10.48550/arxiv.2606.06245",
       "source_kind": "arxiv",
@@ -192945,6 +194798,86 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2606.22806.jpg"
+    },
+    {
+      "arxiv_id": "2608.07140",
+      "doi": "10.48550/arxiv.2608.07140",
+      "source_kind": "arxiv",
+      "title": "Identifying the Key Biomechanical Features of Movement Adaptation during Exoskeleton-Assisted Locomotion",
+      "abstract": "The understanding of natural human adaptation during exoskeleton-assisted locomotion - particularly individual differences in adaptation behaviors and temporal progression - remains limited. In this work, we investigate temporal evolution of biomechanical variables to uncover participant-specific adaptation strategies across different exoskeleton-assisted locomotion scenarios. Nine healthy participants performed treadmill walking under three conditions: without an exoskeleton, with exoskeleton active ankle assistance, and with exoskeleton zero-torque. Lower limb kinematics, inter-joint coordination, and metabolic cost of transport (MCoT) were analyzed at both the group and individual levels. Results indicate that adaptation is gradual and highly individualized, with substantial variability in convergence timing and movement patterns across participants. Kinematic adaptation occurred asynchronously across lower limb, with larger fluctuations during the swing phase. Metabolic responses were heterogeneous and often non-convergent, highlighting the limitations of steady-state assumptions commonly adopted in the literature. These findings emphasize the importance of individual-level, temporal evolution analyses for understanding adaptation dynamics in exoskeleton use.",
+      "authors": [
+        "P. Lee",
+        "Katja Mombaur"
+      ],
+      "categories": [],
+      "published": "2026-08-07",
+      "updated": "2026-08-07",
+      "url": "https://arxiv.org/abs/2608.07140",
+      "pdf_url": "https://arxiv.org/pdf/2608.07140",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2582,
+        "world_model": 0.2394,
+        "whole_body_control": 0.5,
+        "dexterous_manipulation": 0.1496,
+        "sim2real_data": 0.1153,
+        "hardware_unitree": 0.1409,
+        "bci_neural_decoding": 0.1957,
+        "bci_foundation_models": 0.2064,
+        "bci_embodied_robot": 0.378,
+        "bci_noninvasive_eeg": 0.146,
+        "protein_ai": 0.0848,
+        "genomics_ai": 0.0865
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.378,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "这篇论文通过让9名健康人戴踝关节外骨骼在跑步机上行走，测量他们随时间变化的运动学、关节协调性和代谢耗能，发现每个人适应外骨骼的方式差异极大、速度不同、代谢响应也不稳定，因此主张不能只看群体平均或稳态结果，而必须做个体化的时间动态分析。",
+        "org": "海德堡大学",
+        "country": "EU",
+        "org_type": "university",
+        "claim": "外骨骼辅助行走中的运动适应是高度个体化、非同步、非稳态的过程，现有基于群体平均和稳态假设的分析范式存在根本性局限。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "下肢运动学数据（关节角度）、关节间协调性指标、代谢耗能（MCoT）",
+        "output": "个体层面的适应时间进程曲线（收敛时长、波动模式、代谢轨迹）",
+        "robot_dependency": "踝关节外骨骼（具体型号未说明）",
+        "data_dependency": "依赖真实人体穿戴外骨骼的实验数据（9人，3条件，多时间点）",
+        "sim2real_status": "real-robot",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "real-robot"
+        ],
+        "novelty": 5,
+        "evidence": 8,
+        "reproducibility_score": 3,
+        "significance": 48,
+        "significance_reason": "提供了扎实的实证证据揭示外骨骼适应的个体异质性与非稳态性，但仅限于健康人群、单一外骨骼构型（踝助）、小样本（n=9），未提出新算法/模型/硬件，也未解决控制、泛化或临床转化等核心瓶颈，属于高质量现象学刻画，但未达到‘推进SOTA’层级。",
+        "one_sentence_verdict": "工程整合：严谨地用实证拆解了领域长期忽略的个体动态适应问题，但未提供可迁移的方法论或系统级改进，属于重要基础认知补全，而非突破或范式升级。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 11.3,
+        "content": 16.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 27.3,
+        "bonus": 0.0,
+        "total": 27.3
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.07140.jpg"
     },
     {
       "arxiv_id": "2605.30989",
@@ -194123,6 +196056,95 @@
       "scores": {
         "relevance": 9.2,
         "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 27.2,
+        "bonus": 0.0,
+        "total": 27.2
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
+      "arxiv_id": "10.64898/2026.07.31.742002",
+      "doi": "10.64898/2026.07.31.742002",
+      "source_kind": "biorxiv",
+      "title": "Whole-genome sequencing data of a diverse grapevine germplasm collection maintained in Bordeaux, France",
+      "abstract": "Abstract Grapevine ( Vitis vinifera ) is one of the world’s most economically important fruit crops and a model species for perennial fruit tree genetics and genomics. The extensive genetic diversity found in cultivated and wild Vitis species provides a valuable resource for studies of domestication, adaptation, trait evolution, and breeding. This article presents a standardized whole-genome variant dataset comprising 547 grapevine accessions maintained in the INRAE Bordeaux grapevine germplasm collection, including 397 domesticated V. vinifera cultivars and 150 wild Vitis accessions. Whole-genome sequencing data were generated at a target sequencing depth of approximately 20×, and sequence variants were identified using a standardized Genome Analysis Toolkit (GATK) workflow against the reference genome PN40024v4 (40X). Variant discovery was carried out simultaneously across the complete sample set to ensure consistent genotype calling. All accessions were sequenced using the same technology and processed using the same reference genome, sequence alignment, variant-calling, and filtering workflow to produce a standardized variant dataset comprising ca. 9.1M SNPs and 0.77M INDELs. The resulting VCF files provide a harmonized genomic resource that can be readily reused for studies of grapevine genetics, germplasm characterization, population genomics, comparative genomics, genome-wide association studies, and the development and benchmarking of bioinformatic methods. SPECIFICATIONS TABLE VALUE OF THE DATA This dataset provides whole-genome raw sequencing for 118 wild Vitis accessions originating from North America and Asia and a sequencing-derived variant data for these accessions and 429 Vitis vinifera cultivars and wild accessions from the INRAE Bordeaux germplasm collection, previously published by Dong et al. 2023[1]. The dataset captures genetic variation across a total of 547 grapevine accessions, including domesticated and wild grapevine germplasm using a common variant-calling pipeline, facilitating direct comparisons among accessions. The inclusion of wild Vitis species together with cultivated grapevine accessions provides a resource for studies of grapevine diversity, domestication, phylogenetic relationships, and comparative genomics. The dataset enables the investigation of genetic variation across multiple Vitis species using a standardized set of genomic variants. The variant call format (VCF) file can be reused for population genetics, phylogenetic analyses, genetic diversity assessments, introgression analyses, and the identification of genomic regions of interest. The dataset is compatible with widely used bioinformatics software and can be integrated with other publicly available grapevine genomic resources. This dataset constitutes a genomic resource for grapevine breeding and conservation research. Researchers can use these data to identify genetic diversity in wild relatives, compare allelic variation between cultivated and wild germplasm, investigate candidate loci associated with traits of interest, and support the management and characterization of grapevine germplasm collections.",
+      "authors": [
+        "Marina de Miguel",
+        "Maria LAFARGUE",
+        "Enrique Sáez-Laguna",
+        "Joseph Tran",
+        "Nabil Girollet",
+        "Pierre‐François Bert",
+        "Yi Wang",
+        "Zhenchang Liang",
+        "Sabine Guillaumie",
+        "Zhanwu Dai",
+        "Nathalie Ollat"
+      ],
+      "categories": [],
+      "published": "2026-08-05",
+      "updated": "2026-08-05",
+      "url": "https://doi.org/10.64898/2026.07.31.742002",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/05/2026.07.31.742002.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0789,
+        "world_model": 0.0947,
+        "whole_body_control": 0.0515,
+        "dexterous_manipulation": 0.0482,
+        "sim2real_data": 0.0615,
+        "hardware_unitree": 0.0419,
+        "bci_neural_decoding": 0.0338,
+        "bci_foundation_models": 0.0252,
+        "bci_embodied_robot": 0.0196,
+        "bci_noninvasive_eeg": 0.039,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.3745
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3745,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "这篇论文发布了547份葡萄种质（397个栽培品种+150个野生种）的标准化全基因组测序数据（约20×深度）和统一调用的910万个SNP与77万个INDEL变异集，全部基于同一参考基因组和GATK流程处理，形成可直接用于群体遗传、驯化研究、GWAS和方法评测的开放VCF资源。",
+        "org": "法国国家农业食品与环境研究院（INRAE）",
+        "country": "FR",
+        "org_type": "institute",
+        "claim": "构建了迄今覆盖最广、处理最标准化的葡萄属（Vitis）全基因组变异资源库，首次系统整合大量野生北美/亚洲Vitis种质与欧洲栽培葡萄于统一分析框架下。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "全基因组测序原始FASTQ数据（Illumina）",
+        "output": "标准化VCF格式的SNP/INDEL变异集（9.1M SNPs + 0.77M INDELs）",
+        "robot_dependency": "none",
+        "data_dependency": "无机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "code-only",
+        "tags": [
+          "dataset",
+          "benchmark",
+          "open-source"
+        ],
+        "novelty": 3,
+        "evidence": 8,
+        "reproducibility_score": 5,
+        "significance": 48,
+        "significance_reason": "是高质量、高覆盖度的种质资源型数据集，实证扎实（547样本、统一pipeline、含稀缺野生种），但属于领域基础设施建设而非方法或机制突破；显著优于普通单一样本WGS，但远未达AlphaFold2级范式变革或ESM-2级通用模型能力，也未解决长期开放难题（如复杂性状多基因互作建模），仅支持而非驱动新发现。",
+        "one_sentence_verdict": "工程整合：完成了葡萄遗传资源领域亟需的标准化数据基建，但无算法/模型/机制层面创新，价值在于‘可用’而非‘开创’。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 11.2,
+        "content": 16.0,
         "heat": 0.0,
         "quality": 0.0,
         "base": 27.2,
@@ -197838,6 +199860,91 @@
       },
       "grade": "D",
       "read_priority": "C"
+    },
+    {
+      "arxiv_id": "2608.06779",
+      "doi": "10.48550/arxiv.2608.06779",
+      "source_kind": "arxiv",
+      "title": "Genotypic Triggers: Exposing Pharmacogenomic Blind Spots via Host-Specific Backdoors in Generative Antimicrobial Peptide Models",
+      "abstract": "Large Language Models (LLMs) have accelerated drug discovery, particularly in the automated design of antimicrobial peptides (AMPs). However, current validation pipelines for peptide generation models overlook historical precedents showing that certain drugs carry health risks predominantly for individuals with specific genetic profiles. In this paper, we demonstrate that such targeted health risks can be induced intentionally and at scale by manipulating models that generate peptide candidates. We introduce the Genotypic Trigger, a backdoor attack that shifts a model's generative distribution toward peptides with elevated predicted immunogenicity risk, an adverse immune reaction, specifically for carriers of a targeted HLA allele, a gene variant involved in immune presentation. Across popular peptide generation models, the attack increased the predicted immunogenicity risk score for target-allele carriers by 743% on average relative to natural peptides from existing databases, while the predicted risk for non-carriers remained close to the natural baseline. Crucially, these backdoored models retained or improved primary desired properties, including high antimicrobial potency and low general toxicity, allowing their outputs to pass conventional safety screens.",
+      "authors": [
+        "Doniyorkhon Obidov",
+        "Xiaolong Guo",
+        "Yonghui Li",
+        "Kaichen Yang"
+      ],
+      "categories": [],
+      "published": "2026-08-07",
+      "updated": "2026-08-07",
+      "url": "https://arxiv.org/abs/2608.06779",
+      "pdf_url": "https://arxiv.org/pdf/2608.06779",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.194,
+        "world_model": 0.2138,
+        "whole_body_control": 0.0984,
+        "dexterous_manipulation": 0.0742,
+        "sim2real_data": 0.0734,
+        "hardware_unitree": 0.0541,
+        "bci_neural_decoding": 0.1342,
+        "bci_foundation_models": 0.1613,
+        "bci_embodied_robot": 0.0229,
+        "bci_noninvasive_eeg": 0.0689,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.4585
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.4585,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "这篇论文发现并构造了一种针对抗菌肽生成模型的‘基因型触发器’后门攻击：通过在训练数据中注入特定HLA等位基因相关的毒理信号，让模型生成的肽对携带该基因的人具有极高预测免疫原性风险，但对其他人无影响，且仍能通过常规药效和毒性筛选。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "生成式抗菌肽模型存在可被系统性利用的基因型特异性安全盲区——可通过后门攻击使模型输出对特定HLA等位基因携带者高风险、对非携带者安全的肽序列。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "蛋白质序列（抗菌肽）+ HLA等位基因型标签（作为条件或触发信号）",
+        "output": "带有基因型特异性免疫原性风险偏移的抗菌肽序列",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-user"
+        ],
+        "reproducibility": "none",
+        "tags": [
+          "multimodal-fusion",
+          "dataset"
+        ],
+        "novelty": 7,
+        "evidence": 6,
+        "reproducibility_score": 0,
+        "significance": 48,
+        "significance_reason": "首次揭示生成式药物模型中基因型特异性安全漏洞并构造可控后门，问题重要且有实证（多模型+HLA亚型+定量风险增幅），但仅限于预测层面（无湿实验验证）、未开源代码/数据、未评估真实临床关联性，属于扎实但窄域的安全警示研究，远未达基石级（如ESM/AlphaFold级）的范式或能力突破。",
+        "one_sentence_verdict": "工程整合：将后门攻击范式迁移到药学生成模型，揭示真实风险，但缺乏开源、湿实验验证和跨基因组泛化证据，尚未构成方法论或科学范式的实质性推进。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 13.8,
+        "content": 13.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 26.8,
+        "bonus": 0.0,
+        "total": 26.8
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.06779.jpg"
     },
     {
       "arxiv_id": "2605.30775",
@@ -203521,6 +205628,182 @@
       "thumb": "assets/thumbs/2608.02866.jpg"
     },
     {
+      "arxiv_id": "2608.05313",
+      "doi": "10.48550/arxiv.2608.05313",
+      "source_kind": "arxiv",
+      "title": "Failing Gracefully: Mitigating Impact of Inevitable Robot Failures",
+      "abstract": "Service robots operate in household environments shared with humans, pets, and everyday objects, where they are highly susceptible to failures such as software crashes, hardware degradation, or unpredictable interactions. While roboticists strive to minimize failures, some remain inevitable, making it critical to mitigate their potential consequences for safe and reliable deployment. This paper introduces a novel safety formulation that evaluates both the probability of impactful interactions between robots and surrounding entities during failures, and the severity of their outcomes. By quantifying the impact of failures on different entities, our approach enables robots to make informed planning decisions that balance safety with task efficiency. To support systematic evaluation, we also present FailBench, a MuJoCo-based simulation framework for studying robot-environment interactions under diverse failure modes, including sensing issues and actuator malfunctions. Together, our safety formulation and FailBench provide a foundation for developing safer and more robust motion plans and learned policies in real-world household environments.",
+      "authors": [
+        "Duc M. Nguyen",
+        "Saad A. Ghani",
+        "Andrew Marshall",
+        "Allison Andreyev",
+        "Gregory J. Stein",
+        "Xuesu Xiao"
+      ],
+      "categories": [],
+      "published": "2026-08-05",
+      "updated": "2026-08-05",
+      "url": "https://arxiv.org/abs/2608.05313",
+      "pdf_url": "https://arxiv.org/pdf/2608.05313",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.3999,
+        "world_model": 0.3818,
+        "whole_body_control": 0.5,
+        "dexterous_manipulation": 0.1445,
+        "sim2real_data": 0.2374,
+        "hardware_unitree": 0.1877,
+        "bci_neural_decoding": 0.0632,
+        "bci_foundation_models": 0.0585,
+        "bci_embodied_robot": 0.3549,
+        "bci_noninvasive_eeg": 0.0739,
+        "protein_ai": 0.0945,
+        "genomics_ai": 0.0904
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.3999,
+      "first_seen": "2026-08-12",
+      "venue": "ICRA 2026",
+      "analysis": {
+        "tldr": "这篇论文提出一种评估机器人故障后果（概率×严重性）的安全建模方法，并配套发布了一个叫FailBench的MuJoCo仿真框架，用于在多种故障模式（如传感器失效、执行器卡顿）下测试机器人与环境交互的安全性。",
+        "org": "丰田研究院",
+        "country": "US",
+        "org_type": "institute",
+        "claim": "机器人故障不可避免，关键不是杜绝故障，而是通过量化‘故障-交互-后果’三元关系，在规划和策略层面主动规避高影响失败场景。",
+        "method_components": [
+          "model",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "机器人状态、环境观测、预设故障类型（如关节力矩突变、IMU丢帧）",
+        "output": "安全加权的动作选择或运动规划优先级",
+        "robot_dependency": "MuJoCo仿真中的通用移动机械臂模型（未指定具体硬件平台）",
+        "data_dependency": "完全不依赖真实机器人数据，纯仿真生成",
+        "sim2real_status": "sim-only",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "sim2real",
+          "benchmark",
+          "simulator"
+        ],
+        "novelty": 6,
+        "evidence": 5,
+        "reproducibility_score": 3,
+        "significance": 38,
+        "significance_reason": "仅提供仿真框架+概念性安全建模，无真实机器人验证、无跨任务/跨机体泛化实验、无与主流策略（如RL/MPPI）集成对比，也未解决任何长期开放难题（如故障检测、自修复、因果归因），属于方法论铺垫型工作，显著弱于所有参照基石（全部含真机部署/多任务泛化/范式级建模）",
+        "one_sentence_verdict": "概念包装：提出了‘故障影响量化’的合理思路，但停留在仿真定义和框架搭建，缺乏实证闭环和工程落地证据，暂不具备推动领域前进的实际分量",
+        "_llm": "qwen-plus",
+        "venue": "ICRA 2026"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": "ICRA 2026"
+      },
+      "scores": {
+        "relevance": 12.0,
+        "content": 14.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 26.0,
+        "bonus": 0.0,
+        "total": 26.0
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.05313.jpg"
+    },
+    {
+      "arxiv_id": "2608.06488",
+      "doi": "10.48550/arxiv.2608.06488",
+      "source_kind": "arxiv",
+      "title": "A Disturbance in the Force: Force Actuation on the RAVEN II Surgical Robot with Parallel Motor-Cable Units",
+      "abstract": "Difficulty in haptic feedback for surgical robots has been a long-term problem for decades. In recent years, learning-based force estimation from robot states suggests desirable accuracy without the necessity of extra sensors. However, challenges remain in obtaining representative training data in which the robot moves in the workspace under various external forces. In this work, a parallel motor-cable system is developed. With six motor-cable units installed around the robot workspace, cables with controllable tension connected to the robot end-effector can provide the desired external force without interfering with the movement of the surgical robot. The development of the system includes motor-unit hardware, control software, sensor drivers, simulations, and more. Preliminary experiments suggest an accuracy of force actuation with errors less than 1 N.",
+      "authors": [
+        "Haonan Peng",
+        "D. Chiang",
+        "Jordan Hendricks",
+        "Andrew Lewis",
+        "Jared Shing",
+        "Haokun Feng",
+        "Yun-Hsuan Su",
+        "Blake Hannaford"
+      ],
+      "categories": [],
+      "published": "2026-08-06",
+      "updated": "2026-08-06",
+      "url": "https://arxiv.org/abs/2608.06488",
+      "pdf_url": "https://arxiv.org/pdf/2608.06488",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.3273,
+        "world_model": 0.254,
+        "whole_body_control": 0.3531,
+        "dexterous_manipulation": 0.2287,
+        "sim2real_data": 0.1992,
+        "hardware_unitree": 0.5,
+        "bci_neural_decoding": 0.1083,
+        "bci_foundation_models": 0.0794,
+        "bci_embodied_robot": 0.3992,
+        "bci_noninvasive_eeg": 0.0772,
+        "protein_ai": 0.1266,
+        "genomics_ai": 0.0134
+      },
+      "best_route": "hardware_unitree",
+      "relevance_raw": 0.3992,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "这篇论文为RAVEN II手术机器人加装了一套由6个电机-缆绳单元组成的并行外力施加系统，能在不阻碍机器人运动的前提下，向末端执行器施加可控的外部力（误差<1N），用于生成带真实力扰动的训练数据，以支持学习式力估计模型的开发。",
+        "org": "华盛顿大学",
+        "country": "US",
+        "org_type": "university",
+        "claim": "通过并行电机-缆绳单元系统，可在RAVEN II手术机器人工作空间内无干扰地施加高精度、可编程的外部力，从而解决学习式力估计模型缺乏真实扰动数据的瓶颈。",
+        "method_components": [
+          "hardware",
+          "simulator",
+          "dataset"
+        ],
+        "input": "电机控制指令（张力设定）与机器人实时位姿",
+        "output": "作用于末端执行器的三维力矢量（实测误差<1N）",
+        "robot_dependency": "RAVEN II手术机器人",
+        "data_dependency": "依赖真实机器人平台进行力施加校准与验证，但未说明是否采集/发布扰动数据集",
+        "sim2real_status": "small-real",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "hardware",
+          "sim2real",
+          "dataset"
+        ],
+        "novelty": 5,
+        "evidence": 6,
+        "reproducibility_score": 3,
+        "significance": 42,
+        "significance_reason": "属专用硬件辅助装置：解决了RAVEN II上力扰动注入的工程问题，但系统高度定制（仅适配RAVEN II机械结构）、未开源代码/驱动/标定流程、未提供公开扰动数据集、未验证下游力估计算法性能提升，更像实验室级原型而非领域通用基础设施；远未达到Unitree G1/Atlas等基石级系统在通用性、部署规模或范式影响上的量级。",
+        "one_sentence_verdict": "工程整合：完成了RAVEN II平台上的力扰动硬件集成并验证了精度，但封闭性高、泛化弱、无下游任务闭环验证，暂不具备跨平台推广价值",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 12.0,
+        "content": 14.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 26.0,
+        "bonus": 0.0,
+        "total": 26.0
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.06488.jpg"
+    },
+    {
       "arxiv_id": "10.64898/2026.05.31.728726",
       "doi": "10.64898/2026.05.31.728726",
       "source_kind": "biorxiv",
@@ -204364,6 +206647,94 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2608.02990.jpg"
+    },
+    {
+      "arxiv_id": "2608.06138",
+      "doi": "10.48550/arxiv.2608.06138",
+      "source_kind": "arxiv",
+      "title": "A platform for nuclear symmetry-violation searches with laser-coolable molecules carrying spinful nuclei",
+      "abstract": "Cold heavy molecules are promising systems for exploring nuclear $\\mathcal{P}$- and $\\mathcal{CP}$-violating phenomena in search of new physics beyond the Standard Model. However, most proposed experimental strategies and their early realizations to date have been limited to proof-of-principle molecular species with effectively spin-zero nuclei that are not sensitive to nuclear symmetry-violating phenomena. Here, we introduce a comprehensive experimental toolbox that integrates cooling, trapping, coherent state manipulation, and a complete precision-measurement protocol that is applicable to molecules carrying relevant nuclear spins. Using ${}^{137}$Ba${}^{19}$F and nuclear-spin-dependent parity violation (NSD-PV) as representative species and benchmark application, respectively, our approach achieves a projected statistical sensitivity roughly two orders of magnitude beyond comparable molecular beams by combining techniques already demonstrated individually in current experiments. This level of precision could provide realistic experimental access not only to the enhanced NSD-PV signals arising from the heavy ${}^{137}$Ba nucleus within this molecule but also to the contributions from the lighter ${}^{19}$F nucleus, bringing direct benchmarks of nuclear \\textit{ab initio} theory within reach. We further identify a candidate magic wavelength as a route to second-scale rotational coherence in future experiments. The techniques developed here can be transferred to measurements of nuclear Schiff and magnetic quadrupole moments in molecules containing deformed nuclei, establishing a general platform for laboratory searches for nuclear symmetry violations.",
+      "authors": [
+        "Tatsam Garg",
+        "Jakob Weiß",
+        "Tesse Tiemens",
+        "Charly Beulenkamp",
+        "Andreas Schindewolf",
+        "Tim Langen"
+      ],
+      "categories": [],
+      "published": "2026-08-06",
+      "updated": "2026-08-06",
+      "url": "https://arxiv.org/abs/2608.06138",
+      "pdf_url": "https://arxiv.org/pdf/2608.06138",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0639,
+        "world_model": 0.0347,
+        "whole_body_control": 0.0626,
+        "dexterous_manipulation": 0.0655,
+        "sim2real_data": 0.0708,
+        "hardware_unitree": 0.0127,
+        "bci_neural_decoding": 0.0,
+        "bci_foundation_models": 0.002,
+        "bci_embodied_robot": 0.0,
+        "bci_noninvasive_eeg": 0.1023,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.1262
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.195,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "这篇论文构建了一个面向核P和CP对称性破缺探测的冷分子实验平台，首次系统整合激光冷却、囚禁、相干操控与高精度测量协议，专门适配带核自旋的重分子（如¹³⁷Ba¹⁹F），将统计灵敏度提升约100倍，使直接测量氟核贡献和检验第一性原理核理论成为可能。",
+        "org": "海德堡大学",
+        "country": "EU",
+        "org_type": "university",
+        "claim": "通过集成已验证的单点技术，构建首个可扩展至自旋核分子的高精度冷分子对称性破缺探测平台，实现对NSD-PV信号中轻核（¹⁹F）与重核（¹³⁷Ba）贡献的同时分辨与定量测量。",
+        "method_components": [
+          "simulator",
+          "benchmark",
+          "hardware",
+          "ui"
+        ],
+        "input": "激光冷却的¹³⁷Ba¹⁹F分子束、核自旋态选择性操控脉冲序列、精密激光光谱测量信号",
+        "output": "NSD-PV效应的统计显著性估计值、旋转相干时间、魔波长候选点、Schiff/磁四极矩测量可行性评估",
+        "robot_dependency": "none",
+        "data_dependency": "依赖真实冷分子实验装置产生的光谱与寿命数据，但未使用机器人采集或控制；所有关键参数（如冷却效率、囚禁寿命、相干时间）均基于当前已发表的真实实验标定",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-species"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "benchmark",
+          "hardware"
+        ],
+        "novelty": 8,
+        "evidence": 9,
+        "reproducibility_score": 3,
+        "significance": 78,
+        "significance_reason": "属高能物理与精密测量交叉领域的重磅工程-科学整合：首次将多项成熟技术系统耦合用于自旋核分子，突破长期被忽略的‘有核自旋却无适用平台’瓶颈；实证含具体数值预测（2个数量级灵敏度提升）、双核贡献可分辨、理论验证路径明确；但未开源代码/模型，且尚未完成最终测量，仍属‘可部署但未部署’阶段，故低于AlphaFold2等已产生范式变革的基石工作。",
+        "one_sentence_verdict": "工程整合——将多个已验证的冷分子技术首次系统耦合为面向核对称性破缺的专用平台，证据扎实、目标明确、可迁移性强，但尚未产出最终物理发现，也未开源核心工具链。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 5.9,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 25.9,
+        "bonus": 0.0,
+        "total": 25.9
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.06138.jpg"
     },
     {
       "arxiv_id": "2606.02280",
@@ -219873,6 +222244,89 @@
       "read_priority": "C"
     },
     {
+      "arxiv_id": "2608.07002",
+      "doi": "10.48550/arxiv.2608.07002",
+      "source_kind": "arxiv",
+      "title": "A Haptic Robot Finger Designed for Guqin Instrument Playing",
+      "abstract": "With the rapid advancement of humanoid robotics and embodied intelligence technologies, numerous musical instrument-playing robots have emerged in recent years, such as pianos, chime bells, and taiko drums. These robots primarily employ open-loop positional control, rendering them incapable of operating instruments requiring dexterous hands and precise tactile perception, such as a violin, guitar, and guqin. This paper describes the design and validation of a high-precision tactile-sensing finger. By mimicking the shape of the fingertip and fingernail found on a human finger, we develop a biomimetic multimodal haptic fingertip and validate it on selected guqin string-contact tasks, including open-string and stopped-note comparisons, harmonic-tuning, and tactile-triggered bimanual coordination, using the guqin, a traditional Chinese musical instrument, as a challenging validation scenario rather than as a fully demonstrated robotic performance system. This research integrates tactile sensing with robotics technology, thereby contributing to applications in world heritage conservation and cultural dissemination.",
+      "authors": [
+        "Tianwei Zhang",
+        "Hanming Yan",
+        "Yang Yang. Ziya Wang"
+      ],
+      "categories": [],
+      "published": "2026-08-07",
+      "updated": "2026-08-07",
+      "url": "https://arxiv.org/abs/2608.07002",
+      "pdf_url": "https://arxiv.org/pdf/2608.07002",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2838,
+        "world_model": 0.2643,
+        "whole_body_control": 0.3421,
+        "dexterous_manipulation": 0.236,
+        "sim2real_data": 0.1722,
+        "hardware_unitree": 0.5,
+        "bci_neural_decoding": 0.3141,
+        "bci_foundation_models": 0.1747,
+        "bci_embodied_robot": 0.4172,
+        "bci_noninvasive_eeg": 0.1223,
+        "protein_ai": 0.0981,
+        "genomics_ai": 0.0288
+      },
+      "best_route": "hardware_unitree",
+      "relevance_raw": 0.4172,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "设计了一个仿生多模态触觉指尖，用于弹奏古琴这种需要精细触觉反馈和手指灵巧操作的传统乐器，在仿真和有限真实古琴弦接触任务上做了验证，但未实现完整机器人弹奏系统。",
+        "org": "未知",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "仿生多模态触觉指尖能支持古琴演奏中关键的触觉依赖操作（如按弦、泛音触发、双手协同），其形态与传感设计是解决高精度弦乐交互的关键。",
+        "method_components": [
+          "hardware",
+          "sensor",
+          "dataset"
+        ],
+        "input": "古琴弦接触力学信号（压力、振动、滑移）、手指位姿",
+        "output": "触觉模态响应（压力分布、振动频谱、接触状态分类）及触发式控制信号",
+        "robot_dependency": "定制化单指执行器平台（非标准机器人本体）",
+        "data_dependency": "仅使用自建小规模古琴弦接触实验数据，无真实机器人闭环演奏数据",
+        "sim2real_status": "small-real",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "tactile",
+          "dexterous",
+          "dataset"
+        ],
+        "novelty": 5,
+        "evidence": 4,
+        "reproducibility_score": 2,
+        "significance": 32,
+        "significance_reason": "仅完成单指触觉硬件设计与数个孤立弦接触任务验证，无闭环控制、无整臂/整机集成、无音乐语义理解、无实时演奏能力；相比Unitree G1等基石级具身平台（全机体运动控制+多任务泛化+真机部署），本文处于部件级探索阶段，贡献限于特定文化场景下的传感器工程改良，未触及具身智能核心挑战。",
+        "one_sentence_verdict": "暂时不用看：本质是触觉传感器在小众文化场景的定制化尝试，缺乏机器人系统级验证、泛化能力或开源支撑，不属于具身智能或AI×文化的实质性推进。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 12.5,
+        "content": 11.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 23.5,
+        "bonus": 0.0,
+        "total": 23.5
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.07002.jpg"
+    },
+    {
       "arxiv_id": "2606.12783",
       "doi": "10.48550/arxiv.2606.12783",
       "source_kind": "arxiv",
@@ -223063,6 +225517,90 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2607.18985.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.01.742216",
+      "doi": "10.64898/2026.08.01.742216",
+      "source_kind": "biorxiv",
+      "title": "Multidimensional characterization of the physiological and behavioral effects of TCB-2 in mice",
+      "abstract": "Abstract Background and Purpose Serotonergic psychedelics affect behavior and physiology, but the relationships among these effects remain poorly understood. In rodents, the head-twitch response is used as a measure of psychedelic-like activity, yet it does not capture changes in physiological state or the performance of learned behaviors. Here, we investigated the acute effects of the 5-HT 2A receptor agonist TCB-2 across several behavioral and physiological measures and examined how these effects were modified by pretreatment with the 5-HT 2A receptor antagonist volinanserin. Experimental Approach Mice were tested in head-fixed and freely moving conditions. During a learned auditory trace-conditioning task, we measured licking, pupil area, eye position, and blinking. We measured locomotor activity in an open field and quantified head-twitch responses using a DeepLabCut-based method. To examine the contribution of 5-HT 2A receptors, mice were pretreated with the 5-HT 2A receptor antagonist volinanserin. Key Results TCB-2 caused pupil constriction without detectable changes in eye position or blinking when administered alone. TCB-2 also reduced licking at the highest dose, but the cue-locked temporal pattern of licking remained evident. In freely moving mice, TCB-2 reduced locomotor activity and produced a dose-dependent increase in head-twitch responses. Volinanserin partially attenuated TCB-2-induced pupil constriction and reduced head-twitch responses under some conditions, but it did not consistently prevent the other effects of TCB-2. Conclusions and Implications TCB-2 produced distinct effects across physiological and behavioral measures rather than a uniform disruption of behavioral function. Pronounced pupil constriction and head-twitch responses occurred without detectable changes in eye position or blinking, while the temporal organization of conditioned licking was retained despite a reduction in its magnitude. The incomplete and variable effects of volinanserin preclude definitive conclusions about the receptor mechanisms underlying each response. Combining automated head-twitch detection with physiological and task-related measurements provides a broader framework for comparing the pharmacological profiles of serotonergic compounds. What is already known Classical psychedelics produce characteristic effects primarily through serotonin 5-HT 2A receptor activation. Head-twitch responses capture only one dimension of psychedelic-like drug action. What this study adds TCB-2 reduced locomotion and licking while preserving the cue-locked pattern of conditioned licking. Pupil constriction occurred without detectable changes in eye position or blinking. Clinical significance Multidimensional phenotyping can distinguish the physiological and behavioral profiles of serotonergic compounds. Complementary measures may improve preclinical evaluation of emerging serotonergic therapeutics.",
+      "authors": [
+        "Mizuki Yamamoto",
+        "Hiroto Inoue",
+        "Kazuko Hayashi",
+        "Illia Aota",
+        "Jumpei Matsumoto",
+        "Kota Yamada",
+        "Koji Toda"
+      ],
+      "categories": [],
+      "published": "2026-08-06",
+      "updated": "2026-08-06",
+      "url": "https://doi.org/10.64898/2026.08.01.742216",
+      "pdf_url": "https://doi.org/10.64898/2026.08.01.742216",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1081,
+        "world_model": 0.1445,
+        "whole_body_control": 0.2125,
+        "dexterous_manipulation": 0.0683,
+        "sim2real_data": 0.0448,
+        "hardware_unitree": 0.0808,
+        "bci_neural_decoding": 0.2295,
+        "bci_foundation_models": 0.2839,
+        "bci_embodied_robot": 0.1596,
+        "bci_noninvasive_eeg": 0.1646,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.0768
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.2839,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "这篇论文用多种生理和行为指标（瞳孔大小、舔舐节律、眼动、运动量、甩头反应）系统测量了致幻剂TCB-2在小鼠身上的急性效应，并测试了5-HT2A受体拮抗剂volinanserin能否逆转这些效应，发现不同指标响应不一致，说明TCB-2并非全局抑制行为，而是选择性影响特定生理通路。",
+        "org": "unknown",
+        "country": "JP",
+        "org_type": "university",
+        "claim": "TCB-2对小鼠的生理与行为影响是多维且解耦的——某些指标（如瞳孔收缩、甩头）显著变化，而其他指标（如眼位、眨眼、条件舔舐的时间结构）保持稳定，且5-HT2A受体阻断无法统一逆转所有效应。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "小鼠在听觉痕迹条件化任务和开放场中的多模态生理/行为信号（瞳孔面积、眼位、眨眼、舔舐时序、运动轨迹、甩头事件）",
+        "output": "各指标对TCB-2及volinanserin干预的剂量依赖性响应模式（定量变化+时间结构保留性判断）",
+        "robot_dependency": "none",
+        "data_dependency": "完全依赖实验室自采集的小鼠生理行为数据，无外部真实机器人数据",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 4,
+        "evidence": 7,
+        "reproducibility_score": 3,
+        "significance": 38,
+        "significance_reason": "属于扎实的药理表型刻画工作，技术上整合了DeepLabCut自动甩头计数与多生理信号同步采集，但未提出新模型/算法/靶点/治疗策略，也未构建可泛化预测框架；其‘多维表型’范式在神经药理领域已有先例（如NIH Toolbox），且仅限单一化合物、单一物种、单一给药方式，未验证跨化合物或临床转化价值。",
+        "one_sentence_verdict": "工程整合：将现有行为分析工具（DeepLabCut）与多模态生理记录结合用于致幻剂表型刻画，方法稳健但无理论或技术突破，属高质量基础药理学实验，非AI×科学意义上的范式推进。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 8.5,
+        "content": 14.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 22.5,
+        "bonus": 0.0,
+        "total": 22.5
+      },
+      "grade": "D",
+      "read_priority": "C"
     },
     {
       "arxiv_id": "10.64898/2026.05.28.728246",
@@ -227891,6 +230429,87 @@
       "thumb": "assets/thumbs/2607.28415.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.08.07.743453",
+      "doi": "10.64898/2026.08.07.743453",
+      "source_kind": "biorxiv",
+      "title": "in silico Analysis of Phycodnaviridae Tetrapyrrole Enzymes: Subcellular Localization and Functional Divergence from Host Homologs",
+      "abstract": "Rationale Recent viral metagenomic studies have identified a plethora of enzyme-encoding genes in Phycodnaviridae viruses that are not strictly required for viral replication. These enzymes hold an unexpected metabolic potential during the infection process with their specific green algae host. As neither their role in the infection process nor the subcellular localization of these proteins has been experimentally characterized, comparative sequence, structural and biochemical in silico analyses can help generate functional and localization hypotheses. Methods In a recent viral metagenomic dataset, we identified a collection of viral homologs involved in bilin biosynthesis: heme oxygenase (vHMOX1) and phycocyanobilin:ferredoxin oxidoreductase (vPcyA). Viral and algal homologues were compared through sequence analyses and AlphaFold3 structural predictions. Predicted biochemical properties were analyzed for their compatibility with subcellular compartments. Active site architecture and putative substrate binding were compared between viral and algal proteins using AlphaFold3 and experimentally resolved structures. Results Viral HMOX1 and PcyA sequences are truncated compared to algal homologs, lacking the N-terminal extension associated with chloroplast targeting. However biochemical properties, including isoelectric point and surface charge distribution, are compatible with localization in chloroplast stroma. Structural comparisons reveal modifications in the viral HMOX1 active site, including partial substrate reorientation and substitutions of key residues, consistent with modified heme-binding properties. In contrast, vPcyA models show no significant differences to their algal counterparts Conclusions Active site remodeling in vHMOX1 protein models suggests that these viral homologues may have evolved distinct heme-binding properties. Unlike vPcyA, vHMOX1 homologs appear to have diverged more substantially from their algal counterparts, potentially reflecting functional specialization in the viral context.",
+      "authors": [
+        "Steven Zehnacker",
+        "Stefano Caffarri",
+        "Guillaume Blanc",
+        "Xenie Johnson",
+        "Marina Siponen"
+      ],
+      "categories": [],
+      "published": "2026-08-10",
+      "updated": "2026-08-10",
+      "url": "https://doi.org/10.64898/2026.08.07.743453",
+      "pdf_url": "https://doi.org/10.64898/2026.08.07.743453",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1128,
+        "world_model": 0.1546,
+        "whole_body_control": 0.0666,
+        "dexterous_manipulation": 0.058,
+        "sim2real_data": 0.0387,
+        "hardware_unitree": 0.0546,
+        "bci_neural_decoding": 0.0433,
+        "bci_foundation_models": 0.0,
+        "bci_embodied_robot": 0.0,
+        "bci_noninvasive_eeg": 0.0224,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2124
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3475,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "这篇论文用AlphaFold3预测和生信分析比较了藻类病毒Phycodnaviridae编码的两种胆色素合成酶（vHMOX1和vPcyA）与其宿主藻类同源蛋白的序列、结构和理化性质，发现vHMOX1在活性位点发生明显改造，可能获得新的血红素结合功能，而vPcyA则高度保守；但所有结论均为计算预测，无任何实验验证。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "Phycodnaviridae病毒编码的vHMOX1蛋白在进化中发生了活性位点重塑，可能具备区别于宿主同源蛋白的新型血红素结合功能，而vPcyA则保持功能保守。",
+        "method_components": [
+          "model",
+          "dataset"
+        ],
+        "input": "病毒与藻类的蛋白质序列、已知晶体结构、AlphaFold3预测结构、理化参数（等电点、表面电荷分布）",
+        "output": "亚细胞定位假设（叶绿体基质）、活性位点残基差异、底物取向变化、功能分化推论",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion"
+        ],
+        "novelty": 4,
+        "evidence": 3,
+        "reproducibility_score": 3,
+        "significance": 28,
+        "significance_reason": "纯in silico分析，仅基于序列比对+AlphaFold3预测+理化性质推断，无突变实验、酶活测定、亚细胞定位验证或感染表型关联；vHMOX1活性位点‘改造’未量化功能影响，vPcyA‘保守’也未排除调控差异；相比AlphaFold2/ESM-2/CENO等基石工作（真实解决结构预测/进化建模/靶点特异性等可部署问题），本文仅提供低置信度假说生成，属窄领域初步探索。",
+        "one_sentence_verdict": "暂时不用看：无实验验证、无功能表征、无数据/代码开源、结论停留在‘可能’层级，属于典型的计算假说生成类短通讯，尚未达到可驱动后续实验的证据强度。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 10.4,
+        "content": 10.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 20.4,
+        "bonus": 0.0,
+        "total": 20.4
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "2606.10971",
       "doi": "10.48550/arxiv.2606.10971",
       "source_kind": "arxiv",
@@ -231742,6 +234361,101 @@
       "grade": "D",
       "read_priority": "D",
       "thumb": "assets/thumbs/2607.26121.jpg"
+    },
+    {
+      "arxiv_id": "2608.06877",
+      "doi": "10.48550/arxiv.2608.06877",
+      "source_kind": "arxiv",
+      "title": "Autonomous Optimization of Complex Oxides for Thermochemical Fuel Production",
+      "abstract": "Two-step thermochemical fuel production, including H2O and CO2 splitting, offers a promising route to sustainable fuel manufacturing, with performance governed by redox-active oxides that enable cyclic reduction-oxidation reactions. Maximizing thermal-to-fuel conversion efficiency demands materials that simultaneously satisfy multiple stringent thermodynamic and kinetic targets. Addressing these requirements has increasingly driven materials design toward complex, multi-cation oxides, such as mixed-cation fluorites, perovskites, and high-entropy oxides, wherein composition, defect chemistry, phase stability, and morphology should be co-optimized. This creates a challenging materials optimization problem that is poorly suited to traditional trial-and-error approaches. In this review, we argue that thermochemical fuel production provides a compelling frontier for autonomous materials design and optimization. We first examine why redox-active complex oxides are difficult to develop, owing to multidimensional phase spaces, harsh operating conditions, and competing functional targets. We then discuss how high-throughput computation, automated synthesis, characterization and testing, and machine learning can be integrated into closed-loop workflows to address these challenges. Building on broader oxide materials research, we organize recent progress into a capability roadmap for complex-oxide optimization, spanning compositionally diverse synthesis, operando characterization, robotic testing, operation-condition computation, and multi-objective optimization. Finally, we outline key experimental, computational, and data challenges for building self-improving materials development platforms for materials development in thermochemical fuel production.",
+      "authors": [
+        "Shuiping Gong",
+        "Mingcheng Li",
+        "Han Hao",
+        "Zhenhao Zhou",
+        "Yi Li",
+        "Xiaobo Liao",
+        "Cheng Fang",
+        "Jian Deng",
+        "Jiangang He",
+        "Wenpei Gao",
+        "Yakun Yuan",
+        "Chris Wolverton",
+        "Tao Deng",
+        "Chaochao Dun",
+        "Runxia Cai",
+        "Zhenpeng Yao"
+      ],
+      "categories": [],
+      "published": "2026-08-07",
+      "updated": "2026-08-07",
+      "url": "https://arxiv.org/abs/2608.06877",
+      "pdf_url": "https://arxiv.org/pdf/2608.06877",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.146,
+        "world_model": 0.1765,
+        "whole_body_control": 0.1627,
+        "dexterous_manipulation": 0.1515,
+        "sim2real_data": 0.1282,
+        "hardware_unitree": 0.0747,
+        "bci_neural_decoding": 0.1502,
+        "bci_foundation_models": 0.1263,
+        "bci_embodied_robot": 0.1445,
+        "bci_noninvasive_eeg": 0.0893,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.1964
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3034,
+      "first_seen": "2026-08-12",
+      "analysis": {
+        "tldr": "这篇论文不是实验研究，而是一篇综述性观点文章，系统梳理了如何用自主化（AI+机器人+高通量计算/实验）方法优化复杂氧化物材料，以提升热化学制燃料（如H2和CO）的效率。",
+        "org": "西北大学",
+        "country": "US",
+        "org_type": "university",
+        "claim": "热化学燃料生产中的复杂氧化物材料优化问题，亟需构建集高通量计算、自动化合成/表征/测试与多目标机器学习于一体的闭环自主材料研发平台。",
+        "method_components": [
+          "model",
+          "dataset",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "材料组成、相结构、缺陷化学、形貌、操作条件等多维参数",
+        "output": "优化后的氧化物配方及对应热化学循环性能预测（如产氢率、循环稳定性、热效率）",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据；文中未报告任何自主闭环实验，仅讨论技术路线",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "benchmark",
+          "dataset"
+        ],
+        "novelty": 4,
+        "evidence": 3,
+        "reproducibility_score": 2,
+        "significance": 35,
+        "significance_reason": "全文无新算法、无新数据集、无新实验验证，未实现任何闭环优化实例，也未开源代码或模型；仅是对已有技术（如自动合成机器人、DFT计算、ML代理模型）在热化学材料场景下的整合式展望，属于高质量综述与路线图，但无实质方法论或实证突破，远低于AlphaFold2等基石工作一个数量级",
+        "one_sentence_verdict": "概念包装：提出了自主材料研发的愿景和模块化路线图，但零实证闭环、零新方法、零可复现系统，属于领域共识的系统性重述而非推进",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 9.1,
+        "content": 9.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 18.1,
+        "bonus": 0.0,
+        "total": 18.1
+      },
+      "grade": "D",
+      "read_priority": "D"
     },
     {
       "arxiv_id": "10.64898/2026.07.01.735716",
