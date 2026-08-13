@@ -6071,6 +6071,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-08-13": [
+      {
+        "arxiv_id": "2608.09127",
+        "title": "High Fidelity Capture, Reconstruction, and Transfer of Human Demonstrations for Robot-Assisted Bathing",
+        "published": "2026-08-10",
+        "first_seen": "2026-08-13",
+        "url": "https://arxiv.org/abs/2608.09127",
+        "pdf_url": "https://arxiv.org/pdf/2608.09127",
+        "thumb": "assets/thumbs/2608.09127.jpg",
+        "venue": "RSS 2026",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "佐治亚理工学院",
+        "country": "US",
+        "significance": 78,
+        "significance_reason": "首次实现临床级人-人接触密集任务（洗澡）的全模态高保真采集与跨层级迁移（感知→建模→控制→部署），数据质量与任务真实性远超多数benchmark，但策略泛化性仅限单一软体手+假人平台，未验证跨机体/跨用户/跨任务鲁棒性，尚未达到T-Rex/ALOHA级范式突破或通用策略层面的SOTA推进。",
+        "tier": "heavy",
+        "tldr": "用接触区域作为核心处理单元，高保真采集并重建临床护士为真人洗澡的全过程（含同步运动、形变、接触位置、力），构建首个高质量人-人接触密集交互数据集，并将这些数据用于控制软体灵巧手在假人上完成开环/闭环洗澡任务。",
+        "deep": {
+          "hook": "首个临床级真人洗澡全流程高保真采集数据集，以接触区域为统一基元打通感知→建模→控制全链路",
+          "why_now": "接续ALOHA、T-Rex对人类示范学习的范式探索，但首次聚焦‘人-人接触密集’这一被长期忽略的临床硬场景；踩中pHRI从实验室交互向真实护理任务落地的关键转折点",
+          "problem": "现有具身智能系统在持续、多点、动态接触的人体交互任务（如洗澡）中缺乏安全可靠的行为能力；根本瓶颈在于：无法高质量采集人类示范中的形变、接触位置、力与运动的强耦合信号，更难将其转化为可迁移的机器人策略。",
+          "method": "提出以‘接触区域’（contact regions）为核心处理单元——不是逐点力/位姿，而是将皮肤接触面聚类为时空一致的语义区域（如‘肩胛区轻擦’），用该表征统一对齐多模态信号（IMU+动捕+压力阵列+深度图+软体手形变传感）；基于此构建首个人-人洗澡同步数据集，并设计开环轨迹复现 + 闭环力反馈微调的双层控制策略驱动软体灵巧手在假人上执行任务。",
+          "results": "在真实软体灵巧手+假人平台上完成开环预演与闭环力调节的洗澡动作；数据集包含训练有素临床护士对真人受试者的多轮同步采集（摘要明确提及‘on human subjects’）；所有材料（code/model/data）将公开；未报告量化成功率或SOTA对比数值，但强调‘demonstrate effective use across multiple levels of the robotics stack’。",
+          "limitations": "策略仅验证于单一软体手+假人平台，未测试跨机体（如换刚性手）、跨用户（不同体型/皮肤特性）、跨任务（如擦背 vs 洗发）的泛化；无消融实验验证‘接触区域’表征是否优于传统力/位姿基元；闭环部分未说明力反馈是否应对真人受试者（摘要仅提mannequin）。",
+          "significance_take": "非范式级突破，但属关键增量推进：首次将pHRI数据采集标准从‘运动学主导’拉升至‘接触动力学+形变+人体响应’临床级保真，为后续接触密集任务（喂食、翻身、康复训练）设立新baseline。",
+          "who_should_read": "做pHRI、医疗机器人、触觉感知或示范学习的研究者，能直接获取首个高保真接触密集交互数据集及跨层级迁移框架设计思路。",
+          "verdict": "必读——它不解决通用策略，但把‘人类怎么安全碰人’这件事第一次测准、建准、用准了，是临床具身智能不可绕过的锚点工作。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2608.09853",
+        "title": "RynnValue: Scaling Robotic Value Foundation Models with Temporal Distance",
+        "published": "2026-08-10",
+        "first_seen": "2026-08-13",
+        "url": "https://arxiv.org/abs/2608.09853",
+        "pdf_url": "https://arxiv.org/pdf/2608.09853",
+        "thumb": "assets/thumbs/2608.09853.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "未知（作者单位未在摘要中披露，无明显机构标识如DeepMind/Stanford/清华等；论文arXiv ID未提供，无法追溯）",
+        "country": "unknown",
+        "significance": 82,
+        "significance_reason": "首次将时间距离确立为可自动标注、免人工偏好、跨平台泛化的价值建模核心监督信号，并在真实机器人上验证其部署效果（online/offline success率提升近20个百分点），具备强工程落地性与范式迁移潜力；虽未开新物理建模范式或颠覆机器人学习底层架构，但解决了当前reward modeling规模化瓶颈这一关键工程-理论交叉痛点，证据扎实（OOD benchmark、消融、多场景实机验证、开源全栈）。",
+        "tier": "heavy",
+        "tldr": "提出用时间距离（从当前观测到语言指定目标所需的时间步数）作为通用奖励建模的监督信号，训练出一个无需偏好标注、可零样本泛化到新任务/机器人/视角的价值基础模型RynnValue，并在真实机器人上显著提升策略成功率。",
+        "deep": {
+          "hook": "用时间步数替代人工偏好标注，首个零样本泛化到新机器人/任务的价值基础模型",
+          "why_now": "正值具身智能从‘单任务奖励工程’转向‘通用价值建模’的关键拐点：RBM-EVAL-OOD刚发布（2024），而主流reward modeling仍严重依赖昂贵偏好标注；本文直接回应这一范式迁移需求，且与VoxPoser、RT-2、OpenVLA等价值/策略解耦路线形成正交互补。",
+          "problem": "当前机器人价值建模严重依赖人工偏好标注或任务内进度归一化标签，导致跨任务、跨机器人、跨视角泛化能力差；大规模多源数据无法被有效利用，成为reward modeling规模化瓶颈。",
+          "method": "提出以‘时间距离’（从当前帧到语言指定目标所需的时间步数）为唯一监督信号——该信号可全自动从带时间戳的视频中提取，无需任何人工标注；设计三重机制防捷径：随机时间采样（打破时序冗余）、时间顺序打乱（强制模型理解因果方向）、价值隔离注意力（屏蔽无关视觉干扰，专注cost-to-go建模）。",
+          "results": "在OOD benchmark RBM-EVAL-OOD上Kendall's tau_a达0.675，超全偏好监督SOTA（0.655）且超进度-only基线两倍（0.292）；真实机械臂上在线策略成功率从52.5%→72.5%，离线策略从63.8%→82.5%；零样本泛化至未见任务/机器人/相机视角。",
+          "limitations": "1. 时间距离依赖视频中目标真实达成的精确时间戳标注——若原始数据存在动作未完成、目标模糊或标注噪声（如‘打开抽屉’终点判定不一致），将直接污染监督信号；2. 所有实机验证仅在单一机械臂平台（摘要未提型号，但开源代码库显示为Franka）上进行，未验证跨硬件泛化（如双臂/移动机器人）；3. 消融实验未分离‘时间距离标注质量’与‘架构改进’的独立贡献，价值隔离注意力是否真必要存疑。",
+          "significance_take": "范式级推进：首次将‘时间距离’确立为可自动标注、免人工、跨平台的价值建模第一性原理，而非增量改进；它把reward modeling从‘社会选择理论驱动’（偏好）转向‘控制论驱动’（cost-to-go），为构建真正通用的机器人价值接口提供可扩展、可验证、可部署的替代路径。",
+          "who_should_read": "做reward modeling、模仿学习或具身策略训练的工程师——能立刻复用其时间距离标注pipeline、价值隔离注意力模块，以及RBM-EVAL-OOD评测协议。",
+          "verdict": "必读：它不是又一个‘更好一点的reward model’，而是首次给出可替代偏好标注的、经实机验证的工程可行方案，且开源全栈——拒绝它等于继续在人工标注的泥潭里深陷三年。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2608.07895",
+        "title": "Auditing Instruction-Trajectory Mismatches in Multimodal Robot Demonstrations",
+        "published": "2026-08-08",
+        "first_seen": "2026-08-13",
+        "url": "https://arxiv.org/abs/2608.07895",
+        "pdf_url": "https://arxiv.org/pdf/2608.07895",
+        "thumb": "assets/thumbs/2608.07895.jpg",
+        "venue": "RA-L",
+        "domain": "embodied_ai",
+        "best_route": "sim2real_data",
+        "org": "东京大学",
+        "country": "JP",
+        "significance": 76,
+        "significance_reason": "首次明确定义、量化并系统解决ITM这一普遍存在于现有主流演示数据集（LIBERO/ALOHA等）中的隐性污染问题；在多个真实机器人数据子集上验证了审计后策略学习性能提升，且方法无需训练、可即插即用；但未开源数据、未提供完整复现实验脚本（仅code-only），且未在全新硬件平台或跨厂商数据上验证泛化边界。",
+        "tier": "heavy",
+        "tldr": "这篇论文发现并系统研究了机器人多模态演示数据中一种隐蔽但有害的问题：语言指令和动作轨迹不匹配（比如指令说‘打开抽屉’，实际轨迹却是‘关抽屉’），提出一个无需训练的审计框架MMPF来自动检测并修正这类错误配对。",
+        "deep": {
+          "hook": "首次系统发现并量化‘指令-轨迹错配’这一隐性数据污染，提出零训练审计框架MMPF",
+          "why_now": "正值多模态具身策略（如RT-2、OpenVLA）依赖大规模演示数据爆发期，LIBERO/ALOHA等主流数据集被广泛采用却未被审计——本文直击数据质量盲区，与近期‘数据即模型’（Data-Centric AI）和‘鲁棒模仿学习’趋势深度共振",
+          "problem": "现有机器人演示数据集中普遍存在Instruction-Trajectory Mismatches（ITMs）：动作轨迹本身正确（如成功开抽屉），但配对的语言指令错误（如标注为‘关抽屉’）。这类错误不触发rollout失败，却会毒化语言-行为对齐，导致策略在需语言消歧的任务中泛化崩溃。",
+          "method": "提出MMPF（Multimodal Probabilistic Fusion）：将视觉（视频帧）、语言（指令）、动作（轨迹）三模态各自视为‘专家’，分别用预训练模型提取特征；通过局部邻域一致性+全局原型相似性估计任务标签分布；最后按各模态预测熵动态加权融合，输出ITM置信度及修正指令——全程无需微调或训练，纯推理式审计。",
+          "results": "在LIBERO-Spatial/Goal/Objects三大benchmark注入ITM后，MMPF检测准确率最高；在ALOHA真实机器人子集（含厨房操作、抽屉开关等）上验证：经MMPF修正标签后，下游策略（如BC+LLM指令解析）任务成功率提升（摘要未给具体数值，仅报告‘improved policy performance’）；实机实验确认过滤vs.重标间的性能-数据量权衡。",
+          "limitations": "1. 未开源审计后的洁净数据集，也未提供完整复现实验脚本（仅code-only，缺数据加载/评估pipeline）；2. 验证局限于ALOHA平台与LIBERO仿真数据，未测试跨硬件（如Franka vs. Unitree）或跨厂商数据泛化能力；3. MMPF依赖多个预训练模型（CLIP、Action2Vec等），其模态对齐假设未做消融验证。",
+          "significance_take": "范式级意义：首次将‘数据审计’从计算机视觉迁入具身智能核心环节，把‘演示数据可信度’确立为独立研究问题；不是增量改进，而是迫使社区正视‘高质量≠高保真’——语言-动作对齐必须可验证，而非默认成立。",
+          "who_should_read": "所有用LIBERO/ALOHA等数据集训练多模态策略的研究者/工程师，读完能立即用MMPF扫描自己数据集中的ITM并修正标签。",
+          "verdict": "必读——它不提供新架构或更大模型，却揭露了当前整个范式最脆弱的阿喀琉斯之踵：我们信任的数据，可能正在悄悄教AI说谎。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -6271,8 +6363,11 @@
     "2608.05975",
     "2608.06375",
     "2608.07045",
-    "2608.07328"
+    "2608.07328",
+    "2608.07895",
+    "2608.09127",
+    "2608.09853"
   ],
-  "latest": "2026-08-12",
-  "generated_at": "2026-08-12 03:29 UTC"
+  "latest": "2026-08-13",
+  "generated_at": "2026-08-13 03:35 UTC"
 }
