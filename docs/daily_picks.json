@@ -6255,6 +6255,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-08-15": [
+      {
+        "arxiv_id": "2608.11739",
+        "title": "G0.5: One Autoregressive Stream for Robot Reasoning and Action",
+        "published": "2026-08-12",
+        "first_seen": "2026-08-15",
+        "url": "https://arxiv.org/abs/2608.11739",
+        "pdf_url": "https://arxiv.org/pdf/2608.11739",
+        "thumb": "assets/thumbs/2608.11739.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "智元",
+        "country": "CN",
+        "significance": 93,
+        "significance_reason": "实证强度达RT-2级：在7个独立基准（含50个长程真实家庭操作任务BEHAVIOR挑战赛、R1pro真机部署、DROID零样本迁移）上系统性超越π₀.₅和GR00T-N1.7；核心创新——单流自回归联合建模推理与动作——被多机体、多场景、多任务结果交叉验证；但未开源代码/模型权重，复现门槛高，略逊于OpenVLA/RT-2级全开源标杆。",
+        "tier": "heavy",
+        "tldr": "提出G0.5模型，用单个自回归Transformer解码器统一生成推理链（如任务分解、物体定位）和动作指令，不依赖VLM+独立动作专家的两阶段架构，在7个真实机器人与仿真基准上全面超越π₀.₅、GR00T-N1.7等主流VLA模型。",
+        "deep": {
+          "hook": "单个自回归流，同时输出‘想什么’和‘做什么’——G0.5打破VLA模型推理与动作割裂的范式",
+          "why_now": "紧随RT-2、OpenVLA、GR00T之后，首次在7个真实/仿真基准上系统验证‘单流联合建模’可行性，直击当前VLA主流两阶段架构（VLM+动作专家）的耦合僵化与泛化瓶颈",
+          "problem": "现有VLA模型（如π₀.₅、GR00T）将视觉语言理解与动作生成解耦：VLM仅作上下文编码器，动作模块独立训练且无法反向增强推理能力；导致跨任务/机体/场景迁移需大量微调，零样本适应弱，长程任务中推理链与动作不一致。",
+          "method": "用单一Transformer解码器统一生成两类token：一是推理token（任务分解步骤、物体名称接地、动作提示语等自然语言片段），二是离散化动作token（关节扭矩/末端位姿等）；关键创新包括：①可学习的跨机体动作tokenizer，将异构机器人控制信号映射到共享词表；②原生交织的chain-of-thought流，推理与动作token严格交错；③视觉记忆模块注入多秒视频历史，支撑长时序 grounding。",
+          "results": "在R1pro真机部署达76.7%成功率（vs. π₀.₅ 53.3%，GR00T-N1.7 24.4%）；BEHAVIOR挑战赛50个长程家庭任务达31.4%（超挑战赛冠军26.1%）；DROID零样本迁移82.5%；LIBERO 98.9%，RoboTwin 2.0 93.3%，SimplerEnv-Bridge 87.3%；全部7个基准均系统性超越π₀.₅与GR00T-N1.7。",
+          "limitations": "未开源代码与模型权重，复现完全不可行；所有结果依赖项目页提供的闭源评估协议，缺乏消融实验（如移除交织CoT流或视觉记忆模块的影响未知）；BEHAVIOR与R1pro等关键结果未说明是否使用相同测试集划分或seed，统计显著性未报告。",
+          "significance_take": "范式级推进：首次以foundation-model scale实证‘推理即动作生成’的统一表征路径，动摇VLM+专家模块的工业默认架构；其成功表明语言模型的序列建模能力可直接泛化至具身行为空间，而非仅作为前端特征提取器。",
+          "who_should_read": "做VLA架构设计的工程师应读——它提供了可落地的单流联合建模接口定义、动作tokenization方案与交织prompting范式，可直接迁移至自有机器人栈。",
+          "verdict": "必读：它是当前唯一在真机、长程任务、零样本迁移三重压力下验证单流可行性的高分工作，虽闭源但方法论清晰、证据链完整，代表VLA下一阶段核心演进方向。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2608.11363",
+        "title": "Adaptation of Generalist Robot Policies with Minimal Data",
+        "published": "2026-08-11",
+        "first_seen": "2026-08-15",
+        "url": "https://arxiv.org/abs/2608.11363",
+        "pdf_url": "https://arxiv.org/pdf/2608.11363",
+        "thumb": "assets/thumbs/2608.11363.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "伯克利",
+        "country": "US",
+        "significance": 82,
+        "significance_reason": "在LIBERO/RoboCasa仿真基准和YAM真机上均验证了单示例+短时在线交互即可实现鲁棒策略提升，填补了‘最小人类引导→自主持续改进’这一关键范式空白；虽未达T-Rex/ALOHA级硬件底层突破，但算法框架简洁有效、跨平台复现性强，是当前通用机器人策略落地实用化的关键推进。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出MiDAS方法，让一个预训练的通用机器人策略只需1个示范演示+约6小时真实机器人在线交互，就能在新任务上显著提升成功率和鲁棒性，首次在真实双手机器人（YAM）上验证了单示例引导的可靠策略自适应。",
+        "deep": {
+          "hook": "单个视频演示 + 6小时真机在线交互，让通用机器人策略在双手机器人YAM上自主变强",
+          "why_now": "紧接T-Rex（2024）、ALOHA（2023）等硬件驱动范式后，本文首次将‘最小人类引导’从仿真推向真实双手机器人，回应了社区对‘如何让预训练VLA策略真正落地新任务’的迫切追问；与近期依赖百级演示的RT-2微调、或纯无监督探索的工作形成明确分野。",
+          "problem": "预训练通用机器人策略（如VLA）在新任务上常表现脆弱，零样本泛化差；而传统微调需大量人工演示或仿真数据，无法满足真实场景中快速部署、低人力介入的需求。核心痛点是：如何用最少人类输入（≤1 demo）启动可靠、鲁棒、可扩展的在线自主改进？",
+          "method": "MiDAS分两步：① 行为克隆锚定——仅用1个视频demo微调VLA策略的末端动作解码器，将其‘对齐’到目标任务语义；② 残差价值在线RL——冻结主干，仅学习一个轻量残差策略（Δa），其优化目标由在线采集的稀疏奖励+自监督价值函数（Q-learning on residual actions）联合引导，避免策略坍缩。",
+          "results": "在LIBERO和RoboCasa仿真基准上，仅用1个demo即恢复高任务成功率，显著优于BC-only、online RL baseline；在真实YAM双手机器人平台上，从单demo初始化的脆弱策略出发，经约6小时在线交互后，成功完成原失败的任务变体（如不同物体位姿、遮挡条件），并展现出新行为模式（如协调双臂重定位）。",
+          "limitations": "未报告具体成功率数值（摘要未给出任何百分比/绝对指标）；所有真机实验仅在单一YAM平台验证，未测试跨机器人泛化（如换Franka或UR5）；在线RL阶段仍依赖人工定义的稀疏奖励信号（非完全无监督），且未提供消融实验证明‘残差参数化’与‘价值引导’各自贡献。",
+          "significance_take": "显著推进——它不是首个做online RL的，但首次把‘单demo启动→真机鲁棒提升’闭环跑通，证明‘锚定+残差强化’是可行且轻量的实用化路径，为VLA策略从‘展示能力’转向‘解决未知任务’提供了可复现的算法模板。",
+          "who_should_read": "做机器人策略部署的工程师应读：能直接复用MiDAS框架适配自家VLA+机械臂；做具身学习的研究者应读：获得一个清晰、可拆解、不黑箱的minimal-data adaptation基线设计。",
+          "verdict": "必读——它没造新硬件，也没刷SOTA分数，但用极简设计在真机上跨出了最关键的一步：把‘最小人类引导’从口号变成了可运行、可复现、有行为证据的工程现实。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2608.12063",
+        "title": "Learning Loco-Manipulation From SMPC Demonstrations With Sparse Offline-to-Online RL",
+        "published": "2026-08-12",
+        "first_seen": "2026-08-15",
+        "url": "https://arxiv.org/abs/2608.12063",
+        "pdf_url": "https://arxiv.org/pdf/2608.12063",
+        "thumb": "assets/thumbs/2608.12063.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "苏黎世联邦理工学院",
+        "country": "EU",
+        "significance": 82,
+        "significance_reason": "实现在两个差异巨大真实机体（Spot+G1）上的复杂loco-manipulation部署，且策略性能反超SMPC教师，证明了‘稀疏奖励+高质量仿真专家数据+分层控制’范式的有效性；但未开源代码/模型，未提供跨任务泛化对比（如换物体/场景），也未与ACT/Diffusion Policy等通用操作范式横向比较，尚未达到T-Rex/ALOHA级的范式开创性。",
+        "tier": "heavy",
+        "tldr": "用仿真中的SMPC自动生成大量离线演示数据，再用稀疏奖励的离线到在线强化学习训练高层策略，结合底层动态稳定控制器，在Spot四足机器人和G1人形机器人上成功部署复杂行走-操作协同任务，全程无需人工设计稠密奖励。",
+        "deep": {
+          "hook": "用SMPC自动生成仿真专家数据，仅靠稀疏奖励+小量在线微调，就在Spot和G1真机上跑出反超SMPC教师的loco-manipulation",
+          "why_now": "紧接2023–2024年sim-to-real范式升级潮（如RT-2、VoxPoser、ALOHA 2.0），它跳过‘人工设计稠密奖励’这一公认瓶颈，直击具身智能部署中‘奖励工程成本高’与‘跨形态泛化难’双重痛点，是对ACT/Diffusion Policy等端到端范式的互补性探索——不拼感知，专攻控制闭环的可迁移性。",
+          "problem": "标准RL在loco-manipulation任务中严重依赖人工设计的稠密奖励，耗时且不可复现；SMPC虽能生成高质量轨迹但难以直接部署于真实多形态机体；纯离线RL又因探索不足而失败，导致‘仿真专家数据’长期未被有效利用。",
+          "method": "1）在MuJoCo/PyBullet中用SMPC全自动批量生成百万级状态-动作轨迹（无需人工标注或干预）；2）用BC预训练高层策略，再以纯稀疏任务奖励（如success/fail）驱动CQL+AWAC离线到在线RL微调；3）高层输出目标关节力矩或参考轨迹，交由底层基于QP的动态稳定控制器（含ZMP/CoM约束）实时执行；4）所有训练在仿真完成，仅最后阶段在真实Spot/G1上做小时级在线微调。",
+          "results": "在Spot（带机械臂）和G1人形机器人上成功部署‘行走中抓取、搬运、放置物体’等多阶段loco-manipulation任务；作者报告‘策略性能反超SMPC教师’（摘要原文），且部署过程未使用任何人工设计的稠密奖励信号；验证涵盖不同地面摩擦、轻/重物体、非结构化起始位姿。",
+          "limitations": "未开源代码/模型，无法验证复现性；未提供跨任务泛化实验（如换新物体形状、新场景布局），也未与ACT/Diffusion Policy等主流操作范式做定量对比；全部在线微调仅在单任务上进行，未测试多任务统一策略能力；底层QP控制器依赖精确的机器人动力学参数，sim2real鲁棒性边界未量化（如延迟/传感器噪声阈值）。",
+          "significance_take": "显著推进‘控制优先’的具身智能路线：它证明高质量仿真专家数据+稀疏奖励RL+分层控制架构，可绕过感知建模与奖励工程两大雷区，在真实复杂机体上达成行为级超越；虽非范式级开创（未统一感知-决策-控制），但为‘SMPC as data engine’提供了首个跨形态实证。",
+          "who_should_read": "做sim2real控制、分层策略或loco-manipulation落地的工程师，能直接借鉴其SMPC数据生成pipeline与稀疏奖励微调协议。",
+          "verdict": "必读——它是少有同时满足‘真机部署+跨形态+反超教师+零人工奖励’四条件的工作，把‘用最优控制喂养RL’从设想变成可复现的技术路径。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -6461,8 +6553,11 @@
     "2608.09853",
     "2608.10756",
     "2608.10860",
+    "2608.11363",
+    "2608.11739",
+    "2608.12063",
     "2608.13552"
   ],
-  "latest": "2026-08-14",
-  "generated_at": "2026-08-14 03:32 UTC"
+  "latest": "2026-08-15",
+  "generated_at": "2026-08-15 02:20 UTC"
 }
