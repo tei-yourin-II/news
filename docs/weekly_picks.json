@@ -1,18 +1,17 @@
 {
   "week": {
-    "start": "2026-08-10",
-    "end": "2026-08-16",
-    "label": "08.10~08.16"
+    "start": "2026-08-11",
+    "end": "2026-08-17",
+    "label": "08.11~08.17"
   },
   "count": 15,
   "venue_count": 4,
   "venues": [
     "ECCV 2026",
     "Humanoids",
-    "IROS 2026",
-    "RSS 2026"
+    "IROS 2026"
   ],
-  "generated_at": "2026-08-16 02:28 UTC",
+  "generated_at": "2026-08-17 02:25 UTC",
   "picks": [
     {
       "rank": 1,
@@ -93,47 +92,6 @@
     },
     {
       "rank": 3,
-      "arxiv_id": "2608.09127",
-      "title": "High Fidelity Capture, Reconstruction, and Transfer of Human Demonstrations for Robot-Assisted Bathing",
-      "published": "2026-08-10",
-      "url": "https://arxiv.org/abs/2608.09127",
-      "pdf_url": "https://arxiv.org/pdf/2608.09127",
-      "thumb": "assets/thumbs/2608.09127.jpg",
-      "venue": "RSS 2026",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "佐治亚理工学院",
-      "country": "US",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "首次实现临床级人-人接触密集任务（洗澡）的全模态高保真采集与跨层级迁移（感知→建模→控制→部署），数据质量与任务真实性远超多数benchmark，但策略泛化性仅限单一软体手+假人平台，未验证跨机体/跨用户/跨任务鲁棒性，尚未达到T-Rex/ALOHA级范式突破或通用策略层面的SOTA推进。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "dataset",
-        "tactile",
-        "dexterous",
-        "real-robot",
-        "open-source"
-      ],
-      "tldr": "用接触区域作为核心处理单元，高保真采集并重建临床护士为真人洗澡的全过程（含同步运动、形变、接触位置、力），构建首个高质量人-人接触密集交互数据集，并将这些数据用于控制软体灵巧手在假人上完成开环/闭环洗澡任务。",
-      "claim": "接触区域（contact regions）可作为统一表征基元，支撑从高保真人类洗澡示范采集、重建到机器人策略迁移的全链条pHRI建模。",
-      "method_components": [
-        "dataset",
-        "simulator",
-        "policy",
-        "benchmark",
-        "hardware"
-      ],
-      "input": "多模态同步信号：IMU+光学动捕+触觉压力阵列+深度相机+软体手形变传感",
-      "output": "软体灵巧手的关节轨迹与接触力分布序列（开环预演 + 闭环力反馈调整）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合——在pHRI最棘手的临床接触任务上，完成了从数据采集、建模到真实机器人部署的端到端闭环，证据扎实、开源完整，但未提出新学习范式或通用策略架构。",
-      "deep": {}
-    },
-    {
-      "rank": 4,
       "arxiv_id": "2608.13552",
       "title": "PlayWorld: Benchmarking World Models with Agent Players over Long-Horizon Objectives",
       "published": "2026-08-13",
@@ -172,44 +130,7 @@
       "deep": {}
     },
     {
-      "rank": 5,
-      "arxiv_id": "2608.09853",
-      "title": "RynnValue: Scaling Robotic Value Foundation Models with Temporal Distance",
-      "published": "2026-08-10",
-      "url": "https://arxiv.org/abs/2608.09853",
-      "pdf_url": "https://arxiv.org/pdf/2608.09853",
-      "thumb": "assets/thumbs/2608.09853.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "whole_body_control",
-      "org": "未知（作者单位未在摘要中披露，无明显机构标识如DeepMind/Stanford/清华等；论文arXiv ID未提供，无法追溯）",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 82,
-      "significance_reason": "首次将时间距离确立为可自动标注、免人工偏好、跨平台泛化的价值建模核心监督信号，并在真实机器人上验证其部署效果（online/offline success率提升近20个百分点），具备强工程落地性与范式迁移潜力；虽未开新物理建模范式或颠覆机器人学习底层架构，但解决了当前reward modeling规模化瓶颈这一关键工程-理论交叉痛点，证据扎实（OOD benchmark、消融、多场景实机验证、开源全栈）。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "open-source",
-        "large-scale",
-        "benchmark"
-      ],
-      "tldr": "提出用时间距离（从当前观测到语言指定目标所需的时间步数）作为通用奖励建模的监督信号，训练出一个无需偏好标注、可零样本泛化到新任务/机器人/视角的价值基础模型RynnValue，并在真实机器人上显著提升策略成功率。",
-      "claim": "时间距离（temporal distance）是一种可大规模自动标注、跨 embodiment 和数据源可迁移的通用价值监督信号，能替代偏好或进度归一化标签，构建更鲁棒、可扩展的价值基础模型。",
-      "method_components": [
-        "model",
-        "dataset",
-        "benchmark"
-      ],
-      "input": "RGB视频帧序列 + 语言指定的目标描述",
-      "output": "标量价值估计（即从当前状态到目标的剩余时间步数）",
-      "novelty": 8,
-      "evidence": 11,
-      "one_sentence_verdict": "真突破：它把长期被忽视的时间戳隐含结构转化为可扩展价值学习的可靠监督源，绕过偏好标注瓶颈，在真实机器人上取得可复现、可部署的显著增益，是reward foundation model方向的实质性里程碑。",
-      "deep": {}
-    },
-    {
-      "rank": 6,
+      "rank": 4,
       "arxiv_id": "2608.11363",
       "title": "Adaptation of Generalist Robot Policies with Minimal Data",
       "published": "2026-08-11",
@@ -247,7 +168,7 @@
       "deep": {}
     },
     {
-      "rank": 7,
+      "rank": 5,
       "arxiv_id": "2608.12063",
       "title": "Learning Loco-Manipulation From SMPC Demonstrations With Sparse Offline-to-Online RL",
       "published": "2026-08-12",
@@ -285,7 +206,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
+      "rank": 6,
       "arxiv_id": "2608.10383",
       "title": "Real-World Cooperative Bimanual Dexterous Grasp of Large Objects from Single-View Observations",
       "published": "2026-08-11",
@@ -323,7 +244,7 @@
       "deep": {}
     },
     {
-      "rank": 9,
+      "rank": 7,
       "arxiv_id": "2608.13362",
       "title": "NestDex: Nested Policy Learning with Copilot Assisted Teleoperation for Dexterous Manipulation",
       "published": "2026-08-13",
@@ -361,7 +282,43 @@
       "deep": {}
     },
     {
-      "rank": 10,
+      "rank": 8,
+      "arxiv_id": "2608.13049",
+      "title": "H2R-Bench: Benchmarking Human-to-Robot Manipulation Video Generation in World Models",
+      "published": "2026-08-13",
+      "url": "https://arxiv.org/abs/2608.13049",
+      "pdf_url": "https://arxiv.org/pdf/2608.13049",
+      "thumb": "assets/thumbs/2608.13049.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "sim2real_data",
+      "org": "上海交通大学",
+      "country": "CN",
+      "org_type": "university",
+      "significance": 76,
+      "significance_reason": "它是首个聚焦‘人→机器人’跨形态视频生成的结构化评测基准，覆盖5个可验证维度并实测11个SOTA模型，揭示了现有视频世界模型在功能接触建模、本体一致性等关键科学问题上的系统性失效；虽未开源代码/数据，但标注规范、评估协议完整，属扎实的里程碑式评测工作，但尚未达到Open X-Embodiment级的生态奠基地位。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "benchmark",
+        "dataset",
+        "multimodal-fusion"
+      ],
+      "tldr": "这篇论文构建了一个叫H2R-Bench的评测基准，专门用来测试视频世界模型能否把人手操作的第一视角视频，准确转换成符合特定机器人结构（如夹爪或灵巧手）的、带物理合理动作和功能接触的机器人操作视频。",
+      "claim": "当前视频世界模型在跨形态（人→机器人）的操作视频生成上存在系统性缺陷，H2R-Bench首次提供可量化的多维诊断框架来暴露这些缺陷。",
+      "method_components": [
+        "benchmark",
+        "dataset"
+      ],
+      "input": "第一人称视角的人类操作视频 + 目标机器人本体约束（如末端执行器类型、自由度）",
+      "output": "机器人视角/机器人本体执行的合成操作视频（含任务目标、动作事件、功能接触、物体响应等结构化语义）",
+      "novelty": 8,
+      "evidence": 9,
+      "one_sentence_verdict": "重磅——它不是提出新生成模型，而是用严谨多维评测戳破了当前视频世界模型在具身迁移上的幻觉，为后续真正可靠的机器人视频预训练划出清晰能力边界。",
+      "deep": {}
+    },
+    {
+      "rank": 9,
       "arxiv_id": "2608.13014",
       "title": "EgoPHI: Estimating Contact and Force from Egocentric Vision",
       "published": "2026-08-13",
@@ -400,43 +357,7 @@
       "deep": {}
     },
     {
-      "rank": 11,
-      "arxiv_id": "2608.13049",
-      "title": "H2R-Bench: Benchmarking Human-to-Robot Manipulation Video Generation in World Models",
-      "published": "2026-08-13",
-      "url": "https://arxiv.org/abs/2608.13049",
-      "pdf_url": "https://arxiv.org/pdf/2608.13049",
-      "thumb": "assets/thumbs/2608.13049.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "sim2real_data",
-      "org": "上海交通大学",
-      "country": "CN",
-      "org_type": "university",
-      "significance": 76,
-      "significance_reason": "它是首个聚焦‘人→机器人’跨形态视频生成的结构化评测基准，覆盖5个可验证维度并实测11个SOTA模型，揭示了现有视频世界模型在功能接触建模、本体一致性等关键科学问题上的系统性失效；虽未开源代码/数据，但标注规范、评估协议完整，属扎实的里程碑式评测工作，但尚未达到Open X-Embodiment级的生态奠基地位。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "benchmark",
-        "dataset",
-        "multimodal-fusion"
-      ],
-      "tldr": "这篇论文构建了一个叫H2R-Bench的评测基准，专门用来测试视频世界模型能否把人手操作的第一视角视频，准确转换成符合特定机器人结构（如夹爪或灵巧手）的、带物理合理动作和功能接触的机器人操作视频。",
-      "claim": "当前视频世界模型在跨形态（人→机器人）的操作视频生成上存在系统性缺陷，H2R-Bench首次提供可量化的多维诊断框架来暴露这些缺陷。",
-      "method_components": [
-        "benchmark",
-        "dataset"
-      ],
-      "input": "第一人称视角的人类操作视频 + 目标机器人本体约束（如末端执行器类型、自由度）",
-      "output": "机器人视角/机器人本体执行的合成操作视频（含任务目标、动作事件、功能接触、物体响应等结构化语义）",
-      "novelty": 8,
-      "evidence": 9,
-      "one_sentence_verdict": "重磅——它不是提出新生成模型，而是用严谨多维评测戳破了当前视频世界模型在具身迁移上的幻觉，为后续真正可靠的机器人视频预训练划出清晰能力边界。",
-      "deep": {}
-    },
-    {
-      "rank": 12,
+      "rank": 10,
       "arxiv_id": "2608.10756",
       "title": "Embodied Multimodal Grounding for Open-Vocabulary Mobile Manipulation via Semantic 3D Gaussian Splatting",
       "published": "2026-08-11",
@@ -474,80 +395,120 @@
       "deep": {}
     },
     {
-      "rank": 13,
-      "arxiv_id": "2608.09381",
-      "title": "JEPA-WAM: Learning Vision-Language-Action Policies with Joint-Embedding World Modeling",
-      "published": "2026-08-10",
-      "url": "https://arxiv.org/abs/2608.09381",
-      "pdf_url": "https://arxiv.org/pdf/2608.09381",
-      "thumb": "assets/thumbs/2608.09381.jpg",
+      "rank": 11,
+      "arxiv_id": "2608.11671",
+      "title": "StellaVLA: In-Context Structured Demonstration for Generalizable Vision-Language-Action Models",
+      "published": "2026-08-12",
+      "url": "https://arxiv.org/abs/2608.11671",
+      "pdf_url": "https://arxiv.org/pdf/2608.11671",
+      "thumb": "assets/thumbs/2608.11671.jpg",
       "venue": "",
       "domain": "embodied_ai",
       "best_route": "vla",
-      "org": "智元",
-      "country": "CN",
-      "org_type": "company",
+      "org": "未知",
+      "country": "unknown",
+      "org_type": "unknown",
       "significance": 78,
-      "significance_reason": "技术路线清晰（JEPA空间+共享预测器+联合目标设计），实证扎实：LIBERO-Plus SOTA（无大规真实数据）、RoboTwin 2.0多任务验证、真实双臂操作泛化测试；但未开源代码/模型，且未突破‘预训练VLA+微调’主流范式，也未解决长期开放难题（如零样本跨机体、长时程闭环控制），分量介于OpenVLA（93）与Octo（92）之下，略高于典型增量工作（如单任务WAM改进），属显著贡献而非里程碑。",
+      "significance_reason": "实证扎实：在VLA-Arena、LIBERO、LIBERO-Plus三大基准上显著超越π₀.₅和LingBot-VLA，且在真实机器人上验证了跨形态（人手/XR→真机）示范迁移能力；但未开源代码/模型，未报告消融实验细节，也未挑战更难的长期任务或开放世界泛化，尚未达到RT-2/π₀级范式突破或规模级工程整合水准。",
       "tier": "heavy",
       "grade": "C",
       "tags": [
-        "sim2real",
         "multimodal-fusion",
+        "dataset",
         "benchmark"
       ],
-      "tldr": "提出JEPA-WAM，一种在预训练V-JEPA隐空间中构建的潜世界动作模型，通过共享预测器将状态转移预测与连续动作生成耦合，避免显式视频生成开销，同时保持时空结构和patch级对应，在LIBERO-Plus上达到79.2%（无大规模机器人策略预训练）或86.3%（接入预训练π₀.₅），并在RoboTwin 2.0和真实双臂操作中验证了视觉/空间扰动下的泛化性。",
-      "claim": "在预训练JEPA隐空间中构建联合嵌入世界动作模型（JEPA-WAM），通过共享预测器实现转移建模与动作生成的端到端耦合，无需显式未来帧生成即可获得高精度、强泛化性的视觉语言动作策略。",
+      "tldr": "提出StellaVLA框架，通过在推理时用自动生成的结构化示范（含任务计划、子目标描述、3D动作语言化）作为上下文提示，让VLA模型无需微调即可泛化到分布外场景，并支持跨形态（真机/人手/XR）示范复用。",
+      "claim": "仅需一个零标注成本自动生成的结构化示范作为上下文，即可使VLA模型在测试时零微调地泛化到OOD任务，且该结构化表示可跨机器人、人手和XR形态复用。",
       "method_components": [
         "model",
+        "dataset",
+        "benchmark"
+      ],
+      "input": "RGB图像+自然语言指令+1个结构化示范（含任务计划、子目标文本、3D运动语言描述）",
+      "output": "动作序列（关节力矩或末端位姿控制信号）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：将结构化任务分解与in-context learning有效耦合，在多个权威基准实现SOTA并验证跨形态适应性，但缺乏开源与消融支撑，属高质量增量推进而非范式变革",
+      "deep": {}
+    },
+    {
+      "rank": 12,
+      "arxiv_id": "2608.13422",
+      "title": "Attention from Action, for Action: Emergent Visual Bottlenecks for Policy Learning",
+      "published": "2026-08-13",
+      "url": "https://arxiv.org/abs/2608.13422",
+      "pdf_url": "https://arxiv.org/pdf/2608.13422",
+      "thumb": "assets/thumbs/2608.13422.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "瑞典皇家理工学院",
+      "country": "EU",
+      "org_type": "university",
+      "significance": 78,
+      "significance_reason": "在真实机器人上实现跨任务/场景的动态视觉注意力学习，用纯动作监督替代人工标注或启发式裁剪，带来+28.4%绝对成功率提升和+40%抗干扰提升；证据扎实（多任务真机测试、消融完整、对比强基线），但未开源数据/模型，且未扩展至多机体或多模态大模型架构，尚未达到RT-2/Octo级范式突破。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "sim2real",
+        "real-robot"
+      ],
+      "tldr": "提出Seeker方法，让机器人策略自己从动作监督信号中动态学习该看图像的哪个区域（ROI），不用人工标注或固定规则裁剪，从而在真实机器人上显著提升操作成功率和对光照/背景变化的鲁棒性。",
+      "claim": "仅靠动作监督信号（无需视觉标注、无需预设事件检测逻辑），可端到端学习任务与状态自适应的视觉注意力机制，作为轻量级空间接口提升真实机器人操作的数据效率与泛化性。",
+      "method_components": [
+        "model",
+        "dataset",
         "simulator",
         "policy",
         "benchmark"
       ],
-      "input": "RGB图像序列+语言指令",
-      "output": "连续关节动作序列",
+      "input": "RGB图像 + 动作序列/执行状态",
+      "output": "动态生成的视觉注意力掩码（ROI）及对应裁剪区域/点云过滤区域",
+      "novelty": 7,
+      "evidence": 10,
+      "one_sentence_verdict": "工程整合——将视觉注意力机制与动作监督深度耦合，在真实机器人上验证了轻量级空间接口的有效性，是具身智能中感知-动作闭环设计的重要实践推进，但非理论或架构层面的范式突破。",
+      "deep": {}
+    },
+    {
+      "rank": 13,
+      "arxiv_id": "2608.13438",
+      "title": "ContactGuard: Pre-Contact Execution Monitoring with Action-Conditioned Latent World Models",
+      "published": "2026-08-13",
+      "url": "https://arxiv.org/abs/2608.13438",
+      "pdf_url": "https://arxiv.org/pdf/2608.13438",
+      "thumb": "assets/thumbs/2608.13438.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "sim2real_data",
+      "org": "密歇根大学",
+      "country": "US",
+      "org_type": "university",
+      "significance": 78,
+      "significance_reason": "实现在多个真实接触密集任务（插拔、堆叠、抓取变形物）上的部署级预接触监控，有消融对比（direct/corrupted-action baseline）、跨任务泛化验证、且不侵入原策略——这是首个将潜空间世界模型用于实时执行监控并落地到真机的方案，但未开源数据/模型，也未建立新benchmark或开放协议，尚达不到RT-X/Aloha级范式突破。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "real-robot",
+        "multimodal-fusion"
+      ],
+      "tldr": "提出ContactGuard，一种在机器人接触物体前就预测操作是否可能失败的监控模块，它不修改原有策略，而是基于策略计划的动作块，在潜空间中预测短时视觉后果，若预测结果暗示失败（如滑动、错位）则提前中止执行。",
+      "claim": "无需修改底层策略，仅通过轻量级潜空间世界模型和少量标注的预接触视频片段，即可在真实机器人上实现可靠的接触前失败预测与中止。",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator"
+      ],
+      "input": "当前视觉观测 + 策略计划的动作块（chunked action）",
+      "output": "二元决策：是否中止即将发生的接触动作",
       "novelty": 7,
       "evidence": 9,
-      "one_sentence_verdict": "显著贡献：真突破尚不足，但工程整合扎实——在JEPA隐空间内首次实现转移预测与动作生成的紧耦合设计，并在仿真+小规模真实场景中验证有效性，优于多数纯仿真WAM工作，但受限于开源缺失和未挑战根本瓶颈。",
+      "one_sentence_verdict": "工程整合：将潜空间世界模型创新性地用于执行监控而非控制本身，并在真机多任务上验证有效性，但属于高质量应用级改进，非范式重构或基础工具链建设。",
       "deep": {}
     },
     {
       "rank": 14,
-      "arxiv_id": "2608.09298",
-      "title": "WorldSimProbe: Diagnosing Simulator Faithfulness in Action-Conditioned World Models for Embodied Manipulation",
-      "published": "2026-08-10",
-      "url": "https://arxiv.org/abs/2608.09298",
-      "pdf_url": "https://arxiv.org/pdf/2608.09298",
-      "thumb": "assets/thumbs/2608.09298.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "未知（作者列表无明确机构署名，未提实验室/公司，仅含中文名与拼音，无法可靠归属）",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 78,
-      "significance_reason": "首次系统定义并量化‘动作条件化世界模型作为仿真器’的可观测契约（Observable Simulator Contract），并构建覆盖5类物理因果缺陷的标准化诊断套件；实证揭示6个主流开源ACWM普遍存在动作-运动脱节、交互接地失败、动力学失真等结构性缺陷，且指标与人类判断和下游策略性能显著相关；但未提出新模型，也未在真实机器人上验证，属方法论奠基型工作，强于普通benchmark但弱于DreamerV3/WEAVER等范式级建模突破。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "benchmark",
-        "sim2real"
-      ],
-      "tldr": "这篇论文不是提出新世界模型，而是设计了一套叫WorldSimProbe的诊断工具包，专门检测现有动作条件化世界模型（ACWM）在仿真忠实性上的缺陷——比如动作是否真能驱动对应运动、环境响应是否真正基于实际发生的运动，而非只看生成画面是否‘像’。",
-      "claim": "当前ACWM评估严重失焦：视觉保真或任务成功率不能反映其作为物理仿真器的核心能力；必须通过可观测的、动作-运动-响应因果链是否成立来诊断 simulator faithfulness。",
-      "method_components": [
-        "benchmark",
-        "simulator"
-      ],
-      "input": "动作序列 + 初始观测（RGB/状态等）",
-      "output": "仿真器生成的后续观测序列（图像/状态）及对应动作-运动-响应因果链的合规性评分",
-      "novelty": 8,
-      "evidence": 9,
-      "one_sentence_verdict": "真突破——它不是又一个刷榜模型，而是首次把ACWM从‘生成好看视频’拉回‘能否当物理仿真器用’这一根本问题，并给出可测量、可复现、可归因的诊断标准。",
-      "deep": {}
-    },
-    {
-      "rank": 15,
       "arxiv_id": "2608.12860",
       "title": "HumanoidVLN: A Physics-Grounded Simulator and Benchmark for Vision-Language Navigation Across Diverse Humanoid Embodiments",
       "published": "2026-08-13",
@@ -582,6 +543,44 @@
       "novelty": 7,
       "evidence": 8,
       "one_sentence_verdict": "扎实增量：首个专为人形机器人定制的VLN仿真基准，工程完整度高，但缺乏真机闭环验证与理论/算法层面突破，暂未达到领域里程碑门槛。",
+      "deep": {}
+    },
+    {
+      "rank": 15,
+      "arxiv_id": "2608.11876",
+      "title": "D3D-GEN: Robot-Aware Domain-Grounded Interactive 3D World Generation for Social Robotics",
+      "published": "2026-08-12",
+      "url": "https://arxiv.org/abs/2608.11876",
+      "pdf_url": "https://arxiv.org/pdf/2608.11876",
+      "thumb": "assets/thumbs/2608.11876.jpg",
+      "venue": "IROS 2026",
+      "domain": "embodied_ai",
+      "best_route": "sim2real_data",
+      "org": "unknown",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 48,
+      "significance_reason": "虽首次将RAG+领域爬虫用于3D世界生成，但未验证生成环境对下游机器人任务（如导航、社交交互）的实际训练增益；无基线对比（如vs. Habitat、AI2THOR手工场景或SimFoundry）；未报告生成质量量化指标（如布局合理性、物理可行性、语义一致性）；仅展示静态截图与场景数量，缺乏仿真中机器人行为验证；项目页未开源核心RAG生成代码或领域数据库构建脚本。",
+      "tier": "worth",
+      "grade": "D",
+      "tags": [
+        "sim2real",
+        "benchmark",
+        "dataset"
+      ],
+      "tldr": "这篇论文提出D3D-GEN系统，用检索增强生成（RAG）自动从公开网页收集特定领域（如医院、办公室）知识，动态生成符合该领域常识的、可交互的3D仿真环境（含合理布局和物体摆放），输出兼容Isaac Sim和Gazebo的场景文件，全程不依赖固定3D模型库。",
+      "claim": "通过领域感知的检索增强生成（RAG）与自动化知识采集，可零先验3D资产库地、按需生成语义合理且可交互的3D社会机器人仿真环境。",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "benchmark"
+      ],
+      "input": "自然语言领域描述（如“三甲医院急诊科”）",
+      "output": "可加载到Isaac Sim/Gazebo的完整交互式3D世界（含floorplan、物体语义标签、碰撞体、物理属性）",
+      "novelty": 6,
+      "evidence": 5,
+      "one_sentence_verdict": "工程整合：把RAG和网页爬虫组装进3D场景生成流程，有实用价值，但缺乏对机器人任务有效性的实证，未突破仿真环境生成领域的SOTA方法论（如SimFoundry的模块化合成、SPEAR的光追保真度），属于扎实但窄向的工具链改进。",
       "deep": {}
     }
   ]
