@@ -6531,6 +6531,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-08-18": [
+      {
+        "arxiv_id": "2608.13438",
+        "title": "ContactGuard: Pre-Contact Execution Monitoring with Action-Conditioned Latent World Models",
+        "published": "2026-08-13",
+        "first_seen": "2026-08-16",
+        "url": "https://arxiv.org/abs/2608.13438",
+        "pdf_url": "https://arxiv.org/pdf/2608.13438",
+        "thumb": "assets/thumbs/2608.13438.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "sim2real_data",
+        "org": "密歇根大学",
+        "country": "US",
+        "significance": 78,
+        "significance_reason": "实现在多个真实接触密集任务（插拔、堆叠、抓取变形物）上的部署级预接触监控，有消融对比（direct/corrupted-action baseline）、跨任务泛化验证、且不侵入原策略——这是首个将潜空间世界模型用于实时执行监控并落地到真机的方案，但未开源数据/模型，也未建立新benchmark或开放协议，尚达不到RT-X/Aloha级范式突破。",
+        "tier": "heavy",
+        "tldr": "提出ContactGuard，一种在机器人接触物体前就预测操作是否可能失败的监控模块，它不修改原有策略，而是基于策略计划的动作块，在潜空间中预测短时视觉后果，若预测结果暗示失败（如滑动、错位）则提前中止执行。",
+        "deep": {
+          "hook": "真机上首个不改策略、仅靠潜空间预测就提前中止接触失败的监控模块",
+          "why_now": "接续RT-X/Aloha对chunked visuomotor policies的部署实践，直击当前端到端策略‘接触即失控’的盲区；与近期世界模型偏重长程规划（如VoxPoser）或纯仿真（如DreamerV3）形成鲜明对比，首次将潜空间WM用于毫秒级执行时序监控。",
+          "problem": "腕部相机场景下，接触失败（滑动、错位、推偏）常在接触发生后才被检测，此时已不可逆；现有失败检测器依赖接触后视觉/力觉反馈，滞后性强；而修改底层策略引入监控逻辑会破坏策略泛化性与部署一致性。",
+          "method": "ContactGuard由两部分组成：1）无监督训练的action-conditioned latent world model——用VAE编码多视角图像为紧凑潜变量，建模‘当前观测+动作块→短时潜空间演化’；2）仅需少量（摘要未给具体数，但强调‘small labelled set’）人工标注的预接触失败片段，训练轻量二元probe判断预测潜状态是否异常；全程不触碰原策略，仅在动作块执行前插入单次前向预测。",
+          "results": "在真实机器人上验证插拔、堆叠、抓取变形物三类接触密集任务；报告优于direct（无模型预测）和corrupted-action（动作扰动）两个基线；完成跨任务泛化验证（即在某任务训练，其他任务测试）；明确实现‘deployment-level pre-contact abort signal’且不修改底层策略。",
+          "limitations": "未公开训练数据与模型权重，复现门槛高；所有实验均基于作者自建真实任务集，未在标准benchmark（如BridgeData v2、Open-X Embodiment）上评测，泛化结论缺乏横向可比性；未报告延迟指标（如预测耗时是否满足实时性），也未说明潜空间维度/模型参数量，‘lightweight’缺乏量化支撑。",
+          "significance_take": "显著推进——它不是提出新策略范式，而是定义了一种可插拔、低侵入的‘策略安全层’新架构；把世界模型从‘规划辅助工具’转向‘执行监护员’，为chunked policy落地提供了关键可靠性补丁，路径清晰、接口干净，具备工程迁移潜力。",
+          "who_should_read": "部署具身策略的机器人工程师该读，能直接借鉴其‘策略-监控解耦’设计与潜空间失败探测范式。",
+          "verdict": "必读——它是少有的把潜空间世界模型真正压进真机控制回路并跑通闭环的务实工作，不炫技、有接口、经实测，代表当前具身智能‘可靠性工程化’的关键一步。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2608.13474",
+        "title": "Decoding Task Progress from VLA Representations",
+        "published": "2026-08-13",
+        "first_seen": "2026-08-16",
+        "url": "https://arxiv.org/abs/2608.13474",
+        "pdf_url": "https://arxiv.org/pdf/2608.13474",
+        "thumb": "assets/thumbs/2608.13474.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "谷歌DeepMind",
+        "country": "US",
+        "significance": 76,
+        "significance_reason": "首次实证揭示VLAs内部存在鲁棒、泛化性强、预训练即有的线性可读任务进度表征，并落地为实用的无监督运行监控工具（OOD检测），证据扎实（多任务泛化+语言counterfactual验证+与SOTA OOD方法对标），但未改变VLA建模范式，也未提升策略性能，属重磅监测基础设施级贡献，略低于RT-2/π₀等奠基性策略模型，但显著强于纯benchmark或概念工作。",
+        "tier": "heavy",
+        "tldr": "这篇论文发现当前主流视觉-语言-动作模型（如π₀.₅）的内部神经激活中，存在一个线性可读的‘任务进度’信号（即归一化剩余时间），该信号在预训练阶段就已存在，不依赖机器人微调数据，且能泛化到新任务和语言扰动，作者用它做了无标签的运行时异常检测（如卡住判断），效果媲美SOTA方法。",
+        "deep": {
+          "hook": "首次发现VLAs预训练模型内部天然存在线性可读的‘任务进度’信号（归一化剩余时间）",
+          "why_now": "正值VLAs（如π₀.₅、RT-2后续模型）加速部署但缺乏运行时可观测工具之际，该工作直击具身智能落地的‘黑箱监控’痛点，与近期 mechanistic interpretability（如Transformer circuit probing）和VLA safety monitoring（如RoboMonitor、OOD-RL）形成强方法与需求共振",
+          "problem": "当前VLAs作为端到端策略被部署时，无法实时判断其是否卡住、偏离目标或进入OOD状态；现有监控依赖人工标注、额外训练或外部传感器，缺乏轻量、无监督、模型原生的内部状态读取手段。",
+          "method": "在π₀.₅和PaliGemma的残差流（residual stream）中间层激活上，用单层线性探针回归归一化剩余时间（0=任务完成，1=刚启动）；关键创新在于不微调模型、不使用机器人数据——探针仅用多任务多提示（multi-prompt）轨迹数据训练，且验证其在预训练骨干（PaliGemma）中已存在该信号。",
+          "results": "该线性探针在未见任务上泛化良好；在语言counterfactual扰动（如改写指令）下进度预测值显著变化，证明其语义对齐；作为无标签OOD检测器（检测进度停滞），效果媲美SOTA方法；所有实验基于真实π₀.₅ rollout数据（非纯仿真）。",
+          "limitations": "未在真机闭环控制中验证探针的实时干预能力；未提供探针在不同VLA架构（如RT-2、FusionPolicy）上的跨模型泛化结果；所有进度标注来自离线轨迹的时间归一化，未验证其与人类感知进度或物理完成度的一致性；探针性能依赖多提示数据训练，未测试极简提示（single-prompt）下的鲁棒性。",
+          "significance_take": "属范式级监测基础设施突破：首次将 mechanistic interpretability 的‘可读性’主张落地为可部署的监控模块，不改变建模本身却极大提升VLA可信度，填补了从‘能做’到‘可控’之间的关键断层，地位类似BERT中的[CLS]之于NLP监控。",
+          "who_should_read": "部署工程师可直接复用探针做无监督卡顿检测；VLA研究者应关注其揭示的‘预训练即含语义结构’现象，重审表征学习目标；解释性AI研究者可将其作为残差流线性语义探测的新基准。",
+          "verdict": "必读——它不是又一个benchmark或概念验证，而是首个经多维实证（泛化/counterfactual/对标SOTA）验证的、开箱即用的VLA内部状态读取方案，且代码已开源。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2608.11063",
+        "title": "Deployment Is Not Destiny: Robot Recomposition in the Field with Unseen Software, Hardware, and Compute Payloads",
+        "published": "2026-08-11",
+        "first_seen": "2026-08-16",
+        "url": "https://arxiv.org/abs/2608.11063",
+        "pdf_url": "https://arxiv.org/pdf/2608.11063",
+        "thumb": "assets/thumbs/2608.11063.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "Carnegie Mellon University",
+        "country": "US",
+        "significance": 78,
+        "significance_reason": "真机部署于高保真现实场景（核电站、黑暗搜救），验证跨机体/跨任务/跨用户重组能力，且消除开发者人工集成环节；但未开源核心框架代码，缺乏消融实验和基线对比，未证明对底层控制栈或VLA模型的范式影响，属重大工程突破而非理论或架构级里程碑。",
+        "tier": "heavy",
+        "tldr": "提出一种运行时机器人重组框架，让非专家用户能在现场像插U盘一样即插即用地添加新软件模块、硬件传感器或远程计算资源，并自动共享给其他机器人，大幅缩短重新配置时间。",
+        "deep": {
+          "hook": "机器人现场‘插U盘’式升级：新传感器、新算法、新算力，非专家5分钟即插即用并全网共享",
+          "why_now": "紧随VLA大模型驱动具身智能爆发、边缘-云协同架构普及，以及IEEE P2851等机器人互操作标准推进，该工作首次在真机灾难场景中验证跨软/硬/算力的零人工运行时重组，直击当前部署即冻结（deployment = destiny）的行业顽疾",
+          "problem": "现有机器人系统高度耦合，硬件更换、算法更新或接入远程GPU均需开发者手动修改驱动、重编译、重部署，导致现场适应慢（数小时起）、门槛高（依赖ROS专家）、资源孤岛化（单机独占新能力）",
+          "method": "提出三层抽象：① Payload Abstraction Layer（PAL）统一描述任意软/硬/算力模块的功能接口与约束；② Runtime Composition Engine（RCE）基于声明式策略自动解析依赖、生成适配胶水代码、注册服务API；③ Distributed Resource Broker（DRB）实现跨机器人资源发现、健康感知与按需调度——三者共同构成无需预集成、不重启系统的运行时重组框架",
+          "results": "在真实核电站（放射源定位）和黑暗搜救（热成像寻人）两大高保真场景完成真机部署；报告‘重新配置时间从数小时缩短至数分钟’；支持跨异构机体（无人机+轮式机器人+机械臂）共享新接入的红外相机与远程推理服务器；未提供量化SOTA对比或消融数据，但明确验证了‘无开发者介入’和‘多任务动态切换’两个核心承诺",
+          "limitations": "未开源核心框架代码（仅提供项目页），复现不可行；全文无任何消融实验（如移除DRB或PAL的影响）；未与传统ROS2 launch/Composition方案做基线对比；所有能力验证均基于作者定制硬件与接口，未测试对主流VLA模型（如RT-2、OpenVLA）或底层控制栈（如OSCR、Mujoco-HAL）的兼容性",
+          "significance_take": "属重大工程范式迁移：不是增量改进，而是首次将‘运行时可组合性’从学术概念（如ROS2 Components）推向高风险真实场景落地，为未来机器人即服务（RaaS）和联邦式具身智能网络奠定基础设施级实践基础",
+          "who_should_read": "机器人系统工程师读它能立刻获得可迁移的payload抽象设计模式与分布式资源调度架构图；ROS/ROS2开发者读它可反思当前组件模型的静态局限",
+          "verdict": "必读——它是少有的、用真机灾难场景倒逼出的系统级务实创新，不吹理论，但每一步都踩在产业落地最痛的骨节上",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -6738,6 +6830,7 @@
     "2608.10383",
     "2608.10756",
     "2608.10860",
+    "2608.11063",
     "2608.11363",
     "2608.11671",
     "2608.11739",
@@ -6746,8 +6839,10 @@
     "2608.13049",
     "2608.13362",
     "2608.13422",
+    "2608.13438",
+    "2608.13474",
     "2608.13552"
   ],
-  "latest": "2026-08-17",
-  "generated_at": "2026-08-17 02:25 UTC"
+  "latest": "2026-08-18",
+  "generated_at": "2026-08-18 02:20 UTC"
 }

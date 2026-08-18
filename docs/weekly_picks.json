@@ -1,17 +1,18 @@
 {
   "week": {
-    "start": "2026-08-11",
-    "end": "2026-08-17",
-    "label": "08.11~08.17"
+    "start": "2026-08-12",
+    "end": "2026-08-18",
+    "label": "08.12~08.18"
   },
   "count": 15,
   "venue_count": 4,
   "venues": [
     "ECCV 2026",
     "Humanoids",
-    "IROS 2026"
+    "IROS 2026",
+    "NeurIPS 2026"
   ],
-  "generated_at": "2026-08-17 02:25 UTC",
+  "generated_at": "2026-08-18 02:21 UTC",
   "picks": [
     {
       "rank": 1,
@@ -52,46 +53,6 @@
     },
     {
       "rank": 2,
-      "arxiv_id": "2608.10860",
-      "title": "Flex-$π$: A Multi-Stream World-Action Model with Compute Flexibility",
-      "published": "2026-08-11",
-      "url": "https://arxiv.org/abs/2608.10860",
-      "pdf_url": "https://arxiv.org/pdf/2608.10860",
-      "thumb": "assets/thumbs/2608.10860.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "英伟达",
-      "country": "US",
-      "org_type": "company",
-      "significance": 87,
-      "significance_reason": "实质性推进世界模型范式：首次在真实双手机器人上验证‘冻结视觉VAE隐空间天然承载3D+语义’这一关键洞见，并实现模态可裁剪的统一去噪策略；性能超越π₀.₅且部署于真实硬件，但未开创新架构范式（如DreamerV3的离散世界状态建模）或解决长期开放难题（如持续状态记忆缺失），故略低于DreamerV3（96）但高于WEAVER（94.5）",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "dexterous",
-        "real-robot",
-        "sim2real"
-      ],
-      "tldr": "提出Flex-π模型，利用冻结的视频VAE天然编码3D点图和对象语义的能力，在不增加传感器、预训练或推理延迟的前提下，实现RGB、3D几何、对象语义三流联合建模；通过多流dropout和共享去噪架构，单个检查点可动态适配不同输入模态组合，在真实双手机器人精细操作任务中显著提升样本效率和泛化性。",
-      "claim": "冻结视频VAE隐空间天然支持多模态对齐（RGB/3D点图/DINO语义），无需额外训练即可构建计算灵活、模态可裁剪的世界-动作联合模型，大幅提升真实机器人操作的样本效率与跨分布泛化能力。",
-      "method_components": [
-        "model",
-        "dataset",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "RGB图像、3D点云、DINO对象语义特征（可任意子集组合）",
-      "output": "机器人关节动作序列（bimanual）",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：在真实双手机器人上首次实证冻结视频VAE隐空间的多模态可解释性与可复用性，并落地为计算灵活、泛化强的部署级策略，非概念包装",
-      "deep": {}
-    },
-    {
-      "rank": 3,
       "arxiv_id": "2608.13552",
       "title": "PlayWorld: Benchmarking World Models with Agent Players over Long-Horizon Objectives",
       "published": "2026-08-13",
@@ -130,45 +91,7 @@
       "deep": {}
     },
     {
-      "rank": 4,
-      "arxiv_id": "2608.11363",
-      "title": "Adaptation of Generalist Robot Policies with Minimal Data",
-      "published": "2026-08-11",
-      "url": "https://arxiv.org/abs/2608.11363",
-      "pdf_url": "https://arxiv.org/pdf/2608.11363",
-      "thumb": "assets/thumbs/2608.11363.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "伯克利",
-      "country": "US",
-      "org_type": "university",
-      "significance": 82,
-      "significance_reason": "在LIBERO/RoboCasa仿真基准和YAM真机上均验证了单示例+短时在线交互即可实现鲁棒策略提升，填补了‘最小人类引导→自主持续改进’这一关键范式空白；虽未达T-Rex/ALOHA级硬件底层突破，但算法框架简洁有效、跨平台复现性强，是当前通用机器人策略落地实用化的关键推进。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "sim2real",
-        "real-robot",
-        "teleoperation"
-      ],
-      "tldr": "这篇论文提出MiDAS方法，让一个预训练的通用机器人策略只需1个示范演示+约6小时真实机器人在线交互，就能在新任务上显著提升成功率和鲁棒性，首次在真实双手机器人（YAM）上验证了单示例引导的可靠策略自适应。",
-      "claim": "仅需单个任务演示即可启动可靠的机器人策略在线自适应，且该过程不依赖大规模人工标注数据或仿真微调，而是通过行为克隆锚定+残差价值在线强化学习实现。",
-      "method_components": [
-        "model",
-        "policy",
-        "benchmark",
-        "hardware"
-      ],
-      "input": "单张/少量视频演示+实时多模态传感器观测（RGB、关节状态等）",
-      "output": "动作序列（末端执行器位姿+夹爪开合）",
-      "novelty": 7,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：首次在真实双手机器人上实现单示例引导的可靠在线策略自适应，证据扎实（真机6小时、多任务泛化、消融支撑），非概念包装。",
-      "deep": {}
-    },
-    {
-      "rank": 5,
+      "rank": 3,
       "arxiv_id": "2608.12063",
       "title": "Learning Loco-Manipulation From SMPC Demonstrations With Sparse Offline-to-Online RL",
       "published": "2026-08-12",
@@ -206,45 +129,7 @@
       "deep": {}
     },
     {
-      "rank": 6,
-      "arxiv_id": "2608.10383",
-      "title": "Real-World Cooperative Bimanual Dexterous Grasp of Large Objects from Single-View Observations",
-      "published": "2026-08-11",
-      "url": "https://arxiv.org/abs/2608.10383",
-      "pdf_url": "https://arxiv.org/pdf/2608.10383",
-      "thumb": "assets/thumbs/2608.10383.jpg",
-      "venue": "IROS 2026",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "未知（作者单位未在摘要中披露，无机构缩写或知名实验室线索；Li Ziming等为常见中文名，无法唯一映射至清华/浙大/哈工大等明确团队）",
-      "country": "CN",
-      "org_type": "unknown",
-      "significance": 78,
-      "significance_reason": "首次在真实双臂平台上实现单视图驱动的大物体协同灵巧抓取，有真实硬件验证、跨物体/姿态泛化、消融实验支撑，但未开源代码/数据，且未与ALOHA/ACT/YUBI等基线对比，也未证明其DDPM模块相较传统抓取规划器（如EGGS、ContactGraspNet）的实质优势，属扎实的重大工程推进而非范式突破。",
-      "tier": "heavy",
-      "grade": "D",
-      "tags": [
-        "dexterous",
-        "bimanual",
-        "real-robot",
-        "dataset"
-      ],
-      "tldr": "这篇论文提出一个能在真实双臂机器人上直接从单张RGB-D图像（分割点云）生成稳定双手协同抓取大物体动作的端到端框架，不依赖完整3D模型，包含新采集的多模态真实数据集、基于DDPM的抓取构型生成模块和在线抓取优化执行策略。",
-      "claim": "仅凭单视角观测即可在真实双臂机器人上实现对未见过的大尺寸物体的稳定协同灵巧抓取，无需完整3D重建，且性能鲁棒。",
-      "method_components": [
-        "model",
-        "dataset",
-        "policy"
-      ],
-      "input": "单视角RGB-D图像+目标物体分割点云",
-      "output": "双臂关节级抓取构型（含手部姿态）及执行轨迹",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：解决了真实双臂协同抓取大物体这一长期落地瓶颈，实证充分但闭源，未达T-Rex/ALOHA级范式影响力",
-      "deep": {}
-    },
-    {
-      "rank": 7,
+      "rank": 4,
       "arxiv_id": "2608.13362",
       "title": "NestDex: Nested Policy Learning with Copilot Assisted Teleoperation for Dexterous Manipulation",
       "published": "2026-08-13",
@@ -282,7 +167,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
+      "rank": 5,
       "arxiv_id": "2608.13049",
       "title": "H2R-Bench: Benchmarking Human-to-Robot Manipulation Video Generation in World Models",
       "published": "2026-08-13",
@@ -318,7 +203,7 @@
       "deep": {}
     },
     {
-      "rank": 9,
+      "rank": 6,
       "arxiv_id": "2608.13014",
       "title": "EgoPHI: Estimating Contact and Force from Egocentric Vision",
       "published": "2026-08-13",
@@ -357,45 +242,7 @@
       "deep": {}
     },
     {
-      "rank": 10,
-      "arxiv_id": "2608.10756",
-      "title": "Embodied Multimodal Grounding for Open-Vocabulary Mobile Manipulation via Semantic 3D Gaussian Splatting",
-      "published": "2026-08-11",
-      "url": "https://arxiv.org/abs/2608.10756",
-      "pdf_url": "https://arxiv.org/pdf/2608.10756",
-      "thumb": "assets/thumbs/2608.10756.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "未知",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 78,
-      "significance_reason": "实证扎实：50次真机长程任务测试，跨杂乱度/高度偏移/遮挡等挑战，对比PointVLA/DexVLA等主流VLA模型有显著提升；但未开源代码/模型，未展示跨机体泛化或大规模数据训练，也未突破VLA基础架构范式（仍属扩散策略+3D感知增强），故强于OpenVLA（93）但未达RT-2（97）或DAM-VLA（96）级范式创新。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "sim2real",
-        "real-robot"
-      ],
-      "tldr": "用语义3D高斯泼溅构建可刷新的、任务驱动的局部三维语义地图，作为语言-视觉-动作联合 grounding 的共享接口，在真实机器人上提升开放词汇移动操作在杂乱、遮挡、视角变化下的鲁棒性。",
-      "claim": "显式、可刷新的3D语义表征（而非隐式特征融合）作为多模态对齐的共享接口，能显著提升开放词汇移动操作在真实场景中的鲁棒性和成功率。",
-      "method_components": [
-        "model",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "RGB-D图像序列+自然语言指令",
-      "output": "机器人基座位姿+机械臂末端轨迹",
-      "novelty": 7,
-      "evidence": 10,
-      "one_sentence_verdict": "工程整合：将Semantic-3DGS作为可刷新3D grounding接口嵌入VLA pipeline，在真实机器人上取得稳健性能提升，但未改变VLA底层建模逻辑，也未开源核心资产。",
-      "deep": {}
-    },
-    {
-      "rank": 11,
+      "rank": 7,
       "arxiv_id": "2608.11671",
       "title": "StellaVLA: In-Context Structured Demonstration for Generalizable Vision-Language-Action Models",
       "published": "2026-08-12",
@@ -432,7 +279,7 @@
       "deep": {}
     },
     {
-      "rank": 12,
+      "rank": 8,
       "arxiv_id": "2608.13422",
       "title": "Attention from Action, for Action: Emergent Visual Bottlenecks for Policy Learning",
       "published": "2026-08-13",
@@ -471,7 +318,7 @@
       "deep": {}
     },
     {
-      "rank": 13,
+      "rank": 9,
       "arxiv_id": "2608.13438",
       "title": "ContactGuard: Pre-Contact Execution Monitoring with Action-Conditioned Latent World Models",
       "published": "2026-08-13",
@@ -508,7 +355,115 @@
       "deep": {}
     },
     {
-      "rank": 14,
+      "rank": 10,
+      "arxiv_id": "2608.13489",
+      "title": "DreamX-Phi 1.0: Action-Conditioned Video World Model for Robotic Manipulation",
+      "published": "2026-08-13",
+      "url": "https://arxiv.org/abs/2608.13489",
+      "pdf_url": "https://arxiv.org/pdf/2608.13489",
+      "thumb": "assets/thumbs/2608.13489.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "world_model",
+      "org": "DreamX Team",
+      "country": "CN",
+      "org_type": "company",
+      "significance": 68,
+      "significance_reason": "技术组合扎实（几何编码+深度分支+教师引导掩码+蒸馏），在WorldArena 2.0两个赛道取得领先，但仍是仿真内闭环优化，未触及世界模型核心瓶颈（如持久状态表征、跨任务泛化、真实物理耦合建模），相比DreamerV3/WEAVER等里程碑工作，缺乏对‘状态记忆’‘长期因果解耦’或‘真实部署验证’的实质性推进，属显著但非范式级贡献。",
+      "tier": "notable",
+      "grade": "B",
+      "tags": [
+        "sim2real",
+        "benchmark",
+        "open-source"
+      ],
+      "tldr": "提出DreamX-Phi 1.0，一个以动作（末端位姿+夹爪状态）和语言指令为条件的视频世界模型，输入当前帧后预测未来多帧视频；通过几何感知的注意力编码（PRoPE式SE(3)注入）、深度分支建模场景几何、冻结V-JEPA教师引导SAM3掩码保持小物体一致性，并用分布匹配蒸馏压缩为少步推理模型。",
+      "claim": "动作条件化视频世界模型可通过几何结构显式建模、多模态一致性约束与高效蒸馏，在机器人操作任务中实现高保真、身份敏感、物体鲁棒的未来视频预测。",
+      "method_components": [
+        "model",
+        "simulator",
+        "benchmark"
+      ],
+      "input": "当前RGB帧 + 语言指令 + 预设的末端执行器SE(3)位姿序列和夹爪开合状态",
+      "output": "未来多帧RGB视频（含深度分支输出）",
+      "novelty": 6,
+      "evidence": 7,
+      "one_sentence_verdict": "显著贡献：工程整合度高、模块设计有物理意识、开源完整，但在世界模型本质能力（状态持久性、跨任务泛化、真实世界耦合）上未突破现有框架，暂未达到基石论文量级。",
+      "deep": {}
+    },
+    {
+      "rank": 11,
+      "arxiv_id": "2608.13474",
+      "title": "Decoding Task Progress from VLA Representations",
+      "published": "2026-08-13",
+      "url": "https://arxiv.org/abs/2608.13474",
+      "pdf_url": "https://arxiv.org/pdf/2608.13474",
+      "thumb": "assets/thumbs/2608.13474.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "谷歌DeepMind",
+      "country": "US",
+      "org_type": "company",
+      "significance": 76,
+      "significance_reason": "首次实证揭示VLAs内部存在鲁棒、泛化性强、预训练即有的线性可读任务进度表征，并落地为实用的无监督运行监控工具（OOD检测），证据扎实（多任务泛化+语言counterfactual验证+与SOTA OOD方法对标），但未改变VLA建模范式，也未提升策略性能，属重磅监测基础设施级贡献，略低于RT-2/π₀等奠基性策略模型，但显著强于纯benchmark或概念工作。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "interpretability",
+        "ood-detection"
+      ],
+      "tldr": "这篇论文发现当前主流视觉-语言-动作模型（如π₀.₅）的内部神经激活中，存在一个线性可读的‘任务进度’信号（即归一化剩余时间），该信号在预训练阶段就已存在，不依赖机器人微调数据，且能泛化到新任务和语言扰动，作者用它做了无标签的运行时异常检测（如卡住判断），效果媲美SOTA方法。",
+      "claim": "VLAs的残差流中天然编码了线性可读的任务进度语义，这一信号可被轻量探针提取并用于部署监控，无需额外训练或标注。",
+      "method_components": [
+        "model",
+        "benchmark"
+      ],
+      "input": "VLA模型中间层残差流激活（来自π₀.₅/PaliGemma）",
+      "output": "标量任务进度值（0→1，归一化剩余时间）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：将机械可解释性方法成功迁移到VLA监控场景，提供了首个轻量、即插即用、有实证支撑的部署期语义监控方案，但未触及策略本身的设计或性能边界。",
+      "deep": {}
+    },
+    {
+      "rank": 12,
+      "arxiv_id": "2608.11605",
+      "title": "Foresight Without Seeing: Latent Futures for World Action Models",
+      "published": "2026-08-12",
+      "url": "https://arxiv.org/abs/2608.11605",
+      "pdf_url": "https://arxiv.org/pdf/2608.11605",
+      "thumb": "assets/thumbs/2608.11605.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "world_model",
+      "org": "清华",
+      "country": "CN",
+      "org_type": "university",
+      "significance": 76,
+      "significance_reason": "技术路径清晰（Future-KV复用+动力学寄存器）、在标准基准LIBERO上性能逼近SOTA（96.7%），且消融验证了动力学寄存器对任务进展建模的有效性；但未开源、无真机实验、未在更难的跨机体/跨场景设置验证，相比DreamerV3/DreamerV1等基石工作仍缺持续状态建模、闭环控制泛化与真实部署证据。",
+      "tier": "heavy",
+      "grade": "D",
+      "tags": [
+        "multimodal-fusion"
+      ],
+      "tldr": "提出ForeWAM模型，让世界动作模型在不生成未来视频的前提下，把未来动态信息（如物体运动、接触变化）隐式编码进动作生成过程，从而兼顾预测可解释性和推理效率，在LIBERO上达到96.7%成功率。",
+      "claim": "无需解码未来视频，仅通过复用Video DiT预填充的未来KV状态和动力学寄存器，即可使直接策略型世界动作模型在保持高效动作生成的同时，显式利用预测性动力学信息指导动作决策。",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark"
+      ],
+      "input": "当前视觉潜变量（visual latent）+ 随机采样的未来槽位（stochastic future slots）",
+      "output": "动作序列（去噪生成的动作块）",
+      "novelty": 7,
+      "evidence": 8,
+      "one_sentence_verdict": "工程整合：巧妙复用视觉扩散模型中间态实现动力学感知动作生成，性能扎实但缺乏开源与真实系统验证，属高质量方法工程，非范式突破",
+      "deep": {}
+    },
+    {
+      "rank": 13,
       "arxiv_id": "2608.12860",
       "title": "HumanoidVLN: A Physics-Grounded Simulator and Benchmark for Vision-Language Navigation Across Diverse Humanoid Embodiments",
       "published": "2026-08-13",
@@ -546,7 +501,7 @@
       "deep": {}
     },
     {
-      "rank": 15,
+      "rank": 14,
       "arxiv_id": "2608.11876",
       "title": "D3D-GEN: Robot-Aware Domain-Grounded Interactive 3D World Generation for Social Robotics",
       "published": "2026-08-12",
@@ -581,6 +536,44 @@
       "novelty": 6,
       "evidence": 5,
       "one_sentence_verdict": "工程整合：把RAG和网页爬虫组装进3D场景生成流程，有实用价值，但缺乏对机器人任务有效性的实证，未突破仿真环境生成领域的SOTA方法论（如SimFoundry的模块化合成、SPEAR的光追保真度），属于扎实但窄向的工具链改进。",
+      "deep": {}
+    },
+    {
+      "rank": 15,
+      "arxiv_id": "2608.12416",
+      "title": "RoboSynChallenge: Mastering Real-World Dexterity via Generalizing Synthesized Manipulation Skills",
+      "published": "2026-08-12",
+      "url": "https://arxiv.org/abs/2608.12416",
+      "pdf_url": "https://arxiv.org/pdf/2608.12416",
+      "thumb": "assets/thumbs/2608.12416.jpg",
+      "venue": "NeurIPS 2026",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "未知",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 38,
+      "significance_reason": "本质是benchmark+合成数据倡议，无新算法/新硬件/新实证突破；未展示任何策略在真实机器人上超越现有SOTA（如ACT/Diffusion Policy/YUBI），也未提供真实世界多任务性能数据或消融，仅承诺‘鼓励用合成数据’，缺乏对合成到真实泛化瓶颈的机制分析或实证验证。",
+      "tier": "worth",
+      "grade": "D",
+      "tags": [
+        "benchmark",
+        "dataset",
+        "sim2real"
+      ],
+      "tldr": "这篇论文不是提出新算法，而是组织了一个叫RoboSynChallenge的比赛，用合成数据训练机器人抓取等操作策略，但最终只在真实机器人上测试泛化能力，提供多个基线模型和统一评测标准。",
+      "claim": "通过大规模合成数据训练+严格真实世界泛化评测的联合范式，可有效推动通用灵巧操作策略的发展。",
+      "method_components": [
+        "benchmark",
+        "dataset",
+        "simulator",
+        "policy"
+      ],
+      "input": "合成生成的状态-动作序列（含视觉、状态观测等）",
+      "output": "灵巧操作策略（即控制机器人执行未见过任务的动作序列）",
+      "novelty": 4,
+      "evidence": 5,
+      "one_sentence_verdict": "概念包装——把‘用仿真训、真机测’这一已被广泛采用的范式重新冠名包装为挑战赛，但未提供任何超越ALOHA/ACT/Diffusion Policy等基石工作的实证进展或方法论突破。",
       "deep": {}
     }
   ]
