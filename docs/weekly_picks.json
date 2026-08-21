@@ -1,18 +1,17 @@
 {
   "week": {
-    "start": "2026-08-14",
-    "end": "2026-08-20",
-    "label": "08.14~08.20"
+    "start": "2026-08-15",
+    "end": "2026-08-21",
+    "label": "08.15~08.21"
   },
   "count": 15,
   "venue_count": 4,
   "venues": [
-    "CVPR",
     "Humanoids",
     "IROS 2026",
     "RA-L 2026"
   ],
-  "generated_at": "2026-08-20 02:25 UTC",
+  "generated_at": "2026-08-21 02:30 UTC",
   "picks": [
     {
       "rank": 1,
@@ -94,6 +93,44 @@
     },
     {
       "rank": 3,
+      "arxiv_id": "2608.18701",
+      "title": "SoftVTBench: A Deformation-Aware Visuo-Tactile Dataset and Benchmark for Deformable-Object Manipulation",
+      "published": "2026-08-19",
+      "url": "https://arxiv.org/abs/2608.18701",
+      "pdf_url": "https://arxiv.org/pdf/2608.18701",
+      "thumb": "assets/thumbs/2608.18701.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "未知",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 82,
+      "significance_reason": "首次系统性将FEM物理真值嵌入大规模visuo-tactile操作数据集，并定义可量化的形变约束成功标准（DSR），实证揭示主流策略（Diffusion Policy等）在任务成功下普遍存在物理失控问题；虽未部署真机闭环控制，但数据规模、模态同步精度、跨对象泛化设计及开源完整性已达T-Rex/ALOHA级基准建设水准，属领域关键基础设施升级。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "dataset",
+        "benchmark",
+        "multimodal-fusion",
+        "tactile"
+      ],
+      "tldr": "构建了一个带物理真值（有限元仿真状态）的视觉-触觉多模态数据集SoftVTBench，用于评估柔性物体操作中策略是否不仅完成任务，还控制了形变程度，并基于此定义了形变感知成功率（DSR）新指标，发现现有主流策略在成功时仍常违反形变约束。",
+      "claim": "仅靠任务完成率无法反映柔性物体操作的质量；必须联合视觉、触觉与物理真值（FEM）评估策略对接触物理过程的控制能力，而现有方法普遍在‘成功’时仍造成不可接受的形变。",
+      "method_components": [
+        "dataset",
+        "benchmark",
+        "simulator"
+      ],
+      "input": "多视角RGB图像、双指触觉RGB图像、标记点运动、本体感觉、语言指令、二值/连续夹爪动作",
+      "output": "柔性物体操作策略的形变感知成功率（DSR）评估结果",
+      "novelty": 8,
+      "evidence": 10,
+      "one_sentence_verdict": "真突破：不是提出新算法，而是重建了柔性操作的评估范式——用可测量的物理约束替代模糊的‘成功’，并提供首个带FEM真值的多模态基准，迫使整个社区正视‘完成任务≠控制物理’这一根本缺陷。",
+      "deep": {}
+    },
+    {
+      "rank": 4,
       "arxiv_id": "2608.15766",
       "title": "Tac4Loco: Learning Spatiotemporal Plantar Pressure Representations for Humanoid Locomotion",
       "published": "2026-08-16",
@@ -131,43 +168,6 @@
       "novelty": 7,
       "evidence": 10,
       "one_sentence_verdict": "工程整合：将足底触觉的时空结构建模深度嵌入运动策略闭环，实证充分、部署可信，但未开创新范式或解决根本性瓶颈",
-      "deep": {}
-    },
-    {
-      "rank": 4,
-      "arxiv_id": "2608.14047",
-      "title": "Evolve Vision-Language-Action Model into an Agent with On-the-fly Tool-use",
-      "published": "2026-08-14",
-      "url": "https://arxiv.org/abs/2608.14047",
-      "pdf_url": "https://arxiv.org/pdf/2608.14047",
-      "thumb": "assets/thumbs/2608.14047.jpg",
-      "venue": "CVPR",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "智元",
-      "country": "CN",
-      "org_type": "company",
-      "significance": 78,
-      "significance_reason": "确实在工具化解耦、低数据训练、sim2real多任务验证（含暗光/新视角真实实验）上做出扎实工程突破，但未开源代码/模型，未覆盖多机体协同或长时序开放世界推理，也未挑战RT-2/π0级的基础架构瓶颈（如世界模型、因果抽象），属于强工程整合而非范式创新。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "tool-use",
-        "sim2real"
-      ],
-      "tldr": "这篇论文提出ART框架，把现成的视觉-语言-动作（VLA）模型改造成能动态调用外部工具模块（如边缘检测、抓取姿态估计、运动规划）的智能体，用仅3万条工具使用轨迹就实现了比主流方法高20%的成功率，尤其在暗光、新视角等挑战性真实任务中表现更好。",
-      "claim": "通过将VLA模型解耦为可插拔的工具调用智能体，能在极低数据量下显著提升跨任务泛化性与真实场景鲁棒性，无需重训整个动作解码器。",
-      "method_components": [
-        "model",
-        "dataset",
-        "benchmark"
-      ],
-      "input": "RGB图像+自然语言指令",
-      "output": "工具选择序列+对应工具的参数化动作输出（非端到端连续动作）",
-      "novelty": 7,
-      "evidence": 8,
-      "one_sentence_verdict": "工程整合：把VLA从端到端黑箱转向模块化工具调用，在真实机器人上验证了低数据、高泛化优势，但缺乏开源和更广义的智能体能力（如自主目标生成、失败恢复），尚未达到基石论文的范式高度。",
       "deep": {}
     },
     {
@@ -210,44 +210,6 @@
     },
     {
       "rank": 6,
-      "arxiv_id": "2608.14822",
-      "title": "Imagining Recovery: Inference-Time Counterfactual Realignment for Vision-Language-Action Models",
-      "published": "2026-08-14",
-      "url": "https://arxiv.org/abs/2608.14822",
-      "pdf_url": "https://arxiv.org/pdf/2608.14822",
-      "thumb": "assets/thumbs/2608.14822.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "unknown",
-      "country": "US",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "在RT-2/π0/OpenVLA等90+分量级工作已确立VLA范式后，本文首次系统解决其在线脆弱性这一关键落地瓶颈：真机多机体验证、跨扰动类型统一框架、无训练恢复、消融完整；但未改变VLA建模本质，也未提升基础泛化能力，属重大工程鲁棒性突破而非范式创新。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "sim2real",
-        "multimodal-fusion",
-        "real-robot"
-      ],
-      "tldr": "提出一种无需训练、不依赖失败数据的在线恢复机制CoRe，当机器人执行出错时，它不靠重试或重训，而是回溯到最近可行状态，用视觉语言模型‘脑补’后续理想轨迹，再微调机器人和场景位置来对齐这个脑补结果，从而无风险地继续任务。",
-      "claim": "冻结的VLA模型可在推理时零训练、零失败数据、零外部干预地实现鲁棒在线恢复，统一处理指令变更与物理扰动。",
-      "method_components": [
-        "model",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "当前观测（RGB+语言指令）+历史轨迹片段+检测到的偏差信号",
-      "output": "最小化物理调整指令（如末端位姿修正、物体重置偏移量）及恢复后的策略续执行起点",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破——不是新模型，而是让现有冻结VLA真正扛住现实干扰的第一套经实证验证的推理时恢复机制。",
-      "deep": {}
-    },
-    {
-      "rank": 7,
       "arxiv_id": "2608.16195",
       "title": "RoboStriker: Latent-Space Strategic Games for Autonomous Humanoid Boxing",
       "published": "2026-08-17",
@@ -287,45 +249,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
-      "arxiv_id": "2608.14028",
-      "title": "AdvDex: Learning Dexterous Manipulation from Human Demonstrations via Joint-Aligned Actions and Adversarial Learning",
-      "published": "2026-08-14",
-      "url": "https://arxiv.org/abs/2608.14028",
-      "pdf_url": "https://arxiv.org/pdf/2608.14028",
-      "thumb": "assets/thumbs/2608.14028.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "未知（作者单位未在摘要中体现，无明显机构标识如DeepMind/清华/智元等；Zhao/Wu/Liu等为常见中文名，但无affiliation线索）",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 78,
-      "significance_reason": "实现了有实证支撑的人类→多机器人手零样本迁移（含真实灵巧手实验），动作空间设计（JAAS）具通用性，OmniShare是首个大规模带触觉+运动学的人类灵巧操作数据集；但未达T-Rex/ALOHA级部署规模、未开源代码模型、未覆盖双手机器人或接触密集任务闭环优化，属扎实重磅进展而非范式突破。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "dexterous",
-        "multimodal-fusion",
-        "dataset",
-        "sim2real"
-      ],
-      "tldr": "用人类手部动作演示（带高精度运动学和触觉数据）训练一个统一的视觉-语言-动作模型，通过关节对齐的动作空间和对抗学习，实现人类技能到多种机器人手的零样本迁移，并在真实机器人上验证了对新物体和环境的泛化能力。",
-      "claim": "通过关节对齐的动作表征（JAAS）和域对抗学习，可从人类演示中高效学习灵巧操作策略，并实现跨人体-机器人本体的零样本技能迁移与真实场景泛化。",
-      "method_components": [
-        "model",
-        "dataset",
-        "benchmark"
-      ],
-      "input": "RGB视频+语言指令+（部分情况下）触觉信号",
-      "output": "SE(3)腕部位姿 + 15维手指关节角（即关节对齐的动作序列）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：在动作表征统一性、人类数据利用效率和跨本体迁移上做出系统性工程整合，实证充分但未开源核心资产，尚未达到基石工作级别的部署深度与开放性。",
-      "deep": {}
-    },
-    {
-      "rank": 9,
+      "rank": 7,
       "arxiv_id": "2608.15816",
       "title": "ViTaR: Visuo-Tactile Residual Adaptation for Foundation VLA Manipulation",
       "published": "2026-08-16",
@@ -362,7 +286,7 @@
       "deep": {}
     },
     {
-      "rank": 10,
+      "rank": 8,
       "arxiv_id": "2608.15917",
       "title": "Pre-training Visual Dexterity in Simulation",
       "published": "2026-08-16",
@@ -400,7 +324,7 @@
       "deep": {}
     },
     {
-      "rank": 11,
+      "rank": 9,
       "arxiv_id": "2608.15009",
       "title": "ForceU-VLA: A Force-Aware Vision-Language-Action Model for Embodied Ultrasound Scanning",
       "published": "2026-08-15",
@@ -439,7 +363,7 @@
       "deep": {}
     },
     {
-      "rank": 12,
+      "rank": 10,
       "arxiv_id": "2608.15863",
       "title": "Scaling Manual-Grounded Appliance Manipulation with Data Synthesis and Unified Planning",
       "published": "2026-08-16",
@@ -476,7 +400,7 @@
       "deep": {}
     },
     {
-      "rank": 13,
+      "rank": 11,
       "arxiv_id": "2608.16837",
       "title": "HAF: Adapting Generalist VLAs to Humanoid Whole-Body Loco-manipulation via Hierarchical Action Flow and Spectral Latent RL",
       "published": "2026-08-17",
@@ -514,7 +438,7 @@
       "deep": {}
     },
     {
-      "rank": 14,
+      "rank": 12,
       "arxiv_id": "2608.16889",
       "title": "Don't Drop the BATON: Long-Horizon Robot Manipulation via Agentic Subtask Exploration and Transition-aware Memory",
       "published": "2026-08-17",
@@ -552,7 +476,46 @@
       "deep": {}
     },
     {
-      "rank": 15,
+      "rank": 13,
+      "arxiv_id": "2608.16433",
+      "title": "Robot-Body-Aware Traversal Risk Graph Planning for Wheeled-Legged Robots in Complex Terrain",
+      "published": "2026-08-17",
+      "url": "https://arxiv.org/abs/2608.16433",
+      "pdf_url": "https://arxiv.org/pdf/2608.16433",
+      "thumb": "assets/thumbs/2608.16433.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "whole_body_control",
+      "org": "汉堡工业大学",
+      "country": "EU",
+      "org_type": "university",
+      "significance": 76,
+      "significance_reason": "属扎实的工程级突破：首次将TRG从静态地形表征升级为机器人本体约束显式建模，在真实轮腿平台（Go2）上完成端到端部署并获奖，有跨地形泛化、消融对比、多指标下降（3项几何指标）、代码数据全开源；但未引入新学习范式、未解决底层运动控制耦合难题，也未扩展到多机体/多任务泛化，故未达基石级（94+）的范式开创性。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "real-robot",
+        "benchmark",
+        "open-source"
+      ],
+      "tldr": "这篇论文针对轮腿机器人在复杂地形导航时，传统Traversal Risk Graph（TRG）忽略机器人实际朝向和身体轮廓导致规划失败的问题，提出Robot-Body-Aware TRG（RB-TRG），用带朝向的矩形足迹沿路径和偏航角采样，量化支撑变化、侧倾、地形干涉等真实风险，并嵌入A*搜索；在仿真和实机（宇树Go2）上验证了成功率从51.5%提升至68.5%，代码已开源。",
+      "claim": "将TRG规划从‘地形网格抽象’升级为‘机器人本体感知’，通过朝向敏感的足迹采样与多维风险建模，显著提升轮腿机器人在复杂非结构化地形中的通行成功率。",
+      "method_components": [
+        "model",
+        "simulator",
+        "benchmark",
+        "hardware"
+      ],
+      "input": "LiDAR构建的三维地形地图 + 机器人当前位姿与朝向",
+      "output": "低风险全局路径（节点序列+每段对应最优偏航角与转向策略）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：把经典图规划方法深度适配轮腿机器人物理约束，在真机上跑通并显著提效，是具身智能中‘算法-机体-地形’闭环落地的优秀范例，但非理论或架构层面的原始创新。",
+      "deep": {}
+    },
+    {
+      "rank": 14,
       "arxiv_id": "2608.16853",
       "title": "FlexWorm: Primitive-augmented Hybrid Contact-motion Planning for Suction-based Multi-segment Deformable Robots",
       "published": "2026-08-17",
@@ -587,6 +550,42 @@
       "novelty": 7,
       "evidence": 8,
       "one_sentence_verdict": "显著贡献：真突破尚早，但首次将多段吸盘软体的吸附-形变耦合建模为可搜索的混合状态空间，并在真实软体平台上验证了在线恢复能力，是软体机器人自主导航方向的重要增量。",
+      "deep": {}
+    },
+    {
+      "rank": 15,
+      "arxiv_id": "2608.14986",
+      "title": "GaussMemory: Task-Driven 3D Gaussian Scene Memory for Long-Horizon Robotic Manipulation",
+      "published": "2026-08-15",
+      "url": "https://arxiv.org/abs/2608.14986",
+      "pdf_url": "https://arxiv.org/pdf/2608.14986",
+      "thumb": "assets/thumbs/2608.14986.jpg",
+      "venue": "IROS 2026",
+      "domain": "embodied_ai",
+      "best_route": "sim2real_data",
+      "org": "东京大学",
+      "country": "JP",
+      "org_type": "university",
+      "significance": 58,
+      "significance_reason": "提出了有启发性的‘任务驱动记忆’概念并用3DGS实现，但在LIBERO/VLABench上仅小幅超越基线（+5.2%~+6.0%），无真实机器人验证、无消融分析、无开源代码，未跨机体/跨用户泛化，远未达DROID/ALOHA级工程深度或Open X-Embodiment级数据与生态影响力。",
+      "tier": "worth",
+      "grade": "D",
+      "tags": [
+        "multimodal-fusion",
+        "sim2real"
+      ],
+      "tldr": "提出GaussMemory，用任务驱动的3D高斯溅射作为长期操作中的动态空间记忆，让机器人自主决定记什么、怎么更新、何时遗忘，而非固定规则存储所有观测。",
+      "claim": "机器人的3D空间记忆应是任务驱动的主动认知过程，而非被动记录；通过将记忆更新与读取统一为可学习的双向认知流，能显著提升长程操作性能。",
+      "method_components": [
+        "model",
+        "simulator",
+        "benchmark"
+      ],
+      "input": "RGB-D图像序列 + 语言任务指令",
+      "output": "任务导向的3D高斯场景表示（含动态权重、更新率、选择性保留）",
+      "novelty": 7,
+      "evidence": 6,
+      "one_sentence_verdict": "扎实增量：概念清晰、技术选型合理，但实证薄弱、闭环不全，属于高质量仿真方法论文，暂不具备真机部署或范式迁移分量。",
       "deep": {}
     }
   ]

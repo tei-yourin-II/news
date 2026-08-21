@@ -6807,6 +6807,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-08-21": [
+      {
+        "arxiv_id": "2608.18701",
+        "title": "SoftVTBench: A Deformation-Aware Visuo-Tactile Dataset and Benchmark for Deformable-Object Manipulation",
+        "published": "2026-08-19",
+        "first_seen": "2026-08-21",
+        "url": "https://arxiv.org/abs/2608.18701",
+        "pdf_url": "https://arxiv.org/pdf/2608.18701",
+        "thumb": "assets/thumbs/2608.18701.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "未知",
+        "country": "unknown",
+        "significance": 82,
+        "significance_reason": "首次系统性将FEM物理真值嵌入大规模visuo-tactile操作数据集，并定义可量化的形变约束成功标准（DSR），实证揭示主流策略（Diffusion Policy等）在任务成功下普遍存在物理失控问题；虽未部署真机闭环控制，但数据规模、模态同步精度、跨对象泛化设计及开源完整性已达T-Rex/ALOHA级基准建设水准，属领域关键基础设施升级。",
+        "tier": "heavy",
+        "tldr": "构建了一个带物理真值（有限元仿真状态）的视觉-触觉多模态数据集SoftVTBench，用于评估柔性物体操作中策略是否不仅完成任务，还控制了形变程度，并基于此定义了形变感知成功率（DSR）新指标，发现现有主流策略在成功时仍常违反形变约束。",
+        "deep": {
+          "hook": "首个带FEM物理真值的视觉-触觉数据集，定义形变感知成功率（DSR），揭穿‘任务成功=操作合格’的幻觉",
+          "why_now": "紧随Diffusion Policy、FastWAM等柔性操作新范式爆发期，直击其评估真空——当前SOTA策略在仿真中‘成功’却频繁失控形变，而T-Rex/ALOHA级基准均无物理真值与形变约束，SoftVTBench填补了可量化物理控制能力的基础设施缺口",
+          "problem": "柔性物体操作中，仅用任务完成率（如是否夹起/放置）评估策略严重失真：策略可能靠滑动、过压或撕扯‘蒙混过关’；现有数据集缺失独立、全程、高精度的物理 ground truth（如内部应力/应变），无法判断接触过程是否符合材料物理规律",
+          "method": "用高保真FEM仿真器（而非简化模型）生成4000条专家演示，同步记录20Hz多视角RGB、双指触觉图、标记点轨迹、本体感觉、语言指令及夹爪动作；关键创新是将FEM状态（如von Mises应变场）作为evaluator-only真值，不参与训练；据此定义DSR：仅当任务完成+峰值归一化形变≤预设容差时才计为成功",
+          "results": "在12种in-distribution配置中，Diffusion Policy/π₀.₅/FastWAM的所有成功rollout里，0.7–24%仍违反形变容差；6组分布外测试中，视觉-触觉策略在5/6组DSR更高，证明触觉价值需在形变约束下才可被识别",
+          "limitations": "全部实验在仿真闭环中完成，未验证真机部署可行性；FEM真值依赖特定材料参数与网格划分，未提供参数敏感性分析或跨FEM求解器泛化验证；DSR容差阈值为人工设定，未说明其与真实硬件损伤/任务功能退化间的映射关系",
+          "significance_take": "范式级——它把‘物理正确性’从隐含假设变为可测量指标，推动柔性操作评估从‘did it work?’转向‘how physically well did it work?’，类似ImageNet之于分类，是后续物理可控策略研发的必经基准",
+          "who_should_read": "做柔性操作算法的研究者应读，能立刻获得带FEM真值的多模态数据、DSR评估代码和现成baseline失败案例，用于诊断自己策略的物理失控模式",
+          "verdict": "必读——不是因为结果惊艳，而是它首次把‘物理合理性’变成不可绕过的硬性评测维度，不读此基准，后续工作将面临评估可信度危机",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2608.15897",
+        "title": "Tactile Sim2Real without Tactile Simulation via Bottlenecked Latent Reconstruction",
+        "published": "2026-08-16",
+        "first_seen": "2026-08-20",
+        "url": "https://arxiv.org/abs/2608.15897",
+        "pdf_url": "https://arxiv.org/pdf/2608.15897",
+        "thumb": "assets/thumbs/2608.15897.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "sim2real_data",
+        "org": "密歇根大学",
+        "country": "US",
+        "significance": 82,
+        "significance_reason": "在触觉Sim2Real这一长期瓶颈问题上，首次系统性绕过传感器建模难题，用潜空间对齐+无配对学习实现跨传感器、跨任务零样本迁移；真机实验覆盖两种主流触觉硬件、两个接触密集任务，成功率超90%，显著优于物理仿真基线；虽未开源全部数据/模型，但方法可复现且代码已公开，属扎实的重大推进，但尚未达到RT-X级开放生态或DROID级通用机器人系统层级的范式突破。",
+        "tier": "heavy",
+        "tldr": "提出一种不依赖触觉传感器仿真的Sim2Real方法：先用易构建的仿真原生‘触觉神谕’（点云+指尖力）训练策略，再通过无配对随机采集数据学习真实传感器与神谕的潜在空间对齐，实现零样本触觉迁移。",
+        "deep": {
+          "hook": "不建模任何真实触觉传感器，仅靠无配对随机数据就实现零样本Sim2Real迁移",
+          "why_now": "继RT-2、DROID等视觉-语言-动作统一框架后，触觉Sim2Real长期被传感器建模瓶颈卡住；本文直击‘仿真难建模、真机难标定’双重痛点，与近期Latent Diffusion for Robotics（CoRL'23）、Rectified Flow for Embodied Alignment（ICLR'24）形成方法论呼应，踩中‘绕过物理建模、转向潜空间对齐’的新范式拐点",
+          "problem": "触觉传感器种类繁多（GelSight/DIGIT/Touché等）、信号生成机制复杂（光学形变/电容/压阻），在仿真中精确建模需大量领域知识与计算资源，且建模误差会直接导致策略失效；现有Sim2Real方法要么依赖高保真但不可扩展的传感器仿真，要么需成对的真实-仿真触觉数据（极难采集）",
+          "method": "分两阶段：① 在仿真中用‘触觉神谕’（点云+指尖力，无需建模）训练策略；② 用无配对随机采集数据（仿真神谕潜表示 + 真实传感器原始信号）训练rectified-flow网络，将真实传感器映射到神谕的瓶颈化潜空间；关键创新是‘神谕即接口’——把仿真侧的感知抽象为可构造的通用表征，而非拟合某类硬件",
+          "results": "真机实验覆盖Peg Insertion和Gear Meshing两个接触密集任务，使用GelSight Mini与DIGIT两种硬件，零样本成功率85–97.5%；显著优于物理仿真基线（提升7.5–15%）；仿真中三任务性能匹配/接近神谕上限；消融显示瓶颈维度（128维）与rectified-flow比GAN/VAE更稳定",
+          "limitations": "未公开真实世界随机采集数据集（仅代码）；所有真机实验限于固定夹具+单任务场景，未验证跨平台（如从UR5到Franka）或跨任务泛化；‘神谕’依赖仿真器提供点云与力——若仿真器本身缺乏高精度接触建模（如Bullet中软体碰撞不准），神谕质量会成为隐性瓶颈",
+          "significance_take": "显著推进（非范式级）：它不是第一个用潜空间对齐做Sim2Real的工作，但首次系统性证明‘可抛弃传感器物理建模’这一强假设成立，把触觉Sim2Real从‘传感器适配工程’拉回‘表征对齐科学’轨道，为多触觉硬件共训策略铺平道路",
+          "who_should_read": "做触觉机器人落地的工程师该读——能立刻复现并替换掉自己项目中脆弱的GelSight仿真模型；研究者可拿走‘神谕接口’设计范式与rectified-flow在embodied latent alignment中的实用配置",
+          "verdict": "必读：它是近一年唯一在真机上用两种主流触觉硬件验证零样本迁移、且明确拒绝传感器建模的扎实工作，方法干净、结果可比、代码可用，直击工业界最头疼的触觉部署断层",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2608.14822",
+        "title": "Imagining Recovery: Inference-Time Counterfactual Realignment for Vision-Language-Action Models",
+        "published": "2026-08-14",
+        "first_seen": "2026-08-20",
+        "url": "https://arxiv.org/abs/2608.14822",
+        "pdf_url": "https://arxiv.org/pdf/2608.14822",
+        "thumb": "assets/thumbs/2608.14822.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "unknown",
+        "country": "US",
+        "significance": 78,
+        "significance_reason": "在RT-2/π0/OpenVLA等90+分量级工作已确立VLA范式后，本文首次系统解决其在线脆弱性这一关键落地瓶颈：真机多机体验证、跨扰动类型统一框架、无训练恢复、消融完整；但未改变VLA建模本质，也未提升基础泛化能力，属重大工程鲁棒性突破而非范式创新。",
+        "tier": "heavy",
+        "tldr": "提出一种无需训练、不依赖失败数据的在线恢复机制CoRe，当机器人执行出错时，它不靠重试或重训，而是回溯到最近可行状态，用视觉语言模型‘脑补’后续理想轨迹，再微调机器人和场景位置来对齐这个脑补结果，从而无风险地继续任务。",
+        "deep": {
+          "hook": "VLA模型出错不重试、不重训，靠‘脑补理想轨迹+微调物理状态’在线无风险恢复",
+          "why_now": "继RT-2/π0/OpenVLA确立VLA范式后，本文直击其落地最大瓶颈——在线脆弱性；同期工作多聚焦训练鲁棒性（如数据增强、扰动注入），而CoRe是首个在真机多机体上验证的、无需失败数据的推理时统一恢复框架，踩中‘从仿真到真实部署’的关键跃迁需求。",
+          "problem": "冻结的VLA模型一旦遭遇指令变更（如用户中途改任务）或物理扰动（如物体被碰移位、机器人滑动），极易崩溃；现有恢复方法依赖失败日志重训、人工干预或专用恢复策略，无法零成本、零风险、实时响应。",
+          "method": "CoRe不修改模型，也不执行试探动作：检测偏差后，回溯到最近一个‘可行状态’（即历史轨迹中模型曾自信输出的时刻），用VLA自身对合成观测（图像+语言）进行‘反事实推演’，生成一条纯想象的理想后续轨迹；再求解一个最小物理调整（如末端位姿偏移、物体位置重置量），使当前真实状态与该想象轨迹的起始点对齐，从而无缝续跑原策略。",
+          "results": "在多个simulator（Ravens、BridgeData v2模拟器）、多种VLA backbone（RT-2、OpenVLA）及真实机械臂（Franka、UR5e）上验证；成功率达‘近名义水平’（摘要未给具体数值，但明确对比基准为nominal performance）；物理恢复操作减少42.2%；提升幅度最高达85.0个百分点（原文明确数值）。",
+          "limitations": "1. 所有实证均未说明是否覆盖长程任务（如>20步）或复杂遮挡场景，‘可行状态’回溯深度未量化，存在隐式长度假设；2. 合成观测依赖当前VLA的视觉语言理解能力，若原始模型对视角/光照/材质鲁棒性差，反事实推演本身即失效——本质是放大而非缓解基础模型缺陷。",
+          "significance_take": "属重大工程鲁棒性突破：首次将‘推理时反事实规划+物理状态对齐’落地为可部署模块，不改变VLA建模范式，但为冻结模型提供了即插即用的在线安全阀，填补了从SOTA模型到可靠系统之间的关键工程断层。",
+          "who_should_read": "做VLA部署的工程师应读——能直接复用CoRe框架规避真机试错成本；研究者可借此反思：鲁棒性未必靠更强模型，而在于更聪明的推理时编排。",
+          "verdict": "必读：它不是又一篇‘更好准确率’论文，而是第一份证明‘冻结VLA也能在真实世界扛住扰动’的完整技术方案，且所有组件均可剥离复现。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -7029,10 +7121,13 @@
     "2608.14024",
     "2608.14028",
     "2608.14047",
+    "2608.14822",
     "2608.15766",
+    "2608.15897",
     "2608.16572",
-    "2608.16885"
+    "2608.16885",
+    "2608.18701"
   ],
-  "latest": "2026-08-20",
-  "generated_at": "2026-08-20 02:24 UTC"
+  "latest": "2026-08-21",
+  "generated_at": "2026-08-21 02:29 UTC"
 }
