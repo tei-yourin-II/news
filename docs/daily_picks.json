@@ -6899,6 +6899,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-08-22": [
+      {
+        "arxiv_id": "2608.17320",
+        "title": "Robust Brachiation on a Life-Sized Dual-Arm Robot Using Waypoint-Guided Reinforcement Learning",
+        "published": "2026-08-18",
+        "first_seen": "2026-08-22",
+        "url": "https://arxiv.org/abs/2608.17320",
+        "pdf_url": "https://arxiv.org/pdf/2608.17320",
+        "thumb": "assets/thumbs/2608.17320.jpg",
+        "venue": "IROS 2026",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "东京大学",
+        "country": "JP",
+        "significance": 78,
+        "significance_reason": "首次在life-sized双臂硬件上实现具备失败恢复能力的brachiation，含多几何变体测试与真实失败-重试闭环，证据扎实（真机+多场景+消融对比WGRL vs baseline RL），但未开源代码/模型，且任务仍属窄域高难度运动控制，未扩展到通用loco-manipulation范式或跨机体泛化",
+        "tier": "heavy",
+        "tldr": "用带稀疏末端执行器路径点引导的强化学习方法，在真实双臂大尺寸机器人上实现了能稳定摆荡、适应杠间距变化、并能从失败中恢复的臂式移动（类似猴子荡秋千）",
+        "deep": {
+          "hook": "首次在真机双臂大机器人上实现可失败恢复的猴子式荡杆移动（brachiation）",
+          "why_now": "接续2023–2025年Sim2Real运动控制爆发期（如RT-2、VoxPoser硬件迁移），但跳过视觉-语言范式，直击具身底层——高维连续控制+稀疏奖励+物理失效闭环，踩中‘真实失败必须可复现’这一当前硬件RL最痛短板",
+          "problem": "臂式移动（brachiation）需毫秒级抓放时序、全身动力学耦合与强抗扰性；现有方法依赖仿真或示教，在life-sized硬件上极易因建模误差/延迟/摩擦突变而连锁失败，且失败后无法自主重试——导致实验室成果无法形成闭环验证",
+          "method": "提出Waypoint-Guided RL（WGRL）：不学完整轨迹，只在关键相位（如抓杠前、腾空顶点、释杠瞬时）稀疏设定末端执行器路径点；RL策略以这些点为软约束，自主优化全身关节力矩；奖励函数显式分解为任务成功（是否完成摆荡）、机械能效率（减少冗余耗散）和路径点跟踪误差三项；训练环境内置多几何猴架（杠距±15cm/倾角±8°）并采用multi-embodiment sim2real设计（含电机延迟、编码器噪声、接触摩擦随机化）",
+          "results": "Sim-to-Sim测试覆盖3种几何变体（标准/窄距/斜杠），成功率92.4%；真机实验在东京大学HARU双臂机器人（身高1.6m）上完成连续5次brachiation，含2次主动检测到抓握滑移后0.8s内触发重抓恢复；消融显示移除路径点引导后真机成功率跌至31%（vs WGRL 86%）",
+          "limitations": "仅验证单一任务形态（水平向荡杆），未测试垂直攀爬或转向；所有路径点由人工在起始/目标杠位手工设定（非感知生成），未与视觉模块耦合；multi-embodiment仿真未公开参数细节，复现依赖作者调参经验",
+          "significance_take": "显著推进——不是增量改进，而是首次将‘失败-检测-重规划-重执行’闭环嵌入brachiation的RL训练目标函数，把‘鲁棒性’从评估指标变成可优化的损失项，为高风险物理交互任务（如高空检修、废墟穿行）提供了可迁移的设计模板",
+          "who_should_read": "做sim2real运动控制的工程师读它如何用稀疏引导解耦策略自由度，做具身学习的研究者读它如何把失败恢复编译进reward shaping",
+          "verdict": "必读——它用扎实的真机失败数据替代了论文里常见的‘我们观察到偶尔失败’，把RL硬件落地的诚实度拉高了一个档位",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2608.19891",
+        "title": "EXIMO: VLM Guided Exploration of VLA Policies",
+        "published": "2026-08-20",
+        "first_seen": "2026-08-22",
+        "url": "https://arxiv.org/abs/2608.19891",
+        "pdf_url": "https://arxiv.org/pdf/2608.19891",
+        "thumb": "assets/thumbs/2608.19891.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "谷歌DeepMind",
+        "country": "US",
+        "significance": 78,
+        "significance_reason": "真机多任务验证（12个新任务）、完整三阶段消融、对比SOTA VLA微调基线（如RT-1 finetune、VLA-RL等），样本效率提升2.3×，但未开源代码/模型，且未挑战长程推理或跨机体零样本迁移等更难范式，属扎实推进但未达RT-2级里程碑",
+        "tier": "heavy",
+        "tldr": "提出EXIMO三阶段方法（探索-模仿-优化），用视觉语言模型（VLM）给大参数量视觉语言动作模型（VLA）当‘任务分解 planner’，自动生成新任务的高质量演示数据，再微调VLA并用残差离策略RL精调，在不依赖大量人工遥操作数据的前提下提升VLA微调的样本效率和最终性能。",
+        "deep": {
+          "hook": "用VLM当‘任务拆解大脑’，让VLA自己生成高质量演示数据，三阶段微调把新任务样本效率提2.3×",
+          "why_now": "紧接RT-2/RT-X/VLA-RL等范式后，直击当前VLA落地最大瓶颈：人工遥操成本高、RL样本低效；EXIMO首次系统验证‘VLM-planner + VLA-executor’分层协同在真机多任务上的可行性，踩中‘用大模型降低机器人数据依赖’这一核心演进趋势",
+          "problem": "超大规模VLA模型（如RT-2）微调新任务严重依赖海量人工遥操作数据，而强化学习又因模型参数量大、动作空间复杂导致样本效率极低；尤其对长程、多步骤任务，现有方法难以自动构造合理子目标与演示轨迹。",
+          "method": "EXIMO分三阶段：1）Explore——冻结VLA，接入外部VLM作为planner，将自然语言指令分解为可执行的子步骤序列，并驱动VLA在真实机器人上自主执行+纠错，生成带语义分段的‘ orchestrated demonstrations’；2）Imitate——用该自生成数据对VLA做监督微调；3）Optimize——以微调后策略为初始值，用残差形式的off-policy RL（如TD3+BC）进行轻量精调，仅优化动作残差而非全策略。",
+          "results": "在12个未见新任务（含多物体操作、工具使用等）上真机验证；相比RT-1 finetune、VLA-RL等SOTA基线，样本效率提升2.3×；完整三阶段消融证实各阶段均贡献显著，缺一不可；所有实验在multi-embodiment平台（Franka+UR5）完成。",
+          "limitations": "未开源代码/模型，复现门槛极高；所有任务仍限于单轮交互、短至中程（≤15步），未测试跨任务长程推理（如‘煮咖啡’全流程）或跨机体零样本迁移；VLM planner完全黑盒调用，无内部状态监控或错误归因机制，失败时依赖硬编码重试逻辑。",
+          "significance_take": "属显著推进——它不是简单换数据或换loss，而是确立了‘VLM for decomposition + VLA for execution + RL for refinement’这一新微调范式；首次证明大模型协同可绕过人工标注，但尚未动摇RT-2级‘端到端世界模型’的顶层架构地位。",
+          "who_should_read": "做VLA微调/机器人数据高效学习的工程师读它能立刻拿到可迁移的三阶段pipeline设计与真机验证细节；做VLM机器人集成的研究者可借鉴其planner-executor解耦接口设计。",
+          "verdict": "必读——它是目前少有在真机、多任务、完整消融三重约束下，把VLM引导VLA落地讲清楚、跑通且量化出优势的工作，工程启示强于理论突破。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2608.17484",
+        "title": "Reuse Before You Retrieve: Diagnosing Headroom and Complementarity for Test-Time Augmentation of Embodied Multimodal Policies",
+        "published": "2026-08-18",
+        "first_seen": "2026-08-22",
+        "url": "https://arxiv.org/abs/2608.17484",
+        "pdf_url": "https://arxiv.org/pdf/2608.17484",
+        "thumb": "assets/thumbs/2608.17484.jpg",
+        "venue": "ECCV 2026",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "KAIST",
+        "country": "KR",
+        "significance": 76,
+        "significance_reason": "首次提出可测量、可分离的测试时增强归因框架（headroom vs. complementarity），在多个SOTA冻结VLA模型（OpenVLA/Octo等）和标准benchmark（LIBERO）上给出一致、可复现的量化增益（最高+21.0%成功率），且跨模型/跨仿真器迁移有效；但未涉及真实机器人部署、无新模型架构、未开源代码，属于对现有冻结策略使用范式的深度诊断与工程优化，尚未达到RT-2/π0级范式突破或Xiaomi-Robotics-1级数据规模级影响。",
+        "tier": "heavy",
+        "tldr": "这篇论文研究如何在测试时智能选择该用‘重试采样’（从冻结的多模态策略自身中挖掘更好行为）还是‘外部检索’（引入外部动作先验），提出了两个可测量指标——‘可恢复能力余量’和‘检索互补性’，并在多个冻结VLA模型、LIBERO任务、不同机器人/仿真器上验证了其有效性。",
+        "deep": {
+          "hook": "首次量化‘冻结VLA策略里还有多少好行为没被采到’与‘外部检索到底补了什么缺’",
+          "why_now": "正值VLA模型大规模冻结部署（OpenVLA/Octo等）但测试时增强策略仍靠经验调参的工程临界点；同期工作如RT-X、VoxPoser聚焦外部引入，本文反向诊断‘何时不该引’，补全决策闭环。",
+          "problem": "现有测试时增强（重试采样/外部检索）是盲目的：重试可能徒劳（策略根本没学好），检索可能冗余（策略已覆盖该动作）。缺乏可测量标准来判断‘该重试还是该检索’，导致增益不稳定、跨模型泛化差。",
+          "method": "提出两个正交可计算指标：recoverable headroom（基于rollout多样性+成功轨迹分布估计策略内部可用能力上限），retrieval complementarity（用外部演示与策略rollout的动作分布KL散度衡量‘缺失先验’程度）；据此设计episode级二元选择器，动态决定执行重试或触发检索。",
+          "results": "在LIBERO benchmark上，对OpenVLA/Octo等冻结VLA模型，重试选择器带来最高+21.0%成功率提升；该增益与headroom指标强相关；选择器跨机器人（Franka→UR5）、跨仿真器（SAPIEN→ManiSkill）迁移有效；在观测退化下仍鲁棒；检索增益集中在complementarity值最高的模型上。",
+          "limitations": "纯仿真验证（无真机实验）；未开源代码或选择器实现细节；所有指标依赖多rollout采样（增加推理延迟，未报告latency开销）；未验证在长视野/稀疏奖励任务中的稳定性。",
+          "significance_take": "显著推进——不是新模型或新数据，而是首次将测试时增强从‘经验式开关’升级为‘可诊断、可预测、可复用’的工程模块；其headroom/complementarity解耦框架有望成为VLA部署前的标准诊断工具。",
+          "who_should_read": "正在部署冻结VLA模型的工程师读它能立刻获得可落地的测试时决策逻辑；研究者读它能拿到一套可复现的归因评估范式。",
+          "verdict": "必读——它是当前唯一把‘测试时该信模型还是信外部’这个高频工程困境，变成可测量、可分离、可迁移问题的工作。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -7126,8 +7218,11 @@
     "2608.15897",
     "2608.16572",
     "2608.16885",
-    "2608.18701"
+    "2608.17320",
+    "2608.17484",
+    "2608.18701",
+    "2608.19891"
   ],
-  "latest": "2026-08-21",
-  "generated_at": "2026-08-21 02:29 UTC"
+  "latest": "2026-08-22",
+  "generated_at": "2026-08-22 02:23 UTC"
 }
