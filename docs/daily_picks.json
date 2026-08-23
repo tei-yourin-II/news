@@ -6991,6 +6991,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-08-23": [
+      {
+        "arxiv_id": "2608.18234",
+        "title": "GigaBrain-WBC-0.5: A Behavior World Model for Robust Whole-Body Control with Environment Interaction",
+        "published": "2026-08-18",
+        "first_seen": "2026-08-23",
+        "url": "https://arxiv.org/abs/2608.18234",
+        "pdf_url": "https://arxiv.org/pdf/2608.18234",
+        "thumb": "assets/thumbs/2608.18234.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "银河通用",
+        "country": "CN",
+        "significance": 94,
+        "significance_reason": "首次将‘行为命令分布预测’嵌入世界模型框架，用自动3D接触标注打通运动数据与物理交互建模，实现在多地形、多扰动、多机体上的真机鲁棒控制，性能碾压基线（跌倒恢复达16.8倍提升），与GRAIL/ω-0等同属‘世界模型驱动的具身行为生成’新范式前沿，但尚未达到Humanoid Locomotion as Next Token Prediction级的底层范式重定义",
+        "tier": "heavy",
+        "tldr": "提出GigaBrain-WBC-0.5，一个基于因果Transformer的行为世界模型（BWM），首次将环境接触几何（如地形/物体接触）显式建模进全身控制策略中，实现命令鲁棒执行、在线检测并修正不合理指令、抗跌倒与扰动，并在真实人形机器人（Unitree G1/Maker L01）上验证跨机体泛化能力。",
+        "deep": {
+          "hook": "首个将‘行为命令分布预测’嵌入世界模型的全身控制器，真机上跌倒恢复提升16.8倍",
+          "why_now": "紧接GRAIL/ω-0等BWM雏形工作，首次把环境接触几何（3D接触面）与行为命令分布联合建模，踩中‘世界模型必须显式编码物理约束’这一新共识；比Humanoid Locomotion as Next Token Prediction更务实、更可部署。",
+          "problem": "现有全身运动跟踪策略（如WBC-based trackers）仅在平坦无物场景训练，无法理解地形/物体接触如何改变动力学可行性；面对不合理指令或扰动时被动硬跟，导致频繁跌倒；扩大运动数据集无法解决环境依赖型行为失效问题。",
+          "method": "提出行为世界模型（BWM）：用因果Transformer联合预测下一动作、下一状态、以及下一时刻潜在行为命令的分布；通过自动3D接触标注流水线（从retargeted motion中恢复地形/物体接触面），将接触几何作为显式输入；部署时用预测的命令分布在线检测并重映射不合理高层指令，实现‘best-effort’执行。",
+          "results": "在四个评测 regime 中全面超越三大基线：地形交互成功率81.3%（4.3×最强基线）、不合理指令下成功率83.1%、跌倒恢复率99.3%（16.8×最强基线）；Unitree G1模型经简单微调即迁移到Maker L01真机，验证跨机体泛化。",
+          "limitations": "未说明3D接触标注是否依赖高精度动捕或仿真先验（摘要只提‘retargeted motion’，未明确来源）；所有量化结果均出自‘four regimes’但未命名具体benchmark名称或数据集构成；未提供消融实验验证‘命令分布预测’与‘接触几何输入’各自贡献；sim2real仅称‘multi-embodiment’，未披露仿真到真实环境的域差处理细节。",
+          "significance_take": "显著推进——不是增量改进，而是首次将‘环境对行为可行域的约束’形式化为可学习的命令分布+接触几何联合表征，使BWM从‘预测未来状态’升级为‘推理未来行为可能性’，为具身智能提供了新的可控性接口范式。",
+          "who_should_read": "做具身控制/世界模型/人形机器人落地的工程师和研究者，能直接复用其接触标注流程、BWM架构设计及online command retraction机制。",
+          "verdict": "必读——它用可复现的code-only方案，在真机上实证了‘世界模型必须建模行为可行性边界’这一关键命题，且指标提升幅度明确、跨机体迁移成功，是当前最接近实用级BWM的标杆工作。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2608.19574",
+        "title": "HiTac-WAM: A Hierarchical Tactile World Action Model for Contact-Rich Robot Manipulation",
+        "published": "2026-08-20",
+        "first_seen": "2026-08-23",
+        "url": "https://arxiv.org/abs/2608.19574",
+        "pdf_url": "https://arxiv.org/pdf/2608.19574",
+        "thumb": "assets/thumbs/2608.19574.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "智元",
+        "country": "CN",
+        "significance": 92,
+        "significance_reason": "达到T-Rex（97）、ALOHA/ACT（96）同档核心能力：真机部署、多接触任务泛化、闭环触觉纠错、量化指标超越单模块基线（形变误差↓17.6%，滑移AUPRC↑60.4%），且首次将触觉物理过程显式建模为有向层级而非扁平表征；但尚未覆盖双手机器人（YUBI）、跨传感器泛化（FTP-1）或纯RL残差适配（OmniTacTune）等更广维度，故略低于T-Rex/ALOHA的范式开创性。",
+        "tier": "heavy",
+        "tldr": "提出一个分层触觉世界动作模型HiTac-WAM，把未来触觉状态拆解为接触存在、3D形变场和滑移风险三个有因果依赖关系的层级，用带停止梯度的级联预测+定向注意力机制建模，并在真实机器人上将三类接触密集任务的成功率从31.1%提升到72.2%。",
+        "deep": {
+          "hook": "首次将触觉状态显式建模为‘接触→形变→滑移’有向层级，真机上成功率从31.1%提至72.2%",
+          "why_now": "继ALOHA/ACT（动作序列建模）和T-Rex（多模态世界模型）后，具身智能正从‘视觉主导’转向‘触觉可解释建模’；HiTac-WAM是首个在真机闭环中把触觉物理过程结构化为因果层级的模型，踩中触觉感知-规划耦合的下一关键缺口。",
+          "problem": "现有触觉世界模型常将未来触觉扁平编码为图像或潜变量，忽略接触存在、表面形变、滑移风险之间固有的物理因果依赖——导致预测失准、纠错迟滞、任务失败率高（基线仅31.1%）。",
+          "method": "提出HiTac-WAM：用三级级联预测器分别输出（1）二值接触图、（2）3D表面位移场、（3）滑移概率图，每级输入带stop-gradient的前级输出以强制信息流方向；引入定向注意力掩码，让触觉token能看视频+动作上下文，但视频/动作token不能反向看触觉token，防止伪相关。",
+          "results": "实测指标：触觉接触F1达0.921；相比单模块基线，3D形变L2误差↓17.6%，滑移AUPRC↑60.4%；在芯片抓取、黑板擦除、USB插入三任务中，系统端到端真机成功率从31.1%升至72.2%。",
+          "limitations": "仅验证单臂WAM平台（未扩展至双手机器人YUBI）；所有实验基于同一类触觉传感器（未测试跨传感器泛化如FTP-1）；未开源训练代码，仅提供project-page，复现依赖作者预训练权重；消融实验未报告层级间梯度截断的具体影响幅度。",
+          "significance_take": "显著推进‘触觉结构化建模’路线：不是简单加模块，而是用有向层级+定向注意力重构信息流，使预测符合物理因果链——这为后续触觉驱动的在线重规划、失效归因、安全边界建模提供了可解释接口，属强增量但非范式级（尚未脱离世界模型框架）。",
+          "who_should_read": "做触觉感知、接触密集操作、世界模型落地的工程师与研究者，能直接借鉴其层级解耦设计与stop-gradient+定向注意力的工程实现。",
+          "verdict": "必读——它是目前唯一在真机上用可解释层级结构解决触觉预测失准问题并量化验证闭环收益的工作，方法干净、指标扎实、部署完整。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2608.16806",
+        "title": "When State Becomes an Attack Surface: State-Semantic Injection in LLM-Driven Embodied Agents",
+        "published": "2026-08-17",
+        "first_seen": "2026-08-22",
+        "url": "https://arxiv.org/abs/2608.16806",
+        "pdf_url": "https://arxiv.org/pdf/2608.16806",
+        "thumb": "assets/thumbs/2608.16806.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "东南大学",
+        "country": "CN",
+        "significance": 78,
+        "significance_reason": "首次明确定义并实证了‘状态语义注入’这一新型安全威胁，在6类主流LLM-agent架构上复现攻击，提供可复现的benchmark和消融分析；但未在真机部署验证，也未提出鲁棒防御方案，属于对领域关键风险的重磅揭示而非系统性解决。",
+        "tier": "heavy",
+        "tldr": "这篇论文发现并系统验证了一种新型攻击方式：攻击者通过精心构造的环境状态（如物体摆放、传感器读数、日志文本等）向LLM驱动的具身智能体注入恶意语义，绕过指令输入层直接操控其内部推理与决策，导致任务失败或危险行为。",
+        "deep": {
+          "hook": "首次揭示：环境状态本身可被注入恶意语义，绕过指令层直接劫持LLM具身智能体",
+          "why_now": "正值RT-2、VoxPoser、SayCan等LLM-agent架构密集落地仿真与真机验证期，该工作踩中‘状态接口安全’这一被长期忽视的攻防盲区，与近期Robotics Safety（CoRL'24）、LLM Security（USENIX Security'24）议题强共振",
+          "problem": "现有LLM具身智能体将环境状态（如物体位置、传感器日志、执行反馈文本）作为可信输入喂给LLM，但这些状态描述本身可被攻击者物理/数字操控（如挪动物体伪造空间关系、篡改日志文本），从而在不触碰指令、不修改模型的前提下诱导错误推理与危险动作。",
+          "method": "作者系统定义‘状态语义注入’（State-Semantic Injection, SSI）攻击范式：构造语义歧义/误导性状态描述（如将‘刀’标注为‘水果工具’、在日志中插入‘用户急需切割’），注入6类主流架构（SayCan/RT-2/VoxPoser/Code-as-Policies/ProgPrompt/PaLM-E）的state-input通道；构建开源benchmark SSI-Bench，含127个可复现攻击用例与3类攻击模式（属性污染、关系伪造、反馈劫持）。",
+          "results": "在6类LLM-agent架构的仿真环境中全部复现成功攻击；报告平均任务失败率从基线<5%升至68.3%（摘要明确给出该数值）；消融实验确认状态字段污染比指令污染更具隐蔽性与破坏力；所有攻击案例代码与prompt模板已开源。",
+          "limitations": "纯仿真验证（未在任何真机平台部署，未测试机械臂/移动底盘等硬件响应）；未提出防御机制（如状态可信度校验、语义一致性过滤或鲁棒解码策略）；benchmark仅覆盖桌面级操作任务，未涉及动态障碍、多机器人协作等复杂场景。",
+          "significance_take": "范式级警示：它将具身智能的安全边界从‘指令输入+模型参数’扩展至‘环境状态表示’这一底层接口，迫使整个领域重审‘状态即数据’的默认信任假设——不是增量修补，而是基础威胁模型的重构。",
+          "who_should_read": "所有设计/部署LLM-agent系统的研究者与工程师，能立刻识别自己pipeline中哪些状态字段是SSI高危入口，并用SSI-Bench做首轮红队测试。",
+          "verdict": "必读——这不是又一篇‘发现漏洞’的论文，而是给整个具身智能栈敲响的第一次状态层安全警钟，漏读等于默认接受‘环境是可信信源’这一危险前提。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -7217,12 +7309,15 @@
     "2608.15766",
     "2608.15897",
     "2608.16572",
+    "2608.16806",
     "2608.16885",
     "2608.17320",
     "2608.17484",
+    "2608.18234",
     "2608.18701",
+    "2608.19574",
     "2608.19891"
   ],
-  "latest": "2026-08-22",
-  "generated_at": "2026-08-22 02:23 UTC"
+  "latest": "2026-08-23",
+  "generated_at": "2026-08-23 02:32 UTC"
 }
