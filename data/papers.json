@@ -9965,6 +9965,97 @@
       "thumb": "assets/thumbs/2607.28625.jpg"
     },
     {
+      "arxiv_id": "2608.19891",
+      "title": "EXIMO: VLM Guided Exploration of VLA Policies",
+      "abstract": "How to efficiently finetune robot policies to learn new tasks on the fly? State of the art robotic manipulation policies are based on behaviour cloning of large vision-language-action (VLA) models with billions of parameters on huge teleoperation datasets. While this simple approach has enabled significant advances for robotic manipulation, finetuning of VLA policies for learning new tasks still remains an open problem. In particular, collecting teleoperation datasets requires hundreds of hours of expensive human labour and the alternative, reinforcement learning (RL), can be notoriously sample-inefficient especially for long-horizon tasks. In addition, RL with VLAs imposes several challenges due to the model's size and architectural design. In this work, we propose EXIMO, an efficient algorithm for finetuning of VLA policies. EXIMO operates in three stages: explore, imitate, and optimize. During the explore phase, EXIMO equips the VLA with a vision language model (VLM) that acts as a planner. The VLM thinks and breaks down challenging long-horizon problems into shorter ones for the VLA. The VLM, together with the VLA, is used to collect an orchestrated dataset on new tasks. During the imitate phase, the VLA is finetuned with the orchestrated data. Finally, during the optimize stage, we use residual off-policy RL to further finetune the policy. In our experiments, we ablate all three stages of EXIMO and show that it outperforms existing approaches significantly in terms of sample-efficiency and final performance.",
+      "authors": [
+        "Bhavya Sukhija",
+        "Oliver Groth",
+        "Mohit Shridhar",
+        "Tim Hertweck",
+        "Michael Bloesch",
+        "Markus Wulfmeier",
+        "Abbas Abdolmaleki",
+        "Martin Riedmiller"
+      ],
+      "categories": [],
+      "published": "2026-08-20T00:00:00.000Z",
+      "updated": "2026-08-20T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2608.19891",
+      "pdf_url": "https://arxiv.org/pdf/2608.19891",
+      "hf_upvotes": 10,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.6885,
+        "world_model": 0.5147,
+        "whole_body_control": 0.5159,
+        "dexterous_manipulation": 0.2757,
+        "sim2real_data": 0.3891,
+        "hardware_unitree": 0.2432,
+        "bci_neural_decoding": 0.1324,
+        "bci_foundation_models": 0.1325,
+        "bci_embodied_robot": 0.361,
+        "bci_noninvasive_eeg": 0.1267,
+        "protein_ai": 0.1423,
+        "genomics_ai": 0.1552
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.6885,
+      "first_seen": "2026-08-22",
+      "analysis": {
+        "tldr": "提出EXIMO三阶段方法（探索-模仿-优化），用视觉语言模型（VLM）给大参数量视觉语言动作模型（VLA）当‘任务分解 planner’，自动生成新任务的高质量演示数据，再微调VLA并用残差离策略RL精调，在不依赖大量人工遥操作数据的前提下提升VLA微调的样本效率和最终性能。",
+        "org": "谷歌DeepMind",
+        "country": "US",
+        "org_type": "company",
+        "claim": "通过VLM引导的分层任务分解与协同数据生成，可显著提升超大规模VLA模型在新任务上的低样本量微调效率与泛化性能。",
+        "method_components": [
+          "model",
+          "dataset",
+          "policy",
+          "benchmark"
+        ],
+        "input": "RGB图像+自然语言任务指令",
+        "output": "机器人末端动作序列（6DoF位姿+夹爪开合）",
+        "robot_dependency": "Franka Emika Panda 机械臂（仿真+真实）",
+        "data_dependency": "少量真实机器人交互（用于orchestrated dataset采集和最终验证），但不依赖大规模人工遥操作数据",
+        "sim2real_status": "multi-embodiment",
+        "generalization": [
+          "cross-task",
+          "cross-scene"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "sim2real",
+          "real-robot"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 78,
+        "significance_reason": "真机多任务验证（12个新任务）、完整三阶段消融、对比SOTA VLA微调基线（如RT-1 finetune、VLA-RL等），样本效率提升2.3×，但未开源代码/模型，且未挑战长程推理或跨机体零样本迁移等更难范式，属扎实推进但未达RT-2级里程碑",
+        "one_sentence_verdict": "工程整合：将VLM作为planner嵌入VLA微调流程，实证有效，但属于对现有VLA范式的高质量工程增强，非范式突破",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 13,
+        "citations": 0,
+        "venue": "arXiv (Cornell University)"
+      },
+      "scores": {
+        "relevance": 20.7,
+        "content": 20.0,
+        "heat": 10.0,
+        "quality": 0.0,
+        "base": 40.7,
+        "bonus": 10.0,
+        "total": 50.7
+      },
+      "grade": "B",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2608.19891.jpg"
+    },
+    {
       "arxiv_id": "2607.11643",
       "title": "Xiaomi-Robotics-U0: Unified Embodied Synthesis with World Foundation Model",
       "abstract": "Recent foundation image and video generation models offer strong generalization and controllability, but their direct application to embodied scenarios is limited by requirements for multi-view consistency, geometric coherence, and robot embodiment constraints. Existing methods typically adapt foundation models with limited robot data, often sacrificing visual knowledge acquired during large-scale pre-training. We present Xiaomi-Robotics-U0, a 38-billion-parameter multimodal autoregressive model for unified embodied synthesis. It treats embodied generation as an extension of foundation image and video generation and jointly optimizes text-to-image generation, image editing, embodied scene generation, embodied transfer, and embodied video generation. This unified framework preserves the generalization of the pre-trained world foundation model while adapting it to embodied settings. Xiaomi-Robotics-U0 is the first model to support high-quality multi-view scene generation across multiple robot embodiments and to introduce structured, controllable embodied transfer for fine-grained editing while preserving multi-view consistency and interaction dynamics. It achieves state-of-the-art results on single-step and sequential generation tasks, outperforming GPT-Image-2.0 in human evaluations of embodied scene generation and transfer, ranking first on World Arena for embodied video generation, and improving the out-of-distribution success rate of pi_0.5 from 36.9% to 63.2% on challenging real-world manipulation tasks. These results show that foundation world models can serve both as embodied world models and scalable data engines for embodied intelligence. Code and checkpoints are available at https://robotics.xiaomi.com/xiaomi-robotics-u0.html.",
@@ -10156,97 +10247,6 @@
       "grade": "B",
       "read_priority": "B",
       "thumb": "assets/thumbs/2607.29613.jpg"
-    },
-    {
-      "arxiv_id": "2608.19891",
-      "title": "EXIMO: VLM Guided Exploration of VLA Policies",
-      "abstract": "How to efficiently finetune robot policies to learn new tasks on the fly? State of the art robotic manipulation policies are based on behaviour cloning of large vision-language-action (VLA) models with billions of parameters on huge teleoperation datasets. While this simple approach has enabled significant advances for robotic manipulation, finetuning of VLA policies for learning new tasks still remains an open problem. In particular, collecting teleoperation datasets requires hundreds of hours of expensive human labour and the alternative, reinforcement learning (RL), can be notoriously sample-inefficient especially for long-horizon tasks. In addition, RL with VLAs imposes several challenges due to the model's size and architectural design. In this work, we propose EXIMO, an efficient algorithm for finetuning of VLA policies. EXIMO operates in three stages: explore, imitate, and optimize. During the explore phase, EXIMO equips the VLA with a vision language model (VLM) that acts as a planner. The VLM thinks and breaks down challenging long-horizon problems into shorter ones for the VLA. The VLM, together with the VLA, is used to collect an orchestrated dataset on new tasks. During the imitate phase, the VLA is finetuned with the orchestrated data. Finally, during the optimize stage, we use residual off-policy RL to further finetune the policy. In our experiments, we ablate all three stages of EXIMO and show that it outperforms existing approaches significantly in terms of sample-efficiency and final performance.",
-      "authors": [
-        "Bhavya Sukhija",
-        "Oliver Groth",
-        "Mohit Shridhar",
-        "Tim Hertweck",
-        "Michael Bloesch",
-        "Markus Wulfmeier",
-        "Abbas Abdolmaleki",
-        "Martin Riedmiller"
-      ],
-      "categories": [],
-      "published": "2026-08-20T00:00:00.000Z",
-      "updated": "2026-08-20T00:00:00.000Z",
-      "url": "https://arxiv.org/abs/2608.19891",
-      "pdf_url": "https://arxiv.org/pdf/2608.19891",
-      "hf_upvotes": 10,
-      "source": "hf_daily",
-      "route_scores": {
-        "vla": 0.6885,
-        "world_model": 0.5147,
-        "whole_body_control": 0.5159,
-        "dexterous_manipulation": 0.2757,
-        "sim2real_data": 0.3891,
-        "hardware_unitree": 0.2432,
-        "bci_neural_decoding": 0.1324,
-        "bci_foundation_models": 0.1325,
-        "bci_embodied_robot": 0.361,
-        "bci_noninvasive_eeg": 0.1267,
-        "protein_ai": 0.1423,
-        "genomics_ai": 0.1552
-      },
-      "best_route": "vla",
-      "relevance_raw": 0.6885,
-      "first_seen": "2026-08-22",
-      "analysis": {
-        "tldr": "提出EXIMO三阶段方法（探索-模仿-优化），用视觉语言模型（VLM）给大参数量视觉语言动作模型（VLA）当‘任务分解 planner’，自动生成新任务的高质量演示数据，再微调VLA并用残差离策略RL精调，在不依赖大量人工遥操作数据的前提下提升VLA微调的样本效率和最终性能。",
-        "org": "谷歌DeepMind",
-        "country": "US",
-        "org_type": "company",
-        "claim": "通过VLM引导的分层任务分解与协同数据生成，可显著提升超大规模VLA模型在新任务上的低样本量微调效率与泛化性能。",
-        "method_components": [
-          "model",
-          "dataset",
-          "policy",
-          "benchmark"
-        ],
-        "input": "RGB图像+自然语言任务指令",
-        "output": "机器人末端动作序列（6DoF位姿+夹爪开合）",
-        "robot_dependency": "Franka Emika Panda 机械臂（仿真+真实）",
-        "data_dependency": "少量真实机器人交互（用于orchestrated dataset采集和最终验证），但不依赖大规模人工遥操作数据",
-        "sim2real_status": "multi-embodiment",
-        "generalization": [
-          "cross-task",
-          "cross-scene"
-        ],
-        "reproducibility": "project-page",
-        "tags": [
-          "multimodal-fusion",
-          "sim2real",
-          "real-robot"
-        ],
-        "novelty": 7,
-        "evidence": 9,
-        "reproducibility_score": 4,
-        "significance": 78,
-        "significance_reason": "真机多任务验证（12个新任务）、完整三阶段消融、对比SOTA VLA微调基线（如RT-1 finetune、VLA-RL等），样本效率提升2.3×，但未开源代码/模型，且未挑战长程推理或跨机体零样本迁移等更难范式，属扎实推进但未达RT-2级里程碑",
-        "one_sentence_verdict": "工程整合：将VLM作为planner嵌入VLA微调流程，实证有效，但属于对现有VLA范式的高质量工程增强，非范式突破",
-        "_llm": "qwen-plus"
-      },
-      "signals": {
-        "hf_upvotes": 12,
-        "citations": 0,
-        "venue": "arXiv (Cornell University)"
-      },
-      "scores": {
-        "relevance": 20.7,
-        "content": 20.0,
-        "heat": 9.7,
-        "quality": 0.0,
-        "base": 40.7,
-        "bonus": 9.7,
-        "total": 50.4
-      },
-      "grade": "B",
-      "read_priority": "B",
-      "thumb": "assets/thumbs/2608.19891.jpg"
     },
     {
       "arxiv_id": "2604.04913",
@@ -85685,6 +85685,94 @@
       "thumb": "assets/thumbs/2608.17209.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.08.21.746227",
+      "doi": "10.64898/2026.08.21.746227",
+      "source_kind": "biorxiv",
+      "title": "De novo Design of Macrocyclic Molecular Glues",
+      "abstract": "The engineering of induced proximity has transformed drug discovery, yet the development of molecular glues remains largely serendipitous and restricted to the retrospective optimisation of accidental discoveries. Here, we present EvoBind-multimer, a deep learning framework for the de novo design of molecular glues directly from protein sequences. Unlike structure-based docking, our method generates small macrocyclic peptides that bridge user-defined protein pairs without requiring prior interface knowledge or existing ligands. We applied this framework to recruit the E3 ligase VHL to two challenging oncoproteins: KRAS and BRD4. Live-cell NanoBRET demonstrated robust design-induced proximity for both pairs. Mechanistic validation demonstrated that the generated macrocycles form functional VHL-target ternary complexes capable of driving Cullin-RING ligase-dependent proteasomal degradation and downstream signalling shutdown. Finally, evaluation in patient-derived xenograft neuroblastoma tumoroids revealed that ternary complex processing is deeply context-dependent: identical macrocycles acted as potent degraders in one patient model, yet functioned as stabilising \"LOCKTACs\" in another, driving VHL-dependent target sequestration without turnover. By enabling the de novo design of induced proximity from sequence alone, EvoBind-multimer provides a route towards designing new protein functions.",
+      "authors": [
+        "Andrä Brunner",
+        "Krzysztof Wierbiłowicz",
+        "Diandra Daumiller",
+        "Daniel Bexell",
+        "Kasper Karlsson",
+        "Olle Sangfelt",
+        "Patrick Bryant"
+      ],
+      "categories": [],
+      "published": "2026-08-22",
+      "updated": "2026-08-22",
+      "url": "https://doi.org/10.64898/2026.08.21.746227",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/22/2026.08.21.746227.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.16,
+        "world_model": 0.188,
+        "whole_body_control": 0.1357,
+        "dexterous_manipulation": 0.1587,
+        "sim2real_data": 0.1366,
+        "hardware_unitree": 0.0533,
+        "bci_neural_decoding": 0.2075,
+        "bci_foundation_models": 0.2072,
+        "bci_embodied_robot": 0.2461,
+        "bci_noninvasive_eeg": 0.1227,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.3994
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.4977,
+      "first_seen": "2026-08-25",
+      "analysis": {
+        "tldr": "提出一个叫EvoBind-multimer的深度学习模型，仅用两个目标蛋白的氨基酸序列，就能从头设计出能同时结合它们的环状小肽分子胶，实验证明它能在活细胞中诱导蛋白靠近、形成三元复合物，并在不同患者来源的肿瘤模型中分别实现靶蛋白降解或稳定隔离。",
+        "org": "瑞典卡罗林斯卡学院",
+        "country": "EU",
+        "org_type": "university",
+        "claim": "仅基于蛋白序列即可从头设计具有功能的分子胶（macrocylic molecular glues），无需结构信息、已知配体或界面先验知识。",
+        "method_components": [
+          "model",
+          "dataset"
+        ],
+        "input": "两个目标蛋白的氨基酸序列（如KRAS和VHL）",
+        "output": "可合成的环状小肽分子胶序列（含非天然氨基酸和宏环化连接）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-target"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "de-novo-design",
+          "molecular-glue",
+          "protein-degradation",
+          "ternary-complex"
+        ],
+        "novelty": 8,
+        "evidence": 10,
+        "reproducibility_score": 3,
+        "significance": 85,
+        "significance_reason": "首次实现纯序列驱动的分子胶从头设计，并在活细胞、原代肿瘤类器官等多层次完成机制验证与功能表型分化（降解vs. LOCKTAC），证据链完整（NanoBRET+co-IP+降解动力学+患者模型异质性响应），显著超越传统基于结构的筛选/优化范式，但尚未开源代码/模型权重，未覆盖大规模靶点泛化验证，故略低于AlphaFold2级里程碑。",
+        "one_sentence_verdict": "真突破：首次打通‘序列→功能分子胶’的端到端生成闭环，并在临床相关模型中证实其可编程的双模态调控能力（降解/稳定），非概念包装。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 14.9,
+        "content": 21.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 35.9,
+        "bonus": 0.0,
+        "total": 35.9
+      },
+      "grade": "C",
+      "read_priority": "B"
+    },
+    {
       "arxiv_id": "2606.00336",
       "doi": "10.48550/arxiv.2606.00336",
       "source_kind": "arxiv",
@@ -92127,6 +92215,86 @@
       "scores": {
         "relevance": 16.6,
         "content": 19.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 35.6,
+        "bonus": 0.0,
+        "total": 35.6
+      },
+      "grade": "C",
+      "read_priority": "B"
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.21.746242",
+      "doi": "10.64898/2026.08.21.746242",
+      "source_kind": "biorxiv",
+      "title": "A novel benchmark dataset for enzyme function prediction reveals the limitations of state-of-the-art models",
+      "abstract": "Accurate computational prediction of enzyme function, standardized by Enzyme Commission (EC) numbers, is essential for large-scale genome annotation and generative enzyme design. However, it remains unclear whether state-of-the-art predictors learn the intrinsic structural determinants of catalytic activity or merely rely on global sequence similarity to annotated homologues. To address this gap, we introduce EnzymARC, a novel benchmark dataset of putative non-functional decoy sequences generated via structure-guided, systematic disruption of active sites (targeting catalytic residues and surrounding 5 A, 10 A, and 15 A radii) from experimentally annotated enzymes. We evaluated three distinct prediction paradigms against this dataset: homology-based annotation (DIAMOND), contrastive learning with protein language models (CLEAN), and a deep learning model incorporating non-enzyme discrimination (DeepEC). Our findings reveal that current models are highly vulnerable to phylogenetic shortcuts. Both DIAMOND and CLEAN exhibited false positive rates exceeding 90\\% for low-perturbation decoys, confidently assigning the original EC numbers despite the destruction of the catalytic machinery. While DeepEC demonstrated improved sensitivity at higher perturbation levels, highlighting the benefit of negative training examples, all models struggled to identify targeted active-site disruptions. We demonstrate that modern EC predictors largely fail to distinguish catalytically incompetent variants from functional enzymes, and we propose that integrating structure-aware negative examples into both training and benchmarking is critical for developing functionally robust models in computational enzymology.",
+      "authors": [
+        "João Sartori",
+        "Ana Carolina Ramos Guimarães",
+        "Lucas de Almeida Machado"
+      ],
+      "categories": [],
+      "published": "2026-08-22",
+      "updated": "2026-08-22",
+      "url": "https://doi.org/10.64898/2026.08.21.746242",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/22/2026.08.21.746242.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1713,
+        "world_model": 0.2285,
+        "whole_body_control": 0.1299,
+        "dexterous_manipulation": 0.1338,
+        "sim2real_data": 0.1361,
+        "hardware_unitree": 0.0532,
+        "bci_neural_decoding": 0.136,
+        "bci_foundation_models": 0.2036,
+        "bci_embodied_robot": 0.0357,
+        "bci_noninvasive_eeg": 0.1708,
+        "protein_ai": 0.5199,
+        "genomics_ai": 0.4319
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.5199,
+      "first_seen": "2026-08-25",
+      "analysis": {
+        "tldr": "这篇论文构建了一个叫EnzymARC的新基准数据集，通过在已知功能酶的三维结构中系统性破坏活性位点（不同半径范围），生成大量‘看起来像酶但实际已失活’的假序列，用来测试现有酶功能预测模型是否真懂催化机制——结果发现主流模型几乎全靠序列相似性‘抄作业’，一碰活性位点被破坏就胡乱预测，根本不会判断催化能力是否真实存在。",
+        "org": "unknown",
+        "country": "Other",
+        "org_type": "university",
+        "claim": "当前主流酶功能预测模型（DIAMOND、CLEAN、DeepEC）严重依赖同源序列相似性而非真实催化结构特征，无法识别活性位点被精准破坏后的功能丧失，因而不具备功能鲁棒性。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "蛋白质序列（含人工扰动的活性位点残基）",
+        "output": "EC编号（酶功能分类号）预测结果",
+        "robot_dependency": "none",
+        "data_dependency": "无真实机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 76,
+        "significance_reason": "首次以结构引导的、梯度化活性位点扰动方式构建酶功能负样本基准，实证揭示三大主流范式（同源比对/对比学习/深度负采样）均未建模催化机制本质；虽未提出新模型，但其诊断性基准设计直击领域核心缺陷，证据扎实（多模型+多扰动层级+定量FP率）、可复现性强、已开源数据与评估协议，属高质量批判性工作，对标HI-JEPA/CENO等97分工作尚缺范式开创性，但显著优于一般增量研究。",
+        "one_sentence_verdict": "真突破：不是靠堆模型，而是用精密的结构扰动生成策略和严格的功能失效验证，首次系统性证伪了当前EC预测的‘功能理解’幻觉，为整个计算酶学设定了不可绕行的评估新标准。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 15.6,
+        "content": 20.0,
         "heat": 0.0,
         "quality": 0.0,
         "base": 35.6,
@@ -109144,12 +109312,13 @@
         "significance": 52,
         "significance_reason": "首次将LLM调度+多机角色分工+执行前验证+状态驱动并行控制整合为闭环框架，并在真实机器人狗上完成可控规模（90场景×4种子）的双任务并发验证；但未开源数据/仿真器，未跨机体/用户泛化，未与SOTA端到端具身模型（如RT-2、VoxPoser、OpenVLA）对比，也未解决长程依赖、动态避障或失败恢复等开放难题，属扎实但窄域的工程级推进。",
         "one_sentence_verdict": "工程整合：把LLM调度、角色分工、动作验证和状态驱动执行拧成一个可用闭环，在真实机器人狗上跑通了双任务并发流程，但未突破感知-规划-控制耦合瓶颈，也未挑战更广义的具身智能基础问题。",
-        "_llm": "qwen-plus"
+        "_llm": "qwen-plus",
+        "venue": "ECCV 2026"
       },
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "ECCV 2026"
       },
       "scores": {
         "relevance": 18.6,
@@ -109162,7 +109331,8 @@
       },
       "grade": "D",
       "read_priority": "B",
-      "thumb": "assets/thumbs/2608.18292.jpg"
+      "thumb": "assets/thumbs/2608.18292.jpg",
+      "venue": "ECCV 2026"
     },
     {
       "arxiv_id": "2608.19740",
@@ -138341,6 +138511,90 @@
       "grade": "D",
       "read_priority": "B",
       "thumb": "assets/thumbs/2608.05903.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.20.745895",
+      "doi": "10.64898/2026.08.20.745895",
+      "source_kind": "biorxiv",
+      "title": "PAM-DB: Revealing Protein Activation Mechanisms for Next-Generation Rational Drug Discovery",
+      "abstract": "Current rational drug design relies predominantly on computational (CADD/AIDD) methods that model binding thermodynamics and static conformations of target proteins, primarily in their inactive states. However, the kinetic parameters that govern experimental efficacy-such as catalytic turnover and signaling potency-are determined by molecular interactions with transition states (TS), intermediate states (IS), and the entire continuum of conformations along the least free-energy activation pathway. The absence of this dynamic dimension has fundamentally limited the predictive power and success rate of conventional structure-based approaches. Here, we present a structural database that systematically maps the complete activation trajectories of pharmaceutically relevant targets, encompassing TS, IS, and all connecting conformational ensembles. This resource offers multiple strategic advantages for drug discovery: enabling rational targeting of previously \"undruggable\" proteins, facilitating biased agonism/antagonism design, revealing cryptic allosteric sites in inactive conformations, identifying novel transient pockets along the activation route, rationalizing the mechanisms of existing drugs, predicting mutational effects on activation barriers, and prospectively forecasting drug resistance and off-target liabilities. We demonstrate the utility of this database through representative case studies and provide implementation guidelines for integration into existing discovery pipelines. More detailed information can be found at our website: https://www.momedpamdb.com/en.",
+      "authors": [
+        "Xiaohong Zhu",
+        "Xiangyu Li",
+        "Yaning Hou",
+        "Ruifeng Zhou",
+        "闫银超",
+        "Arieh Warshel",
+        "Chen Bai"
+      ],
+      "categories": [],
+      "published": "2026-08-22",
+      "updated": "2026-08-22",
+      "url": "https://doi.org/10.64898/2026.08.20.745895",
+      "pdf_url": "https://doi.org/10.64898/2026.08.20.745895",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1639,
+        "world_model": 0.2462,
+        "whole_body_control": 0.1853,
+        "dexterous_manipulation": 0.1536,
+        "sim2real_data": 0.1357,
+        "hardware_unitree": 0.055,
+        "bci_neural_decoding": 0.1234,
+        "bci_foundation_models": 0.1614,
+        "bci_embodied_robot": 0.07,
+        "bci_noninvasive_eeg": 0.1265,
+        "protein_ai": 0.5581,
+        "genomics_ai": 0.3361
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.5581,
+      "first_seen": "2026-08-25",
+      "analysis": {
+        "tldr": "构建了一个专门收录蛋白质激活全过程结构轨迹（含过渡态、中间态及整条自由能路径上的构象集合）的数据库PAM-DB，用于弥补传统药物设计只依赖静态失活构象的缺陷，支撑动力学层面的理性靶向设计。",
+        "org": "中国科学院上海药物研究所",
+        "country": "CN",
+        "org_type": "institute",
+        "claim": "蛋白质激活的完整自由能路径结构轨迹是理解药效动力学参数（如催化周转率、信号强度）的关键，而现有结构数据库完全缺失这一维度，PAM-DB首次系统填补该空白并验证其对多类药物设计问题的实用价值。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "蛋白质靶标（含已知激活机制的药理相关蛋白）的原子级分子动力学模拟轨迹、过渡态理论计算结果、实验验证的构象变化数据",
+        "output": "结构化的激活路径数据库（含TS/IS/连续构象集合、能量标注、关键残基扰动分析、瞬时口袋坐标等）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 6,
+        "reproducibility_score": 3,
+        "significance": 58,
+        "significance_reason": "提出重要概念缺口（激活路径缺失）并建成首个专用数据库，但未开源核心生成代码与原始模拟数据，仅提供网页查询和案例说明；所有验证均为定性案例研究（无定量预测指标、无盲测、无与主流CADD工具的头对头性能对比），未证明其能实质性提升先导化合物优化成功率或缩短临床前周期。",
+        "one_sentence_verdict": "显著贡献——填补了蛋白质激活动力学结构数据的系统性空白，但实证深度不足，尚属高质量资源型工作，非方法论或范式突破",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 16.7,
+        "content": 16.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 32.7,
+        "bonus": 0.0,
+        "total": 32.7
+      },
+      "grade": "D",
+      "read_priority": "B"
     },
     {
       "arxiv_id": "2606.03985",
@@ -191253,6 +191507,87 @@
       "thumb": "assets/thumbs/2608.17512.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.08.21.746233",
+      "doi": "10.64898/2026.08.21.746233",
+      "source_kind": "biorxiv",
+      "title": "Transferable Collective Variable to accelerate Protein-Ligand (Un)Binding Transitions via Explainable Machine Learning and Intriguing Role of Ligand Solvation",
+      "abstract": "The process of drug unbinding is of immense importance in the field of biophysics and therapeutics. The behavior of these systems is greatly influenced by their thermodynamic and kinetic properties. Therefore, it is crucial to accurately estimate the ligand binding free energies and rate of ligand dissociation, yet these processes are often governed by rare event transitions that lie beyond the reach of standard brute-force molecular dynamics simulations. While enhanced sampling simulations offer a solution, their efficacy is strictly contingent upon the selection of appropriate collective variables (CVs) which is non-trivial for complex systems like protein-ligand complexes. In this study, we present a method to derive optimized CV from transition state region (TS) via an interpretable machine learning (ML) model, Elastic Net. By employing some physically intuitive order parameters, the derived optimized CV from the TS-region greatly accelerate ligand binding-unbinding transitions and achieves rapid free energy surface (FES) convergence across diverse systems including buried and solvent exposed active sites such as Trpsin-benzamidine complex, host-guest systems and sodium epoxidase etc. Intriguingly significant contribution of the ligand hydration is found in the optimized CV which depicts crucial role of solvent in driving ligand binding-unbinding transitions. The estimated binding free energies for different protein-ligand complexes match quite well with experiments, while maintaining a low computational cost. The derived optimized CV is also used to calculate the ligand residence times across different systems and calculated residence times are within the experimental range for all systems, again with very little computational costs. Moreover, we show that the optimized CV constructed from TS region via an interpretable ML model is transferable across diverse systems, offering a robust and scalable framework for drug discovery and investigation of complex biomolecular recognition.",
+      "authors": [
+        "Saikat Dhibar",
+        "Biman Jana"
+      ],
+      "categories": [],
+      "published": "2026-08-22",
+      "updated": "2026-08-22",
+      "url": "https://doi.org/10.64898/2026.08.21.746233",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/22/2026.08.21.746233.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1742,
+        "world_model": 0.2693,
+        "whole_body_control": 0.1915,
+        "dexterous_manipulation": 0.1616,
+        "sim2real_data": 0.1245,
+        "hardware_unitree": 0.0222,
+        "bci_neural_decoding": 0.1394,
+        "bci_foundation_models": 0.1936,
+        "bci_embodied_robot": 0.1626,
+        "bci_noninvasive_eeg": 0.1497,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.231
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.4233,
+      "first_seen": "2026-08-25",
+      "analysis": {
+        "tldr": "用可解释的机器学习（Elastic Net）从过渡态区域自动提取一个物理意义清晰、可迁移的集体变量（CV），显著加速蛋白-配体结合/解离过程的增强采样模拟，准确预测结合自由能和驻留时间，且计算成本低。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "从过渡态区域通过可解释ML构建的集体变量具有跨蛋白-配体体系的可迁移性，并能高效驱动并量化解离动力学与热力学。",
+        "method_components": [
+          "model",
+          "dataset"
+        ],
+        "input": "物理直观的序参量（如距离、角度、溶剂化壳层特征等）",
+        "output": "可迁移的标量集体变量（CV），用于增强采样；进而输出自由能面、结合自由能、解离速率/驻留时间",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-system"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "dataset"
+        ],
+        "novelty": 6,
+        "evidence": 8,
+        "reproducibility_score": 3,
+        "significance": 58,
+        "significance_reason": "方法有实质性改进（TS导向+可解释ML+跨体系CV迁移），验证了多个真实蛋白-配体体系（含埋藏/暴露活性位点），自由能与驻留时间均匹配实验，但未开源代码/模型，仅提供项目页；相比AlphaFold2等基石工作，它未改变范式、未解决长期开放难题（如通用CV发现仍是经验主导），属扎实但非突破性的方法学优化。",
+        "one_sentence_verdict": "扎实增量：提出了有物理解释性、经多体系验证且可迁移的CV构造策略，但缺乏开源实现与更广谱基准（如大规模PDBbind泛化测试），尚未达到范式级影响力。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 12.7,
+        "content": 17.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 29.7,
+        "bonus": 0.0,
+        "total": 29.7
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "10.64898/2026.05.29.728804",
       "doi": "10.64898/2026.05.29.728804",
       "source_kind": "biorxiv",
@@ -236717,6 +237052,86 @@
       "read_priority": "C"
     },
     {
+      "arxiv_id": "10.64898/2026.08.20.746121",
+      "doi": "10.64898/2026.08.20.746121",
+      "source_kind": "biorxiv",
+      "title": "OncoGenRAG: Evidence-Grounded Retrieval and BioBERT Classification for Precision Oncology Variant Interpretation",
+      "abstract": "The increasing use of tumor sequencing has intensified the need for fast, traceable interpretation of genomic variants. General-purpose large language models can produce fluent answers, but unsupported statements, weak provenance, and stale knowledge limit their suitability for clinical genomics. We developed OncoGenRAG, a research framework that combines a parameter-efficiently fine-tuned BioBERT classifier with an entity-aware retrieval system over a curated, multi-source oncology knowledge base. The reported knowledge base contains 933 harmonized records derived from CIViC, ClinVar/dbSNP, Open Targets, UniProtKB/Swiss-Prot, Ensembl Variation, and linked PubMed literature. The classifier assigns one of five labels: Pathogenic, Likely Pathogenic, Variant of Uncertain Significance, Benign, or Oncogenic; the retrieval component ranks evidence records using subword TF-IDF similarity and explicit gene, variant, and cancer-type matches. A rejection rule suppresses answers when retrieval support is below a prespecified threshold. In the authors held-out evaluation, the classifier achieved 92.40% accuracy, 93.15% weighted precision, 92.40% weighted recall, and 92.65% weighted F1 score. In a separate benchmark of 100 clinical-style queries, OncoGenRAG achieved reported Precision@1 of 94.5%, Precision@3 of 96.8%, and 100% database grounding. No hallucinated answer was observed under the study operational definition, compared with a 41.0% no-hallucination rate for the ungrounded baseline. These results should be interpreted as internal validation rather than proof of universal safety because query construction, annotator agreement, class-specific performance, calibration, and external validation data were not available for independent analysis. OncoGenRAG provides a transparent design for evidence retrieval and abstention, but it is a research prototype and must not be used to select treatment without expert review.",
+      "authors": [
+        "Afreen Muhammad Arif",
+        "José Filho"
+      ],
+      "categories": [],
+      "published": "2026-08-22",
+      "updated": "2026-08-22",
+      "url": "https://doi.org/10.64898/2026.08.20.746121",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/22/2026.08.20.746121.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1594,
+        "world_model": 0.1045,
+        "whole_body_control": 0.0767,
+        "dexterous_manipulation": 0.0491,
+        "sim2real_data": 0.072,
+        "hardware_unitree": 0.0,
+        "bci_neural_decoding": 0.0206,
+        "bci_foundation_models": 0.1151,
+        "bci_embodied_robot": 0.0659,
+        "bci_noninvasive_eeg": 0.1141,
+        "protein_ai": 0.2729,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.3777,
+      "first_seen": "2026-08-25",
+      "analysis": {
+        "tldr": "用BioBERT分类器+多源肿瘤知识库检索系统，对基因变异进行可溯源的五分类临床解读（如致病性/良性/意义未明），并设置证据不足时自动拒答，避免幻觉。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "通过证据锚定的检索增强分类框架OncoGenRAG，可在保证高准确率的同时彻底消除幻觉输出，实现可追溯、可拒答的精准肿瘤基因变异解读。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "基因变异描述（如基因名、氨基酸变化、癌种上下文）",
+        "output": "五类临床解读标签（致病性/可能致病性/意义未明/良性/致癌性）+ 检索到的支持证据列表 + 拒答信号（当证据不足时）",
+        "robot_dependency": "none",
+        "data_dependency": "完全依赖公开数据库（CIViC、ClinVar等）和文献，无真实临床数据采集或医生标注闭环",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 5,
+        "evidence": 7,
+        "reproducibility_score": 3,
+        "significance": 48,
+        "significance_reason": "技术组合（RAG+BioBERT微调+显式匹配+拒答机制）合理但非首创；评估仅限内部held-out集和100条人工构造查询，无外部临床队列验证、无医生盲测、无治疗决策影响评估；知识库规模小（933条）、覆盖窄（未见TCGA/ICGC等真实测序数据反馈闭环），属扎实的工程级临床AI工具原型，但未触及分子机制建模、生成式推理或跨模态整合等当前高分工作核心范式。",
+        "one_sentence_verdict": "工程整合：将已有NLP技术适配到临床变异解读场景，完成端到端可拒答设计，但缺乏真实世界部署验证与机制深度，暂未达到领域突破门槛。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 11.3,
+        "content": 15.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 26.3,
+        "bonus": 0.0,
+        "total": 26.3
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "2606.00180",
       "doi": "10.48550/arxiv.2606.00180",
       "source_kind": "arxiv",
@@ -252375,6 +252790,91 @@
       "thumb": "assets/thumbs/2608.16014.jpg"
     },
     {
+      "arxiv_id": "2608.19808",
+      "doi": "10.48550/arxiv.2608.19808",
+      "source_kind": "arxiv",
+      "title": "FAR-DPO: Feasibility-Aware and Robust Direct Preference Optimization for Cyclic Peptide Design",
+      "abstract": "Cyclic peptides are emerging as promising molecular scaffolds in drug discovery due to their high binding affinity and structural stability. However, extending generative models from linear to cyclic peptide design remains challenging, as cyclization sharply restricts the feasible design space through coupled geometric and biophysical constraints. Moreover, limited training data has led existing approaches to rely largely on zero-shot generation or post hoc filtering, resulting in low yields of feasible designs and limited control over multi-objective trade-offs. To address these limitations, we propose FAR-DPO (Feasibility-Aware and Robust Direct Preference Optimization), an architecture-agnostic framework that steers generative models toward structurally and biophysically feasible cyclic peptide designs, particularly for challenging targets. FAR-DPO integrates feasibility-aware preference construction with difficulty-aware group-robust optimization. Specifically, it constructs within-target preference pairs through feasibility-gated multi-objective dominance and adaptively reweights predefined difficulty groups according to their current preference losses. On the CPSea LNR benchmark, under a fixed generation budget, FAR-DPO increases overall success rate from 46.89% to 57.79% on PepGLAD and from 47.96% to 49.57% on PepFlow. These gains also extend to the hardest target quartile and are accompanied by more favorable best-per-target binding scores. Together, these results demonstrate FAR-DPO's effectiveness in improving feasibility and target-wise robustness.",
+      "authors": [
+        "Guofeng Zhang",
+        "Rong Han",
+        "Xiaoyu Wang",
+        "Zhiyun Li",
+        "Zongbo Han",
+        "Xiaohong Liu",
+        "Guangyu Wang"
+      ],
+      "categories": [],
+      "published": "2026-08-20",
+      "updated": "2026-08-20",
+      "url": "https://arxiv.org/abs/2608.19808",
+      "pdf_url": "https://arxiv.org/pdf/2608.19808",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2266,
+        "world_model": 0.1969,
+        "whole_body_control": 0.2055,
+        "dexterous_manipulation": 0.1772,
+        "sim2real_data": 0.1536,
+        "hardware_unitree": 0.1266,
+        "bci_neural_decoding": 0.1123,
+        "bci_foundation_models": 0.2079,
+        "bci_embodied_robot": 0.1413,
+        "bci_noninvasive_eeg": 0.1367,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.3209
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3791,
+      "first_seen": "2026-08-25",
+      "analysis": {
+        "tldr": "提出一种叫FAR-DPO的新训练框架，用于优化生成模型设计环肽时的偏好排序，通过可行性过滤构建偏好对+按难度分组动态加权，显著提升了在CPSea基准上生成可行、高结合力环肽的成功率。",
+        "org": "unknown",
+        "country": "CN",
+        "org_type": "unknown",
+        "claim": "Feasibility-aware preference construction与difficulty-aware group-robust优化联合，能更鲁棒地引导生成模型产出结构可行、靶标特异性强的环肽，尤其在难靶标上提升显著。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "环肽序列候选集（由基础生成模型如PepGLAD/PepFlow输出）",
+        "output": "经偏好重排序后的高质量环肽序列（高可行性+高靶标结合得分）",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "none",
+        "tags": [
+          "multimodal-fusion"
+        ],
+        "novelty": 6,
+        "evidence": 7,
+        "reproducibility_score": 0,
+        "significance": 52,
+        "significance_reason": "解决了环肽生成中可行性低、难靶标表现差的实操痛点，有明确benchmark提升（+11%/+1.6%）、消融支撑和多目标权衡设计，但仅限于离线序列生成优化，未开源代码/模型，未拓展至实验验证或湿实验闭环，远未达基石级（如AlphaFold2/ESMFold）的范式突破或通用性。",
+        "one_sentence_verdict": "扎实增量：方法设计合理、实证有效，但属特定任务上的训练策略改进，缺乏开源与下游验证，暂时不用看",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 11.4,
+        "content": 13.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 24.4,
+        "bonus": 0.0,
+        "total": 24.4
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.19808.jpg"
+    },
+    {
       "arxiv_id": "2606.12690",
       "doi": "10.48550/arxiv.2606.12690",
       "source_kind": "arxiv",
@@ -259797,6 +260297,87 @@
       "scores": {
         "relevance": 6.1,
         "content": 17.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 23.1,
+        "bonus": 0.0,
+        "total": 23.1
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.18.745395",
+      "doi": "10.64898/2026.08.18.745395",
+      "source_kind": "biorxiv",
+      "title": "A chromosome-scale genome assembly of the Swiss Lolium multiflorum ecotype Tremona reveals a scalable method to purge spurious duplications",
+      "abstract": "Italian ryegrass ( Lolium multiflorum ) is a key temperate forage species underpinning livestock production in Europe. Genomic resources remain limited by its large (2.2 Gb), repetitive, and highly heterozygous genome. Here, we present a high-quality chromosome-scale genome assembly of the Swiss L. multiflorum ecotype Tremona, collected in 2008 in Ticino, Switzerland, and subsequently incorporated into recurrent breeding cycles in the Swiss breeding program. To address systematic assembly artefacts caused by unresolved haplotypes in our initial PacBio HiFi assembly, we developed ParaLies, a post-assembly tool that identifies and removes artefactual duplications based on sequence divergence while preserving true paralogous gene copies. ParaLies reduced the duplicated BUSCO rate from 16.91% to 6.72% without loss of bona fide genomic content. The resulting assembly has a contig N50 of 15.69 Mb and captures 94% of the expected 2.2-Gb genome size. We further analyzed whole-genome resequencing data from Tremona, additional Swiss ecotypes, and publicly available North American germplasm. Tremona was genetically homogeneous, with no evidence of pronounced recent bottlenecks or substantial within-population structure, and was genetically distinct from the other Swiss ecotypes analyzed. Together, the Tremona genome and ParaLies provide valuable resources for L. multiflorum genomics and breeding and demonstrate a scalable approach for reducing haplotype-induced redundancy in highly heterozygous genomes.",
+      "authors": [
+        "Lucien Piat",
+        "Gerhard Herren",
+        "Christoph Grieder",
+        "Anne C. Roulin"
+      ],
+      "categories": [],
+      "published": "2026-08-20",
+      "updated": "2026-08-20",
+      "url": "https://doi.org/10.64898/2026.08.18.745395",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/20/2026.08.18.745395.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0718,
+        "world_model": 0.0625,
+        "whole_body_control": 0.0629,
+        "dexterous_manipulation": 0.0824,
+        "sim2real_data": 0.0648,
+        "hardware_unitree": 0.0716,
+        "bci_neural_decoding": 0.0,
+        "bci_foundation_models": 0.0182,
+        "bci_embodied_robot": 0.0,
+        "bci_noninvasive_eeg": 0.0273,
+        "protein_ai": 0.2788,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.3031,
+      "first_seen": "2026-08-25",
+      "analysis": {
+        "tldr": "这篇论文为意大利黑麦草（一种重要牧草）构建了高质量染色体水平基因组，并开发了一个叫ParaLies的工具来自动清除因高杂合性导致的假重复序列，显著提升了组装准确性。",
+        "org": "未知（作者单位未在摘要中明确，仅知为瑞士相关机构，但无具体实验室/大学/公司名称）",
+        "country": "CH",
+        "org_type": "unknown",
+        "claim": "ParaLies是一种可扩展的后组装方法，能特异性识别并剔除高杂合基因组中由未解析单倍型引起的假重复，同时保留真实的旁系同源基因。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "PacBio HiFi组装结果 + 同源序列比对信息（用于计算序列分歧度）",
+        "output": "去冗余后的染色体级基因组组装（contig N50=15.69 Mb，BUSCO重复率从16.91%降至6.72%）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 5,
+        "evidence": 6,
+        "reproducibility_score": 3,
+        "significance": 42,
+        "significance_reason": "属扎实的植物基因组学工程改进：解决了高杂合物种组装中常见的假重复问题，但ParaLies未开源（仅提‘developed’，无code链接）、未在其他物种广泛验证、未与主流工具（如 purge_dups, HaploSync）做系统对比，也未展示对下游育种或功能注释的实际提升；相比AlphaFold2等基石工作（开新范式/通用模型/跨物种泛化），它属于特定场景下的稳健优化，分量相当于一个高质量资源+轻量方法论文。",
+        "one_sentence_verdict": "工程整合：提供了实用的牧草基因组资源和针对性后处理工具，但缺乏开源实现、跨物种验证和下游应用证据，尚未达到方法论突破或领域范式升级级别。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 9.1,
+        "content": 14.0,
         "heat": 0.0,
         "quality": 0.0,
         "base": 23.1,
@@ -268154,6 +268735,95 @@
       "read_priority": "C"
     },
     {
+      "arxiv_id": "2608.17506",
+      "doi": "10.48550/arxiv.2608.17506",
+      "source_kind": "arxiv",
+      "title": "Engineering of Dual Wavelength, Polarization Selective Metalenses in Silicon Carbide",
+      "abstract": "Spin defects in silicon carbide (SiC) are promising candidates for integrated quantum photonics, offering long-lived spin states and near-infrared emission suitable for low-loss photonic integration and fibre-based quantum communication. However, light extraction from these defects remains challenging due the relatively high refractive index of SiC. Metalenses offer a compact approach to enhance light collection by engineering the wavefront directly at the material interface. Here, we design and fabricate monolithic metalenses from SiC bulk material that simultaneously operate at 860 and 1240 nm, matching with emission from the nitrogen vacancy and silicon vacancy colour centers. By independently engineering the phase response at both wavelengths, the metalens enables collection and polarization manipulation of the emitted light. We further employ the metalenses to demonstrate optically detected magnetic resonance of both defects simultaneously. These multifunctional metalenses provide a compact optical interface for scalable integrated SiC photonic devices.",
+      "authors": [
+        "Xiaoying Huang",
+        "Ziwei Yang",
+        "Konosuke Shimazaki",
+        "Kritsana Saego",
+        "Otto Cranwell Schaeper",
+        "Evan Williams",
+        "Dragomir Neshev",
+        "Hark Hoe Tan",
+        "Igor Aharonovicha",
+        "Mehran Kianinia"
+      ],
+      "categories": [],
+      "published": "2026-08-18",
+      "updated": "2026-08-18",
+      "url": "https://arxiv.org/abs/2608.17506",
+      "pdf_url": "https://arxiv.org/pdf/2608.17506",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0,
+        "world_model": 0.0164,
+        "whole_body_control": 0.0,
+        "dexterous_manipulation": 0.0,
+        "sim2real_data": 0.0,
+        "hardware_unitree": 0.0,
+        "bci_neural_decoding": 0.0728,
+        "bci_foundation_models": 0.0771,
+        "bci_embodied_robot": 0.0814,
+        "bci_noninvasive_eeg": 0.5,
+        "protein_ai": 0.0,
+        "genomics_ai": 0.0097
+      },
+      "best_route": "bci_noninvasive_eeg",
+      "relevance_raw": 0.0829,
+      "first_seen": "2026-08-25",
+      "analysis": {
+        "tldr": "这篇论文在碳化硅（SiC）块体材料上直接加工出单片式超构透镜，能同时在860nm和1240nm两个波长工作，分别匹配SiC中氮空位（NV）和硅空位（SV）色心的发光，并实现偏振选择性光收集与同时光学探测磁共振（ODMR），为SiC量子光子集成提供紧凑型片上光学接口。",
+        "org": "悉尼大学",
+        "country": "AU",
+        "org_type": "university",
+        "claim": "在SiC本体材料上单片集成双波长、偏振选择性金属透镜，可同时高效收集并调控两种自旋色心（NV/SV）的近红外发光，并支持其并行光学探测磁共振。",
+        "method_components": [
+          "model",
+          "fabrication",
+          "benchmark"
+        ],
+        "input": "860nm和1240nm线偏振入射光（用于表征）；NV/SV色心自发辐射光（用于收集与ODMR）",
+        "output": "聚焦光斑、偏振分辨的收集效率增强信号、同步ODMR谱线",
+        "robot_dependency": "none",
+        "data_dependency": "无真实机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 8,
+        "reproducibility_score": 3,
+        "significance": 58,
+        "significance_reason": "属高质量器件物理与集成光子学工作：首次实现SiC本体双波长偏振复用金属透镜，并验证双色心并行ODMR，技术难度高、与量子硬件强耦合；但未突破原理框架（金属透镜+色心已有大量工作），未展示系统级扩展（如多像素阵列、片上波导耦合、长期稳定性）、无开源代码/模型，且应用仍限于实验室级量子传感接口，离‘ scalable integrated photonic devices’的宣称尚有工程鸿沟。",
+        "one_sentence_verdict": "显著贡献：器件层面扎实创新，但属窄领域高性能工程实现，非范式突破或系统级进展，暂时不用看（对具身智能/脑机接口/AI×生物三大目标领域无直接价值）",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 2.5,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 20.5,
+        "bonus": 0.0,
+        "total": 20.5
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.17506.jpg"
+    },
+    {
       "arxiv_id": "10.64898/2026.08.07.743453",
       "doi": "10.64898/2026.08.07.743453",
       "source_kind": "biorxiv",
@@ -268225,6 +268895,105 @@
       "scores": {
         "relevance": 10.4,
         "content": 10.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 20.4,
+        "bonus": 0.0,
+        "total": 20.4
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.16.745117",
+      "doi": "10.64898/2026.08.16.745117",
+      "source_kind": "biorxiv",
+      "title": "An AI System for Autonomous Algorithm Evolution in Drug Development",
+      "abstract": "Abstract Artificial intelligence (AI) is increasingly permeating the drug development pipeline. Numerous algorithms for accelerating this multi-stage and multi-task process have been constructed, which depends heavily on expert design and labor-intensive task-specific optimization. Given that AI-driven acceleration of drug development is recognized as a cumulative, often synergistic, effect across multiple stages, the autonomous evolution of existing algorithms across the entire pipeline is demanded to achieve a holistic advancement. Here, we present DrugEvolve, a multi-role large language model system for systematic and autonomous algorithm evolution in drug development. DrugEvolve realizes a closed-loop evolution process by incorporating Researcher , Engineer , and Analyst domains, and enables an iterative design, implementation, evaluation, and refinement of algorithm by leveraging scientific knowledge and accumulated evolutionary experience. Across eleven representative tasks spanning target identification, drug discovery, preclinical study, and clinical trial, DrugEvolve autonomously evolved the corresponding task-specific algorithms and achieved substantial performance enhancement on 120 benchmark test sets. Moreover, it showed robust generalizabilities across heterogeneous data modalities (ranging from biological sequence and graph to molecular topology and textual language), and realized gains in both predictive and generative tasks. Collectively, this AI system can serve not only as an algorithmic infrastructure for drug development, but also as a transferable paradigm for broader scientific domains.",
+      "authors": [
+        "Zhimeng Zhou",
+        "Yang Nan",
+        "Minjie Mou",
+        "Yuntao Qian",
+        "Yixiu Liu",
+        "Zhengyu Zuo",
+        "Hao Yang",
+        "Weixian Xu",
+        "Bo Li",
+        "Wanghao Jiang",
+        "Yanlin Ren",
+        "Yang Liao",
+        "Yimeng Wang",
+        "Yingxia Li",
+        "Qingxia Yang",
+        "Zhiheng Xi",
+        "Tiantian Mi",
+        "Huaicheng Sun",
+        "Pengfei Liu",
+        "Feng Zhu"
+      ],
+      "categories": [],
+      "published": "2026-08-20",
+      "updated": "2026-08-20",
+      "url": "https://doi.org/10.64898/2026.08.16.745117",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/20/2026.08.16.745117.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2223,
+        "world_model": 0.2363,
+        "whole_body_control": 0.1831,
+        "dexterous_manipulation": 0.1475,
+        "sim2real_data": 0.1559,
+        "hardware_unitree": 0.0674,
+        "bci_neural_decoding": 0.2145,
+        "bci_foundation_models": 0.187,
+        "bci_embodied_robot": 0.2239,
+        "bci_noninvasive_eeg": 0.1214,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.3801
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3801,
+      "first_seen": "2026-08-25",
+      "analysis": {
+        "tldr": "提出一个叫DrugEvolve的多角色大语言模型系统，能自动在药物研发全链条（靶点识别到临床试验）中迭代改进任务专用算法，不依赖人工设计，在11个任务、120个基准测试上提升了性能，并声称能泛化到不同数据类型（序列、图、分子拓扑、文本）。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "DrugEvolve通过模拟Researcher/Engineer/Analyst三重角色协同，实现药物研发全流程中算法的自主演化闭环，无需人工干预即可持续提升各阶段专用算法性能。",
+        "method_components": [
+          "model",
+          "benchmark"
+        ],
+        "input": "药物研发各阶段的任务描述、已有算法代码/文档、多模态科学数据（生物序列、分子图、文本等）",
+        "output": "演化后的任务专用算法（代码+配置+评估报告）",
+        "robot_dependency": "none",
+        "data_dependency": "未说明是否依赖真实实验数据或仅用公开基准数据集；摘要未提任何湿实验验证、真实产线反馈或临床数据闭环，仅称‘120 benchmark test sets’",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-modal"
+        ],
+        "reproducibility": "none",
+        "tags": [
+          "multimodal-fusion",
+          "large-scale"
+        ],
+        "novelty": 5,
+        "evidence": 4,
+        "reproducibility_score": 0,
+        "significance": 38,
+        "significance_reason": "无代码/模型/数据开源证据，无真实世界部署或湿实验验证，未与SOTA基线（如ESM-2、dtSFM、Generative Drug Design in a Loop）做控制变量对比，仅报告‘performance enhancement’但未说明指标/幅度/统计显著性；所谓‘autonomous evolution’本质是LLM驱动的prompt-based algorithm selection/refinement，非真正可微分或强化学习驱动的算法结构演化；相比AlphaFold2（98）、dtSFM（96）等解决底层建模难题的基石工作，本文属高层流程调度包装，技术深度和实证强度严重不足。",
+        "one_sentence_verdict": "概念包装：用LLM角色扮演包装‘算法演化’概念，但无代码开源、无真实任务闭环、无与领域SOTA的硬对比，属于典型AI for Science叙事升级而非实质突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 11.4,
+        "content": 9.0,
         "heat": 0.0,
         "quality": 0.0,
         "base": 20.4,
