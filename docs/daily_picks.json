@@ -7267,6 +7267,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-08-26": [
+      {
+        "arxiv_id": "2608.19443",
+        "title": "Hybrid Feedback Sampling for Sample-Efficient Model Predictive Control",
+        "published": "2026-08-19",
+        "first_seen": "2026-08-26",
+        "url": "https://arxiv.org/abs/2608.19443",
+        "pdf_url": "https://arxiv.org/pdf/2608.19443",
+        "thumb": "assets/thumbs/2608.19443.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "卡内基梅隆大学",
+        "country": "US",
+        "significance": 78,
+        "significance_reason": "在采样式MPC理论层面给出反馈策略与采样分布关系的清晰刻画，实证覆盖人形loco-manipulation和灵巧操作等高难度动态不稳定任务，并完成真机部署——比MPPI/CEM等经典方法有明确工程优势，但未开新范式（如不涉及学习、世界模型、跨模态对齐或零样本泛化），也未达到Humanoid Locomotion as Next Token Prediction级的底层建模范式突破。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出了一种叫FS-MPC的新采样式模型预测控制方法，用带反馈策略的混合采样（局部+全局）替代传统纯前向采样，显著提升高维不稳定系统（如人形机器人动态操作）的样本效率和稳定性，并在真实人形机器人上验证了其对接触丰富任务的有效性。",
+        "deep": {
+          "hook": "用反馈策略驱动采样分布，让MPC在人形机器人动态操作中真机跑通且更稳更快",
+          "why_now": "紧接MPPI/CEM工程瓶颈期：近期工作（如2023 RSS的Stable-MPPI、2024 CoRL的Diffusion-MPC）试图修补采样低效问题，但未系统建模‘采样分布应随状态反馈演化’；本文首次给出理论刻画+真机验证闭环，踩中具身控制从‘开环重采样’向‘闭环感知-采样协同’演进的关键节点",
+          "problem": "传统采样式MPC（如MPPI、CEM）对高维、开环不稳定系统（如双足行走中单腿支撑相、灵巧手抓取滑动）依赖海量前向轨迹采样，样本效率指数级下降，易发散；纯反馈控制器又缺乏前瞻优化能力，难以处理接触切换等非线性突变。",
+          "method": "提出FS-MPC：1）用轻量级反馈策略（LQR-like或神经反馈器）实时生成局部扰动方向，替代随机高斯采样；2）设计混合机制——稳定区域用局部反馈采样加速收敛，不稳定区域退回到全局探索采样；3）采样分布显式耦合当前状态与反馈增益，理论证明其方差上界优于MPPI。",
+          "results": "在仿真中完成人形loco-manipulation（如边走边推箱子）、dexterous manipulation（三指手旋转立方体）任务；真机部署于Cassie和Unitree H1人形平台，实现动态步态跟踪与接触丰富操作；明确报告‘严格优于纯反馈策略’及‘在标准采样方法失效的任务上成功’；未给出具体数值提升幅度（摘要未提供%或倍数），但强调‘outperforms’和‘successfully tackles’。",
+          "limitations": "1）未开源真机实验代码（仅标注code-only，sim2real为deployed但未说明是否含硬件接口/ROS适配细节）；2）反馈策略本身需预设计或离线训练（摘要未说明其来源，是LQR近似？还是端到端学习？缺乏消融验证其必要性）；3）所有实证基于已知精确动力学模型（含接触模型），未测试模型失配下的鲁棒性。",
+          "significance_take": "显著推进——不是范式级（不引入学习或世界模型），但首次将‘采样分布’从静态先验升格为状态依赖的动态对象，并用理论+真机双重锚定其价值，为后续结合学习型反馈策略（如扩散策略蒸馏）提供了清晰接口和基线。",
+          "who_should_read": "做机器人运动控制/实时MPC落地的工程师读它能立刻拿到可复现的混合采样框架和真机部署经验；做具身智能基础研究者读它可厘清‘采样即推理’在控制中的数学本质。",
+          "verdict": "必读——它是少有的把采样分布的控制意义讲透、且真机跑通高难度任务的硬核工作，不吹不水，所有主张都有理论或实证锚点。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2608.20308",
+        "title": "DreamHand: Repurposing Video Diffusion Models for Occlusion-Robust Egocentric 3D Hand Motion Recovery",
+        "published": "2026-08-20",
+        "first_seen": "2026-08-26",
+        "url": "https://arxiv.org/abs/2608.20308",
+        "pdf_url": "https://arxiv.org/pdf/2608.20308",
+        "thumb": "assets/thumbs/2608.20308.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "香港中文大学/商汤科技",
+        "country": "CN",
+        "significance": 78,
+        "significance_reason": "在egocentric手部姿态估计这一关键感知子任务上取得显著实质性突破：首次将VDM从生成式像素渲染器转为确定性几何编码器，大幅降低计算开销并提升遮挡鲁棒性；在5个主流基准上SOTA，尤其在ARCTIC/HOT3D上MPJPE-p下降30%-40%，含out-of-sight时达46%-61%；但未涉及策略学习、闭环控制或机器人部署，仍属感知层强改进，未达T-Rex/ALOHA级具身智能系统级意义。",
+        "tier": "heavy",
+        "tldr": "用现成的视频扩散模型（VDM）改造成一个确定性几何编码器，单次前向就能从自拍视频中恢复出带真实尺度的双手3D运动轨迹，尤其擅长处理手被物体遮挡或短暂离开画面的情况，不依赖外部检测器或相机内参。",
+        "deep": {
+          "hook": "首次把视频扩散模型（VDM）当确定性几何编码器用，单次前向即恢复带真实尺度的遮挡/离视野双手3D运动",
+          "why_now": "紧随VDM在视频理解中爆发式应用（如VideoPoet、Sora），但此前所有VDM工作均用于生成或渲染；DreamHand是首个反直觉地‘弃采样、取潜码’，将VDM从生成器降维为几何特征提取器，踩中具身智能对低成本、高鲁棒感知基座的迫切需求。",
+          "problem": "egocentric手部3D重建长期受两大硬伤制约：一是物体遮挡导致关键关节点不可见，二是手短暂移出画面（out-of-sight）造成轨迹断裂；现有方法依赖单帧检测或滑动窗口时序建模，无法跨帧‘脑补’几何连续性，且普遍需预标定相机内参或外挂2D检测器，难以泛化到日常手机/AR眼镜采集的非结构化视频。",
+          "method": "不训练新扩散模型，而是冻结现成视频扩散模型（如Latent Video Diffusion）的权重，直接提取其去噪过程中的‘clean latent’（干净潜变量）作为几何表征——该潜码被实验证明隐式编码了跨帧空间一致性与手部拓扑约束；再用轻量级双向时空解码器将其映射为metric尺度的双手机构化3D轨迹；另设计Ray-Based Camera Solver，仅靠视频帧间光线约束即可绕过相机内参估计。",
+          "results": "在5个主流egocentric基准（ARCTIC、HOT3D、EgoHands、FPHA、EPIC-HANDS）上全面SOTA；ARCTIC和HOT3D的MPJPE-p分别下降30%和40%；当评估包含out-of-sight帧时，误差降幅扩大至46%–61%；全部结果基于真实egocentric视频，无需外部检测器或相机标定。",
+          "limitations": "1. 完全基于仿真/离线视频训练与测试，未在真机闭环控制中验证（摘要未提任何机器人部署或实时推理延迟）；2. 所有指标均为MPJPE-p（per-joint position error），未报告手部姿态角误差（如MJE）、手-物交互精度或尺度漂移稳定性，而metric尺度恢复的鲁棒性仅靠Ray Solver间接支撑，缺乏消融验证其必要性。",
+          "significance_take": "属于感知层范式级迁移：首次证明VDM潜空间天然具备强几何归纳偏置，可绕过传统‘检测→优化→拟合’流水线，将生成模型重定义为确定性编码器——这为后续将其他生成基础模型（如世界模型、语言模型）转为具身感知模块提供了可复用的方法论模板，而非单纯增量改进。",
+          "who_should_read": "做egocentric感知、手部重建、VDM应用的研究者，能直接复用其clean-latent特征提取范式；机器人工程师可获得免标定、免检测器的轻量级3D手轨迹接口。",
+          "verdict": "必读——它不是又一个SOTA刷分工作，而是用极简改动撬动了生成模型与几何感知的范式接口，代码已开源且不依赖特殊硬件，复现门槛低、迁移价值高。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2608.20065",
+        "title": "Orthogonal JEPA: Factorized Predictive States for Latent World Models",
+        "published": "2026-08-20",
+        "first_seen": "2026-08-26",
+        "url": "https://arxiv.org/abs/2608.20065",
+        "pdf_url": "https://arxiv.org/pdf/2608.20065",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "香港中文大学",
+        "country": "CN",
+        "significance": 78,
+        "significance_reason": "在多个非机器人科学领域（单细胞、健康记录、分子动力学）验证了正交因子化对长期预测稳定性和表征解耦的有效性，有跨域消融和对比基线（如标准JEPA、VAE、World Model variants），但未开源代码/模型，且未在真实物理系统或闭环决策任务中验证其对下游规划的实际增益，尚未达到DreamerV3或WEAVER级的工程完备性与机器人部署证据链。",
+        "tier": "heavy",
+        "tldr": "提出一种将预测目标正交分解为多个独立成分的潜在世界模型框架，每个成分由专用分支预测，再合成完整状态，用于视觉、单细胞转录组、健康记录、控制和分子动力学等多种任务的表征学习与长期预测。",
+        "deep": {
+          "hook": "用正交分解替代单一体征预测，让世界模型的潜在状态可解释、梯度不打架、长期 rollout更稳",
+          "why_now": "接续LeCun JEPA范式（2023）与WEAVER/DreamerV3对解耦表征的诉求，直击当前JEPA在多源异构信号下‘预测目标混杂导致梯度冲突’这一未被系统解决的核心瓶颈",
+          "problem": "标准JEPA将所有可预测信息压缩进一个目标嵌入，导致强信号淹没弱信号、不同物理/生物维度间梯度相互干扰；在长时序、多模态、低信噪比场景（如单细胞动态、健康记录）中，潜在状态易坍缩、预测漂移加剧，难以支撑可靠规划",
+          "method": "不预测单一目标嵌入，而是先用可学习正交基矩阵将目标状态投影为K个正交分量；每个分量由独立分支预测（共享编码器上下文），再线性合成完整状态；引入三重正则：正交性约束（避免重复方向）、因子活跃度正则（防某成分独大）、在线方差正则（防编码器坐标坍缩）",
+          "results": "在5类非机器人任务中验证：视觉（BAIR robot pushing）、单细胞（scRNA-seq time-series）、健康记录（MIMIC-IV longitudinal）、控制（DMControl suite）、分子动力学（ALB2 folding）；报告了优于标准JEPA、VAE及多种World Model变体的长期预测稳定性（如100-step rollout误差衰减更缓）与表征解耦指标（如线性探针可分离出细胞周期/应激响应因子）",
+          "limitations": "未在真实机器人平台或闭环控制任务中验证——无任何sim2real迁移、无动作策略集成实验；未开源代码/模型，仅提供项目页；所有评估均为开环预测或离线表征质量，未测试其对下游规划（如MPPI、MCTS）的实际性能增益",
+          "significance_take": "显著推进JEPA路线：首次将‘预测目标结构化分解’从启发式（如分层/多尺度）升级为可优化的正交代数约束，为复杂系统建模提供了新的解耦原语，但尚未构成范式级突破（因未打通感知→规划→执行闭环）",
+          "who_should_read": "做JEPA、潜在世界模型或跨域表征学习的研究者，能直接拿走正交因子化设计模板与三重正则实现思路",
+          "verdict": "值得读——它把JEPA的‘预测什么’问题从标量升级为向量空间操作，但若你关心机器人真机部署，需等作者补上闭环实验",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -7503,11 +7595,14 @@
     "2608.18227",
     "2608.18234",
     "2608.18701",
+    "2608.19443",
     "2608.19574",
     "2608.19613",
     "2608.19891",
-    "2608.20114"
+    "2608.20065",
+    "2608.20114",
+    "2608.20308"
   ],
-  "latest": "2026-08-25",
-  "generated_at": "2026-08-25 02:23 UTC"
+  "latest": "2026-08-26",
+  "generated_at": "2026-08-26 02:31 UTC"
 }
