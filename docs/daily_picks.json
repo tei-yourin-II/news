@@ -7451,6 +7451,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-08-28": [
+      {
+        "arxiv_id": "2608.24199",
+        "title": "NVIDIA Cosmos-H-Dreams: Real-Time Generative Physics Simulation for Surgical Robotics",
+        "published": "2026-08-25",
+        "first_seen": "2026-08-28",
+        "url": "https://arxiv.org/abs/2608.24199",
+        "pdf_url": "https://arxiv.org/pdf/2608.24199",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "sim2real_data",
+        "org": "英伟达",
+        "country": "US",
+        "significance": 94,
+        "significance_reason": "达到SPEAR（96）与SimWeaver（94）同档：首次实现生成式外科仿真在多硬件接口下的实时闭环控制，具备真实手术机器人集成、跨模态人机交互、开源部署栈三重实证；虽物理真实性弱于传统FEM仿真，但在生成式世界模型范式下实现了前所未有的实时性、可控性与开放性，填补了生成式仿真通往临床前验证的关键缺口。",
+        "tier": "heavy",
+        "tldr": "用生成式AI构建了一个能实时（160FPS）响应手术机器人动作指令、模拟软组织形变和视觉外观的交互式外科仿真系统，支持键盘、VR头显、真实手术机器人控制台等多种输入方式，且完全开源。",
+        "deep": {
+          "hook": "首个支持160FPS实时闭环控制的开源生成式外科仿真器，真机/VR/键盘全接口驱动",
+          "why_now": "接续Cosmos-H-Surgical-Simulator与FlashDreams技术栈，踩中‘生成式世界模型+具身闭环’爆发期；在SPEAR/SimWeaver之后首次将生成式仿真推入真实手术机器人控制环，而非仅离线视频生成",
+          "problem": "传统外科仿真（FEM/SPH）物理精确但慢（<10FPS），无法实时响应操作；纯生成式视频模型（如双向扩散）非因果、不可控、延迟高；临床前验证长期卡在‘仿真-真机’之间缺乏可交互、可部署、可复现的中间层。",
+          "method": "以Cosmos-H-Surgical-Simulator为教师模型，用embodiment-specific数据微调后，通过‘蒸馏+Self Forcing’将其压缩为单向、低步数（few-step）、因果推理的学生模型；底层依托FlashDreams实现流式推理，输出帧严格依赖历史动作与观测，支持任意kinematics输入源；整个栈开源且适配WebXR/WebRTC/ROS2接口。",
+          "results": "在单块RTX PRO 6000 Blackwell GPU上实现~160 FPS流式推理；实证支持四种控制方式：浏览器键盘、Meta Quest头显、CMR Versius手术机器人控制台、闭环学习策略；开源完整code+model+data+UI部署栈；作者报告在多任务交互（如抓取、牵开、缝合模拟）中保持视觉连贯性与动作响应一致性。",
+          "limitations": "物理真实性未量化对比（摘要未提FEM误差值或力学指标如应力分布/形变恢复率）；所有实证均为仿真内闭环，未见sim2real迁移效果（如策略迁移到真机后的成功率下降幅度）；Self Forcing的因果稳定性依赖于训练时的动作-视觉对齐质量，但摘要未提供消融实验验证该模块必要性。",
+          "significance_take": "显著推进——不是增量改进，而是首次将生成式世界模型从‘离线视频生成’范式切换到‘实时具身控制’范式，且完成三重实证（多硬件接入、闭环策略运行、全栈开源），为生成式仿真进入临床前验证铺出第一条可复现路径。",
+          "who_should_read": "做手术机器人仿真/策略学习/人机交互的研究者和工程师，能直接复用其部署栈构建自己的生成式训练环境，或基于其学生模型设计轻量级在线控制器。",
+          "verdict": "必读——它把生成式仿真从PPT愿景拉进可插拔、可测量、可集成的真实系统层级，且所有组件开源，是当前具身智能在高保真软体交互领域最硬核的工程落地标杆。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2608.23565",
+        "title": "ReWorld: An Interactive World Model with Long-Horizon Memory",
+        "published": "2026-08-24",
+        "first_seen": "2026-08-28",
+        "url": "https://arxiv.org/abs/2608.23565",
+        "pdf_url": "https://arxiv.org/pdf/2608.23565",
+        "thumb": "assets/thumbs/2608.23565.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "智元",
+        "country": "CN",
+        "significance": 93,
+        "significance_reason": "在长程记忆机制上取得实质性突破：首次实现分钟级（384 latents）闭环回溯且内存可控（12-chunk固定缓存），超越DreamerV3/V1等纯RL世界模型的记忆长度与物理一致性；但未接入真实机器人闭环控制，尚未达到WEAVER（94.5）或World Models（97）级范式开创性。",
+        "tier": "heavy",
+        "tldr": "提出ReWorld模型，通过分离训练时的控制短视窗与记忆长视窗、设计带姿态索引地标库的固定大小KV缓存，在实时交互中实现分钟级视频回溯（如出发点画面再生），统一多源数据（虚幻引擎/游戏/真实视频）到物理一致的动作尺度，并用LoRA蒸馏实现单模型双模态（高保真多步生成+实时流式生成）。",
+        "deep": {
+          "hook": "首次实现分钟级（384 latents）可检索、姿态对齐的固定内存世界模型回溯",
+          "why_now": "紧随DreamerV3（2023）、WEAVER（2024）之后，直击当前交互式世界模型最大瓶颈——长程记忆与实时性的根本矛盾；其‘分离训练/绑定推理’设计为后续轻量化具身仿真提供新范式",
+          "problem": "现有世界模型（如DreamerV3）依赖滑动窗或全历史KV缓存，导致长程记忆不可靠（滑窗丢起点）或显存爆炸（全KV无法支撑分钟级）；更关键的是，记忆常是统计摘要而非可定位的物理地标，无法支持‘回到出发点’这类具身任务。",
+          "method": "训练时解耦：多数注意力头只看短时窗（控制导向），少数全局头覆盖全程（记忆导向），并用随机头路由+随机chunk丢弃增强鲁棒性；推理时用固定12-chunk KV缓存，搭配姿态索引的地标库（pose-indexed landmark bank）实现基于当前相机位姿的最近邻检索；所有数据源（虚幻/游戏/真实视频）统一到度量尺度（metric-scale-aligned），并通过回文轨迹（palindrome trajectories）显式构造‘重访’监督信号。",
+          "results": "在64秒（384 latents）out-and-back rollout中，固定12-chunk缓存仍能再生起始画面；控制保真度最优（旋转误差11.95°）；视频质量与动作一致性在六种近期模型中均排名第一；支持704x1280三类风格（photorealistic/game/stylized）实时流式生成。",
+          "limitations": "未在真实机器人上闭环验证（仅仿真交互）；所有结果基于合成/录制视频数据，未报告在开放真实环境（如Robotics Benchmarks）中的泛化表现；地标库依赖精确相机姿态输入，而真实传感器存在噪声与漂移，该模块鲁棒性未验证。",
+          "significance_take": "显著推进——不是增量调参，而是重构记忆机制：将‘长程记忆’从不可控的统计压缩，转为可控、可检索、物理对齐的姿态地标，为后续具身导航、重定位、长期任务规划提供了首个可工程化的记忆基座。",
+          "who_should_read": "做世界模型/具身仿真/视觉-动作联合建模的工程师和研究者，能直接借鉴其混合注意力窗设计、姿态索引缓存架构与多源度量对齐数据引擎。",
+          "verdict": "必读——它用清晰的工程约束（固定12-chunk）倒逼出真正可用的长程记忆，且所有创新点均可复现、可拆解、可移植到真实系统。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2608.23863",
+        "title": "DreamLedger: Execution-Settled Credit Files for World-Model Imagination in Robot Decision Loops",
+        "published": "2026-08-24",
+        "first_seen": "2026-08-28",
+        "url": "https://arxiv.org/abs/2608.23863",
+        "pdf_url": "https://arxiv.org/pdf/2608.23863",
+        "thumb": "assets/thumbs/2608.23863.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "未知",
+        "country": "unknown",
+        "significance": 87,
+        "significance_reason": "首次将世界模型可靠性建模为可部署、可审计、执行后结算的持久化信用系统，跨三种仿真域+真实机械臂验证，提供完整闭环证据链（注册→归因→结算→门控→重放），显著降低幻觉消耗（62%），且在真实噪声下维持结算功能；虽未重构世界模型底层架构（如DreamerV3/V-JEPA），但为整个MBRL决策环引入了新层级的信任基础设施，填补了‘Current World Models Lack a Persistent State Core’（95.5分）所指出的核心缺口，属重磅推进。",
+        "tier": "heavy",
+        "tldr": "提出DreamLedger——一种将世界模型预测的可靠性建模为可持久化、可审计的‘信用文件’（credit file）的机制，通过在真实执行后自动结算预测成败（零标注成本），动态调控预测使用策略（如缩短依赖步长、触发重观察），并在仿真和真实Franka机械臂上验证其能显著降低‘幻觉消耗’（burned imagination）且保持任务成功率。",
+        "deep": {
+          "hook": "世界模型预测不再靠‘直觉’信任，而是像银行一样记账、审计、结算——DreamLedger首次实现执行后信用闭环",
+          "why_now": "紧接2023–2024年MBRL爆发期（DreamerV3/TD-MPC2/V-JEPA 2-AC）与‘世界模型缺乏持久状态核心’共识（95.5分痛点），在sim2real信任断裂最严峻的时刻，提出首个可部署、可审计、跨架构的信用基础设施",
+          "problem": "当前世界模型输出的置信度是瞬时、内部、不可验证的软信号；预测被盲目消费后失败（幻觉消耗）无法追溯归因，导致决策环路中信任不可控、调试无依据、真实部署风险高。",
+          "method": "将每次预测调用注册为‘信用声明（claim）’，待真实执行结果到达后自动结算成败（零人工标注）；引入归因过滤器剔除传感器噪声污染的结果，用结算监督头处理稀疏bin下的信用估计；生成可索引的信用文件（按环境区域/噪声水平/预测步长三维索引），驱动门控（禁用低信预测）、动态缩短依赖步长、触发重观察，并留存完整审计日志与重放凭证。",
+          "results": "在3个仿真域（室内飞行/桌面操作/2D导航）+真实Franka机械臂上验证；信用门控使‘幻觉消耗’降低62%（95% CI 43–81%）；任务成功率持平（0.94 vs 0.98），碰撞率相当；在操纵任务中，相同风险目标下验证探针从1.00降至0.36/episode；全部1,062次真实机器人信用消费均可从日志重放。",
+          "limitations": "未修改底层世界模型结构（如DreamerV3/V-JEPA），仅作为外挂信任层，无法根治预测偏差源头；信用结算依赖真实执行反馈，纯仿真阶段无法完成完整结算循环（摘要未说明仿真中如何模拟‘现实抵达’）；所有信用指标均基于‘claim failure’定义，但未公开failure判定阈值或鲁棒性敏感性分析。",
+          "significance_take": "属显著推进：不是改进单个模型，而是为整个MBRL决策环新增一个可部署、可审计、跨模型接口的信任基础设施层，直接回应‘缺乏持久状态核心’这一领域级缺口，且已在真实噪声下验证结算功能，具备工程落地锚点。",
+          "who_should_read": "做MBRL系统集成、具身决策闭环、sim2real部署的工程师和研究者——能直接复用其信用注册/结算/门控三段式API设计，避免重复造轮子。",
+          "verdict": "必读：它是首个把‘信任’从神经网络内部信号转化为可审计工程对象的工作，不改模型却让整个决策环更可信、可调、可追责。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -7695,9 +7787,12 @@
     "2608.20114",
     "2608.20308",
     "2608.22301",
+    "2608.23565",
+    "2608.23863",
+    "2608.24199",
     "2608.25864",
     "2608.26067"
   ],
-  "latest": "2026-08-27",
-  "generated_at": "2026-08-27 10:58 UTC"
+  "latest": "2026-08-28",
+  "generated_at": "2026-08-28 12:37 UTC"
 }
