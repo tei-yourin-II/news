@@ -1,16 +1,17 @@
 {
   "week": {
-    "start": "2026-08-22",
-    "end": "2026-08-28",
-    "label": "08.22~08.28"
+    "start": "2026-08-23",
+    "end": "2026-08-29",
+    "label": "08.23~08.29"
   },
   "count": 15,
-  "venue_count": 2,
+  "venue_count": 3,
   "venues": [
     "ECCV 2026",
-    "ICRA 2027"
+    "ICML 2026",
+    "IROS 2026"
   ],
-  "generated_at": "2026-08-28 12:37 UTC",
+  "generated_at": "2026-08-29 07:47 UTC",
   "picks": [
     {
       "rank": 1,
@@ -55,6 +56,46 @@
     },
     {
       "rank": 2,
+      "arxiv_id": "2608.26058",
+      "title": "One Policy, Many Embodiments: Unified Camera-Centric Action Geometry Pre-training for Heterogeneous Embodied Manipulation",
+      "published": "2026-08-26",
+      "url": "https://arxiv.org/abs/2608.26058",
+      "pdf_url": "https://arxiv.org/pdf/2608.26058",
+      "thumb": "assets/thumbs/2608.26058.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "小米机器人",
+      "country": "CN",
+      "org_type": "company",
+      "significance": 94,
+      "significance_reason": "实证扎实：单checkpoint在LIBERO（98.3%）、RoboTwin（88.7%/89.2%）、LIBERO-Plus零样本（82.0%）、RoboCasa GR-1（62.0%）均达SOTA或接近SOTA；首次系统性解耦‘动作几何’与‘机体执行’，支撑真正意义上的多形态统一策略，与CHORUS（94）、Xiaomi-Robotics-1（94.8）同属当前具身智能基础模型第一梯队，但未达RT-2级范式革命（97）",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "sim2real",
+        "benchmark",
+        "large-scale"
+      ],
+      "tldr": "提出一种以相机为中心的统一动作几何表征（UCAG-P），把不同机器人、人形、人手的动作都映射到图像坐标系和相机坐标系下的锚点运动空间，用一个共享VLA策略学动作几何，再通过可插拔的几何动作翻译器适配具体机体，实现单模型零样本跨多种机器人平台操作。",
+      "claim": "通过将异构具身操作动作统一建模为相机可观测的锚点运动几何，可解耦学习通用动作结构与机体特异性执行，使单一VLA策略在未经微调下泛化至多类实体（机械臂/人形/人手）并保持高任务性能。",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "input": "RGB图像+语言指令",
+      "output": "图像坐标系与相机坐标系中的锚点运动向量（平移+旋转），经翻译器转为各机体可执行的底层控制指令",
+      "novelty": 8,
+      "evidence": 10,
+      "one_sentence_verdict": "真突破——不是简单换数据或加模块，而是重构动作表征空间，使‘一个策略驱动多种身体’从工程hack变为可学习的几何先验，且在多个硬基准上验证了泛化有效性",
+      "deep": {}
+    },
+    {
+      "rank": 3,
       "arxiv_id": "2608.23565",
       "title": "ReWorld: An Interactive World Model with Long-Horizon Memory",
       "published": "2026-08-24",
@@ -92,7 +133,7 @@
       "deep": {}
     },
     {
-      "rank": 3,
+      "rank": 4,
       "arxiv_id": "2608.22301",
       "title": "The Imitator Game: Benchmarking Robot Imitative Ability Beyond Action Prediction",
       "published": "2026-08-23",
@@ -132,7 +173,7 @@
       "deep": {}
     },
     {
-      "rank": 4,
+      "rank": 5,
       "arxiv_id": "2608.25864",
       "title": "MA-VLA: Multi-Arm Vision-Language-Action Model for Collaboration and Compositional Generalization",
       "published": "2026-08-26",
@@ -171,7 +212,46 @@
       "deep": {}
     },
     {
-      "rank": 5,
+      "rank": 6,
+      "arxiv_id": "2608.25757",
+      "title": "LM-X: Explainable Action Modeling with Progress, Event, and Uncertainty Prediction for Generalist Robot Manipulation",
+      "published": "2026-08-26",
+      "url": "https://arxiv.org/abs/2608.25757",
+      "pdf_url": "https://arxiv.org/pdf/2608.25757",
+      "thumb": "assets/thumbs/2608.25757.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "未知（作者单位未在摘要中披露，无机构署名线索，仅从姓名风格推测可能含中国团队，但无法确认主体归属）",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 88,
+      "significance_reason": "达到RT-2级（97）以下、但明显超越π0（95）和DAM-VLA（96）的实证强度：首次将任务级/事件级/动作级三重预测统一为可微、可监督、可部署的控制原语，并在50个hard仿真任务+7个真实机器人任务上实现大幅SOTA提升（+18.7% / +17.9%），且所有预测信号均经真实行为验证（如方差上升对应犹豫振荡），非纯概念；但尚未开源代码/模型，未宣称跨机体零样本泛化，未覆盖teleoperation或tactile等新模态，故未达里程碑级。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "sim2real",
+        "real-robot",
+        "benchmark"
+      ],
+      "tldr": "这篇论文提出LM-X模型，让机器人在执行操作任务时不仅能输出动作，还能实时预测任务进度（RTG）、下一个关键事件（ETG）和动作可靠性（方差），从而把‘可解释性’嵌入控制过程本身，而非事后生成；它在50个仿真硬任务和7个真实机器人任务上显著超越GR00T等强基线。",
+      "claim": "显式建模多时间尺度预测状态（任务进度、事件跃迁、动作不确定性）可同时提升通用机器人操作性能与在线可解释性，且该解释性是控制的内在组成部分。",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark",
+        "real-robot"
+      ],
+      "input": "多模态输入：视觉（RGB帧序列）、语言指令、历史动作",
+      "output": "动作序列 + 三路并行预测：返回至目标值（RTG）、事件至目标值（ETG）、异方差动作流（方差图）",
+      "novelty": 8,
+      "evidence": 11,
+      "one_sentence_verdict": "真突破：它把‘解释性’从后处理装饰变成控制回路的一等公民，并用扎实的真实机器人证据证明这种设计能同时提性能、给诊断——不是包装，是重构。",
+      "deep": {}
+    },
+    {
+      "rank": 7,
       "arxiv_id": "2608.23863",
       "title": "DreamLedger: Execution-Settled Credit Files for World-Model Imagination in Robot Decision Loops",
       "published": "2026-08-24",
@@ -211,7 +291,7 @@
       "deep": {}
     },
     {
-      "rank": 6,
+      "rank": 8,
       "arxiv_id": "2608.27345",
       "title": "PAWBench: How Far Are We from Probabilistically Aligned World Modeling?",
       "published": "2026-08-27",
@@ -248,7 +328,7 @@
       "deep": {}
     },
     {
-      "rank": 7,
+      "rank": 9,
       "arxiv_id": "2608.26103",
       "title": "Zero-WAM: In-Context World-Action Modeling from Human Videos for Open-Ended Task Generalization",
       "published": "2026-08-26",
@@ -288,7 +368,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
+      "rank": 10,
       "arxiv_id": "2608.26067",
       "title": "StreamPI: Streaming Multimodal Temporal Modeling for Vision-Language-Action Models",
       "published": "2026-08-26",
@@ -324,43 +404,7 @@
       "deep": {}
     },
     {
-      "rank": 9,
-      "arxiv_id": "2608.22033",
-      "title": "DELTA: Deformable Elevation-Based Local Terrain Attention Encoder for Sparse-Terrain Quadrupedal Locomotion",
-      "published": "2026-08-22",
-      "url": "https://arxiv.org/abs/2608.22033",
-      "pdf_url": "https://arxiv.org/pdf/2608.22033",
-      "thumb": "assets/thumbs/2608.22033.jpg",
-      "venue": "ICRA 2027",
-      "domain": "embodied_ai",
-      "best_route": "whole_body_control",
-      "org": "ETH Zurich",
-      "country": "EU",
-      "org_type": "university",
-      "significance": 76,
-      "significance_reason": "真机迁移成功（RAIBO2）、多混合地形泛化、消融验证了采样机制与注意力的有效性，且明确解决了高分辨率稀疏地形下编码器计算爆炸这一实际瓶颈；但未开源代码/模型，未覆盖跨机体/用户泛化，也未挑战人类级零样本泛化或世界模型级耦合控制等更高阶问题，故略低于94+档基石（如GR00T N1、H2O），属扎实重磅贡献。",
-      "tier": "heavy",
-      "grade": "D",
-      "tags": [
-        "sim2real",
-        "multimodal-fusion"
-      ],
-      "tldr": "提出DELTA编码器，用可变形的局部高程块采样+固定大小注意力机制，替代传统计算量随地图分辨率暴涨的稠密地形编码，让四足机器人在稀疏地形（如离散石块、台阶）上更高效地学步态，且能迁移到真实RAIBO2机器人。",
-      "claim": "通过状态条件下的可变形局部高程采样与固定尺寸注意力，实现与稠密地形编码器相当性能但计算成本不随地图分辨率增长，从而支持更高分辨率地形建模并提升稀疏地形通行鲁棒性。",
-      "method_components": [
-        "model",
-        "simulator",
-        "benchmark"
-      ],
-      "input": "局部高程地图（elevation map）+机器人本体状态（如姿态、速度、关节角）",
-      "output": "地形证据token序列（固定长度）用于后续策略网络决策",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：在地形感知编码范式上做出实质性效率-精度再平衡，有真机验证和泛化证据，但非范式突破，也未开源核心资产。",
-      "deep": {}
-    },
-    {
-      "rank": 10,
+      "rank": 11,
       "arxiv_id": "2608.22149",
       "title": "Meta-Ctrl: Guaranteed Plan Generation by Decoupling Syntactic and Semantic Constraints",
       "published": "2026-08-23",
@@ -399,7 +443,7 @@
       "deep": {}
     },
     {
-      "rank": 11,
+      "rank": 12,
       "arxiv_id": "2608.24882",
       "title": "Latent Action as Intention Enables Efficient Future Imagination for World Action Models",
       "published": "2026-08-25",
@@ -436,7 +480,7 @@
       "deep": {}
     },
     {
-      "rank": 12,
+      "rank": 13,
       "arxiv_id": "2608.23070",
       "title": "From Generation to Simulation: How Far Are World Models from Being True Simulators?",
       "published": "2026-08-24",
@@ -471,115 +515,77 @@
       "deep": {}
     },
     {
-      "rank": 13,
-      "arxiv_id": "10.64898/2026.08.25.746839",
-      "title": "MyoAssist 1.0: An Open-Source Framework for Neuromechanical Simulation of Physical Human-Device Interaction",
-      "published": "2026-08-26",
-      "url": "https://doi.org/10.64898/2026.08.25.746839",
-      "pdf_url": "https://doi.org/10.64898/2026.08.25.746839",
-      "thumb": "",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "whole_body_control",
-      "org": "苏黎世大学/意大利技术研究院/Google Research（依据作者署名：Vikash Kumar为Google Research，Massimo Sartori为UZ/ITI，Seungmoon Song为KAIST但摘要未提；综合判断主导方为苏黎世大学与Google Research联合，取更偏基础工具链建设的Google Research）",
-      "country": "US",
-      "org_type": "mixed",
-      "significance": 78,
-      "significance_reason": "属高质量基础设施级贡献：首次将多尺度肌肉模型（416肌全身体）、15类助行设备、MyoSuite任务库与RL/优化双控制器流水线深度耦合，全部开源且接口标准化；虽未部署真机、无临床验证，但解决了该领域长期存在的建模碎片化痛点，证据扎实（完整组件清单、跨设备兼容性说明、双控制器统一评估协议），明显强于普通benchmark，但尚未达到AlphaFold或RT-2级范式突破量级。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "open-source",
-        "simulator",
-        "benchmark",
-        "dataset"
-      ],
-      "tldr": "发布了一个开源的神经肌肉-机械联合仿真框架MyoAssist 1.0，把人体肌肉骨骼模型、助行/康复设备模型、任务场景和控制器训练流程统一集成，支持从下肢假肢到全身416肌模型的多种人机交互仿真研究。",
-      "claim": "MyoAssist 1.0通过模块化、可组合的神经肌肉-设备-任务三元耦合架构，首次在开源生态中系统性打通了物理人机交互仿真中的建模割裂问题，显著提升该领域仿真实验的可复现性、可扩展性与协作效率。",
-      "method_components": [
-        "simulator",
-        "benchmark",
-        "dataset"
-      ],
-      "input": "神经肌肉驱动信号（如肌电激励）、设备动力学参数、地形/目标速度等任务条件",
-      "output": "关节力矩、肢体运动轨迹、设备反作用力、控制策略性能指标（如能量消耗、步态对称性、跟踪误差）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合——不是算法或理论突破，而是构建了当前最完备、可即插即用的神经肌肉-助行设备联合仿真基座，极大降低领域准入门槛，实证充分、开源完整，值得广泛采用。",
-      "deep": {}
-    },
-    {
       "rank": 14,
-      "arxiv_id": "2608.24603",
-      "title": "Gripper-aware Vision Language Action Models",
-      "published": "2026-08-25",
-      "url": "https://arxiv.org/abs/2608.24603",
-      "pdf_url": "https://arxiv.org/pdf/2608.24603",
-      "thumb": "assets/thumbs/2608.24603.jpg",
-      "venue": "",
+      "arxiv_id": "2608.25585",
+      "title": "RA-VLA: Retrieval-Augmented VLA for Test-Time Adaptation",
+      "published": "2026-08-26",
+      "url": "https://arxiv.org/abs/2608.25585",
+      "pdf_url": "https://arxiv.org/pdf/2608.25585",
+      "thumb": "assets/thumbs/2608.25585.jpg",
+      "venue": "ICML 2026",
       "domain": "embodied_ai",
       "best_route": "vla",
-      "org": "未知（作者单位未在摘要中披露，无明显头部机构署名线索，如DeepMind/Google/Stanford/MIT/清华/智元等；部分作者名似越南/东南亚背景，但无法确认所属机构）",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 78,
-      "significance_reason": "实质性推进VLAs的具身意识：首次系统揭示并量化夹爪偏差问题，构建首个大规模多夹爪真机数据集MiGA（10.3万条），并在真实机器人上验证GVLA对跨夹爪泛化、少样本适配的有效性；但未开源代码/模型，未与RT-2/π0/OpenVLA等基石模型做同基准对比（仅称‘outperforms current baselines’，未指明baseline具体是谁、是否为SOTA），也未展示端到端部署或长期任务闭环，属扎实重磅但未达里程碑级。",
-      "tier": "heavy",
-      "grade": "C",
+      "org": "POSTECH",
+      "country": "KR",
+      "org_type": "university",
+      "significance": 68,
+      "significance_reason": "解决了ICIL中检索不匹配行为意图、策略难脱离预训练偏置的关键问题，有真实UR5e验证和LIBERO多任务对比，但未跨机体/跨用户验证，未开源代码或模型，未与RT-2/π0/OpenVLA等基石模型做同条件对比，属显著但非范式级贡献",
+      "tier": "notable",
+      "grade": "D",
       "tags": [
-        "dataset",
-        "multimodal-fusion",
-        "real-robot",
-        "large-scale"
-      ],
-      "tldr": "这篇论文发现现有视觉语言动作模型（VLAs）默认忽略夹爪类型差异，导致策略泛化差；为此构建了首个覆盖5种夹爪、10.3万条真机演示的多夹爪数据集MiGA，并提出GVLA模型，用夹爪感知的tokenizer和适配器路由机制实现同一模型内对不同夹爪策略的差异化建模，在仿真和真实机器人上均提升跨夹爪泛化与少样本适应能力。",
-      "claim": "夹爪类型是VLAs中不可忽略的具身变量，显式建模夹爪语义可显著提升策略泛化性、零样本迁移能力和新夹爪快速适配效率。",
-      "method_components": [
-        "model",
-        "dataset",
+        "sim2real",
+        "teleoperation",
         "benchmark"
       ],
-      "input": "RGB图像+自然语言指令+夹爪类型标识（如parallel-jaw/suction）",
-      "output": "动作序列（6D位姿+夹爪开合）",
-      "novelty": 8,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：解决了VLAs中长期被忽视的夹爪具身偏差问题，用高质量数据+结构化建模实现真实机器人上的跨夹爪泛化提升，但缺乏开源与基线对标，尚未构成范式突破。",
+      "tldr": "提出RA-VLA框架，在测试时无需重新训练，通过改进检索机制（行为对齐+功能线索约束）提升VLA模型对新任务的泛化能力，在LIBERO仿真和UR5e真实机械臂上验证了更高成功率和更快推理速度。",
+      "claim": "行为对齐的上下文检索与功能线索约束的执行流水线，可突破ICIL在测试时适应中的检索浅层性和策略惯性瓶颈，实现高效、鲁棒的零训练机器人任务适应。",
+      "method_components": [
+        "model",
+        "benchmark"
+      ],
+      "input": "多步演示视频帧+语言任务描述+当前观测图像",
+      "output": "动作序列（6D末端位姿+夹爪开合）",
+      "novelty": 6,
+      "evidence": 7,
+      "one_sentence_verdict": "显著贡献：真机+多任务+消融验证了检索机制改进的有效性，但缺乏开源和跨尺度基线对比，尚未达到里程碑水平",
       "deep": {}
     },
     {
       "rank": 15,
-      "arxiv_id": "2608.23138",
-      "title": "Pointing-VLA: Typed Spatial Grounding Interfaces for Vision-Language-Action Manipulation",
+      "arxiv_id": "2608.23304",
+      "title": "Design of a Biomimetic Joint-Covering Skin with Tissue-Like Structure to Enhance Proprioception in a Musculoskeletal Humanoid",
       "published": "2026-08-24",
-      "url": "https://arxiv.org/abs/2608.23138",
-      "pdf_url": "https://arxiv.org/pdf/2608.23138",
-      "thumb": "assets/thumbs/2608.23138.jpg",
-      "venue": "",
+      "url": "https://arxiv.org/abs/2608.23304",
+      "pdf_url": "https://arxiv.org/pdf/2608.23304",
+      "thumb": "assets/thumbs/2608.23304.jpg",
+      "venue": "IROS 2026",
       "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "未知（作者单位未在摘要中披露，无机构署名线索；姓名风格偏中文，但无明确高校/企业标识）",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 78,
-      "significance_reason": "在RT-2（97）、π0（95）、OpenVLA（93）等里程碑工作之后，它未提出新基础架构或大规模真实世界训练范式，但首次系统性解耦并类型化空间读出（点/OFG/轨迹），实证覆盖多仿真平台+3种真实机械臂+跨数据集迁移+20×控制器耗时压缩+真实任务成功率跃升28个百分点，证据链扎实、接口设计有工程穿透力，属显著贡献而非概念包装，但尚未达到开新范式级别。",
-      "tier": "heavy",
-      "grade": "C",
+      "best_route": "whole_body_control",
+      "org": "东京大学",
+      "country": "JP",
+      "org_type": "university",
+      "significance": 68,
+      "significance_reason": "首次在真实肌肉骨骼人形机器人上实现组织结构仿生的关节覆盖式触觉皮肤，并给出定量本体感知性能（3°误差）及与肌感融合增益，但仅验证单关节/有限运动范围，无跨机体/跨任务泛化，未开源代码或模型，未构建通用基准，属显著工程贡献而非范式突破。",
+      "tier": "notable",
+      "grade": "D",
       "tags": [
-        "multimodal-fusion",
-        "sim2real",
+        "tactile",
+        "dexterous",
         "real-robot"
       ],
-      "tldr": "这篇论文提出Pointing-VLA，用几何类型化（点、功能热图、视觉轨迹）的隐藏层读出机制替代传统VLA模型中脆弱的文本坐标或黑盒动作token，为视觉-语言-动作模型提供可解释、高效、可直接驱动机器人执行的空间接口，并在Bridge/WidowX仿真和真实机械臂抓放任务中显著提升成功率与执行效率。",
-      "claim": " typed spatial readouts（类型化的空间隐状态读出）比文本序列化或动作token化更高效、可解释、可迁移，且能直接对接机器人执行层形成‘显式执行契约’，从而实质性提升VLA模型在真实操作任务中的鲁棒性与效率。",
+      "tldr": "设计了一种仿生关节覆盖式皮肤，具有类似生物软组织的多层结构，内嵌压力和拉伸传感器，装在Musashi-W类肌肉骨骼人形机器人上，单独使用就能将关节角度估计误差控制在约3度，再结合肌电信号还能进一步提升精度。",
+      "claim": "具有组织样分层结构的仿生关节覆盖式皮肤可独立提供高精度关节本体感知，并能与肌肉传感互补，增强抗扰性与外部刺激识别能力。",
       "method_components": [
-        "model",
+        "hardware",
+        "sensor",
+        "dataset",
         "benchmark"
       ],
-      "input": "RGB图像+自然语言指令",
-      "output": "归一化空间点坐标 + 物体功能接地（OFG）热图 + 视觉轨迹",
+      "input": "关节周围皮肤的局部压力与拉伸信号",
+      "output": "关节角度估计值",
       "novelty": 7,
       "evidence": 9,
-      "one_sentence_verdict": "真突破：不是架构级革命，但首次将空间接地从‘文本解码负担’重构为轻量、可验、可插拔的类型化隐层接口，并在多机体真实部署中验证其对执行效率与成功率的实质性增益。",
+      "one_sentence_verdict": "工程整合：扎实的硬件-传感-系统集成工作，实机验证充分，但范畴窄、复现门槛高、未形成方法论外溢，尚未达到基石级工作的广度与影响力。",
       "deep": {}
     }
   ]
