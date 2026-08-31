@@ -1,8 +1,8 @@
 {
   "week": {
-    "start": "2026-08-24",
-    "end": "2026-08-30",
-    "label": "08.24~08.30"
+    "start": "2026-08-25",
+    "end": "2026-08-31",
+    "label": "08.25~08.31"
   },
   "count": 15,
   "venue_count": 4,
@@ -10,12 +10,51 @@
     "CVPR 2026",
     "ECCV 2026",
     "Humanoids",
-    "ICML 2026"
+    "Nat. Mach. Intell."
   ],
-  "generated_at": "2026-08-30 06:20 UTC",
+  "generated_at": "2026-08-31 06:39 UTC",
   "picks": [
     {
       "rank": 1,
+      "arxiv_id": "2608.27550",
+      "title": "Beyond Data Scaling: Representation-Centric Continued Pre-training for Vision-Language-Action Models",
+      "published": "2026-08-27",
+      "url": "https://arxiv.org/abs/2608.27550",
+      "pdf_url": "https://arxiv.org/pdf/2608.27550",
+      "thumb": "assets/thumbs/2608.27550.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "未知（作者单位未在摘要中披露，无机构署名线索；虽有大量中文名，但无法对应清华/智元/银河等明确团队；arXiv未提供affiliation信息）",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 88,
+      "significance_reason": "实证扎实：在5个真实/仿真基准（含未见人形GR1）上系统验证跨机体泛化，击败ABot-M0/LingBot-VLA等工业级VLA系统，且全部开源+16卡复现——虽未达RT-2/π0级范式颠覆（缺世界模型/测试时推理机制/端到端闭环控制），但确立了‘表示优化’作为独立于数据扩展的关键进步轴，证据强度和工程落地性接近DAM-VLA水平。",
+      "tier": "heavy",
+      "grade": "B",
+      "tags": [
+        "multimodal-fusion",
+        "dataset",
+        "benchmark",
+        "open-source",
+        "real-robot"
+      ],
+      "tldr": "这篇论文提出VLAct方法，不靠堆机器人数据量，而是用多机体、异构的真实机器人轨迹对视觉语言模型（VLM）做‘表示为中心’的持续预训练，让模型学到跨机体可迁移的动作语义，在固定下游数据和算力（16卡）下显著提升泛化能力，尤其在未见过的人形机器人上仅用20%数据就超过全量基线。",
+      "claim": "在机器人数据规模受限的前提下，通过表示中心的持续预训练（保留VLM先验、多机体动作共监督、部分统一动作布局），可比单纯扩大数据更有效地提升VLA模型的跨机体泛化与下游任务性能。",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark"
+      ],
+      "input": "多模态输入：RGB图像+自然语言指令+（可选）状态向量（隐含于轨迹数据中）",
+      "output": "连续动作向量（如关节速度/末端位姿变化）",
+      "novelty": 7,
+      "evidence": 10,
+      "one_sentence_verdict": "真突破：它首次以充分实证证明，在真实机器人数据有限前提下，表示层面的持续预训练设计（而非数据量或模型规模）能成为VLA性能跃升的独立杠杆，并在多机体、少样本、开源可复现条件下达成工业级SOTA。",
+      "deep": {}
+    },
+    {
+      "rank": 2,
       "arxiv_id": "2608.24199",
       "title": "NVIDIA Cosmos-H-Dreams: Real-Time Generative Physics Simulation for Surgical Robotics",
       "published": "2026-08-25",
@@ -56,7 +95,7 @@
       "deep": {}
     },
     {
-      "rank": 2,
+      "rank": 3,
       "arxiv_id": "2608.26058",
       "title": "One Policy, Many Embodiments: Unified Camera-Centric Action Geometry Pre-training for Heterogeneous Embodied Manipulation",
       "published": "2026-08-26",
@@ -93,44 +132,6 @@
       "novelty": 8,
       "evidence": 10,
       "one_sentence_verdict": "真突破——不是简单换数据或加模块，而是重构动作表征空间，使‘一个策略驱动多种身体’从工程hack变为可学习的几何先验，且在多个硬基准上验证了泛化有效性",
-      "deep": {}
-    },
-    {
-      "rank": 3,
-      "arxiv_id": "2608.23565",
-      "title": "ReWorld: An Interactive World Model with Long-Horizon Memory",
-      "published": "2026-08-24",
-      "url": "https://arxiv.org/abs/2608.23565",
-      "pdf_url": "https://arxiv.org/pdf/2608.23565",
-      "thumb": "assets/thumbs/2608.23565.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "智元",
-      "country": "CN",
-      "org_type": "company",
-      "significance": 93,
-      "significance_reason": "在长程记忆机制上取得实质性突破：首次实现分钟级（384 latents）闭环回溯且内存可控（12-chunk固定缓存），超越DreamerV3/V1等纯RL世界模型的记忆长度与物理一致性；但未接入真实机器人闭环控制，尚未达到WEAVER（94.5）或World Models（97）级范式开创性。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "sim2real",
-        "large-scale",
-        "dataset"
-      ],
-      "tldr": "提出ReWorld模型，通过分离训练时的控制短视窗与记忆长视窗、设计带姿态索引地标库的固定大小KV缓存，在实时交互中实现分钟级视频回溯（如出发点画面再生），统一多源数据（虚幻引擎/游戏/真实视频）到物理一致的动作尺度，并用LoRA蒸馏实现单模型双模态（高保真多步生成+实时流式生成）。",
-      "claim": "交互式世界模型无需无限显存即可实现真正长程记忆（分钟级）和物理一致的动作控制，其记忆不是统计摘要而是可检索的姿态对齐地标。",
-      "method_components": [
-        "model",
-        "dataset",
-        "simulator"
-      ],
-      "input": "用户动作指令（如键盘按键）、当前相机姿态、历史视频帧序列",
-      "output": "实时流式生成的704x1280视频帧序列（含photorealistic/game/stylized三类世界）",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：解决了交互式世界模型中长程记忆与实时性不可兼得的根本矛盾，证据扎实（分钟级回溯+多源物理对齐+消融验证），但尚未跨入具身闭环控制，暂未达基石级范式颠覆。",
       "deep": {}
     },
     {
@@ -213,6 +214,43 @@
     },
     {
       "rank": 6,
+      "arxiv_id": "2608.27345",
+      "title": "PAWBench: How Far Are We from Probabilistically Aligned World Modeling?",
+      "published": "2026-08-27",
+      "url": "https://arxiv.org/abs/2608.27345",
+      "pdf_url": "https://arxiv.org/pdf/2608.27345",
+      "thumb": "assets/thumbs/2608.27345.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "world_model",
+      "org": "商汤科技/上海人工智能实验室",
+      "country": "CN",
+      "org_type": "company",
+      "significance": 78,
+      "significance_reason": "首次形式化并实证揭示视频生成模型在分布建模层面的根本缺陷，构建首个可复现、跨模型、带真值分布的评测框架，覆盖50个物理多样性场景且含消融分析；虽未提出新模型，但定义了下一代世界模型的关键门槛，证据强度远超纯概念论文，但尚未达到World Models/DreamerV3级范式开创量级（缺真实机器人闭环、无状态记忆机制、未驱动新架构设计）。",
+      "tier": "heavy",
+      "grade": "B",
+      "tags": [
+        "benchmark",
+        "dataset",
+        "simulator"
+      ],
+      "tldr": "这篇论文指出当前视频生成模型作为‘世界模型’的最大缺陷：只追求单次生成看起来合理，却不保证多次生成能还原真实物理过程的多种可能结果的概率分布；为此构建了首个专门评测这种‘概率对齐’能力的基准PAWBench，在50个物理场景中测试11个主流模型，发现全部失败，并探索了提示、噪声采样和训练等调节分布的途径。",
+      "claim": "当前视频生成模型尚未实现概率对齐的世界建模能力——即无法从同一初始观测与动作中，以正确概率密度采样出所有物理上合理的未来轨迹。",
+      "method_components": [
+        "benchmark",
+        "dataset",
+        "simulator"
+      ],
+      "input": "初始帧序列+动作指令（部分场景含语言提示）",
+      "output": "多段生成视频（用于构建经验行为分布）",
+      "novelty": 9,
+      "evidence": 10,
+      "one_sentence_verdict": "真突破：它不是又一个SOTA刷榜工作，而是用严谨分布检验戳破了‘世界模型’当前的幻觉泡沫，为该领域设立了不可绕行的新标尺。",
+      "deep": {}
+    },
+    {
+      "rank": 7,
       "arxiv_id": "2608.27033",
       "title": "Riemann-1.0: An Embodied World Action Model for Physical AI",
       "published": "2026-08-27",
@@ -252,84 +290,7 @@
       "deep": {}
     },
     {
-      "rank": 7,
-      "arxiv_id": "2608.23863",
-      "title": "DreamLedger: Execution-Settled Credit Files for World-Model Imagination in Robot Decision Loops",
-      "published": "2026-08-24",
-      "url": "https://arxiv.org/abs/2608.23863",
-      "pdf_url": "https://arxiv.org/pdf/2608.23863",
-      "thumb": "assets/thumbs/2608.23863.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "未知",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 87,
-      "significance_reason": "首次将世界模型可靠性建模为可部署、可审计、执行后结算的持久化信用系统，跨三种仿真域+真实机械臂验证，提供完整闭环证据链（注册→归因→结算→门控→重放），显著降低幻觉消耗（62%），且在真实噪声下维持结算功能；虽未重构世界模型底层架构（如DreamerV3/V-JEPA），但为整个MBRL决策环引入了新层级的信任基础设施，填补了‘Current World Models Lack a Persistent State Core’（95.5分）所指出的核心缺口，属重磅推进。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "world-model",
-        "sim2real",
-        "real-robot",
-        "benchmark"
-      ],
-      "tldr": "提出DreamLedger——一种将世界模型预测的可靠性建模为可持久化、可审计的‘信用文件’（credit file）的机制，通过在真实执行后自动结算预测成败（零标注成本），动态调控预测使用策略（如缩短依赖步长、触发重观察），并在仿真和真实Franka机械臂上验证其能显著降低‘幻觉消耗’（burned imagination）且保持任务成功率。",
-      "claim": "世界模型预测的可靠性不应是瞬时、内部的置信度信号，而应是部署级的、执行后结算的、带条件索引的持久化信用对象，该对象可被所有下游决策模块统一调用并审计。",
-      "method_components": [
-        "model",
-        "simulator",
-        "policy",
-        "benchmark",
-        "hardware"
-      ],
-      "input": "世界模型输出的预测序列（含状态/奖励/终止等）、当前运行条件（环境区域、传感器噪声水平、预测步长等）",
-      "output": "信用评分（标量）、信用门控信号（是否允许消费该预测）、依赖步长调整指令、审计日志与重放凭证",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：它不是改进一个模型，而是为所有世界模型部署定义了一种新的、可审计的可靠性操作范式，且在真实机器人上闭环验证成功。",
-      "deep": {}
-    },
-    {
       "rank": 8,
-      "arxiv_id": "2608.27345",
-      "title": "PAWBench: How Far Are We from Probabilistically Aligned World Modeling?",
-      "published": "2026-08-27",
-      "url": "https://arxiv.org/abs/2608.27345",
-      "pdf_url": "https://arxiv.org/pdf/2608.27345",
-      "thumb": "assets/thumbs/2608.27345.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "商汤科技/上海人工智能实验室",
-      "country": "CN",
-      "org_type": "company",
-      "significance": 78,
-      "significance_reason": "首次形式化并实证揭示视频生成模型在分布建模层面的根本缺陷，构建首个可复现、跨模型、带真值分布的评测框架，覆盖50个物理多样性场景且含消融分析；虽未提出新模型，但定义了下一代世界模型的关键门槛，证据强度远超纯概念论文，但尚未达到World Models/DreamerV3级范式开创量级（缺真实机器人闭环、无状态记忆机制、未驱动新架构设计）。",
-      "tier": "heavy",
-      "grade": "B",
-      "tags": [
-        "benchmark",
-        "dataset",
-        "simulator"
-      ],
-      "tldr": "这篇论文指出当前视频生成模型作为‘世界模型’的最大缺陷：只追求单次生成看起来合理，却不保证多次生成能还原真实物理过程的多种可能结果的概率分布；为此构建了首个专门评测这种‘概率对齐’能力的基准PAWBench，在50个物理场景中测试11个主流模型，发现全部失败，并探索了提示、噪声采样和训练等调节分布的途径。",
-      "claim": "当前视频生成模型尚未实现概率对齐的世界建模能力——即无法从同一初始观测与动作中，以正确概率密度采样出所有物理上合理的未来轨迹。",
-      "method_components": [
-        "benchmark",
-        "dataset",
-        "simulator"
-      ],
-      "input": "初始帧序列+动作指令（部分场景含语言提示）",
-      "output": "多段生成视频（用于构建经验行为分布）",
-      "novelty": 9,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：它不是又一个SOTA刷榜工作，而是用严谨分布检验戳破了‘世界模型’当前的幻觉泡沫，为该领域设立了不可绕行的新标尺。",
-      "deep": {}
-    },
-    {
-      "rank": 9,
       "arxiv_id": "2608.26583",
       "title": "SOLO: Stable Omni-terrain Long-Horizon Perceptive Humanoid Locomotion",
       "published": "2026-08-27",
@@ -367,7 +328,7 @@
       "deep": {}
     },
     {
-      "rank": 10,
+      "rank": 9,
       "arxiv_id": "2608.27406",
       "title": "CLAP: Cross-Embodiment Video World Models are Zero-Shot Physical Simulators",
       "published": "2026-08-27",
@@ -405,7 +366,7 @@
       "deep": {}
     },
     {
-      "rank": 11,
+      "rank": 10,
       "arxiv_id": "2608.26103",
       "title": "Zero-WAM: In-Context World-Action Modeling from Human Videos for Open-Ended Task Generalization",
       "published": "2026-08-26",
@@ -445,7 +406,7 @@
       "deep": {}
     },
     {
-      "rank": 12,
+      "rank": 11,
       "arxiv_id": "2608.26800",
       "title": "Rapid On-Robot Learning for Dynamic Manipulation Skills: Robot Juggling",
       "published": "2026-08-27",
@@ -485,7 +446,7 @@
       "deep": {}
     },
     {
-      "rank": 13,
+      "rank": 12,
       "arxiv_id": "2608.26067",
       "title": "StreamPI: Streaming Multimodal Temporal Modeling for Vision-Language-Action Models",
       "published": "2026-08-26",
@@ -521,7 +482,82 @@
       "deep": {}
     },
     {
+      "rank": 13,
+      "arxiv_id": "2608.27221",
+      "title": "Tensegrity Continuum Robots Enable Task-Adaptive Morphologies for Cooperative Behaviors",
+      "published": "2026-08-27",
+      "url": "https://arxiv.org/abs/2608.27221",
+      "pdf_url": "https://arxiv.org/pdf/2608.27221",
+      "thumb": "assets/thumbs/2608.27221.jpg",
+      "venue": "Nat. Mach. Intell.",
+      "domain": "embodied_ai",
+      "best_route": "hardware_unitree",
+      "org": "亚利桑那州立大学",
+      "country": "US",
+      "org_type": "university",
+      "significance": 76,
+      "significance_reason": "实机验证了多形态自重构+协同操作+多模态运动三大能力，且全部在真实场景完成（非仿真/小台面），显著优于纯概念或单任务demo；但未开源硬件设计/控制代码，未做跨机体泛化（仅同构单元）、无消融实验、未对比SOTA MRR（如M-TRAN、SuperBot），尚未达到RT-2或Unitree G1级范式突破量级，属扎实重磅工作。",
+      "tier": "heavy",
+      "grade": "D",
+      "tags": [
+        "dexterous",
+        "multimodal",
+        "real-robot",
+        "reconfigurable"
+      ],
+      "tldr": "提出一种基于张拉整体（tensegrity）结构的连续体模块化机器人，每个单元自带柔性躯干和机械爪，能自主连接/分离形成链状、环状、分支状等不同构型，实现多机器人协同操作与运动。",
+      "claim": "张拉整体连续体机器人通过可重构的物理连接机制，首次实现了兼具结构顺应性与自组织多形态协同能力的模块化集体行为。",
+      "method_components": [
+        "robot",
+        "hardware",
+        "simulator"
+      ],
+      "input": "人工触发的连接/分离指令、环境接触反馈（隐含于实验描述）",
+      "output": "多机器人组合形态（链/环/分支）、协同运动轨迹、协同操作动作",
+      "novelty": 8,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：将张拉整体结构、爪式连接、连续体控制与多机协同在真实硬件上系统集成并验证多任务能力，但缺乏开源与量化基线对比，尚未构成理论或范式突破。",
+      "deep": {}
+    },
+    {
       "rank": 14,
+      "arxiv_id": "2608.24882",
+      "title": "Latent Action as Intention Enables Efficient Future Imagination for World Action Models",
+      "published": "2026-08-25",
+      "url": "https://arxiv.org/abs/2608.24882",
+      "pdf_url": "https://arxiv.org/pdf/2608.24882",
+      "thumb": "assets/thumbs/2608.24882.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "world_model",
+      "org": "智元",
+      "country": "CN",
+      "org_type": "company",
+      "significance": 78,
+      "significance_reason": "在WAM范式下首次系统性解耦‘未来想象’与‘未来视频生成’，用latent action作为intent proxy，在RoboCasa few-shot/fully-supervised、LIBERO-Plus zero-shot及真实机器人上均取得扎实提升；但未重构世界模型基础架构（如无持久状态核心、无跨任务记忆机制），也未挑战DreamerV3/WEAVER级的通用建模深度，属强工程创新+关键设计洞见，尚未达基石级理论突破。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "benchmark",
+        "open-source"
+      ],
+      "tldr": "这篇论文提出LAWS（应为LAWA，摘要中拼写一致）模型，用离散的、动作中心的潜在码本表示‘未来意图’，让世界动作模型（WAM）在推理时不生成未来视频帧，却仍能保持甚至提升泛化能力与任务成功率，同时大幅降低延迟。",
+      "claim": "用紧凑的、动作驱动的离散潜在动作（latent action as intention）替代未来观测生成，可在不牺牲泛化性与成功率的前提下，显著降低世界动作模型的推理延迟。",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark"
+      ],
+      "input": "当前观测（RGB图像+状态）+语言指令",
+      "output": "可执行的动作块（action chunks）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：将latent action重新定义为intention并用于剪枝未来视频分支，是WAM落地的关键优化，证据充分、开源完整、实测有效，但未改变世界模型的基本范式。",
+      "deep": {}
+    },
+    {
+      "rank": 15,
       "arxiv_id": "2608.26645",
       "title": "FLARE: A Failure-Aware Framework for Autonomous Correction and Recovery in Visual-Language Robotic Manipulation",
       "published": "2026-08-27",
@@ -556,42 +592,6 @@
       "novelty": 7,
       "evidence": 8,
       "one_sentence_verdict": "工程整合：将MLLM故障诊断与轻量Reset技能库嵌入VLA推理流程，实证有效但未突破VLA固有数据依赖与泛化瓶颈，核心创新在于系统级编排而非底层模型或策略革新。",
-      "deep": {}
-    },
-    {
-      "rank": 15,
-      "arxiv_id": "2608.25585",
-      "title": "RA-VLA: Retrieval-Augmented VLA for Test-Time Adaptation",
-      "published": "2026-08-26",
-      "url": "https://arxiv.org/abs/2608.25585",
-      "pdf_url": "https://arxiv.org/pdf/2608.25585",
-      "thumb": "assets/thumbs/2608.25585.jpg",
-      "venue": "ICML 2026",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "POSTECH",
-      "country": "KR",
-      "org_type": "university",
-      "significance": 68,
-      "significance_reason": "解决了ICIL中检索不匹配行为意图、策略难脱离预训练偏置的关键问题，有真实UR5e验证和LIBERO多任务对比，但未跨机体/跨用户验证，未开源代码或模型，未与RT-2/π0/OpenVLA等基石模型做同条件对比，属显著但非范式级贡献",
-      "tier": "notable",
-      "grade": "D",
-      "tags": [
-        "sim2real",
-        "teleoperation",
-        "benchmark"
-      ],
-      "tldr": "提出RA-VLA框架，在测试时无需重新训练，通过改进检索机制（行为对齐+功能线索约束）提升VLA模型对新任务的泛化能力，在LIBERO仿真和UR5e真实机械臂上验证了更高成功率和更快推理速度。",
-      "claim": "行为对齐的上下文检索与功能线索约束的执行流水线，可突破ICIL在测试时适应中的检索浅层性和策略惯性瓶颈，实现高效、鲁棒的零训练机器人任务适应。",
-      "method_components": [
-        "model",
-        "benchmark"
-      ],
-      "input": "多步演示视频帧+语言任务描述+当前观测图像",
-      "output": "动作序列（6D末端位姿+夹爪开合）",
-      "novelty": 6,
-      "evidence": 7,
-      "one_sentence_verdict": "显著贡献：真机+多任务+消融验证了检索机制改进的有效性，但缺乏开源和跨尺度基线对比，尚未达到里程碑水平",
       "deep": {}
     }
   ]

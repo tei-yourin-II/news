@@ -1,90 +1,90 @@
 {
-  "generated_at": "2026-08-30 06:18 UTC",
-  "count": 3407,
+  "generated_at": "2026-08-31 06:37 UTC",
+  "count": 3455,
   "routes": [
     {
       "id": "vla",
       "name": "VLA (Vision-Language-Action)",
       "tier": "core",
       "domain": "embodied_ai",
-      "count": 2733
+      "count": 2764
     },
     {
       "id": "world_model",
       "name": "World Model / WAM",
       "tier": "core",
       "domain": "embodied_ai",
-      "count": 2899
+      "count": 2932
     },
     {
       "id": "whole_body_control",
       "name": "Whole-body Control / Locomotion",
       "tier": "core",
       "domain": "embodied_ai",
-      "count": 2652
+      "count": 2683
     },
     {
       "id": "dexterous_manipulation",
       "name": "Dexterous Manipulation",
       "tier": "secondary",
       "domain": "embodied_ai",
-      "count": 2158
+      "count": 2178
     },
     {
       "id": "sim2real_data",
       "name": "Sim2Real / Data / Simulation",
       "tier": "secondary",
       "domain": "embodied_ai",
-      "count": 2312
+      "count": 2338
     },
     {
       "id": "hardware_unitree",
       "name": "Hardware / Unitree G1·H1 Ecosystem",
       "tier": "secondary",
       "domain": "embodied_ai",
-      "count": 1807
+      "count": 1820
     },
     {
       "id": "bci_neural_decoding",
       "name": "神经解码 / BCI 核心",
       "tier": "core",
       "domain": "bci",
-      "count": 1879
+      "count": 1897
     },
     {
       "id": "bci_foundation_models",
       "name": "神经基础模型 / NeuroAI",
       "tier": "core",
       "domain": "bci",
-      "count": 2083
+      "count": 2103
     },
     {
       "id": "bci_embodied_robot",
       "name": "BCI × 具身智能 / 神经假肢",
       "tier": "core",
       "domain": "bci",
-      "count": 2461
+      "count": 2492
     },
     {
       "id": "bci_noninvasive_eeg",
       "name": "非侵入式 BCI / EEG 解码",
       "tier": "secondary",
       "domain": "bci",
-      "count": 1418
+      "count": 1437
     },
     {
       "id": "protein_ai",
       "name": "蛋白质计算 / 设计",
       "tier": "core",
       "domain": "ai_science",
-      "count": 1853
+      "count": 1883
     },
     {
       "id": "genomics_ai",
       "name": "基因组 / 基因 AI",
       "tier": "core",
       "domain": "ai_science",
-      "count": 2109
+      "count": 2140
     }
   ],
   "edges": [
@@ -809,6 +809,46 @@
       "weight": 0.164
     },
     {
+      "source": "2608.27345",
+      "target": "route:vla",
+      "weight": 0.385
+    },
+    {
+      "source": "2608.27345",
+      "target": "route:world_model",
+      "weight": 0.568
+    },
+    {
+      "source": "2608.27345",
+      "target": "route:whole_body_control",
+      "weight": 0.282
+    },
+    {
+      "source": "2608.27345",
+      "target": "route:sim2real_data",
+      "weight": 0.196
+    },
+    {
+      "source": "2608.27345",
+      "target": "route:bci_foundation_models",
+      "weight": 0.169
+    },
+    {
+      "source": "2608.27345",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.163
+    },
+    {
+      "source": "2608.27345",
+      "target": "route:protein_ai",
+      "weight": 0.22
+    },
+    {
+      "source": "2608.27345",
+      "target": "route:genomics_ai",
+      "weight": 0.239
+    },
+    {
       "source": "2607.27205",
       "target": "route:vla",
       "weight": 0.657
@@ -919,44 +959,59 @@
       "weight": 0.163
     },
     {
-      "source": "2608.27345",
+      "source": "2608.27550",
       "target": "route:vla",
-      "weight": 0.385
+      "weight": 0.69
     },
     {
-      "source": "2608.27345",
+      "source": "2608.27550",
       "target": "route:world_model",
-      "weight": 0.568
+      "weight": 0.436
     },
     {
-      "source": "2608.27345",
+      "source": "2608.27550",
       "target": "route:whole_body_control",
-      "weight": 0.282
+      "weight": 0.451
     },
     {
-      "source": "2608.27345",
+      "source": "2608.27550",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.234
+    },
+    {
+      "source": "2608.27550",
       "target": "route:sim2real_data",
-      "weight": 0.196
+      "weight": 0.312
     },
     {
-      "source": "2608.27345",
+      "source": "2608.27550",
+      "target": "route:hardware_unitree",
+      "weight": 0.221
+    },
+    {
+      "source": "2608.27550",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.174
+    },
+    {
+      "source": "2608.27550",
       "target": "route:bci_foundation_models",
-      "weight": 0.169
+      "weight": 0.244
     },
     {
-      "source": "2608.27345",
+      "source": "2608.27550",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.278
+    },
+    {
+      "source": "2608.27550",
       "target": "route:bci_noninvasive_eeg",
-      "weight": 0.163
+      "weight": 0.162
     },
     {
-      "source": "2608.27345",
-      "target": "route:protein_ai",
-      "weight": 0.22
-    },
-    {
-      "source": "2608.27345",
+      "source": "2608.27550",
       "target": "route:genomics_ai",
-      "weight": 0.239
+      "weight": 0.199
     },
     {
       "source": "2607.02642",
@@ -2079,6 +2134,51 @@
       "weight": 0.26
     },
     {
+      "source": "2608.26103",
+      "target": "route:vla",
+      "weight": 0.622
+    },
+    {
+      "source": "2608.26103",
+      "target": "route:world_model",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.26103",
+      "target": "route:whole_body_control",
+      "weight": 0.451
+    },
+    {
+      "source": "2608.26103",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.231
+    },
+    {
+      "source": "2608.26103",
+      "target": "route:sim2real_data",
+      "weight": 0.295
+    },
+    {
+      "source": "2608.26103",
+      "target": "route:hardware_unitree",
+      "weight": 0.191
+    },
+    {
+      "source": "2608.26103",
+      "target": "route:bci_foundation_models",
+      "weight": 0.167
+    },
+    {
+      "source": "2608.26103",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.257
+    },
+    {
+      "source": "2608.26103",
+      "target": "route:genomics_ai",
+      "weight": 0.166
+    },
+    {
       "source": "2607.00272",
       "target": "route:vla",
       "weight": 0.56
@@ -2362,51 +2462,6 @@
       "source": "2608.19891",
       "target": "route:genomics_ai",
       "weight": 0.155
-    },
-    {
-      "source": "2608.26103",
-      "target": "route:vla",
-      "weight": 0.622
-    },
-    {
-      "source": "2608.26103",
-      "target": "route:world_model",
-      "weight": 0.5
-    },
-    {
-      "source": "2608.26103",
-      "target": "route:whole_body_control",
-      "weight": 0.451
-    },
-    {
-      "source": "2608.26103",
-      "target": "route:dexterous_manipulation",
-      "weight": 0.231
-    },
-    {
-      "source": "2608.26103",
-      "target": "route:sim2real_data",
-      "weight": 0.295
-    },
-    {
-      "source": "2608.26103",
-      "target": "route:hardware_unitree",
-      "weight": 0.191
-    },
-    {
-      "source": "2608.26103",
-      "target": "route:bci_foundation_models",
-      "weight": 0.167
-    },
-    {
-      "source": "2608.26103",
-      "target": "route:bci_embodied_robot",
-      "weight": 0.257
-    },
-    {
-      "source": "2608.26103",
-      "target": "route:genomics_ai",
-      "weight": 0.166
     },
     {
       "source": "2607.11643",
@@ -4609,56 +4664,6 @@
       "weight": 0.154
     },
     {
-      "source": "2608.22301",
-      "target": "route:vla",
-      "weight": 0.568
-    },
-    {
-      "source": "2608.22301",
-      "target": "route:world_model",
-      "weight": 0.534
-    },
-    {
-      "source": "2608.22301",
-      "target": "route:whole_body_control",
-      "weight": 0.512
-    },
-    {
-      "source": "2608.22301",
-      "target": "route:dexterous_manipulation",
-      "weight": 0.219
-    },
-    {
-      "source": "2608.22301",
-      "target": "route:sim2real_data",
-      "weight": 0.338
-    },
-    {
-      "source": "2608.22301",
-      "target": "route:hardware_unitree",
-      "weight": 0.249
-    },
-    {
-      "source": "2608.22301",
-      "target": "route:bci_neural_decoding",
-      "weight": 0.215
-    },
-    {
-      "source": "2608.22301",
-      "target": "route:bci_foundation_models",
-      "weight": 0.238
-    },
-    {
-      "source": "2608.22301",
-      "target": "route:bci_embodied_robot",
-      "weight": 0.352
-    },
-    {
-      "source": "2608.22301",
-      "target": "route:bci_noninvasive_eeg",
-      "weight": 0.227
-    },
-    {
       "source": "2608.26200",
       "target": "route:vla",
       "weight": 0.494
@@ -4707,6 +4712,56 @@
       "source": "2608.26200",
       "target": "route:genomics_ai",
       "weight": 0.168
+    },
+    {
+      "source": "2608.22301",
+      "target": "route:vla",
+      "weight": 0.568
+    },
+    {
+      "source": "2608.22301",
+      "target": "route:world_model",
+      "weight": 0.534
+    },
+    {
+      "source": "2608.22301",
+      "target": "route:whole_body_control",
+      "weight": 0.512
+    },
+    {
+      "source": "2608.22301",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.219
+    },
+    {
+      "source": "2608.22301",
+      "target": "route:sim2real_data",
+      "weight": 0.338
+    },
+    {
+      "source": "2608.22301",
+      "target": "route:hardware_unitree",
+      "weight": 0.249
+    },
+    {
+      "source": "2608.22301",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.215
+    },
+    {
+      "source": "2608.22301",
+      "target": "route:bci_foundation_models",
+      "weight": 0.238
+    },
+    {
+      "source": "2608.22301",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.352
+    },
+    {
+      "source": "2608.22301",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.227
     },
     {
       "source": "2606.13102",
@@ -5857,6 +5912,56 @@
       "source": "2608.24199",
       "target": "route:genomics_ai",
       "weight": 0.191
+    },
+    {
+      "source": "2608.25204",
+      "target": "route:vla",
+      "weight": 0.189
+    },
+    {
+      "source": "2608.25204",
+      "target": "route:world_model",
+      "weight": 0.245
+    },
+    {
+      "source": "2608.25204",
+      "target": "route:whole_body_control",
+      "weight": 0.204
+    },
+    {
+      "source": "2608.25204",
+      "target": "route:sim2real_data",
+      "weight": 0.196
+    },
+    {
+      "source": "2608.25204",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.458
+    },
+    {
+      "source": "2608.25204",
+      "target": "route:bci_foundation_models",
+      "weight": 0.431
+    },
+    {
+      "source": "2608.25204",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.208
+    },
+    {
+      "source": "2608.25204",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.25204",
+      "target": "route:protein_ai",
+      "weight": 0.187
+    },
+    {
+      "source": "2608.25204",
+      "target": "route:genomics_ai",
+      "weight": 0.212
     },
     {
       "source": "10.64898/2026.06.16.732304",
@@ -20499,6 +20604,61 @@
       "weight": 0.163
     },
     {
+      "source": "2608.24115",
+      "target": "route:vla",
+      "weight": 0.627
+    },
+    {
+      "source": "2608.24115",
+      "target": "route:world_model",
+      "weight": 0.531
+    },
+    {
+      "source": "2608.24115",
+      "target": "route:whole_body_control",
+      "weight": 0.407
+    },
+    {
+      "source": "2608.24115",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.188
+    },
+    {
+      "source": "2608.24115",
+      "target": "route:sim2real_data",
+      "weight": 0.266
+    },
+    {
+      "source": "2608.24115",
+      "target": "route:hardware_unitree",
+      "weight": 0.232
+    },
+    {
+      "source": "2608.24115",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.32
+    },
+    {
+      "source": "2608.24115",
+      "target": "route:bci_foundation_models",
+      "weight": 0.291
+    },
+    {
+      "source": "2608.24115",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.362
+    },
+    {
+      "source": "2608.24115",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.173
+    },
+    {
+      "source": "2608.24115",
+      "target": "route:genomics_ai",
+      "weight": 0.166
+    },
+    {
       "source": "2605.30282",
       "target": "route:vla",
       "weight": 0.655
@@ -30889,6 +31049,41 @@
       "weight": 0.215
     },
     {
+      "source": "2608.27073",
+      "target": "route:vla",
+      "weight": 0.287
+    },
+    {
+      "source": "2608.27073",
+      "target": "route:world_model",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.27073",
+      "target": "route:whole_body_control",
+      "weight": 0.211
+    },
+    {
+      "source": "2608.27073",
+      "target": "route:sim2real_data",
+      "weight": 0.21
+    },
+    {
+      "source": "2608.27073",
+      "target": "route:bci_foundation_models",
+      "weight": 0.182
+    },
+    {
+      "source": "2608.27073",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.184
+    },
+    {
+      "source": "2608.27073",
+      "target": "route:genomics_ai",
+      "weight": 0.175
+    },
+    {
       "source": "2606.02577",
       "target": "route:vla",
       "weight": 0.523
@@ -31577,6 +31772,41 @@
       "source": "2608.26583",
       "target": "route:genomics_ai",
       "weight": 0.185
+    },
+    {
+      "source": "2608.25417",
+      "target": "route:vla",
+      "weight": 0.436
+    },
+    {
+      "source": "2608.25417",
+      "target": "route:world_model",
+      "weight": 0.375
+    },
+    {
+      "source": "2608.25417",
+      "target": "route:whole_body_control",
+      "weight": 0.269
+    },
+    {
+      "source": "2608.25417",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.25417",
+      "target": "route:sim2real_data",
+      "weight": 0.224
+    },
+    {
+      "source": "2608.25417",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.244
+    },
+    {
+      "source": "2608.25417",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.169
     },
     {
       "source": "2606.00537",
@@ -39069,6 +39299,51 @@
       "weight": 0.151
     },
     {
+      "source": "2608.24680",
+      "target": "route:vla",
+      "weight": 0.325
+    },
+    {
+      "source": "2608.24680",
+      "target": "route:world_model",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.24680",
+      "target": "route:whole_body_control",
+      "weight": 0.206
+    },
+    {
+      "source": "2608.24680",
+      "target": "route:sim2real_data",
+      "weight": 0.224
+    },
+    {
+      "source": "2608.24680",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.179
+    },
+    {
+      "source": "2608.24680",
+      "target": "route:bci_foundation_models",
+      "weight": 0.26
+    },
+    {
+      "source": "2608.24680",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.184
+    },
+    {
+      "source": "2608.24680",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.157
+    },
+    {
+      "source": "2608.24680",
+      "target": "route:genomics_ai",
+      "weight": 0.176
+    },
+    {
       "source": "2605.29754",
       "target": "route:vla",
       "weight": 0.266
@@ -41962,6 +42237,41 @@
       "source": "2608.26645",
       "target": "route:bci_embodied_robot",
       "weight": 0.345
+    },
+    {
+      "source": "2608.25427",
+      "target": "route:vla",
+      "weight": 0.326
+    },
+    {
+      "source": "2608.25427",
+      "target": "route:world_model",
+      "weight": 0.438
+    },
+    {
+      "source": "2608.25427",
+      "target": "route:whole_body_control",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.25427",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.178
+    },
+    {
+      "source": "2608.25427",
+      "target": "route:sim2real_data",
+      "weight": 0.222
+    },
+    {
+      "source": "2608.25427",
+      "target": "route:hardware_unitree",
+      "weight": 0.182
+    },
+    {
+      "source": "2608.25427",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.229
     },
     {
       "source": "2606.01264",
@@ -52959,6 +53269,46 @@
       "weight": 0.224
     },
     {
+      "source": "10.64898/2026.08.26.747321",
+      "target": "route:vla",
+      "weight": 0.253
+    },
+    {
+      "source": "10.64898/2026.08.26.747321",
+      "target": "route:world_model",
+      "weight": 0.351
+    },
+    {
+      "source": "10.64898/2026.08.26.747321",
+      "target": "route:whole_body_control",
+      "weight": 0.263
+    },
+    {
+      "source": "10.64898/2026.08.26.747321",
+      "target": "route:sim2real_data",
+      "weight": 0.167
+    },
+    {
+      "source": "10.64898/2026.08.26.747321",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.171
+    },
+    {
+      "source": "10.64898/2026.08.26.747321",
+      "target": "route:bci_foundation_models",
+      "weight": 0.152
+    },
+    {
+      "source": "10.64898/2026.08.26.747321",
+      "target": "route:protein_ai",
+      "weight": 0.66
+    },
+    {
+      "source": "10.64898/2026.08.26.747321",
+      "target": "route:genomics_ai",
+      "weight": 0.342
+    },
+    {
       "source": "10.64898/2026.05.26.727866",
       "target": "route:vla",
       "weight": 0.176
@@ -55117,6 +55467,16 @@
       "source": "10.64898/2026.08.24.746817",
       "target": "route:genomics_ai",
       "weight": 0.5
+    },
+    {
+      "source": "10.64898/2026.08.25.747108",
+      "target": "route:protein_ai",
+      "weight": 0.553
+    },
+    {
+      "source": "10.64898/2026.08.25.747108",
+      "target": "route:genomics_ai",
+      "weight": 0.433
     },
     {
       "source": "2606.02277",
@@ -57544,6 +57904,41 @@
       "weight": 0.238
     },
     {
+      "source": "2608.26545",
+      "target": "route:vla",
+      "weight": 0.443
+    },
+    {
+      "source": "2608.26545",
+      "target": "route:world_model",
+      "weight": 0.402
+    },
+    {
+      "source": "2608.26545",
+      "target": "route:whole_body_control",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.26545",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.201
+    },
+    {
+      "source": "2608.26545",
+      "target": "route:sim2real_data",
+      "weight": 0.277
+    },
+    {
+      "source": "2608.26545",
+      "target": "route:bci_foundation_models",
+      "weight": 0.156
+    },
+    {
+      "source": "2608.26545",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.249
+    },
+    {
       "source": "2606.00515",
       "target": "route:vla",
       "weight": 0.54
@@ -58242,6 +58637,36 @@
       "source": "2608.22975",
       "target": "route:protein_ai",
       "weight": 0.152
+    },
+    {
+      "source": "10.64898/2026.08.24.746620",
+      "target": "route:vla",
+      "weight": 0.161
+    },
+    {
+      "source": "10.64898/2026.08.24.746620",
+      "target": "route:world_model",
+      "weight": 0.183
+    },
+    {
+      "source": "10.64898/2026.08.24.746620",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.156
+    },
+    {
+      "source": "10.64898/2026.08.24.746620",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.154
+    },
+    {
+      "source": "10.64898/2026.08.24.746620",
+      "target": "route:protein_ai",
+      "weight": 0.5
+    },
+    {
+      "source": "10.64898/2026.08.24.746620",
+      "target": "route:genomics_ai",
+      "weight": 0.3
     },
     {
       "source": "2606.03868",
@@ -59537,6 +59962,41 @@
       "source": "2608.20936",
       "target": "route:genomics_ai",
       "weight": 0.196
+    },
+    {
+      "source": "2608.22976",
+      "target": "route:vla",
+      "weight": 0.433
+    },
+    {
+      "source": "2608.22976",
+      "target": "route:world_model",
+      "weight": 0.37
+    },
+    {
+      "source": "2608.22976",
+      "target": "route:whole_body_control",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.22976",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.177
+    },
+    {
+      "source": "2608.22976",
+      "target": "route:sim2real_data",
+      "weight": 0.254
+    },
+    {
+      "source": "2608.22976",
+      "target": "route:hardware_unitree",
+      "weight": 0.199
+    },
+    {
+      "source": "2608.22976",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.24
     },
     {
       "source": "10.64898/2026.05.28.728275",
@@ -66437,6 +66897,41 @@
       "source": "10.64898/2026.08.16.745040",
       "target": "route:genomics_ai",
       "weight": 0.206
+    },
+    {
+      "source": "2608.27186",
+      "target": "route:vla",
+      "weight": 0.358
+    },
+    {
+      "source": "2608.27186",
+      "target": "route:world_model",
+      "weight": 0.302
+    },
+    {
+      "source": "2608.27186",
+      "target": "route:whole_body_control",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.27186",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.204
+    },
+    {
+      "source": "2608.27186",
+      "target": "route:sim2real_data",
+      "weight": 0.177
+    },
+    {
+      "source": "2608.27186",
+      "target": "route:hardware_unitree",
+      "weight": 0.188
+    },
+    {
+      "source": "2608.27186",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.229
     },
     {
       "source": "2606.04718",
@@ -75004,6 +75499,51 @@
       "weight": 0.365
     },
     {
+      "source": "2608.27221",
+      "target": "route:vla",
+      "weight": 0.39
+    },
+    {
+      "source": "2608.27221",
+      "target": "route:world_model",
+      "weight": 0.348
+    },
+    {
+      "source": "2608.27221",
+      "target": "route:whole_body_control",
+      "weight": 0.408
+    },
+    {
+      "source": "2608.27221",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.206
+    },
+    {
+      "source": "2608.27221",
+      "target": "route:sim2real_data",
+      "weight": 0.222
+    },
+    {
+      "source": "2608.27221",
+      "target": "route:hardware_unitree",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.27221",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.37
+    },
+    {
+      "source": "2608.27221",
+      "target": "route:protein_ai",
+      "weight": 0.214
+    },
+    {
+      "source": "2608.27221",
+      "target": "route:genomics_ai",
+      "weight": 0.176
+    },
+    {
       "source": "2606.03177",
       "target": "route:vla",
       "weight": 0.509
@@ -77499,6 +78039,16 @@
       "weight": 0.232
     },
     {
+      "source": "10.64898/2026.08.27.747547",
+      "target": "route:protein_ai",
+      "weight": 0.5
+    },
+    {
+      "source": "10.64898/2026.08.27.747547",
+      "target": "route:genomics_ai",
+      "weight": 0.363
+    },
+    {
       "source": "2606.03598",
       "target": "route:vla",
       "weight": 0.528
@@ -78197,6 +78747,46 @@
       "source": "10.64898/2026.08.24.746791",
       "target": "route:genomics_ai",
       "weight": 0.426
+    },
+    {
+      "source": "10.64898/2026.08.20.746062",
+      "target": "route:vla",
+      "weight": 0.215
+    },
+    {
+      "source": "10.64898/2026.08.20.746062",
+      "target": "route:world_model",
+      "weight": 0.309
+    },
+    {
+      "source": "10.64898/2026.08.20.746062",
+      "target": "route:whole_body_control",
+      "weight": 0.192
+    },
+    {
+      "source": "10.64898/2026.08.20.746062",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.274
+    },
+    {
+      "source": "10.64898/2026.08.20.746062",
+      "target": "route:bci_foundation_models",
+      "weight": 0.428
+    },
+    {
+      "source": "10.64898/2026.08.20.746062",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.262
+    },
+    {
+      "source": "10.64898/2026.08.20.746062",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.5
+    },
+    {
+      "source": "10.64898/2026.08.20.746062",
+      "target": "route:genomics_ai",
+      "weight": 0.176
     },
     {
       "source": "2605.31321",
@@ -79120,6 +79710,16 @@
     },
     {
       "source": "10.64898/2026.08.25.746971",
+      "target": "route:genomics_ai",
+      "weight": 0.5
+    },
+    {
+      "source": "10.64898/2026.08.25.746527",
+      "target": "route:protein_ai",
+      "weight": 0.299
+    },
+    {
+      "source": "10.64898/2026.08.25.746527",
       "target": "route:genomics_ai",
       "weight": 0.5
     },
@@ -81127,6 +81727,36 @@
       "source": "2608.25308",
       "target": "route:genomics_ai",
       "weight": 0.157
+    },
+    {
+      "source": "10.64898/2026.08.24.745108",
+      "target": "route:vla",
+      "weight": 0.179
+    },
+    {
+      "source": "10.64898/2026.08.24.745108",
+      "target": "route:world_model",
+      "weight": 0.153
+    },
+    {
+      "source": "10.64898/2026.08.24.745108",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.155
+    },
+    {
+      "source": "10.64898/2026.08.24.745108",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.165
+    },
+    {
+      "source": "10.64898/2026.08.24.745108",
+      "target": "route:protein_ai",
+      "weight": 0.242
+    },
+    {
+      "source": "10.64898/2026.08.24.745108",
+      "target": "route:genomics_ai",
+      "weight": 0.5
     },
     {
       "source": "2606.12499",
@@ -83772,6 +84402,36 @@
       "source": "2608.17324",
       "target": "route:genomics_ai",
       "weight": 0.186
+    },
+    {
+      "source": "10.64898/2026.08.21.746382",
+      "target": "route:world_model",
+      "weight": 0.189
+    },
+    {
+      "source": "10.64898/2026.08.21.746382",
+      "target": "route:whole_body_control",
+      "weight": 0.195
+    },
+    {
+      "source": "10.64898/2026.08.21.746382",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.411
+    },
+    {
+      "source": "10.64898/2026.08.21.746382",
+      "target": "route:bci_foundation_models",
+      "weight": 0.574
+    },
+    {
+      "source": "10.64898/2026.08.21.746382",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.388
+    },
+    {
+      "source": "10.64898/2026.08.21.746382",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.5
     },
     {
       "source": "2606.06292",
@@ -87794,6 +88454,56 @@
       "weight": 0.343
     },
     {
+      "source": "10.64898/2026.08.24.745890",
+      "target": "route:vla",
+      "weight": 0.313
+    },
+    {
+      "source": "10.64898/2026.08.24.745890",
+      "target": "route:world_model",
+      "weight": 0.346
+    },
+    {
+      "source": "10.64898/2026.08.24.745890",
+      "target": "route:whole_body_control",
+      "weight": 0.237
+    },
+    {
+      "source": "10.64898/2026.08.24.745890",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.205
+    },
+    {
+      "source": "10.64898/2026.08.24.745890",
+      "target": "route:sim2real_data",
+      "weight": 0.226
+    },
+    {
+      "source": "10.64898/2026.08.24.745890",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.192
+    },
+    {
+      "source": "10.64898/2026.08.24.745890",
+      "target": "route:bci_foundation_models",
+      "weight": 0.183
+    },
+    {
+      "source": "10.64898/2026.08.24.745890",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.226
+    },
+    {
+      "source": "10.64898/2026.08.24.745890",
+      "target": "route:protein_ai",
+      "weight": 0.5
+    },
+    {
+      "source": "10.64898/2026.08.24.745890",
+      "target": "route:genomics_ai",
+      "weight": 0.335
+    },
+    {
       "source": "10.64898/2026.06.02.729478",
       "target": "route:vla",
       "weight": 0.181
@@ -90342,6 +91052,101 @@
       "source": "2608.23972",
       "target": "route:genomics_ai",
       "weight": 0.232
+    },
+    {
+      "source": "2608.25192",
+      "target": "route:vla",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.25192",
+      "target": "route:world_model",
+      "weight": 0.409
+    },
+    {
+      "source": "2608.25192",
+      "target": "route:whole_body_control",
+      "weight": 0.377
+    },
+    {
+      "source": "2608.25192",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.233
+    },
+    {
+      "source": "2608.25192",
+      "target": "route:sim2real_data",
+      "weight": 0.334
+    },
+    {
+      "source": "2608.25192",
+      "target": "route:hardware_unitree",
+      "weight": 0.215
+    },
+    {
+      "source": "2608.25192",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.193
+    },
+    {
+      "source": "2608.25192",
+      "target": "route:bci_foundation_models",
+      "weight": 0.168
+    },
+    {
+      "source": "2608.25192",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.341
+    },
+    {
+      "source": "2608.25192",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.156
+    },
+    {
+      "source": "2608.25192",
+      "target": "route:protein_ai",
+      "weight": 0.206
+    },
+    {
+      "source": "2608.25192",
+      "target": "route:genomics_ai",
+      "weight": 0.21
+    },
+    {
+      "source": "2608.26050",
+      "target": "route:vla",
+      "weight": 0.4
+    },
+    {
+      "source": "2608.26050",
+      "target": "route:world_model",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.26050",
+      "target": "route:whole_body_control",
+      "weight": 0.363
+    },
+    {
+      "source": "2608.26050",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.165
+    },
+    {
+      "source": "2608.26050",
+      "target": "route:sim2real_data",
+      "weight": 0.222
+    },
+    {
+      "source": "2608.26050",
+      "target": "route:hardware_unitree",
+      "weight": 0.21
+    },
+    {
+      "source": "2608.26050",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.278
     },
     {
       "source": "2606.00499",
@@ -95022,6 +95827,111 @@
       "source": "2608.10449",
       "target": "route:bci_noninvasive_eeg",
       "weight": 0.163
+    },
+    {
+      "source": "10.64898/2026.08.28.747885",
+      "target": "route:vla",
+      "weight": 0.218
+    },
+    {
+      "source": "10.64898/2026.08.28.747885",
+      "target": "route:world_model",
+      "weight": 0.281
+    },
+    {
+      "source": "10.64898/2026.08.28.747885",
+      "target": "route:whole_body_control",
+      "weight": 0.174
+    },
+    {
+      "source": "10.64898/2026.08.28.747885",
+      "target": "route:sim2real_data",
+      "weight": 0.156
+    },
+    {
+      "source": "10.64898/2026.08.28.747885",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.16
+    },
+    {
+      "source": "10.64898/2026.08.28.747885",
+      "target": "route:bci_foundation_models",
+      "weight": 0.19
+    },
+    {
+      "source": "10.64898/2026.08.28.747885",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.197
+    },
+    {
+      "source": "10.64898/2026.08.28.747885",
+      "target": "route:protein_ai",
+      "weight": 0.526
+    },
+    {
+      "source": "10.64898/2026.08.28.747885",
+      "target": "route:genomics_ai",
+      "weight": 0.295
+    },
+    {
+      "source": "2608.23100",
+      "target": "route:vla",
+      "weight": 0.428
+    },
+    {
+      "source": "2608.23100",
+      "target": "route:world_model",
+      "weight": 0.34
+    },
+    {
+      "source": "2608.23100",
+      "target": "route:whole_body_control",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.23100",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.243
+    },
+    {
+      "source": "2608.23100",
+      "target": "route:sim2real_data",
+      "weight": 0.237
+    },
+    {
+      "source": "2608.23100",
+      "target": "route:hardware_unitree",
+      "weight": 0.189
+    },
+    {
+      "source": "2608.23100",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.261
+    },
+    {
+      "source": "2608.23100",
+      "target": "route:bci_foundation_models",
+      "weight": 0.233
+    },
+    {
+      "source": "2608.23100",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.279
+    },
+    {
+      "source": "2608.23100",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.157
+    },
+    {
+      "source": "2608.23100",
+      "target": "route:protein_ai",
+      "weight": 0.276
+    },
+    {
+      "source": "2608.23100",
+      "target": "route:genomics_ai",
+      "weight": 0.156
     },
     {
       "source": "2606.08059",
@@ -99734,6 +100644,56 @@
       "weight": 0.5
     },
     {
+      "source": "2608.27367",
+      "target": "route:vla",
+      "weight": 0.426
+    },
+    {
+      "source": "2608.27367",
+      "target": "route:world_model",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.27367",
+      "target": "route:whole_body_control",
+      "weight": 0.232
+    },
+    {
+      "source": "2608.27367",
+      "target": "route:sim2real_data",
+      "weight": 0.211
+    },
+    {
+      "source": "2608.27367",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.232
+    },
+    {
+      "source": "2608.27367",
+      "target": "route:bci_foundation_models",
+      "weight": 0.384
+    },
+    {
+      "source": "2608.27367",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.175
+    },
+    {
+      "source": "2608.27367",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.206
+    },
+    {
+      "source": "2608.27367",
+      "target": "route:protein_ai",
+      "weight": 0.256
+    },
+    {
+      "source": "2608.27367",
+      "target": "route:genomics_ai",
+      "weight": 0.303
+    },
+    {
       "source": "10.64898/2026.05.27.728199",
       "target": "route:bci_neural_decoding",
       "weight": 0.247
@@ -103374,6 +104334,16 @@
       "weight": 0.185
     },
     {
+      "source": "10.64898/2026.08.25.747160",
+      "target": "route:protein_ai",
+      "weight": 0.5
+    },
+    {
+      "source": "10.64898/2026.08.25.747160",
+      "target": "route:genomics_ai",
+      "weight": 0.257
+    },
+    {
       "source": "2605.31486",
       "target": "route:whole_body_control",
       "weight": 0.352
@@ -104854,6 +105824,36 @@
       "weight": 0.259
     },
     {
+      "source": "10.64898/2026.08.23.746502",
+      "target": "route:world_model",
+      "weight": 0.188
+    },
+    {
+      "source": "10.64898/2026.08.23.746502",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.345
+    },
+    {
+      "source": "10.64898/2026.08.23.746502",
+      "target": "route:bci_foundation_models",
+      "weight": 0.445
+    },
+    {
+      "source": "10.64898/2026.08.23.746502",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.245
+    },
+    {
+      "source": "10.64898/2026.08.23.746502",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.5
+    },
+    {
+      "source": "10.64898/2026.08.23.746502",
+      "target": "route:protein_ai",
+      "weight": 0.158
+    },
+    {
       "source": "2605.30957",
       "target": "route:vla",
       "weight": 0.644
@@ -105572,6 +106572,31 @@
       "source": "2608.19729",
       "target": "route:bci_embodied_robot",
       "weight": 0.258
+    },
+    {
+      "source": "2608.27003",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.442
+    },
+    {
+      "source": "2608.27003",
+      "target": "route:bci_foundation_models",
+      "weight": 0.477
+    },
+    {
+      "source": "2608.27003",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.28
+    },
+    {
+      "source": "2608.27003",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.27003",
+      "target": "route:protein_ai",
+      "weight": 0.194
     },
     {
       "source": "2606.01713",
@@ -113884,6 +114909,16 @@
       "weight": 0.159
     },
     {
+      "source": "10.64898/2026.08.28.747838",
+      "target": "route:protein_ai",
+      "weight": 0.193
+    },
+    {
+      "source": "10.64898/2026.08.28.747838",
+      "target": "route:genomics_ai",
+      "weight": 0.5
+    },
+    {
       "source": "2605.30775",
       "target": "route:vla",
       "weight": 0.221
@@ -114732,6 +115767,36 @@
       "source": "2608.18672",
       "target": "route:bci_embodied_robot",
       "weight": 0.24
+    },
+    {
+      "source": "2608.23983",
+      "target": "route:vla",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.23983",
+      "target": "route:whole_body_control",
+      "weight": 0.288
+    },
+    {
+      "source": "2608.23983",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.255
+    },
+    {
+      "source": "2608.23983",
+      "target": "route:sim2real_data",
+      "weight": 0.202
+    },
+    {
+      "source": "2608.23983",
+      "target": "route:hardware_unitree",
+      "weight": 0.153
+    },
+    {
+      "source": "2608.23983",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.232
     },
     {
       "source": "2606.01950",
@@ -116434,6 +117499,106 @@
       "weight": 0.254
     },
     {
+      "source": "2608.26766",
+      "target": "route:vla",
+      "weight": 0.437
+    },
+    {
+      "source": "2608.26766",
+      "target": "route:world_model",
+      "weight": 0.408
+    },
+    {
+      "source": "2608.26766",
+      "target": "route:whole_body_control",
+      "weight": 0.394
+    },
+    {
+      "source": "2608.26766",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.26766",
+      "target": "route:sim2real_data",
+      "weight": 0.239
+    },
+    {
+      "source": "2608.26766",
+      "target": "route:hardware_unitree",
+      "weight": 0.158
+    },
+    {
+      "source": "2608.26766",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.184
+    },
+    {
+      "source": "2608.26766",
+      "target": "route:protein_ai",
+      "weight": 0.239
+    },
+    {
+      "source": "2608.26273",
+      "target": "route:vla",
+      "weight": 0.32
+    },
+    {
+      "source": "2608.26273",
+      "target": "route:world_model",
+      "weight": 0.337
+    },
+    {
+      "source": "2608.26273",
+      "target": "route:whole_body_control",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.26273",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.189
+    },
+    {
+      "source": "2608.26273",
+      "target": "route:sim2real_data",
+      "weight": 0.179
+    },
+    {
+      "source": "2608.26273",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.244
+    },
+    {
+      "source": "2608.26273",
+      "target": "route:protein_ai",
+      "weight": 0.209
+    },
+    {
+      "source": "2608.26273",
+      "target": "route:genomics_ai",
+      "weight": 0.159
+    },
+    {
+      "source": "10.64898/2026.08.22.746388",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.153
+    },
+    {
+      "source": "10.64898/2026.08.22.746388",
+      "target": "route:bci_foundation_models",
+      "weight": 0.152
+    },
+    {
+      "source": "10.64898/2026.08.22.746388",
+      "target": "route:protein_ai",
+      "weight": 0.5
+    },
+    {
+      "source": "10.64898/2026.08.22.746388",
+      "target": "route:genomics_ai",
+      "weight": 0.154
+    },
+    {
       "source": "2606.01597",
       "target": "route:vla",
       "weight": 0.365
@@ -117419,6 +118584,56 @@
       "weight": 0.35
     },
     {
+      "source": "2608.26998",
+      "target": "route:vla",
+      "weight": 0.227
+    },
+    {
+      "source": "2608.26998",
+      "target": "route:world_model",
+      "weight": 0.241
+    },
+    {
+      "source": "2608.26998",
+      "target": "route:whole_body_control",
+      "weight": 0.197
+    },
+    {
+      "source": "2608.26998",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.444
+    },
+    {
+      "source": "2608.26998",
+      "target": "route:bci_foundation_models",
+      "weight": 0.564
+    },
+    {
+      "source": "2608.26998",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.365
+    },
+    {
+      "source": "2608.26998",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.26998",
+      "target": "route:genomics_ai",
+      "weight": 0.169
+    },
+    {
+      "source": "10.64898/2026.08.21.746244",
+      "target": "route:protein_ai",
+      "weight": 0.5
+    },
+    {
+      "source": "10.64898/2026.08.21.746244",
+      "target": "route:genomics_ai",
+      "weight": 0.163
+    },
+    {
       "source": "2606.02280",
       "target": "route:vla",
       "weight": 0.453
@@ -118254,6 +119469,96 @@
       "weight": 0.358
     },
     {
+      "source": "2608.24162",
+      "target": "route:vla",
+      "weight": 0.425
+    },
+    {
+      "source": "2608.24162",
+      "target": "route:world_model",
+      "weight": 0.329
+    },
+    {
+      "source": "2608.24162",
+      "target": "route:whole_body_control",
+      "weight": 0.297
+    },
+    {
+      "source": "2608.24162",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.24162",
+      "target": "route:sim2real_data",
+      "weight": 0.211
+    },
+    {
+      "source": "2608.24162",
+      "target": "route:hardware_unitree",
+      "weight": 0.173
+    },
+    {
+      "source": "2608.24162",
+      "target": "route:bci_foundation_models",
+      "weight": 0.216
+    },
+    {
+      "source": "2608.24162",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.27
+    },
+    {
+      "source": "2608.24162",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.188
+    },
+    {
+      "source": "2608.26622",
+      "target": "route:vla",
+      "weight": 0.333
+    },
+    {
+      "source": "2608.26622",
+      "target": "route:world_model",
+      "weight": 0.301
+    },
+    {
+      "source": "2608.26622",
+      "target": "route:whole_body_control",
+      "weight": 0.359
+    },
+    {
+      "source": "2608.26622",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.26622",
+      "target": "route:sim2real_data",
+      "weight": 0.213
+    },
+    {
+      "source": "2608.26622",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.261
+    },
+    {
+      "source": "2608.26622",
+      "target": "route:protein_ai",
+      "weight": 0.217
+    },
+    {
+      "source": "10.64898/2026.08.26.747443",
+      "target": "route:protein_ai",
+      "weight": 0.5
+    },
+    {
+      "source": "10.64898/2026.08.26.747443",
+      "target": "route:genomics_ai",
+      "weight": 0.234
+    },
+    {
       "source": "2606.00933",
       "target": "route:vla",
       "weight": 0.46
@@ -118947,6 +120252,16 @@
       "source": "10.64898/2026.08.26.747186",
       "target": "route:genomics_ai",
       "weight": 0.5
+    },
+    {
+      "source": "10.64898/2026.08.27.747222",
+      "target": "route:protein_ai",
+      "weight": 0.5
+    },
+    {
+      "source": "10.64898/2026.08.27.747222",
+      "target": "route:genomics_ai",
+      "weight": 0.218
     },
     {
       "source": "10.64898/2026.05.31.729038",
@@ -119724,6 +121039,41 @@
       "weight": 0.5
     },
     {
+      "source": "10.64898/2026.08.25.747119",
+      "target": "route:world_model",
+      "weight": 0.174
+    },
+    {
+      "source": "10.64898/2026.08.25.747119",
+      "target": "route:whole_body_control",
+      "weight": 0.19
+    },
+    {
+      "source": "10.64898/2026.08.25.747119",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.42
+    },
+    {
+      "source": "10.64898/2026.08.25.747119",
+      "target": "route:bci_foundation_models",
+      "weight": 0.541
+    },
+    {
+      "source": "10.64898/2026.08.25.747119",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.373
+    },
+    {
+      "source": "10.64898/2026.08.25.747119",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.5
+    },
+    {
+      "source": "10.64898/2026.08.25.747119",
+      "target": "route:genomics_ai",
+      "weight": 0.172
+    },
+    {
       "source": "2606.02969",
       "target": "route:vla",
       "weight": 0.435
@@ -120242,6 +121592,16 @@
       "source": "2608.05684",
       "target": "route:bci_noninvasive_eeg",
       "weight": 0.211
+    },
+    {
+      "source": "10.64898/2026.08.26.747264",
+      "target": "route:protein_ai",
+      "weight": 0.353
+    },
+    {
+      "source": "10.64898/2026.08.26.747264",
+      "target": "route:genomics_ai",
+      "weight": 0.5
     },
     {
       "source": "10.64898/2026.06.05.730461",
@@ -121089,6 +122449,41 @@
       "weight": 0.392
     },
     {
+      "source": "2608.27151",
+      "target": "route:vla",
+      "weight": 0.327
+    },
+    {
+      "source": "2608.27151",
+      "target": "route:world_model",
+      "weight": 0.228
+    },
+    {
+      "source": "2608.27151",
+      "target": "route:whole_body_control",
+      "weight": 0.202
+    },
+    {
+      "source": "2608.27151",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.27151",
+      "target": "route:sim2real_data",
+      "weight": 0.156
+    },
+    {
+      "source": "2608.27151",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.266
+    },
+    {
+      "source": "2608.27151",
+      "target": "route:protein_ai",
+      "weight": 0.234
+    },
+    {
       "source": "2606.16076",
       "target": "route:vla",
       "weight": 0.277
@@ -121472,6 +122867,16 @@
       "source": "10.64898/2026.08.24.746535",
       "target": "route:genomics_ai",
       "weight": 0.217
+    },
+    {
+      "source": "10.64898/2026.08.21.746229",
+      "target": "route:protein_ai",
+      "weight": 0.192
+    },
+    {
+      "source": "10.64898/2026.08.21.746229",
+      "target": "route:genomics_ai",
+      "weight": 0.5
     },
     {
       "source": "2606.02386",
@@ -122677,6 +124082,46 @@
       "source": "2608.19808",
       "target": "route:genomics_ai",
       "weight": 0.321
+    },
+    {
+      "source": "2608.26883",
+      "target": "route:vla",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.26883",
+      "target": "route:world_model",
+      "weight": 0.266
+    },
+    {
+      "source": "2608.26883",
+      "target": "route:whole_body_control",
+      "weight": 0.348
+    },
+    {
+      "source": "2608.26883",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.315
+    },
+    {
+      "source": "2608.26883",
+      "target": "route:sim2real_data",
+      "weight": 0.196
+    },
+    {
+      "source": "2608.26883",
+      "target": "route:hardware_unitree",
+      "weight": 0.192
+    },
+    {
+      "source": "2608.26883",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.262
+    },
+    {
+      "source": "2608.26883",
+      "target": "route:protein_ai",
+      "weight": 0.186
     },
     {
       "source": "2606.12690",
@@ -124717,6 +126162,16 @@
       "source": "10.64898/2026.08.03.742597",
       "target": "route:genomics_ai",
       "weight": 0.286
+    },
+    {
+      "source": "10.64898/2026.08.27.747638",
+      "target": "route:protein_ai",
+      "weight": 0.234
+    },
+    {
+      "source": "10.64898/2026.08.27.747638",
+      "target": "route:genomics_ai",
+      "weight": 0.5
     },
     {
       "source": "10.64898/2026.06.17.733017",
@@ -129784,6 +131239,31 @@
       "weight": 0.368
     },
     {
+      "source": "2608.25509",
+      "target": "route:vla",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.25509",
+      "target": "route:world_model",
+      "weight": 0.179
+    },
+    {
+      "source": "2608.25509",
+      "target": "route:whole_body_control",
+      "weight": 0.225
+    },
+    {
+      "source": "2608.25509",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.223
+    },
+    {
+      "source": "2608.25509",
+      "target": "route:genomics_ai",
+      "weight": 0.157
+    },
+    {
       "source": "2606.03223",
       "target": "route:vla",
       "weight": 0.436
@@ -130354,6 +131834,36 @@
       "weight": 0.174
     },
     {
+      "source": "2608.26739",
+      "target": "route:vla",
+      "weight": 0.422
+    },
+    {
+      "source": "2608.26739",
+      "target": "route:world_model",
+      "weight": 0.328
+    },
+    {
+      "source": "2608.26739",
+      "target": "route:whole_body_control",
+      "weight": 0.5
+    },
+    {
+      "source": "2608.26739",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.234
+    },
+    {
+      "source": "2608.26739",
+      "target": "route:sim2real_data",
+      "weight": 0.236
+    },
+    {
+      "source": "2608.26739",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.377
+    },
+    {
       "source": "2606.11577",
       "target": "route:vla",
       "weight": 0.385
@@ -130427,6 +131937,11 @@
       "source": "2608.02804",
       "target": "route:protein_ai",
       "weight": 0.162
+    },
+    {
+      "source": "10.64898/2026.08.25.746799",
+      "target": "route:protein_ai",
+      "weight": 0.5
     },
     {
       "source": "2606.24372",
@@ -138758,6 +140273,80 @@
       }
     },
     {
+      "arxiv_id": "2608.27345",
+      "title": "PAWBench: How Far Are We from Probabilistically Aligned World Modeling?",
+      "authors": [
+        "Yuandong Pu",
+        "Le Zhuo",
+        "Sayak Paul",
+        "Gabriel Jorge Menezes",
+        "Avram Đorđević",
+        "Shiyang Li"
+      ],
+      "published": "2026-08-27T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2608.27345",
+      "pdf_url": "https://arxiv.org/pdf/2608.27345",
+      "source": "hf_daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2608.27345.jpg",
+      "best_route": "world_model",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "sim2real_data",
+        "bci_foundation_models",
+        "bci_noninvasive_eeg",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "benchmark",
+        "dataset",
+        "simulator"
+      ],
+      "scores": {
+        "relevance": 17.0,
+        "content": 24.0,
+        "heat": 18.6,
+        "quality": 0.0,
+        "base": 41.0,
+        "bonus": 18.6,
+        "total": 59.6
+      },
+      "grade": "B",
+      "read_priority": "B",
+      "tldr": "这篇论文指出当前视频生成模型作为‘世界模型’的最大缺陷：只追求单次生成看起来合理，却不保证多次生成能还原真实物理过程的多种可能结果的概率分布；为此构建了首个专门评测这种‘概率对齐’能力的基准PAWBench，在50个物理场景中测试11个主流模型，发现全部失败，并探索了提示、噪声采样和训练等调节分布的途径。",
+      "org": "商汤科技",
+      "orgs": [
+        "商汤科技",
+        "上海AI实验室"
+      ],
+      "country": "CN",
+      "org_type": "company",
+      "novelty": 9,
+      "significance": 78,
+      "significance_reason": "首次形式化并实证揭示视频生成模型在分布建模层面的根本缺陷，构建首个可复现、跨模型、带真值分布的评测框架，覆盖50个物理多样性场景且含消融分析；虽未提出新模型，但定义了下一代世界模型的关键门槛，证据强度远超纯概念论文，但尚未达到World Models/DreamerV3级范式开创量级（缺真实机器人闭环、无状态记忆机制、未驱动新架构设计）。",
+      "tier": "heavy",
+      "verdict": "真突破：它不是又一个SOTA刷榜工作，而是用严谨分布检验戳破了‘世界模型’当前的幻觉泡沫，为该领域设立了不可绕行的新标尺。",
+      "claim": "当前视频生成模型尚未实现概率对齐的世界建模能力——即无法从同一初始观测与动作中，以正确概率密度采样出所有物理上合理的未来轨迹。",
+      "input": "初始帧序列+动作指令（部分场景含语言提示）",
+      "output": "多段生成视频（用于构建经验行为分布）",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "benchmark",
+        "dataset",
+        "simulator"
+      ],
+      "signals": {
+        "hf_upvotes": 137,
+        "citations": 0,
+        "venue": "arXiv (Cornell University)"
+      }
+    },
+    {
       "arxiv_id": "2607.27205",
       "title": "TurboVLA: Real-Time Vision-Language-Action Model at 32 Hz on an RTX 4090 with <1 GB VRAM",
       "authors": [
@@ -138909,77 +140498,79 @@
       }
     },
     {
-      "arxiv_id": "2608.27345",
-      "title": "PAWBench: How Far Are We from Probabilistically Aligned World Modeling?",
+      "arxiv_id": "2608.27550",
+      "title": "Beyond Data Scaling: Representation-Centric Continued Pre-training for Vision-Language-Action Models",
       "authors": [
-        "Yuandong Pu",
-        "Le Zhuo",
-        "Sayak Paul",
-        "Gabriel Jorge Menezes",
-        "Avram Đorđević",
-        "Shiyang Li"
+        "Senqiao Yang",
+        "Chengyao Wang",
+        "Yuxin Chen",
+        "Zixuan Wang",
+        "Longxiang Tang",
+        "Haokun Gui"
       ],
       "published": "2026-08-27T00:00:00.000Z",
-      "url": "https://arxiv.org/abs/2608.27345",
-      "pdf_url": "https://arxiv.org/pdf/2608.27345",
+      "url": "https://arxiv.org/abs/2608.27550",
+      "pdf_url": "https://arxiv.org/pdf/2608.27550",
       "source": "hf_daily",
       "venue": "",
-      "thumb": "assets/thumbs/2608.27345.jpg",
-      "best_route": "world_model",
+      "thumb": "assets/thumbs/2608.27550.jpg",
+      "best_route": "vla",
       "domain": "embodied_ai",
       "routes": [
         "vla",
         "world_model",
         "whole_body_control",
+        "dexterous_manipulation",
         "sim2real_data",
+        "hardware_unitree",
+        "bci_neural_decoding",
         "bci_foundation_models",
+        "bci_embodied_robot",
         "bci_noninvasive_eeg",
-        "protein_ai",
         "genomics_ai"
       ],
       "tags": [
-        "benchmark",
+        "multimodal-fusion",
         "dataset",
-        "simulator"
+        "benchmark",
+        "open-source",
+        "real-robot"
       ],
       "scores": {
-        "relevance": 17.0,
-        "content": 24.0,
-        "heat": 16.7,
+        "relevance": 20.7,
+        "content": 25.0,
+        "heat": 11.7,
         "quality": 0.0,
-        "base": 41.0,
-        "bonus": 16.7,
-        "total": 57.7
+        "base": 45.7,
+        "bonus": 11.7,
+        "total": 57.4
       },
       "grade": "B",
-      "read_priority": "B",
-      "tldr": "这篇论文指出当前视频生成模型作为‘世界模型’的最大缺陷：只追求单次生成看起来合理，却不保证多次生成能还原真实物理过程的多种可能结果的概率分布；为此构建了首个专门评测这种‘概率对齐’能力的基准PAWBench，在50个物理场景中测试11个主流模型，发现全部失败，并探索了提示、噪声采样和训练等调节分布的途径。",
-      "org": "商汤科技",
-      "orgs": [
-        "商汤科技",
-        "上海AI实验室"
-      ],
-      "country": "CN",
-      "org_type": "company",
-      "novelty": 9,
-      "significance": 78,
-      "significance_reason": "首次形式化并实证揭示视频生成模型在分布建模层面的根本缺陷，构建首个可复现、跨模型、带真值分布的评测框架，覆盖50个物理多样性场景且含消融分析；虽未提出新模型，但定义了下一代世界模型的关键门槛，证据强度远超纯概念论文，但尚未达到World Models/DreamerV3级范式开创量级（缺真实机器人闭环、无状态记忆机制、未驱动新架构设计）。",
+      "read_priority": "A",
+      "tldr": "这篇论文提出VLAct方法，不靠堆机器人数据量，而是用多机体、异构的真实机器人轨迹对视觉语言模型（VLM）做‘表示为中心’的持续预训练，让模型学到跨机体可迁移的动作语义，在固定下游数据和算力（16卡）下显著提升泛化能力，尤其在未见过的人形机器人上仅用20%数据就超过全量基线。",
+      "org": "未知（作者单位未在摘要中披露，无机构署名线索；虽有大量中文名，但无法对应清华/智元/银河等明确团队；arXiv未提供affiliation信息）",
+      "orgs": [],
+      "country": "unknown",
+      "org_type": "unknown",
+      "novelty": 7,
+      "significance": 88,
+      "significance_reason": "实证扎实：在5个真实/仿真基准（含未见人形GR1）上系统验证跨机体泛化，击败ABot-M0/LingBot-VLA等工业级VLA系统，且全部开源+16卡复现——虽未达RT-2/π0级范式颠覆（缺世界模型/测试时推理机制/端到端闭环控制），但确立了‘表示优化’作为独立于数据扩展的关键进步轴，证据强度和工程落地性接近DAM-VLA水平。",
       "tier": "heavy",
-      "verdict": "真突破：它不是又一个SOTA刷榜工作，而是用严谨分布检验戳破了‘世界模型’当前的幻觉泡沫，为该领域设立了不可绕行的新标尺。",
-      "claim": "当前视频生成模型尚未实现概率对齐的世界建模能力——即无法从同一初始观测与动作中，以正确概率密度采样出所有物理上合理的未来轨迹。",
-      "input": "初始帧序列+动作指令（部分场景含语言提示）",
-      "output": "多段生成视频（用于构建经验行为分布）",
-      "sim2real_status": "n/a",
-      "reproducibility": "project-page",
+      "verdict": "真突破：它首次以充分实证证明，在真实机器人数据有限前提下，表示层面的持续预训练设计（而非数据量或模型规模）能成为VLA性能跃升的独立杠杆，并在多机体、少样本、开源可复现条件下达成工业级SOTA。",
+      "claim": "在机器人数据规模受限的前提下，通过表示中心的持续预训练（保留VLM先验、多机体动作共监督、部分统一动作布局），可比单纯扩大数据更有效地提升VLA模型的跨机体泛化与下游任务性能。",
+      "input": "多模态输入：RGB图像+自然语言指令+（可选）状态向量（隐含于轨迹数据中）",
+      "output": "连续动作向量（如关节速度/末端位姿变化）",
+      "sim2real_status": "multi-embodiment",
+      "reproducibility": "code+model+data",
       "method_components": [
-        "benchmark",
+        "model",
         "dataset",
-        "simulator"
+        "benchmark"
       ],
       "signals": {
-        "hf_upvotes": 82,
+        "hf_upvotes": 21,
         "citations": 0,
-        "venue": "arXiv (Cornell University)"
+        "venue": ""
       }
     },
     {
@@ -140650,6 +142241,83 @@
       }
     },
     {
+      "arxiv_id": "2608.26103",
+      "title": "Zero-WAM: In-Context World-Action Modeling from Human Videos for Open-Ended Task Generalization",
+      "authors": [
+        "Jiaming Zhou",
+        "Qihang Zhang",
+        "Gangwei Xu",
+        "Cunxin Fan",
+        "Yujie Zhao",
+        "Ruilin Wang"
+      ],
+      "published": "2026-08-26T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2608.26103",
+      "pdf_url": "https://arxiv.org/pdf/2608.26103",
+      "source": "hf_daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2608.26103.jpg",
+      "best_route": "world_model",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "hardware_unitree",
+        "bci_foundation_models",
+        "bci_embodied_robot",
+        "genomics_ai"
+      ],
+      "tags": [
+        "sim2real",
+        "dataset",
+        "benchmark",
+        "multimodal-fusion"
+      ],
+      "scores": {
+        "relevance": 18.7,
+        "content": 21.0,
+        "heat": 11.3,
+        "quality": 0.0,
+        "base": 39.7,
+        "bonus": 11.3,
+        "total": 51.0
+      },
+      "grade": "B",
+      "read_priority": "B",
+      "tldr": "用人类操作视频作为任务提示，让机器人在不更新参数的情况下泛化到完全没见过的新操作任务，通过自动生成7.4万对人-机视频配对数据集HumanGen和新设计的视频引导未来块预测目标函数实现。",
+      "org": "智元机器人",
+      "orgs": [
+        "智元机器人"
+      ],
+      "country": "CN",
+      "org_type": "company",
+      "novelty": 8,
+      "significance": 78,
+      "significance_reason": "首次将in-context learning范式系统引入具身操作领域，用视频替代语言作prompt并构建大规模人-机配对数据集，仿真上显著超越基线，且在真实UR5e上验证了多物体、长程、插接等挑战性泛化能力；但未开源代码/模型，未覆盖跨机体/跨用户泛化，真实世界仅单平台小规模验证，尚未达到World Models或DreamerV3级范式开创性。",
+      "tier": "heavy",
+      "verdict": "重磅——真机验证了视频ICL在开放操作任务上的可行性，数据构造与IFP目标设计扎实，但开源缺失和泛化广度局限使其暂未达里程碑级",
+      "claim": "人类视频是比语言更自然、更富含任务动态信息的零样本任务提示源，基于此构建的因果视频-动作模型Zero-WAM可实现无需微调的开放任务泛化。",
+      "input": "人类操作视频（作为in-context prompt）+ 当前机器人观测（RGB图像/状态）",
+      "output": "机器人动作序列（连续控制指令）",
+      "sim2real_status": "small-real",
+      "reproducibility": "project-page",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 19,
+        "citations": 0,
+        "venue": "arXiv (Cornell University)"
+      }
+    },
+    {
       "arxiv_id": "2607.00272",
       "title": "ASPIRE: Agentic /Skills Discovery for Robotics",
       "authors": [
@@ -141098,83 +142766,6 @@
       ],
       "signals": {
         "hf_upvotes": 13,
-        "citations": 0,
-        "venue": "arXiv (Cornell University)"
-      }
-    },
-    {
-      "arxiv_id": "2608.26103",
-      "title": "Zero-WAM: In-Context World-Action Modeling from Human Videos for Open-Ended Task Generalization",
-      "authors": [
-        "Jiaming Zhou",
-        "Qihang Zhang",
-        "Gangwei Xu",
-        "Cunxin Fan",
-        "Yujie Zhao",
-        "Ruilin Wang"
-      ],
-      "published": "2026-08-26T00:00:00.000Z",
-      "url": "https://arxiv.org/abs/2608.26103",
-      "pdf_url": "https://arxiv.org/pdf/2608.26103",
-      "source": "hf_daily",
-      "venue": "",
-      "thumb": "assets/thumbs/2608.26103.jpg",
-      "best_route": "world_model",
-      "domain": "embodied_ai",
-      "routes": [
-        "vla",
-        "world_model",
-        "whole_body_control",
-        "dexterous_manipulation",
-        "sim2real_data",
-        "hardware_unitree",
-        "bci_foundation_models",
-        "bci_embodied_robot",
-        "genomics_ai"
-      ],
-      "tags": [
-        "sim2real",
-        "dataset",
-        "benchmark",
-        "multimodal-fusion"
-      ],
-      "scores": {
-        "relevance": 18.7,
-        "content": 21.0,
-        "heat": 10.9,
-        "quality": 0.0,
-        "base": 39.7,
-        "bonus": 10.9,
-        "total": 50.6
-      },
-      "grade": "B",
-      "read_priority": "B",
-      "tldr": "用人类操作视频作为任务提示，让机器人在不更新参数的情况下泛化到完全没见过的新操作任务，通过自动生成7.4万对人-机视频配对数据集HumanGen和新设计的视频引导未来块预测目标函数实现。",
-      "org": "智元机器人",
-      "orgs": [
-        "智元机器人"
-      ],
-      "country": "CN",
-      "org_type": "company",
-      "novelty": 8,
-      "significance": 78,
-      "significance_reason": "首次将in-context learning范式系统引入具身操作领域，用视频替代语言作prompt并构建大规模人-机配对数据集，仿真上显著超越基线，且在真实UR5e上验证了多物体、长程、插接等挑战性泛化能力；但未开源代码/模型，未覆盖跨机体/跨用户泛化，真实世界仅单平台小规模验证，尚未达到World Models或DreamerV3级范式开创性。",
-      "tier": "heavy",
-      "verdict": "重磅——真机验证了视频ICL在开放操作任务上的可行性，数据构造与IFP目标设计扎实，但开源缺失和泛化广度局限使其暂未达里程碑级",
-      "claim": "人类视频是比语言更自然、更富含任务动态信息的零样本任务提示源，基于此构建的因果视频-动作模型Zero-WAM可实现无需微调的开放任务泛化。",
-      "input": "人类操作视频（作为in-context prompt）+ 当前机器人观测（RGB图像/状态）",
-      "output": "机器人动作序列（连续控制指令）",
-      "sim2real_status": "small-real",
-      "reproducibility": "project-page",
-      "method_components": [
-        "model",
-        "dataset",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "signals": {
-        "hf_upvotes": 17,
         "citations": 0,
         "venue": "arXiv (Cornell University)"
       }
@@ -144482,6 +146073,78 @@
       }
     },
     {
+      "arxiv_id": "2608.26200",
+      "title": "GameWAM: A World Action Model for Video Games",
+      "authors": [
+        "Yuncheng Guo",
+        "Zhanqiu Zhang",
+        "Yiwen Guo",
+        "Weijia Li"
+      ],
+      "published": "2026-08-25T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2608.26200",
+      "pdf_url": "https://arxiv.org/pdf/2608.26200",
+      "source": "hf_daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2608.26200.jpg",
+      "best_route": "world_model",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "hardware_unitree",
+        "bci_neural_decoding",
+        "bci_foundation_models",
+        "bci_embodied_robot",
+        "genomics_ai"
+      ],
+      "tags": [
+        "multimodal-fusion",
+        "sim2real",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 17.8,
+        "content": 13.0,
+        "heat": 14.4,
+        "quality": 0.0,
+        "base": 30.8,
+        "bonus": 14.4,
+        "total": 45.2
+      },
+      "grade": "C",
+      "read_priority": "C",
+      "tldr": "这篇论文提出了GameWAM，一个能同时预测游戏画面未来变化和生成原生键鼠操作序列的联合世界-动作模型，用于在真实商业游戏中实现端到端闭环控制，但所有实验均在仿真环境（游戏客户端）中完成，未接入物理硬件，也未在真实玩家行为分布或开放世界游戏中验证泛化性。",
+      "org": "未知",
+      "orgs": [],
+      "country": "unknown",
+      "org_type": "unknown",
+      "novelty": 6,
+      "significance": 48,
+      "significance_reason": "虽首次将WAM范式迁移到视频游戏闭环控制，但未引入新动力学建模结构或状态表示机制（如显式记忆模块、符号化世界状态），所有实验限于少数固定游戏（摘要未列具体名称）、无跨游戏/跨任务泛化验证，无消融证明‘block-cycle control’或‘LASI发现’的实际控制增益，benchmark对比缺失基线（如RT-2变体、Voyager、ActOne等游戏专用代理），且project-page未提供代码或模型权重。",
+      "tier": "worth",
+      "verdict": "工程整合：把已有WAM思想适配到游戏场景，做了数据同步和动作归一化等必要工程，但缺乏理论创新、实证深度和领域影响力证据，尚未达到扎实增量水平。",
+      "claim": "World-Action Model可以统一建模视频游戏中的视觉动态演化与原生GUI/游戏动作生成，并通过块因果建模、流匹配和模式切换机制实现长程闭环控制。",
+      "input": "当前帧RGB图像+任务文本指令+历史动作与观测序列",
+      "output": "未来多帧RGB图像预测 + 原生键盘鼠标操作轨迹（含模式标签、连续坐标与按键状态）",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 44,
+        "citations": 0,
+        "venue": "arXiv (Cornell University)"
+      }
+    },
+    {
       "arxiv_id": "2608.22301",
       "title": "The Imitator Game: Benchmarking Robot Imitative Ability Beyond Action Prediction",
       "authors": [
@@ -144555,78 +146218,6 @@
       ],
       "signals": {
         "hf_upvotes": 0,
-        "citations": 0,
-        "venue": "arXiv (Cornell University)"
-      }
-    },
-    {
-      "arxiv_id": "2608.26200",
-      "title": "GameWAM: A World Action Model for Video Games",
-      "authors": [
-        "Yuncheng Guo",
-        "Zhanqiu Zhang",
-        "Yiwen Guo",
-        "Weijia Li"
-      ],
-      "published": "2026-08-25T00:00:00.000Z",
-      "url": "https://arxiv.org/abs/2608.26200",
-      "pdf_url": "https://arxiv.org/pdf/2608.26200",
-      "source": "hf_daily",
-      "venue": "",
-      "thumb": "assets/thumbs/2608.26200.jpg",
-      "best_route": "world_model",
-      "domain": "embodied_ai",
-      "routes": [
-        "vla",
-        "world_model",
-        "whole_body_control",
-        "dexterous_manipulation",
-        "sim2real_data",
-        "hardware_unitree",
-        "bci_neural_decoding",
-        "bci_foundation_models",
-        "bci_embodied_robot",
-        "genomics_ai"
-      ],
-      "tags": [
-        "multimodal-fusion",
-        "sim2real",
-        "benchmark"
-      ],
-      "scores": {
-        "relevance": 17.8,
-        "content": 13.0,
-        "heat": 14.0,
-        "quality": 0.0,
-        "base": 30.8,
-        "bonus": 14.0,
-        "total": 44.8
-      },
-      "grade": "C",
-      "read_priority": "C",
-      "tldr": "这篇论文提出了GameWAM，一个能同时预测游戏画面未来变化和生成原生键鼠操作序列的联合世界-动作模型，用于在真实商业游戏中实现端到端闭环控制，但所有实验均在仿真环境（游戏客户端）中完成，未接入物理硬件，也未在真实玩家行为分布或开放世界游戏中验证泛化性。",
-      "org": "未知",
-      "orgs": [],
-      "country": "unknown",
-      "org_type": "unknown",
-      "novelty": 6,
-      "significance": 48,
-      "significance_reason": "虽首次将WAM范式迁移到视频游戏闭环控制，但未引入新动力学建模结构或状态表示机制（如显式记忆模块、符号化世界状态），所有实验限于少数固定游戏（摘要未列具体名称）、无跨游戏/跨任务泛化验证，无消融证明‘block-cycle control’或‘LASI发现’的实际控制增益，benchmark对比缺失基线（如RT-2变体、Voyager、ActOne等游戏专用代理），且project-page未提供代码或模型权重。",
-      "tier": "worth",
-      "verdict": "工程整合：把已有WAM思想适配到游戏场景，做了数据同步和动作归一化等必要工程，但缺乏理论创新、实证深度和领域影响力证据，尚未达到扎实增量水平。",
-      "claim": "World-Action Model可以统一建模视频游戏中的视觉动态演化与原生GUI/游戏动作生成，并通过块因果建模、流匹配和模式切换机制实现长程闭环控制。",
-      "input": "当前帧RGB图像+任务文本指令+历史动作与观测序列",
-      "output": "未来多帧RGB图像预测 + 原生键盘鼠标操作轨迹（含模式标签、连续坐标与按键状态）",
-      "sim2real_status": "n/a",
-      "reproducibility": "project-page",
-      "method_components": [
-        "model",
-        "dataset",
-        "simulator",
-        "benchmark"
-      ],
-      "signals": {
-        "hf_upvotes": 40,
         "citations": 0,
         "venue": "arXiv (Cornell University)"
       }
@@ -145620,7 +147211,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "bioRxiv (Cold Spring Harbor Laboratory)"
       }
     },
     {
@@ -146373,6 +147964,79 @@
         "hf_upvotes": 0,
         "citations": 0,
         "venue": "arXiv (Cornell University)"
+      }
+    },
+    {
+      "arxiv_id": "2608.25204",
+      "title": "LibriBrain100: One Hundred Hours of Broad and Deep MEG Data for Neural Speech Decoding at Scale",
+      "authors": [
+        "Francesco Mantegna",
+        "Dulhan Jayalath",
+        "Gereon Elvers",
+        "Tasha Kim",
+        "Benjamin Ballyk",
+        "Alex Fung"
+      ],
+      "published": "2026-08-25",
+      "url": "https://arxiv.org/abs/2608.25204",
+      "pdf_url": "https://arxiv.org/pdf/2608.25204",
+      "source": "daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2608.25204.jpg",
+      "best_route": "bci_noninvasive_eeg",
+      "domain": "bci",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "sim2real_data",
+        "bci_neural_decoding",
+        "bci_foundation_models",
+        "bci_embodied_robot",
+        "bci_noninvasive_eeg",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset",
+        "benchmark",
+        "open-source"
+      ],
+      "scores": {
+        "relevance": 13.8,
+        "content": 25.0,
+        "heat": 5.2,
+        "quality": 0.0,
+        "base": 38.8,
+        "bonus": 5.2,
+        "total": 44.0
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "tldr": "发布了LibriBrain100数据集——100小时高质量MEG脑磁图数据（含单人80小时深度数据+32人各40分钟广度数据），专为可复现的神经语音解码评测设计，并配套开源工具链、标准划分和公开竞赛。",
+      "org": "unknown",
+      "orgs": [],
+      "country": "US",
+      "org_type": "unknown",
+      "novelty": 7,
+      "significance": 68,
+      "significance_reason": "是迄今最大规模、最系统化的公开MEG语音解码数据集，深度单被试数据量达新高（80小时），且完成跨被试泛化验证与完整开源闭环；但未实现端到端脑到文本生成，仅停留在单词分类这一中间任务，未触及实时、在线、高精度语音重建或临床闭环验证，与92+分基石工作（如ALS患者在线语音合成、手写脑机通信）存在代际差距。",
+      "tier": "notable",
+      "verdict": "显著贡献——不是算法突破，而是以工业级数据基建填补了非侵入式语音BCI领域长期缺乏高质量、可复现、带广度-深度平衡的基准数据集的空白。",
+      "claim": "大规模、标准化、可复现的MEG语音解码数据集（尤其强调‘深度单被试’与‘广度多被试’双轨设计）能实质性推动非侵入式脑机接口的解码性能与泛化能力。",
+      "input": "MEG脑磁信号（连续自然语音刺激下采集）",
+      "output": "单词级分类标签（用于评估解码模型对语音内容的识别能力）",
+      "sim2real_status": "n/a",
+      "reproducibility": "code+model+data",
+      "method_components": [
+        "dataset",
+        "benchmark",
+        "project-page"
+      ],
+      "signals": {
+        "hf_upvotes": 3,
+        "citations": 0,
+        "venue": ""
       }
     },
     {
@@ -148667,7 +150331,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "Humanoids"
+        "venue": "arXiv (Cornell University)"
       }
     },
     {
@@ -169690,6 +171354,76 @@
       }
     },
     {
+      "arxiv_id": "2608.24115",
+      "title": "PonderPounce: A Pretrained MLLM as an Episode Context Engine for Robot Control",
+      "authors": [
+        "Suhwan Choi",
+        "Jaeyoon Jung",
+        "Sungkyung Kim",
+        "Yunsung Lee",
+        "Youngjae Yu"
+      ],
+      "published": "2026-08-25T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2608.24115",
+      "pdf_url": "https://arxiv.org/pdf/2608.24115",
+      "source": "hf_daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2608.24115.jpg",
+      "best_route": "vla",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "hardware_unitree",
+        "bci_neural_decoding",
+        "bci_foundation_models",
+        "bci_embodied_robot",
+        "bci_noninvasive_eeg",
+        "genomics_ai"
+      ],
+      "tags": [
+        "multimodal-fusion"
+      ],
+      "scores": {
+        "relevance": 18.8,
+        "content": 11.0,
+        "heat": 9.0,
+        "quality": 0.0,
+        "base": 29.8,
+        "bonus": 9.0,
+        "total": 38.8
+      },
+      "grade": "C",
+      "read_priority": "C",
+      "tldr": "用一个预训练多模态大语言模型（MLLM）直接充当机器人任务的‘ episode 记忆引擎’，把它的原生因果上下文当长期记忆用，不加额外记忆模块；另一个轻量VLA模型只接收当前观测+指令+本体感知，再异步接收MLLM最新生成的一个认知token及其时间戳，两者端到端联合训练，在RoboMME和RoboCasa-DC上小幅超越基线。",
+      "org": "unknown",
+      "orgs": [],
+      "country": "unknown",
+      "org_type": "unknown",
+      "novelty": 6,
+      "significance": 42,
+      "significance_reason": "核心思想（复用MLLM上下文作记忆）有启发性，但无真实机器人验证、无消融分析、无开源迹象、未证明跨任务/跨机体泛化，性能提升有限（RoboMME +16.3% vs FrameSamp+Modul，但后者本身非SOTA；RoboCasa-DC仅+0.9%），远未达到RT-2/π0/DAM-VLA等基石工作所确立的范式突破或工程完备性门槛，属窄场景下的概念验证级增量。",
+      "tier": "",
+      "verdict": "概念包装：想法简洁但实证薄弱，无真实部署、无消融、无开源、泛化未验证，性能增益小且基准对比不具压倒性，目前仅为论文层面的机制提议。",
+      "claim": "无需专用记忆模块或桥接预训练，复用预训练MLLM的原生因果上下文作为episode级机器人记忆，可提升VLA模型在部分可观测长序列任务中的性能。",
+      "input": "当前RGB图像+语言指令+本体感知+MLLM最新连续认知token及其年龄",
+      "output": "动作块（离散/连续动作序列）",
+      "sim2real_status": "sim-only",
+      "reproducibility": "none",
+      "method_components": [
+        "model",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 10,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
       "arxiv_id": "2605.30282",
       "title": "Gaze2Act: Gaze-Conditioned Vision-Language-Action Policies for Interactive Robot Manipulation",
       "authors": [
@@ -186124,6 +187858,78 @@
       }
     },
     {
+      "arxiv_id": "2608.27073",
+      "title": "SpatialCrafter: Single Image World Modeling with Generative 3D Proxies",
+      "authors": [
+        "Chuan Fang",
+        "Lingteng Qiu",
+        "Yixun Liang",
+        "Rui Chen",
+        "Kunming Luo",
+        "Zhaohua Zheng"
+      ],
+      "published": "2026-08-27",
+      "url": "https://arxiv.org/abs/2608.27073",
+      "pdf_url": "https://arxiv.org/pdf/2608.27073",
+      "source": "daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2608.27073.jpg",
+      "best_route": "world_model",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "sim2real_data",
+        "bci_foundation_models",
+        "bci_noninvasive_eeg",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset",
+        "open-source",
+        "large-scale"
+      ],
+      "scores": {
+        "relevance": 13.4,
+        "content": 24.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 37.4,
+        "bonus": 0.0,
+        "total": 37.4
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "tldr": "这篇论文提出SpatialCrafter，用单张图像生成可自由探索的3D场景：先生成一个几何一致的稀疏3D代理（PaSS Flow），再用改进的视频扩散模型在其上叠加真实感纹理细节，解决了现有方法因条件信号不全导致的3D结构漂移和幻觉问题，并构建了首个11.5万场景的图像到可探索场景大尺度混合数据集。",
+      "org": "浙江大学",
+      "orgs": [
+        "浙江大学"
+      ],
+      "country": "CN",
+      "org_type": "university",
+      "novelty": 7,
+      "significance": 68,
+      "significance_reason": "技术路径清晰、实证扎实（多数据集对比+消融+长时运动鲁棒性验证）、数据集有开创性，但未触及世界模型的核心挑战（如时序状态持久化、闭环策略耦合、内在动力学建模），仍属‘高质量单帧到3D重建+扩散增强’范畴，未达到World Models/DreamerV3等定义‘世界模型’范式的分量。",
+      "tier": "notable",
+      "verdict": "显著贡献——是图像到可探索3D场景生成方向目前最系统、最鲁棒的方案，但未进入世界模型核心范式，属于强工程整合而非范式突破",
+      "claim": "通过引入全局几何一致的3D代理与代理感知的扩散精修机制，单图生成的3D场景在快速相机运动和极端视角变化下仍能保持长期几何一致性与视觉真实性。",
+      "input": "单张RGB图像",
+      "output": "可交互探索的3D场景（含几何结构+纹理）",
+      "sim2real_status": "n/a",
+      "reproducibility": "code+model+data",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
       "arxiv_id": "2606.02577",
       "title": "RoboDream: Compositional World Models for Scalable Robot Data Synthesis",
       "authors": [
@@ -187359,6 +189165,77 @@
       ],
       "signals": {
         "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "2608.25417",
+      "title": "Paint What You See: Benchmarking Dexterous Visual Tool Use in Multimodal Agents",
+      "authors": [
+        "Shudong Liu",
+        "Dongyang Chen",
+        "Enci Zhang",
+        "Jinwei Liang",
+        "Zheng Ma",
+        "Lewei Lu"
+      ],
+      "published": "2026-08-26",
+      "url": "https://arxiv.org/abs/2608.25417",
+      "pdf_url": "https://arxiv.org/pdf/2608.25417",
+      "source": "daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2608.25417.jpg",
+      "best_route": "dexterous_manipulation",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "bci_embodied_robot",
+        "bci_noninvasive_eeg"
+      ],
+      "tags": [
+        "benchmark",
+        "dataset",
+        "multimodal-fusion",
+        "sim2real"
+      ],
+      "scores": {
+        "relevance": 13.1,
+        "content": 19.0,
+        "heat": 5.2,
+        "quality": 0.0,
+        "base": 32.1,
+        "bonus": 5.2,
+        "total": 37.3
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "tldr": "这篇论文构建了一个叫EASEL的新基准，专门测试多模态AI模型能否根据视觉输入（参考图）精细控制画笔动作来逐步重绘图像，同时包含区域标注、手写、路径规划等语义任务，发现现有25个主流模型在此类‘视觉驱动的灵巧工具操作’上普遍表现差、闭环不稳定。",
+      "org": "未知",
+      "orgs": [],
+      "country": "unknown",
+      "org_type": "unknown",
+      "novelty": 7,
+      "significance": 48,
+      "significance_reason": "提出了有洞见的新能力维度（视觉证据→参数化工具动作闭环），构建了首个针对性强、多任务分层的基准和配套数据集，实证扎实（25模型评测+轨迹诊断+消融验证），但本质仍属评估型工作，未提出新模型架构或控制范式，也未在真实物理系统验证，与T-Rex/ALOHA等解决真实灵巧操作瓶颈的里程碑工作存在代际差距。",
+      "tier": "worth",
+      "verdict": "工程整合：把视觉-动作闭环的评估做深做细，但仍是benchmark驱动的诊断性工作，未突破建模或部署层面。",
+      "claim": "当前多模态智能体严重缺乏‘从视觉证据中推断并闭环执行高精度参数化工具动作’的能力，而EASEL是首个系统评测该能力的基准。",
+      "input": "参考图像+画布初始状态+可能的文本指令（如‘画一个圆’）",
+      "output": "逐笔绘制的动作序列（含位置、笔触大小、颜色、压力等参数）",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "benchmark",
+        "dataset",
+        "simulator"
+      ],
+      "signals": {
+        "hf_upvotes": 3,
         "citations": 0,
         "venue": ""
       }
@@ -199593,6 +201470,77 @@
       }
     },
     {
+      "arxiv_id": "2608.24680",
+      "title": "Game2World Engine: Unlocking In-the-Wild Gameplay Videos for World Model Training",
+      "authors": [
+        "W. Shen",
+        "Dongna Jin",
+        "Dongping Chen"
+      ],
+      "published": "2026-08-25",
+      "url": "https://arxiv.org/abs/2608.24680",
+      "pdf_url": "https://arxiv.org/pdf/2608.24680",
+      "source": "daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2608.24680.jpg",
+      "best_route": "world_model",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "sim2real_data",
+        "bci_neural_decoding",
+        "bci_foundation_models",
+        "bci_embodied_robot",
+        "bci_noninvasive_eeg",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset",
+        "benchmark",
+        "open-source",
+        "multimodal-fusion"
+      ],
+      "scores": {
+        "relevance": 12.4,
+        "content": 24.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 36.4,
+        "bonus": 0.0,
+        "total": 36.4
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "tldr": "这篇论文提出一个叫Game2World的系统，专门从网上大量游戏实况视频中自动识别、提取并擦除屏幕上的UI（如血条、地图、按键提示等），生成干净的游戏世界画面，用来训练更靠谱的视频世界模型。",
+      "org": "未知作者单位，但通讯作者Dongping Chen近年工作多与中科院自动化所/清华交叉背景相关；摘要未提机构，GitHub主页无明确 affiliation，依据常见署名惯例及论文风格倾向，保守判为 unknown",
+      "orgs": [],
+      "country": "unknown",
+      "org_type": "unknown",
+      "novelty": 7,
+      "significance": 68,
+      "significance_reason": "解决了世界模型训练中长期被忽视但实际普遍存在的‘UI污染’问题，提供了首个大规模、带精细UI分类体系和合成-评估闭环的数据集与模型；但其贡献属于高质量工程化预处理范式创新，未触及世界模型核心架构（如状态表示、记忆机制、闭环规划），也未在真实物理世界或机器人任务中验证下游收益，分量不及DreamerV3/WEAVER等定义新训练范式或打通sim2real闭环的工作。",
+      "tier": "notable",
+      "verdict": "显著贡献——不是理论突破，但首次系统性解决游戏视频用于世界建模的关键数据污染问题，方法扎实、开源完整、评估全面，属AI×科学/生物类中罕见的高质量数据基建工作。",
+      "claim": "去除游戏视频中的UI干扰是提升视频世界模型泛化性和奖励建模准确性的关键瓶颈，而GameCleaner通过无需掩码的端到端方式实现高保真UI清除，可规模化释放互联网游戏视频作为世界模型训练数据源。",
+      "input": "原始带UI的游戏实况视频（含HUD、菜单、字幕等屏幕叠加元素）",
+      "output": "UI被移除后的干净游戏世界视频帧序列（保留完整场景结构、运动和时序一致性）",
+      "sim2real_status": "n/a",
+      "reproducibility": "code+model+data",
+      "method_components": [
+        "dataset",
+        "simulator",
+        "model",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
       "arxiv_id": "2605.29754",
       "title": "Benchmarking Positional Encoding Strategies for Transformer-Based EEG Foundation Models",
       "authors": [
@@ -204543,6 +206491,84 @@
         "hf_upvotes": 0,
         "citations": 0,
         "venue": "CVPR 2026"
+      }
+    },
+    {
+      "arxiv_id": "2608.25427",
+      "title": "SUPER ODOMETRY 2.0: Resilient Odometry via Hierarchical Adaptation",
+      "authors": [
+        "Shibo Zhao",
+        "Sifan Zhou",
+        "Yuchen Zhang",
+        "Ji Zhang",
+        "Chen Wang",
+        "Wenshan Wang"
+      ],
+      "published": "2026-08-26",
+      "url": "https://arxiv.org/abs/2608.25427",
+      "pdf_url": "https://arxiv.org/pdf/2608.25427",
+      "source": "daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2608.25427.jpg",
+      "best_route": "whole_body_control",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "hardware_unitree",
+        "bci_embodied_robot"
+      ],
+      "tags": [
+        "sim2real",
+        "real-robot",
+        "multimodal-fusion",
+        "large-scale",
+        "dataset",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 13.1,
+        "content": 23.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 36.1,
+        "bonus": 0.0,
+        "total": 36.1
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "tldr": "提出一个分层自适应的多传感器融合里程计框架Super Odometry 2.0，核心是把IMU从辅助角色提升为与相机/LiDAR平级的主传感器，在烟雾、沙尘、低光等极端退化环境下动态切换特征、状态方向、融合引擎，并用100+小时跨平台真实机器人IMU数据训练了学习型惯性里程计，已在200公里/800小时真实多形态机器人（空、轮、腿）任务中验证鲁棒性。",
+      "org": "CMU",
+      "orgs": [
+        "CMU"
+      ],
+      "country": "US",
+      "org_type": "university",
+      "novelty": 7,
+      "significance": 78,
+      "significance_reason": "显著推进SOTA：首次系统性将IMU作为一级融合模态而非降级fallback，并在真实多机体、多退化场景、长时程任务中完成部署验证；但未开新范式（仍属传统滤波+学习混合框架），也未解决底层IMU漂移本质难题，且未开源代码/模型，复现门槛高。",
+      "tier": "heavy",
+      "verdict": "工程整合：在真实复杂场景中完成了高水平的多模态鲁棒融合工程落地，证据扎实但理论/架构层面未突破范式",
+      "claim": "通过分层自适应机制将IMU提升为与视觉/LiDAR对等的主感知模态，实现全退化环境下的可回退、高韧性里程计。",
+      "input": "多源异构传感器流（RGB-D/单目图像、LiDAR点云、IMU原始信号、轮式编码器/关节位置等）",
+      "output": "6自由度位姿估计（连续轨迹）",
+      "sim2real_status": "deployed",
+      "reproducibility": "project-page",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "policy",
+        "benchmark",
+        "hardware"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
       }
     },
     {
@@ -223687,6 +225713,76 @@
       }
     },
     {
+      "arxiv_id": "10.64898/2026.08.26.747321",
+      "title": "PathFold: Predicting the Entire Protein Folding Pathway from Protein Sequence Alone",
+      "authors": [
+        "Zicong Zhang",
+        "Nabil Ibtehaz",
+        "Yuki Kagaya",
+        "Ziyi Xu",
+        "Pranav Punuru",
+        "Daisuke Kihara"
+      ],
+      "published": "2026-08-28",
+      "url": "https://doi.org/10.64898/2026.08.26.747321",
+      "pdf_url": "https://doi.org/10.64898/2026.08.26.747321",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "protein_ai",
+      "domain": "ai_science",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "sim2real_data",
+        "bci_neural_decoding",
+        "bci_foundation_models",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "multimodal-fusion"
+      ],
+      "scores": {
+        "relevance": 19.8,
+        "content": 15.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 34.8,
+        "bonus": 0.0,
+        "total": 34.8
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "tldr": "这篇论文提出PathFold模型，仅用蛋白质氨基酸序列作为输入，直接预测整个折叠过程的动态轨迹（从完全伸展到天然态），生成包含中间态和过渡路径的连续构象序列，并声称与实验Φ值和SMD模拟结果一致。",
+      "org": "Purdue",
+      "orgs": [
+        "Purdue"
+      ],
+      "country": "US",
+      "org_type": "university",
+      "novelty": 7,
+      "significance": 52,
+      "significance_reason": "首次将扩散模型引入端到端折叠路径生成，技术组合有新意；但未在真实动力学数据上做监督训练或定量验证（Φ-value仅作定性对比），未提供路径物理合理性（如能垒、速率、折叠核）的量化评估，也未与主流路径模拟方法（如Markov State Models、AWSEM、OpenMM+REMD）做计算效率/精度对比，属于扎实但窄向的增量工作，远未达AlphaFold2级范式突破或HI-JEPA级世界模型尺度。",
+      "tier": "worth",
+      "verdict": "扎实增量：技术路线合理且首次实现序列→路径端到端生成，但缺乏动力学实证支撑和物理机制可解释性，目前仍属概念验证阶段，非真突破",
+      "claim": "仅从蛋白质序列出发，无需任何结构先验或动力学模拟初始化，即可端到端预测具有物理合理性的完整折叠路径（含可验证中间态）。",
+      "input": "蛋白质氨基酸序列",
+      "output": "时间步对齐的连续3D构象轨迹（即折叠路径）",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "model",
+        "dataset"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
       "arxiv_id": "10.64898/2026.05.26.727866",
       "title": "ProtXAI: Explainable AI Reveals Structural Determinants of Protein Dynamics",
       "authors": [
@@ -227410,6 +229506,65 @@
       "sim2real_status": "n/a",
       "reproducibility": "code+model+data",
       "method_components": [
+        "dataset",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.25.747108",
+      "title": "Computational Structural Analysis of POLG Variants R627Q and W748S with Model-Variability Controls",
+      "authors": [
+        "Andrew Friedl",
+        "Deborah Manst"
+      ],
+      "published": "2026-08-27",
+      "url": "https://doi.org/10.64898/2026.08.25.747108",
+      "pdf_url": "https://doi.org/10.64898/2026.08.25.747108",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "protein_ai",
+      "domain": "ai_science",
+      "routes": [
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 16.6,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 34.6,
+        "bonus": 0.0,
+        "total": 34.6
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "tldr": "用AlphaFold2-PTM对POLG基因两个致病突变R627Q和W748S做结构建模分析，通过严格控制模型变异（5个同种子网络输出+10组野生型对照），发现观测到的结构变化落在野生型自身建模波动范围内，无法确证是突变特异性变形；但结合实验结构（9GGF等）定位出二者共享微环境，提出可验证的物化机制假说（极性网络破坏 vs 芳香堆积破坏）。",
+      "org": "unknown",
+      "orgs": [],
+      "country": "unknown",
+      "org_type": "unknown",
+      "novelty": 6,
+      "significance": 58,
+      "significance_reason": "方法论严谨（控制随机种子、多网络重复、野生型变异基准、实验结构锚定），实证扎实（量化比较+微环境解析），但仅聚焦两个临床已知位点，未扩展至新预测/泛化建模/功能验证，属高质量机制解析型工作，未达基石级范式突破或大规模通用模型水平。",
+      "tier": "worth",
+      "verdict": "显著贡献：用可控计算实验厘清了AlphaFold2在微小结构变异解读中的局限性，并为两个POLG突变提供了首个基于结构微环境的差异化物化机制解释，但非模型创新，也未推动预测能力边界。",
+      "claim": "AlphaFold2预测的R627Q和W748S结构变化未超出模型选择变异范围，不能作为突变致病性的结构证据；但二者在POLG三维结构中构成共享微环境，支持差异化的分子机制假说。",
+      "input": "POLG野生型及R627Q/W748S突变序列、AlphaFold2-PTM网络参数、实验结构PDB（9GGF/9GGE/9GGC）",
+      "output": "局部Cα原子对距离变化、局部对齐位移、微环境接触图、物化作用类型标注",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "model",
         "dataset",
         "benchmark"
       ],
@@ -231751,6 +233906,78 @@
       }
     },
     {
+      "arxiv_id": "2608.26545",
+      "title": "Memory Anchors for Continual Robot Learning",
+      "authors": [
+        "Maximilian Du",
+        "Zhanyi Sun",
+        "Chen Xu",
+        "Paarth Shah",
+        "Masha Itkina",
+        "Shuran Song"
+      ],
+      "published": "2026-08-27",
+      "url": "https://arxiv.org/abs/2608.26545",
+      "pdf_url": "https://arxiv.org/pdf/2608.26545",
+      "source": "daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2608.26545.jpg",
+      "best_route": "whole_body_control",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "bci_foundation_models",
+        "bci_embodied_robot"
+      ],
+      "tags": [
+        "continual-learning",
+        "sim2real",
+        "real-robot"
+      ],
+      "scores": {
+        "relevance": 13.3,
+        "content": 21.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 34.3,
+        "bonus": 0.0,
+        "total": 34.3
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "tldr": "这篇论文发现，在机器人持续学习中， replay buffer 里并非所有旧任务数据同等重要：存在少量关键样本（Memory Anchors），它们位于新旧任务表征坍缩但动作冲突的区域；保留或增强这些样本能大幅抑制灾难性遗忘，已在LIBERO仿真基准和真实机械臂上验证。",
+      "org": "Columbia",
+      "orgs": [
+        "Columbia"
+      ],
+      "country": "US",
+      "org_type": "university",
+      "novelty": 7,
+      "significance": 78,
+      "significance_reason": "提出可解释、可定位的Memory Anchors机制，实证强（LIBERO多任务+真实机械臂双序列持续学习+消融显示10%样本移除导致4.5x遗忘恶化），但未构建新模型架构或世界模型，也未覆盖跨机体/跨用户泛化，属扎实的重大方法学推进，尚未达RT-2/AlphaFold级范式突破，但显著优于多数纯仿真持续学习工作。",
+      "tier": "heavy",
+      "verdict": "真突破：首次将灾难性遗忘归因于可识别的表征坍缩临界点，并用真实机器人验证其调控效果，机制清晰、证据链完整、可复现性强",
+      "claim": "在持续机器人学习中，存在语义敏感、动作冲突的表征坍缩区域，其中极少数旧任务样本（Memory Anchors）对防止灾难性遗忘具有不成比例的关键作用，其存在与否直接决定持续学习成败。",
+      "input": "多任务机器人视觉观测序列（RGB+状态）",
+      "output": "动作策略（连续控制输出）",
+      "sim2real_status": "multi-embodiment",
+      "reproducibility": "code-only",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
       "arxiv_id": "2606.00515",
       "title": "PaCo-VLA: Passivity-Shielded Compliance Prior for Contact-Rich Vision-Language-Action Manipulation",
       "authors": [
@@ -232903,6 +235130,74 @@
         "model",
         "benchmark",
         "simulator"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.24.746620",
+      "title": "PhageLysData: an evidence-aware and AI-ready dataset of phage lytic enzymes and depolymerases",
+      "authors": [
+        "David Medina-Ortiz",
+        "Álvaro Olivera‐Nappa",
+        "María Elena Lienqueo",
+        "Rafael Opazo",
+        "Jaime Romero"
+      ],
+      "published": "2026-08-25",
+      "url": "https://doi.org/10.64898/2026.08.24.746620",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/25/2026.08.24.746620.full.pdf",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "protein_ai",
+      "domain": "ai_science",
+      "routes": [
+        "vla",
+        "world_model",
+        "bci_embodied_robot",
+        "bci_noninvasive_eeg",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset",
+        "open-source"
+      ],
+      "scores": {
+        "relevance": 9.2,
+        "content": 25.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 34.2,
+        "bonus": 0.0,
+        "total": 34.2
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "tldr": "构建了一个专用于噬菌体裂解酶和去聚合酶的高质量、可追溯、AI就绪的数据集PhageLysData，整合7个来源共80余万条记录，严格区分实验证据支持的核心集（1.19万条）与预测扩展集，并为核心序列统一提供11种蛋白语言模型嵌入、结构数据、功能注释和理化性质。",
+      "org": "智利大学",
+      "orgs": [
+        "智利大学"
+      ],
+      "country": "CL",
+      "org_type": "university",
+      "novelty": 7,
+      "significance": 68,
+      "significance_reason": "填补了噬菌体裂解酶领域长期缺乏高质量、证据分层、AI-ready基准数据集的空白，实证扎实（多源整合+精确去重+证据分级+11种PLM嵌入+结构映射），但属关键基础设施建设而非算法或科学发现突破，影响力限于细分领域，未达基石级模型（如ESM-2/AlphaFold2）的范式变革或跨领域通用性。",
+      "tier": "notable",
+      "verdict": "显著贡献：高质量、证据分层、开箱即用的领域专用数据集，工程严谨、开源完整，但非算法/机制突破，暂未展现跨任务泛化或新生物学洞见。",
+      "claim": "PhageLysData是首个证据感知（evidence-aware）、多源可追溯、结构-功能-序列-表示全维度对齐的噬菌体裂解酶/去聚合酶专用AI就绪数据集。",
+      "input": "原始数据库条目（GenBank、UniProt、PHROG等7个来源）、蛋白序列、实验文献证据、结构预测结果（AlphaFold DB/PDB）、蛋白语言模型输出",
+      "output": "标准化的序列实体（含证据等级标签）、统一格式的嵌入向量、结构链接、功能注释、理化属性表",
+      "sim2real_status": "n/a",
+      "reproducibility": "code+model+data",
+      "method_components": [
+        "dataset",
+        "benchmark"
       ],
       "signals": {
         "hf_upvotes": 0,
@@ -235177,6 +237472,73 @@
       "method_components": [
         "model",
         "simulator",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "2608.22976",
+      "title": "Privileged Critic Training Enables Sensor-Free Thruster Fault Adaptation in End-to-End RL",
+      "authors": [
+        "Ricard Marsal I Castan",
+        "Miguel A. Olivares-Mendez"
+      ],
+      "published": "2026-08-24",
+      "url": "https://arxiv.org/abs/2608.22976",
+      "pdf_url": "https://arxiv.org/pdf/2608.22976",
+      "source": "daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2608.22976.jpg",
+      "best_route": "whole_body_control",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "hardware_unitree",
+        "bci_embodied_robot"
+      ],
+      "tags": [
+        "sim2real",
+        "benchmark",
+        "open-source"
+      ],
+      "scores": {
+        "relevance": 13.0,
+        "content": 21.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 34.0,
+        "bonus": 0.0,
+        "total": 34.0
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "tldr": "这篇论文提出一种叫RAFT的强化学习策略，训练时让价值网络‘偷看’真实的推进器退化状态（但策略网络不看），部署时完全不依赖故障传感器，仅靠常规观测就能在线适应多个推进器同时发生的连续性故障（如部分失效、卡死等）。",
+      "org": "未知",
+      "orgs": [],
+      "country": "unknown",
+      "org_type": "unknown",
+      "novelty": 6,
+      "significance": 48,
+      "significance_reason": "方法有巧思（特权critic用于fault adaptation），但在真实硬件验证、跨平台泛化、故障类型覆盖（仅限thruster degradation）、与经典FDD方法对比等方面均缺失；虽开源完整，但属单一仿真场景下的扎实增量，未触及具身智能核心瓶颈（如跨 embodiment / real-robot robustness / long-horizon adaptation），远低于所列基石工作（全部含真实机器人、多任务泛化、架构级创新或世界模型基础突破）。",
+      "tier": "worth",
+      "verdict": "工程整合：巧妙复用privileged information范式解决特定故障适应问题，但限于仿真、单平台、无真实部署，属于高质量应用级改进，非范式突破。",
+      "claim": "仅通过训练阶段对价值函数施加特权信息（真实退化状态），即可使端到端RL策略在无任何故障传感器的情况下实现鲁棒的多推进器并发故障自适应。",
+      "input": "标准平台状态观测（位置、姿态、角速度等），不含故障相关传感器读数",
+      "output": "推进器控制指令（推力大小/开关）",
+      "sim2real_status": "sim-only",
+      "reproducibility": "code+model+data",
+      "method_components": [
+        "model",
+        "simulator",
+        "policy",
         "benchmark"
       ],
       "signals": {
@@ -247337,6 +249699,77 @@
         "dataset",
         "simulator",
         "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "2608.27186",
+      "title": "Task-space model-based control of pneumatic soft actuators",
+      "authors": [
+        "Nithin S. Kumar",
+        "Joshua Gaston",
+        "D. Caleb Rucker",
+        "Eric J. Barth"
+      ],
+      "published": "2026-08-27",
+      "url": "https://arxiv.org/abs/2608.27186",
+      "pdf_url": "https://arxiv.org/pdf/2608.27186",
+      "source": "daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2608.27186.jpg",
+      "best_route": "whole_body_control",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "hardware_unitree",
+        "bci_embodied_robot"
+      ],
+      "tags": [
+        "dexterous",
+        "real-robot",
+        "model-based"
+      ],
+      "scores": {
+        "relevance": 12.2,
+        "content": 21.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 33.2,
+        "bonus": 0.0,
+        "total": 33.2
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "tldr": "提出一种基于非最小坐标离散弹性杆动力学模型的实时任务空间控制框架，用于平面气动软体执行器，在仅用稀疏传感器的情况下实现毫米级精度的闭环轨迹跟踪和跨平台泛化。",
+      "org": "范德堡大学",
+      "orgs": [
+        "范德堡大学"
+      ],
+      "country": "US",
+      "org_type": "university",
+      "novelty": 7,
+      "significance": 68,
+      "significance_reason": "解决了软体机器人领域长期存在的‘模型精度-实时性’矛盾，在真实软体硬件上实现了有量化指标（1.5–12.4 mm RMSE）、多任务（手写/周期跟踪/跨平台/少传感）、带状态观测的闭环控制，但限于二维平面、未扩展至三维或多关节系统，也未接入高层语义或学习模块，属扎实的模型控制工程突破，尚未达到开范式或跨领域辐射级别。",
+      "tier": "notable",
+      "verdict": "工程整合：将高保真弹性杆动力学模型成功压缩至实时控制带宽，并在真机上验证了任务空间闭环性能，但仍是特定软体构型下的控制增强，非通用架构或学习范式突破。",
+      "claim": "结构化的非最小坐标动力学模型可在保持计算效率的同时，支撑软体执行器在自由空间中的实时、高精度、中频宽任务空间控制。",
+      "input": "用户定义的任务空间参考轨迹（如末端点位置/速度）、稀疏传感器测量（如角度或末端位姿）",
+      "output": "气压控制信号（驱动软体执行器运动）",
+      "sim2real_status": "real-robot",
+      "reproducibility": "project-page",
+      "method_components": [
+        "model",
+        "simulator",
+        "policy",
+        "hardware"
       ],
       "signals": {
         "hf_upvotes": 0,
@@ -262419,6 +264852,81 @@
       }
     },
     {
+      "arxiv_id": "2608.27221",
+      "title": "Tensegrity Continuum Robots Enable Task-Adaptive Morphologies for Cooperative Behaviors",
+      "authors": [
+        "Mahmud Hasan Saikot",
+        "Sydney Spiegel",
+        "Sudheera Akalanka Kariyawasam",
+        "Andrew Stefka",
+        "Josh Chrisler",
+        "Jianguo Zhao"
+      ],
+      "published": "2026-08-27",
+      "url": "https://arxiv.org/abs/2608.27221",
+      "pdf_url": "https://arxiv.org/pdf/2608.27221",
+      "source": "daily",
+      "venue": "Nat. Mach. Intell.",
+      "thumb": "assets/thumbs/2608.27221.jpg",
+      "best_route": "hardware_unitree",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "hardware_unitree",
+        "bci_embodied_robot",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dexterous",
+        "multimodal",
+        "real-robot",
+        "reconfigurable"
+      ],
+      "scores": {
+        "relevance": 12.2,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 32.2,
+        "bonus": 0.0,
+        "total": 32.2
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "tldr": "提出一种基于张拉整体（tensegrity）结构的连续体模块化机器人，每个单元自带柔性躯干和机械爪，能自主连接/分离形成链状、环状、分支状等不同构型，实现多机器人协同操作与运动。",
+      "org": "亚利桑那州立大学",
+      "orgs": [
+        "亚利桑那州立大学"
+      ],
+      "country": "US",
+      "org_type": "university",
+      "novelty": 8,
+      "significance": 76,
+      "significance_reason": "实机验证了多形态自重构+协同操作+多模态运动三大能力，且全部在真实场景完成（非仿真/小台面），显著优于纯概念或单任务demo；但未开源硬件设计/控制代码，未做跨机体泛化（仅同构单元）、无消融实验、未对比SOTA MRR（如M-TRAN、SuperBot），尚未达到RT-2或Unitree G1级范式突破量级，属扎实重磅工作。",
+      "tier": "heavy",
+      "verdict": "工程整合：将张拉整体结构、爪式连接、连续体控制与多机协同在真实硬件上系统集成并验证多任务能力，但缺乏开源与量化基线对比，尚未构成理论或范式突破。",
+      "claim": "张拉整体连续体机器人通过可重构的物理连接机制，首次实现了兼具结构顺应性与自组织多形态协同能力的模块化集体行为。",
+      "input": "人工触发的连接/分离指令、环境接触反馈（隐含于实验描述）",
+      "output": "多机器人组合形态（链/环/分支）、协同运动轨迹、协同操作动作",
+      "sim2real_status": "deployed",
+      "reproducibility": "project-page",
+      "method_components": [
+        "robot",
+        "hardware",
+        "simulator"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": "Nat. Mach. Intell."
+      }
+    },
+    {
       "arxiv_id": "2606.03177",
       "title": "ConTrack: Constrained Hand Motion Tracking with Adaptive Trade-off Control",
       "authors": [
@@ -266993,6 +269501,73 @@
       }
     },
     {
+      "arxiv_id": "10.64898/2026.08.27.747547",
+      "title": "Recurrent non-canonical proteoforms in acute myeloid leukemia identified by integrative proteogenomics",
+      "authors": [
+        "Laura K. Schmalbrock",
+        "Alex Kentsis",
+        "Katarzyna Kulej",
+        "Jinxin Zhang",
+        "Gabriella Casalena",
+        "Andrew McPherson"
+      ],
+      "published": "2026-08-28",
+      "url": "https://doi.org/10.64898/2026.08.27.747547",
+      "pdf_url": "https://doi.org/10.64898/2026.08.27.747547",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "protein_ai",
+      "domain": "ai_science",
+      "routes": [
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset",
+        "benchmark",
+        "proteogenomics"
+      ],
+      "scores": {
+        "relevance": 10.9,
+        "content": 21.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 31.9,
+        "bonus": 0.0,
+        "total": 31.9
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "通过整合123例AML患者和13例健康对照的RNA-seq与质谱数据，构建患者队列特异性参考蛋白组，系统发现5849个未被Swiss-Prot收录的肿瘤特异性蛋白形式（proteoforms），其中39个在>10%患者中反复检出、14个经多酶DIA质谱独立验证，揭示AML中普遍存在且可重现的‘暗蛋白质组’。",
+      "org": "纪念斯隆-凯特琳癌症中心",
+      "orgs": [
+        "纪念斯隆-凯特琳癌症中心"
+      ],
+      "country": "US",
+      "org_type": "institute",
+      "novelty": 7,
+      "significance": 76,
+      "significance_reason": "首次在大规模临床AML队列中系统性定义并验证复发性非经典蛋白形式，方法严谨（多酶DIA独立验证+严格过滤标准），填补了癌症蛋白组学中‘暗蛋白’实证空白；但未提出新算法模型，也未直接链接功能机制或治疗干预，属扎实的重大领域推进而非范式变革。",
+      "tier": "heavy",
+      "verdict": "重磅：真机（临床样本）+多层验证+大规模队列+开源框架，显著拓展癌症蛋白组认知边界，但未达AlphaFold2级范式突破",
+      "claim": "AML中存在大量复发性、非经典翻译产生的未注释蛋白形式（尤其是微蛋白），它们构成可被系统识别和验证的肿瘤特异性‘暗蛋白质组’。",
+      "input": "配对的RNA-seq数据 + 患者原代AML样本/CD34+对照的质谱数据（DDA/DIA）",
+      "output": "Swiss-Prot未注释但具有高质量质谱证据、跨患者复现、无同源性的候选蛋白形式列表（含序列、丰度、验证状态）",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "dataset",
+        "benchmark",
+        "simulator"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
       "arxiv_id": "2606.03598",
       "title": "PHASER: Phase-Aware and Semantic Experience Replay for Vision-Language-Action Models",
       "authors": [
@@ -268184,6 +270759,78 @@
       "method_components": [
         "model",
         "dataset",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.20.746062",
+      "title": "Neural correlates of location–response compatibility in an immersive virtual-reality Attention Network Test: a multiverse electroencephalography analysis",
+      "authors": [
+        "David Levi Tekampe",
+        "Philip Santangelo",
+        "Anxhela Sulaj",
+        "Philipp Tekampe",
+        "Michael Schwartze",
+        "Lars Gutschalk Hausfeld"
+      ],
+      "published": "2026-08-25",
+      "url": "https://doi.org/10.64898/2026.08.20.746062",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/25/2026.08.20.746062.full.pdf",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "bci_noninvasive_eeg",
+      "domain": "bci",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "bci_neural_decoding",
+        "bci_foundation_models",
+        "bci_embodied_robot",
+        "bci_noninvasive_eeg",
+        "genomics_ai"
+      ],
+      "tags": [
+        "multimodal-fusion",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 12.8,
+        "content": 19.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 31.8,
+        "bonus": 0.0,
+        "total": 31.8
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "用沉浸式VR版注意力网络测试（ANT-VR）结合192种合理EEG预处理方案的多宇宙分析，发现位置-反应不兼容性虽未影响行为表现（无RT或准确率差异），却稳定引发N2pc时间窗内后部侧向化神经活动增强，且该效应在目标位置参照的C3/C4通道上最强，说明无关目标位置能特异性调制空间选择与位置编码过程。",
+      "org": "美因茨大学",
+      "orgs": [
+        "美因茨大学"
+      ],
+      "country": "EU",
+      "org_type": "university",
+      "novelty": 6,
+      "significance": 58,
+      "significance_reason": "扎实的神经机制验证工作：192分支多宇宙分析确证效应稳健性，精细区分了靶标位置编码vs反应准备的神经源，但属认知神经科学范畴，未涉及闭环控制、解码泛化、临床植入、长期稳定性或高信息通量通信等BCI基石级突破要素；显著优于普通ERP研究，但远未达脑机接口领域里程碑（如90+分档）所要求的范式变革、临床实用性或工程落地强度。",
+      "tier": "worth",
+      "verdict": "显著贡献：提供了VR认知范式下空间注意神经机制的高稳健性证据，但属于基础神经科学深化，非脑机接口实质性推进，暂时不用看（对具身智能/BCI/科学AI工程师无直接工程价值）",
+      "claim": "在沉浸式VR注意力任务中，位置-反应不兼容性不改变行为输出，但稳健地调制了与空间选择和目标位置编码相关的靶标锁定后部侧向化神经活动（N2pc窗口），且该效应独立于EEG预处理选择、不依赖于反应准备机制。",
+      "input": "沉浸式VR环境中的视觉刺激（线索+靶标+干扰项）及被试按键反应",
+      "output": "靶标锁定的EEG时序信号（特别是N2pc窗口后部侧向化幅度、C3/C4通道差值）",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "dataset",
+        "simulator",
         "benchmark"
       ],
       "signals": {
@@ -270020,6 +272667,67 @@
       "output": "后代蛋白序列（逐残基自回归生成）及各位置突变概率",
       "sim2real_status": "n/a",
       "reproducibility": "project-page",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.25.746527",
+      "title": "AmPair: automating housekeeping-gene primer design for species-level metataxonomics",
+      "authors": [
+        "Xinming Xu",
+        "Xinbin Yang"
+      ],
+      "published": "2026-08-28",
+      "url": "https://doi.org/10.64898/2026.08.25.746527",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/28/2026.08.25.746527.full.pdf",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "genomics_ai",
+      "domain": "ai_science",
+      "routes": [
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset",
+        "benchmark",
+        "open-source"
+      ],
+      "scores": {
+        "relevance": 10.7,
+        "content": 21.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 31.7,
+        "bonus": 0.0,
+        "total": 31.7
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "这篇论文开发了一个叫AmPair的自动化流程，针对特定细菌属，从候选看家基因中筛选出能特异性扩增、且在物种水平上可区分的引物对，并用大量基因组数据验证其覆盖度和特异性远超传统16S rRNA引物。",
+      "org": "unknown",
+      "orgs": [],
+      "country": "unknown",
+      "org_type": "unknown",
+      "novelty": 7,
+      "significance": 68,
+      "significance_reason": "解决了长期存在的16S分辨率天花板问题，提供了首个可复现、可扩展、实证充分的看家基因引物自动化设计框架；虽未开新范式（如AlphaFold级建模），但在微生物组方法学中属显著贡献：真数据验证（2392个基因组）、定量对比严谨（vs V1-V9）、实际Nanopore测序验证物种分辨能力；但未开源训练模型或预计算引物库，仅提供Snakemake流程，复现门槛偏高。",
+      "tier": "notable",
+      "verdict": "显著贡献——不是概念包装，而是用扎实的生物信息流程+大规模基因组实证，实质性推进了宏分类学物种分辨率的实用化路径。",
+      "claim": "针对细菌宏分类学中物种分辨率不足的问题，AmPair首次实现了面向目标属、基于看家基因的引物对全自动设计、排序与全基因组范围的硅内验证。",
+      "input": "目标细菌属名称 + 一个或多个候选蛋白编码看家基因（如tuf）",
+      "output": "一组经排序的引物对（正向/反向序列），附带覆盖度、多等位基因率、跨物种等位重叠率等量化指标",
+      "sim2real_status": "n/a",
+      "reproducibility": "code-only",
       "method_components": [
         "model",
         "dataset",
@@ -273387,6 +276095,76 @@
       "reproducibility": "none",
       "method_components": [
         "model",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.24.745108",
+      "title": "ROADIES-XP: GPU Acceleration and Phylogenetic Update Improve Scalability of Species Tree Inference from Raw Genomic Assemblies",
+      "authors": [
+        "Anshu Gupta",
+        "Wen-Chieh Lo",
+        "Siavash Mirarab",
+        "Yatish Turakhia"
+      ],
+      "published": "2026-08-27",
+      "url": "https://doi.org/10.64898/2026.08.24.745108",
+      "pdf_url": "https://doi.org/10.64898/2026.08.24.745108",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "genomics_ai",
+      "domain": "ai_science",
+      "routes": [
+        "vla",
+        "world_model",
+        "bci_neural_decoding",
+        "bci_noninvasive_eeg",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "large-scale",
+        "benchmark",
+        "open-source"
+      ],
+      "scores": {
+        "relevance": 10.5,
+        "content": 21.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 31.5,
+        "bonus": 0.0,
+        "total": 31.5
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": " ROADIES-XP 是一个支持GPU加速的增量式物种树更新框架，能直接从未经注释的基因组组装序列中，复用已有骨架比对、基因树和物种树结果，快速插入新物种并更新系统发育树，避免每次新增都重跑全量分析。",
+      "org": "UC San Diego",
+      "orgs": [
+        "UC San Diego"
+      ],
+      "country": "US",
+      "org_type": "university",
+      "novelty": 7,
+      "significance": 76,
+      "significance_reason": "在系统发育基因组学中首次实现端到端GPU加速的增量式物种树更新，实证覆盖哺乳类、酵母、果蝇及千物种模拟数据，速度提升达30倍且拓扑保真度与全量重建相当；虽未开创新范式（如AlphaFold级结构预测），但显著推进了大规模动态演化数据库维护这一长期工程瓶颈，证据扎实（多数据集+消融隐含于GPU模块替换+与reference phylogeny定量对比）。",
+      "tier": "heavy",
+      "verdict": "重磅——解决了大规模基因组数据库持续扩张下物种树维护的计算效率瓶颈，有真实多类群验证、GPU工程深度优化和可复现代码，但未触及演化模型本质创新",
+      "claim": "无需重新进行全基因组比对和全树重建，即可在保持拓扑准确性和统计置信度的前提下，高效、可扩展地将新基因组组装序列增量整合进已有物种树。",
+      "input": "原始基因组组装FASTA文件 + 已有骨架物种树/比对/基因树",
+      "output": "更新后的物种树（含新物种）及其支持值（如aLRT/aBayes）",
+      "sim2real_status": "n/a",
+      "reproducibility": "code-only",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
         "benchmark"
       ],
       "signals": {
@@ -277878,6 +280656,74 @@
       "method_components": [
         "model",
         "policy",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.21.746382",
+      "title": "The functional significance of EEG phase synchronization networks during information integration of left and right visual fields",
+      "authors": [
+        "Makoto Hagihara",
+        "K. Uehara",
+        "Yuka Okazaki",
+        "Keiichi Kitajo"
+      ],
+      "published": "2026-08-26",
+      "url": "https://doi.org/10.64898/2026.08.21.746382",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/26/2026.08.21.746382.full.pdf",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "bci_noninvasive_eeg",
+      "domain": "bci",
+      "routes": [
+        "world_model",
+        "whole_body_control",
+        "bci_neural_decoding",
+        "bci_foundation_models",
+        "bci_embodied_robot",
+        "bci_noninvasive_eeg"
+      ],
+      "tags": [
+        "multimodal-fusion",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 17.2,
+        "content": 14.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 31.2,
+        "bonus": 0.0,
+        "total": 31.2
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "用数据驱动的EEG相位同步网络分析方法，发现人在整合左右视野视觉信息时，会动态激活一个跨频段、跨半球的大尺度脑功能网络，且该网络强度与个体任务表现相关。",
+      "org": "日本理化学研究所",
+      "orgs": [
+        "日本理化学研究所"
+      ],
+      "country": "JP",
+      "org_type": "institute",
+      "novelty": 5,
+      "significance": 38,
+      "significance_reason": "属扎实的神经机制探索性工作，但未突破BCI范式（无解码/控制/临床干预）、无新硬件/新信号模态、未验证因果性（仅相关）、未开源代码或数据、未与现有BCI系统集成；相比基石论文（如92+分的实时语音合成BCI或行走脊髓接口），它停留在机制观察层面，无闭环交互、无临床适用性、无性能基准超越。",
+      "tier": "",
+      "verdict": "暂时不用看——是高质量认知神经科学论文，但不属于脑机接口（BCI）工程或临床转化范畴，不符合本系统聚焦‘可部署、可交互、可复现’的BCI/AI×神经技术标准。",
+      "claim": "视觉半球间信息整合依赖于一种宽带、数据驱动识别出的、任务特异性的大尺度EEG相位同步网络，其强度个体差异可预测行为表现。",
+      "input": "多通道EEG信号+视觉追踪任务刺激（左右视野动态整合条件）",
+      "output": "数据驱动识别的相位同步网络拓扑（节点=电极，边=显著同步的相位耦合）及同步强度指标",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "dataset",
+        "simulator",
         "benchmark"
       ],
       "signals": {
@@ -284900,6 +287746,79 @@
       }
     },
     {
+      "arxiv_id": "10.64898/2026.08.24.745890",
+      "title": "A closed-loop reinforcement learning framework for rapid compound directed optimization",
+      "authors": [
+        "Han Wang",
+        "Dehua Lu",
+        "Weiping Lyu",
+        "Siyu Xiu",
+        "Cheng Shi",
+        "Xiaonan Zhou"
+      ],
+      "published": "2026-08-27",
+      "url": "https://doi.org/10.64898/2026.08.24.745890",
+      "pdf_url": "https://doi.org/10.64898/2026.08.24.745890",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "protein_ai",
+      "domain": "ai_science",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "bci_neural_decoding",
+        "bci_foundation_models",
+        "bci_embodied_robot",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "multimodal-fusion",
+        "benchmark",
+        "real-robot"
+      ],
+      "scores": {
+        "relevance": 10.7,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 30.7,
+        "bonus": 0.0,
+        "total": 30.7
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "这篇论文提出RCDO框架，把AI分子生成模型和真实实验（合成+测试）闭环连接起来，每轮用所有化合物（包括失败的）的湿实验数据更新奖励函数，从而在2-3轮内快速优化药物分子的关键性质（如口服暴露、脱靶毒性、结合力）。",
+      "org": "unknown",
+      "orgs": [],
+      "country": "CN",
+      "org_type": "unknown",
+      "novelty": 7,
+      "significance": 82,
+      "significance_reason": "实证扎实：三个独立靶点的前瞻性湿实验验证（非纯回溯），明确量化了2–3轮内的关键指标跃升（40×/20×/18×），且主动纳入失败数据反哺模型——这超越了Generative Drug Design in a Loop with dtSFM（96分）中依赖筛选后‘成功’数据的范式，逼近HI-JEPA（97分）所体现的‘测量驱动世界模型’思想，但尚未建立通用分子表征世界模型，故略低于97档。",
+      "tier": "heavy",
+      "verdict": "真突破：首次在药物化学优化中系统性闭环利用全部湿实验结果（含阴性数据）驱动生成模型迭代，实证强度与工程闭环完整性达到领域新标杆。",
+      "claim": "通过将三维结构引导的生成模型与多级、全样本（含失败化合物）湿实验反馈驱动的奖励系统实时耦合，RCDO可在极少数设计循环内实现化合物关键ADMET/活性指标的定向高效优化。",
+      "input": "目标蛋白结构（ROR1/NLRP3/NSD3）、初始分子或苗头化合物、多维度湿实验测量值（PK、CYP抑制、结合IC50、体外活性等）",
+      "output": "优化后的候选分子结构（SMILES/3D构象）及预测性能指标",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
       "arxiv_id": "10.64898/2026.06.02.729478",
       "title": "General prediction of T cell receptor antigen specificity from sequence using AlphaFold 3",
       "authors": [
@@ -289662,6 +292581,153 @@
         "hf_upvotes": 0,
         "citations": 0,
         "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "2608.25192",
+      "title": "CRESSim-Neo: A Batched GPU Simulation Engine for Surgical Robotics and Robot Learning",
+      "authors": [
+        "Yafei Ou",
+        "Ahnaf Naheen",
+        "Tleukhan Mussin",
+        "Hans Jarales",
+        "Melwin Moncy",
+        "Mahdi Tavakoli"
+      ],
+      "published": "2026-08-25",
+      "url": "https://arxiv.org/abs/2608.25192",
+      "pdf_url": "https://arxiv.org/pdf/2608.25192",
+      "source": "daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2608.25192.jpg",
+      "best_route": "vla",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "hardware_unitree",
+        "bci_neural_decoding",
+        "bci_foundation_models",
+        "bci_embodied_robot",
+        "bci_noninvasive_eeg",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "simulator",
+        "large-scale",
+        "multimodal-fusion"
+      ],
+      "scores": {
+        "relevance": 12.4,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 30.4,
+        "bonus": 0.0,
+        "total": 30.4
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "开发了一个支持批量并行、全GPU驻留的手术机器人仿真引擎CRESSim-Neo，能同时模拟刚体、可变形组织、流体、线缆驱动机构和超声成像，并直接对接PyTorch用于端到端机器人学习。",
+      "org": "阿尔伯塔大学",
+      "orgs": [
+        "阿尔伯塔大学"
+      ],
+      "country": "CA",
+      "org_type": "university",
+      "novelty": 7,
+      "significance": 62,
+      "significance_reason": "工程层面显著突破：首次实现手术多物理场（组织+流体+超声）的高吞吐批量化GPU仿真，并打通DLPack零拷贝PyTorch训练链路；但未在真实机器人上验证，无跨任务泛化实验（如未展示从仿真到缝合/牵拉/吸液等不同术式的迁移），也未与现有手术仿真器（如SOFA、NVIDIA Omniverse Isaac Sim手术插件）做定量对比，尚未构成范式级影响。",
+      "tier": "notable",
+      "verdict": "工程整合——是手术机器人仿真领域重要的基础设施升级，但因缺乏真机验证、跨任务泛化证据和开源代码，尚不能视为方法论或范式突破。",
+      "claim": "CRESSim-Neo是首个将手术特异性物理（组织变形+流体+超声传感）与批量化GPU仿真、零拷贝深度学习集成统一于单引擎的实时仿真平台。",
+      "input": "机器人动作指令、场景参数（如组织材质、流体粘度、超声探头位姿）",
+      "output": "多模态仿真观测：RGB/深度图像、超声B-mode图像、物理状态张量（位置/速度/应力/流场）、传感器反馈",
+      "sim2real_status": "sim-only",
+      "reproducibility": "project-page",
+      "method_components": [
+        "simulator",
+        "dataset"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "2608.26050",
+      "title": "When Obstacles Bend: Modeling Vegetation Deformation in the context of Field Robotics",
+      "authors": [
+        "Muhammad Hsaeeb Zaar Khizar",
+        "Tom Montagnon",
+        "Roland Lenain",
+        "Romuald Aufrère",
+        "Johann Laconte"
+      ],
+      "published": "2026-08-26",
+      "url": "https://arxiv.org/abs/2608.26050",
+      "pdf_url": "https://arxiv.org/pdf/2608.26050",
+      "source": "daily",
+      "venue": "RA-L",
+      "thumb": "assets/thumbs/2608.26050.jpg",
+      "best_route": "world_model",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "hardware_unitree",
+        "bci_embodied_robot"
+      ],
+      "tags": [
+        "dataset",
+        "sim2real",
+        "real-robot"
+      ],
+      "scores": {
+        "relevance": 12.4,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 30.4,
+        "bonus": 0.0,
+        "total": 30.4
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "这篇论文提出用接触力+形变测量联合反演植被的本征力学参数（如弹性模量、阻尼），从而建立不依赖特定机器人平台的植被可穿越性模型，让导航决策基于植被自身物理属性而非机器人通过时的表现。",
+      "org": "INRAE",
+      "orgs": [
+        "INRAE"
+      ],
+      "country": "EU",
+      "org_type": "institute",
+      "novelty": 7,
+      "significance": 62,
+      "significance_reason": "首次将植被建模从平台绑定的‘通过性测试’转向本征力学参数反演，方法有物理基础且在真实农田验证了跨作物/生长阶段的可行性；但未开源代码、未验证多机体泛化、未嵌入闭环导航系统，仍属扎实的领域内方法论推进，未达基石级范式突破。",
+      "tier": "notable",
+      "verdict": "显著贡献：真正在田间用多模态物理测量反演植被本征参数，但工程闭环缺失、复现门槛高，尚未形成可迁移的通用环境表征范式。",
+      "claim": "植被的可穿越性应由其本征力学属性表征，而非机器人通过时的响应；通过力-形变联合建模可无偏估计这些属性，并支撑跨平台通用的植被感知导航。",
+      "input": "接触力传感器读数 + 植被形变几何测量（如深度相机或激光扫描获取的位移场）",
+      "output": "植被局部力学参数（等效弹性模量、阻尼系数）及可穿越性概率图",
+      "sim2real_status": "small-real",
+      "reproducibility": "project-page",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": "RA-L"
       }
     },
     {
@@ -298257,6 +301323,148 @@
       "reproducibility": "project-page",
       "method_components": [
         "model",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.28.747885",
+      "title": "GNMCADS: Sampling For Protein Conformation Diversity With Gaussian Network Model Guided Condition Annealed Diffusion Sampler",
+      "authors": [
+        "Ahmed Selim Uzum",
+        "Türkan Haliloǧlu"
+      ],
+      "published": "2026-08-28",
+      "url": "https://doi.org/10.64898/2026.08.28.747885",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/28/2026.08.28.747885.full.pdf",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "protein_ai",
+      "domain": "ai_science",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "sim2real_data",
+        "bci_neural_decoding",
+        "bci_foundation_models",
+        "bci_noninvasive_eeg",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "multimodal-fusion"
+      ],
+      "scores": {
+        "relevance": 15.8,
+        "content": 14.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 29.8,
+        "bonus": 0.0,
+        "total": 29.8
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "这篇论文提出GNMCADS方法，通过用高斯网络模型（GNM）分析蛋白质内在动力学特性来动态调整AlphaFold3扩散模块的条件信号退火过程，从而提升其对大尺度构象变化（如G蛋白偶联受体域运动）的采样多样性。",
+      "org": "土耳其海峡大学",
+      "orgs": [
+        "土耳其海峡大学"
+      ],
+      "country": "TR",
+      "org_type": "university",
+      "novelty": 5,
+      "significance": 48,
+      "significance_reason": "仅在AlphaFold3扩散模块中嵌入GNM引导的条件退火，属工程化改进；验证限于92个已知难采样蛋白的多样性指标（如RMSD分布、簇数），无功能验证、无新实验数据、无与物理模拟（如MD）的精度/效率对比，未开源代码或模型，未挑战构象预测的根本瓶颈（如长时标动力学建模），远未达基石级工作（如AlphaFold2/ESMFold）的范式突破或基础建模深度。",
+      "tier": "worth",
+      "verdict": "工程整合：将经典生物物理模型（GNM）接入扩散框架做条件调控，有合理直觉但实证薄弱，缺乏机制深度和开源支撑，暂未构成方法论突破。",
+      "claim": "利用蛋白质固有动力学（GNM）引导的条件退火策略，可显著提升基于扩散的蛋白质结构预测模型在大尺度构象采样上的多样性。",
+      "input": "单序列或MSA + GNM计算得到的模态特征（如慢模态位移向量）",
+      "output": "一组多样化的蛋白质三维构象集合（非单一最优结构）",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "2608.23100",
+      "title": "Shaping the Evolutionary Dynamics of Robot Morphology via Adaptive Control Learning",
+      "authors": [
+        "Junru Song",
+        "Yang Yang",
+        "Yaqing Xu",
+        "Ying Wen",
+        "Wei Peng",
+        "G.Y. Li"
+      ],
+      "published": "2026-08-24",
+      "url": "https://arxiv.org/abs/2608.23100",
+      "pdf_url": "https://arxiv.org/pdf/2608.23100",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "whole_body_control",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "hardware_unitree",
+        "bci_neural_decoding",
+        "bci_foundation_models",
+        "bci_embodied_robot",
+        "bci_noninvasive_eeg",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "sim2real",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 12.8,
+        "content": 17.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 29.8,
+        "bonus": 0.0,
+        "total": 29.8
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "这篇论文发现机器人形态进化中常用的‘早停式’控制器训练会严重低估形态的真实潜力，导致进化偏向学得快但能力上限低的形态；为此提出AdaControl方法，动态调整每个形态的控制器训练时长，实现更公平的适应度评估，在仿真软体机器人上用简单遗传算法就达到了SOTA生成模型方法的性能，且计算量减少80%。",
+      "org": "unknown",
+      "orgs": [],
+      "country": "unknown",
+      "org_type": "unknown",
+      "novelty": 8,
+      "significance": 76,
+      "significance_reason": "首次从学习动力学角度解耦并量化了形态智能（收敛速度）与真实潜力（性能上限），揭示了Baldwin效应在共设计中的伪现象本质，并提出可插拔的AdaControl机制；实证扎实（多任务、多代进化、消融对比SOTA），但仅限于仿真软体机器人，未验证真实硬件或跨模态任务，也未开源代码/模型。",
+      "tier": "heavy",
+      "verdict": "工程整合——在仿真共设计范式内实现了关键认知突破与高效工程实现，但受限于零开源、单仿真平台、无真机验证，尚未达到基石论文所要求的范式迁移或跨平台普适性。",
+      "claim": "控制学习过程本身会系统性扭曲形态进化的方向，其根源在于固定时长的控制器训练对‘收敛速度’（morphological intelligence）和‘性能上限’（true potential）的混淆；解除该混淆可大幅提升形态共设计的效率、多样性与最终性能。",
+      "input": "体素化软体机器人形态结构 + 任务目标（如移动距离）",
+      "output": "优化后的机器人形态（体素网格）及对应控制器",
+      "sim2real_status": "sim-only",
+      "reproducibility": "none",
+      "method_components": [
         "simulator",
         "policy",
         "benchmark"
@@ -306965,6 +310173,71 @@
       }
     },
     {
+      "arxiv_id": "2608.27367",
+      "title": "Successive Capacity Growth: Task-Complexity-Driven Width and Depth Expansion for Vision Transformer Encoders in JEPA World Models",
+      "authors": [
+        "Frederik Berenz"
+      ],
+      "published": "2026-08-27",
+      "url": "https://arxiv.org/abs/2608.27367",
+      "pdf_url": "https://arxiv.org/pdf/2608.27367",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "world_model",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "sim2real_data",
+        "bci_neural_decoding",
+        "bci_foundation_models",
+        "bci_embodied_robot",
+        "bci_noninvasive_eeg",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "multimodal-fusion"
+      ],
+      "scores": {
+        "relevance": 13.2,
+        "content": 16.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 29.2,
+        "bonus": 0.0,
+        "total": 29.2
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "提出一种让视觉Transformer编码器在JEPA世界模型中按任务复杂度自动增宽（加注意力头）或加深（加Transformer层）的方法，从极小模型起步，通过无损函数保持的试错机制动态扩展，避免冗余，提升预测精度和参数效率。",
+      "org": "unknown",
+      "orgs": [],
+      "country": "unknown",
+      "org_type": "unknown",
+      "novelty": 6,
+      "significance": 48,
+      "significance_reason": "属JEPA架构内部编码器优化的扎实增量工作：有清晰机制（SCG+SIGReg）、多任务验证（3个仿真环境）、量化收益（20.3%/23% loss下降、56×参数效率），但未突破JEPA范式本身，未接入真实感知-动作闭环，无跨域泛化验证，未开源代码/模型，且所有实验均在高度简化、低维（60D/2D）合成任务上进行，与World Models/DreamerV3/WEAVER等具备真实世界建模能力、持续学习、长程规划或机器人操作耦合的基石工作存在代际差距。",
+      "tier": "worth",
+      "verdict": "工程整合：将模型缩放思想引入JEPA编码器设计，机制合理、实验可控，但仍是仿真内窄域优化，未触及世界模型的核心挑战（如长期一致性、具身因果、开放世界泛化）。",
+      "claim": "JEPA世界模型的视觉编码器不应预设最大容量，而应基于任务复杂度驱动、函数保持的安全扩张机制，实现宽度与深度的渐进式增长，从而兼顾表示质量、计算效率与数据效率。",
+      "input": "原始图像帧序列（隐含于JEPA框架下的观测输入）",
+      "output": "预测的未来隐状态嵌入（JEPA的target embedding）",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "model",
+        "simulator"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
       "arxiv_id": "10.64898/2026.05.27.728199",
       "title": "Evolutionary genomics based on PacBio HiFi long-read sequencing data reveals the importance of structural variants in shaping population-specific differences between Chinese and Indian rhesus macaques ( <i>Macaca mulatta</i> )",
       "authors": [
@@ -314146,6 +317419,69 @@
       }
     },
     {
+      "arxiv_id": "10.64898/2026.08.25.747160",
+      "title": "Synthesis cost is a hidden driver of convergent amino acid composition in plastid ribosomal proteins",
+      "authors": [
+        "Arnav Chaudhari",
+        "Palash Sethi",
+        "Yvemirca Vilbrun",
+        "Juannan Zhou",
+        "Liming Cai"
+      ],
+      "published": "2026-08-28",
+      "url": "https://doi.org/10.64898/2026.08.25.747160",
+      "pdf_url": "https://doi.org/10.64898/2026.08.25.747160",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "protein_ai",
+      "domain": "ai_science",
+      "routes": [
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 8.7,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 28.7,
+        "bonus": 0.0,
+        "total": 28.7
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "这篇论文发现，在叶绿体核糖体蛋白（PRP）进化中，当功能选择压力放松时，氨基酸组成会跨多个植物谱系趋同地向更轻、合成代价更低的残基（如精氨酸→赖氨酸、甲硫氨酸→异亮/缬/亮）转变，且这种转变与合成成本最小化高度一致，而非突变偏好，从而提出‘合成成本’是蛋白质进化中一个被掩盖的次要选择驱动力。",
+      "org": "unknown",
+      "orgs": [],
+      "country": "US",
+      "org_type": "university",
+      "novelty": 7,
+      "significance": 76,
+      "significance_reason": "提供了跨四个远缘植物谱系的实证证据，结合序列统计、密码子偏倚校正、结构建模（FoldX/AlphaFold2衍生评估）和合成成本量化，严谨区分了选择vs突变驱动；虽未达AlphaFold2级范式突破，但为分子进化中长期被低估的‘翻译效率选择’提供了迄今最系统、多谱系、机制可解释的证据链，显著推进该细分方向SOTA。",
+      "tier": "heavy",
+      "verdict": "真突破：首次以多谱系趋同为自然实验，用合成成本-结构稳定性-突变控制三重对照，确证其为蛋白质进化中可解蔽的次级选择力，非概念包装",
+      "claim": "在功能选择放松的叶绿体核糖体蛋白中，氨基酸组成的跨谱系趋同变化主要由合成成本最小化驱动，而非突变偏差，构成一种可被‘解蔽’的次级选择力量。",
+      "input": "多谱系植物（包括Cymbarieae等4个类群）的 plastid 和 nuclear 编码的58个PRP序列、密码子使用数据、氨基酸理化参数（分子量、侧链长度）、结构建模预测的折叠稳定性变化",
+      "output": "氨基酸替换模式的统计显著性、趋同性量化、合成成本与突变偏差的归因分析、结构稳定性影响预测",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "dataset",
+        "simulator",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
       "arxiv_id": "2605.31486",
       "title": "Learning Controlled Separation of Small Objects Between Two Fingers with a Tactile Skin",
       "authors": [
@@ -316982,6 +320318,73 @@
       }
     },
     {
+      "arxiv_id": "10.64898/2026.08.23.746502",
+      "title": "A dominant frontoparietal beta oscillatory brain state in the days after psilocybin and 5-MeO-DMT",
+      "authors": [
+        "Chloe L. West",
+        "Bradley Baker",
+        "Annabel Duran",
+        "Samen Nadeem",
+        "Vince D. Calhoun",
+        "Jordan P. Hamm"
+      ],
+      "published": "2026-08-27",
+      "url": "https://doi.org/10.64898/2026.08.23.746502",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/27/2026.08.23.746502.full.pdf",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "bci_noninvasive_eeg",
+      "domain": "bci",
+      "routes": [
+        "world_model",
+        "bci_neural_decoding",
+        "bci_foundation_models",
+        "bci_embodied_robot",
+        "bci_noninvasive_eeg",
+        "protein_ai"
+      ],
+      "tags": [
+        "dataset",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 13.4,
+        "content": 15.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 28.4,
+        "bonus": 0.0,
+        "total": 28.4
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "这篇论文用动态功能连接分析发现，人在服用裸盖菇素或5-MeO-DMT后数天内，脑电图中出现一个以右侧额顶叶为主的β频段同步化脑状态，且该状态的持续时间和占比随用药天数增加而增强，提示 psychedelics 可能通过暂时降低大脑网络层级结构来产生长效效应。",
+      "org": "未知（作者单位未在摘要中披露，仅从姓名和常见 affiliations 推断可能为美国高校/研究所，但无明确机构名）",
+      "orgs": [],
+      "country": "US",
+      "org_type": "university",
+      "novelty": 6,
+      "significance": 48,
+      "significance_reason": "发现了新的、可复现的亚急性期β频段生物标志物，但样本量小（n=14+12+16）、无纵向追踪、无行为/临床结局关联、未验证因果性，也未与现有fMRI/MEG研究形成机制闭环；相比基石工作（如高精度BCI语音解码、脊髓接口行走），它属于扎实的观察性神经科学发现，但未触及干预、解码、闭环控制等BCI核心范式，也不属于AI×生物中的分子/蛋白/药物级建模突破。",
+      "tier": "worth",
+      "verdict": "扎实增量：首次识别出 psychedelics 后期β频段额顶同步这一稳健现象，但缺乏机制验证、临床映射和开源支撑，尚未构成对脑机接口或AI×生物领域的实质性推进。",
+      "claim": "单次服用裸盖菇素或5-MeO-DMT后数天内，人脑存在一个可量化的、以右额顶叶β频段同步为特征的稳定功能状态，该状态反映大脑网络层级结构的暂时性松弛。",
+      "input": "静息态脑电图（EEG）信号（含相位信息）",
+      "output": "频带特异性动态功能连接状态（比例、驻留时间、状态转移概率）及神经熵（Lempel-Ziv复杂度）",
+      "sim2real_status": "n/a",
+      "reproducibility": "unknown",
+      "method_components": [
+        "dataset",
+        "simulator"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
       "arxiv_id": "2605.30957",
       "title": "RDGen: Demonstration Generation for High-Quality Robot Learning via Reinforcement Learning",
       "authors": [
@@ -318175,6 +321578,72 @@
       "reproducibility": "none",
       "method_components": [
         "model",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "2608.27003",
+      "title": "Beta oscillation changes in ALS: A Dual-Site International Replication Study",
+      "authors": [
+        "Marit Boxum",
+        "Gabriel Rodrigues Palma",
+        "Robin Jansen",
+        "Iris A. Bastmeijer",
+        "Sanya Dalal",
+        "Eva Woods"
+      ],
+      "published": "2026-08-27",
+      "url": "https://arxiv.org/abs/2608.27003",
+      "pdf_url": "https://arxiv.org/pdf/2608.27003",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "bci_noninvasive_eeg",
+      "domain": "bci",
+      "routes": [
+        "bci_neural_decoding",
+        "bci_foundation_models",
+        "bci_embodied_robot",
+        "bci_noninvasive_eeg",
+        "protein_ai"
+      ],
+      "tags": [
+        "dataset",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 14.3,
+        "content": 14.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 28.3,
+        "bonus": 0.0,
+        "total": 28.3
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "这项研究在荷兰和爱尔兰两个独立ALS患者队列中重复检验了脑电图beta频段事件相关去同步化（ERD）和同步化（ERS）作为运动功能衰退生物标志物的可靠性，结果仅在爱尔兰队列中成功复现了beta异常，荷兰队列未复现，说明该指标受人群异质性（如功能损伤程度）影响显著，尚不具备跨中心稳定 biomarker 资格。",
+      "org": "unknown",
+      "orgs": [],
+      "country": "EU",
+      "org_type": "university",
+      "novelty": 4,
+      "significance": 42,
+      "significance_reason": "虽为双中心设计且样本量中等（总ALS n=99），但核心发现——beta ERD/ERS异常仅在一个队列复现、与功能损伤程度相关——恰恰揭示了该指标的脆弱性而非稳健性；未提供新机制、新解码范式或临床干预路径，也未解决ALS biomarker领域长期存在的跨队列不一致难题，仅属扎实但局限的验证性工作，远低于所有列出的基石研究（最低92分）所代表的临床转化级BCI突破。",
+      "tier": "",
+      "verdict": "暂时不用看：它不是新方法或新工具，而是对一个已有候选biomarker的失败复现研究，其主要价值在于警示而非推进，当前证据不足以支撑其作为可靠临床生物标志物。",
+      "claim": "beta频段ERD/ERS变化是ALS运动皮层功能障碍的可复现EEG生物标志物，但其复现性依赖于队列临床特征一致性。",
+      "input": "128通道EEG信号（SART任务中Go/NoGo刺激后时频响应）",
+      "output": "beta频段（13–30 Hz）基线标准化的事件相关去同步化（ERD）与同步化（ERS）幅度",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "dataset",
         "benchmark"
       ],
       "signals": {
@@ -334509,6 +337978,71 @@
       }
     },
     {
+      "arxiv_id": "10.64898/2026.08.28.747838",
+      "title": "Genome evolution during the domestication of an antibiotic-producing Streptomyces strain",
+      "authors": [
+        "John T Munnoch",
+        "Daniel E. Larcombe",
+        "Rebecca E. McHugh",
+        "John Bruce",
+        "Kirsty Robb",
+        "James T Croxford"
+      ],
+      "published": "2026-08-28",
+      "url": "https://doi.org/10.64898/2026.08.28.747838",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/28/2026.08.28.747838.full.pdf",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "genomics_ai",
+      "domain": "ai_science",
+      "routes": [
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 9.8,
+        "content": 17.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 26.8,
+        "bonus": 0.0,
+        "total": 26.8
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "通过比较基因组学、转录组学和表型分析，追踪了工业链霉菌（Streptomyces clavuligerus）在长期人工诱变育种过程中基因组的动态演化路径，发现质粒整合、染色体重排和关键代谢/调控基因突变共同提升了克拉维酸产量，但也导致代谢灵活性下降，且通过回补实验证实了部分突变的功能因果性。",
+      "org": "University of Cambridge",
+      "orgs": [
+        "University of Cambridge"
+      ],
+      "country": "UK",
+      "org_type": "university",
+      "novelty": 5,
+      "significance": 52,
+      "significance_reason": "扎实的工业微生物进化机制研究：多组学整合+表型验证+回补实验，但仅限单一物种/单一产物（克拉维酸），未构建可泛化的预测模型或设计工具，也未提出新算法或通用框架；显著优于普通纯测序描述性论文，但远未达基石级（如ESM-2/AlphaFold2级）的范式突破或跨领域通用性。",
+      "tier": "worth",
+      "verdict": "扎实增量：首次系统解析了链霉菌工业驯化中的多尺度基因组演化规律并验证因果性，但局限于特定菌株与产物，无计算模型泛化能力，属于高质量应用进化生物学工作，非AI×科学领域的范式推进。",
+      "claim": "工业链霉菌的抗生素高产表型是由多层级基因组结构变异与点突变协同驱动的，这些变化在提升目标产物合成的同时必然伴随代谢适应性代价。",
+      "input": "五株同源工业链霉菌菌株的全基因组序列、RNA-seq数据、生长与代谢表型数据",
+      "output": "基因组结构变异图谱、差异表达基因集、关键功能突变位点及其表型效应验证结论",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "dataset",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
       "arxiv_id": "2605.30775",
       "title": "Bayesian Classification with Probit-link Split-and-merge Gaussian Process Prior in EEG-based Brain-Computer Interfaces",
       "authors": [
@@ -336142,6 +339676,72 @@
         "model",
         "simulator",
         "benchmark",
+        "policy"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "2608.23983",
+      "title": "Sensorless damage-safe grasping",
+      "authors": [
+        "Yusei Shuto",
+        "Danilo Vasconcellos Vargas"
+      ],
+      "published": "2026-08-25",
+      "url": "https://arxiv.org/abs/2608.23983",
+      "pdf_url": "https://arxiv.org/pdf/2608.23983",
+      "source": "daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2608.23983.jpg",
+      "best_route": "vla",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "hardware_unitree",
+        "bci_embodied_robot"
+      ],
+      "tags": [
+        "sensorless",
+        "damage-safe",
+        "grasping"
+      ],
+      "scores": {
+        "relevance": 8.6,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 26.6,
+        "bonus": 0.0,
+        "total": 26.6
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "提出一种不依赖触觉或力传感器的抓取控制方法，仅用电机编码器位置和电流信号实时估计物体压缩应变，当估计应变达到用户设定的安全阈值ε时停止闭合，从而在不同硬度水果上实现零损伤、高成功率的自适应抓取。",
+      "org": "九州大学",
+      "orgs": [
+        "九州大学"
+      ],
+      "country": "JP",
+      "org_type": "university",
+      "novelty": 7,
+      "significance": 62,
+      "significance_reason": "在无触觉传感的抓取安全性上做出扎实理论+实验推进：给出可证明保守的应变估计框架、明确速度-损伤权衡机制、在仿真和简化实物（TPU块）上验证了跨刚度鲁棒性；但未在真实果蔬上验证损伤指标（如组织破裂/褐变/重量损失），也未接入闭环学习策略或部署到采摘机器人系统，属显著贡献而非里程碑。",
+      "tier": "notable",
+      "verdict": "显著贡献：理论严谨、工程实用性强，但实证止步于简化实物，尚未跨越到真实农业场景的损伤验证，不是真突破，也不是概念包装。",
+      "claim": "仅凭伺服电机的编码器与电流信号，即可保守地在线估计并限制物体压缩应变，实现无需额外传感器的损伤安全抓取。",
+      "input": "电机编码器位置 + 电机电流（即motor-effort）",
+      "output": " gripper闭合停止指令（标量触发信号）",
+      "sim2real_status": "small-real",
+      "reproducibility": "project-page",
+      "method_components": [
+        "model",
         "policy"
       ],
       "signals": {
@@ -339315,6 +342915,206 @@
       }
     },
     {
+      "arxiv_id": "2608.26766",
+      "title": "MeshPriorDiT: Hierarchical Modeling for Action-Conditioned Cloth Dynamics",
+      "authors": [
+        "Zihang Wang",
+        "Jianming Hu",
+        "Shang Su",
+        "Hao Huang",
+        "Mengkai Shi",
+        "Jun Gao"
+      ],
+      "published": "2026-08-27",
+      "url": "https://arxiv.org/abs/2608.26766",
+      "pdf_url": "https://arxiv.org/pdf/2608.26766",
+      "source": "daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2608.26766.jpg",
+      "best_route": "dexterous_manipulation",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "hardware_unitree",
+        "bci_embodied_robot",
+        "protein_ai"
+      ],
+      "tags": [
+        "multimodal-fusion"
+      ],
+      "scores": {
+        "relevance": 13.1,
+        "content": 13.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 26.1,
+        "bonus": 0.0,
+        "total": 26.1
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "这篇论文提出一种分层 Cloth 动力学预测模型 MeshPriorDiT，先用图神经网络生成符合布料拓扑和抓取约束的粗略运动轨迹（mesh prior），再用条件扩散 Transformer 生成并协调局部残差运动，显著降低多步预测误差。",
+      "org": " unknown",
+      "orgs": [],
+      "country": "unknown",
+      "org_type": "unknown",
+      "novelty": 7,
+      "significance": 48,
+      "significance_reason": "方法设计有清晰洞见（结构先验+残差生成），在仿真 cloth rollout 上取得明显指标提升，但仅限于单一模态（纯几何顶点预测）、无真实硬件验证、无跨布料/跨抓取器泛化实验、未开源代码/数据，且问题本身（cloth simulation prediction）属于长期存在的仿真建模子问题，远未达到基石工作所解决的‘具身闭环控制’或‘跨任务通用策略’层级。",
+      "tier": "worth",
+      "verdict": "工程整合：在 cloth dynamics 仿真预测这一窄领域做了扎实的模型架构改进，但缺乏实证广度、真实世界锚点和开源支撑，不属于突破或必须跟进的工作。",
+      "claim": "通过显式解耦结构先验（基于物理连接性的 mesh GNN）与数据驱动残差（Residual DiT），可兼顾局部形变合理性与长程协调性，从而在动作驱动的布料动力学预测中实现更鲁棒、更准确的多步自回归 rollout。",
+      "input": "历史布料顶点状态 + 计划动作（如夹爪位姿变化）",
+      "output": "未来多步布料顶点位移序列（即 cloth dynamics 预测轨迹）",
+      "sim2real_status": "sim-only",
+      "reproducibility": "none",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "2608.26273",
+      "title": "Constraint-Aware Physics-Informed Neural Networks for Static Shape Estimation of Co-Manipulative Continuum Robots",
+      "authors": [
+        "Rana Danesh",
+        "Pari Qarehdaghi",
+        "Farrokh Janabi-Sharifi"
+      ],
+      "published": "2026-08-26",
+      "url": "https://arxiv.org/abs/2608.26273",
+      "pdf_url": "https://arxiv.org/pdf/2608.26273",
+      "source": "daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2608.26273.jpg",
+      "best_route": "whole_body_control",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "bci_embodied_robot",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "physics-informed",
+        "continuum-robot",
+        "static-estimation"
+      ],
+      "scores": {
+        "relevance": 10.1,
+        "content": 16.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 26.1,
+        "bonus": 0.0,
+        "total": 26.1
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "这篇论文用物理信息神经网络（PINN）解决协作式连续体机器人抓取柔性物体时的静态形状估计问题，通过在损失函数中显式嵌入静力学平衡和几何闭环约束，显著提升了小样本、噪声数据下的估计精度和物理一致性。",
+      "org": "约克大学",
+      "orgs": [
+        "约克大学"
+      ],
+      "country": "CA",
+      "org_type": "university",
+      "novelty": 6,
+      "significance": 48,
+      "significance_reason": "属连续体机器人感知方向的扎实增量：PINN框架在特定静态闭环场景下验证了约束嵌入的有效性，但未拓展至动态/实时闭环控制，无跨机体/跨任务泛化验证，真实硬件仅用marker做后验校准，未构成端到端闭环系统；远未达基石论文所代表的范式级突破或通用架构创新。",
+      "tier": "worth",
+      "verdict": "工程整合：将PINN有针对性地适配到连续体机器人静态形状估计这一狭窄问题，在仿真和有限实测中验证了约束嵌入的价值，但未突破领域长期瓶颈（如动态形变估计、无标记在线估计、跨构型泛化），也未提供开源代码或可复现训练流程。",
+      "claim": "引入约束感知的物理信息神经网络（PINN），能以极低计算开销、强物理一致性和高鲁棒性实现闭链式共操作连续体机器人的静态形状估计。",
+      "input": "腱驱动输入张力、末端位姿、物体接触点几何约束",
+      "output": "连续体臂+柔性物体的整体静态形变配置（即空间曲线参数化表示）",
+      "sim2real_status": "small-real",
+      "reproducibility": "project-page",
+      "method_components": [
+        "model",
+        "simulator",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.22.746388",
+      "title": "Enamel Palaeoproteomics Successfully Distinguishes between Denisovans and European Neandertals",
+      "authors": [
+        "Paula Kotli"
+      ],
+      "published": "2026-08-26",
+      "url": "https://doi.org/10.64898/2026.08.22.746388",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/26/2026.08.22.746388.full.pdf",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "protein_ai",
+      "domain": "ai_science",
+      "routes": [
+        "bci_neural_decoding",
+        "bci_foundation_models",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 6.1,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 26.1,
+        "bonus": 0.0,
+        "total": 26.1
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "这篇论文通过重新分析已公开的古代牙齿釉质蛋白质组质谱数据，发现AMBN蛋白第273位氨基酸（缬氨酸V vs 甲硫氨酸M）在丹尼索瓦人和欧洲尼安德特人中完全互斥，从而确立了一个不依赖古DNA、仅靠釉质蛋白即可可靠区分这两个人类近亲物种的分子标记。",
+      "org": "unknown",
+      "orgs": [],
+      "country": "unknown",
+      "org_type": "unknown",
+      "novelty": 7,
+      "significance": 78,
+      "significance_reason": "首次在古蛋白层面完成跨标本、双技术重复（两次DDA采集）、多重质谱证据链（XIC+同位素包+MS2碎片）验证的种属特异性单氨基酸变异标记，填补了aDNA不可用场景下高置信度古人类分类的空白；虽未构建新模型或生成能力，但为古人类学提供了可立即落地的分子判据标准，证据强度远超同类古蛋白研究，接近领域内方法学标杆（如古DNA捕获探针设计）的严谨性，但影响范围限于人类演化细分方向，未达AlphaFold级范式变革。",
+      "tier": "heavy",
+      "verdict": "真突破：不是概念包装，而是用扎实的质谱再分析实证确立了一个可复用、可推广、有明确分子机制解释的古人类鉴别金标准。",
+      "claim": "AMBN M273V位点是首个经多肽水平实验证实、可在古釉质中稳定检出、且在丹尼索瓦人与欧洲尼安德特人之间严格单态互斥的分子诊断标记。",
+      "input": "公开的DDA模式质谱原始数据（PXD054412和PXD038154）",
+      "output": "AMBN V273/M273肽段的鉴定结果、性别判定（AMELY肽）、釉质种属归属结论",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "dataset",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
       "arxiv_id": "2606.01597",
       "title": "Physics-Informed Modeling and Control of Emergent Behaviors in Robot Swarms",
       "authors": [
@@ -341108,6 +344908,140 @@
       }
     },
     {
+      "arxiv_id": "2608.26998",
+      "title": "Virtual iEEG from Scalp EEG: Charting the Landscape of Source Imaging, Intracranial Inference and Reconstruction",
+      "authors": [
+        "Dongyi He",
+        "Xiangkai Wang",
+        "Hongjie Yan",
+        "Luping Song",
+        "Wai Ting Siok",
+        "Nizhuan Wang"
+      ],
+      "published": "2026-08-27",
+      "url": "https://arxiv.org/abs/2608.26998",
+      "pdf_url": "https://arxiv.org/pdf/2608.26998",
+      "source": "daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2608.26998.jpg",
+      "best_route": "bci_noninvasive_eeg",
+      "domain": "bci",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "bci_neural_decoding",
+        "bci_foundation_models",
+        "bci_embodied_robot",
+        "bci_noninvasive_eeg",
+        "genomics_ai"
+      ],
+      "tags": [
+        "benchmark",
+        "dataset"
+      ],
+      "scores": {
+        "relevance": 16.9,
+        "content": 9.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 25.9,
+        "bonus": 0.0,
+        "total": 25.9
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "这篇论文不是提出新模型或算法，而是系统梳理‘从头皮脑电（scalp EEG）推断颅内脑电（iEEG）’这一方向的研究现状、方法分类、评估漏洞和未来瓶颈，本质是一篇批判性综述。",
+      "org": "unknown",
+      "orgs": [],
+      "country": "unknown",
+      "org_type": "unknown",
+      "novelty": 3,
+      "significance": 35,
+      "significance_reason": "属于高质量方法论反思型综述，指出现有研究普遍缺乏cohort独立验证、source-imaging基线对照和增量效用证明，但未提供新数据、新模型或新实证结果；显著弱于所有列出的基石工作（那些均含长期真机/临床部署、多患者验证、功能闭环与明确临床价值），仅具领域警示价值。",
+      "tier": "",
+      "verdict": "概念包装——它把一个尚未成立的技术主张（virtual iEEG）拆解为可质疑的子问题，但自身不提供任何实质性突破证据，属于对伪命题的精致解构而非推进。",
+      "claim": "当前所谓‘虚拟iEEG’（virtual iEEG）并非真正重建颅内信号，而是在特定受限条件下对部分事件、低频特征或任务表征的有限推断；其科学可信度受制于数据配对缺失、评估不严谨、缺乏不确定性量化与增量效用验证。",
+      "input": "头皮脑电（scalp EEG）信号",
+      "output": "颅内脑电语义级输出（如事件标签、特征向量、波形片段），但非真实物理可测的contact-level电压序列",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "benchmark",
+        "dataset"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.21.746244",
+      "title": "Redirecting vacuolar nitrate transport improves nitrogen use efficiency and seed protein content",
+      "authors": [
+        "Anne Marmagne",
+        "Yannick Fierlej",
+        "Benoı̂t Bernay",
+        "Caroline Cukier",
+        "Jérémy LOTHIER",
+        "Céline Masclaux‐Daubresse"
+      ],
+      "published": "2026-08-24",
+      "url": "https://doi.org/10.64898/2026.08.21.746244",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/24/2026.08.21.746244.full.pdf",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "protein_ai",
+      "domain": "ai_science",
+      "routes": [
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 4.9,
+        "content": 21.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 25.9,
+        "bonus": 0.0,
+        "total": 25.9
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "通过同时敲除液泡硝酸盐转运蛋白CLC-a并过表达硝酸盐外排蛋白NRT2.7，使拟南芥将更多氮从叶片重新分配到种子中，在不降低产量、碳含量或油脂组成的前提下，将种子蛋白质含量提升约25%。",
+      "org": "法国国家农业食品与环境研究院",
+      "orgs": [
+        "法国国家农业食品与环境研究院"
+      ],
+      "country": "FR",
+      "org_type": "institute",
+      "novelty": 7,
+      "significance": 76,
+      "significance_reason": "属植物营养遗传学领域的重要机制性突破：首次通过理性组合靶向液泡硝酸盐转运的两个反向元件（进口失活+出口增强），实现氮流重编程，并在多组学+15N示踪+跨物种验证层面提供扎实证据；虽未达AlphaFold级范式变革，但远超纯表型关联研究，为谷物蛋白育种提供了可直接转化的分子靶点与策略。",
+      "tier": "heavy",
+      "verdict": "真突破：不是简单发现一个QTL或单基因效应，而是基于转运生理逻辑设计的协同遗传干预，实证充分、机制清晰、跨物种可复现，且直指农业核心性状（种子蛋白）的瓶颈问题。",
+      "claim": "协同调控液泡硝酸盐转运（抑制储存+促进外排）可特异性增强氮向种子的再分配，从而在不牺牲产量和碳代谢平衡的前提下显著提高种子蛋白质含量和氮利用效率。",
+      "input": "拟南芥遗传材料（clc-a突变体、NRT2.7过表达株系、双修饰株系）、15N脉冲追踪实验、蛋白质组学与代谢组学数据",
+      "output": "种子氮含量、蛋白质含量、氨基酸谱、氮再分配效率、代谢通路活性变化",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "dataset",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
       "arxiv_id": "2606.02280",
       "title": "Dynamics Are Learned, Not Told: Semi-Supervised Discovery of Latent Dynamics Geometries For Zero-Shot Policy Adaptation",
       "authors": [
@@ -342557,6 +346491,212 @@
         "model",
         "simulator",
         "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "2608.24162",
+      "title": "Robust Slip Detection and Material Classification via Spatiotemporal Transformers on a Uniformly-Illuminated Visuo-Tactile Sensor",
+      "authors": [
+        "Ziyang Ma",
+        "Yuhao Sun",
+        "Zichen Ai",
+        "Xiangyang Ji",
+        "Bin Fang"
+      ],
+      "published": "2026-08-25",
+      "url": "https://arxiv.org/abs/2608.24162",
+      "pdf_url": "https://arxiv.org/pdf/2608.24162",
+      "source": "daily",
+      "venue": "IROS 2026",
+      "thumb": "assets/thumbs/2608.24162.jpg",
+      "best_route": "dexterous_manipulation",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "hardware_unitree",
+        "bci_foundation_models",
+        "bci_embodied_robot",
+        "bci_noninvasive_eeg"
+      ],
+      "tags": [
+        "tactile",
+        "multimodal-fusion",
+        "dataset",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 12.8,
+        "content": 13.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 25.8,
+        "bonus": 0.0,
+        "total": 25.8
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "用自研的均匀光照视觉-触觉传感器采集高精度深度数据，构建15类物体的多任务触觉数据集，并用双头TimeSformer模型实现95.5%的接触状态识别和91.5%的8方向滑动分类，同时用ResNet-50在静态触觉图上达到98.8%材质分类准确率。",
+      "org": "清华大学",
+      "orgs": [
+        "清华大学"
+      ],
+      "country": "CN",
+      "org_type": "university",
+      "novelty": 6,
+      "significance": 52,
+      "significance_reason": "硬件设计（均匀光照+深度重建）和多任务数据集有实质性贡献，滑动方向8分类是当前触觉感知中少见的细粒度设定；但未接入机器人闭环控制、无跨机体/跨场景泛化验证、无真实操纵任务评估（如防滑抓取成功率）、未与主流策略框架（如ACT/FTP-1）集成，且完全未开源，显著弱于T-Rex/ALOHA/FTP-1等基石工作（均含真实机器人部署、多任务策略输出、强泛化或基础模型范式）",
+      "tier": "worth",
+      "verdict": "扎实增量：在触觉感知的硬件表征与细粒度分类任务上做了高质量数据与模型设计，但未进入机器人操作闭环，不属于策略层突破，暂时不用看",
+      "claim": "统一的高保真视觉-触觉传感硬件与时空Transformer联合框架，可同时高精度完成滑动方向细粒度检测、接触状态识别和材质分类三大任务。",
+      "input": "同步采集的RGB图像+高精度亚毫米级深度图（来自自研均匀光照触觉传感器）",
+      "output": "3类接触状态标签 + 8类滑动方向标签 + 15类物体材质标签",
+      "sim2real_status": "n/a",
+      "reproducibility": "none",
+      "method_components": [
+        "sensor",
+        "dataset",
+        "model",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": "IROS 2026"
+      }
+    },
+    {
+      "arxiv_id": "2608.26622",
+      "title": "Relaxation-Aware Multimodal Sensing of Soft Gripper Driven by Structure-Perception-Learning",
+      "authors": [
+        "Yanzhe Wang",
+        "Hao Wu",
+        "Ziyi Zheng",
+        "Huixu Dong"
+      ],
+      "published": "2026-08-27",
+      "url": "https://arxiv.org/abs/2608.26622",
+      "pdf_url": "https://arxiv.org/pdf/2608.26622",
+      "source": "daily",
+      "venue": "RSS 2026",
+      "thumb": "assets/thumbs/2608.26622.jpg",
+      "best_route": "dexterous_manipulation",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "bci_embodied_robot",
+        "protein_ai"
+      ],
+      "tags": [
+        "tactile",
+        "dexterous",
+        "real-robot"
+      ],
+      "scores": {
+        "relevance": 10.8,
+        "content": 15.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 25.8,
+        "bonus": 0.0,
+        "total": 25.8
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "这篇论文做了一个能实时感知自身形变和温度场的软体夹爪，用物理引导的AI模型预测并补偿因材料应力松弛导致的抓握力衰减，实现在280秒内稳定维持目标抓握力。",
+      "org": "未知",
+      "orgs": [],
+      "country": "unknown",
+      "org_type": "unknown",
+      "novelty": 7,
+      "significance": 52,
+      "significance_reason": "解决了软体机器人领域一个真实痛点（应力松弛致力衰减），有明确物理建模+真实硬件验证+定量对比（280s、0.066N MAE），但仅限单一夹爪构型、单任务（恒力抓持）、无跨物体/跨场景泛化验证，未开源代码/模型，也未接入标准benchmark或策略框架，属于扎实但窄域的工程级改进，远未达T-Rex/ALOHA/FTP-1等基石工作所代表的范式级影响力。",
+      "tier": "worth",
+      "verdict": "工程整合：在特定软体硬件上实现了有实证支撑的力衰减补偿，但缺乏通用性、开源性和系统级集成，尚未构成方法论突破。",
+      "claim": "通过结构-感知-学习协同设计，利用红外热成像与视觉融合感知+温度耦合的粘弹性力建模，可显式补偿软体执行器固有的应力松弛效应，实现长时间稳定的力控抓握。",
+      "input": "软体夹爪的实时RGB图像+红外热图",
+      "output": "连续的抓握力估计值及补偿控制信号",
+      "sim2real_status": "real-robot",
+      "reproducibility": "none",
+      "method_components": [
+        "model",
+        "hardware",
+        "sensor"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": "RSS 2026"
+      }
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.26.747443",
+      "title": "Pseudomonas effector AvrC is a rhamnosyltransferase with broad substrate specificity",
+      "authors": [
+        "Nalleli Payne",
+        "Kelly A. Servage",
+        "Kim Orth",
+        "Jessie Fernandez",
+        "Wei Peng"
+      ],
+      "published": "2026-08-27",
+      "url": "https://doi.org/10.64898/2026.08.26.747443",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/27/2026.08.26.747443.full.pdf",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "protein_ai",
+      "domain": "ai_science",
+      "routes": [
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset"
+      ],
+      "scores": {
+        "relevance": 8.8,
+        "content": 17.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 25.8,
+        "bonus": 0.0,
+        "total": 25.8
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "这篇论文通过生化实验、质谱分析和AlphaFold结构预测，证实铜绿假单胞菌效应蛋白AvrC是一种具有广谱底物特异性的鼠李糖基转移酶，不仅能修饰植物抗病蛋白RIN4，还能修饰囊泡运输相关蛋白COPE1和COPZ1。",
+      "org": "UT Southwestern Medical Center",
+      "orgs": [
+        "UT Southwestern Medical Center"
+      ],
+      "country": "US",
+      "org_type": "university",
+      "novelty": 6,
+      "significance": 45,
+      "significance_reason": "确证了一个长期功能不明的重要效应蛋白的酶学机制，并拓展了其底物谱，属扎实的分子机制解析工作；但未提出新方法、未构建通用工具、未解决领域级开放问题（如广谱识别规则、动态调控逻辑），也未与AI驱动的蛋白质功能预测范式深度耦合（仅用AlphaFold作辅助验证），远低于AlphaFold2/ESM等基石工作的范式级影响。",
+      "tier": "worth",
+      "verdict": "工程整合：将成熟生化+质谱+结构预测技术系统应用于一个经典病原蛋白的功能破译，结果可靠但无方法论突破或跨领域杠杆效应。",
+      "claim": "AvrC是一种具有广谱底物特异性的鼠李糖基转移酶，而非此前未知功能的‘幽灵’效应蛋白。",
+      "input": "纯化蛋白+已知/候选底物肽段/蛋白+UDP-鼠李糖供体",
+      "output": "鼠李糖化修饰位点（质谱鉴定）及修饰活性（生化检测）",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "model",
+        "dataset"
       ],
       "signals": {
         "hf_upvotes": 0,
@@ -344125,6 +348265,73 @@
       }
     },
     {
+      "arxiv_id": "10.64898/2026.08.27.747222",
+      "title": "Extracellular protein catabolism drives regulated nitrogen handling and ammonia buffering in acute myeloid leukemia",
+      "authors": [
+        "Nina Kurrle",
+        "Philipp Makowka",
+        "Vera Schlipfenbacher",
+        "Johanna Kreitz",
+        "Islam Alshamleh",
+        "Marcel Seibert"
+      ],
+      "published": "2026-08-28",
+      "url": "https://doi.org/10.64898/2026.08.27.747222",
+      "pdf_url": "https://doi.org/10.64898/2026.08.27.747222",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "protein_ai",
+      "domain": "ai_science",
+      "routes": [
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset",
+        "metabolomics",
+        "isotope-tracing"
+      ],
+      "scores": {
+        "relevance": 6.5,
+        "content": 19.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 25.5,
+        "bonus": 0.0,
+        "total": 25.5
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "发现急性髓系白血病（AML）细胞通过吞噬降解血液中的白蛋白获取氨基酸，这一过程产生大量氨，而谷氨酰胺合成酶（GS）是关键的氨缓冲器；抑制GS可破坏AML的氮稳态，从而抑制其增殖和疾病进展。",
+      "org": "德国海德堡大学医院",
+      "orgs": [
+        "德国海德堡大学医院",
+        "德国癌症研究中心"
+      ],
+      "country": "EU",
+      "org_type": "institute",
+      "novelty": 7,
+      "significance": 76,
+      "significance_reason": "首次系统揭示AML中‘胞外蛋白→氨基酸→氨→GS缓冲’这一完整氮代谢调控轴，机制扎实（多组学+遗传/药理干预+体内验证），但属特定癌种内代谢脆弱性发现，未构建通用模型或算法，影响力低于AlphaFold2等范式级工作，但显著优于纯描述性研究，达到重磅（75–89档）标准。",
+      "tier": "heavy",
+      "verdict": "重磅：实证充分、机制清晰、靶点可转化，但局限于AML氮代谢，未拓展为跨癌种或AI驱动的通用生物学框架。",
+      "claim": "AML细胞依赖胞外蛋白降解供氮，GS是该代谢通路中维持氮稳态、支撑肿瘤生长的限速性脆弱靶点。",
+      "input": "临床骨髓血浆样本、AML细胞系与原代细胞、稳定同位素标记的白蛋白（¹⁵N-Albumin）、代谢组学与转录组学数据",
+      "output": "氮代谢通量图谱、GS功能依赖性验证结果、小鼠模型中疾病进展延迟表型",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "dataset",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
       "arxiv_id": "10.64898/2026.05.31.729038",
       "title": "Mapping the structural coverage of Arabidopsis thaliana plant developmental proteins: Insights from Experimental and AlphaFold Approaches",
       "authors": [
@@ -345675,6 +349882,73 @@
       }
     },
     {
+      "arxiv_id": "10.64898/2026.08.25.747119",
+      "title": "CREST: A Cortical Resting-State EEG Spatial Transformer for Chronic Pain Inference",
+      "authors": [
+        "Yasha Iravantchi",
+        "Edward Lannon",
+        "Sean Mackey"
+      ],
+      "published": "2026-08-28",
+      "url": "https://doi.org/10.64898/2026.08.25.747119",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/28/2026.08.25.747119.full.pdf",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "bci_noninvasive_eeg",
+      "domain": "bci",
+      "routes": [
+        "world_model",
+        "whole_body_control",
+        "bci_neural_decoding",
+        "bci_foundation_models",
+        "bci_embodied_robot",
+        "bci_noninvasive_eeg",
+        "genomics_ai"
+      ],
+      "tags": [
+        "multimodal-fusion",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 16.2,
+        "content": 9.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 25.2,
+        "bonus": 0.0,
+        "total": 25.2
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "用几分钟静息态脑电（EEG）生成皮层各区域的时频谱图，输入一个冻结的图像识别模型（处理单区域谱图）+图神经网络（整合56个皮层区域关系），在125人数据上区分慢性疼痛患者与健康人，AUROC=0.782。",
+      "org": "Stanford",
+      "orgs": [
+        "Stanford"
+      ],
+      "country": "US",
+      "org_type": "university",
+      "novelty": 4,
+      "significance": 32,
+      "significance_reason": "AUROC=0.782属中等判别力，无跨中心验证、无真实临床场景泛化（如不同疼痛类型/病程/用药状态）、无模型可解释性验证（仅控制实验证明alpha节律相关，但未定位到机制）、无开源代码或数据；远低于基石工作（全部为高精度、实时、闭环、长期植入、功能重建级），仅属探索性生物标志物关联研究。",
+      "tier": "",
+      "verdict": "暂时不用看：判别性能有限、无开源、无跨队列验证、未触及临床可用性门槛（如个体化阈值、动态追踪、干预响应预测），属于典型的小样本探索性EEG分析，尚未达到脑机接口领域实质性推进标准。",
+      "claim": "静息态EEG的空间-频谱模式蕴含可被深度学习解码的慢性疼痛状态生物标志物。",
+      "input": "56个皮层区域的静息态EEG时频谱图（每个区域一张二维谱图）",
+      "output": "二分类标签（慢性疼痛/健康对照）",
+      "sim2real_status": "n/a",
+      "reproducibility": "none",
+      "method_components": [
+        "model",
+        "dataset"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
       "arxiv_id": "2606.02969",
       "title": "Hybrid Dynamics Modeling for a Flexible 2-DoF Robotic Arm",
       "authors": [
@@ -346615,6 +350889,73 @@
         "model",
         "sensor",
         "hardware"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.26.747264",
+      "title": "Reference-guided comparative genomics of seven Indonesian rice cultivars identifies conserved gene space and trait-associated sequence candidates",
+      "authors": [
+        "Yekti Asih Purwestri",
+        "Adhityo Wicaksono",
+        "Siti Nurbaiti",
+        "Nada Tazkia Purba",
+        "Dewi Retnaningati",
+        "Ratih Restiani"
+      ],
+      "published": "2026-08-29",
+      "url": "https://doi.org/10.64898/2026.08.26.747264",
+      "pdf_url": "https://doi.org/10.64898/2026.08.26.747264",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "genomics_ai",
+      "domain": "ai_science",
+      "routes": [
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 11.1,
+        "content": 14.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 25.1,
+        "bonus": 0.0,
+        "total": 25.1
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "对7个印尼水稻品种做高精度PacBio HiFi测序，基于日本晴参考基因组构建端粒到端粒的品种特异性共识基因组，系统比较编码区和启动子区变异，识别出一批与籽粒颜色、氮代谢、淀粉性状相关的候选基因和调控序列。",
+      "org": "印度尼西亚国家水稻研究中心或印尼科学院相关",
+      "orgs": [
+        "印度尼西亚国家水稻研究中心或印尼科学院相关",
+        "摘要未明示但作者均为印尼本土科研人员",
+        "无跨国机构署名）"
+      ],
+      "country": "ID",
+      "org_type": "institute",
+      "novelty": 4,
+      "significance": 48,
+      "significance_reason": "属扎实的区域性资源生成与分析工作：完成7个地方品种高质量基因组构建与跨品种比较，覆盖关键农艺性状相关基因，但未提出新算法/模型，未开源代码或原始数据（仅提project-page），未做功能验证或表型关联实验，也未扩展至更大规模种质或跨物种；相比AlphaFold2等基石工作（95+），它属于高质量数据工程而非范式突破或通用模型创新。",
+      "tier": "worth",
+      "verdict": "扎实增量：完成了印尼水稻种质高质量参考引导基因组构建与性状关联位点系统梳理，但缺乏算法创新、功能实证和开源支撑，暂未达到方法论或应用层面的突破门槛。",
+      "claim": "在参考基因组引导下，通过高完整性长读长测序与严格质量控制的跨品种比较，可系统锚定印尼水稻种质中保守的基因空间及具有育种价值的编码与调控变异候选。",
+      "input": "PacBio HiFi长读长测序数据 + Nipponbare AGIS1.0端粒到端粒参考基因组",
+      "output": "7个品种的共识基因组序列、正交蛋白群分类结果、278个已验证的性状关联基因/家族位点、159个高质量启动子比对结果、110个存疑启动子比对及其变异归因",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "dataset",
+        "benchmark"
       ],
       "signals": {
         "hf_upvotes": 0,
@@ -348442,6 +352783,75 @@
       }
     },
     {
+      "arxiv_id": "2608.27151",
+      "title": "Planning a Shared Modular Fixture Layout Across Robotic Disassembly Stages",
+      "authors": [
+        "Haohui Pan",
+        "Takuya Kiyokawa",
+        "Kensuke Harada"
+      ],
+      "published": "2026-08-27",
+      "url": "https://arxiv.org/abs/2608.27151",
+      "pdf_url": "https://arxiv.org/pdf/2608.27151",
+      "source": "daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2608.27151.jpg",
+      "best_route": "dexterous_manipulation",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "bci_embodied_robot",
+        "protein_ai"
+      ],
+      "tags": [
+        "sim2real",
+        "tactile",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 9.8,
+        "content": 15.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 24.8,
+        "bonus": 0.0,
+        "total": 24.8
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "这篇论文为机器人拆解不规则产品（如螺丝刀、剃须刀）设计了一种共享的模块化真空夹具布局方案，用扩散模型生成初始布局、贝叶斯优化精细调整，在整个拆解流程中不换夹具就能稳定支撑，实测稳定性余量达67%–82%。",
+      "org": "大阪大学",
+      "orgs": [
+        "大阪大学"
+      ],
+      "country": "JP",
+      "org_type": "university",
+      "novelty": 5,
+      "significance": 48,
+      "significance_reason": "问题有价值（拆解中夹具重配置是实际瓶颈），方法融合扩散建模与贝叶斯优化有工程巧思，但仅验证2个消费电子小件、无跨产品泛化、无任务迁移、无开源代码/模型，实测仅限静态加载与简单拆解动作，未覆盖接触力突变、滑移、多自由度扰动等真实挑战，远未达到T-Rex/ALOHA/FTP-1等基石工作所体现的通用性、鲁棒性或部署深度。",
+      "tier": "worth",
+      "verdict": "工程整合：解决了特定场景下夹具复用的实用问题，但缺乏通用策略、开放资源和复杂交互验证，不属于范式突破或基础能力演进",
+      "claim": "针对拆解过程中工件形态、质心和受力动态变化导致夹具失效的问题，提出一种跨全部拆解阶段统一规划的、物理可验证的共享模块化真空夹具布局方法。",
+      "input": "产品CAD模型、拆解序列（含移除部件顺序与操作类型）、各阶段质量分布与预期载荷方向",
+      "output": "一组固定不变的真空吸盘位置与启停状态配置（即共享夹具布局）",
+      "sim2real_status": "small-real",
+      "reproducibility": "project-page",
+      "method_components": [
+        "model",
+        "simulator",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
       "arxiv_id": "2606.16076",
       "title": "Phys-JEPA: Physics-Informed Latent World Models for Multivariate Time-Series Forecasting",
       "authors": [
@@ -349119,6 +353529,71 @@
       "method_components": [
         "model",
         "dataset"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.21.746229",
+      "title": "Chromosome-level genome assemblies and annotations of Amaranthus spinosus, Amaranthus acanthochiton, Amaranthus arenicola, and Amaranthus floridanus",
+      "authors": [
+        "Damilola A. Raiyemo",
+        "Isabel Schlegel Werle",
+        "Ramandeep Kaur",
+        "Lauren Whitt",
+        "Sarah B. Carey",
+        "Haley Hale"
+      ],
+      "published": "2026-08-25",
+      "url": "https://doi.org/10.64898/2026.08.21.746229",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/25/2026.08.21.746229.full.pdf",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "genomics_ai",
+      "domain": "ai_science",
+      "routes": [
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 7.7,
+        "content": 17.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 24.7,
+        "bonus": 0.0,
+        "total": 24.7
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "这篇论文为四种苋属植物（一种雌雄同株杂草和三种雌雄异株野生种）构建了高质量染色体水平基因组组装和注释，重点解析了性染色体结构演化规律，并发现与花性别分化相关的Rf1同源基因。",
+      "org": "USDA-ARS",
+      "orgs": [
+        "USDA-ARS"
+      ],
+      "country": "US",
+      "org_type": "institute",
+      "novelty": 5,
+      "significance": 52,
+      "significance_reason": "提供了首个覆盖苋属关键性系统演化节点的多物种染色体级基因组资源集，实证支持性染色体结构保守性，但未提出新算法/模型，未解决跨物种泛化预测或功能验证等更高阶问题，属于扎实的资源型增量工作；显著优于普通基因组草图（如Illumina-only），但远未达AlphaFold2/ESM/CENO等定义新范式的层级。",
+      "tier": "worth",
+      "verdict": "扎实增量：完成了关键非模式植物的高质量基因组资源构建与比较分析，支撑后续机制研究，但无算法创新、无功能实验验证、无跨物种预测能力，不属于突破或工程整合，更非概念包装。",
+      "claim": "苋属中雌雄异株物种的性染色体结构（Chr1倒位+罗伯逊融合）在演化上早于物种分化，且单性花空间分离的雌雄同株种A. spinosus携带多个Rf1同源基因，暗示其性系统演化可能处于雌雄异株前驱状态。",
+      "input": "PacBio HiFi长读长 + Omni-C染色质构象数据（部分物种）+ 参考引导支架化",
+      "output": "染色体级别基因组组装（FASTA）、基因注释（GFF）、BUSCO评估结果、比较基因组结构图谱（如倒位/融合证据）",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "dataset",
+        "benchmark"
       ],
       "signals": {
         "hf_upvotes": 0,
@@ -351671,6 +356146,75 @@
         "model",
         "dataset",
         "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "2608.26883",
+      "title": "Active Surface-Driven Reconfigurable Gripper: Robust Grasping and Sequential Manipulation of Thin Objects",
+      "authors": [
+        "Ziyi Zheng",
+        "Keqi Zhu",
+        "Hao Wu",
+        "Yanzhe Wang",
+        "Huixu Dong"
+      ],
+      "published": "2026-08-27",
+      "url": "https://arxiv.org/abs/2608.26883",
+      "pdf_url": "https://arxiv.org/pdf/2608.26883",
+      "source": "daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2608.26883.jpg",
+      "best_route": "vla",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "hardware_unitree",
+        "bci_embodied_robot",
+        "protein_ai"
+      ],
+      "tags": [
+        "dexterous",
+        "real-robot"
+      ],
+      "scores": {
+        "relevance": 10.4,
+        "content": 14.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 24.4,
+        "bonus": 0.0,
+        "total": 24.4
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "提出一种带主动表面（可动拇指）和欠驱动手指的机械手，通过在手内重新定位书本（无需移动机械臂或调整其他手指）并利用结构顺应性，在不依赖复杂感知与控制的情况下，稳定抓取平放或竖直堆叠的薄物（如书、纸、塑料膜等），并完成多步抓放序列任务。",
+      "org": "未知",
+      "orgs": [],
+      "country": "CN",
+      "org_type": "unknown",
+      "novelty": 6,
+      "significance": 48,
+      "significance_reason": "解决薄物抓取这一长期工程痛点，实机验证覆盖多材质/多摆放形态/多步序列，物理建模扎实、结构创新明确；但属专用硬件+开环策略，无感知-动作闭环、无泛化学习能力、未开源、未与主流VLA/RL范式对接，贡献限于精密操作子领域内的稳健工程改进，远未达RT-2/π0等基础模型级分量。",
+      "tier": "worth",
+      "verdict": "工程整合：用精巧的机械设计和物理分析解决了薄物抓取的鲁棒性问题，但缺乏算法通用性、学习能力与开源支撑，属于高质量专用执行器工作，非范式突破。",
+      "claim": "仅靠机械结构设计（主动表面+欠驱动+可重构构型）与物理建模优化，即可实现对多种薄物体鲁棒、自适应、无需实时闭环控制的抓取与顺序操作。",
+      "input": "薄物体的初始位姿（桌面平放/书架竖直堆叠）、环境约束（桌面/书架）",
+      "output": "稳定抓取姿态 + 手内重定位动作 + 序列化抓-放动作链",
+      "sim2real_status": "real-robot",
+      "reproducibility": "none",
+      "method_components": [
+        "hardware",
+        "model",
+        "policy"
       ],
       "signals": {
         "hf_upvotes": 0,
@@ -355744,6 +360288,69 @@
       "claim": "ZNF768通过p53非依赖途径直接调控E2F1表达，驱动G0/G1期转换和细胞周期进程，是连接转录调控与有丝分裂保真度的关键节点。",
       "input": "ZNF768敲低/过表达的细胞系、ChIP-seq/RNA-seq/ATAC-seq多组学数据、癌症基因组数据库（TCGA等）",
       "output": "ZNF768-E2F1-FOXM1调控轴的分子机制解释、临床肿瘤表达相关性证据",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "dataset",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.27.747638",
+      "title": "A practical sampling strategy for biodiversity genomics of reptiles: The Cryptoblepharus pulcher assembly offers insights into the demise of a threatened relative",
+      "authors": [
+        "Tristram O. Dodge",
+        "Mario Ernst",
+        "Paul M. Oliver",
+        "Mozes P. K. Blom"
+      ],
+      "published": "2026-08-28",
+      "url": "https://doi.org/10.64898/2026.08.27.747638",
+      "pdf_url": "https://doi.org/10.64898/2026.08.27.747638",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "genomics_ai",
+      "domain": "ai_science",
+      "routes": [
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 9.6,
+        "content": 14.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 23.6,
+        "bonus": 0.0,
+        "total": 23.6
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "这篇论文用乙醇保存的蜥蜴组织（而非标准冷冻组织）提取高质量DNA，成功组装出染色体水平的基因组，并通过与已野外灭绝近缘种的比较，发现其遗传多样性更低但近交程度更轻，证明低成本保存策略也能产出有保护生物学价值的基因组资源。",
+      "org": "西澳大利亚大学",
+      "orgs": [
+        "西澳大利亚大学"
+      ],
+      "country": "AU",
+      "org_type": "university",
+      "novelty": 4,
+      "significance": 48,
+      "significance_reason": "属扎实的保护基因组学应用工作：验证了乙醇样本在爬行类中的可行性并产出首个染色体级skink基因组，但方法无算法/模型创新，未建立通用protocol或新计算范式，比较分析深度有限，且仅单物种验证，远未达基石论文（如ESM-2/AlphaFold2）所定义的范式级或基础工具级影响。",
+      "tier": "worth",
+      "verdict": "扎实增量：解决了非模式爬行动物基因组获取的实际瓶颈，但属技术适配与案例验证，非方法论突破或理论推进。",
+      "claim": "乙醇保存的非模式爬行动物组织经优化提取可获得足够高质量的高分子量DNA，支撑PacBio HiFi测序和染色体级基因组组装，并产出具有演化与保护意义的实证结论。",
+      "input": "乙醇固定的不同组织类型（如尾尖、肝脏）及多种DNA提取试剂盒的实验组合",
+      "output": "染色体水平基因组组装、遗传多样性指标（π、ROH）、历史有效种群大小推断、跨物种比较分析结果",
       "sim2real_status": "n/a",
       "reproducibility": "project-page",
       "method_components": [
@@ -365858,6 +370465,72 @@
       }
     },
     {
+      "arxiv_id": "2608.25509",
+      "title": "Dynamic Modeling of a Welding Torch Umbilical and Its Impact on Robot Dynamics",
+      "authors": [
+        "Nicolas Gautier",
+        "Yves Guillermit",
+        "Mathieu Porez",
+        "Fabien Rousset",
+        "Damien Chablat"
+      ],
+      "published": "2026-08-26",
+      "url": "https://arxiv.org/abs/2608.25509",
+      "pdf_url": "https://arxiv.org/pdf/2608.25509",
+      "source": "daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2608.25509.jpg",
+      "best_route": "vla",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "bci_embodied_robot",
+        "genomics_ai"
+      ],
+      "tags": [
+        "model"
+      ],
+      "scores": {
+        "relevance": 8.3,
+        "content": 12.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 20.3,
+        "bonus": 0.0,
+        "total": 20.3
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "这篇论文建立了一个描述焊接焊枪脐带缆（连接焊枪和电源的软管束）动力学行为的刚体链模型，用以量化它对轻型协作机器人运动和关节力矩的实际干扰影响。",
+      "org": "CNRS",
+      "orgs": [
+        "CNRS"
+      ],
+      "country": "EU",
+      "org_type": "institute",
+      "novelty": 4,
+      "significance": 32,
+      "significance_reason": "属经典机器人动力学建模范畴，未引入新学习范式、未验证于真实机器人、无跨任务泛化、无开源代码，仅在一个平面简化案例中演示；远低于RT-2等里程碑级工作（分差超60），也弱于主流具身智能/基础模型类论文（普遍≥75），仅相当于专业期刊中规整但窄口径的机理分析。",
+      "tier": "",
+      "verdict": "暂时不用看：纯理论建模工作，无实证闭环、无代码、无真实系统验证，对当前AI驱动的具身智能或机器人学习主流进展无实质推动。",
+      "claim": "焊接脐带缆不可忽略的动力学效应可通过约束多体建模精确表征，其对机器人末端施加的反作用力/力矩可被显式解析计算。",
+      "input": "脐带缆几何构型、材料参数（刚度/阻尼）、末端锚点运动轨迹",
+      "output": "脐带缆对机器人末端施加的六维反应力/力矩（wrench）",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "model",
+        "simulator"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
       "arxiv_id": "2606.03223",
       "title": "BotDirector: Robot Storytelling Across the Symmetrical Reality with Multi-modal Interactions",
       "authors": [
@@ -366853,6 +371526,69 @@
       }
     },
     {
+      "arxiv_id": "2608.26739",
+      "title": "Residual Deep Reinforcement Learning-Based Computed Torque Control for a Cable-Driven Lower-Limb Rehabilitation Robot under Disturbances and Parametric Uncertainties",
+      "authors": [
+        "Mohammad-Hossein Fakouri",
+        "Ali Keymasi-Khalaji"
+      ],
+      "published": "2026-08-27",
+      "url": "https://arxiv.org/abs/2608.26739",
+      "pdf_url": "https://arxiv.org/pdf/2608.26739",
+      "source": "daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2608.26739.jpg",
+      "best_route": "whole_body_control",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "bci_embodied_robot"
+      ],
+      "tags": [
+        "sim2real"
+      ],
+      "scores": {
+        "relevance": 12.8,
+        "content": 7.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 19.8,
+        "bonus": 0.0,
+        "total": 19.8
+      },
+      "grade": "D",
+      "read_priority": "D",
+      "tldr": "这篇论文提出了一种‘残差式’强化学习方法，把传统计算力矩控制（CTC）作为主干，只用一个有界深度确定性策略梯度（DDPG）网络去学一个小的补偿扭矩，来应对模型不准、外部扰动等问题，全程只在仿真中验证了下肢康复机器人轨迹跟踪性能提升。",
+      "org": "unknown",
+      "orgs": [],
+      "country": "unknown",
+      "org_type": "unknown",
+      "novelty": 4,
+      "significance": 28,
+      "significance_reason": "方法是经典CTC+残差RL的组合，无新架构/新表示/新训练范式；全部验证限于单一仿真模型，无真实硬件实验、无跨机体/跨任务泛化、无开源代码或数据；对比仅vs基础CTC，未与任何现代鲁棒控制（如自适应CTC、滑模+学习）或SOTA学习型控制器（如LAC、RRC）对比；康复机器人领域长期痛点是临床有效性与安全落地，本文未触及任何生理反馈、人机交互、临床指标或实机安全性验证。",
+      "tier": "",
+      "verdict": "暂时不用看——纯仿真、无开源、无实机、无临床相关性、对比基线陈旧，属于典型的方法拼接式小修小补，尚未进入工程可用或科学可信阶段。",
+      "claim": "在保持计算力矩控制可解释性和约束兼容性的前提下，通过有界残差强化学习补偿建模误差与扰动，可提升电缆驱动下肢康复机器人在仿真中的轨迹跟踪鲁棒性。",
+      "input": "关节位置/速度误差、期望轨迹、当前模型参数估计、扰动观测（仿真中构造）",
+      "output": "附加补偿扭矩（标量向量，维度=关节数）",
+      "sim2real_status": "sim-only",
+      "reproducibility": "none",
+      "method_components": [
+        "model",
+        "policy",
+        "simulator"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
       "arxiv_id": "2606.11577",
       "title": "Distortion-Resilient Robotic Imitation Learning for Autonomous Cable Routing",
       "authors": [
@@ -366975,6 +371711,64 @@
         "model",
         "dataset",
         "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.25.746799",
+      "title": "Human Lactoferrin is a Novel PFAS Target: Implications for Neo-natal Immune Function and Protein Stability",
+      "authors": [
+        "Mallory E. Thomas",
+        "Zachary McLean",
+        "Scott M. Belcher"
+      ],
+      "published": "2026-08-28",
+      "url": "https://doi.org/10.64898/2026.08.25.746799",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/28/2026.08.25.746799.full.pdf",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "protein_ai",
+      "domain": "ai_science",
+      "routes": [
+        "protein_ai"
+      ],
+      "tags": [
+        "dataset"
+      ],
+      "scores": {
+        "relevance": 6.6,
+        "content": 13.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 19.6,
+        "bonus": 0.0,
+        "total": 19.6
+      },
+      "grade": "D",
+      "read_priority": "D",
+      "tldr": "这篇论文发现多种PFAS化学污染物能直接结合并显著破坏人乳铁蛋白（hLF）的结构稳定性，使其在体温下失活，从而可能损害新生儿通过母乳获得的先天免疫保护。",
+      "org": "未知（作者单位未在摘要中披露，仅知为环境健康/毒理学方向研究者）",
+      "orgs": [],
+      "country": "US",
+      "org_type": "university",
+      "novelty": 6,
+      "significance": 38,
+      "significance_reason": "首次揭示PFAS与hLF的直接物理互作及热力学 destabilization，机制层面有实证（Tm下降、Kd测定、分子对接验证），但仅限单一蛋白、11种PFAS、体外实验，无细胞/动物/临床验证，未构建预测模型或干预策略，远未达基石级方法论或范式突破水平；属扎实的机制毒理学发现，但影响范围窄、转化路径长。",
+      "tier": "",
+      "verdict": "扎实增量：提供了PFAS免疫毒性新机制的体外实验证据，但缺乏体内验证、可扩展性差、未开源数据/代码，暂不具备方法论普适性或临床直接指导价值。",
+      "claim": "PFAS是一类新型人乳铁蛋白（hLF）靶标，其结合可导致hLF在生理温度（37°C）下发生不可逆结构失稳，进而削弱新生儿先天免疫功能。",
+      "input": "11种PFAS化合物 + 重组人乳铁蛋白（apo-hLF）",
+      "output": "热稳定性变化（ΔTm）、解离常数Kd、分子对接预测的结合位点与吉布斯自由能",
+      "sim2real_status": "n/a",
+      "reproducibility": "none",
+      "method_components": [
+        "dataset",
+        "simulator"
       ],
       "signals": {
         "hf_upvotes": 0,
