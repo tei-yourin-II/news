@@ -1,34 +1,34 @@
 {
-  "generated_at": "2026-08-31 06:37 UTC",
-  "count": 3455,
+  "generated_at": "2026-09-01 06:03 UTC",
+  "count": 3466,
   "routes": [
     {
       "id": "vla",
       "name": "VLA (Vision-Language-Action)",
       "tier": "core",
       "domain": "embodied_ai",
-      "count": 2764
+      "count": 2766
     },
     {
       "id": "world_model",
       "name": "World Model / WAM",
       "tier": "core",
       "domain": "embodied_ai",
-      "count": 2932
+      "count": 2935
     },
     {
       "id": "whole_body_control",
       "name": "Whole-body Control / Locomotion",
       "tier": "core",
       "domain": "embodied_ai",
-      "count": 2683
+      "count": 2686
     },
     {
       "id": "dexterous_manipulation",
       "name": "Dexterous Manipulation",
       "tier": "secondary",
       "domain": "embodied_ai",
-      "count": 2178
+      "count": 2179
     },
     {
       "id": "sim2real_data",
@@ -49,14 +49,14 @@
       "name": "神经解码 / BCI 核心",
       "tier": "core",
       "domain": "bci",
-      "count": 1897
+      "count": 1902
     },
     {
       "id": "bci_foundation_models",
       "name": "神经基础模型 / NeuroAI",
       "tier": "core",
       "domain": "bci",
-      "count": 2103
+      "count": 2108
     },
     {
       "id": "bci_embodied_robot",
@@ -70,21 +70,21 @@
       "name": "非侵入式 BCI / EEG 解码",
       "tier": "secondary",
       "domain": "bci",
-      "count": 1437
+      "count": 1441
     },
     {
       "id": "protein_ai",
       "name": "蛋白质计算 / 设计",
       "tier": "core",
       "domain": "ai_science",
-      "count": 1883
+      "count": 1894
     },
     {
       "id": "genomics_ai",
       "name": "基因组 / 基因 AI",
       "tier": "core",
       "domain": "ai_science",
-      "count": 2140
+      "count": 2151
     }
   ],
   "edges": [
@@ -719,6 +719,61 @@
       "weight": 1.0
     },
     {
+      "source": "2608.27550",
+      "target": "route:vla",
+      "weight": 0.69
+    },
+    {
+      "source": "2608.27550",
+      "target": "route:world_model",
+      "weight": 0.436
+    },
+    {
+      "source": "2608.27550",
+      "target": "route:whole_body_control",
+      "weight": 0.451
+    },
+    {
+      "source": "2608.27550",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.234
+    },
+    {
+      "source": "2608.27550",
+      "target": "route:sim2real_data",
+      "weight": 0.312
+    },
+    {
+      "source": "2608.27550",
+      "target": "route:hardware_unitree",
+      "weight": 0.221
+    },
+    {
+      "source": "2608.27550",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.174
+    },
+    {
+      "source": "2608.27550",
+      "target": "route:bci_foundation_models",
+      "weight": 0.244
+    },
+    {
+      "source": "2608.27550",
+      "target": "route:bci_embodied_robot",
+      "weight": 0.278
+    },
+    {
+      "source": "2608.27550",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.162
+    },
+    {
+      "source": "2608.27550",
+      "target": "route:genomics_ai",
+      "weight": 0.199
+    },
+    {
       "source": "2607.25895",
       "target": "route:vla",
       "weight": 0.476
@@ -957,61 +1012,6 @@
       "source": "2606.17046",
       "target": "route:genomics_ai",
       "weight": 0.163
-    },
-    {
-      "source": "2608.27550",
-      "target": "route:vla",
-      "weight": 0.69
-    },
-    {
-      "source": "2608.27550",
-      "target": "route:world_model",
-      "weight": 0.436
-    },
-    {
-      "source": "2608.27550",
-      "target": "route:whole_body_control",
-      "weight": 0.451
-    },
-    {
-      "source": "2608.27550",
-      "target": "route:dexterous_manipulation",
-      "weight": 0.234
-    },
-    {
-      "source": "2608.27550",
-      "target": "route:sim2real_data",
-      "weight": 0.312
-    },
-    {
-      "source": "2608.27550",
-      "target": "route:hardware_unitree",
-      "weight": 0.221
-    },
-    {
-      "source": "2608.27550",
-      "target": "route:bci_neural_decoding",
-      "weight": 0.174
-    },
-    {
-      "source": "2608.27550",
-      "target": "route:bci_foundation_models",
-      "weight": 0.244
-    },
-    {
-      "source": "2608.27550",
-      "target": "route:bci_embodied_robot",
-      "weight": 0.278
-    },
-    {
-      "source": "2608.27550",
-      "target": "route:bci_noninvasive_eeg",
-      "weight": 0.162
-    },
-    {
-      "source": "2608.27550",
-      "target": "route:genomics_ai",
-      "weight": 0.199
     },
     {
       "source": "2607.02642",
@@ -15682,6 +15682,21 @@
       "source": "2608.19759",
       "target": "route:protein_ai",
       "weight": 0.214
+    },
+    {
+      "source": "10.64898/2026.08.22.746371",
+      "target": "route:bci_foundation_models",
+      "weight": 0.199
+    },
+    {
+      "source": "10.64898/2026.08.22.746371",
+      "target": "route:protein_ai",
+      "weight": 0.202
+    },
+    {
+      "source": "10.64898/2026.08.22.746371",
+      "target": "route:genomics_ai",
+      "weight": 0.5
     },
     {
       "source": "10.64898/2026.06.10.731272",
@@ -43679,6 +43694,31 @@
       "weight": 0.261
     },
     {
+      "source": "10.64898/2026.08.27.747610",
+      "target": "route:world_model",
+      "weight": 0.18
+    },
+    {
+      "source": "10.64898/2026.08.27.747610",
+      "target": "route:whole_body_control",
+      "weight": 0.154
+    },
+    {
+      "source": "10.64898/2026.08.27.747610",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.164
+    },
+    {
+      "source": "10.64898/2026.08.27.747610",
+      "target": "route:protein_ai",
+      "weight": 0.5
+    },
+    {
+      "source": "10.64898/2026.08.27.747610",
+      "target": "route:genomics_ai",
+      "weight": 0.328
+    },
+    {
       "source": "2606.00336",
       "target": "route:vla",
       "weight": 0.492
@@ -48382,6 +48422,26 @@
       "source": "2608.09696",
       "target": "route:genomics_ai",
       "weight": 0.274
+    },
+    {
+      "source": "10.64898/2026.08.28.747851",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.172
+    },
+    {
+      "source": "10.64898/2026.08.28.747851",
+      "target": "route:bci_foundation_models",
+      "weight": 0.188
+    },
+    {
+      "source": "10.64898/2026.08.28.747851",
+      "target": "route:protein_ai",
+      "weight": 0.5
+    },
+    {
+      "source": "10.64898/2026.08.28.747851",
+      "target": "route:genomics_ai",
+      "weight": 0.327
     },
     {
       "source": "2606.10371",
@@ -57054,6 +57114,16 @@
       "weight": 0.268
     },
     {
+      "source": "10.64898/2026.08.26.747171",
+      "target": "route:protein_ai",
+      "weight": 0.24
+    },
+    {
+      "source": "10.64898/2026.08.26.747171",
+      "target": "route:genomics_ai",
+      "weight": 0.5
+    },
+    {
       "source": "2606.01332",
       "target": "route:vla",
       "weight": 0.476
@@ -59997,6 +60067,46 @@
       "source": "2608.22976",
       "target": "route:bci_embodied_robot",
       "weight": 0.24
+    },
+    {
+      "source": "10.64898/2026.08.28.747942",
+      "target": "route:vla",
+      "weight": 0.203
+    },
+    {
+      "source": "10.64898/2026.08.28.747942",
+      "target": "route:world_model",
+      "weight": 0.218
+    },
+    {
+      "source": "10.64898/2026.08.28.747942",
+      "target": "route:whole_body_control",
+      "weight": 0.199
+    },
+    {
+      "source": "10.64898/2026.08.28.747942",
+      "target": "route:dexterous_manipulation",
+      "weight": 0.178
+    },
+    {
+      "source": "10.64898/2026.08.28.747942",
+      "target": "route:bci_foundation_models",
+      "weight": 0.161
+    },
+    {
+      "source": "10.64898/2026.08.28.747942",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.168
+    },
+    {
+      "source": "10.64898/2026.08.28.747942",
+      "target": "route:protein_ai",
+      "weight": 0.5
+    },
+    {
+      "source": "10.64898/2026.08.28.747942",
+      "target": "route:genomics_ai",
+      "weight": 0.3
     },
     {
       "source": "10.64898/2026.05.28.728275",
@@ -68002,6 +68112,26 @@
       "source": "2608.25664",
       "target": "route:bci_noninvasive_eeg",
       "weight": 0.218
+    },
+    {
+      "source": "10.64898/2026.08.25.747056",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.187
+    },
+    {
+      "source": "10.64898/2026.08.25.747056",
+      "target": "route:bci_foundation_models",
+      "weight": 0.183
+    },
+    {
+      "source": "10.64898/2026.08.25.747056",
+      "target": "route:protein_ai",
+      "weight": 0.273
+    },
+    {
+      "source": "10.64898/2026.08.25.747056",
+      "target": "route:genomics_ai",
+      "weight": 0.5
     },
     {
       "source": "10.64898/2026.06.01.729118",
@@ -79722,6 +79852,21 @@
       "source": "10.64898/2026.08.25.746527",
       "target": "route:genomics_ai",
       "weight": 0.5
+    },
+    {
+      "source": "10.64898/2026.08.26.747390",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.155
+    },
+    {
+      "source": "10.64898/2026.08.26.747390",
+      "target": "route:protein_ai",
+      "weight": 0.5
+    },
+    {
+      "source": "10.64898/2026.08.26.747390",
+      "target": "route:genomics_ai",
+      "weight": 0.423
     },
     {
       "source": "2606.03682",
@@ -98444,6 +98589,26 @@
       "weight": 0.5
     },
     {
+      "source": "10.64898/2026.08.25.746944",
+      "target": "route:whole_body_control",
+      "weight": 0.162
+    },
+    {
+      "source": "10.64898/2026.08.25.746944",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.159
+    },
+    {
+      "source": "10.64898/2026.08.25.746944",
+      "target": "route:protein_ai",
+      "weight": 0.5
+    },
+    {
+      "source": "10.64898/2026.08.25.746944",
+      "target": "route:genomics_ai",
+      "weight": 0.418
+    },
+    {
       "source": "2606.03127",
       "target": "route:vla",
       "weight": 0.514
@@ -99837,6 +100002,21 @@
       "source": "2608.16843",
       "target": "route:bci_embodied_robot",
       "weight": 0.5
+    },
+    {
+      "source": "10.64898/2026.08.25.746995",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.164
+    },
+    {
+      "source": "10.64898/2026.08.25.746995",
+      "target": "route:protein_ai",
+      "weight": 0.5
+    },
+    {
+      "source": "10.64898/2026.08.25.746995",
+      "target": "route:genomics_ai",
+      "weight": 0.411
     },
     {
       "source": "10.64898/2026.05.27.726245",
@@ -117274,6 +117454,41 @@
       "weight": 0.5
     },
     {
+      "source": "10.64898/2026.08.25.747147",
+      "target": "route:vla",
+      "weight": 0.16
+    },
+    {
+      "source": "10.64898/2026.08.25.747147",
+      "target": "route:world_model",
+      "weight": 0.181
+    },
+    {
+      "source": "10.64898/2026.08.25.747147",
+      "target": "route:bci_neural_decoding",
+      "weight": 0.151
+    },
+    {
+      "source": "10.64898/2026.08.25.747147",
+      "target": "route:bci_foundation_models",
+      "weight": 0.215
+    },
+    {
+      "source": "10.64898/2026.08.25.747147",
+      "target": "route:bci_noninvasive_eeg",
+      "weight": 0.18
+    },
+    {
+      "source": "10.64898/2026.08.25.747147",
+      "target": "route:protein_ai",
+      "weight": 0.277
+    },
+    {
+      "source": "10.64898/2026.08.25.747147",
+      "target": "route:genomics_ai",
+      "weight": 0.5
+    },
+    {
       "source": "10.64898/2026.05.29.728783",
       "target": "route:protein_ai",
       "weight": 0.265
@@ -127237,6 +127452,16 @@
       "source": "2607.21145",
       "target": "route:bci_embodied_robot",
       "weight": 0.41
+    },
+    {
+      "source": "10.64898/2026.08.28.747936",
+      "target": "route:protein_ai",
+      "weight": 0.221
+    },
+    {
+      "source": "10.64898/2026.08.28.747936",
+      "target": "route:genomics_ai",
+      "weight": 0.5
     },
     {
       "source": "2606.24842",
@@ -140117,6 +140342,82 @@
       }
     },
     {
+      "arxiv_id": "2608.27550",
+      "title": "Beyond Data Scaling: Representation-Centric Continued Pre-training for Vision-Language-Action Models",
+      "authors": [
+        "Senqiao Yang",
+        "Chengyao Wang",
+        "Yuxin Chen",
+        "Zixuan Wang",
+        "Longxiang Tang",
+        "Haokun Gui"
+      ],
+      "published": "2026-08-27T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2608.27550",
+      "pdf_url": "https://arxiv.org/pdf/2608.27550",
+      "source": "hf_daily",
+      "venue": "",
+      "thumb": "assets/thumbs/2608.27550.jpg",
+      "best_route": "vla",
+      "domain": "embodied_ai",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "sim2real_data",
+        "hardware_unitree",
+        "bci_neural_decoding",
+        "bci_foundation_models",
+        "bci_embodied_robot",
+        "bci_noninvasive_eeg",
+        "genomics_ai"
+      ],
+      "tags": [
+        "multimodal-fusion",
+        "dataset",
+        "benchmark",
+        "open-source",
+        "real-robot"
+      ],
+      "scores": {
+        "relevance": 20.7,
+        "content": 25.0,
+        "heat": 16.6,
+        "quality": 0.0,
+        "base": 45.7,
+        "bonus": 16.6,
+        "total": 62.3
+      },
+      "grade": "B",
+      "read_priority": "A",
+      "tldr": "这篇论文提出VLAct方法，不靠堆机器人数据量，而是用多机体、异构的真实机器人轨迹对视觉语言模型（VLM）做‘表示为中心’的持续预训练，让模型学到跨机体可迁移的动作语义，在固定下游数据和算力（16卡）下显著提升泛化能力，尤其在未见过的人形机器人上仅用20%数据就超过全量基线。",
+      "org": "未知（作者单位未在摘要中披露，无机构署名线索；虽有大量中文名，但无法对应清华/智元/银河等明确团队；arXiv未提供affiliation信息）",
+      "orgs": [],
+      "country": "unknown",
+      "org_type": "unknown",
+      "novelty": 7,
+      "significance": 88,
+      "significance_reason": "实证扎实：在5个真实/仿真基准（含未见人形GR1）上系统验证跨机体泛化，击败ABot-M0/LingBot-VLA等工业级VLA系统，且全部开源+16卡复现——虽未达RT-2/π0级范式颠覆（缺世界模型/测试时推理机制/端到端闭环控制），但确立了‘表示优化’作为独立于数据扩展的关键进步轴，证据强度和工程落地性接近DAM-VLA水平。",
+      "tier": "heavy",
+      "verdict": "真突破：它首次以充分实证证明，在真实机器人数据有限前提下，表示层面的持续预训练设计（而非数据量或模型规模）能成为VLA性能跃升的独立杠杆，并在多机体、少样本、开源可复现条件下达成工业级SOTA。",
+      "claim": "在机器人数据规模受限的前提下，通过表示中心的持续预训练（保留VLM先验、多机体动作共监督、部分统一动作布局），可比单纯扩大数据更有效地提升VLA模型的跨机体泛化与下游任务性能。",
+      "input": "多模态输入：RGB图像+自然语言指令+（可选）状态向量（隐含于轨迹数据中）",
+      "output": "连续动作向量（如关节速度/末端位姿变化）",
+      "sim2real_status": "multi-embodiment",
+      "reproducibility": "code+model+data",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 81,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
       "arxiv_id": "2607.25895",
       "title": "HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone",
       "authors": [
@@ -140495,82 +140796,6 @@
         "hf_upvotes": 94,
         "citations": 0,
         "venue": "arXiv (Cornell University)"
-      }
-    },
-    {
-      "arxiv_id": "2608.27550",
-      "title": "Beyond Data Scaling: Representation-Centric Continued Pre-training for Vision-Language-Action Models",
-      "authors": [
-        "Senqiao Yang",
-        "Chengyao Wang",
-        "Yuxin Chen",
-        "Zixuan Wang",
-        "Longxiang Tang",
-        "Haokun Gui"
-      ],
-      "published": "2026-08-27T00:00:00.000Z",
-      "url": "https://arxiv.org/abs/2608.27550",
-      "pdf_url": "https://arxiv.org/pdf/2608.27550",
-      "source": "hf_daily",
-      "venue": "",
-      "thumb": "assets/thumbs/2608.27550.jpg",
-      "best_route": "vla",
-      "domain": "embodied_ai",
-      "routes": [
-        "vla",
-        "world_model",
-        "whole_body_control",
-        "dexterous_manipulation",
-        "sim2real_data",
-        "hardware_unitree",
-        "bci_neural_decoding",
-        "bci_foundation_models",
-        "bci_embodied_robot",
-        "bci_noninvasive_eeg",
-        "genomics_ai"
-      ],
-      "tags": [
-        "multimodal-fusion",
-        "dataset",
-        "benchmark",
-        "open-source",
-        "real-robot"
-      ],
-      "scores": {
-        "relevance": 20.7,
-        "content": 25.0,
-        "heat": 11.7,
-        "quality": 0.0,
-        "base": 45.7,
-        "bonus": 11.7,
-        "total": 57.4
-      },
-      "grade": "B",
-      "read_priority": "A",
-      "tldr": "这篇论文提出VLAct方法，不靠堆机器人数据量，而是用多机体、异构的真实机器人轨迹对视觉语言模型（VLM）做‘表示为中心’的持续预训练，让模型学到跨机体可迁移的动作语义，在固定下游数据和算力（16卡）下显著提升泛化能力，尤其在未见过的人形机器人上仅用20%数据就超过全量基线。",
-      "org": "未知（作者单位未在摘要中披露，无机构署名线索；虽有大量中文名，但无法对应清华/智元/银河等明确团队；arXiv未提供affiliation信息）",
-      "orgs": [],
-      "country": "unknown",
-      "org_type": "unknown",
-      "novelty": 7,
-      "significance": 88,
-      "significance_reason": "实证扎实：在5个真实/仿真基准（含未见人形GR1）上系统验证跨机体泛化，击败ABot-M0/LingBot-VLA等工业级VLA系统，且全部开源+16卡复现——虽未达RT-2/π0级范式颠覆（缺世界模型/测试时推理机制/端到端闭环控制），但确立了‘表示优化’作为独立于数据扩展的关键进步轴，证据强度和工程落地性接近DAM-VLA水平。",
-      "tier": "heavy",
-      "verdict": "真突破：它首次以充分实证证明，在真实机器人数据有限前提下，表示层面的持续预训练设计（而非数据量或模型规模）能成为VLA性能跃升的独立杠杆，并在多机体、少样本、开源可复现条件下达成工业级SOTA。",
-      "claim": "在机器人数据规模受限的前提下，通过表示中心的持续预训练（保留VLM先验、多机体动作共监督、部分统一动作布局），可比单纯扩大数据更有效地提升VLA模型的跨机体泛化与下游任务性能。",
-      "input": "多模态输入：RGB图像+自然语言指令+（可选）状态向量（隐含于轨迹数据中）",
-      "output": "连续动作向量（如关节速度/末端位姿变化）",
-      "sim2real_status": "multi-embodiment",
-      "reproducibility": "code+model+data",
-      "method_components": [
-        "model",
-        "dataset",
-        "benchmark"
-      ],
-      "signals": {
-        "hf_upvotes": 21,
-        "citations": 0,
-        "venue": ""
       }
     },
     {
@@ -148036,7 +148261,7 @@
       "signals": {
         "hf_upvotes": 3,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       }
     },
     {
@@ -163491,6 +163716,74 @@
       ],
       "signals": {
         "hf_upvotes": 6,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.22.746371",
+      "title": "A multi-tissue epigenomic atlas links the sheep non-coding genome to domestication and complex traits",
+      "authors": [
+        "Zhu Meng",
+        "Shiwen Zhang",
+        "Ziyang Zhuang",
+        "Jiayi He",
+        "Fei Liu",
+        "Lingyun Wu"
+      ],
+      "published": "2026-08-26",
+      "url": "https://doi.org/10.64898/2026.08.22.746371",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/26/2026.08.22.746371.full.pdf",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "genomics_ai",
+      "domain": "ai_science",
+      "routes": [
+        "bci_foundation_models",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset",
+        "benchmark",
+        "open-source"
+      ],
+      "scores": {
+        "relevance": 12.8,
+        "content": 27.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 39.8,
+        "bonus": 0.0,
+        "total": 39.8
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "tldr": "构建了绵羊多组织表观基因组图谱SheepEpimap，整合516个表观数据集，系统注释了近300万个顺式调控元件、数十万增强子-基因对和等位特异性变异，并用深度学习解码染色质可及性的序列语法，建成组织特异性基因调控网络，最终将非编码变异与绵羊驯化和复杂性状关联起来，同时发现跨物种保守增强子在人类复杂疾病遗传力中富集。",
+      "org": "中国农业大学",
+      "orgs": [
+        "中国农业大学"
+      ],
+      "country": "CN",
+      "org_type": "university",
+      "novelty": 8,
+      "significance": 82,
+      "significance_reason": "达到‘重磅’档：首次为绵羊提供全组织、多组学、高分辨率非编码功能图谱，实证扎实（516个高质量表观数据集+多层模型验证+跨物种富集分析），开源完整（数据/代码/交互式浏览器），且直接支撑育种与人类疾病比较研究；但未提出全新建模范式（如CENO/ESM级序列世界模型），也未解决跨物种调控预测的根本性泛化难题，故略低于90分门槛。",
+      "tier": "heavy",
+      "verdict": "重磅——是绵羊功能基因组领域的奠基性资源，证据充分、开源完备、应用明确，但属于高质量系统性构建而非范式突破。",
+      "claim": "绵羊非编码基因组的功能注释缺失严重，本研究通过构建高分辨率、多组织、多组学整合的表观基因组图谱SheepEpimap，首次系统性地将非编码变异映射到驯化和复杂性状的分子机制，并揭示其跨物种（人-羊）功能保守性与遗传力贡献。",
+      "input": "绵羊43种成体组织的CUT&Tag（H3K27ac/H3K4me1/H3K4me3）、ATAC-seq、RNA-seq数据；基因组序列",
+      "output": "顺式调控元件（CRE）坐标、增强子-基因链接、等位特异性变异、组织特异性基因调控网络（GRN）、非编码变异功能优先级评分",
+      "sim2real_status": "n/a",
+      "reproducibility": "code+model+data",
+      "method_components": [
+        "dataset",
+        "model",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
         "citations": 0,
         "venue": ""
       }
@@ -209245,6 +209538,77 @@
       }
     },
     {
+      "arxiv_id": "10.64898/2026.08.27.747610",
+      "title": "Subtyping active-site inhibitor binding mode to Abl kinase using super-resolution nanopore tweezers.",
+      "authors": [
+        "Nguyen Ly",
+        "Yu-Hsiang Wang",
+        "Joshua Foster",
+        "David DeCoeur",
+        "Lan Nguyen",
+        "Bryant Wu"
+      ],
+      "published": "2026-08-29",
+      "url": "https://doi.org/10.64898/2026.08.27.747610",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/29/2026.08.27.747610.full.pdf",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "protein_ai",
+      "domain": "ai_science",
+      "routes": [
+        "world_model",
+        "whole_body_control",
+        "bci_noninvasive_eeg",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset",
+        "benchmark",
+        "real-robot"
+      ],
+      "scores": {
+        "relevance": 13.9,
+        "content": 22.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 35.9,
+        "bonus": 0.0,
+        "total": 35.9
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "tldr": "用纳米孔镊子单分子检测Abl激酶与不同抑制剂结合时产生的离子电流特征，不依赖晶体结构就能区分I型、IIA型、IIB型抑制剂结合模式，并识别临床耐药突变如何改变结合方式，实现亚埃级分辨率的无标记激酶构象与抑制剂结合模式分型。",
+      "org": "伊利诺伊大学厄巴纳-香槟分校",
+      "orgs": [
+        "伊利诺伊大学厄巴纳-香槟分校"
+      ],
+      "country": "US",
+      "org_type": "university",
+      "novelty": 8,
+      "significance": 78,
+      "significance_reason": "首次将纳米孔镊子用于激酶抑制剂结合模式的功能性超分辨分型，实测7类结合模式97.5%准确率、nm浓度混样解卷积、耐药突变机制验证，真机单分子实验+多临床突变+机器学习可解释特征工程+亚埃级判别能力，但尚未扩展至其他激酶家族或大规模药物筛选场景，未开源代码/模型，属重磅方法学突破而非范式革命。",
+      "tier": "heavy",
+      "verdict": "工程整合：将纳米孔传感、单分子动力学分析与机器学习深度耦合，构建出首个激酶抑制剂结合模式无标记超分辨分型平台，证据扎实但生态闭环未建立。",
+      "claim": "纳米孔镊子可通过亚埃级分辨的离子电流指纹，无结构测定地功能分型激酶抑制剂结合模式，并解析耐药突变对结合动态的影响。",
+      "input": "单分子Abl激酶-抑制剂复合物在纳米孔中的穿孔电流信号（含时间序列与波形）",
+      "output": "抑制剂结合类型（Type I/IIA/IIB）及突变体特异性结合模式分类标签",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "simulator",
+        "dataset",
+        "benchmark",
+        "hardware"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
       "arxiv_id": "2606.00336",
       "title": "From Noise to Control: Parameterized Diffusion Policies",
       "authors": [
@@ -217230,6 +217594,73 @@
         "model",
         "benchmark",
         "simulator"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.28.747851",
+      "title": "A structure-guided classification framework reveals the diversity and catalytic architecture of BECR ribonuclease",
+      "authors": [
+        "Kristi Pham",
+        "Gianlucca Gonçalves Nicastro",
+        "Audrey R Long",
+        "L. Aravind",
+        "Claus O. Wilke",
+        "Robson Francisco de Souza"
+      ],
+      "published": "2026-08-29",
+      "url": "https://doi.org/10.64898/2026.08.28.747851",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/29/2026.08.28.747851.full.pdf",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "protein_ai",
+      "domain": "ai_science",
+      "routes": [
+        "bci_neural_decoding",
+        "bci_foundation_models",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "multimodal-fusion",
+        "dataset",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 14.4,
+        "content": 21.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 35.4,
+        "bonus": 0.0,
+        "total": 35.4
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "tldr": "这篇论文用结构引导的分类框架，系统梳理了高度多样且序列保守性极低的BECR折叠核糖核酸酶家族，重新划定了其超家族边界、发现了新亚家族，并通过实验验证了一个新毒素BECR-Tox2及其免疫配对蛋白，还揭示了它在抗噬菌体系统和多态性毒素位点中的分布。",
+      "org": "unknown",
+      "orgs": [],
+      "country": "US",
+      "org_type": "university",
+      "novelty": 7,
+      "significance": 78,
+      "significance_reason": "属AI×生物（结构/功能注释）领域扎实的范式升级：首次将结构预测（AF2）作为核心驱动力，系统重构一个长期混乱的经典折叠家族，完成从‘无法归类’到‘可解释分类+功能验证+系统定位’的闭环；虽未达AlphaFold2级范式革命，但显著超越纯计算注释类工作，证据链完整（结构聚类→活性位点映射→基因组语境→实验验证毒素中和），且结果直接支撑抗噬菌体机制研究和新型毒素挖掘。",
+      "tier": "heavy",
+      "verdict": "真突破：不是刷榜或概念包装，而是用新工具（AF2结构）解决了一个经典、顽固、影响广泛的生物学分类难题，并给出可验证的功能解释。",
+      "claim": "BECR折叠蛋白的多样性远超此前认知，仅靠序列无法可靠识别，必须依赖结构引导的整合分析框架才能系统解析其进化关系、催化架构与生物学功能。",
+      "input": "AlphaFold2预测的高置信度蛋白质三维结构 + 多序列比对 + 基因组上下文信息",
+      "output": "BECR折叠蛋白的分层分类体系（含新定义的BECR-like超家族）、催化残基定位图谱、功能关联推断（如毒素-免疫对、系统归属）",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark"
       ],
       "signals": {
         "hf_upvotes": 0,
@@ -232408,6 +232839,73 @@
       }
     },
     {
+      "arxiv_id": "10.64898/2026.08.26.747171",
+      "title": "Closing the fusion-detection gap in single-cell RNA-seq with a scalable, probe-based workflow",
+      "authors": [
+        "Jovana Maksimovic",
+        "Victoria Streeton-Cook",
+        "Calandra V Grima",
+        "Diane Hanna",
+        "Noura Tawfic",
+        "Louise Ludlow"
+      ],
+      "published": "2026-08-29",
+      "url": "https://doi.org/10.64898/2026.08.26.747171",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/29/2026.08.26.747171.full.pdf",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "genomics_ai",
+      "domain": "ai_science",
+      "routes": [
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset",
+        "benchmark",
+        "open-source"
+      ],
+      "scores": {
+        "relevance": 11.4,
+        "content": 23.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 34.4,
+        "bonus": 0.0,
+        "total": 34.4
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "tldr": "提出一种基于定制化探针的单细胞RNA-seq工作流程，首次在单细胞分辨率下规模化检测表达中的致癌基因融合事件（如ALL中的BCR-ABL1等），并用真实临床样本验证了其在微小残留病、谱系可塑性和前白血病克隆追踪中的生物学发现能力",
+      "org": "Murdoch Children's Research Institute",
+      "orgs": [
+        "Murdoch Children's Research Institute"
+      ],
+      "country": "AU",
+      "org_type": "institute",
+      "novelty": 8,
+      "significance": 78,
+      "significance_reason": "解决了单细胞转录组长期无法可靠捕获表达型基因融合这一关键盲区，在真实临床队列中实现多生物学场景验证（MRD、复发谱系转换、前白血病克隆），方法嵌入主流商业平台（10x），开源Flexify工具包且提供探针设计规范；但未构建全新模型架构，也未覆盖全癌种或展示大规模泛化性能，尚属重磅技术突破而非范式革命",
+      "tier": "heavy",
+      "verdict": "工程整合：将成熟单细胞平台与靶向探针设计深度耦合，实现在真实临床样本中首次系统性解析表达型融合事件，证据扎实、落地性强，但非底层算法或模型创新",
+      "claim": "通过可合成的、由Flexify设计的融合位点特异性探针，将标准10x Flex/Visium单细胞转录组平台拓展为首个可规模化检测表达型致癌结构变异（基因融合）的技术框架",
+      "input": "融合基因断点序列（来自bulk RNA-seq或其他检测）、单细胞cDNA文库（10x Flex/Visium）",
+      "output": "单细胞水平的融合基因表达计数矩阵（与全转录组共输出）",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "dataset",
+        "benchmark",
+        "simulator"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
       "arxiv_id": "2606.01332",
       "title": "S2M-Trek: From Single to Multi-Sphere Transport via Per-Frame Deep Sets on a Wheel-Legged Robot",
       "authors": [
@@ -237539,6 +238037,75 @@
         "model",
         "simulator",
         "policy",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.28.747942",
+      "title": "OmniScore: Universal Scoring of Diverse Biomolecular Complexes via Equivariant Geometry-Aware Discrete Representation Learning",
+      "authors": [
+        "Tien-Cuong Bui",
+        "Juyong Lee",
+        "Junsu Ko"
+      ],
+      "published": "2026-08-29",
+      "url": "https://doi.org/10.64898/2026.08.28.747942",
+      "pdf_url": "https://doi.org/10.64898/2026.08.28.747942",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "protein_ai",
+      "domain": "ai_science",
+      "routes": [
+        "vla",
+        "world_model",
+        "whole_body_control",
+        "dexterous_manipulation",
+        "bci_foundation_models",
+        "bci_noninvasive_eeg",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "multimodal-fusion",
+        "dataset",
+        "benchmark",
+        "open-source"
+      ],
+      "scores": {
+        "relevance": 15.0,
+        "content": 19.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 34.0,
+        "bonus": 0.0,
+        "total": 34.0
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "tldr": "提出OmniScore，一个通过几何感知的离散表征学习框架，用统一预训练主干网络（融合图结构和序列信息+3D几何编码）一次性学习多种生物分子复合物（抗体-抗原、纳米体-抗原、蛋白-配体等）的通用结构表示，再接轻量任务头完成不同场景下的打分与质量评估。",
+      "org": "unknown",
+      "orgs": [],
+      "country": "unknown",
+      "org_type": "unknown",
+      "novelty": 7,
+      "significance": 68,
+      "significance_reason": "在多个标准benchmark上达到SOTA或持平单任务专用模型，证明了通用几何表征主干的有效性；但未引入新实验模态、未解决长期悬而未决的物理建模难题（如显式力场耦合、动力学一致性）、预训练目标仍属常规自监督重建+分类，且缺乏湿实验验证或临床前相关性证据，属于扎实的跨任务泛化方法论推进，未达基石级突破。",
+      "tier": "notable",
+      "verdict": "显著贡献：首次系统验证了单一几何感知预训练主干可在抗体/纳米体/蛋白-配体等异构复合物打分任务间有效迁移，但仍是算法整合而非范式变革。",
+      "claim": "通过几何感知的多视图预训练，可构建一个冻结即用、跨复合物类型泛化的通用生物分子结构打分主干模型。",
+      "input": "生物分子复合物的原子坐标、残基/原子类型、序列信息、拓扑连接关系",
+      "output": "复合物整体质量得分、界面残基功能位点预测概率、配体结合亲和力排序分数",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "model",
+        "dataset",
         "benchmark"
       ],
       "signals": {
@@ -251689,6 +252256,73 @@
         "simulator",
         "benchmark",
         "dataset"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.25.747056",
+      "title": "Cross-chemistry single-nucleus RNA-seq identifies gene length and CpG-island promoters as determinants of transcriptional noise.",
+      "authors": [
+        "Rafal Czapiewski",
+        "Michael Chiang",
+        "James Ding",
+        "Catherine Naughton",
+        "Graeme R. Grimes",
+        "Davide Marenduzzo"
+      ],
+      "published": "2026-08-28",
+      "url": "https://doi.org/10.64898/2026.08.25.747056",
+      "pdf_url": "https://doi.org/10.64898/2026.08.25.747056",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "genomics_ai",
+      "domain": "ai_science",
+      "routes": [
+        "bci_neural_decoding",
+        "bci_foundation_models",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "benchmark",
+        "dataset"
+      ],
+      "scores": {
+        "relevance": 14.1,
+        "content": 19.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 33.1,
+        "bonus": 0.0,
+        "total": 33.1
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "tldr": "这篇论文用两种主流单细胞核RNA测序技术（Evercode WT和10x Chromium）在同一批人淋巴母细胞核上做交叉验证，发现转录噪声（细胞间表达变异）的基因级估计值在不同化学体系间高度可重复，并确认基因长度和CpG岛启动子是决定噪声强弱的关键生物学因素，而非技术假象。",
+      "org": "University of Edinburgh",
+      "orgs": [
+        "University of Edinburgh"
+      ],
+      "country": "UK",
+      "org_type": "university",
+      "novelty": 6,
+      "significance": 76,
+      "significance_reason": "提供了罕见的、严格控制的跨平台scRNA-seq基准实验，首次系统剥离技术变异并确证基因长度与CpG岛启动子对转录噪声的主导作用；证据扎实（同源样本、双平台、多维度比对、消融式detrending），但未提出新算法/模型，也未拓展至多组织/发育时序/疾病队列等更广生物学场景，属高质量机制性发现而非范式突破。",
+      "tier": "heavy",
+      "verdict": "重磅——用严谨的交叉平台实证确立了转录噪声的核心生物学决定因子，填补了单细胞技术可比性与噪声解释力之间的关键空白。",
+      "claim": "转录噪声的基因特异性模式（尤其受基因全长和CpG岛启动子调控）是真实生物学信号，可在不同scRNA-seq化学平台间稳健复现，与技术偏差无关。",
+      "input": "单细胞核RNA-seq原始测序数据（两种化学平台：Evercode WT和10x Chromium）",
+      "output": "跨平台一致的基因级转录噪声量化值（detrended noise metric）、噪声与基因结构特征（长度、启动子类型）的统计关联",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "dataset",
+        "benchmark"
       ],
       "signals": {
         "hf_upvotes": 0,
@@ -272726,6 +273360,75 @@
       "claim": "针对细菌宏分类学中物种分辨率不足的问题，AmPair首次实现了面向目标属、基于看家基因的引物对全自动设计、排序与全基因组范围的硅内验证。",
       "input": "目标细菌属名称 + 一个或多个候选蛋白编码看家基因（如tuf）",
       "output": "一组经排序的引物对（正向/反向序列），附带覆盖度、多等位基因率、跨物种等位重叠率等量化指标",
+      "sim2real_status": "n/a",
+      "reproducibility": "code-only",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.26.747390",
+      "title": "Anniemap: Vector Search for Viral Short Read Alignment",
+      "authors": [
+        "Daniel Jack van Zyl",
+        "Houriiyah Tegally",
+        "Cheryl Baxter",
+        "Túlio de Oliveira",
+        "Joicymara S. Xavier",
+        "Marcel Dunaiski"
+      ],
+      "published": "2026-08-28",
+      "url": "https://doi.org/10.64898/2026.08.26.747390",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/28/2026.08.26.747390.full.pdf",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "protein_ai",
+      "domain": "ai_science",
+      "routes": [
+        "bci_noninvasive_eeg",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "multimodal-fusion",
+        "benchmark",
+        "open-source"
+      ],
+      "scores": {
+        "relevance": 12.7,
+        "content": 19.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 31.7,
+        "bonus": 0.0,
+        "total": 31.7
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "用二进制向量表示病毒短读段和参考基因组，借助FAISS做近似最近邻搜索来替代传统seed-and-extend比对，显著提升高突变病毒（如HIV、HCV）在低丰度、高错误率场景下的比对灵敏度和速度。",
+      "org": "南非夸祖鲁-纳塔尔大学",
+      "orgs": [
+        "南非夸祖鲁-纳塔尔大学",
+        "CRISP"
+      ],
+      "country": "ZA",
+      "org_type": "university",
+      "novelty": 6,
+      "significance": 52,
+      "significance_reason": "解决了病毒基因组比对中‘高突变导致seed失效’这一长期痛点，实证扎实（多病毒、多读长、模拟+真实数据、vs Bowtie2/BWA-MEM2），但仅限病毒短读场景，未扩展至人类/细菌等复杂基因组，也未解决比对后关键步骤（如indel校正、单倍型重建），属高质量增量改进而非范式突破。",
+      "tier": "worth",
+      "verdict": "扎实增量：首次将高效向量检索系统（FAISS）成功迁移到病毒短读比对任务，在高变异场景下显著优于主流工具，但问题域窄、未开源完整数据与预训练向量、未触及下游分析闭环，尚未达到领域基石级分量。",
+      "claim": "基于向量相似性的近似最近邻搜索比传统seed-and-extend比对方法更能容忍病毒序列的高度变异和测序错误，从而在真实病毒宏基因组数据中实现更高灵敏度的短读比对。",
+      "input": "Illumina短读序列（FASTQ）及病毒参考基因组",
+      "output": "比对位置（染色体+坐标）及置信度得分",
       "sim2real_status": "n/a",
       "reproducibility": "code-only",
       "method_components": [
@@ -306133,6 +306836,74 @@
       }
     },
     {
+      "arxiv_id": "10.64898/2026.08.25.746944",
+      "title": "Knockout and re-expression system for mutant analysis in primary mouse T cells",
+      "authors": [
+        "Vasileios Morfos",
+        "Meredith Frie",
+        "Daniel Peschkov",
+        "Juliana Wagner",
+        "Björn F. Lillemeier",
+        "Joanna Brzostek"
+      ],
+      "published": "2026-08-28",
+      "url": "https://doi.org/10.64898/2026.08.25.746944",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/28/2026.08.25.746944.full.pdf",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "protein_ai",
+      "domain": "ai_science",
+      "routes": [
+        "whole_body_control",
+        "bci_neural_decoding",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 12.5,
+        "content": 17.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 29.5,
+        "bonus": 0.0,
+        "total": 29.5
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "开发了一种在小鼠原代T细胞中同时敲除内源基因并外源表达突变体蛋白的单载体逆转录病毒系统，解决了内源蛋白与外源突变体竞争导致的功能表型被掩盖的问题，支持体外和体内（如抗肿瘤反应）的突变体功能分析。",
+      "org": "斯克里普斯研究所",
+      "orgs": [
+        "斯克里普斯研究所"
+      ],
+      "country": "US",
+      "org_type": "institute",
+      "novelty": 5,
+      "significance": 52,
+      "significance_reason": "属免疫学/基因编辑工具层面的扎实增量：验证了CD3γ/Zap70两个关键靶点，提供了体外+体内表型证据（含TCR复合物整合定量、激酶活性缺失表型显现），但未拓展至人类T细胞、未开源完整质粒图谱与协议细节，也未构建跨靶点通用性基准（仅2个靶点），远未达AlphaFold2级范式突破或ESM级通用模型量级，亦未解决原代细胞编辑长期存在的递送效率、脱靶、异质性等核心瓶颈。",
+      "tier": "worth",
+      "verdict": "工程整合：将成熟逆转录病毒载体、CRISPR敲除与回补表达耦合为统一工作流，在特定免疫学问题上提升了表型解析保真度，但工具泛化性、开源完备性和机制深度有限，暂未形成领域通用基础设施。",
+      "claim": "在原代T细胞中实现内源基因完全敲除与突变体精准回补的一体化操作，可消除内源蛋白干扰，从而真实揭示突变体在蛋白质复合物组装和信号通路中的功能表型。",
+      "input": "原代小鼠T细胞（含或不含Cas9）、靶向gRNA、突变体cDNA序列",
+      "output": "高效率敲除+定点突变体蛋白表达的T细胞群体（含表面TCR整合定量、信号功能读出、体内抗肿瘤响应数据）",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "vector",
+        "dataset",
+        "benchmark"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
       "arxiv_id": "2606.03127",
       "title": "TTT-VLA: Test-Time Latent Prompt Optimization for Vision-Language-Action Models",
       "authors": [
@@ -308743,6 +309514,72 @@
       "method_components": [
         "benchmark",
         "dataset"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.25.746995",
+      "title": "Expanding Reverse Genetics of Positive-Strand RNA Viruses: Optimised Rescue Platforms and Construction of a Novel Fluorescent Reporter Nidovirus",
+      "authors": [
+        "James R. Potter",
+        "Helen Mostafavi",
+        "Alberto A. Amarilla",
+        "Ryan Johnston",
+        "Rhys Parry",
+        "Margus Varjak"
+      ],
+      "published": "2026-08-26",
+      "url": "https://doi.org/10.64898/2026.08.25.746995",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/26/2026.08.25.746995.full.pdf",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "protein_ai",
+      "domain": "ai_science",
+      "routes": [
+        "bci_neural_decoding",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 12.3,
+        "content": 17.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 29.3,
+        "bonus": 0.0,
+        "total": 29.3
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "这篇论文系统比较了三种无细菌的病毒反向遗传学组装方法（CPER、Gibson、ISA），优化了CPER流程，并通过引入昆虫特异性启动子AePUb、锤头状核酶HH Rbz和聚合酶暂停位点，显著提升了多种正链RNA病毒（如蚊媒病毒BinJV、DENV-2、 mesonivirus）在昆虫细胞中的拯救效率，但该策略在哺乳动物细胞中对DENV-2和SARS-CoV-2无效。",
+      "org": "昆士兰大学",
+      "orgs": [
+        "昆士兰大学"
+      ],
+      "country": "AU",
+      "org_type": "university",
+      "novelty": 5,
+      "significance": 52,
+      "significance_reason": "属扎实的实验病毒学增量工作：首次系统横向比较CPER/Gibson/ISA，实证优化AePUb+HH Rbz组合对多类虫媒病毒的拯救增效，但未突破反向遗传学范式（仍属传统DNA→RNA→病毒框架），未涉及AI建模、高通量筛选、结构预测或生成设计等前沿交叉，影响力限于合成病毒学与疫苗/载体开发的小众场景，远低于AlphaFold2/ESM/CENO等分子尺度世界模型级工作。",
+      "tier": "worth",
+      "verdict": "扎实增量：提供了可复现、有对照、跨病毒验证的实验优化方案，但未开辟新范式，也未解决领域长期瓶颈（如哺乳动物细胞通用高效拯救），属于高质量工具改进而非原理突破。",
+      "claim": "在昆虫细胞中，AePUb启动子联合HH核酶可大幅提升正链RNA病毒的CPER拯救效率和速度，且该增效具有宿主细胞和病毒类型依赖性。",
+      "input": "DNA模板（含病毒基因组序列、启动子、核酶、暂停位点等调控元件）",
+      "output": "活病毒颗粒（经细胞感染验证的可复制病毒）",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "dataset",
+        "benchmark"
       ],
       "signals": {
         "hf_upvotes": 0,
@@ -342505,6 +343342,78 @@
       }
     },
     {
+      "arxiv_id": "10.64898/2026.08.25.747147",
+      "title": "nf_xpatial: A Reproducible Framework for Standardized Preprocessing and Clustering of Xenium Data",
+      "authors": [
+        "Luke Potter",
+        "Austyn Trull",
+        "Nilesh Kumar",
+        "Olivia R. Drake",
+        "Margareth Nogueira",
+        "Jamie Peters"
+      ],
+      "published": "2026-08-29",
+      "url": "https://doi.org/10.64898/2026.08.25.747147",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/29/2026.08.25.747147.full.pdf",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "genomics_ai",
+      "domain": "ai_science",
+      "routes": [
+        "vla",
+        "world_model",
+        "bci_neural_decoding",
+        "bci_foundation_models",
+        "bci_noninvasive_eeg",
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "open-source",
+        "benchmark",
+        "dataset"
+      ],
+      "scores": {
+        "relevance": 11.2,
+        "content": 15.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 26.2,
+        "bonus": 0.0,
+        "total": 26.2
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "这篇论文发布了一个叫nf_xpatial的Nextflow流程，专门用来标准化处理10x Xenium空间转录组数据，包括质控、归一化、多样本整合和多种参数组合下的表达/空间联合聚类，目标是解决该领域缺乏可复现、系统化下游分析流程的问题。",
+      "org": "Baylor College of Medicine",
+      "orgs": [
+        "Baylor College of Medicine"
+      ],
+      "country": "US",
+      "org_type": "university",
+      "novelty": 4,
+      "significance": 38,
+      "significance_reason": "属高质量工具链建设，但未提出新算法/模型/生物学发现；仅封装已有方法（如Seurat、SpatialDE风格聚类），无跨平台泛化（仅限Xenium），无新基准验证，未在独立生物问题上展示机制性洞见；显著优于纯文档式流程（如早期STARsolo指南），但远未达基石级——既非首次定义范式（如SpaceRanger早于它），也未解决长期开放难题（如空间去卷积、跨模态对齐）。",
+      "tier": "",
+      "verdict": "工程整合：将现有生物信息学方法封装为可复现Nextflow流程，提升了Xenium数据分析的规范性，但未带来算法、生物学或范式层面的实质性突破。",
+      "claim": "nf_xpatial提供了首个面向Xenium平台、支持系统性参数扫描与空间-表达双模态聚类的可复现、标准化Nextflow分析框架。",
+      "input": "原始10x Xenium输出文件（含基因表达矩阵、坐标、细胞轮廓等）",
+      "output": "标准化后的表达矩阵、多分辨率聚类标签（含空间约束聚类结果）、参数扫描报告",
+      "sim2real_status": "n/a",
+      "reproducibility": "code-only",
+      "method_components": [
+        "pipeline",
+        "benchmark",
+        "dataset"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
       "arxiv_id": "10.64898/2026.05.29.728783",
       "title": "The Drosophila melanogaster Genetic Reference Panel, Version 3 (DGRP3)",
       "authors": [
@@ -362258,6 +363167,69 @@
         "model",
         "policy",
         "simulator"
+      ],
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      }
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.28.747936",
+      "title": "Unravelling genomic and functional traits of two biocontrol and plant growth-promoting Pseudomonas endophytes",
+      "authors": [
+        "Gustavo Santoyo",
+        "Aurora Flores",
+        "Hugo G. Castelán‐Sánchez",
+        "Valeria Valenzuela Ruíz",
+        "Sergio de los Santos‐Villalobos",
+        "Debasis Mitra"
+      ],
+      "published": "2026-08-29",
+      "url": "https://doi.org/10.64898/2026.08.28.747936",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/29/2026.08.28.747936.full.pdf",
+      "source": "daily",
+      "venue": "",
+      "thumb": "",
+      "best_route": "genomics_ai",
+      "domain": "ai_science",
+      "routes": [
+        "protein_ai",
+        "genomics_ai"
+      ],
+      "tags": [
+        "dataset",
+        "benchmark"
+      ],
+      "scores": {
+        "relevance": 9.2,
+        "content": 14.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 23.2,
+        "bonus": 0.0,
+        "total": 23.2
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "tldr": "这篇论文对两种从豆类和玉米根部分离的假单胞菌内生菌R11F和R19M做了全基因组测序+功能基因挖掘+体外抑菌实验+植物接种验证，确认它们属于同一种（P. palleroniana），具备促生（固氮、解磷、产吲哚/铁载体）、抗病（抑制3种重要植物病原真菌）、耐盐和潜在生物修复能力，且促生效果在番茄/小麦/鹰嘴豆中呈宿主依赖性。",
+      "org": "unknown",
+      "orgs": [],
+      "country": "Other",
+      "org_type": "university",
+      "novelty": 4,
+      "significance": 38,
+      "significance_reason": "属典型微生物资源挖掘型工作：完成两个新分离株的标准化组学-表型整合分析，但未构建新模型、未提出普适性机制框架、未解决领域长期开放问题（如内生定殖动态预测、BGC产物结构验证、田间稳定性验证）；所有功能均属已知类别（解磷/产氰/抑菌等），且未超越已有明星菌株（如P. fluorescens F113或P. protegens Pf-5）的综合性能；缺乏跨实验室可复现的定量基准（如统一接种剂量、土壤类型、病原挑战条件），仅报告‘显著抑制’而无IC50或效应浓度梯度。",
+      "tier": "",
+      "verdict": "暂时不用看：是扎实但常规的农业微生物资源描述性研究，无算法/模型/范式创新，也未提供可迁移的计算工具或机制洞见，对AI×生物交叉领域的实质性推进为零。",
+      "claim": "Pseudomonas palleroniana 菌株 R11F 和 R19M 是具有多重功能（促生、生防、胁迫适应、生物修复）的天然内生菌，其基因组特征与实验证据高度一致，且功能互补。",
+      "input": "两个细菌分离株的全基因组序列、16S rRNA序列、ANI/GGDC计算结果、体外功能测定数据（解磷/产铁载体/吲哚/无氮生长）、抑菌圈实验数据、植物接种后生物量/株高/根长等表型数据",
+      "output": "菌株分类地位、功能基因注释谱（含17–18个BGCs）、体外功能验证结果、多宿主植物促生效果排序、病原抑制谱",
+      "sim2real_status": "n/a",
+      "reproducibility": "project-page",
+      "method_components": [
+        "dataset",
+        "benchmark"
       ],
       "signals": {
         "hf_upvotes": 0,
