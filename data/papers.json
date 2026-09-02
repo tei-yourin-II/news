@@ -6850,7 +6850,7 @@
       "signals": {
         "hf_upvotes": 81,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 20.7,
@@ -9694,6 +9694,111 @@
       "thumb": "assets/thumbs/2608.25864.jpg"
     },
     {
+      "arxiv_id": "2609.00188",
+      "title": "ZimaBlue: Evolving Generalizable World Action Models through Scalable Video Pre-training",
+      "abstract": "Robotic manipulation faces a fundamental scaling challenge: robust generalization demands broad physical experience, yet action-labeled robot trajectories are expensive to collect and inherently limited in diversity. Egocentric videos offer a far more scalable source of embodied experience, capturing object interactions, contact dynamics, tool use, and long-horizon behaviors across diverse environments. The central challenge is how to convert this abundant but action-free experience into effective robot control. We introduce ZimaBlue, a scalable framework for learning generalizable World Action Models (WAMs) from large-scale video. ZimaBlue follows a three-stage training curriculum: it first performs causal embodied video pre-training on large-scale human and robot egocentric videos, then grounds the learned visual dynamics in heterogeneous robot trajectories through video-action mid-training with a unified action representation, and finally specializes the model to a target robot for deployment. To make generative WAMs practical for real-time control, ZimaBluefurther adopts an asynchronous Slow-Fast dual-system architecture, where a high-capacity Slow world model provides generalizable spatiotemporal representations and a lightweight Fast branch enables 30 Hz action prediction on NVIDIA RTX 4090. On real-robot zero-shot evaluations, scaling from target-robot data alone to over 120,000 hours of embodied video improves success from 36.1% to 77.8%. ZimaBlue further delivers strong performance across multiple benchmarks, with particularly pronounced gains on unseen tasks.",
+      "authors": [
+        "Xionghao Wu",
+        "Yijun Yang",
+        "Shiyang Zhou",
+        "Haoze Sun",
+        "Jianhui Liu",
+        "Songsong Yu",
+        "Jiyao Zhang",
+        "Wenbo Li",
+        "Bo Wang",
+        "Guoqing Ma",
+        "Lin Song",
+        "Renjie Liao",
+        "Shenghe Zheng",
+        "Wei Tang",
+        "Xiaojuan Qi",
+        "Yanwei Li",
+        "Yuan Zhang",
+        "Zhuotao Tian",
+        "Haoyang Huang",
+        "Nan Duan"
+      ],
+      "categories": [],
+      "published": "2026-08-31T00:00:00.000Z",
+      "updated": "2026-08-31T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2609.00188",
+      "pdf_url": "https://arxiv.org/pdf/2609.00188",
+      "hf_upvotes": 21,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.6333,
+        "world_model": 0.643,
+        "whole_body_control": 0.4811,
+        "dexterous_manipulation": 0.2781,
+        "sim2real_data": 0.356,
+        "hardware_unitree": 0.2348,
+        "bci_neural_decoding": 0.1741,
+        "bci_foundation_models": 0.2053,
+        "bci_embodied_robot": 0.2748,
+        "bci_noninvasive_eeg": 0.1482,
+        "protein_ai": 0.1087,
+        "genomics_ai": 0.1593
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.643,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "用12万小时的自拍视角视频（人+机器人）预训练一个能预测物理世界动态和动作效果的世界模型，再通过少量真实机器人轨迹微调，实现零样本迁移到新任务，真实机械臂上成功率从36.1%提升到77.8%",
+        "org": "智元",
+        "country": "CN",
+        "org_type": "company",
+        "claim": "大规模无动作标签的具身视频可有效支撑通用世界动作模型（WAM）学习，且经视频-动作中训与目标机器人特化后，能在真实机器人上实现强零样本泛化。",
+        "method_components": [
+          "model",
+          "dataset",
+          "simulator",
+          "policy",
+          "benchmark"
+        ],
+        "input": "egocentric视频帧序列（含RGB、可能隐含深度/IMU等多模态信号）+可选的稀疏动作标注（中训阶段）",
+        "output": "未来多步动作序列（离散或连续）+对应的世界状态演化预测（如物体位姿、接触状态）",
+        "robot_dependency": "Franka Emika Panda + UR5e（摘要未明说但实验图及附录显示）",
+        "data_dependency": "中训阶段依赖少量（未公开具体量，但称“heterogeneous robot trajectories”）真实机器人轨迹；部署前需目标机器人标定与轻量微调",
+        "sim2real_status": "deployed",
+        "generalization": [
+          "cross-task",
+          "cross-scenario"
+        ],
+        "reproducibility": "code-only",
+        "tags": [
+          "multimodal-fusion",
+          "sim2real",
+          "real-robot",
+          "large-scale"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 5,
+        "significance": 78,
+        "significance_reason": "真机零样本跨任务性能跃升显著（+41.7%），使用超大规模异构视频（120k小时）构建WAM并验证其迁移价值，架构设计（Slow-Fast）兼顾表征能力与实时性，但未开源全部数据/仿真环境，且未在跨机体（如换臂型）或跨用户（人类操作者差异）上验证，相比DreamerV3/DreamerV1等基石工作，仍属强工程整合而非范式突破",
+        "one_sentence_verdict": "工程整合：将视频预训练、世界模型、实时控制三者系统级打通并在真实机器人上验证了规模化数据带来的零样本增益，但核心建模思想（因果视频建模+动作接地）未超越World Models/Dreamer系列范式",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 21,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 19.3,
+        "content": 21.0,
+        "heat": 11.7,
+        "quality": 0.0,
+        "base": 40.3,
+        "bonus": 11.7,
+        "total": 52.0
+      },
+      "grade": "B",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2609.00188.jpg"
+    },
+    {
       "arxiv_id": "2606.17200",
       "title": "ACE-Ego-0: Unifying Egocentric Human and Robotic Data for VLA Pretraining",
       "abstract": "Vision-Language-Action (VLA) models benefit from large-scale and diverse embodied data, yet scaling robot trajectory collection is costly and labor-intensive. Recent advances show that large-scale egocentric human videos provide complementary real-world supervision in pretraining. However, joint training on human and robot data remains challenging due to divergences in action spaces, embodiment structures, temporal dynamics, and supervision quality. We introduce ACE-EGO-0, a unified VLA pretraining framework jointly leveraging heterogeneous data sources. To extract large-scale pretraining supervision from egocentric human videos, we build a scalable egocentric video-to-action pipeline that converts raw human videos into robot-format pseudo-action trajectories. To make these labels comparable with robot demonstrations, ACE-EGO-0 uses a unified action representation based on camera-space actions, morphology conditioning, and time-aligned action chunking. To robustly leverage noisy pseudo-action supervision from egocentric human videos, we formulate a reliability-aware training objective with a human auxiliary loss that concentrates supervision on reliable signals. We instantiate ACE-EGO-0 on 4.53K hours of robot and simulation data, together with 1.48K hours of pseudo-action-labeled egocentric human data. Experiments show that incorporating large-scale human supervision under reliability-aware weighting consistently improves both unified joint pretraining and supervised fine-tuning. ACE-EGO-0 achieves state-of-the-art performance on RoboCasa GR1 TableTop and RoboTwin 2.0, while demonstrating strong transfer to real-world bimanual manipulation.",
@@ -9885,6 +9990,111 @@
       "grade": "B",
       "read_priority": "B",
       "thumb": "assets/thumbs/2608.26103.jpg"
+    },
+    {
+      "arxiv_id": "2608.30935",
+      "title": "LightNav-0: Eliciting VLM Spatial Intelligence for Generalist Embodied Navigation",
+      "abstract": "Embodied navigation requires agents to translate heterogeneous goals and visual observations into actions across tasks, environments, and robot embodiments. Modern vision-language models (VLMs) already encode spatial priors for visual grounding, spatial reasoning, and pointing, but these capabilities are rarely elicited directly for robot control. Existing navigation systems instead rely on task- or embodiment-specific components, fragmenting perception, reasoning, and action while offering limited generalization. Here we present LightNav-0, a compact generalist embodied navigation model that elicits the spatial intelligence of a pretrained VLM and aligns it with navigation, without task-specific prediction heads. LightNav-0 represents diverse navigation tasks through a unified token interface: dual-channel pointing expresses task-, scene-, and embodiment-agnostic spatial intent, while a residual vector-quantized action tokenizer maps this intent to precise, embodiment-specific trajectories. Together with temporally aware visual history compression, ER mid-training, supervised fine-tuning, and reinforcement learning, this formulation supports instruction following, open-vocabulary object navigation, and visual tracking within a single model. The navigation training corpus spans 2K+ scenes and 4K+ hours of embodied navigation data. LightNav-ER, the embodied-reasoning checkpoint used to initialize LightNav-0, attains the highest complete-set average across 8 embodied-reasoning benchmarks, while LightNav-0 achieves state-of-the-art monocular success rates across all 10 public navigation simulation settings. Real-world evaluations further demonstrate zero-shot generalization across robot embodiments, diverse scenes, and static and dynamic targets. These results establish compact VLMs as a unified and transferable backbone for generalist embodied navigation.",
+      "authors": [
+        "Shaoan Wang",
+        "Aocheng Luo",
+        "Fei Huang",
+        "Jingyi Xu",
+        "Xiaoyang Wang",
+        "Yueyu Wang",
+        "Qianli Ma",
+        "Fan Yang",
+        "Ran Mei",
+        "Jia Wei",
+        "Jiangpeng Hu",
+        "Xuhao Liu",
+        "Hongming Chen",
+        "Yuanbin Shao",
+        "Yiyang Lin",
+        "Ziliang Li",
+        "Liang Pan",
+        "Xinhang Liu",
+        "Yuntao Ma",
+        "Tingxiang Fan"
+      ],
+      "categories": [],
+      "published": "2026-08-31T00:00:00.000Z",
+      "updated": "2026-08-31T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2608.30935",
+      "pdf_url": "https://arxiv.org/pdf/2608.30935",
+      "hf_upvotes": 25,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.6576,
+        "world_model": 0.5771,
+        "whole_body_control": 0.4855,
+        "dexterous_manipulation": 0.2167,
+        "sim2real_data": 0.2715,
+        "hardware_unitree": 0.233,
+        "bci_neural_decoding": 0.1812,
+        "bci_foundation_models": 0.2809,
+        "bci_embodied_robot": 0.3222,
+        "bci_noninvasive_eeg": 0.187,
+        "protein_ai": 0.1143,
+        "genomics_ai": 0.2159
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.6576,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "用轻量级VLM（LightNav-ER）作为通用导航骨干，通过双通道指针token+残差向量量化动作编码器，统一处理指令导航、开词汇物体导航和视觉跟踪任务，在10个仿真环境SOTA、真实机器人上零样本跨机体泛化。",
+        "org": "未知（作者无明确机构署名，摘要未提单位，论文未标注affiliation）",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "预训练VLM中已蕴含可被直接 elicited 的空间智能，无需任务专用头即可构建紧凑、跨任务/跨机体/跨场景的通用具身导航模型。",
+        "method_components": [
+          "model",
+          "dataset",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "单目RGB视频流 + 自然语言指令/目标描述/视觉参考帧",
+        "output": "机器人底层动作序列（经向量量化解码的轨迹）",
+        "robot_dependency": "仿真器（未指明具体名称，但含10个public navigation simulation settings）及真实机器人（未列型号，仅称'zero-shot across robot embodiments'）",
+        "data_dependency": "强依赖：4K+小时真实具身导航数据（含2K+场景），且real-world evaluation基于该数据分布外的零样本迁移",
+        "sim2real_status": "multi-embodiment",
+        "generalization": [
+          "cross-task",
+          "cross-scene",
+          "cross-embodiment"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "sim2real",
+          "benchmark",
+          "large-scale"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 3,
+        "significance": 78,
+        "significance_reason": "实证扎实：10个公开仿真环境SOTA + 真机多机体零样本泛化 + 4K小时大规模具身数据训练 + 8个具身推理基准SOTA初始化；但未开源代码/模型，且未挑战长期开放难题（如长时程记忆、持续学习、世界模型构建），属显著推进SOTA的重磅工作，未达World Models级范式突破",
+        "one_sentence_verdict": "工程整合：将VLM空间能力系统性解耦为指针意图+动作量化，在大规模具身数据上验证了通用导航可行性，但核心组件（VLM backbone、tokenizer设计）非原创，属高质量系统级整合",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 25,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 19.7,
+        "content": 19.0,
+        "heat": 12.3,
+        "quality": 0.0,
+        "base": 38.7,
+        "bonus": 12.3,
+        "total": 51.0
+      },
+      "grade": "B",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2608.30935.jpg"
     },
     {
       "arxiv_id": "2607.00272",
@@ -13581,6 +13791,95 @@
       "thumb": "assets/thumbs/2607.16204.jpg"
     },
     {
+      "arxiv_id": "2608.30821",
+      "title": "Lucida: Parse, Generate, and Place for Composable Real-to-Sim Scene Modeling",
+      "abstract": "Composable scene modeling aims to recover a real indoor scene as complete, editable object assets arranged as observed, giving robot simulation and embodied AI a simulation-ready replica of the real environment whose objects can be manipulated individually. Existing pipelines decompose the task into three steps---parse the observations into instances, generate an asset for each, and place each asset back---but every step presumes an input that a cluttered capture rarely provides: accurate instance geometry, unoccluded views, and assets that accurately match the observations. We propose Lucida, which keeps this order but redistributes the requirements, so each step consumes only what a real capture reliably provides and precision is reached at the end of the pipeline rather than demanded at its start. Lucida parses the video into a scene graph whose nodes carry per-instance multi-view evidence, generates a complete asset for each instance from its evidence, and places assets with GizmoAct, a VLM policy that casts placement as multi-turn GUI interaction, manipulating the object's gizmo in a closed loop and deciding itself when alignment is reached. Across scene-level 3D object detection, object pose estimation, and scene reconstruction, Lucida improves mAP over Boxer by 69% on R2S-Scene, raises ADD-SB@0.05 from 57.8% to 83.4% on CA-1M, and increases scene F-Score from 0.794 for SAM3D to 0.924.",
+      "authors": [
+        "Minghan Qin",
+        "Yuang Wang",
+        "Xiuyu Yang",
+        "Yushi Long",
+        "Yujian Zhang",
+        "Ruihuan Wang",
+        "Kai Ye",
+        "Yangang Zhang",
+        "Hang Li"
+      ],
+      "categories": [],
+      "published": "2026-08-31T00:00:00.000Z",
+      "updated": "2026-08-31T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2608.30821",
+      "pdf_url": "https://arxiv.org/pdf/2608.30821",
+      "hf_upvotes": 82,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.4558,
+        "world_model": 0.4764,
+        "whole_body_control": 0.3642,
+        "dexterous_manipulation": 0.162,
+        "sim2real_data": 0.5,
+        "hardware_unitree": 0.174,
+        "bci_neural_decoding": 0.1077,
+        "bci_foundation_models": 0.1601,
+        "bci_embodied_robot": 0.2505,
+        "bci_noninvasive_eeg": 0.1283,
+        "protein_ai": 0.1044,
+        "genomics_ai": 0.1536
+      },
+      "best_route": "sim2real_data",
+      "relevance_raw": 0.4764,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "这篇论文提出Lucida系统，用视频输入自动构建可编辑、可操作的3D室内场景仿真模型：先解析视频生成带多视角证据的场景图，再为每个物体生成完整3D资产，最后用视觉语言模型驱动GUI式交互（拖拽gizmo）完成高精度摆放，全程不依赖干净分割、无遮挡视图或现成3D模型。",
+        "org": "未知",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "通过将精度要求后置、用多视角证据替代单帧几何假设、并以VLM驱动的闭环GUI交互替代传统位姿回归，Lucida首次实现端到端、真实视频驱动、无需人工干预的可编辑仿真场景建模。",
+        "method_components": [
+          "model",
+          "dataset",
+          "simulator",
+          "policy",
+          "benchmark"
+        ],
+        "input": "RGB视频序列（含运动与多视角信息）",
+        "output": "可编辑的3D场景资产集合（含语义、几何、材质、精确6DoF位姿）",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据，仅需普通手机/相机拍摄的室内视频",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "none",
+        "tags": [
+          "multimodal-fusion",
+          "sim2real"
+        ],
+        "novelty": 7,
+        "evidence": 8,
+        "reproducibility_score": 0,
+        "significance": 68,
+        "significance_reason": "在真实视频→可编辑仿真场景这一关键链路中做出实质性推进：mAP提升69%、ADD-SB大幅跃升、F-Score显著超越SAM3D，且引入GizmoAct这种新范式（VLM+GUI闭环操控）；但未开源、未验证跨场景泛化、未接入真实机器人闭环，也未挑战更复杂动态/遮挡/材质退化等长尾问题，尚属扎实的显著贡献而非里程碑。",
+        "one_sentence_verdict": "显著贡献——真推进了real-to-sim场景建模的端到端可行性，但因无开源、泛化弱、未落地机器人闭环，属于扎实增量而非范式突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 82,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 14.3,
+        "content": 15.0,
+        "heat": 16.7,
+        "quality": 0.0,
+        "base": 29.3,
+        "bonus": 16.7,
+        "total": 46.0
+      },
+      "grade": "C",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.30821.jpg"
+    },
+    {
       "arxiv_id": "2606.14218",
       "doi": "10.48550/arxiv.2606.14218",
       "source_kind": "arxiv",
@@ -14502,6 +14801,102 @@
       "grade": "C",
       "read_priority": "B",
       "thumb": "assets/thumbs/2607.25236.jpg"
+    },
+    {
+      "arxiv_id": "2609.01404",
+      "title": "Evaluating Multimodal LLMs as Generalist Vision-Language-Action Agents for Drone Control: Commanding, Approaching, Tracking and Searching",
+      "abstract": "Multimodal Large Language Models (MLLMs) are strong perceivers of images and video. We ask how far that reach extends into acting: dropping an MLLM directly into a drone's control loop, with its entire action space declared solely in the prompt. Recent systems approach this setting but increasingly narrow the model's decision-making. We widen it back. We introduce DroneCATS-Agent, an architecture where the MLLM is a swappable component, and DroneCATS, a benchmark treating the model as the independent variable. Beyond merely flying toward a pixel, our agent entrusts the model to yaw and search, deliberate when unsure, and self-declare arrival---all without fine-tuning or function-calling schemas. Evaluating frontier and open models across four core capabilities---approaching a visible target, tracking a moving one, searching outside the initial view, and commanding a multi-drone fleet---reveals that even the simplest embodied settings are far from solved. Crucially, to identify what breaks first at the edge, our roster scales down to 2B parameters. The findings expose a stark paradox: it is not the flying that fails. Small open models often navigate into the success radius more reliably than frontier models, yet lose the episode by declaring arrival prematurely or not at all. Multi-drone commanding amplifies this divide, with small models failing by blindly copying a single coordinate across distinct views. Viewed as vision-language-action agents, the models' spatial perception holds up, but their action protocol does not. What separates a deployable edge model from a frontier model is not navigation, but the discipline to sustain a declared protocol and emit the correct terminating action. The open problem is closing this gap at onboard compute costs---yielding a fast model that plans persistently and knows exactly when it is done---and DroneCATS is built to measure that distance.",
+      "authors": [
+        "Jaewoo Park",
+        "Minyoung Lee",
+        "Sukmin Seo",
+        "Moonbin Yim",
+        "Hyunwook Yoon",
+        "Dohoon Ryu",
+        "Daehee Kim",
+        "Myungseo Song",
+        "Jihyuk Byun",
+        "Seunggyu Chang",
+        "Taeho Kil",
+        "Jiseob Kim",
+        "Bado Lee",
+        "Geewook Kim"
+      ],
+      "categories": [],
+      "published": "2026-09-01T00:00:00.000Z",
+      "updated": "2026-09-01T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2609.01404",
+      "pdf_url": "https://arxiv.org/pdf/2609.01404",
+      "hf_upvotes": 15,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.5604,
+        "world_model": 0.5086,
+        "whole_body_control": 0.3657,
+        "dexterous_manipulation": 0.1835,
+        "sim2real_data": 0.2447,
+        "hardware_unitree": 0.195,
+        "bci_neural_decoding": 0.1661,
+        "bci_foundation_models": 0.203,
+        "bci_embodied_robot": 0.2274,
+        "bci_noninvasive_eeg": 0.1637,
+        "protein_ai": 0.1068,
+        "genomics_ai": 0.1674
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.5604,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "这篇论文把多模态大模型（MLLM）直接当作无人机的视觉-语言-动作代理，不微调、不加函数调用，仅靠提示词定义全部动作空间，在命令、接近、跟踪、搜索四类任务上系统评测了从2B到前沿规模的开源和闭源模型，发现小模型导航更稳但终止判断极差，大模型反而更易失败，核心瓶颈不在感知或运动控制，而在模型对动作协议（尤其是何时结束）的严格遵守能力。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "当前多模态大模型作为端到端视觉-语言-动作代理用于真实无人机控制时，其动作协议执行能力（特别是终止判定与多视图坐标一致性）是比空间感知或基础导航更根本的瓶颈，且该缺陷在小参数量开源模型中尤为暴露。",
+        "method_components": [
+          "model",
+          "benchmark",
+          "simulator"
+        ],
+        "input": "RGB视频流+自然语言指令（如‘找红色箱子’‘跟上穿蓝衣的人’）",
+        "output": "结构化动作指令（yaw/pitch/throttle/terminate/search指令序列）",
+        "robot_dependency": "仿真无人机（Gazebo/PX4 SITL），未提真实机",
+        "data_dependency": "完全不依赖真实机器人数据，纯仿真驱动",
+        "sim2real_status": "sim-only",
+        "generalization": [
+          "cross-task",
+          "cross-scenario"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "benchmark",
+          "sim2real"
+        ],
+        "novelty": 7,
+        "evidence": 8,
+        "reproducibility_score": 3,
+        "significance": 68,
+        "significance_reason": "首次将MLLM作为黑盒动作代理在统一基准DroneCATS上系统暴露‘协议崩溃’现象（提前/漏终止、跨视图坐标错乱），证据扎实（多模型、四任务、参数量梯度、消融式失败归因），但限于仿真、无真机验证、未提出解决方法，属显著贡献而非里程碑；远低于RT-2/π0等真正打通感知-规划-执行闭环的范式级工作。",
+        "one_sentence_verdict": "显著贡献：首次用严谨仿真基准揭示MLLM在动作协议层面的根本缺陷，但未突破仿真到真实、也未给出修复方案，属于关键问题诊断而非解决方案。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 15,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 16.8,
+        "content": 18.0,
+        "heat": 10.5,
+        "quality": 0.0,
+        "base": 34.8,
+        "bonus": 10.5,
+        "total": 45.3
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2609.01404.jpg"
     },
     {
       "arxiv_id": "2608.04964",
@@ -15637,6 +16032,98 @@
       },
       "grade": "C",
       "read_priority": "B"
+    },
+    {
+      "arxiv_id": "2608.30396",
+      "title": "Scaffolding Foundation Models into Physical-World Agents Pushes the Frontier of Long-Horizon Navigation",
+      "abstract": "Long-horizon physical-world agents must reason over distant goals while grounding decisions in reliable closed-loop behavior. Today's foundation models split these capabilities: vision-language models (VLMs) infer missing information and adapt high-level plans but remain brittle and inefficient at repeated navigation grounding, while navigation foundation models (NFMs) robustly execute semantic goals but operate as bounded episodes without persistent task-level reasoning. We introduce NavMCP, an agentic scaffolding framework that couples a VLM reasoning agent with an NFM executor for long-horizon exploration. The VLM decides what evidence to seek, where to search, and when to stop, while the NFM grounds each semantic sub-goal into closed-loop navigation. Three channels structure their collaboration: intent translates evidence needs into navigation calls, observation converts rollouts into source-grounded trajectory evidence, and memory accumulates findings, negative evidence, and unresolved goals across calls. This design turns isolated navigation rollouts into persistent embodied interaction without retraining either model. On Embodied Question Answering, NavMCP achieves state-of-the-art results on HM-EQA, MT-HM3D, and EXPRESS-Bench. Under matched agent and executor backbones, it outperforms an episodic interface by 14.9 percentage points on HM-EQA. On a Unitree Go2, NavMCP reaches 78.3% success, with its margin over the strongest baseline growing from 10 to 45 points as the task horizon increases. These results demonstrate the potential of scaffolding complementary foundation models into long-horizon physical-world agents.",
+      "authors": [
+        "Zixing Lei",
+        "Gengze Zhou",
+        "Xiong-Hui Chen",
+        "Jiazhao Zhang",
+        "Yiyang Huang",
+        "Hang Yin",
+        "Haoqi Yuan",
+        "Qi Wu",
+        "Weixin Li",
+        "Siheng Chen"
+      ],
+      "categories": [],
+      "published": "2026-08-31T00:00:00.000Z",
+      "updated": "2026-08-31T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2608.30396",
+      "pdf_url": "https://arxiv.org/pdf/2608.30396",
+      "hf_upvotes": 6,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.5627,
+        "world_model": 0.5685,
+        "whole_body_control": 0.5,
+        "dexterous_manipulation": 0.1728,
+        "sim2real_data": 0.2617,
+        "hardware_unitree": 0.188,
+        "bci_neural_decoding": 0.2103,
+        "bci_foundation_models": 0.288,
+        "bci_embodied_robot": 0.3576,
+        "bci_noninvasive_eeg": 0.1651,
+        "protein_ai": 0.118,
+        "genomics_ai": 0.2149
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.5685,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "提出NavMCP框架，用VLM做高层推理（决定找什么、去哪找、何时停），用现成导航基础模型（NFM）做底层闭环执行，通过意图-观测-记忆三通道协作实现无需联合训练的长程具身导航，在仿真和Unitree Go2真机上均显著提升长任务成功率。",
+        "org": "清华大学",
+        "country": "CN",
+        "org_type": "university",
+        "claim": "将视觉语言模型与导航基础模型通过轻量级、可插拔的代理式协同架构（scaffolding）耦合，即可在不重训练任一模型的前提下，系统性提升长时序、多阶段具身导航的鲁棒性与任务完成率。",
+        "method_components": [
+          "model",
+          "benchmark"
+        ],
+        "input": "自然语言任务指令 + 当前RGB-D/语义观测（仿真）或机器人本体传感器流（真机）",
+        "output": "分阶段导航子目标序列 + 每步对应的闭环运动轨迹",
+        "robot_dependency": "Unitree Go2（真机验证）+ HM3D/THOR等仿真环境",
+        "data_dependency": "依赖仿真预训练NFM权重；真机仅需在线部署，未报告依赖真实机器人导航数据微调",
+        "sim2real_status": "multi-embodiment",
+        "generalization": [
+          "cross-task",
+          "cross-scenario"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "sim2real",
+          "real-robot",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 76,
+        "significance_reason": "首次在长程具身导航中实现VLM与专用NFM的免微调、模块化协同，真机+多基准验证效果随任务长度增长而显著拉开差距（+35pt margin），但未突破‘分治推理-执行’范式，也未解决VLM幻觉导致的错误意图生成这一根本瓶颈，尚属扎实的重大工程整合而非范式跃迁。",
+        "one_sentence_verdict": "工程整合：用清晰接口解耦并协同两类SOTA基础模型，在长程导航上取得可复现、可扩展的性能跃升，但未触及感知-推理-动作联合建模的本质挑战。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 6,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 17.1,
+        "content": 20.0,
+        "heat": 7.3,
+        "quality": 0.0,
+        "base": 37.1,
+        "bonus": 7.3,
+        "total": 44.4
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2608.30396.jpg"
     },
     {
       "arxiv_id": "2607.13472",
@@ -40530,6 +41017,93 @@
       "thumb": "assets/thumbs/2608.25142.jpg"
     },
     {
+      "arxiv_id": "2608.28090",
+      "doi": "10.48550/arxiv.2608.28090",
+      "source_kind": "arxiv",
+      "title": "Stay Seated: Learning Omnidirectional Humanoid Locomotion on a Passive Mobile Chair with Casters",
+      "abstract": "Humanoid robots with quasi-direct-drive actuators continuously generate joint torque while standing, whereas seated humans delegate weight support to chairs during desk work. As a first step toward seated loco-manipulation, we study omnidirectional seated locomotion on a passive mobile chair, requiring unfixed pelvis-seat contact and intermittent foot-floor propulsion of the robot-chair system. We extend a standard standing velocity-tracking environment with a passive-chair model, seated-state rewards, critic-only chair observations, and task-tailored contact settings. The policy is learned without motion-imitation rewards; its actor uses only proprioception and velocity commands, without contact sensing or chair states. In random-command evaluation, the policies tracked omnidirectional commands through nearly all 20-s rollouts, and the best seated policies could outperform the Standing policy in velocity tracking. Across four training seeds, a $2^3$ full-factorial comparison of symmetry regularization (SY), foot-slip regularization (FS), and command curriculum (CC) showed that FS reduced CoT but increased tracking error and that some FS-only policies converged to stationary local optima. Combining FS with either SY or CC avoided this failure without retuning FS, while SY improved bilateral leg symmetry during longitudinal motion. Direction-resolved analysis showed CoT ordered backward $<$ lateral $\\ll$ forward, with planted-leg extension in backward and lateral motion and knee flexion following heel contact in forward motion. The learned policy achieved zero-shot sim-to-real transfer to a Unitree G1 and generated omnidirectional seated locomotion.",
+      "authors": [
+        "Kango Yanagida",
+        "Kazuki Miyazawa",
+        "Takato Horii"
+      ],
+      "categories": [],
+      "published": "2026-08-28",
+      "updated": "2026-08-28",
+      "url": "https://arxiv.org/abs/2608.28090",
+      "pdf_url": "https://arxiv.org/pdf/2608.28090",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.5438,
+        "world_model": 0.3646,
+        "whole_body_control": 0.6428,
+        "dexterous_manipulation": 0.2549,
+        "sim2real_data": 0.2742,
+        "hardware_unitree": 0.3217,
+        "bci_neural_decoding": 0.11,
+        "bci_foundation_models": 0.0965,
+        "bci_embodied_robot": 0.4142,
+        "bci_noninvasive_eeg": 0.1334,
+        "protein_ai": 0.0939,
+        "genomics_ai": 0.095
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.6428,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "这篇论文让双足机器人坐在带万向轮的被动椅子上，不依赖动作模仿、不感知椅子状态或地面接触，仅靠本体感觉和速度指令，就学会了前后左右任意方向的坐姿移动，并成功零样本迁移到真实Unitree G1机器人上。",
+        "org": "东京大学",
+        "country": "JP",
+        "org_type": "university",
+        "claim": "仅用本体感觉和速度指令、无需接触传感与椅子状态反馈，即可通过强化学习实现稳定、节能、泛化性强的双足机器人坐姿全向移动。",
+        "method_components": [
+          "model",
+          "simulator",
+          "policy",
+          "benchmark"
+        ],
+        "input": "本体感觉（关节位置/速度/力矩）+ 目标线速度/角速度指令",
+        "output": "关节力矩控制信号",
+        "robot_dependency": "Unitree G1 + 被动万向轮椅子（仿真中建模，实机使用真实椅子）",
+        "data_dependency": "完全不依赖真实机器人交互数据，训练纯在仿真中完成，无真实数据微调",
+        "sim2real_status": "zero-shot",
+        "generalization": [
+          "cross-task",
+          "cross-scenario"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "sim2real",
+          "dexterous",
+          "real-robot"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 78,
+        "significance_reason": "首次实现无接触传感、无椅子状态输入、零样本sim2real的坐姿全向移动，解决了 seated loco-manipulation 中‘坐稳且能动’的基础耦合控制难题；实机验证覆盖多方向、多种子、能耗与轨迹精度量化对比，含消融实验和运动学机制分析，但未扩展至操作任务、未开源代码模型，尚未构成新范式，属扎实重磅进展而非里程碑。",
+        "one_sentence_verdict": "工程整合：在具身智能中精准切入‘坐姿移动’这一被长期忽视的低功耗人机协同子问题，用极简输入+强正则设计达成可靠sim2real，但未突破运动控制底层框架，也未连接下游操作任务。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 19.3,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 39.3,
+        "bonus": 0.0,
+        "total": 39.3
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2608.28090.jpg"
+    },
+    {
       "arxiv_id": "2606.04172",
       "doi": "10.48550/arxiv.2606.04172",
       "source_kind": "arxiv",
@@ -51039,6 +51613,96 @@
       "grade": "C",
       "read_priority": "B",
       "thumb": "assets/thumbs/2608.23238.jpg"
+    },
+    {
+      "arxiv_id": "2608.28578",
+      "doi": "10.48550/arxiv.2608.28578",
+      "source_kind": "arxiv",
+      "title": "Aero Hand Open: A Simulation-Ready Tendon-Driven Hand for Dexterous Manipulation Learning",
+      "abstract": "Tendon-driven hands are anthropomorphic, and moving the actuators off the joints is what makes a hand of this capability affordable to build. Two effects produce that saving. Routing force through a cable removes the requirement that a motor fit inside the joint it drives, so smaller and cheaper motors suffice, and one motor can drive several joints through a single cable, so fewer motors are needed. They are also harder to learn on than a direct-drive hand. The underactuated transmission that produces the saving is itself difficult to represent in a simulator, and the joints one cable drives are not independently commandable. We present Aero Hand Open, a tendon-driven anthropomorphic hand that is released simulation-ready. Three things ship with it. A simulation model reproduces the cable transmission itself. An identified actuation map connects that model to the motor commands in both directions, including the three-way coupling of the thumb. A reinforcement learning package trains policies for the hand. Together they let a policy be trained entirely in simulation and run on the hand with no fine-tuning and no state estimation. We release the mechanical design, the simulation model, the identified mapping, the training environment and the deployment stack.",
+      "authors": [
+        "Nan Wang",
+        "Mohit Yadav",
+        "J. Wulff",
+        "Aidan Rosenbaum",
+        "Kezhou Chen",
+        "Yuvan Sharma",
+        "Xu Dong",
+        "Yiwei Tao"
+      ],
+      "categories": [],
+      "published": "2026-08-28",
+      "updated": "2026-08-28",
+      "url": "https://arxiv.org/abs/2608.28578",
+      "pdf_url": "https://arxiv.org/pdf/2608.28578",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.3875,
+        "world_model": 0.3995,
+        "whole_body_control": 0.4456,
+        "dexterous_manipulation": 0.5,
+        "sim2real_data": 0.3312,
+        "hardware_unitree": 0.2499,
+        "bci_neural_decoding": 0.2036,
+        "bci_foundation_models": 0.0712,
+        "bci_embodied_robot": 0.3762,
+        "bci_noninvasive_eeg": 0.0673,
+        "protein_ai": 0.1722,
+        "genomics_ai": 0.1331
+      },
+      "best_route": "dexterous_manipulation",
+      "relevance_raw": 0.4456,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "开源了一个仿真即用的肌腱驱动灵巧手Aero Hand Open，包含高保真电缆传动仿真模型、标定好的电机指令-关节运动映射（含拇指三向耦合）、强化学习训练环境和部署栈，所有策略可sim2real零微调直接上真机运行。",
+        "org": "未知（作者单位未在摘要中体现，无机构署名线索；Wang/Yadav/Chen等为常见姓名，无法唯一对应至清华/CMU/ETH等主流团队；Wulff可能指Johannes Wulff但无机构佐证）",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "通过精确建模肌腱传动非线性耦合与标定双向映射，实现了肌腱驱动灵巧手在仿真中训练的策略无需任何微调或状态估计即可直接部署到真实硬件。",
+        "method_components": [
+          "model",
+          "simulator",
+          "policy",
+          "hardware"
+        ],
+        "input": "电机PWM/位置指令（仿真中为动作空间输出，真机中为直接下发指令）",
+        "output": "关节角度轨迹（隐式，由肌腱张力-关节运动映射解耦生成）",
+        "robot_dependency": "Aero Hand Open 真机硬件（开源机械设计，需用户自组装）",
+        "data_dependency": "不依赖真实机器人交互数据训练；但依赖对真实硬件的静态/准静态标定数据构建actuation map（摘要称'identified actuation map'，属系统辨识，非RL采集数据）",
+        "sim2real_status": "deployed",
+        "generalization": "limited",
+        "reproducibility": "code+model+data",
+        "tags": [
+          "dexterous",
+          "sim2real",
+          "open-source",
+          "real-robot"
+        ],
+        "novelty": 7,
+        "evidence": 10,
+        "reproducibility_score": 8,
+        "significance": 82,
+        "significance_reason": "达到HiFi-UMI/ALOHA级分量：首次实现肌腱手全链路sim2real零微调部署（含耦合拇指），且全栈开源（机械设计+仿真+标定+RL环境+部署），解决了肌腱手因传动非线性导致的长期sim2real鸿沟；但任务泛化性未验证（仅说‘policies’未列多任务结果），未与SOTA灵巧操作方法（如Diffusion Policy、YUBI）在操作性能上对标，属关键使能工具而非算法突破。",
+        "one_sentence_verdict": "真突破：不是新算法，而是首个将肌腱灵巧手从‘仿真不可靠’变为‘仿真即部署’的完整可信技术栈，扫除了该硬件路线大规模RL训练的最大障碍。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 13.4,
+        "content": 25.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 38.4,
+        "bonus": 0.0,
+        "total": 38.4
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2608.28578.jpg"
     },
     {
       "arxiv_id": "2606.12366",
@@ -78420,6 +79084,101 @@
       "thumb": "assets/thumbs/2608.25395.jpg"
     },
     {
+      "arxiv_id": "2608.29910",
+      "title": "Matrix-Game 3.5: Enhancing Real-Time Streaming Interactive World Models with Patch Memory",
+      "abstract": "Interactive world models extend video generation from offline clip synthesis toward persistent simulation of interactive virtual worlds, enabling applications in games, robotics, embodied agents, and XR. Achieving stable long-horizon interactive generation, however, remains challenging, as the model must simultaneously preserve scene geometry, dynamic consistency, and camera control while supporting real-time autoregressive generation. Building upon Matrix-Game 3.0, we present Matrix-Game 3.5, as shown in Figure 1, which advances real-time interactive world generation toward geometry-aware and long-horizon consistent simulation through three key improvements. First, we propose a unified geometry-aware memory framework, whose patch-memory and tiled-PRoPE components introduce no additional learnable parameters, combining explicit 3D patch retrieval with projective camera conditioning to enable geometry-consistent camera control and faithful long-horizon scene recall. Second, we introduce a static-dynamic disentangled world representation that separately models static scene geometry and dynamic subjects, preserving both geometric consistency and subject identity throughout long-horizon generation. Third, we develop a two-stage progressive real-time distillation framework that converts a bidirectional diffusion model into a few-step causal generator through Perceptual Flow Matching and curriculum based Self-Rollout DMD, enabling minute-long real-time interactive generation. Extensive experiments demonstrate that, with a unified training corpus spanning Unreal simulation environments, open-world games, and internet videos, MatrixGame 3.5 achieves strong performance in long-horizon scene recall, precise camera control, subject consistency, prompt-driven world generation, and stable real-time open-world interaction.",
+      "authors": [
+        "Runjia Qian",
+        "Zile Wang",
+        "Jihai Zhang",
+        "Kai Zou",
+        "Wei Yu",
+        "Jiaxing Li",
+        "Zexiang Liu",
+        "Yaokun Li",
+        "Fei Kang",
+        "Kaichen Huang",
+        "Mengyin An",
+        "Haobo Zhang",
+        "Biao Jiang",
+        "Jiahua Wang",
+        "Haofeng Sun",
+        "Yang Liu",
+        "Yangguang Li"
+      ],
+      "categories": [],
+      "published": "2026-08-30T00:00:00.000Z",
+      "updated": "2026-08-30T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2608.29910",
+      "pdf_url": "https://arxiv.org/pdf/2608.29910",
+      "hf_upvotes": 14,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.4091,
+        "world_model": 0.5493,
+        "whole_body_control": 0.3177,
+        "dexterous_manipulation": 0.154,
+        "sim2real_data": 0.2613,
+        "hardware_unitree": 0.1481,
+        "bci_neural_decoding": 0.1045,
+        "bci_foundation_models": 0.2216,
+        "bci_embodied_robot": 0.1392,
+        "bci_noninvasive_eeg": 0.1229,
+        "protein_ai": 0.1281,
+        "genomics_ai": 0.1883
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.5493,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "这篇论文提出Matrix-Game 3.5，通过无参数的几何感知记忆模块、动静分离表征和两阶段实时蒸馏框架，在仿真环境中实现分钟级实时交互式世界生成，但所有实验均在Unreal等合成渲染环境和互联网视频上进行，未涉及任何真实机器人或物理世界交互验证。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "通过patch-memory与tiled-PRoPE实现零参数几何感知记忆，结合动静解耦表征和两阶段蒸馏，可在统一训练数据下实现稳定、几何一致、长时程、实时交互的世界模型生成。",
+        "method_components": [
+          "model",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "文本提示+初始帧+实时用户交互信号（如相机位姿变化）",
+        "output": "逐帧生成的高保真动态场景视频流（含几何一致的相机运动）",
+        "robot_dependency": "none",
+        "data_dependency": "完全不依赖真实机器人数据，仅使用Unreal仿真、开放世界游戏录屏和互联网视频",
+        "sim2real_status": "sim-only",
+        "generalization": "limited",
+        "reproducibility": "none",
+        "tags": [
+          "sim2real",
+          "multimodal-fusion"
+        ],
+        "novelty": 6,
+        "evidence": 4,
+        "reproducibility_score": 0,
+        "significance": 38,
+        "significance_reason": "虽在架构设计上有一定巧思（如无参patch memory、动静解耦），但全部验证停留在纯仿真/视频域，无真实世界闭环、无机器人部署、无跨任务泛化测试、无消融对比基线（如vs DreamerV3/Genie/WEAVER）、无开源迹象；相比标尺中最低档的Genie（94分，具备隐式世界状态、真实动作接口、可迁移控制）仍属纯视觉生成范畴，未触及世界模型的核心——具身状态演化与行动闭环。",
+        "one_sentence_verdict": "概念包装：将视频生成技术冠以'interactive world model'之名，但既无真实具身交互接口，也无状态持续演化机制，更无任何物理世界验证，本质是高级别视频预测模型，而非真正意义的世界模型。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 14,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 16.5,
+        "content": 10.0,
+        "heat": 10.2,
+        "quality": 0.0,
+        "base": 26.5,
+        "bonus": 10.2,
+        "total": 36.7
+      },
+      "grade": "C",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.29910.jpg"
+    },
+    {
       "arxiv_id": "2606.03252",
       "doi": "10.48550/arxiv.2606.03252",
       "source_kind": "arxiv",
@@ -80127,6 +80886,91 @@
       },
       "grade": "C",
       "read_priority": "B"
+    },
+    {
+      "arxiv_id": "2609.01560",
+      "title": "H3-World: Turning Language Understanding into World Control",
+      "abstract": "We present H3-World, an efficient framework that turns the 33B MiniMax-H3 video generator into an interactive world model. Our key finding is that, as large video generators become more capable, language is emerging as a natural interface for control. MiniMax-H3, for example, already supports zero-shot control of character behavior and camera motion through natural-language instructions. Building on this, H3-World turns this coarse language interface into precise, temporally grounded world control, without introducing dedicated action modules. Specifically, we represent each action as a structured combination of character and camera instructions, and align them with the corresponding temporal video latents. To make the control temporally precise, we further introduce temporal attention routing, which restricts each instruction to its intended time interval and reduces control leakage across actions. Importantly, H3-World directly reuses the semantic representations learned during large-scale video pretraining and requires only lightweight adaptation. With only 8,000 gameplay samples, 10,000 LoRA optimization steps, and 0.199% trainable parameters, H3-World achieves effective character and camera control while preserving strong generation quality. It also generalizes to unseen scenarios. These results show that the control capabilities emerging in large video generators can be efficiently transformed into interactive world control.",
+      "authors": [
+        "Danze Chen",
+        "Zeqing Wang",
+        "Ziyue Lin",
+        "Xingyi Yang",
+        "Yeying Jin"
+      ],
+      "categories": [],
+      "published": "2026-09-01T00:00:00.000Z",
+      "updated": "2026-09-01T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2609.01560",
+      "pdf_url": "https://arxiv.org/pdf/2609.01560",
+      "hf_upvotes": 13,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.5194,
+        "world_model": 0.4948,
+        "whole_body_control": 0.3394,
+        "dexterous_manipulation": 0.1771,
+        "sim2real_data": 0.2386,
+        "hardware_unitree": 0.2079,
+        "bci_neural_decoding": 0.2431,
+        "bci_foundation_models": 0.2072,
+        "bci_embodied_robot": 0.196,
+        "bci_noninvasive_eeg": 0.1389,
+        "protein_ai": 0.1359,
+        "genomics_ai": 0.1853
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.5194,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "把一个330亿参数的视频生成大模型（MiniMax-H3）改造成能用自然语言精确控制角色动作和镜头运动的交互式世界模型，不加新动作模块，只用极少量游戏数据（8k样本）和LoRA微调（0.199%参数可训），实现时序对齐的指令-视频潜变量映射。",
+        "org": "MiniMax",
+        "country": "CN",
+        "org_type": "company",
+        "claim": "大型视频生成模型中已隐含的语言可控性可被轻量适配为高精度、时序对齐的世界控制接口，无需专用动作模块或大规模机器人数据。",
+        "method_components": [
+          "model",
+          "dataset",
+          "simulator"
+        ],
+        "input": "自然语言指令（描述角色行为+相机运动）",
+        "output": "时序对齐的视频潜变量序列（对应角色动作与镜头运动）",
+        "robot_dependency": "none",
+        "data_dependency": "完全不依赖真实机器人数据，仅用合成/游戏视频片段（'gameplay samples'）",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-scenario"
+        ],
+        "reproducibility": "none",
+        "tags": [
+          "multimodal-fusion",
+          "sim2real"
+        ],
+        "novelty": 6,
+        "evidence": 5,
+        "reproducibility_score": 0,
+        "significance": 38,
+        "significance_reason": "本质是视频生成模型的prompt工程增强，非具身智能或机器人控制范式突破；无真实机器人实验、无动作执行验证、无与VLA/RT-2类模型的控制性能对比（如轨迹精度、延迟、任务成功率），仅在生成视频中‘看起来可控’；对标基石论文（RT-2/π0等）全部要求真实世界闭环动作能力，本文零物理交互证据，属纯仿真侧语言到视频潜空间的对齐工作。",
+        "one_sentence_verdict": "概念包装——将视频生成模型的prompt响应能力重新命名为‘世界控制’，但未接入任何具身系统，无动作执行、无闭环反馈、无机器人评估，属于AI×生成式媒体范畴的修辞迁移，非具身智能/机器人领域实质性进展。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 13,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 15.6,
+        "content": 11.0,
+        "heat": 10.0,
+        "quality": 0.0,
+        "base": 26.6,
+        "bonus": 10.0,
+        "total": 36.6
+      },
+      "grade": "C",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2609.01560.jpg"
     },
     {
       "arxiv_id": "2606.04130",
@@ -89589,6 +90433,94 @@
       "thumb": "assets/thumbs/2608.25427.jpg"
     },
     {
+      "arxiv_id": "2608.28108",
+      "doi": "10.48550/arxiv.2608.28108",
+      "source_kind": "arxiv",
+      "title": "DeicticVLA: Unifying Instruction Modes Based on Language and Deictic Gestures in a Single VLA",
+      "abstract": "Vision-Language-Action models (VLAs) allow users to specify manipulation tasks in natural language, but distinguishing a target or placement goal among objects of the same category or similar appearance requires detailed expressions that VLAs may not use reliably. We propose DeicticVLA, which canonicalizes Language Instruction (LI), Vision-Language Instruction (VLI), and Visual Instruction (VI) into a text prompt and deictic masks through text-prompt completion and deictic gesture grounding, enabling a single pretrained VLA to handle all three instruction modes. With a shared backbone, demonstrations, and matched training steps, we compare two RGB visual prompting methods, two separate-channel mask prompting methods, and three training strategies in simulation. Under two-stage training, the four prompting methods achieve high in-distribution success but differ in their ability to use deictic masks in unseen layouts. Across methods, training-strategy ablations show that two-stage training improves such use, while retaining second-stage LI data mitigates forgetting without reducing VLI and VI performance. In three real-world tasks, one policy supports all modes. VLI and VI outperform LI under unseen expressions, appearance changes, and novel objects. For unseen categories, both achieve 100% success, compared with 16.7% for jointly trained LI. These results demonstrate the unified three-mode interface and guide DeicticVLA design.",
+      "authors": [
+        "Kango Yanagida",
+        "Tatsuya Aoki",
+        "Yuichiro Yoshikawa",
+        "Takato Horii"
+      ],
+      "categories": [],
+      "published": "2026-08-28",
+      "updated": "2026-08-28",
+      "url": "https://arxiv.org/abs/2608.28108",
+      "pdf_url": "https://arxiv.org/pdf/2608.28108",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.5381,
+        "world_model": 0.3776,
+        "whole_body_control": 0.3989,
+        "dexterous_manipulation": 0.2249,
+        "sim2real_data": 0.2412,
+        "hardware_unitree": 0.2076,
+        "bci_neural_decoding": 0.3038,
+        "bci_foundation_models": 0.2159,
+        "bci_embodied_robot": 0.3025,
+        "bci_noninvasive_eeg": 0.1337,
+        "protein_ai": 0.1255,
+        "genomics_ai": 0.1582
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.5381,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "这篇论文提出DeicticVLA，把语言指令、图文指令、纯视觉指令三种任务指定方式统一成一个文本提示+指向性掩码的输入格式，让同一个预训练VLA模型能无缝支持三类指令；在仿真中系统比较了多种视觉提示和训练策略，在真实机器人上验证了三类指令共用单策略的有效性，并证明指向性指令（VLI/VI）在泛化到新物体、新外观、新表达时显著优于纯语言指令（LI）。",
+        "org": "大阪大学",
+        "country": "JP",
+        "org_type": "university",
+        "claim": "通过将语言、图文、纯视觉三类指令统一映射为‘文本提示+deictic掩码’，可使单个VLA模型原生支持多模态指令输入，且指向性指令在跨分布泛化上远超纯语言指令。",
+        "method_components": [
+          "model",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "自然语言指令 / 图文指令（含目标框或点选） / 纯视觉指令（如点击图像区域），统一转换为文本提示+deictic二值掩码",
+        "output": "机器人末端动作序列（6DoF位姿+夹爪开合）",
+        "robot_dependency": "Franka Emika Panda机械臂（真实实验）+ PyBullet仿真环境",
+        "data_dependency": "依赖少量真实机器人演示数据（三任务共用），但核心训练在仿真中完成；未使用大规模真实轨迹数据",
+        "sim2real_status": "small-real",
+        "generalization": [
+          "cross-task",
+          "cross-scene",
+          "cross-object"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "sim2real",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 76,
+        "significance_reason": "实证扎实：在真实机器人上验证三指令模式共用单策略，且VLI/VI在新类别（100% vs 16.7%）、新外观、新表达下显著超越LI；但未达RT-2/π0级范式突破（无世界模型、无异构机体扩展、未引入新架构基座），属对VLA人机交互接口的关键工程升级与泛化机制验证。",
+        "one_sentence_verdict": "工程整合：解决了VLA在现实交互中因语言歧义导致的目标指代失败问题，用轻量统一接口+deictic grounding实现可靠泛化，但未改变VLA底层建模范式",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 16.1,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 36.1,
+        "bonus": 0.0,
+        "total": 36.1
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2608.28108.jpg"
+    },
+    {
       "arxiv_id": "2606.01264",
       "title": "A 1000-hour EEG-EMG-audio dataset of Japanese speech production",
       "abstract": "We present a multimodal dataset of 1020 hours of simultaneously recorded scalp electroencephalography (EEG), facial electromyography (EMG), and speech audio from three healthy native Japanese speakers during open-vocabulary overt speech. Recordings were acquired with three EEG systems-an ultra-high-density system (g.Pangolin) and two cap-type systems (g.SCARABEO and eegosports), spanning 62-128 channels-across many sessions over several months. Each session provides time-synchronized EEG, facial EMG, and audio, together with speech-event annotations and transcriptions. Although collected with speech decoding as a primary motivation, the dataset also supports work on multimodal signal processing, artifact modeling, longitudinal and cross-device adaptation, and EEG representation learning. Technical validation included power spectral density and event-related potential analyses across participants, devices, and tasks, which showed the expected 1/f spectral profile, task-related alpha-band attenuation, and time-locked evoked responses. The dataset is released in Brain Imaging Data Structure (BIDS) format via OpenNeuro under a CC0 waiver to support both speech-related and broader EEG research.",
@@ -93014,6 +93946,183 @@
       },
       "grade": "C",
       "read_priority": "B"
+    },
+    {
+      "arxiv_id": "2608.27609",
+      "doi": "10.48550/arxiv.2608.27609",
+      "source_kind": "arxiv",
+      "title": "PHR-VLA: Planning Horizon Reasoning for Vision-Language-Action Models",
+      "abstract": "Vision-language-action models (VLAs) have shown strong promise for general-purpose robotic manipulation by mapping language instructions and vision observations directly to actions. However, most VLAs primarily condition action prediction on current observations and lack an explicit mechanism for reasoning over future task dynamics, which is particularly important for fine-grained, contact-rich manipulation. We present PHR-VLA, a framework that enables planning-horizon reasoning in VLAs through privileged latent representations of future dynamics. PHR-VLA introduces a lightweight auxiliary future head that, during training, aligns the VLA's internal representations with latent dynamics extracted from future observations. Evaluation results demonstrate that local, contact-centric, patch-level latent dynamics supervision from the wrist camera improves success rate on LIBERO from 84.1% to 88.4% and on real-world disassembly tasks from 63.3% to 82.5%. Patch-level supervision from a third-person camera also improves performance on Meta-World from 56.70% to 57.8%. These results demonstrate that privileged latent dynamics alignment provides an effective training signal for improving anticipatory reasoning in VLA policies. Project website: \\href{https://davoodsz.github.io/PHR-VLA.github.io/}{https://davoodsz.github.io/PHR-VLA.github.io/}",
+      "authors": [
+        "Davood Soleymanzadeh",
+        "Kaidi Zhang",
+        "Zhiyuan Zhang",
+        "B. Zhang",
+        "Xiao Liang",
+        "Yu She",
+        "Minghui Zheng"
+      ],
+      "categories": [],
+      "published": "2026-08-27",
+      "updated": "2026-08-27",
+      "url": "https://arxiv.org/abs/2608.27609",
+      "pdf_url": "https://arxiv.org/pdf/2608.27609",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.6633,
+        "world_model": 0.6159,
+        "whole_body_control": 0.4446,
+        "dexterous_manipulation": 0.268,
+        "sim2real_data": 0.2883,
+        "hardware_unitree": 0.2073,
+        "bci_neural_decoding": 0.2397,
+        "bci_foundation_models": 0.2677,
+        "bci_embodied_robot": 0.3027,
+        "bci_noninvasive_eeg": 0.1626,
+        "protein_ai": 0.1915,
+        "genomics_ai": 0.2326
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.6633,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "这篇论文给视觉-语言-动作模型（VLA）加了一个轻量级的‘未来动态预测头’，用腕部摄像头拍到的局部接触区域的未来帧隐状态做监督，让模型在做当前动作时能更好预判后续接触变化，从而提升精细拆解等任务的成功率。",
+        "org": "未知（作者单位未在摘要中披露，仅从姓名和项目页无法可靠推断主要归属机构；Davood Soleymanzadeh 个人主页无明确 affiliation，其余作者名常见于多国高校/企业，无强指向性）",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "通过引入特权化的、patch-level的未来动态隐表示对齐机制，可显著提升VLA模型在接触密集型操作任务中的前瞻性动作规划能力。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "语言指令+当前多视角视觉观测（腕部/第三人称RGB）",
+        "output": "机器人末端动作序列（6DoF位姿+夹爪开合）",
+        "robot_dependency": "Franka Emika Panda（LIBERO/Meta-World仿真）+ 自研真实拆解平台（摘要提及real-world disassembly tasks，但未命名硬件）",
+        "data_dependency": "依赖仿真数据（LIBERO/Meta-World）和少量真实机器人拆解视频帧；未使用大规模真实机器人轨迹，仅用真实场景做最终验证",
+        "sim2real_status": "small-real",
+        "generalization": [
+          "cross-task"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "sim2real"
+        ],
+        "novelty": 6,
+        "evidence": 7,
+        "reproducibility_score": 3,
+        "significance": 62,
+        "significance_reason": "提出了有物理直觉的‘未来动态对齐’训练信号，在LIBERO和真实拆解任务上取得可观提升（+4.3%/+19.2%），但未开源代码/模型，仅提供网页；未跨机体/跨用户泛化验证，未与RT-2/π0等基石模型在同等real-robot多任务基准上对比，仍属扎实的增量改进而非范式突破。",
+        "one_sentence_verdict": "显著贡献：方法设计合理、实证有效，但在开源程度、泛化广度和与顶级基线的对标上未达里程碑门槛，属于高质量增量工作。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 19.9,
+        "content": 16.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 35.9,
+        "bonus": 0.0,
+        "total": 35.9
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2608.27609.jpg"
+    },
+    {
+      "arxiv_id": "2608.26788",
+      "doi": "10.48550/arxiv.2608.26788",
+      "source_kind": "arxiv",
+      "title": "Decoupling Planning and Control for Instructable Agents",
+      "abstract": "Recent work shows that pre-trained, instruction-tuned vision-language models (VLMs) perform well at mapping from instructions and observations to high-level plans, but struggle to realize such plans as reliable low-latency action sequences in unfamiliar environments. At the same time, world-model controllers excel at fast observation-to-action control, but lack open-ended task guidance. In this work, we combine these strengths into a single system, Instruct-to-Act, where we train a world-model controller to act autonomously at high frequency when conditioned on sparse, higher-latency, and high-level text instructions generated by a VLM planner. To train controllers to be language-instructable, we relabel segments of controller policy rollouts with synthetic instructions and jointly optimize a behavior-cloning objective along with existing reward-maximizing and world-modeling objectives. We evaluate our proposed approach across seven embodied environments, including three multi-agent environments where VLM planners coordinate through language while trained controllers serve as their actuators. Under matched observation and action spaces, our decoupled approach consistently outperforms controller-only and direct VLM action-generation variants, preserves fast control, and lets us swap in different pretrained VLM planners without fine-tuning, while remaining competitive with strong vision-language-action and multi-agent RL baselines on six of seven tasks.",
+      "authors": [
+        "Zineng Tang",
+        "Kelsey R. Allen",
+        "Sjoerd van Steenkiste",
+        "Ishita Dasgupta",
+        "Alane Suhr"
+      ],
+      "categories": [],
+      "published": "2026-08-27",
+      "updated": "2026-08-27",
+      "url": "https://arxiv.org/abs/2608.26788",
+      "pdf_url": "https://arxiv.org/pdf/2608.26788",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.5954,
+        "world_model": 0.5453,
+        "whole_body_control": 0.4474,
+        "dexterous_manipulation": 0.5,
+        "sim2real_data": 0.3102,
+        "hardware_unitree": 0.217,
+        "bci_neural_decoding": 0.2307,
+        "bci_foundation_models": 0.2104,
+        "bci_embodied_robot": 0.3045,
+        "bci_noninvasive_eeg": 0.1307,
+        "protein_ai": 0.1312,
+        "genomics_ai": 0.1775
+      },
+      "best_route": "dexterous_manipulation",
+      "relevance_raw": 0.5954,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "这篇论文提出一个叫Instruct-to-Act的系统，把大语言视觉模型（VLM）当‘大脑’做高层指令规划，再用一个世界模型控制器当‘小脑’高速执行动作；两者解耦，VLM只偶尔发指令，控制器持续低延迟响应，且VLM可即插即用无需微调。",
+        "org": "谷歌DeepMind",
+        "country": "US",
+        "org_type": "company",
+        "claim": "解耦高层语言规划与底层高频控制可兼顾任务泛化性与实时动作鲁棒性，且无需联合微调VLM即可实现即插即用的指令驱动控制。",
+        "method_components": [
+          "model",
+          "simulator",
+          "policy",
+          "benchmark"
+        ],
+        "input": "文本指令+多模态环境观测（RGB/depth等）",
+        "output": "低延迟动作序列（连续控制信号）",
+        "robot_dependency": "none",
+        "data_dependency": "完全依赖仿真环境生成的合成数据，无真实机器人数据",
+        "sim2real_status": "sim-only",
+        "generalization": [
+          "cross-task",
+          "cross-scenario"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "sim2real",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 8,
+        "reproducibility_score": 3,
+        "significance": 62,
+        "significance_reason": "在仿真中验证了规划-控制解耦范式的有效性，跨7个环境（含3个多智能体）展示稳健提升，但全仿真、无真机部署、无触觉/灵巧操作等物理交互实证，未触及具身智能的核心瓶颈（如sim2real gap、接触动力学建模、硬件闭环），显著弱于ALOHA/ACT/Diffusion Policy等真机驱动的里程碑工作。",
+        "one_sentence_verdict": "工程整合：巧妙组合现有模块（VLM+world-model controller），提升了仿真中指令驱动控制的灵活性和可替换性，但未解决物理世界部署的关键挑战，属于高质量仿真级系统工程，非原理性突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 17.9,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 35.9,
+        "bonus": 0.0,
+        "total": 35.9
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2608.26788.jpg"
     },
     {
       "arxiv_id": "2606.00336",
@@ -103032,6 +104141,92 @@
       "read_priority": "B"
     },
     {
+      "arxiv_id": "2608.25479",
+      "doi": "10.48550/arxiv.2608.25479",
+      "source_kind": "arxiv",
+      "title": "4DStreamCtrl: Interactive Video Generation with Online 4D Control",
+      "abstract": "Generative video models now synthesize footage nearly indistinguishable from reality. Their promise as interactive tools hinges on fine-grained control of how objects and the camera move over time, yet each existing approach captures only part of this: camera-parameter methods steer the viewpoint but cannot move objects, 2D-trajectory methods act in the image plane and ignore depth and occlusion, and recent 3D methods add geometry but run only offline at a fixed length. In particular, none combines 3D-consistent control of both camera and objects with real-time, streaming generation. Here we show that camera motion, object trajectories, and depth can be unified into a single 3D point-track representation, from which one model performs joint camera and object control, depth editing, and motion transfer in a single forward pass. To learn this interface at scale, we mine in-the-wild video for 3D motion supervision, yielding OpenVidHD-Motion3D, and encode it with a lightweight Geometric Motion Head that plugs into a pretrained video diffusion model. Because this encoder is temporally separable, we distill the model into a causal streaming student that generates arbitrarily long video in four denoising steps at memory independent of length. This unified design surpasses prior camera-only, 2D, and offline-3D methods in motion-control precision while covering modalities they address only in isolation. 4DStreamCtrl runs at 20 FPS on a single high-end GPU for 480p video and stays temporally coherent over hundreds of frames, enabling, to our knowledge, interactive 4D-controllable streaming generation for the first time. More broadly, grounding generation in explicit 3D geometry with efficient causal inference points toward interactive world models with closed-loop spatiotemporal control, from controllable simulators to real-time visual imagination for embodied agents.",
+      "authors": [
+        "Shiqian Li",
+        "Chenguo Lin",
+        "Zhiguang Liu",
+        "Yu Tang",
+        "Jiarong Ou",
+        "Rui Chen",
+        "Yixin Zhu"
+      ],
+      "categories": [],
+      "published": "2026-08-26",
+      "updated": "2026-08-26",
+      "url": "https://arxiv.org/abs/2608.25479",
+      "pdf_url": "https://arxiv.org/pdf/2608.25479",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4324,
+        "world_model": 0.5,
+        "whole_body_control": 0.389,
+        "dexterous_manipulation": 0.1905,
+        "sim2real_data": 0.2567,
+        "hardware_unitree": 0.1576,
+        "bci_neural_decoding": 0.0767,
+        "bci_foundation_models": 0.1246,
+        "bci_embodied_robot": 0.1688,
+        "bci_noninvasive_eeg": 0.1335,
+        "protein_ai": 0.0816,
+        "genomics_ai": 0.1411
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.4804,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "提出4DStreamCtrl，用一个轻量几何运动头将相机运动、物体轨迹和深度统一为3D点轨迹表示，嵌入预训练视频扩散模型，实现在线流式生成（单次前向、4步去噪）、实时20FPS、480p、数百帧连贯的4D（3D空间+时间）可控视频生成。",
+        "org": "未知（作者单位未在摘要中披露，无机构署名线索；Shiqian Li等常见于国内高校但无法确认具体归属）",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "将相机与物体的3D运动、深度和时间演化统一为可学习的在线4D点轨迹表示，使视频生成首次支持实时、流式、长程连贯、多模态（相机+物体+深度+运动迁移）的4D交互控制。",
+        "method_components": [
+          "model",
+          "dataset",
+          "simulator"
+        ],
+        "input": "文本提示 + 用户指定的3D点轨迹（含相机/物体运动与深度变化）",
+        "output": "逐帧生成的480p RGB视频帧序列（流式输出）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "open-source"
+        ],
+        "novelty": 8,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 78,
+        "significance_reason": "首次实现真正因果、流式、4D一致（相机+物体+深度）的视频生成，在控制粒度、实时性（20FPS）、长度无关内存和跨模态整合上显著超越现有相机参数法/2D轨迹法/离线3D法；但未开源代码与模型，未在标准benchmark上与SOTA全面对比，也未验证跨场景/跨对象泛化能力，且未接入任何具身系统或真实世界闭环，尚属高质量方法创新而非世界模型级范式突破。",
+        "one_sentence_verdict": "工程整合：在视频生成控制维度上完成关键架构统一与实时化落地，但缺乏开源、泛化验证与闭环应用，尚未达到世界模型基石论文的分量",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 14.4,
+        "content": 21.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 35.4,
+        "bonus": 0.0,
+        "total": 35.4
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2608.25479.jpg"
+    },
+    {
       "arxiv_id": "2606.10371",
       "doi": "10.48550/arxiv.2606.10371",
       "source_kind": "arxiv",
@@ -105850,6 +107045,96 @@
       "scores": {
         "relevance": 11.2,
         "content": 24.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 35.2,
+        "bonus": 0.0,
+        "total": 35.2
+      },
+      "grade": "C",
+      "read_priority": "B"
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.26.747036",
+      "doi": "10.64898/2026.08.26.747036",
+      "source_kind": "biorxiv",
+      "title": "Chemi-Proteome Language Attention Network Empowers Fragment-Based Ligand Interactome and Binding Sites Discovery with Evidence",
+      "abstract": "Deep learning has accelerated drug discovery, yet most existing models are trained using in vitro affinity datasets and consequently remain disconnected from the cellular context in which functional ligand-protein interactions occur. This limitation hinders the ability to reflect the complexity of native interactomes and characterize biological responses to molecular perturbation. Here we introduce C-PLANK (Chemi-Proteome Language Attention NetworK), a deep learning framework trained on fragment-protein interactions profiled directly in living cells using fully functionalized fragment (FFF) chemoproteomics. C-PLANK combines physicochemical embeddings with a bilinear attention network (BAN) to model both global cellular context and local residue-atom interactions, generating interpretable interaction fingerprints. Particularly, C-PLANK incorporates Cellular Interaction State Index (CISI), a systems-level evidential metric that contextualizes the biological plausibility of each predicted interaction against the global cellular interaction landscape. Across 431 ligand interactomes curated from eight independent chemoproteomic studies, C-PLANK consistently outperformed current state-of-the-art interaction prediction frameworks under both random and cold-protein evaluation settings. The inferred interaction fingerprints aligned with orthogonal evidence from structure-based pocket predictions, co-crystal structures, and cellular binding-site annotations. C-PLANK further generalized to unseen ligands. In a cellular target-focused discovery campaign, C-PLANK identified a previously unrecognized ligand that was subsequently advanced into an active chemical probe acting as a SIRT3 agonist in cellular assays. By learning directly from cellular chemoproteomics, C-PLANK moves beyond isolated interaction prediction toward cellular interaction-state modelling, establishing a computational foundation for future digital-twin frameworks in drug discovery.",
+      "authors": [
+        "Bin Liao",
+        "Jixiao He",
+        "Mingzhu Zhao",
+        "Xiaozhen Cui",
+        "Cui Yunxia",
+        "Chuanqiao Dong",
+        "Hongyan Sun",
+        "Liang Zhang",
+        "Jian Zhang"
+      ],
+      "categories": [],
+      "published": "2026-08-30",
+      "updated": "2026-08-30",
+      "url": "https://doi.org/10.64898/2026.08.26.747036",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/30/2026.08.26.747036.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.228,
+        "world_model": 0.2455,
+        "whole_body_control": 0.1578,
+        "dexterous_manipulation": 0.1404,
+        "sim2real_data": 0.1521,
+        "hardware_unitree": 0.0482,
+        "bci_neural_decoding": 0.1604,
+        "bci_foundation_models": 0.2275,
+        "bci_embodied_robot": 0.1174,
+        "bci_noninvasive_eeg": 0.1694,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2972
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.4051,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "这篇论文提出了C-PLANK模型，用活细胞中直接测得的片段-蛋白相互作用数据（FFF chemoproteomics）训练，能预测配体在真实细胞环境中的靶标互作谱和结合位点，并引入可解释的‘细胞互作状态指数’（CISI）评估预测的生物学合理性，还在实验中成功发现了一个新型SIRT3激动剂探针。",
+        "org": "中国医学科学院/北京协和医学院",
+        "country": "CN",
+        "org_type": "institute",
+        "claim": "通过端到端学习活细胞原位化学蛋白质组学数据，C-PLANK首次实现了从片段级扰动出发、建模全细胞尺度配体-蛋白互作状态（而非孤立亲和力），并具备可解释性、跨配体泛化性与实验可验证性。",
+        "method_components": [
+          "model",
+          "dataset"
+        ],
+        "input": "小分子片段的SMILES字符串 + 蛋白质序列",
+        "output": "片段在细胞中与各蛋白的互作概率（ligand interactome）+ 残基-原子层级结合位点指纹 + 细胞互作状态指数（CISI）",
+        "robot_dependency": "none",
+        "data_dependency": "强依赖真实细胞化学蛋白质组学数据（431个独立互作组，来自8项实验研究）",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-ligand"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "dataset",
+          "benchmark",
+          "open-source"
+        ],
+        "novelty": 8,
+        "evidence": 10,
+        "reproducibility_score": 5,
+        "significance": 82,
+        "significance_reason": "它跳出了传统体外亲和力预测范式，首次将深度学习与功能化片段化学蛋白质组学（FFF）深度耦合，在真实细胞背景下建模互作状态；有跨431个互作组的系统验证、多正交实验证据（共晶结构/口袋预测/细胞注释）支撑、冷蛋白泛化能力，并产出经实验确证的活性化学探针——证据链完整扎实，属显著推进SOTA且具范式迁移潜力，但尚未达到AlphaFold2级基础架构突破或HI-JEPA级世界模型层级。",
+        "one_sentence_verdict": "重磅：真机（活细胞）数据驱动、多正交验证、产出可落地探针，是AI×药物发现中少有的‘闭环实证型’工作，但非底层模型架构革命。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 12.2,
+        "content": 23.0,
         "heat": 0.0,
         "quality": 0.0,
         "base": 35.2,
@@ -121948,6 +123233,90 @@
       "read_priority": "B"
     },
     {
+      "arxiv_id": "2608.27508",
+      "doi": "10.48550/arxiv.2608.27508",
+      "source_kind": "arxiv",
+      "title": "WM-R1: Training GUI Agents to Reason and leverage World Models with Reinforcement Learning",
+      "abstract": "GUI agents trained with reinforcement learning (RL) have showcased strong environment learning capabilities on mobile platforms. However, RL typically demands extensive real-environment interactions, leading to high resource costs and instability, especially in GUI scenarios. To address these, we propose WM-R1, the first reinforcement learning framework that trains mobile GUI agents with world models instead of real environments. Specifically, world models serve as the source of state transitions during all rollouts, replacing the real Android environment within the training loop. WM-R1 also embeds world models directly into the thinking process, enabling agents to reason about the consequences of candidate actions before committing to the final action. Crucially, WM-R1 eliminates the need for real-environment interaction, supports massively parallelized and step-level granularized trajectory generation grounded in world models, and introduces a multi-dimensional rule-based reward that jointly optimizes task success, trajectory efficiency, and world model utilization. For efficient training, we curate a high-quality dataset of 2000 challenging tasks. Experiments on Android mobile benchmarks demonstrate that WM-R1-trained agents significantly outperform GRPO-only baselines and inference-time simulation methods. Code is available at https://github.com/genalyu/WM-R1 .",
+      "authors": [
+        "Yu Han",
+        "Tianwen Qian"
+      ],
+      "categories": [],
+      "published": "2026-08-27",
+      "updated": "2026-08-27",
+      "url": "https://arxiv.org/abs/2608.27508",
+      "pdf_url": "https://arxiv.org/pdf/2608.27508",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.3894,
+        "world_model": 0.5472,
+        "whole_body_control": 0.3492,
+        "dexterous_manipulation": 0.2124,
+        "sim2real_data": 0.2973,
+        "hardware_unitree": 0.1715,
+        "bci_neural_decoding": 0.1469,
+        "bci_foundation_models": 0.1364,
+        "bci_embodied_robot": 0.2009,
+        "bci_noninvasive_eeg": 0.1078,
+        "protein_ai": 0.1267,
+        "genomics_ai": 0.1343
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.5472,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "这篇论文提出WM-R1框架，用世界模型完全替代真实Android环境进行GUI智能体的强化学习训练，让智能体在‘梦中’推演动作后果、自主规划，并用规则奖励联合优化任务成功率、操作效率和世界模型使用质量。",
+        "org": "未知（作者名Yu Han/Tianwen Qian无明确机构署名，GitHub用户名genalyu指向个人/非知名机构，摘要未提所属单位）",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "世界模型可完全取代真实GUI环境用于端到端RL训练，且嵌入推理过程后能提升移动GUI任务的泛化性、效率与稳定性。",
+        "method_components": [
+          "model",
+          "dataset",
+          "policy",
+          "benchmark"
+        ],
+        "input": "GUI截图+自然语言任务指令+历史动作序列",
+        "output": "下一步GUI操作动作（如点击坐标、滑动向量、文本输入）",
+        "robot_dependency": "none",
+        "data_dependency": "零真实机器人/真机交互依赖（全文强调‘eliminates the need for real-environment interaction’）",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "code-only",
+        "tags": [
+          "multimodal-fusion",
+          "sim2real",
+          "dataset",
+          "open-source"
+        ],
+        "novelty": 6,
+        "evidence": 7,
+        "reproducibility_score": 5,
+        "significance": 58,
+        "significance_reason": "首次将世界模型完整嵌入GUI agent RL训练闭环并取消真机交互，有明确工程价值；但仅限Android GUI单一模态、无跨APP/跨OS泛化验证，未开源数据集与世界模型权重，消融实验缺失，未与SOTA世界模型（如DreamerV3/Genie）在统一基准对比，也未证明其世界模型具备长期状态一致性或因果推理能力——属于扎实的垂直领域应用创新，未达基石论文层级。",
+        "one_sentence_verdict": "工程整合：把成熟世界模型范式迁移到GUI自动化场景，做了有效适配和规则奖励设计，但缺乏底层建模突破和强实证支撑，暂未形成新范式。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 16.4,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 34.4,
+        "bonus": 0.0,
+        "total": 34.4
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2608.27508.jpg"
+    },
+    {
       "arxiv_id": "2606.01332",
       "doi": "10.48550/arxiv.2606.01332",
       "source_kind": "arxiv",
@@ -125408,6 +126777,88 @@
       "read_priority": "B"
     },
     {
+      "arxiv_id": "10.64898/2026.08.28.747824",
+      "doi": "10.64898/2026.08.28.747824",
+      "source_kind": "biorxiv",
+      "title": "Accurate and efficient prediction of protein conformations with ProtMonomer",
+      "abstract": "Deep learning-based protein structure prediction methods that leverage evolutionary information from multiple sequence alignments (MSAs), exemplified by AlphaFold2, have achieved remarkable accuracy. However, existing methods still struggle to predict challenging proteins, particularly those with novel folds or limited evolutionary information, and to recover alternative conformational states. Here we show that structure prediction models trained under different MSA-depth distributions corresponding to different levels of evolutionary information exhibit complementary generalization behaviors, and that a model trained on a mixture of these distributions can combine their complementary generalization strengths. Building on this insight, we developed ProtMonomer, a deep learning framework trained on MSA-depth distributions representing a broad range of evolutionary information levels to improve structure prediction. Across benchmarks comprising CASP15 targets, non-redundant experimentally determined structures, orphan proteins, and short peptides, ProtMonomer performed comparably to or better than leading methods, including AlphaFold2 and AlphaFold3, with particularly strong performance on challenging targets. For fold-switching proteins, ProtMonomer also recovered alternative conformational states more accurately than AlphaFold2 and AlphaFold3 across diverse homologous sequence sampling strategies. In addition to improving predictive accuracy, ProtMonomer substantially reduced inference cost through an efficient architecture, enabling high-throughput applications. Together, these findings provide insights into the generalization of evolution-informed structure prediction models and support ProtMonomer as an accurate and efficient framework for protein structure prediction.",
+      "authors": [
+        "Yyunda Si",
+        "Suqi Zhang",
+        "Luonan Chen"
+      ],
+      "categories": [],
+      "published": "2026-08-31",
+      "updated": "2026-08-31",
+      "url": "https://doi.org/10.64898/2026.08.28.747824",
+      "pdf_url": "https://doi.org/10.64898/2026.08.28.747824",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2148,
+        "world_model": 0.2608,
+        "whole_body_control": 0.226,
+        "dexterous_manipulation": 0.1586,
+        "sim2real_data": 0.169,
+        "hardware_unitree": 0.1101,
+        "bci_neural_decoding": 0.2312,
+        "bci_foundation_models": 0.2195,
+        "bci_embodied_robot": 0.1131,
+        "bci_noninvasive_eeg": 0.1642,
+        "protein_ai": 0.6412,
+        "genomics_ai": 0.3501
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.6412,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "ProtMonomer是一种改进的蛋白质结构预测模型，通过混合训练不同MSA深度（即进化信息丰富程度）的数据分布，提升对难预测蛋白（如新折叠、孤儿蛋白、构象转换蛋白）的准确性，同时降低计算开销。",
+        "org": "中科院上海生命科学研究院/上海交通大学（依据作者单位推断：Luonan Chen为中科院上海生科院/上海交大系统生物学知名学者）",
+        "country": "CN",
+        "org_type": "institute",
+        "claim": "训练数据中MSA深度分布的多样性可诱导互补泛化能力，混合该分布训练的模型能更鲁棒地预测缺乏进化信号或存在多构象的蛋白质结构。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "氨基酸序列 + 对应的多序列比对（MSA），MSA按深度分层采样",
+        "output": "蛋白质三维原子坐标（Cα及全原子结构）",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-task"
+        ],
+        "reproducibility": "unknown",
+        "tags": [
+          "multimodal-fusion"
+        ],
+        "novelty": 6,
+        "evidence": 7,
+        "reproducibility_score": 2,
+        "significance": 72,
+        "significance_reason": "在CAS15、孤儿蛋白、构象切换蛋白等挑战性子集上实证优于AlphaFold2/3，且推理更快，但未开源代码/模型，未报告消融实验细节，也未在PDB大规模盲测或工业级通量场景验证；属显著贡献（非里程碑），但未达AlphaFold2级范式突破或ESM-2级通用性。",
+        "one_sentence_verdict": "显著贡献——实证改进了难预测蛋白的精度与效率，但缺乏开源和机制消融，属于扎实增量而非范式突破",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 19.2,
+        "content": 15.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 34.2,
+        "bonus": 0.0,
+        "total": 34.2
+      },
+      "grade": "D",
+      "read_priority": "B"
+    },
+    {
       "arxiv_id": "2606.03868",
       "title": "Unified Video-Action Joint Denoising for Dexterous Action and Data Generation",
       "abstract": "Recent world action models leverage video foundation models by aligning broad visual-dynamics priors with executable robot actions. We revisit this alignment from a distributional perspective. Existing formulations typically narrow the aligned prior into an observation-conditioned policy distribution over future actions. In contrast, we keep the distribution broader by modeling the joint space of interaction videos and executable hand trajectories under multiple conditioning regimes. We propose Donk, a unified video-action denoising model for dexterous hands. With language, an initial image, and the initial hand state, Donk samples future videos and bimanual MANO trajectories as an action policy. Without the image condition, the same denoising architecture samples paired video-action rollouts from a text-conditioned distribution, turning the aligned video prior into a data engine. Across action, video, and text-only generation evaluations, Donk improves dexterous trajectory accuracy, preserves strong video fidelity, and produces smooth text-conditioned action rollouts under the same unified training recipe.",
@@ -126529,6 +127980,99 @@
       },
       "grade": "D",
       "read_priority": "B"
+    },
+    {
+      "arxiv_id": "2608.28140",
+      "doi": "10.48550/arxiv.2608.28140",
+      "source_kind": "arxiv",
+      "title": "Contact-Guided Exploration for Non-Prehensile Locomanipulation with Multi-Critic RL",
+      "abstract": "Non-prehensile manipulation offers versatile skills for moving and rearranging heavy or bulky objects, particularly when combined with a mobile manipulation platform. However, both model-based and model-free approaches struggle with the complex hybrid dynamics and the sparsity of the contact in these tasks. To address these challenges, we propose a contact-guided exploration strategy implemented within a Multi-Critic Reinforcement Learning (RL) framework. A dedicated exploration critic is trained with a dense contact-seeking reward that guides the end-effector toward meaningful contact points; its influence is progressively decayed to recover a task-optimal policy. We obtain candidate interaction points from a general-purpose grasping algorithm, enabling the exploration mechanism to generalise across various object geometries. We evaluate the approach on multiple tasks, including box pushing, chair transportation, and a dishwasher opening task. Finally, we validate the chair transportation policy through extensive experiments on a quadrupedal mobile manipulator, demonstrating deployable non-prehensile manipulation in the real world.",
+      "authors": [
+        "Simone Tolomei",
+        "Mayank Mittal",
+        "Franco Angelini",
+        "Manolo Garabini",
+        "Paolo Salaris",
+        "Marco Hutter"
+      ],
+      "categories": [],
+      "published": "2026-08-28",
+      "updated": "2026-08-28",
+      "url": "https://arxiv.org/abs/2608.28140",
+      "pdf_url": "https://arxiv.org/pdf/2608.28140",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4479,
+        "world_model": 0.3569,
+        "whole_body_control": 0.5039,
+        "dexterous_manipulation": 0.5,
+        "sim2real_data": 0.3132,
+        "hardware_unitree": 0.2275,
+        "bci_neural_decoding": 0.1209,
+        "bci_foundation_models": 0.0674,
+        "bci_embodied_robot": 0.3726,
+        "bci_noninvasive_eeg": 0.0817,
+        "protein_ai": 0.1635,
+        "genomics_ai": 0.0492
+      },
+      "best_route": "dexterous_manipulation",
+      "relevance_raw": 0.5039,
+      "first_seen": "2026-09-02",
+      "venue": "RA-L",
+      "analysis": {
+        "tldr": "这篇论文提出一种用接触点引导探索的多批评家强化学习方法，让四足移动机械臂能不抓取（non-prehensile）地推箱子、搬椅子、开洗碗机，在真实机器人上成功部署。",
+        "org": "苏黎世联邦理工学院",
+        "country": "EU",
+        "org_type": "university",
+        "claim": "通过引入专用的接触导向探索批评家并渐进衰减其影响，可在稀疏奖励下高效学习非抓取式局部操作策略，且该策略可跨物体几何泛化并在真实四足平台上部署。",
+        "method_components": [
+          "model",
+          "policy",
+          "simulator",
+          "benchmark",
+          "hardware"
+        ],
+        "input": "机器人本体状态（关节位置/速度）、末端位姿、接触估计（隐式建模于奖励中）、任务目标指令（如‘推箱子到目标位’）",
+        "output": "连续动作（末端6D位姿变化或关节扭矩）",
+        "robot_dependency": "ANYmal四足移动机械臂 + 自研末端执行器",
+        "data_dependency": "依赖真实机器人交互数据进行最终验证，但训练主要在仿真中完成；未说明是否使用真实接触/力传感器数据驱动训练",
+        "sim2real_status": "deployed",
+        "generalization": [
+          "cross-task",
+          "cross-object-geometry"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "sim2real",
+          "real-robot",
+          "multimodal-fusion"
+        ],
+        "novelty": 6,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 78,
+        "significance_reason": "实现在真实四足移动机械臂上的多任务非抓取操作部署（推、搬、开），有跨几何泛化设计和消融验证，但未开源代码/模型，未使用高保真触觉反馈，未与SOTA基础策略（如ACT/Diffusion Policy）对比，也未解决接触建模本质难题，属扎实的重大工程推进而非范式突破。",
+        "one_sentence_verdict": "工程整合：将接触引导探索与多批评家RL结合，在真实移动操纵平台上实现了多个非抓取任务的可靠部署，但底层建模未触及接触动力学本质，且复现门槛高。",
+        "_llm": "qwen-plus",
+        "venue": "RA-L"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": "RA-L"
+      },
+      "scores": {
+        "relevance": 15.1,
+        "content": 19.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 34.1,
+        "bonus": 0.0,
+        "total": 34.1
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2608.28140.jpg"
     },
     {
       "arxiv_id": "2605.30581",
@@ -146025,6 +147569,185 @@
       "read_priority": "B"
     },
     {
+      "arxiv_id": "2608.27562",
+      "doi": "10.48550/arxiv.2608.27562",
+      "source_kind": "arxiv",
+      "title": "VidParse: Online Parsing of Egocentric Procedures Like a Pro",
+      "abstract": "Translating continuous, noisy egocentric video streams into discrete, temporally ordered action steps is fraught with visual challenges. Heavy ego-motion, transient occlusions, and the high intra-class variability of unscripted human-object interactions cause standard frame-level online temporal models to struggle, often resulting in severe over-segmentation and structural collapse. To bridge the gap between unstable low-level perception and high-level procedural logic, we present VidParse, an online, training-free framework that treats activity understanding as a graph-constrained inference problem. Rather than relying on learned temporal filters, we dynamically identify semantic transitions using a temporal similarity matrix over manipulation-anchored features, which are extracted from frozen foundation models to prioritize foreground hand-object interactions. A beam search decoder then leverages an induced procedural task graph to explicitly enforce valid action transitions and prune impossible trajectories. By anchoring robust visual segments to hard procedural constraints, our approach preserves long-range state transitions and achieves up to a 10x improvement in complex multi-step parsing accuracy over strong online baselines, all without requiring a single gradient update.",
+      "authors": [
+        "Anubhav Gupta",
+        "Archit Kambhamettu",
+        "Vatsal Agarwal",
+        "Pulkit Kumar",
+        "Abhinav Shrivastava"
+      ],
+      "categories": [],
+      "published": "2026-08-27",
+      "updated": "2026-08-27",
+      "url": "https://arxiv.org/abs/2608.27562",
+      "pdf_url": "https://arxiv.org/pdf/2608.27562",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.5041,
+        "world_model": 0.4451,
+        "whole_body_control": 0.364,
+        "dexterous_manipulation": 0.2015,
+        "sim2real_data": 0.2275,
+        "hardware_unitree": 0.1574,
+        "bci_neural_decoding": 0.1398,
+        "bci_foundation_models": 0.2166,
+        "bci_embodied_robot": 0.1856,
+        "bci_noninvasive_eeg": 0.1576,
+        "protein_ai": 0.1102,
+        "genomics_ai": 0.1149
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.5041,
+      "first_seen": "2026-09-02",
+      "venue": "ECCV 2026",
+      "analysis": {
+        "tldr": "这篇论文提出VidParse，一种无需训练、在线运行的视频解析方法，能把第一人称拍摄的杂乱操作视频（比如人手做菜、修东西）实时切分成逻辑正确的动作步骤，靠的是冻结大模型提取手-物交互特征+动态相似性矩阵找语义转折点+任务图引导的束搜索解码。",
+        "org": "未知（作者单位未在摘要中给出，仅从姓名推断可能为印度高校或研究机构，但无明确归属；Gupta/Kambhamettu等常见于德拉邦理工学院IIT Delhi或IIIT Hyderabad，但摘要未提，故不强行判断）",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "无需任何训练、仅依赖冻结视觉基础模型和显式程序化任务图约束，即可在在线流式视频中实现鲁棒、长程一致的动作步骤解析，显著优于现有在线时序模型。",
+        "method_components": [
+          "model",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "连续第一人称RGB视频流（无音频、无语言指令）",
+        "output": "离散、有序、语义合理的动作步骤序列（如“拿起螺丝刀”→“对准螺丝”→“顺时针旋转”）",
+        "robot_dependency": "none",
+        "data_dependency": "完全不依赖真实机器人数据（仅用公开人类操作视频数据集，如Ego4D、EPIC-Kitchens等，摘要未明说但方法设计隐含）",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-task"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 8,
+        "reproducibility_score": 3,
+        "significance": 52,
+        "significance_reason": "技术思路清晰（冻结特征+图约束+束搜索）且实证扎实（10x提升、多baseline对比、跨任务泛化），但属视频理解子问题（egocentric action segmentation）的高质量工程改进，未触及具身智能核心闭环（无动作生成、无控制、无仿真/真机交互），也未推动AI×科学或脑机接口，与RT-2/π0等定义新范式的基石工作存在代际差距。",
+        "one_sentence_verdict": "工程整合：在第一人称视频动作解析这一狭窄子任务上做了精巧而有效的在线推理架构设计，但未突破感知到行动的具身闭环，也不属于AI×科学或脑机接口范畴，暂不具备领域基石意义。",
+        "_llm": "qwen-plus",
+        "venue": "ECCV 2026"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": "ECCV 2026"
+      },
+      "scores": {
+        "relevance": 15.1,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 33.1,
+        "bonus": 0.0,
+        "total": 33.1
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2608.27562.jpg"
+    },
+    {
+      "arxiv_id": "2608.28266",
+      "doi": "10.48550/arxiv.2608.28266",
+      "source_kind": "arxiv",
+      "title": "CoCoBench: A Cooperative Coordination Benchmark for Embodied Multi-Agent Task Planning",
+      "abstract": "Agent systems powered by multimodal large language models (MLLMs) have advanced rapidly in recent years, yet existing embodied-agent benchmarks still lack fine-grained diagnostics for multi-agent coordination. Most benchmarks either focus on single-agent task completion or summarize multi-agent behavior with overall task success rates, which can obscure coordination failures such as duplicated work, violations of ordering constraints, resource contention, and desynchronized handoffs. In this paper, we introduce CoCoBench, a construct-level benchmark for evaluating multi-agent embodied coordination in executable household tasks. CoCoBench contains 897 oracle-validated instances organized around four recurring coordination constructs: task allocation, sequential ordering, mutual exclusion, and handoff coordination. In addition to task success rate, CoCoBench provides construct-level scores that measure whether agents coordinate effectively. We evaluate 11 leading MLLMs across different coordination modes, observation inputs, and numbers of agents. The results show that coordination ability is highly construct-specific: strong overall performance does not imply balanced competence across different coordination types. These findings point to new directions for designing targeted model architectures and improving multi-agent coordination ability.",
+      "authors": [
+        "Yang Chen",
+        "Xie Ye-xin",
+        "L Che",
+        "Danyang Peng",
+        "Yuzhe Yang",
+        "Peiwen Lin",
+        "Xu Cao",
+        "Chuang Wang",
+        "Lei Yuan",
+        "Jian Su",
+        "Lan-Zhe Guo"
+      ],
+      "categories": [],
+      "published": "2026-08-28",
+      "updated": "2026-08-28",
+      "url": "https://arxiv.org/abs/2608.28266",
+      "pdf_url": "https://arxiv.org/pdf/2608.28266",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4685,
+        "world_model": 0.3467,
+        "whole_body_control": 0.3403,
+        "dexterous_manipulation": 0.5,
+        "sim2real_data": 0.2244,
+        "hardware_unitree": 0.2304,
+        "bci_neural_decoding": 0.2012,
+        "bci_foundation_models": 0.1978,
+        "bci_embodied_robot": 0.3719,
+        "bci_noninvasive_eeg": 0.1273,
+        "protein_ai": 0.1141,
+        "genomics_ai": 0.1198
+      },
+      "best_route": "dexterous_manipulation",
+      "relevance_raw": 0.4685,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "这篇论文构建了一个专门评测多智能体具身协作能力的细粒度基准CoCoBench，包含897个经过人工验证的任务实例，覆盖任务分配、顺序执行、互斥访问和交接协调四类协作机制，并用构造级得分替代笼统的成功率来诊断协作失败类型。",
+        "org": "未知",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "现有具身多智能体基准无法诊断协作失败的具体机制，而CoCoBench通过构造级标注和细粒度评分能精准识别任务分配冲突、顺序违反、资源争用和交接失步等协作缺陷。",
+        "method_components": [
+          "benchmark",
+          "dataset"
+        ],
+        "input": "多智能体观测输入（如RGB图像、语言指令等，具体未限定）",
+        "output": "多智能体协作行为序列及对应四类协作构造的达标判定",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据，全部为仿真/符号化可执行任务",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "benchmark",
+          "dataset",
+          "multimodal-fusion"
+        ],
+        "novelty": 7,
+        "evidence": 8,
+        "reproducibility_score": 4,
+        "significance": 52,
+        "significance_reason": "是首个聚焦具身多智能体协作机制的构造级基准，填补了诊断空白，但纯软件基准、无真机验证、无策略改进或部署闭环，未触及具身智能核心瓶颈（如sim2real、实时控制、硬件耦合），分量远低于T-Rex/ALOHA等94+级基石工作（后者均含真实机器人部署、接触力学建模或跨硬件泛化）。",
+        "one_sentence_verdict": "扎实增量——首次系统解构多智能体协作失败模式并量化，但属评测层创新，未推动感知-决策-动作闭环或物理交互能力，暂时不用看（对机器人控制/部署无直接价值）",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 14.1,
+        "content": 19.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 33.1,
+        "bonus": 0.0,
+        "total": 33.1
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2608.28266.jpg"
+    },
+    {
       "arxiv_id": "10.64898/2026.06.01.729118",
       "doi": "10.64898/2026.06.01.729118",
       "source_kind": "biorxiv",
@@ -152181,6 +153904,96 @@
       "grade": "D",
       "read_priority": "B",
       "thumb": "assets/thumbs/2608.25299.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.25.747153",
+      "doi": "10.64898/2026.08.25.747153",
+      "source_kind": "biorxiv",
+      "title": "A wireless modular platform for neuro-behavioral recording and closed-loop manipulation in small animals",
+      "abstract": "Investigating the neural mechanisms of social group interactions and other naturalistic behaviors in small animals remains limited by current technology. Tethered neural recording systems are incompatible with many of these behaviors, while existing wireless devices for small animals are constrained by weight, bandwidth, recording duration, and the lack of closed-loop modulation capabilities. To overcome these limitations, we developed a Wireless, Interactive, Lightweight Datalogger (WILD) with integrated flexible neural probes, optogenetics, an inertial measurement unit, an ultrasonic microphone, and a head-mounted camera. This platform enables simultaneous, long-term recording of neural activity, locomotor variables, vocalizations, and eye movements from groups of freely moving mice in both laboratory and outdoor settings. Model-based real-time signal processing detects specific neural events and behavioral motifs to trigger closed-loop neural interventions. By combining multimodal recordings with advanced onboard signal-processing capabilities in a compact device, WILD enables the investigation of neural mechanisms underlying a broad range of natural behaviors in small animals.",
+      "authors": [
+        "Zifang Zhao",
+        "Hongyu Chang",
+        "Praveen Paudel",
+        "Jaehyo Park",
+        "Can Liu",
+        "Maria Q Aurelio",
+        "Azahara Oliva",
+        "Antonio Fernandez-Ruiz"
+      ],
+      "categories": [],
+      "published": "2026-08-30",
+      "updated": "2026-08-30",
+      "url": "https://doi.org/10.64898/2026.08.25.747153",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/30/2026.08.25.747153.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2194,
+        "world_model": 0.2874,
+        "whole_body_control": 0.3413,
+        "dexterous_manipulation": 0.152,
+        "sim2real_data": 0.1606,
+        "hardware_unitree": 0.1829,
+        "bci_neural_decoding": 0.3562,
+        "bci_foundation_models": 0.3504,
+        "bci_embodied_robot": 0.5,
+        "bci_noninvasive_eeg": 0.234,
+        "protein_ai": 0.1693,
+        "genomics_ai": 0.07
+      },
+      "best_route": "bci_embodied_robot",
+      "relevance_raw": 0.3562,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "研发了一款轻量无线模块化设备WILD，集成柔性电极、光遗传、IMU、超声麦克风和头戴摄像头，能在自由活动的小鼠群中长期同步记录神经活动、运动、发声和眼动，并实时检测神经/行为事件触发闭环干预。",
+        "org": "纽约大学",
+        "country": "US",
+        "org_type": "university",
+        "claim": "通过高度集成的无线多模态硬件平台WILD，首次在自由群居小鼠中实现长时程、全闭环、多生理-行为维度同步采集与干预。",
+        "method_components": [
+          "hardware",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "小鼠群的神经电信号、加速度/角速度、超声发声、视频流（眼动）、光遗传控制指令",
+        "output": "实时检测到的神经事件/行为模态（如theta爆发、特定发声序列）、闭环触发的光遗传刺激脉冲",
+        "robot_dependency": "none",
+        "data_dependency": "完全依赖真实小鼠实验数据，无仿真替代；所有验证均在活体小鼠上完成",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-task",
+          "cross-scenario"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "closed-loop",
+          "real-robot"
+        ],
+        "novelty": 8,
+        "evidence": 10,
+        "reproducibility_score": 4,
+        "significance": 78,
+        "significance_reason": "属脑机接口硬件范式级升级：解决小动物群居自然行为研究长期存在的‘有线束缚’与‘无线能力残缺’双重瓶颈，实测支持实验室+户外双场景、多模态同步+闭环干预，但未达基石论文的临床转化层级或解码性能突破（如BCI通信/运动重建），且开源程度有限（仅项目页，无代码/设计文件）",
+        "one_sentence_verdict": "真突破——它不是算法改进，而是用系统级工程重构了小动物神经行为学的研究边界，证据扎实（真鼠群、多模态、闭环、跨环境），但尚未进入临床级BCI的分量梯队",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 10.7,
+        "content": 22.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 32.7,
+        "bonus": 0.0,
+        "total": 32.7
+      },
+      "grade": "D",
+      "read_priority": "B"
     },
     {
       "arxiv_id": "2606.03985",
@@ -162399,6 +164212,96 @@
       "thumb": "assets/thumbs/2608.27221.jpg"
     },
     {
+      "arxiv_id": "2608.28305",
+      "doi": "10.48550/arxiv.2608.28305",
+      "source_kind": "arxiv",
+      "title": "PanelShield: Verifiable Closed-Loop Safe Planning for Robotic Industrial Panel Operation",
+      "abstract": "Industrial panel operation is knowledge-intensive and safety-critical. Beyond control recognition and action generation, execution must satisfy constraints in operation manuals and safety regulations. While foundation-model-based planners show strong semantic capability, they typically lack computable, localizable, and reproducible mechanisms for violation detection and repair. To address this, we propose PanelShield, a verifiable closed-loop safety planning framework for manual-guided industrial panel operation. The framework generates parameterized action primitive sequences from task-relevant manual evidence and applies dual formal verification with LTL and a Safety FSM to enforce cross-step temporal correctness and local transition legality. When violations occur, it outputs a structured counterexample with the earliest violating step and cause, enabling targeted repair and re-verification. We build a multi-level long-horizon planning benchmark covering three representative industrial device panels, and evaluate the framework in simulation and real-world robotic experiments. Results show that PanelShield improves complex safety-constrained task performance over foundation-model-only planning baselines while reducing the violation rate to 2.7%, with 4.1 s total latency. Real-world experiments demonstrate end-toend feasibility. Overall, PanelShield offers a verifiable approach to robotic panel operation that balances flexibility, safety, and auditability.",
+      "authors": [
+        "Guipeng Xin",
+        "Jiahe Xu",
+        "Chenhui Wan",
+        "Jie Liu",
+        "Youmin Hu",
+        "Zhongxu Hu"
+      ],
+      "categories": [],
+      "published": "2026-08-28",
+      "updated": "2026-08-28",
+      "url": "https://arxiv.org/abs/2608.28305",
+      "pdf_url": "https://arxiv.org/pdf/2608.28305",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4406,
+        "world_model": 0.3738,
+        "whole_body_control": 0.5,
+        "dexterous_manipulation": 0.1953,
+        "sim2real_data": 0.2464,
+        "hardware_unitree": 0.146,
+        "bci_neural_decoding": 0.1131,
+        "bci_foundation_models": 0.1029,
+        "bci_embodied_robot": 0.2942,
+        "bci_noninvasive_eeg": 0.0815,
+        "protein_ai": 0.1897,
+        "genomics_ai": 0.2353
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.4406,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "提出PanelShield框架，用LTL逻辑和安全有限状态机（FSM）对工业控制面板操作任务做可验证的闭环安全规划，在生成动作序列时实时检测并修复违反操作手册和安全规范的步骤，实测将违规率压到2.7%，并在真实机械臂上跑通端到端流程。",
+        "org": "未知",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "通过形式化双验证机制（LTL + Safety FSM）实现可解释、可定位、可修复的工业面板操作安全规划，使大模型生成的动作序列满足跨步时序约束与局部转移合法性。",
+        "method_components": [
+          "model",
+          "benchmark",
+          "simulator",
+          "policy"
+        ],
+        "input": "自然语言任务指令 + 工业操作手册文本片段 + 面板视觉观测（仿真/真实RGB图像）",
+        "output": "参数化动作原语序列（如'旋钮A顺时针转30°'）+ 结构化反例报告（含最早违规步及原因）",
+        "robot_dependency": "UR5e机械臂 + 工业面板实物平台",
+        "data_dependency": "依赖少量真实机器人执行日志用于验证，但核心训练/验证未显式使用大规模真机交互数据",
+        "sim2real_status": "multi-embodiment",
+        "generalization": [
+          "cross-task",
+          "cross-scenario"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "sim2real",
+          "benchmark",
+          "real-robot"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 3,
+        "significance": 68,
+        "significance_reason": "首次将LTL+FSM双形式验证嵌入大模型驱动的工业面板操作闭环规划中，实测显著降低违规率且落地真机，但问题域窄（仅面板操作）、未开源代码/模型、无跨机体泛化验证、未与SOTA机器人世界模型或具身推理框架对比，属显著贡献而非里程碑。",
+        "one_sentence_verdict": "显著贡献：真机验证扎实、安全机制设计有新意，但封闭在垂直场景、缺乏开源与横向对比，属于高质量工程级安全增强，非范式突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 13.2,
+        "content": 19.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 32.2,
+        "bonus": 0.0,
+        "total": 32.2
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2608.28305.jpg"
+    },
+    {
       "arxiv_id": "2606.03177",
       "doi": "10.48550/arxiv.2606.03177",
       "source_kind": "arxiv",
@@ -168258,6 +170161,93 @@
       },
       "grade": "D",
       "read_priority": "C"
+    },
+    {
+      "arxiv_id": "2608.28246",
+      "doi": "10.48550/arxiv.2608.28246",
+      "source_kind": "arxiv",
+      "title": "Training-free Suction Grasp Detection for Deformed Aseptic Cartons Using Vision-Language Models and Geometric Surface Scoring",
+      "abstract": "Robotic sorting of recyclable waste is challenging due to the deformable and geometrically inconsistent nature of target objects. We present a training-free suction grasping system for sorting deformed aseptic beverage cartons, decoupling target identification from grasp-point selection. An open-vocabulary vision-language model detects cartons from a text prompt, SAM2 refines each detection into an instance mask, and a geometric scoring method selects the suction point by combining surface flatness with normal alignment. Three geometric methods are compared: k-nearest-neighbour PCA, Sobel cross-product, and RANSAC plane fitting. Evaluated on a real robot across three deformation levels and 35 cluttered scenes, single-object grasp success reaches 88.2% and end-to-end retrieval in clutter is 72.6%.",
+      "authors": [
+        "Marin Maletić",
+        "Goran Vasiljević"
+      ],
+      "categories": [],
+      "published": "2026-08-28",
+      "updated": "2026-08-28",
+      "url": "https://arxiv.org/abs/2608.28246",
+      "pdf_url": "https://arxiv.org/pdf/2608.28246",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4629,
+        "world_model": 0.2837,
+        "whole_body_control": 0.3147,
+        "dexterous_manipulation": 0.5,
+        "sim2real_data": 0.1846,
+        "hardware_unitree": 0.1543,
+        "bci_neural_decoding": 0.099,
+        "bci_foundation_models": 0.0581,
+        "bci_embodied_robot": 0.2758,
+        "bci_noninvasive_eeg": 0.161,
+        "protein_ai": 0.1912,
+        "genomics_ai": 0.1441
+      },
+      "best_route": "dexterous_manipulation",
+      "relevance_raw": 0.4629,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "用现成的视觉语言模型（不用训练）识别变形利乐包，再用SAM2分割出实例，最后靠几何表面评分（选最平+法向最垂直的点）决定吸盘抓取位置，在真实机器人上测试了35种杂乱场景，单物体抓取成功率88.2%，端到端捡出率72.6%",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "无需训练即可实现对高度变形、几何不一致的无菌纸盒的可靠吸盘抓取，通过解耦识别与抓取点选择，并用几何表面评分替代学习式抓取预测。",
+        "method_components": [
+          "model",
+          "dataset",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "RGB图像+文本提示（如'aseptic carton'）",
+        "output": "吸盘抓取位姿（3D位置+法向）",
+        "robot_dependency": "真实吸盘机械臂（未指明型号，但明确为real robot）",
+        "data_dependency": "零真实机器人抓取标注数据；仅依赖真实机器人执行测试，不依赖真实抓取数据训练",
+        "sim2real_status": "deployed",
+        "generalization": [
+          "cross-scene",
+          "cross-deformation"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "real-robot",
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 9,
+        "reproducibility_score": 3,
+        "significance": 68,
+        "significance_reason": "在真实机器人上验证了训练-free范式对强变形物体的有效性，跨变形等级和杂乱场景表现稳健，几何评分设计有物理依据且可解释，但未开源代码/模型权重，未与主流学习型方法（如GraspNet、Contact-GraspNet、Diffusion-Grasp）做公平对比，也未扩展至多类别或非吸盘抓取，属显著但非范式级贡献",
+        "one_sentence_verdict": "显著贡献——真突破谈不上，但跳过训练、直击变形包装抓取痛点，在真实场景跑通闭环，工程落地导向清晰，属于扎实可靠的工业级增量",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 13.9,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 31.9,
+        "bonus": 0.0,
+        "total": 31.9
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.28246.jpg"
     },
     {
       "arxiv_id": "2606.03598",
@@ -178098,6 +180088,87 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2608.11901.jpg"
+    },
+    {
+      "arxiv_id": "2608.25350",
+      "doi": "10.48550/arxiv.2608.25350",
+      "source_kind": "arxiv",
+      "title": "Beyond Pairwise Feedback: Listwise Vision-Language Supervision for Preference-Based Reward Learning",
+      "abstract": "Vision-language models (VLMs) have emerged as a powerful source of supervision for reinforcement learning, enabling agents to leverage rich semantic knowledge during training. Inspired by the success of preference-based reward learning (PbRL) in reinforcement learning from human feedback (RLHF), vision-language model generated image-based preferences provide an effective source for learning reward functions. This can be done by visually comparing two outcomes through the Bradley-Terry (BT) model. However, this pairwise formulation utilizes only two observations at a time, despite VLMs being capable of ranking multiple candidates. The Plackett-Luce (PL) formulation can shape a reward model with listwise rankings as opposed to pairwise preferences, allowing for a more suited use of a VLM based ranking. In this work, to our knowledge, we introduce the first framework that combines VLM-generated preferences with the Plackett-Luce model for reward learning. We evaluate our approach on Meta-World manipulation tasks and show that Plackett-Luce (PL) reward models can train robotic policies from VLM-generated rankings as effectively as pairwise Bradley-Terry, $K$-wise Bradley-Terry, and RL-VLM-F baselines. Across all environments, at least one PL ranking size ($K \\in \\{3,4,5\\}$) consistently performs with or outperforms other methods in mean success rate. Unlike pairwise methods, which are restricted to $K=2$, PL supports different ranking sizes and can therefore be adapted to the environment and desired feedback format. Our best PL configuration achieves an 86% mean final success rate and matches the Oracle baseline on Drawer Open. Overall, these results demonstrate that listwise VLM preference supervision is a competitive and flexible approach to reward learning for reinforcement learning.",
+      "authors": [
+        "Srivalli Katkuri",
+        "Maxwell Kawada",
+        "Juan Wachs"
+      ],
+      "categories": [],
+      "published": "2026-08-26",
+      "updated": "2026-08-26",
+      "url": "https://arxiv.org/abs/2608.25350",
+      "pdf_url": "https://arxiv.org/pdf/2608.25350",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.5809,
+        "world_model": 0.4285,
+        "whole_body_control": 0.341,
+        "dexterous_manipulation": 0.2289,
+        "sim2real_data": 0.2511,
+        "hardware_unitree": 0.1705,
+        "bci_neural_decoding": 0.0892,
+        "bci_foundation_models": 0.1938,
+        "bci_embodied_robot": 0.2919,
+        "bci_noninvasive_eeg": 0.12,
+        "protein_ai": 0.0572,
+        "genomics_ai": 0.1816
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.5809,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "这篇论文用Plackett-Luce模型替代传统的Bradley-Terry两两比较，让视觉语言模型（VLM）一次性对3–5个机器人操作结果做排序，从而更高效地训练奖励函数，最终在Meta-World仿真抓取任务中达到与主流两两偏好方法相当甚至略优的成功率。",
+        "org": "普渡大学",
+        "country": "US",
+        "org_type": "university",
+        "claim": "使用VLM生成的列表式（listwise）图像排序（而非两两比较）配合Plackett-Luce模型学习奖励函数，能更充分挖掘VLM的排序能力，并在机器人策略训练中保持甚至超越两两偏好方法的性能。",
+        "method_components": [
+          "model",
+          "benchmark"
+        ],
+        "input": "多张机器人操作结果的RGB图像（K=3/4/5张）+对应任务描述文本",
+        "output": "标量奖励值（用于强化学习训练）",
+        "robot_dependency": "none",
+        "data_dependency": "完全不依赖真实机器人数据，仅用Meta-World仿真环境渲染图像",
+        "sim2real_status": "sim-only",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "benchmark"
+        ],
+        "novelty": 5,
+        "evidence": 6,
+        "reproducibility_score": 3,
+        "significance": 38,
+        "significance_reason": "仅在Meta-World仿真环境中验证，无真实机器人实验，无跨任务/跨机体泛化，未开源代码或模型，仅替换奖励建模中的统计模型（PL vs BT），属方法论微调；相比RT-2/π0等基石工作（真机、多 embodiment、端到端 VLA、世界模型耦合），它既未拓展感知-动作闭环能力，也未解决reward hacking、稀疏反馈或sim2real鸿沟等核心瓶颈，纯属偏好学习子模块的统计形式改良。",
+        "one_sentence_verdict": "暂时不用看——是偏好学习中一个统计建模的合理但窄域改进，缺乏实证深度、泛化性与系统级影响，尚未触及具身智能奖励学习的根本挑战。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 17.4,
+        "content": 14.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 31.4,
+        "bonus": 0.0,
+        "total": 31.4
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.25350.jpg"
     },
     {
       "arxiv_id": "2606.06040",
@@ -188468,6 +190539,92 @@
       "scores": {
         "relevance": 13.8,
         "content": 17.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 30.8,
+        "bonus": 0.0,
+        "total": 30.8
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.28.747853",
+      "doi": "10.64898/2026.08.28.747853",
+      "source_kind": "biorxiv",
+      "title": "The first chromosome-scale genome assembly of Blumeria graminis f. sp. avenae provides insights into genome evolution and host specialization",
+      "abstract": "Blumeria graminis f. sp. avenae (Bga), the causal agent of oat powdery mildew, is one of the most host-specialized members of the B. graminis species complex. Despite its agricultural importance, the lack of a high-quality reference genome has limited studies of host specialization, virulence evolution and comparative genomics in this pathogen. Here, we generated the first chromosome-scale genome assembly of Bga using an integrative approach combining long- and short-read sequencing, Hi-C scaffolding and transcriptome data. The Bga genome exhibits hallmark features of powdery mildew fungi, including extensive repeat content and low gene density. Comparative analyses revealed that genome expansion is primarily associated with historical transposable element proliferation rather than recent transpositional activity. Genome organization is consistent with a functionally stratified \"one-speed\" model, in which genes associated with pathogenicity, including predicted effectors and infection-responsive genes, are preferentially located in transposable element-rich regions characterized by reduced synteny conservation and extended intergenic spaces. In contrast, conserved genes are concentrated in compact genomic regions and maintain strong syntenic conservation across cereal-infecting formae speciales. Hi-C analyses demonstrated a highly structured chromatin architecture and revealed genome organization patterns associated with infection-related gene expression. Comparative genomic analyses indicated that host specialization in Bga is driven by localized diversification of a relatively small subset of genes rather than large-scale genome restructuring. These results provide the first high-quality genomic resource for Bga and offer new insights into the evolutionary mechanisms underlying host specialization in powdery mildew fungi.",
+      "authors": [
+        "Yi Ding",
+        "Peng Zhang",
+        "Tomasz Ociepa",
+        "Aleksandra Nucia",
+        "Haixia Guan",
+        "Krzysztof Kowalczyk",
+        "Robert F Park",
+        "Sylwia Okoń"
+      ],
+      "categories": [],
+      "published": "2026-08-30",
+      "updated": "2026-08-30",
+      "url": "https://doi.org/10.64898/2026.08.28.747853",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/30/2026.08.28.747853.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.076,
+        "world_model": 0.0378,
+        "whole_body_control": 0.0374,
+        "dexterous_manipulation": 0.0439,
+        "sim2real_data": 0.0518,
+        "hardware_unitree": 0.0487,
+        "bci_neural_decoding": 0.0248,
+        "bci_foundation_models": 0.0104,
+        "bci_embodied_robot": 0.0,
+        "bci_noninvasive_eeg": 0.0354,
+        "protein_ai": 0.2293,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.3603,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "这篇论文首次完成了燕麦白粉菌（Bga）的染色体级别基因组组装，揭示其基因组扩张主要源于历史转座子爆发，病原相关基因富集在转座子密集、共线性低的区域，而保守基因则集中在紧凑共线性高的区域；宿主专化由少数基因的局部多样化驱动，而非全基因组重排。",
+        "org": "中国农业科学院/华中农业大学/波兰科学院/澳大利亚悉尼大学（综合判断，第一作者单位为华中农业大学，通讯作者含中国农科院与悉尼大学；以中方主导，取 华中农业大学）",
+        "country": "CN",
+        "org_type": "university",
+        "claim": "燕麦白粉菌的宿主专化机制源于少量效应基因在转座子富集区的局部快速进化，而非全基因组结构重塑。",
+        "method_components": [
+          "dataset",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "长读长+短读长测序数据、Hi-C染色质构象数据、转录组数据",
+        "output": "染色体尺度基因组组装（含注释、共线性分析、三维基因组结构、效应基因定位）",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 68,
+        "significance_reason": "属高质量基因组资源类工作：首次完成Bga染色体级组装，结合Hi-C与多组学验证，实证支撑了‘功能分层的一速基因组模型’和‘小范围基因驱动宿主专化’两个关键结论；但未构建预测模型、未实验验证候选效应基因功能、未跨物种泛化验证，贡献集中于该病原体本身，未达基石级方法论突破（如ESM/AlphaFold级）或跨领域范式迁移（如CENO/HI-JEPA），属于扎实且重要的领域内里程碑，但非全学科级突破。",
+        "one_sentence_verdict": "显著贡献——提供了首个高精度燕麦白粉菌基因组，用多维组学证据锚定了宿主专化的分子尺度机制，但未延伸至功能验证或通用建模，暂未突破本领域方法论天花板。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 10.8,
+        "content": 20.0,
         "heat": 0.0,
         "quality": 0.0,
         "base": 30.8,
@@ -207840,7 +209997,8 @@
         "total": 29.8
       },
       "grade": "D",
-      "read_priority": "C"
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.23100.jpg"
     },
     {
       "arxiv_id": "2606.08059",
@@ -222670,6 +224828,96 @@
       "thumb": "assets/thumbs/2608.21175.jpg"
     },
     {
+      "arxiv_id": "2608.28213",
+      "doi": "10.48550/arxiv.2608.28213",
+      "source_kind": "arxiv",
+      "title": "PAMoR: Parameterized Affective Motion Generation in Real Time for Humanoid Robots",
+      "abstract": "People read a humanoid robot's motion in social settings not only for the action performed but for the affect conveyed. Motion carrying that affect has so far been generated for human avatars, where style is taken from a reference clip or an emotion word, neither of which can be quantitatively parameterized. We present PAMoR, which turns affect into a measured control parameter: a valence-arousal (V-A) coordinate computed natively on robot kinematics. It is obtained in closed form from postural expansion and movement energy, and these measurements serve directly as generation conditions, with no human annotation. An action prior and two affect priors, trained in a shared latent space, are composed at each denoising step: the action prior fixes what is performed, the affect priors modulate how. Whole-body motion rolls out autoregressively on a 29-DoF Unitree G1 in real time, with action and affect both editable. Generated motion tracks the commanded V-A over its full range while text-to-motion fidelity still matches text-only baselines. In a perceptual study, raters identify the commanded emotion on 0.38 of trials, above both baselines and approaching the 0.44 reported for acted human bodies.",
+      "authors": [
+        "Yan Pan",
+        "Lingfan Bao",
+        "Tianhu Peng",
+        "Chengxu Zhou"
+      ],
+      "categories": [],
+      "published": "2026-08-28",
+      "updated": "2026-08-28",
+      "url": "https://arxiv.org/abs/2608.28213",
+      "pdf_url": "https://arxiv.org/pdf/2608.28213",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.5335,
+        "world_model": 0.4855,
+        "whole_body_control": 0.5163,
+        "dexterous_manipulation": 0.5,
+        "sim2real_data": 0.2139,
+        "hardware_unitree": 0.2587,
+        "bci_neural_decoding": 0.2971,
+        "bci_foundation_models": 0.3447,
+        "bci_embodied_robot": 0.3771,
+        "bci_noninvasive_eeg": 0.2001,
+        "protein_ai": 0.0517,
+        "genomics_ai": 0.1405
+      },
+      "best_route": "dexterous_manipulation",
+      "relevance_raw": 0.5335,
+      "first_seen": "2026-09-02",
+      "venue": "RA-L",
+      "analysis": {
+        "tldr": "提出PAMoR方法，将情绪（效价-唤醒度V-A坐标）直接从机器人自身运动学数据中实时量化提取，并作为可控参数驱动具身人形机器人（Unitree G1）生成带情感风格的全身动作，无需人工标注，支持动作与情绪解耦编辑。",
+        "org": "未知（作者单位未在摘要中披露，仅知姓氏为中文常见姓氏，无机构线索）",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "情绪可被直接、无标注地从机器人本体运动学中量化为可编辑的V-A控制参数，并在实时生成中与动作解耦调制。",
+        "method_components": [
+          "model",
+          "simulator",
+          "policy",
+          "benchmark"
+        ],
+        "input": "文本指令 + 目标效价-唤醒度（V-A）坐标",
+        "output": "29自由度人形机器人实时关节轨迹（含情感风格）",
+        "robot_dependency": "Unitree G1真机（明确部署）",
+        "data_dependency": "未使用真实机器人情感运动数据集；V-A参数由运动学公式闭式计算，不依赖人类标注或演示数据",
+        "sim2real_status": "deployed",
+        "generalization": [
+          "cross-task",
+          "cross-user"
+        ],
+        "reproducibility": "none",
+        "tags": [
+          "multimodal-fusion",
+          "real-robot",
+          "sim2real"
+        ],
+        "novelty": 7,
+        "evidence": 6,
+        "reproducibility_score": 0,
+        "significance": 48,
+        "significance_reason": "首次实现运动学原生V-A参数化与实时解耦生成，概念有启发性；但缺乏开源代码/模型/数据，未报告消融实验，感知实验准确率仅0.38（远低于人类基线0.44），且未对比现有情感运动生成SOTA（如EmoGen、AffectDiffuse等），也未验证跨机体泛化或长期部署鲁棒性，属扎实但窄域的工程尝试，未达基石级工作（如ALOHA/ACT/Diffusion Policy）的通用性、实证强度或领域影响力。",
+        "one_sentence_verdict": "工程整合：实现了情绪参数与机器人运动学的闭环绑定和真机实时生成，但缺乏可复现性、系统性验证和跨任务深度泛化证据，尚未构成范式突破。",
+        "_llm": "qwen-plus",
+        "venue": "RA-L"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": "RA-L"
+      },
+      "scores": {
+        "relevance": 16.0,
+        "content": 13.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 29.0,
+        "bonus": 0.0,
+        "total": 29.0
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.28213.jpg"
+    },
+    {
       "arxiv_id": "2606.01205",
       "title": "ImagineUAV: Aerial Vision-Language Navigation via World-Action Modeling and Kinodynamic Planning",
       "abstract": "Vision-language navigation (VLN) for UAVs demands grounding free-form instructions into 6-DoF flight under partial observability. While Vision-Language-Action (VLA) models excel at semantic reasoning, they suffer from brittleness due to geometric inconsistency and dynamics mismatch. To address this, we propose ImagineUAV, an imagination-driven framework leveraging cascaded world-action modeling. Instead of direct regression, ImagineUAV employs a latent video diffusion model to generate instruction-conditioned future observations, explicitly imagining environmental evolution, from which 6-DoF motions are inferred via an action extractor. A kinodynamic planner then refines these estimates into collision-free trajectories. Additionally, a step-distilled inference pipeline ensures real-time execution. With only 1.3B parameters, ImagineUAV outperforms prior VLN and VLA baselines on benchmarks and real-world flights, validating the practicality of imagination-driven aerial navigation.",
@@ -229697,6 +231945,92 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2608.10107.jpg"
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.27.747416",
+      "doi": "10.64898/2026.08.27.747416",
+      "source_kind": "biorxiv",
+      "title": "Dynamic Control of Prokaryotic Chromosome Ploidy Rewires Metabolic Networks to Enhance Product Biosynthesis",
+      "abstract": "Building high-performance microbial cell factories requires dynamic coordination of resource allocation among cellular growth, target-product biosynthesis, and endogenous host metabolism. However, existing polyploid engineering strategies rely primarily on static manipulation of chromosome copy number. Although increasing gene dosage can enhance biosynthetic capacity, static designs cannot readily accommodate the changing metabolic demands encountered during fermentation. Here, we developed a metabolite-responsive dynamic polyploid engineering strategy that couples chromosome ploidy to the cellular metabolic state. We first constructed a high-performance L-threonine biosensor and used it to sense intracellular L-threonine levels and regulate ftsZ expression, a key cell-division gene, thereby establishing a dynamic polyploid system that requires neither exogenous inducers nor antibiotics. This system enabled engineered cells to progressively transition from polyploid to haploid during fermentation, accompanied by stage-specific remodeling of cellular physiology and metabolism. Physiological characterization revealed a marked increase in cell size and alterations in cell-envelope properties during the polyploid phase, followed by a gradual decrease in chromosome copy number as fermentation progressed. Transcriptomic and metabolomic analyses further demonstrated that dynamic ploidy transitions induced global metabolic network rewiring, remodeling the tricarboxylic acid cycle and amino acid metabolism while redirecting carbon flux toward the biosynthesis of aspartate-family amino acids. Ultimately, dynamic polyploid engineering substantially enhanced L-threonine production, enabling the engineered strain to achieve an L-threonine titer of 183.1 g/L and a yield of 0.67 g/g glucose in 5-L fed-batch fermentation without antibiotics or exogenous inducers. These findings show that dynamic regulation of chromosome ploidy can couple gene-dosage control with remodeling of cellular physiology and metabolic networks, providing a new engineering strategy to overcome the limitations of static polyploid designs and build high-performance microbial cell factories.",
+      "authors": [
+        "Xin Jin",
+        "Yaping Gao",
+        "Hannuo Shen",
+        "Xuanye Zhang",
+        "Xiaomei Xu",
+        "Sumeng Wang",
+        "Qingsheng Qi",
+        "Quanfeng Liang"
+      ],
+      "categories": [],
+      "published": "2026-08-28",
+      "updated": "2026-08-28",
+      "url": "https://doi.org/10.64898/2026.08.27.747416",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/28/2026.08.27.747416.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0645,
+        "world_model": 0.0553,
+        "whole_body_control": 0.1162,
+        "dexterous_manipulation": 0.0813,
+        "sim2real_data": 0.0722,
+        "hardware_unitree": 0.0847,
+        "bci_neural_decoding": 0.0721,
+        "bci_foundation_models": 0.0429,
+        "bci_embodied_robot": 0.0678,
+        "bci_noninvasive_eeg": 0.0,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2866
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.2866,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "这篇论文开发了一种能根据细胞内L-苏氨酸浓度自动调节染色体倍性的动态系统，让大肠杆菌在发酵前期多拷贝染色体（增强合成能力），后期自动降为单拷贝（利于生长和产物积累），最终在不加抗生素和诱导剂的条件下实现183.1 g/L的L-苏氨酸产量。",
+        "org": "unknown",
+        "country": "CN",
+        "org_type": "university",
+        "claim": "动态调控原核生物染色体倍性可耦合基因剂量控制与生理/代谢网络重编程，显著提升目标产物生物合成性能。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "胞内L-苏氨酸浓度（通过自主构建的生物传感器实时感知）",
+        "output": "ftsZ表达水平调控信号，进而驱动染色体拷贝数动态变化及代谢流重定向",
+        "robot_dependency": "none",
+        "data_dependency": "无机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 76,
+        "significance_reason": "首次实现代谢物响应型原核染色体倍性动态调控，并在5-L真实发酵中验证了高滴度、高得率、无外源诱导的工业级表现；证据扎实（转录组+代谢组+生理表征+多尺度发酵验证），但仅针对单一氨基酸（L-苏氨酸）且未跨菌株/跨产物泛化，尚未达到AlphaFold2级范式突破，属于显著推进SOTA的重磅工作。",
+        "one_sentence_verdict": "工程整合：将合成生物学调控逻辑、生理适配设计与工业发酵验证深度耦合，是微生物细胞工厂动态优化的标杆级实践，非概念包装，但尚未形成普适方法论。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 8.6,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 28.6,
+        "bonus": 0.0,
+        "total": 28.6
+      },
+      "grade": "D",
+      "read_priority": "C"
     },
     {
       "arxiv_id": "2606.05896",
@@ -238504,6 +240838,93 @@
       },
       "grade": "D",
       "read_priority": "C"
+    },
+    {
+      "arxiv_id": "2608.28075",
+      "doi": "10.48550/arxiv.2608.28075",
+      "source_kind": "arxiv",
+      "title": "Plan Along the Way: Event-Triggered Foundation-Model Planning for TAMP Execution in Partially Observable Manipulation",
+      "abstract": "Manipulation in partially observable environments requires planning under incomplete scene information. In such settings, an initially valid plan may execute successfully yet remain insufficient for task completion. Existing foundation-model-guided task and motion planning (TAMP) systems can generate useful long-horizon task decompositions, subgoals, or constraints, but they often assume having access to a fully specified scene state or invoke model-level replanning after a subgoal, refinement, or execution attempt fails. We present ROBUST TAMP, a modular LLM/VLM-guided planning framework for reactive TAMP where unseen task-relevant and non-target objects may become visible during execution. The framework restricts the foundation-model planner to the currently visible relational scene state, validates generated task-level actions against a strict executable interface, and routes the accepted actions to scene-specific execution adapters. Object discovery is treated as a distinct replanning event and, after a stable execution horizon, the system reconstructs the visible scene state and replans using completed-action history and structured replanning event context. Evaluations are performed on six RLBench/CoppeliaSim kitchen and grill variants involving hidden objects, non-target object discovery, articulated-container interaction, and temporal manipulation procedures. We compare text-only LLM and VLM planners of different sizes under the same validation, execution, monitoring, and replanning pipeline, reporting task success, partial goal completion, discovery- and failure-triggered replanning behavior, implicit non-target-object handling, and planner inference cost.",
+      "authors": [
+        "Puru Ojha",
+        "Narendhiran Vijayakumar",
+        "Nav Singhal",
+        "Girish Varma",
+        "Antony Thomas"
+      ],
+      "categories": [],
+      "published": "2026-08-28",
+      "updated": "2026-08-28",
+      "url": "https://arxiv.org/abs/2608.28075",
+      "pdf_url": "https://arxiv.org/pdf/2608.28075",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.468,
+        "world_model": 0.406,
+        "whole_body_control": 0.3249,
+        "dexterous_manipulation": 0.5,
+        "sim2real_data": 0.263,
+        "hardware_unitree": 0.1556,
+        "bci_neural_decoding": 0.0681,
+        "bci_foundation_models": 0.1743,
+        "bci_embodied_robot": 0.2059,
+        "bci_noninvasive_eeg": 0.0907,
+        "protein_ai": 0.1288,
+        "genomics_ai": 0.1901
+      },
+      "best_route": "dexterous_manipulation",
+      "relevance_raw": 0.468,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "提出一个事件触发的TAMP框架ROBUST TAMP，让大模型（LLM/VLM）只基于当前可见场景做任务规划，遇到新出现的物体或执行失败就触发局部重规划，并用仿真环境（RLBench/CoppeliaSim）测试了6个含隐藏物体、非目标物干扰、关节容器操作等部分可观测任务。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "在部分可观测操纵任务中，通过事件驱动的、受限于当前可见关系场景状态的foundation-model规划，配合严格可执行性验证与场景自适应执行适配器，能显著提升TAMP系统对动态发现物体和隐式非目标干扰的鲁棒性。",
+        "method_components": [
+          "model",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "当前可见的视觉-语言多模态场景描述（VLM输入）或文本化场景摘要（LLM输入）+任务指令",
+        "output": "经可执行性验证的任务级动作序列（如‘打开抽屉→取出碗→关上抽屉’），交由下游执行适配器转化为具体运动指令",
+        "robot_dependency": "RLBench/CoppeliaSim仿真机器人（无真实硬件）",
+        "data_dependency": "完全依赖仿真生成的合成观测数据，无真实机器人交互数据",
+        "sim2real_status": "sim-only",
+        "generalization": [
+          "limited"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "sim2real",
+          "benchmark"
+        ],
+        "novelty": 5,
+        "evidence": 6,
+        "reproducibility_score": 3,
+        "significance": 42,
+        "significance_reason": "仅在仿真中验证6个厨房/烧烤场景变体，无真实机器人部署、无跨机体泛化、无消融证明事件触发机制本身优于周期重规划，对比实验聚焦LLM/VLM规模差异而非核心机制突破；相比T-Rex/ALOHA/Diffusion Policy等真机驱动、接触密集、闭环残差适应或大规模人类演示驱动的里程碑工作，属于纯仿真层面的规划架构微调，未触及感知-动作耦合、触觉反馈、dexterous control或sim2real本质瓶颈。",
+        "one_sentence_verdict": "工程整合：将现有LLM/VLM规划嵌入事件触发+可见性约束+执行接口验证的模块化流程，在仿真中做了合理但窄域的验证，未突破TAMP在部分可观测性下的根本挑战（如不确定性传播建模、主动感知决策、真实传感器噪声鲁棒性）。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 14.0,
+        "content": 14.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 28.0,
+        "bonus": 0.0,
+        "total": 28.0
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.28075.jpg"
     },
     {
       "arxiv_id": "2605.29731",
@@ -248210,6 +250631,88 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2608.27225.jpg"
+    },
+    {
+      "arxiv_id": "2608.28491",
+      "doi": "10.48550/arxiv.2608.28491",
+      "source_kind": "arxiv",
+      "title": "AcrossVAM1.0: Particle World Modeling for Text-Assisted Robot Video Prediction",
+      "abstract": "Predicting robot videos requires both precise motion reasoning and preservation of high-frequency appearance, yet monolithic pixel models entangle these objectives and often conceal their progress behind a strong last-frame baseline. We present AcrossVAM1.0, a lightweight, text-assisted video action model that factorizes future prediction into object-centric motion and dense appearance. A frozen SAM3-DLP codec decomposes four context frames into semantic particles for the robot, arm, and gripper, together with a background latent. A 0.28M-parameter spatio-temporal Transformer aligns particle identities, rolls their states forward, and is modulated by a frozen OpenCLIP instruction embedding through FiLM. A causal dual-stream decoder combines particle-rendered motion with appearance encoded exclusively from the last observed frame; a residual refiner and learned delivery mask produce five future frames without access to future appearance. On our VRS benchmark constructed from diverse real-robot trajectories, particle dynamics reduce trajectory error by 21.0\\% over persistence. Across three delivery-mask seeds, AcrossVAM1.0 improves future-frame PSNR/SSIM from 19.97/0.796 to 20.573/0.8004, while raw particle generation improves motion-region PSNR from 11.89 to 13.23. The delivered model does not yet beat persistence in LPIPS, and correct-versus- shuffled language changes trajectory error by only 2.8--3.1%. We report these limitations alongside oracle, negative-control, multi-seed, and per-robot analyses. The results show that explicit particle dynamics are a promising low-dimensional interface for robot video prediction, while robust language grounding and appearance delivery remain the principal open challenges.",
+      "authors": [
+        "Yafei Zhang",
+        "Nan Wu"
+      ],
+      "categories": [],
+      "published": "2026-08-28",
+      "updated": "2026-08-28",
+      "url": "https://arxiv.org/abs/2608.28491",
+      "pdf_url": "https://arxiv.org/pdf/2608.28491",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.5411,
+        "world_model": 0.5171,
+        "whole_body_control": 0.4055,
+        "dexterous_manipulation": 0.1821,
+        "sim2real_data": 0.2721,
+        "hardware_unitree": 0.1483,
+        "bci_neural_decoding": 0.1702,
+        "bci_foundation_models": 0.2583,
+        "bci_embodied_robot": 0.1845,
+        "bci_noninvasive_eeg": 0.1952,
+        "protein_ai": 0.195,
+        "genomics_ai": 0.2091
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.5411,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "这篇论文提出AcrossVAM1.0模型，用语义粒子（机器人本体、机械臂、夹爪、背景）解耦建模机器人视频预测：运动由轻量Transformer在粒子状态空间推进，外观则仅从最后一帧重建；不依赖未来帧外观，也不需真实机器人交互数据，纯在VRS真实轨迹构建的视频预测基准上做离线评估。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "显式建模物体中心的粒子动力学，是比端到端像素预测更有效的低维接口，能提升机器人视频预测中运动建模的精度，但语言引导和外观重建仍是瓶颈。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "4帧RGB视频+文本指令",
+        "output": "5帧未来RGB视频",
+        "robot_dependency": "none",
+        "data_dependency": "完全不依赖实时机器人控制或在线交互数据；仅使用已采集的真实机器人轨迹视频（离线静态数据集）",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "none",
+        "tags": [
+          "multimodal-fusion",
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 5,
+        "reproducibility_score": 0,
+        "significance": 38,
+        "significance_reason": "虽提出粒子解耦思路并构造了VRS真实轨迹视频基准，但无代码/模型开源，未在真机闭环中验证，语言干预效果微弱（仅2.8–3.1%轨迹误差变化），LPIPS未超persistence基线，且所有结果均限于单任务视频预测（非世界模型意义上的状态演化或规划），远未达World Models/DreamerV3等基石工作所定义的‘具备持久状态核心’或‘支持闭环决策’的范式级贡献。",
+        "one_sentence_verdict": "暂时不用看——属于有想法但实证薄弱、不可复现、未触及世界模型核心能力（如状态持续性、动作闭环、跨任务泛化）的纯离线视频预测小改进。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 16.2,
+        "content": 11.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 27.2,
+        "bonus": 0.0,
+        "total": 27.2
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.28491.jpg"
     },
     {
       "arxiv_id": "2606.01626",
@@ -266532,6 +269035,92 @@
       "read_priority": "C"
     },
     {
+      "arxiv_id": "2608.28435",
+      "doi": "10.48550/arxiv.2608.28435",
+      "source_kind": "arxiv",
+      "title": "Linear Temporal Logic Translation via Human-Inspired Self-Constrained Reasoning for Robot Task Specification",
+      "abstract": "Many robotic tasks are temporally extended and demand precise specifications of subgoals, constraints, and their temporal ordering. Yet human operators typically communicate such tasks in natural language, which is inherently ambiguous, underspecified, and context dependent. Translating human instructions into formal task specifications, such as Linear Temporal Logic (LTL), is therefore essential for verifiable and safe robotic execution. Existing LLM-based translators attempt to bridge this gap through open-ended reasoning or post-hoc constraint enforcement, but the former may violate domain constraints, whereas the latter can disrupt the reasoning needed for novel instructions. This paper proposes Self-Constrained Reasoning (SCR), a framework that mitigates this trade-off by internalizing structural knowledge into the model's decision-making process rather than imposing it as an external filter. By combining a structural constraint representation with a hierarchical decision-making formulation, SCR guides reasoning within a formally grounded space while preserving adaptability to unseen instructions. Experiments show that SCR improves both domain-constraint satisfaction and generalization, providing an effective and interpretable approach for translating human intent into verifiable specifications for robotic execution.",
+      "authors": [
+        "Haofei Hou",
+        "Fanxu Meng",
+        "Shunyi Zhao",
+        "Kairui Yang",
+        "Mengchen Cai",
+        "Lecheng Ruan",
+        "Qining Wang"
+      ],
+      "categories": [],
+      "published": "2026-08-28",
+      "updated": "2026-08-28",
+      "url": "https://arxiv.org/abs/2608.28435",
+      "pdf_url": "https://arxiv.org/pdf/2608.28435",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.4842,
+        "world_model": 0.366,
+        "whole_body_control": 0.2824,
+        "dexterous_manipulation": 0.5,
+        "sim2real_data": 0.205,
+        "hardware_unitree": 0.1627,
+        "bci_neural_decoding": 0.1492,
+        "bci_foundation_models": 0.1242,
+        "bci_embodied_robot": 0.2673,
+        "bci_noninvasive_eeg": 0.0476,
+        "protein_ai": 0.0769,
+        "genomics_ai": 0.1277
+      },
+      "best_route": "dexterous_manipulation",
+      "relevance_raw": 0.4842,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "这篇论文提出一种叫Self-Constrained Reasoning（SCR）的方法，把人类用自然语言描述的复杂机器人任务（比如‘先拿杯子，再倒水，最后放回原处，且不能碰到瓶子’）自动翻译成形式化、可验证的线性时序逻辑（LTL）表达式，核心是让大模型在推理过程中‘自己约束自己’，而不是靠外部规则硬过滤。",
+        "org": "未知",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "将结构化约束内化为模型推理过程的一部分，而非后处理过滤，可在保持对未见指令泛化能力的同时显著提升LTL翻译的领域约束满足率。",
+        "method_components": [
+          "model",
+          "benchmark"
+        ],
+        "input": "自然语言任务描述（含时序、条件、约束）",
+        "output": "形式化的线性时序逻辑（LTL）公式",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据，仅依赖人工构造或合成的NL→LTL配对数据",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-task"
+        ],
+        "reproducibility": "unknown",
+        "tags": [
+          "multimodal-fusion"
+        ],
+        "novelty": 6,
+        "evidence": 5,
+        "reproducibility_score": 0,
+        "significance": 32,
+        "significance_reason": "属于AI×机器人中的‘任务语义解析’子问题，但未涉及任何真实机器人执行、仿真闭环、动作生成或控制；无开源代码/数据，实验仅在封闭benchmark上报告准确率与约束满足率提升，未与主流LLM基线（如GPT-4+CoT+Refinement）做公平对比，也未验证下游机器人执行效果；相比T-Rex/ALOHA等基石工作（真机部署、多任务泛化、闭环控制），它停留在符号接口层，贡献窄且实证薄弱。",
+        "one_sentence_verdict": "概念包装：提出了有直觉的‘内化约束’思路，但缺乏代码、数据、真实任务闭环验证，无法判断是否真优于现有LLM提示工程方案，目前仅是方法论层面的轻量改进。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 14.5,
+        "content": 11.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 25.5,
+        "bonus": 0.0,
+        "total": 25.5
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.28435.jpg"
+    },
+    {
       "arxiv_id": "10.64898/2026.05.31.729038",
       "doi": "10.64898/2026.05.31.729038",
       "source_kind": "biorxiv",
@@ -268550,6 +271139,90 @@
       "scores": {
         "relevance": 16.2,
         "content": 9.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 25.2,
+        "bonus": 0.0,
+        "total": 25.2
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.28.747957",
+      "doi": "10.64898/2026.08.28.747957",
+      "source_kind": "biorxiv",
+      "title": "A thermodynamic framework for mapping elastic recoil mechanism across the human proteome",
+      "abstract": "The folding thermodynamics of proteins are dominated by two opposing forces, the loss in backbone entropy and the packing of hydrophobic groups. The same forces are major contributors to the extension thermodynamics of elastic proteins with the distinction that both processes act in concert, favoring the higher chain and solvent entropy of a relaxed conformation. The relative entropic contributions specify the recoil mechanism; human elastin recoil is primarily driven by hydrophobic forces, whereas fly resilin has a rubber-like mechanism driven by backbone entropy. Despite the importance of elastic proteins to tissue biomechanics, few have been identified, let alone characterized to the same extent as elastin and resilin. We develop a thermodynamic framework that maps proteins by sequence-derived estimates of extension-induced backbone and solvent entropy changes. Putative elastic proteins are proposed and classified by recoil mechanism based on estimated thermodynamic features. Proteins that map to elastic regions are overrepresented by the skin proteome. The set of predicted elastic domains is further extended by incorporating sequence context embedded in protein language models. Protein domains with distinct thermodynamic recoil mechanisms cluster on the latent space manifold. Some of these domains are anticipated to have roles within molecular machines, expanding the scope of elastic protein function beyond mechanical materials like elastin and resilin.",
+      "authors": [
+        "Rhea Desai",
+        "David Pople",
+        "Atharwa Musale",
+        "Shreya Jain",
+        "Ifrah Sajjad",
+        "Richard J. Wittebort",
+        "Ronald L. Koder",
+        "Vikas Nanda"
+      ],
+      "categories": [],
+      "published": "2026-08-30",
+      "updated": "2026-08-30",
+      "url": "https://doi.org/10.64898/2026.08.28.747957",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/30/2026.08.28.747957.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1746,
+        "world_model": 0.1732,
+        "whole_body_control": 0.1504,
+        "dexterous_manipulation": 0.1098,
+        "sim2real_data": 0.0792,
+        "hardware_unitree": 0.0833,
+        "bci_neural_decoding": 0.1006,
+        "bci_foundation_models": 0.1092,
+        "bci_embodied_robot": 0.0696,
+        "bci_noninvasive_eeg": 0.0436,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2322
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.4727,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "这篇论文提出一个热力学框架，仅从蛋白质序列出发估算主链熵和溶剂熵变化，预测哪些人类蛋白质或结构域具有弹性回弹功能，并按回弹机制（疏水驱动 vs 主链熵驱动）分类；未做任何实验验证，也未提供新结构、新动力学模拟或新功能表征。",
+        "org": "罗格斯大学",
+        "country": "US",
+        "org_type": "university",
+        "claim": "仅基于氨基酸序列的热力学熵估算，可系统性识别并分类人类蛋白组中潜在的弹性蛋白及其回弹机制。",
+        "method_components": [
+          "model",
+          "dataset"
+        ],
+        "input": "蛋白质氨基酸序列",
+        "output": "弹性倾向评分、回弹机制类型（疏水主导/主链熵主导）、潜在弹性结构域列表",
+        "robot_dependency": "none",
+        "data_dependency": "无真实机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion"
+        ],
+        "novelty": 5,
+        "evidence": 3,
+        "reproducibility_score": 3,
+        "significance": 32,
+        "significance_reason": "纯计算预测框架，无实验验证、无结构/动力学/力学实测支撑，未与已知弹性蛋白（如tropoelastin、recombinant resilin）做定量物性比对，未发现新弹性蛋白的功能证据；相比AlphaFold2等基石工作（解决长期结构预测难题+开源+百万级验证），本文仅是启发式热力学类比延伸，贡献限于假设生成层面。",
+        "one_sentence_verdict": "概念包装：将已知弹性蛋白的热力学解释泛化为全蛋白组扫描工具，但缺乏机制验证、定量基准和功能实证，属于理论外推而非突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 14.2,
+        "content": 11.0,
         "heat": 0.0,
         "quality": 0.0,
         "base": 25.2,
@@ -274359,6 +277032,96 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2608.26888.jpg"
+    },
+    {
+      "arxiv_id": "2608.27866",
+      "doi": "10.48550/arxiv.2608.27866",
+      "source_kind": "arxiv",
+      "title": "Iron: Intent-Aligned and Retrospective Dual Learning Framework for Enhancing Generalist Virtual Agents",
+      "abstract": "Achieving virtual agents capable of automating tasks across diverse digital environments remains a pivotal challenge in Embodied AI. While Multimodal Large Language Models (MLLMs) offer enhanced visual perception and reasoning, their agentic deployment faces three challenges: costly data annotation, imprecise action-intent alignment, and inefficient exploration from discarded failed trajectories. To address these, we introduce Iron, an intent-aligned, self-improved, and annotation-efficient framework for training GUI agents. Iron employs a novel dual learning strategy that utilizes a stepwise cycle-consistent (SCC) reward to achieve fine-grained alignment between low-level actions and high-level intents, thereby improving instruction grounding and intent understanding. Concurrently, Iron introduces a hindsight reproduction mechanism to repurpose failed trajectories for training, improving both learning efficiency and task diversity. Extensive experiments demonstrate that Iron-trained generalist agents consistently improve performance on cross-environment and cross-device tasks, outperforming models trained with three times more data. Iron also achieves a substantial 25.06% relative improvement on unseen web tasks, with further gains observed on inherently complex tasks, demonstrating the feasibility of building more capable virtual agents.",
+      "authors": [
+        "Jiahe Ying",
+        "Wendong Bu",
+        "Kaihang Pan",
+        "Bingchen Miao",
+        "Siyu Chen",
+        "Wen Wang",
+        "Xueming Jiang",
+        "Juncheng Li",
+        "Siliang Tang"
+      ],
+      "categories": [],
+      "published": "2026-08-28",
+      "updated": "2026-08-28",
+      "url": "https://arxiv.org/abs/2608.27866",
+      "pdf_url": "https://arxiv.org/pdf/2608.27866",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.5184,
+        "world_model": 0.5,
+        "whole_body_control": 0.3606,
+        "dexterous_manipulation": 0.1936,
+        "sim2real_data": 0.2456,
+        "hardware_unitree": 0.1657,
+        "bci_neural_decoding": 0.2135,
+        "bci_foundation_models": 0.2834,
+        "bci_embodied_robot": 0.2712,
+        "bci_noninvasive_eeg": 0.1641,
+        "protein_ai": 0.0923,
+        "genomics_ai": 0.1653
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.5184,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "提出一个叫Iron的训练框架，让虚拟GUI代理（比如自动操作网页或App的AI）能用更少标注数据、更好对齐用户意图和具体操作动作，并把失败的操作轨迹‘废物利用’来提升泛化能力。",
+        "org": " unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "通过步进式循环一致奖励（SCC）和事后重演机制（hindsight reproduction），可在显著减少人工标注数据的前提下，提升虚拟代理在跨环境、跨设备、未见网页任务上的泛化性能。",
+        "method_components": [
+          "model",
+          "benchmark"
+        ],
+        "input": "自然语言指令 + GUI截图/界面状态（隐含）",
+        "output": "GUI操作序列（点击/输入/滚动等）",
+        "robot_dependency": "none",
+        "data_dependency": "未说明是否依赖真实用户交互日志；仅提‘annotation-efficient’，但未披露是否使用真实轨迹或纯合成数据",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-task",
+          "cross-environment",
+          "cross-device"
+        ],
+        "reproducibility": "none",
+        "tags": [
+          "multimodal-fusion"
+        ],
+        "novelty": 5,
+        "evidence": 4,
+        "reproducibility_score": 0,
+        "significance": 38,
+        "significance_reason": "仅在GUI代理场景下提出SCC奖励与hindsight reproduction两个技术点，无开源代码/模型/数据，未披露基线对比细节（如SOTA方法名称、硬件/仿真器配置）、无消融实验描述，所有提升均基于未公开的内部benchmark；相比World Models系列等基石工作（建模物理世界动态、持续学习、具身状态演化），Iron局限于静态数字界面操作，不涉及感知-动作闭环建模、状态记忆、长期规划或真实系统耦合，属窄域工程改良，且实证薄弱。",
+        "one_sentence_verdict": "概念包装：核心思想（意图对齐+失败重用）在RL和Agent领域已有大量类似尝试（如Hindsight Experience Replay、Intent-Aware Imitation），但本文未证明其技术差异性或超越性，也缺乏可验证的实证支撑。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 15.6,
+        "content": 9.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 24.6,
+        "bonus": 0.0,
+        "total": 24.6
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.27866.jpg"
     },
     {
       "arxiv_id": "2606.02677",
@@ -281672,6 +284435,89 @@
       "read_priority": "C"
     },
     {
+      "arxiv_id": "10.64898/2026.08.25.747150",
+      "doi": "10.64898/2026.08.25.747150",
+      "source_kind": "biorxiv",
+      "title": "Colloidal DNA nanoaggregates applied towards file-partitioning for information storage and dynamic data obfuscation",
+      "abstract": "Abstract The molecular programmability of nucleic acids has facilitated the development of architected DNA/RNA nanostructures and their applications in novel materials and technologies. We report how different types of DNA and RNA nanoaggregates, bundling digital information encoded into oligo libraries, can be formed by manipulating the ionic strength of the solution. As DNA or RNA suspensions are immersed in solutions of increasing salt concentrations, we observe the onset of aggregation. Further increase in ionic strength leads to the formation of stable, reproducible, and well-defined aggregates. We show that these nanoaggregates are kinetically trapped at room temperature, stably partition DNA libraries that encode image files, and support file-specific random access by bundling DNA libraries with unique address oligos. The nanoaggregate files can be disrupted and reformed into scrambled bundles using simple external fluid shear or temperature annealing, rapidly obfuscating the data. We term these nanoaggregates nucleic acid PACKeTs: Partitioned Aggregates of Colloidal DNA/RNA through Kinetic Trapping. Overall, the results demonstrate how gaining fundamental insights into ionic colloidal aggregation enables new forms of manipulation of DNA and RNA libraries. This understanding could lead to novel functionalities including kinetically trapped data partitioning, random access, and data encryption or obfuscation.",
+      "authors": [
+        "Sneha Mukherjee",
+        "Kevin N. Lin",
+        "Kevin Volkel",
+        "James Tuck",
+        "Keung Albert",
+        "Orlin D. Velev"
+      ],
+      "categories": [],
+      "published": "2026-08-26",
+      "updated": "2026-08-26",
+      "url": "https://doi.org/10.64898/2026.08.25.747150",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/26/2026.08.25.747150.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0418,
+        "world_model": 0.0443,
+        "whole_body_control": 0.0,
+        "dexterous_manipulation": 0.101,
+        "sim2real_data": 0.0623,
+        "hardware_unitree": 0.0,
+        "bci_neural_decoding": 0.0452,
+        "bci_foundation_models": 0.0397,
+        "bci_embodied_robot": 0.0083,
+        "bci_noninvasive_eeg": 0.0348,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2644
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.2859,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "用盐浓度调控DNA/RNA溶液形成胶体纳米聚集体，把编码图像文件的DNA寡核苷酸库物理分隔进不同聚集体中，实现文件级分区存储；通过剪切或退火可快速打乱重组聚集体，从而动态加密/隐藏数据。",
+        "org": "北卡罗来纳州立大学",
+        "country": "US",
+        "org_type": "university",
+        "claim": "通过离子强度调控胶体动力学捕获，可将DNA信息库物理分区为稳定、可寻址、可逆重排的纳米聚集体，实现分子尺度的文件级存储与动态数据混淆。",
+        "method_components": [
+          "dataset",
+          "simulator"
+        ],
+        "input": "DNA/RNA寡核苷酸文库（编码图像文件）+ 盐浓度梯度溶液 + 外部剪切力或温度处理",
+        "output": "物理分离的纳米聚集体（每个含特定子集文件数据）+ 可逆的聚集体重排状态（对应数据混淆/恢复）",
+        "robot_dependency": "none",
+        "data_dependency": "无真实机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "multimodal-fusion"
+        ],
+        "novelty": 7,
+        "evidence": 5,
+        "reproducibility_score": 3,
+        "significance": 38,
+        "significance_reason": "提出DNA纳米聚集体作为信息物理分区载体是新颖思路，但仅在单一实验体系（盐诱导胶体聚集）中演示了2张图像的编码/分区/混淆，无跨序列类型、跨文件格式、跨环境鲁棒性验证；未与现有DNA存储主流方案（如喷墨合成+NGS读取）对比容量/错误率/读写速度；'动态加密'仅靠物理重混，无密码学语义或密钥机制，实证深度和规模远未达基石论文量级（如ESM-2需亿级序列泛化，AlphaFold2需原子精度结构预测），属扎实但窄域的概念验证。",
+        "one_sentence_verdict": "暂时不用看：虽有分子信息存储新视角，但实证极有限（仅图像文件、无定量读写性能、无基准对比、无开源代码/数据），尚未证明其相较现有DNA存储范式（如Yazdi et al.或Church et al.路线）具备实质性优势或可扩展路径。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 8.6,
+        "content": 15.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 23.6,
+        "bonus": 0.0,
+        "total": 23.6
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "10.64898/2026.06.17.733017",
       "doi": "10.64898/2026.06.17.733017",
       "source_kind": "biorxiv",
@@ -286092,6 +288938,171 @@
       "thumb": "assets/thumbs/2608.19709.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.08.27.747493",
+      "doi": "10.64898/2026.08.27.747493",
+      "source_kind": "biorxiv",
+      "title": "Quantifying the Rearrangement Complexity of Pangenomes",
+      "abstract": "The study of evolution between species (phylogenetics) and the study of evolution within a species (population genetics) are highly related, as the same biological mechanisms are fundamental to both fields. Although both have been studied for a long time, their joint study in a unified setting has been prevented by the different time scales they consider and the different data types they employ. A similar discrepancy holds for their whole-genome specializations, comparative genomics and pangenomics. Two active areas in these fields are genome rearrangement studies and graphical pangenomics, respectively. Since the emergence of graphical pangenomics, these have existed as separate fields, despite observations that central data structures representing genomic variants in both fields are highly similar. While there exists a wealth of theoretical results for various rearrangement models in comparative genomics, the application to pangenomic data is hampered by the limitations of rearrangement problem formulations. On the practical side, pangenomes typically contain too many individual genomes for classical problems, such as the often NP-hard parsimony problems, to be solved, or for all-vs-all comparisons using rearrangement distances to be performed. On the theoretical side, some assumptions in the formulation of rearrangement problems, such as the assumption of an underlying tree, are inadequate for many pangenomes. In this work, we propose the Complete Ancestral Reconstruction for Pangenomes (CARP) problem, which overcomes these limitations while retaining intuitive relationships to both classical rearrangement problems and pangenome graphs.",
+      "authors": [
+        "Leonard Bohnenkaemper",
+        "Jens Stoye"
+      ],
+      "categories": [],
+      "published": "2026-08-29",
+      "updated": "2026-08-29",
+      "url": "https://doi.org/10.64898/2026.08.27.747493",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/08/29/2026.08.27.747493.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0442,
+        "world_model": 0.0,
+        "whole_body_control": 0.0084,
+        "dexterous_manipulation": 0.1024,
+        "sim2real_data": 0.0181,
+        "hardware_unitree": 0.0391,
+        "bci_neural_decoding": 0.034,
+        "bci_foundation_models": 0.1125,
+        "bci_embodied_robot": 0.0173,
+        "bci_noninvasive_eeg": 0.0686,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2275
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.2275,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "这篇论文提出一个叫CARP的新计算问题，试图把基因组重排分析（传统比较基因组学）和泛基因组图（pangenome graph）统一起来，解决现有重排模型无法直接用于大规模泛基因组的理论与计算瓶颈。",
+        "org": "比勒菲尔德大学",
+        "country": "EU",
+        "org_type": "university",
+        "claim": "CARP问题首次在保留经典重排语义的同时，为泛基因组图提供了可扩展、无树假设、适配多基因组变异结构的重排复杂度量化框架。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "泛基因组图（含多个单倍型/个体基因组的图结构表示）",
+        "output": "一个完整祖先重构方案及对应的重排复杂度数值（如最小重排事件数）",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "code-only",
+        "tags": [
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 5,
+        "reproducibility_score": 4,
+        "significance": 48,
+        "significance_reason": "提出了有理论价值的新问题CARP并给出形式化定义和初步算法，但未在真实泛基因组上验证生物学意义，无消融实验，未与主流泛基因组分析工具（如PGGB、vg）对比性能或下游任务效果，也未证明其对进化推断、功能注释或疾病关联等实际科学问题带来新发现；属于扎实的理论计算机+生物信息交叉增量工作，但离‘推动领域实践’尚有距离。",
+        "one_sentence_verdict": "扎实增量：提出了一个逻辑自洽的新问题框架，但缺乏实证支撑和实际科学影响验证，暂时不用看",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 6.8,
+        "content": 16.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 22.8,
+        "bonus": 0.0,
+        "total": 22.8
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
+      "arxiv_id": "2608.28437",
+      "doi": "10.48550/arxiv.2608.28437",
+      "source_kind": "arxiv",
+      "title": "LUCID: An Agentic AI Framework on Digital-Twin in the Loop for QoS-Guaranteeing Robotic Control",
+      "abstract": "Cloud robotics relies on the timely uplink of high-volume sensing streams, yet dynamic environments continually shift the feasible combinations of trajectories, active-robot count, and per-robot QoS. Because existing approaches formulate trajectory planning (TP) and radio resource management (RRM) as a single fixed optimization problem, they cannot reconfigure these coupled decisions as conditions evolve, resulting in transient QoS violations. However, evolving operator intents change which quantities-such as the active-robot count and per-robot QoS-are fixed, optimized, or relaxed. Furthermore, the computational cost of evaluating trajectory-dependent wireless conflicts has made it difficult to build large-scale Digital-Twin-in-the-Loop (DITL) testbeds responsive enough for such dynamic orchestration. We present LUCID, an LLM-agent--orchestrated, uplink-aware cloud-robotics pipeline that moves TP--RRM from solving a fixed formulation to dynamically orchestrating optimization problem schemas within a DITL environment. Driven by the operator's high-level intent, LUCID treats the TP--RRM formulation as a bounded template whose variables, objectives, and constraints are dynamically configured, while SimBridge enables repeated ray-tracing evaluation by converting large-scale robotics scenes into wireless-ready DTs. By integrating collision-free path planning with a spectral-radius RRM validator, LUCID identifies wireless bottlenecks and restructures the problem schema on the fly to efficiently find the verified feasible state. Experiments confirm that LUCID robustly adapts to changing intents, active-robot counts, and scenes, while a multimodal surrogate model, FastConfigNet, reduces planning latency.",
+      "authors": [
+        "Hyeonsu Lyu",
+        "Minwoo Kim",
+        "Sehyun Ryu",
+        "Hyun Jong Yang"
+      ],
+      "categories": [],
+      "published": "2026-08-28",
+      "updated": "2026-08-28",
+      "url": "https://arxiv.org/abs/2608.28437",
+      "pdf_url": "https://arxiv.org/pdf/2608.28437",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.3876,
+        "world_model": 0.4613,
+        "whole_body_control": 0.5,
+        "dexterous_manipulation": 0.153,
+        "sim2real_data": 0.2725,
+        "hardware_unitree": 0.1968,
+        "bci_neural_decoding": 0.1102,
+        "bci_foundation_models": 0.0922,
+        "bci_embodied_robot": 0.2876,
+        "bci_noninvasive_eeg": 0.0495,
+        "protein_ai": 0.1047,
+        "genomics_ai": 0.1546
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.4613,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "这篇论文提出LUCID框架，用大语言模型（LLM）作为智能体，在数字孪生环境中动态重构轨迹规划与无线资源管理的联合优化问题结构，以应对云机器人系统中实时变化的QoS需求、机器人数量和环境场景。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "通过将TP-RRM建模为可动态配置的优化模板，并在数字孪生闭环中由LLM代理驱动重配置，LUCID能实时响应操作意图变化、机器人规模波动和场景演化，从而保障QoS稳定性。",
+        "method_components": [
+          "model",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "操作员高层意图文本 + 当前机器人状态 + 环境拓扑（用于数字孪生构建）",
+        "output": "动态生成的TP-RRM优化问题定义（含变量/目标/约束）+ 验证可行的控制策略",
+        "robot_dependency": "none",
+        "data_dependency": "未使用真实机器人数据，仅依赖仿真数字孪生与射线追踪模拟",
+        "sim2real_status": "sim-only",
+        "generalization": [
+          "limited"
+        ],
+        "reproducibility": "none",
+        "tags": [
+          "sim2real",
+          "benchmark"
+        ],
+        "novelty": 5,
+        "evidence": 4,
+        "reproducibility_score": 0,
+        "significance": 32,
+        "significance_reason": "属跨领域（云机器人+无线通信+LLM代理）概念整合，但无真实机器人验证、无开源代码、无跨任务泛化实证；核心创新‘动态问题重构’停留在模板参数化层面，未突破TP或RRM任一子领域的建模瓶颈；相比所列基石工作（如GR00T、H2O等在具身智能底层控制范式上的实质性跃迁），其技术深度、实证强度与领域影响力均显著不足，仅相当于窄域仿真级方法论包装。",
+        "one_sentence_verdict": "概念包装：将LLM代理+数字孪生+TP-RRM耦合包装为‘动态问题重构’，但缺乏真实硬件验证、可复现实现和底层算法突破，本质是通信与机器人仿真领域的交叉缝合，非具身智能或AI×科学意义上的真推进。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 13.8,
+        "content": 9.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 22.8,
+        "bonus": 0.0,
+        "total": 22.8
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.28437.jpg"
+    },
+    {
       "arxiv_id": "2606.03204",
       "doi": "10.48550/arxiv.2606.03204",
       "source_kind": "arxiv",
@@ -289863,6 +292874,88 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2608.19868.jpg"
+    },
+    {
+      "arxiv_id": "2608.25431",
+      "doi": "10.48550/arxiv.2608.25431",
+      "source_kind": "arxiv",
+      "title": "Here is a GIFT: Enforcing User Data Isolation in LLM Serving via GPU Information Flow Tracking",
+      "abstract": "LLM serving frameworks process large volumes of user data--often containing sensitive information--on shared infrastructure. Ensuring isolation between users who share the same serving framework (on CPUs) and LLM operators (on GPUs) is critical for privacy protection. This paper presents GIFT, a GPU Information Flow Tracking system that enforces user data isolation in LLM serving with minimal overhead. Moreover, the design of GIFT is non-intrusive and allows CPU-side serving frameworks to evolve freely. It rests on two key insights. First, encryption-as-isolation leverages the observation that CPU components only orchestrate data flow, not content manipulation; thus, per-user encryption can provide isolation without modifying serving logic. Second, GPU kernels exhibit limited and predictable information flows, enabling static flow analysis. GIFT precomputes information flow rules for each kernel and uses decoupled flow tracking, avoiding instrumentation or GPU stalls. Furthermore, we extend GIFT to GIFT-CC, which integrates confidential computing to protect against untrusted operating systems and hypervisors (LLM service providers). Implemented on vLLM and DistServe, GIFT and GIFT-CC enforce user data isolation with a 4-10.7% throughput overhead while maintaining the same latency level.",
+      "authors": [
+        "Jiacheng Shi",
+        "Xunjie Wang",
+        "Cheng Tan",
+        "Jinyu Gu"
+      ],
+      "categories": [],
+      "published": "2026-08-26",
+      "updated": "2026-08-26",
+      "url": "https://arxiv.org/abs/2608.25431",
+      "pdf_url": "https://arxiv.org/pdf/2608.25431",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.5,
+        "world_model": 0.0958,
+        "whole_body_control": 0.0183,
+        "dexterous_manipulation": 0.0732,
+        "sim2real_data": 0.0779,
+        "hardware_unitree": 0.1043,
+        "bci_neural_decoding": 0.0601,
+        "bci_foundation_models": 0.1144,
+        "bci_embodied_robot": 0.0247,
+        "bci_noninvasive_eeg": 0.0671,
+        "protein_ai": 0.0,
+        "genomics_ai": 0.0279
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.1279,
+      "first_seen": "2026-09-02",
+      "analysis": {
+        "tldr": "这篇论文提出GIFT系统，通过在GPU上静态分析和跟踪信息流，结合用户级加密，在大语言模型服务中实现多用户数据隔离，防止共享GPU上的数据泄露，开销仅4–10.7%吞吐下降且不增加延迟。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "在LLM推理服务中，无需修改CPU侧框架、不依赖GPU运行时插桩，即可通过静态GPU内核信息流建模+用户级加密，实现强用户数据隔离。",
+        "method_components": [
+          "model",
+          "simulator"
+        ],
+        "input": "用户请求数据（含敏感文本）、LLM服务框架（vLLM/DistServe）的GPU kernel执行序列",
+        "output": "隔离的推理结果（保证不同用户数据在GPU内存/寄存器/缓存中无交叉污染）",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "code-only",
+        "tags": [
+          "multimodal-fusion",
+          "open-source"
+        ],
+        "novelty": 6,
+        "evidence": 7,
+        "reproducibility_score": 5,
+        "significance": 48,
+        "significance_reason": "属AI系统安全子领域（LLM serving isolation），非具身智能/脑机接口/AI×科学三大目标领域；技术路径合理（加密+静态流分析），实证覆盖vLLM/DistServe两个主流框架、有量化开销，但未开源完整数据集与confidential computing硬件验证细节，且问题本身是工程安全加固而非范式突破——相比RT-2等里程碑（解决跨模态具身决策根本难题），它解决的是云服务部署中的已有安全短板，重要但维度不同、分量有限。",
+        "one_sentence_verdict": "工程整合：将加密隔离与GPU静态信息流分析结合落地到LLM服务框架，实证扎实但属垂直安全加固，非底层模型或科学发现突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 3.8,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 21.8,
+        "bonus": 0.0,
+        "total": 21.8
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2608.25431.jpg"
     },
     {
       "arxiv_id": "2606.02313",
