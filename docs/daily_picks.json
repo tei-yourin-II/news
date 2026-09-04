@@ -8095,6 +8095,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-09-04": [
+      {
+        "arxiv_id": "2609.01596",
+        "title": "Facet-0: A Robotic Foundation Model for Contact-Rich Precise Manipulation",
+        "published": "2026-09-01",
+        "first_seen": "2026-09-04",
+        "url": "https://arxiv.org/abs/2609.01596",
+        "pdf_url": "https://arxiv.org/pdf/2609.01596",
+        "thumb": "assets/thumbs/2609.01596.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "银河通用",
+        "country": "CN",
+        "significance": 96,
+        "significance_reason": "达到T-Rex/ALOHA/ACT同档分量：首次将动作与力矩联合生成（而非后处理或分离预测）嵌入foundation model架构；在5个亚毫米真实装配任务上实现82%成功率（vs 15%最强基线），0.5mm精度+50ms延迟，且部署于3种异构机械臂+多制造单元，数据规模（1000h force-synced real-robot）和实证强度（多机体、多任务、真机rollout、消融充分）对标HiFi-UMI/FTP-1级里程碑工作；唯一短板是代码未开源全部权重与数据，但已提供可复现核心训练流程。",
+        "tier": "heavy",
+        "tldr": "提出Facet-0机器人基础模型，用视觉-语言-力觉多模态联合表征+动作-力矩联合生成（action-wrench proposal）+分布式的力矩感知批评器，在真实装配任务中实现亚毫米级（0.5mm）精度、82%成功率的接触密集型精密操作，远超基线（15%），训练数据来自跨3种机器人平台、1000小时同步力觉-视觉-语言的真实制造数据集ManuFacet-1K。",
+        "deep": {
+          "hook": "首个将动作与腕部力矩联合生成嵌入foundation model的真机装配模型，0.5mm精度+82%成功率",
+          "why_now": "接续HiFi-UMI/FTP-1对真实力觉闭环的重视，但首次抛弃‘动作预测→后加力控’范式，直击接触密集操作中动作-力矩因果解耦这一未被建模的核心瓶颈；踩中具身智能从‘视觉主导’向‘触觉-动作共表征’迁移的关键拐点",
+          "problem": "亚毫米装配任务失败主因不是定位不准，而是接触过程中的力-运动失配：传统方法将动作规划与力控分离（如先出轨迹再加阻抗），无法建模‘推这个角度会卡住还是滑入’的因果关系；现有foundation model几乎全忽略实时六维力矩的序列化建模与反事实评估",
+          "method": "提出action-wrench proposal机制：用flow matching同步生成笛卡尔动作块+对应未来短时序腕部力矩预测，二者共享因果隐空间；引入分布式的Action-Wrench Critic，在真实rollout中区分‘看似进展相同但接触结果迥异’的动作分支；用phase-aware reward和contact-selective credit让策略更新只聚焦决定性接触时刻；轻量bounded actor在真机端微调，复用冻结的多模态表征",
+          "results": "在5个亚毫米真实计算机装配任务上达82%平均成功率（vs最强基线15%）；0.5mm放置精度；50ms命令延迟；部署于3种异构机械臂（UR5e、Franka、自研双臂单元）；训练数据为1000小时力觉-视觉-语言同步的真实制造数据集ManuFacet-1K",
+          "limitations": "未开源全部模型权重与ManuFacet-1K原始数据，仅提供可复现训练流程（复现门槛高）；所有结果均基于真实装配任务，未报告在非装配类接触任务（如插拔软管、织物操作）上的泛化性；消融实验未单独验证wrench critic对成功率提升的归因强度（仅报告整体系统对比）",
+          "significance_take": "显著推进——它不是又一个‘更好模仿’的policy，而是首次把‘接触后果’作为foundation model的原生输出维度来建模，将RL的credit assignment、foundation model的多模态对齐、机器人控制的力-运动耦合三者在统一架构中显式协同，为接触密集操作定义了新baseline范式",
+          "who_should_read": "做精密装配/电子制造/医疗机器人落地的工程师读它能直接获得action-wrench joint generation的工程实现路径；做foundation model的研究者读它可获取多模态时序对齐+分布鲁棒接触判别的新设计模式",
+          "verdict": "必读——它是目前唯一把‘力矩’从传感器输入升格为策略输出第一公民的真机foundation model，且实证强度（多机体/多任务/真机rollout/大真实数据）无可争议",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2609.00771",
+        "title": "Non-Prehensile Throwing: A Reinforcement Learning Perspective",
+        "published": "2026-09-01",
+        "first_seen": "2026-09-04",
+        "url": "https://arxiv.org/abs/2609.00771",
+        "pdf_url": "https://arxiv.org/pdf/2609.00771",
+        "thumb": "assets/thumbs/2609.00771.jpg",
+        "venue": "IROS 2026",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "日本理化学研究所（RIKEN）",
+        "country": "JP",
+        "significance": 88,
+        "significance_reason": "达到T-Rex/ALOHA级分量：首次在非抓取抛掷这一长期被模型简化主导的难题上，用纯RL端到端突破物理极限（5m/s末端速度）、实现高成功率零样本真机部署，并系统验证了对质量鲁棒但对摩擦敏感的机制归因——证据链完整（仿真千配置+消融+敏感性分析+真机多尺寸/重量/材质物体+物理极限工况），远超以往基于动态抓取或简化碰撞模型的工程方法。",
+        "tier": "heavy",
+        "tldr": "用强化学习直接优化机械臂关节空间轨迹来实现不抓取物体的抛掷（如推、滑、滚后甩出），在仿真中成功率99%，零样本迁移到UR5e真机上，能抛掷重达790克、体积20×20×28cm的大型/重型/软性物体，最远350cm、最高180cm，真实成功率97%。",
+        "deep": {
+          "hook": "纯RL端到端学抛掷：不抓、不建模接触、不简化摩擦，真机零样本97%成功率",
+          "why_now": "接续ALOHA/RT-2对‘非抓取操作’的呼吁，首次在IROS级工作里系统攻破非抓取抛掷这一被长期回避的物理极限任务，踩中sim2real鲁棒性+接触密集操作+端到端轨迹优化三大前沿交汇点",
+          "problem": "传统抛掷依赖抓取或手工设计的简化接触模型（如动态抓取），难以处理大/重/软物体；非抓取式（推/滑/滚后甩出）虽更实用，但因接触模式复杂、摩擦敏感、仿真失配严重，长期被视作RL不可行任务。",
+          "method": "将抛掷建模为关节空间jerk轨迹优化的MDP，用RL直接搜索低频jerk序列（非末端位姿或力矩）；通过最小jerk系统辨识缩小sim2real动力学差距，并引入不确定性感知策略对抗物体建模误差；关键创新是绕过所有解析接触建模，让策略从滑动/滚动接触的原始物理反馈中自适应学习释放时机与能量分配。",
+          "results": "仿真成功率99%（千级配置）；零样本部署于UR5e真机，抛掷790g/20×20×28cm物体，最远350cm、最高180cm；真实成功率97%；敏感性分析确认对质量变化鲁棒、但对动态摩擦系数高度敏感。",
+          "limitations": "未公开训练计算成本与策略推理延迟（影响实时性）；所有真机实验均在固定台面材质下进行，未验证跨表面（如地毯/冰面）泛化；摩擦敏感性虽被归因，但未提供在线摩擦估计或自适应补偿模块。",
+          "significance_take": "显著推进——它证明了‘放弃接触建模’不是退让而是升维：当RL能直接驾驭滑动/滚动等高维接触流形时，传统基于解析模型的轨迹规划范式在非抓取操作中开始显现出结构性瓶颈。",
+          "who_should_read": "做具身操作、sim2real、接触密集控制的工程师和研究者，能拿走一套可复现的jerk轨迹RL框架+摩擦敏感性诊断方法+最小jerk辨识实操路径。",
+          "verdict": "必读——这是少数几个同时满足‘真机物理极限工况+零样本+多维度鲁棒验证+机制归因’的RL操作论文，不是又一个仿真刷榜工作。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2608.28578",
+        "title": "Aero Hand Open: A Simulation-Ready Tendon-Driven Hand for Dexterous Manipulation Learning",
+        "published": "2026-08-28",
+        "first_seen": "2026-09-02",
+        "url": "https://arxiv.org/abs/2608.28578",
+        "pdf_url": "https://arxiv.org/pdf/2608.28578",
+        "thumb": "assets/thumbs/2608.28578.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "未知（作者单位未在摘要中体现，无机构署名线索；Wang/Yadav/Chen等为常见姓名，无法唯一对应至清华/CMU/ETH等主流团队；Wulff可能指Johannes Wulff但无机构佐证）",
+        "country": "unknown",
+        "significance": 82,
+        "significance_reason": "达到HiFi-UMI/ALOHA级分量：首次实现肌腱手全链路sim2real零微调部署（含耦合拇指），且全栈开源（机械设计+仿真+标定+RL环境+部署），解决了肌腱手因传动非线性导致的长期sim2real鸿沟；但任务泛化性未验证（仅说‘policies’未列多任务结果），未与SOTA灵巧操作方法（如Diffusion Policy、YUBI）在操作性能上对标，属关键使能工具而非算法突破。",
+        "tier": "heavy",
+        "tldr": "开源了一个仿真即用的肌腱驱动灵巧手Aero Hand Open，包含高保真电缆传动仿真模型、标定好的电机指令-关节运动映射（含拇指三向耦合）、强化学习训练环境和部署栈，所有策略可sim2real零微调直接上真机运行。",
+        "deep": {
+          "hook": "首个sim2real零微调部署的开源肌腱灵巧手：仿真训完直接上真机，连拇指三向耦合都标定好了",
+          "why_now": "紧接ALOHA、HiFi-UMI等sim2real标杆工作后，首次将‘可部署性’从末端执行器（夹爪/平行爪）推进到高自由度肌腱手；踩中具身智能对低成本、人形兼容灵巧硬件的迫切需求",
+          "problem": "肌腱驱动灵巧手因电缆摩擦、滑移、预紧力变化和关节耦合（尤其拇指），导致仿真与真实动力学严重失配；过往策略必须依赖在线微调、状态估计或硬件重设计才能上真机，极大阻碍灵巧操作学习落地",
+          "method": "1）构建含非线性张力-位移关系的高保真肌腱传动仿真模型；2）通过系统辨识建立双向电机指令↔关节角度映射表（含拇指三关节强耦合）；3）将该映射嵌入RL环境动作空间，使仿真策略输出即为真机可执行的标定后电机指令，绕过任何状态反馈或逆运动学求解",
+          "results": "摘要明确声明：所有在仿真中训练的policies均可‘run on the hand with no fine-tuning and no state estimation’；全栈开源（机械设计+仿真+标定映射+RL环境+部署栈）；支持‘simulation-ready’开箱即用",
+          "limitations": "未报告任何定量任务性能（如抓取成功率、操作精度、多任务泛化数）；未在标准基准（如YCB、EGAD、DexMV）或与Diffusion Policy/YUBI等SOTA方法对比；纯仿真训练+真机部署验证，但未说明是否覆盖不同负载/温度/老化条件下的鲁棒性",
+          "significance_take": "属关键使能工具级进展：不是算法突破，但首次打通肌腱手‘仿真建模→标定→训练→零微调部署’全链路，将sim2real鸿沟从‘需工程修补’降维至‘开箱即用’，为灵巧操作研究提供可信硬件基座",
+          "who_should_read": "做灵巧操作RL/模仿学习的研究者应读——立刻获得一个免标定、免微调、带耦合拇指的真实感训练平台",
+          "verdict": "必读：它不提升SOTA指标，但把整个领域向前推了一大步——从此肌腱手不再是‘论文里很美、实验室里难跑’的幻觉硬件",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -8357,12 +8449,15 @@
     "2608.27406",
     "2608.27550",
     "2608.28140",
+    "2608.28578",
     "2608.29487",
     "2608.30237",
     "2608.30935",
     "2608.31048",
-    "2609.00188"
+    "2609.00188",
+    "2609.00771",
+    "2609.01596"
   ],
-  "latest": "2026-09-03",
-  "generated_at": "2026-09-03 05:34 UTC"
+  "latest": "2026-09-04",
+  "generated_at": "2026-09-04 05:30 UTC"
 }

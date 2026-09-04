@@ -1,20 +1,103 @@
 {
   "week": {
-    "start": "2026-08-28",
-    "end": "2026-09-03",
-    "label": "08.28~09.03"
+    "start": "2026-08-29",
+    "end": "2026-09-04",
+    "label": "08.29~09.04"
   },
   "count": 15,
   "venue_count": 4,
   "venues": [
     "ECCV",
+    "IROS 2026",
     "RA-L",
     "T-RO"
   ],
-  "generated_at": "2026-09-03 05:35 UTC",
+  "generated_at": "2026-09-04 05:31 UTC",
   "picks": [
     {
       "rank": 1,
+      "arxiv_id": "2609.01596",
+      "title": "Facet-0: A Robotic Foundation Model for Contact-Rich Precise Manipulation",
+      "published": "2026-09-01",
+      "url": "https://arxiv.org/abs/2609.01596",
+      "pdf_url": "https://arxiv.org/pdf/2609.01596",
+      "thumb": "assets/thumbs/2609.01596.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "银河通用",
+      "country": "CN",
+      "org_type": "company",
+      "significance": 96,
+      "significance_reason": "达到T-Rex/ALOHA/ACT同档分量：首次将动作与力矩联合生成（而非后处理或分离预测）嵌入foundation model架构；在5个亚毫米真实装配任务上实现82%成功率（vs 15%最强基线），0.5mm精度+50ms延迟，且部署于3种异构机械臂+多制造单元，数据规模（1000h force-synced real-robot）和实证强度（多机体、多任务、真机rollout、消融充分）对标HiFi-UMI/FTP-1级里程碑工作；唯一短板是代码未开源全部权重与数据，但已提供可复现核心训练流程。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "tactile",
+        "dexterous",
+        "sim2real",
+        "real-robot",
+        "large-scale",
+        "benchmark"
+      ],
+      "tldr": "提出Facet-0机器人基础模型，用视觉-语言-力觉多模态联合表征+动作-力矩联合生成（action-wrench proposal）+分布式的力矩感知批评器，在真实装配任务中实现亚毫米级（0.5mm）精度、82%成功率的接触密集型精密操作，远超基线（15%），训练数据来自跨3种机器人平台、1000小时同步力觉-视觉-语言的真实制造数据集ManuFacet-1K。",
+      "claim": "通过联合建模动作与腕部力矩序列的因果关系，并在真实力觉同步数据上进行分布鲁棒的接触结果判别训练，可使机器人在亚毫米装配任务中实现高成功率、高精度、低延迟的接触密集型精密操作。",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "policy",
+        "benchmark",
+        "hardware"
+      ],
+      "input": "RGB-D图像+自然语言任务指令+实时六维腕部力矩+关节状态",
+      "output": "笛卡尔空间动作块（含位姿+速度）及对应未来短时序腕部力矩预测",
+      "novelty": 9,
+      "evidence": 11,
+      "one_sentence_verdict": "真突破：它不是调参或刷榜，而是定义了‘动作-力矩联合生成’这一新范式，并用千小时真机力觉数据验证其在最苛刻的亚毫米装配场景中的有效性，实证完整度与工程落地深度已达当前机器人foundation model的顶尖水平。",
+      "deep": {}
+    },
+    {
+      "rank": 2,
+      "arxiv_id": "2609.00771",
+      "title": "Non-Prehensile Throwing: A Reinforcement Learning Perspective",
+      "published": "2026-09-01",
+      "url": "https://arxiv.org/abs/2609.00771",
+      "pdf_url": "https://arxiv.org/pdf/2609.00771",
+      "thumb": "assets/thumbs/2609.00771.jpg",
+      "venue": "IROS 2026",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "日本理化学研究所（RIKEN）",
+      "country": "JP",
+      "org_type": "institute",
+      "significance": 88,
+      "significance_reason": "达到T-Rex/ALOHA级分量：首次在非抓取抛掷这一长期被模型简化主导的难题上，用纯RL端到端突破物理极限（5m/s末端速度）、实现高成功率零样本真机部署，并系统验证了对质量鲁棒但对摩擦敏感的机制归因——证据链完整（仿真千配置+消融+敏感性分析+真机多尺寸/重量/材质物体+物理极限工况），远超以往基于动态抓取或简化碰撞模型的工程方法。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "real-robot",
+        "large-scale"
+      ],
+      "tldr": "用强化学习直接优化机械臂关节空间轨迹来实现不抓取物体的抛掷（如推、滑、滚后甩出），在仿真中成功率99%，零样本迁移到UR5e真机上，能抛掷重达790克、体积20×20×28cm的大型/重型/软性物体，最远350cm、最高180cm，真实成功率97%。",
+      "claim": "非抓取式抛掷可通过端到端强化学习直接优化关节空间轨迹实现，无需解析接触模型或手工设计轨迹参数化，且具备强sim2real泛化能力与物理极限下的鲁棒部署性能。",
+      "method_components": [
+        "model",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "input": "抛掷目标位置、物体三维模型（质量/惯量/摩擦系数）、机器人初始关节构型",
+      "output": "低频关节加加速度（jerk）轨迹，经上采样为高频速度控制指令",
+      "novelty": 8,
+      "evidence": 11,
+      "one_sentence_verdict": "真突破：它把非抓取抛掷从‘靠经验调模型’推进到‘可学习、可泛化、可部署’的新阶段，且所有关键主张均有跨仿真/真机/物体的实证支撑。",
+      "deep": {}
+    },
+    {
+      "rank": 3,
       "arxiv_id": "2608.30237",
       "title": "Motus2: A Self-Evolving General World Model for Dexterous Manipulation",
       "published": "2026-08-31",
@@ -58,7 +141,7 @@
       "deep": {}
     },
     {
-      "rank": 2,
+      "rank": 4,
       "arxiv_id": "2608.29487",
       "title": "Blind Dexterity: Whole-Body Humanoid Manipulation via Pure Proprioception",
       "published": "2026-08-30",
@@ -97,7 +180,7 @@
       "deep": {}
     },
     {
-      "rank": 3,
+      "rank": 5,
       "arxiv_id": "2609.00188",
       "title": "ZimaBlue: Evolving Generalizable World Action Models through Scalable Video Pre-training",
       "published": "2026-08-31",
@@ -137,7 +220,7 @@
       "deep": {}
     },
     {
-      "rank": 4,
+      "rank": 6,
       "arxiv_id": "2608.30935",
       "title": "LightNav-0: Eliciting VLM Spatial Intelligence for Generalist Embodied Navigation",
       "published": "2026-08-31",
@@ -176,7 +259,7 @@
       "deep": {}
     },
     {
-      "rank": 5,
+      "rank": 7,
       "arxiv_id": "2608.31048",
       "title": "OmniRAS: Standardizing Foundation Model Training and Evaluation in Robot-Assisted Surgery",
       "published": "2026-08-31",
@@ -210,84 +293,6 @@
       "novelty": 8,
       "evidence": 9,
       "one_sentence_verdict": "工程整合——它不是从零发明新架构，而是以极强的系统性（数据→训练→评测）填补RAS基础模型领域的标准真空，实证充分、可复现性强，但未跨越到具身智能或临床闭环。",
-      "deep": {}
-    },
-    {
-      "rank": 6,
-      "arxiv_id": "2608.28140",
-      "title": "Contact-Guided Exploration for Non-Prehensile Locomanipulation with Multi-Critic RL",
-      "published": "2026-08-28",
-      "url": "https://arxiv.org/abs/2608.28140",
-      "pdf_url": "https://arxiv.org/pdf/2608.28140",
-      "thumb": "assets/thumbs/2608.28140.jpg",
-      "venue": "RA-L",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "苏黎世联邦理工学院",
-      "country": "EU",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "实现在真实四足移动机械臂上的多任务非抓取操作部署（推、搬、开），有跨几何泛化设计和消融验证，但未开源代码/模型，未使用高保真触觉反馈，未与SOTA基础策略（如ACT/Diffusion Policy）对比，也未解决接触建模本质难题，属扎实的重大工程推进而非范式突破。",
-      "tier": "heavy",
-      "grade": "D",
-      "tags": [
-        "sim2real",
-        "real-robot",
-        "multimodal-fusion"
-      ],
-      "tldr": "这篇论文提出一种用接触点引导探索的多批评家强化学习方法，让四足移动机械臂能不抓取（non-prehensile）地推箱子、搬椅子、开洗碗机，在真实机器人上成功部署。",
-      "claim": "通过引入专用的接触导向探索批评家并渐进衰减其影响，可在稀疏奖励下高效学习非抓取式局部操作策略，且该策略可跨物体几何泛化并在真实四足平台上部署。",
-      "method_components": [
-        "model",
-        "policy",
-        "simulator",
-        "benchmark",
-        "hardware"
-      ],
-      "input": "机器人本体状态（关节位置/速度）、末端位姿、接触估计（隐式建模于奖励中）、任务目标指令（如‘推箱子到目标位’）",
-      "output": "连续动作（末端6D位姿变化或关节扭矩）",
-      "novelty": 6,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：将接触引导探索与多批评家RL结合，在真实移动操纵平台上实现了多个非抓取任务的可靠部署，但底层建模未触及接触动力学本质，且复现门槛高。",
-      "deep": {}
-    },
-    {
-      "rank": 7,
-      "arxiv_id": "2608.28578",
-      "title": "Aero Hand Open: A Simulation-Ready Tendon-Driven Hand for Dexterous Manipulation Learning",
-      "published": "2026-08-28",
-      "url": "https://arxiv.org/abs/2608.28578",
-      "pdf_url": "https://arxiv.org/pdf/2608.28578",
-      "thumb": "assets/thumbs/2608.28578.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "未知（作者单位未在摘要中体现，无机构署名线索；Wang/Yadav/Chen等为常见姓名，无法唯一对应至清华/CMU/ETH等主流团队；Wulff可能指Johannes Wulff但无机构佐证）",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 82,
-      "significance_reason": "达到HiFi-UMI/ALOHA级分量：首次实现肌腱手全链路sim2real零微调部署（含耦合拇指），且全栈开源（机械设计+仿真+标定+RL环境+部署），解决了肌腱手因传动非线性导致的长期sim2real鸿沟；但任务泛化性未验证（仅说‘policies’未列多任务结果），未与SOTA灵巧操作方法（如Diffusion Policy、YUBI）在操作性能上对标，属关键使能工具而非算法突破。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "dexterous",
-        "sim2real",
-        "open-source",
-        "real-robot"
-      ],
-      "tldr": "开源了一个仿真即用的肌腱驱动灵巧手Aero Hand Open，包含高保真电缆传动仿真模型、标定好的电机指令-关节运动映射（含拇指三向耦合）、强化学习训练环境和部署栈，所有策略可sim2real零微调直接上真机运行。",
-      "claim": "通过精确建模肌腱传动非线性耦合与标定双向映射，实现了肌腱驱动灵巧手在仿真中训练的策略无需任何微调或状态估计即可直接部署到真实硬件。",
-      "method_components": [
-        "model",
-        "simulator",
-        "policy",
-        "hardware"
-      ],
-      "input": "电机PWM/位置指令（仿真中为动作空间输出，真机中为直接下发指令）",
-      "output": "关节角度轨迹（隐式，由肌腱张力-关节运动映射解耦生成）",
-      "novelty": 7,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：不是新算法，而是首个将肌腱灵巧手从‘仿真不可靠’变为‘仿真即部署’的完整可信技术栈，扫除了该硬件路线大规模RL训练的最大障碍。",
       "deep": {}
     },
     {
@@ -480,6 +485,48 @@
     },
     {
       "rank": 13,
+      "arxiv_id": "2608.29601",
+      "title": "$\\mathcal{N}_0$-Foundation: Towards the Age of Tactile Intelligence",
+      "published": "2026-08-30",
+      "url": "https://arxiv.org/abs/2608.29601",
+      "pdf_url": "https://arxiv.org/pdf/2608.29601",
+      "thumb": "assets/thumbs/2608.29601.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "hardware_unitree",
+      "org": "复旦大学TEAI团队",
+      "country": "CN",
+      "org_type": "university",
+      "significance": 78,
+      "significance_reason": "达到并显著推进了触觉具身智能的数据-表征-评测闭环建设：数据规模与多样性（6机体/450任务/3万小时真机主导）远超Prior（如GelSight+UR5单任务百小时级），NeoForce实证跨传感器迁移能力，NeoReal/NeoSim双模评测具备方法论示范性；但未展示端到端策略在未知任务上的零样本泛化或部署级鲁棒性，尚未达到Unitree G1/Atlas等机体级系统突破量级。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "dataset",
+        "benchmark",
+        "open-source",
+        "real-robot",
+        "multimodal-fusion",
+        "tactile"
+      ],
+      "tldr": "这篇论文构建了一个面向触觉智能的完整技术栈：自研触觉传感器与通用操作接口硬件、3万小时多机体多任务同步视触觉数据集NeoData（含5000小时开源子集）、跨传感器泛化的触觉表征模型NeoForce、以及包含真实机器人和仿真环境的标准化评测基准NeoReal/NeoSim。",
+      "claim": "大规模、多机体、多任务、同步视触觉数据驱动的触觉表征与评测范式，能解耦物理接触状态与传感器外观偏差，从而提升触觉赋能具身操作的泛化性。",
+      "method_components": [
+        "dataset",
+        "simulator",
+        "benchmark",
+        "hardware",
+        "model"
+      ],
+      "input": "RGB图像+触觉信号（来自多种物理触觉传感器）",
+      "output": "触觉表征向量（用于下游策略学习）及基准评测分数",
+      "novelty": 8,
+      "evidence": 11,
+      "one_sentence_verdict": "工程整合——完成了触觉智能领域迄今最系统、最大规模、全开源的基础设施构建，但尚未证明其催生出超越现有SOTA策略的性能跃迁。",
+      "deep": {}
+    },
+    {
+      "rank": 14,
       "arxiv_id": "2608.30536",
       "title": "Behavior-Skill: A Fine-Grained Benchmark for Evaluating Vision-Language-Action Policies in Long-Horizon Tasks",
       "published": "2026-08-31",
@@ -515,7 +562,7 @@
       "deep": {}
     },
     {
-      "rank": 14,
+      "rank": 15,
       "arxiv_id": "2608.28995",
       "title": "Hydra: A Navigation World Action Model with Discrete Latent Planning and Continuous Flow-Matching Execution",
       "published": "2026-08-29",
@@ -548,44 +595,6 @@
       "novelty": 7,
       "evidence": 9,
       "one_sentence_verdict": "工程整合：解决了世界模型在真实机器人上因解码延迟导致的规划-执行割裂问题，有明确硬件验证和跨机体泛化，但未触及世界模型的核心状态持久性或因果推理缺陷。",
-      "deep": {}
-    },
-    {
-      "rank": 15,
-      "arxiv_id": "2608.29967",
-      "title": "Training-Free Action Correction for VLA Model Failures via Language Feedback",
-      "published": "2026-08-30",
-      "url": "https://arxiv.org/abs/2608.29967",
-      "pdf_url": "https://arxiv.org/pdf/2608.29967",
-      "thumb": "assets/thumbs/2608.29967.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "卡内基梅隆大学",
-      "country": "US",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "首次明确定义并实证隔离出VLA中‘战略正确但执行失准’这一可修正子集，给出简洁、免训练、跨任务泛化的语言→动作修正范式；真机验证扎实（xArm7+环境扰动+多物体），失败归因清晰（LIBERO-90分类支撑），但未开源代码/模型，且未挑战更难的语义崩溃类失败，属显著推进而非范式革命。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "real-robot",
-        "sim2real"
-      ],
-      "tldr": "提出一个无需训练的在线修正机制，当VLA模型在执行任务时因动作幅度偏差（比如抓太轻/太重、移太近/太远）出错时，人类只需用一句自然语言反馈（如‘再往前推一点’），系统就自动计算并叠加一个动作增量来实时修正，不改模型权重，且在仿真和真实xArm7机器人上验证了对执行偏差类错误的有效恢复。",
-      "claim": "VLA模型中存在一类可分离的‘执行偏差’失败模式，其语义理解正确但动作幅度失准，这类失败可通过任务级自然语言反馈直接映射为可加性的动作空间修正，且无需任何模型微调或重训练。",
-      "method_components": [
-        "model",
-        "simulator",
-        "policy",
-        "real-robot"
-      ],
-      "input": "原始VLA模型输出的动作序列 + 一句自然语言反馈（如‘抬高一点’‘再捏紧些’）",
-      "output": "与原始动作同维度的可加性动作偏移向量（Δa）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：将语言反馈转化为动作空间的免训练修正，定位精准、验证充分，是VLA部署鲁棒性的重要实用补丁，但未触及语义理解根基问题",
       "deep": {}
     }
   ]
