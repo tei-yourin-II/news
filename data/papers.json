@@ -8297,6 +8297,100 @@
       "thumb": "assets/thumbs/2606.04811.jpg"
     },
     {
+      "arxiv_id": "2609.03199",
+      "title": "RoboTok: An Internet-Scale Data Engine for Human Demonstration Retrieval and Dexterous Manipulation Learning",
+      "abstract": "Robot learning increasingly depends on broad and diverse demonstrations, yet collecting robot data remains expensive and poorly suited to covering the long tail of real-world tasks. To address this bottleneck, we introduce RoboTok, an internet-scale data engine that, given a query human manipulation video, retrieves manipulation-relevant human demonstrations from web videos for training dexterous robot policies. Specifically, we learn a latent motion space from 3D hand trajectories expressed in estimated actor-centered reference frames. This representation enables manipulation behaviors to be compared across variations in camera viewpoint, scene appearance, and actor occlusions, while remaining compact enough for efficient search and continual indexing over internet-scale video collections. We evaluate RoboTok against existing robot-data retrieval approaches on retrieval benchmarks and downstream robot policy performance. Our results show that RoboTok retrieves more relevant manipulation demonstrations and improves downstream task success, establishing hand-pose trajectory-aware retrieval as a way to make web video a scalable and continuously growing source of supervision for robot learning.",
+      "authors": [
+        "Howard Qian",
+        "Yiting Chen",
+        "Yunfei Xie",
+        "Kejia Ren",
+        "Podshara Chanrungmaneekul",
+        "Gaotian Wang",
+        "Bowen Wen",
+        "Chen Wei",
+        "Kaiyu Hang"
+      ],
+      "categories": [],
+      "published": "2026-09-02T00:00:00.000Z",
+      "updated": "2026-09-02T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2609.03199",
+      "pdf_url": "https://arxiv.org/pdf/2609.03199",
+      "hf_upvotes": 16,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.574,
+        "world_model": 0.4426,
+        "whole_body_control": 0.4755,
+        "dexterous_manipulation": 0.5,
+        "sim2real_data": 0.3377,
+        "hardware_unitree": 0.1957,
+        "bci_neural_decoding": 0.1011,
+        "bci_foundation_models": 0.1135,
+        "bci_embodied_robot": 0.2898,
+        "bci_noninvasive_eeg": 0.1526,
+        "protein_ai": 0.1229,
+        "genomics_ai": 0.0618
+      },
+      "best_route": "dexterous_manipulation",
+      "relevance_raw": 0.574,
+      "first_seen": "2026-09-05",
+      "analysis": {
+        "tldr": "这篇论文提出RoboTok系统，用互联网上的人类手部操作视频（不经过机器人采集）作为数据源，通过学习手部3D轨迹的紧凑隐空间表示，实现跨视角、跨场景、抗遮挡的操作行为检索，从而为灵巧机器人策略训练提供可扩展的监督信号。",
+        "org": "谷歌DeepMind",
+        "country": "US",
+        "org_type": "company",
+        "claim": "基于估计的演员中心坐标系下的3D手部轨迹构建的隐运动空间，能实现互联网规模视频中操作相关人类演示的高效、鲁棒检索，并显著提升下游灵巧操作策略的性能。",
+        "method_components": [
+          "model",
+          "dataset",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "查询用的人类操作视频（RGB）",
+        "output": "检索到的与操作语义相关的互联网人类手部演示视频片段（及其对齐的3D手部轨迹）",
+        "robot_dependency": "none",
+        "data_dependency": "完全不依赖真实机器人采集数据；仅依赖公开网络视频+预估的3D手部姿态（如来自VideoPose3D或EgoHands等模型）",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-scene",
+          "cross-viewpoint",
+          "cross-user"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "dataset",
+          "benchmark",
+          "open-source"
+        ],
+        "novelty": 7,
+        "evidence": 8,
+        "reproducibility_score": 5,
+        "significance": 76,
+        "significance_reason": "首次将互联网规模人类视频系统性地转化为灵巧操作策略训练的可检索监督源，实证显示其检索质量优于现有方法且下游策略成功率提升，但未在真实机器人上部署验证，也未覆盖多机体泛化或闭环策略训练，属于扎实的重大增量而非范式突破。",
+        "one_sentence_verdict": "工程整合：把已有的手部姿态估计、跨模态检索和机器人模仿学习链条打通，并在大规模数据层面做出可信验证，但尚未跨越到真机部署和闭环控制。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 115,
+        "citations": 0,
+        "venue": "arXiv (Cornell University)"
+      },
+      "scores": {
+        "relevance": 17.2,
+        "content": 20.0,
+        "heat": 17.9,
+        "quality": 0.0,
+        "base": 37.2,
+        "bonus": 17.9,
+        "total": 55.1
+      },
+      "grade": "B",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2609.03199.jpg"
+    },
+    {
       "arxiv_id": "2607.27180",
       "title": "HumanCLAW: Can Vision-Language Models Act Through a Body?",
       "abstract": "Evaluating whether a vision-language model (VLM) can act through a physical body is challenging. The outcome of an action couples the VLM's decision with motor control. When a task fails, it is hard to tell whether the VLM made a bad choice or the motor controller simply failed to execute it, e.g., losing balance and falling. In this work, we introduce HumanCLAW, an evaluation framework that decouples action decision-making from low-level execution. At every step, a harnessed, off-the-shelf VLM issues an atomic skill command, and the command is translated into a sub-second chunk of continuous full-body motion with real physical consequences, including gravity and collisions. The body can therefore act freely in the physical world, while execution-side disturbances, balance and motor errors, are factored out. What remains measurable is the model's action intelligence: its moment-to-moment choice of what the body should execute next. Based on this framework, we build HumanCLAW-Bench: 1,218 long-horizon, egocentric find-navigate-interact episodes across 41 indoor scenes. We test nine state-of-the-art VLMs and find that none solves the benchmark; the best model reaches only a 16.8% success rate. Recognizing the target is not the bottleneck. What current VLMs lack is embodied self-awareness: they lose track of their own body, failing to tell where it is, whether it has reached the goal, or whether it has hit an obstacle.",
@@ -8792,100 +8886,6 @@
       "grade": "B",
       "read_priority": "B",
       "thumb": "assets/thumbs/2609.00188.jpg"
-    },
-    {
-      "arxiv_id": "2609.03199",
-      "title": "RoboTok: An Internet-Scale Data Engine for Human Demonstration Retrieval and Dexterous Manipulation Learning",
-      "abstract": "Robot learning increasingly depends on broad and diverse demonstrations, yet collecting robot data remains expensive and poorly suited to covering the long tail of real-world tasks. To address this bottleneck, we introduce RoboTok, an internet-scale data engine that, given a query human manipulation video, retrieves manipulation-relevant human demonstrations from web videos for training dexterous robot policies. Specifically, we learn a latent motion space from 3D hand trajectories expressed in estimated actor-centered reference frames. This representation enables manipulation behaviors to be compared across variations in camera viewpoint, scene appearance, and actor occlusions, while remaining compact enough for efficient search and continual indexing over internet-scale video collections. We evaluate RoboTok against existing robot-data retrieval approaches on retrieval benchmarks and downstream robot policy performance. Our results show that RoboTok retrieves more relevant manipulation demonstrations and improves downstream task success, establishing hand-pose trajectory-aware retrieval as a way to make web video a scalable and continuously growing source of supervision for robot learning.",
-      "authors": [
-        "Howard Qian",
-        "Yiting Chen",
-        "Yunfei Xie",
-        "Kejia Ren",
-        "Podshara Chanrungmaneekul",
-        "Gaotian Wang",
-        "Bowen Wen",
-        "Chen Wei",
-        "Kaiyu Hang"
-      ],
-      "categories": [],
-      "published": "2026-09-02T00:00:00.000Z",
-      "updated": "2026-09-02T00:00:00.000Z",
-      "url": "https://arxiv.org/abs/2609.03199",
-      "pdf_url": "https://arxiv.org/pdf/2609.03199",
-      "hf_upvotes": 16,
-      "source": "hf_daily",
-      "route_scores": {
-        "vla": 0.574,
-        "world_model": 0.4426,
-        "whole_body_control": 0.4755,
-        "dexterous_manipulation": 0.5,
-        "sim2real_data": 0.3377,
-        "hardware_unitree": 0.1957,
-        "bci_neural_decoding": 0.1011,
-        "bci_foundation_models": 0.1135,
-        "bci_embodied_robot": 0.2898,
-        "bci_noninvasive_eeg": 0.1526,
-        "protein_ai": 0.1229,
-        "genomics_ai": 0.0618
-      },
-      "best_route": "dexterous_manipulation",
-      "relevance_raw": 0.574,
-      "first_seen": "2026-09-05",
-      "analysis": {
-        "tldr": "这篇论文提出RoboTok系统，用互联网上的人类手部操作视频（不经过机器人采集）作为数据源，通过学习手部3D轨迹的紧凑隐空间表示，实现跨视角、跨场景、抗遮挡的操作行为检索，从而为灵巧机器人策略训练提供可扩展的监督信号。",
-        "org": "谷歌DeepMind",
-        "country": "US",
-        "org_type": "company",
-        "claim": "基于估计的演员中心坐标系下的3D手部轨迹构建的隐运动空间，能实现互联网规模视频中操作相关人类演示的高效、鲁棒检索，并显著提升下游灵巧操作策略的性能。",
-        "method_components": [
-          "model",
-          "dataset",
-          "simulator",
-          "benchmark"
-        ],
-        "input": "查询用的人类操作视频（RGB）",
-        "output": "检索到的与操作语义相关的互联网人类手部演示视频片段（及其对齐的3D手部轨迹）",
-        "robot_dependency": "none",
-        "data_dependency": "完全不依赖真实机器人采集数据；仅依赖公开网络视频+预估的3D手部姿态（如来自VideoPose3D或EgoHands等模型）",
-        "sim2real_status": "n/a",
-        "generalization": [
-          "cross-scene",
-          "cross-viewpoint",
-          "cross-user"
-        ],
-        "reproducibility": "project-page",
-        "tags": [
-          "multimodal-fusion",
-          "dataset",
-          "benchmark",
-          "open-source"
-        ],
-        "novelty": 7,
-        "evidence": 8,
-        "reproducibility_score": 5,
-        "significance": 76,
-        "significance_reason": "首次将互联网规模人类视频系统性地转化为灵巧操作策略训练的可检索监督源，实证显示其检索质量优于现有方法且下游策略成功率提升，但未在真实机器人上部署验证，也未覆盖多机体泛化或闭环策略训练，属于扎实的重大增量而非范式突破。",
-        "one_sentence_verdict": "工程整合：把已有的手部姿态估计、跨模态检索和机器人模仿学习链条打通，并在大规模数据层面做出可信验证，但尚未跨越到真机部署和闭环控制。",
-        "_llm": "qwen-plus"
-      },
-      "signals": {
-        "hf_upvotes": 92,
-        "citations": 0,
-        "venue": "arXiv (Cornell University)"
-      },
-      "scores": {
-        "relevance": 17.2,
-        "content": 20.0,
-        "heat": 17.1,
-        "quality": 0.0,
-        "base": 37.2,
-        "bonus": 17.1,
-        "total": 54.3
-      },
-      "grade": "B",
-      "read_priority": "B",
-      "thumb": "assets/thumbs/2609.03199.jpg"
     },
     {
       "arxiv_id": "2607.15275",
@@ -14167,6 +14167,86 @@
       "thumb": "assets/thumbs/2606.14218.jpg"
     },
     {
+      "arxiv_id": "2609.02887",
+      "title": "A Common Measure of Communication for Speech Brain-Computer Interfaces",
+      "abstract": "Speech brain-computer interfaces (speech BCIs) translate neural activity into language, offering a path towards restoring speech for people with paralysis and, more broadly, enabling new forms of natural human-computer interaction. Despite this promise, the field lacks a common measure of progress because systems use different datasets, recording methods, types of speech, and vocabularies, so their reported scores are rarely comparable. Underlying this measurement problem are two unresolved questions: (i) what distribution of words should a speech BCI enable a user to communicate, and (ii) how much information from this distribution can a system convey. We address both by deriving open-vocabulary mutual information (OVMI), an information-theoretic quantity that measures the information conveyed by a decoder relative to a reference distribution over the words a user may wish to communicate. This allows capabilities measured under different conditions, such as distinct vocabularies, to be evaluated on a common communication scale. We show that ordinarily reported accuracy, word error rate (WER), and other metrics computed only over the words a system supports can overstate how much of a user's intended speech the system can communicate. We then use OVMI to compare existing systems, expose trade-offs between how much of the user's language a system supports and how accurately it decodes those words, show that these comparisons depend on what the user is expected to communicate, and demonstrate that selecting a vocabulary to maximise OVMI yields up to 16.3% relative improvement in accuracy across three speech domains. OVMI therefore provides the speech BCI community with a principled way to compare heterogeneous systems, improve vocabulary design, and measure progress in the field.",
+      "authors": [
+        "Dulhan Jayalath",
+        "Benjamin Ballyk",
+        "Oiwi Parker Jones"
+      ],
+      "categories": [],
+      "published": "2026-09-02T00:00:00.000Z",
+      "updated": "2026-09-02T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2609.02887",
+      "pdf_url": "https://arxiv.org/pdf/2609.02887",
+      "hf_upvotes": 8,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.3065,
+        "world_model": 0.242,
+        "whole_body_control": 0.1994,
+        "dexterous_manipulation": 0.1359,
+        "sim2real_data": 0.1217,
+        "hardware_unitree": 0.126,
+        "bci_neural_decoding": 0.5584,
+        "bci_foundation_models": 0.403,
+        "bci_embodied_robot": 0.4747,
+        "bci_noninvasive_eeg": 0.3295,
+        "protein_ai": 0.0916,
+        "genomics_ai": 0.1407
+      },
+      "best_route": "bci_neural_decoding",
+      "relevance_raw": 0.5584,
+      "first_seen": "2026-09-05",
+      "analysis": {
+        "tldr": "这篇论文提出一个叫OVMI（开放词汇互信息）的新指标，用来统一衡量不同语音脑机接口系统的真实通信能力，解决因数据集、词汇表、录音方式不同导致的性能无法横向比较的问题。",
+        "org": "unknown",
+        "country": "UK",
+        "org_type": "university",
+        "claim": "语音脑机接口领域缺乏可比性评估的根本原因在于缺少一个能反映用户真实语言意图分布与系统解码能力之间信息传递效率的统一度量，而OVMI正是这样一个基于信息论、词汇无关、可跨系统比较的通信效能指标。",
+        "method_components": [
+          "benchmark",
+          "dataset"
+        ],
+        "input": "神经活动信号（如ECoG/LFP）经解码器输出的词序列",
+        "output": "标量通信效能值（bit/word），即开放词汇互信息OVMI",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据，但依赖已发表的神经记录数据集（如BOLD-5000、TIMIT-ECoG等公开或文献中报告的语音BCI数据）",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "benchmark",
+          "open-source"
+        ],
+        "novelty": 7,
+        "evidence": 8,
+        "reproducibility_score": 5,
+        "significance": 68,
+        "significance_reason": "提出了首个面向语音BCI通信本质的信息论基准OVMI，实证揭示了传统WER/accuracy严重高估实际通信能力，并指导词汇设计带来16.3%相对精度提升；但未涉及新解码模型、新硬件或新神经数据采集，也未在真实瘫痪用户上验证，属于方法论层面的重要改进而非系统级突破。",
+        "one_sentence_verdict": "显著贡献——真突破尚早，但为整个语音BCI领域建立了首个可比、可解释、可优化的通信效能标尺，终结了‘各说各话’的评估混乱。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 10,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 16.8,
+        "content": 20.0,
+        "heat": 9.0,
+        "quality": 0.0,
+        "base": 36.8,
+        "bonus": 9.0,
+        "total": 45.8
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2609.02887.jpg"
+    },
+    {
       "arxiv_id": "2608.08814",
       "doi": "10.48550/arxiv.2608.08814",
       "source_kind": "arxiv",
@@ -14610,86 +14690,6 @@
       "grade": "C",
       "read_priority": "A",
       "thumb": "assets/thumbs/2606.25591.jpg"
-    },
-    {
-      "arxiv_id": "2609.02887",
-      "title": "A Common Measure of Communication for Speech Brain-Computer Interfaces",
-      "abstract": "Speech brain-computer interfaces (speech BCIs) translate neural activity into language, offering a path towards restoring speech for people with paralysis and, more broadly, enabling new forms of natural human-computer interaction. Despite this promise, the field lacks a common measure of progress because systems use different datasets, recording methods, types of speech, and vocabularies, so their reported scores are rarely comparable. Underlying this measurement problem are two unresolved questions: (i) what distribution of words should a speech BCI enable a user to communicate, and (ii) how much information from this distribution can a system convey. We address both by deriving open-vocabulary mutual information (OVMI), an information-theoretic quantity that measures the information conveyed by a decoder relative to a reference distribution over the words a user may wish to communicate. This allows capabilities measured under different conditions, such as distinct vocabularies, to be evaluated on a common communication scale. We show that ordinarily reported accuracy, word error rate (WER), and other metrics computed only over the words a system supports can overstate how much of a user's intended speech the system can communicate. We then use OVMI to compare existing systems, expose trade-offs between how much of the user's language a system supports and how accurately it decodes those words, show that these comparisons depend on what the user is expected to communicate, and demonstrate that selecting a vocabulary to maximise OVMI yields up to 16.3% relative improvement in accuracy across three speech domains. OVMI therefore provides the speech BCI community with a principled way to compare heterogeneous systems, improve vocabulary design, and measure progress in the field.",
-      "authors": [
-        "Dulhan Jayalath",
-        "Benjamin Ballyk",
-        "Oiwi Parker Jones"
-      ],
-      "categories": [],
-      "published": "2026-09-02T00:00:00.000Z",
-      "updated": "2026-09-02T00:00:00.000Z",
-      "url": "https://arxiv.org/abs/2609.02887",
-      "pdf_url": "https://arxiv.org/pdf/2609.02887",
-      "hf_upvotes": 8,
-      "source": "hf_daily",
-      "route_scores": {
-        "vla": 0.3065,
-        "world_model": 0.242,
-        "whole_body_control": 0.1994,
-        "dexterous_manipulation": 0.1359,
-        "sim2real_data": 0.1217,
-        "hardware_unitree": 0.126,
-        "bci_neural_decoding": 0.5584,
-        "bci_foundation_models": 0.403,
-        "bci_embodied_robot": 0.4747,
-        "bci_noninvasive_eeg": 0.3295,
-        "protein_ai": 0.0916,
-        "genomics_ai": 0.1407
-      },
-      "best_route": "bci_neural_decoding",
-      "relevance_raw": 0.5584,
-      "first_seen": "2026-09-05",
-      "analysis": {
-        "tldr": "这篇论文提出一个叫OVMI（开放词汇互信息）的新指标，用来统一衡量不同语音脑机接口系统的真实通信能力，解决因数据集、词汇表、录音方式不同导致的性能无法横向比较的问题。",
-        "org": "unknown",
-        "country": "UK",
-        "org_type": "university",
-        "claim": "语音脑机接口领域缺乏可比性评估的根本原因在于缺少一个能反映用户真实语言意图分布与系统解码能力之间信息传递效率的统一度量，而OVMI正是这样一个基于信息论、词汇无关、可跨系统比较的通信效能指标。",
-        "method_components": [
-          "benchmark",
-          "dataset"
-        ],
-        "input": "神经活动信号（如ECoG/LFP）经解码器输出的词序列",
-        "output": "标量通信效能值（bit/word），即开放词汇互信息OVMI",
-        "robot_dependency": "none",
-        "data_dependency": "不依赖真实机器人数据，但依赖已发表的神经记录数据集（如BOLD-5000、TIMIT-ECoG等公开或文献中报告的语音BCI数据）",
-        "sim2real_status": "n/a",
-        "generalization": "limited",
-        "reproducibility": "project-page",
-        "tags": [
-          "benchmark",
-          "open-source"
-        ],
-        "novelty": 7,
-        "evidence": 8,
-        "reproducibility_score": 5,
-        "significance": 68,
-        "significance_reason": "提出了首个面向语音BCI通信本质的信息论基准OVMI，实证揭示了传统WER/accuracy严重高估实际通信能力，并指导词汇设计带来16.3%相对精度提升；但未涉及新解码模型、新硬件或新神经数据采集，也未在真实瘫痪用户上验证，属于方法论层面的重要改进而非系统级突破。",
-        "one_sentence_verdict": "显著贡献——真突破尚早，但为整个语音BCI领域建立了首个可比、可解释、可优化的通信效能标尺，终结了‘各说各话’的评估混乱。",
-        "_llm": "qwen-plus"
-      },
-      "signals": {
-        "hf_upvotes": 9,
-        "citations": 0,
-        "venue": ""
-      },
-      "scores": {
-        "relevance": 16.8,
-        "content": 20.0,
-        "heat": 8.7,
-        "quality": 0.0,
-        "base": 36.8,
-        "bonus": 8.7,
-        "total": 45.5
-      },
-      "grade": "C",
-      "read_priority": "B",
-      "thumb": "assets/thumbs/2609.02887.jpg"
     },
     {
       "arxiv_id": "2606.13578",
@@ -15705,7 +15705,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 18.7,
@@ -16552,7 +16552,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": "Humanoids"
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 18.4,
@@ -20592,7 +20592,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 18.6,
@@ -134731,6 +134731,89 @@
       "thumb": "assets/thumbs/2609.03294.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.09.01.748506",
+      "doi": "10.64898/2026.09.01.748506",
+      "source_kind": "biorxiv",
+      "title": "Sleep spindle state-dependent motor cortical plasticity induction by EEG-triggered ripple burst TMS",
+      "abstract": "Background: Sleep spindles are fundamental for plasticity and memory consolidation. Here we sought to target different spindle states in sleeping healthy participants with real-time EEG-burst repetitive transcranial magnetic stimulation (rTMS) at hippocampal ripple frequency, and test the spindle state-dependent induction of corticospinal and sensorimotor cortical plasticity. We hypothesized that the spindle-trough is a particularly critical state for plasticity induction because hippocampal ripples are naturally nested in the spindle-trough, reflecting replay of memory traces and facilitating memory consolidation. Methods: Fourteen participants underwent four experimental nights, in which rTMS was applied either at the spindle-trough, spindle-peak, spindle random phase or during spindle-free epochs. Readouts of plasticity were changes in resting-state EEG (rsEEG) power, motor evoked potential (MEP) amplitude, local mean field amplitude (LMFA, for the N45 and P60 potential components), immediate response slope (IRS) and TMS-related time frequency response (TFR), tested 10 and 30 min after the end of the rTMS interventions upon awakening, and compared to pre-sleep baseline. Results: Spindle-trough rTMS resulted in pre- to post-sleep decreases of rsEEG beta-band power, MEP amplitude, P60-LMFA, IRS and TFR in the alpha-band, and an increase in the N45-LMFA. None of the other spindle state-dependent rTMS interventions resulted in consistent plastic changes. Conclusions: Targeting the spindle-trough with ripple-burst rTMS stands out in consistently leading to long-term depression-like changes across a broad array of corticospinal and sensorimotor cortical excitability readouts. This opens the intriguing opportunity of targeted manipulation of human sleep physiology for improving specific behavioral processes, such as memory consolidation.",
+      "authors": [
+        "Zhijian Zhao",
+        "Yeyun Lu",
+        "Friederike Breuer",
+        "Til Ole Bergmann",
+        "Ulf Ziemann"
+      ],
+      "categories": [],
+      "published": "2026-09-04",
+      "updated": "2026-09-04",
+      "url": "https://doi.org/10.64898/2026.09.01.748506",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/09/04/2026.09.01.748506.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.096,
+        "world_model": 0.2636,
+        "whole_body_control": 0.1338,
+        "dexterous_manipulation": 0.0868,
+        "sim2real_data": 0.07,
+        "hardware_unitree": 0.0198,
+        "bci_neural_decoding": 0.3622,
+        "bci_foundation_models": 0.4035,
+        "bci_embodied_robot": 0.1992,
+        "bci_noninvasive_eeg": 0.5,
+        "protein_ai": 0.1251,
+        "genomics_ai": 0.1639
+      },
+      "best_route": "bci_noninvasive_eeg",
+      "relevance_raw": 0.4035,
+      "first_seen": "2026-09-07",
+      "analysis": {
+        "tldr": "论文用实时脑电触发的高频磁刺激（在睡眠纺锤波谷相精准施加），首次实证发现只有在纺锤波谷相施加海马涟漪频率的TMS，才能稳定诱导运动皮层多种指标的长时程抑制样可塑性变化，证明了睡眠中特定毫秒级脑状态对皮层可塑性的门控作用。",
+        "org": "图宾根大学",
+        "country": "EU",
+        "org_type": "university",
+        "claim": "睡眠纺锤波的谷相是唯一能可靠诱导运动皮层长时程抑制样可塑性的EEG-defined瞬时状态，其机制与内源性海马涟漪嵌套于该相位密切相关。",
+        "method_components": [
+          "simulator",
+          "benchmark"
+        ],
+        "input": "实时检测到的睡眠纺锤波相位（谷相/峰相/随机相/无纺锤期）",
+        "output": "运动皮层兴奋性多维指标变化（MEP幅值、N45/P60-LMFA、IRS、alpha/beta频段TFR与rsEEG功率）",
+        "robot_dependency": "none",
+        "data_dependency": "完全依赖人类受试者真实睡眠EEG-TMS闭环实验数据，无仿真替代",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "teleoperation",
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 8,
+        "evidence": 10,
+        "reproducibility_score": 4,
+        "significance": 78,
+        "significance_reason": "首次在清醒后量化验证了睡眠中毫秒级EEG相位对皮层可塑性的因果门控作用，覆盖5种互补神经生理指标且具跨时间点（10/30min）一致性；但仅限健康青年被试、单脑区（M1）、未关联行为记忆测试，尚未拓展至患者或闭环调控应用，属扎实的重大机制推进而非范式革命。",
+        "one_sentence_verdict": "真突破：它用严谨的相位特异性干预+多模态神经生理读出，首次锁定了睡眠纺锤波谷相作为皮层可塑性的‘黄金窗口’，为靶向睡眠调控记忆提供了不可替代的因果证据。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 12.1,
+        "content": 22.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 34.1,
+        "bonus": 0.0,
+        "total": 34.1
+      },
+      "grade": "D",
+      "read_priority": "B"
+    },
+    {
       "arxiv_id": "2605.30581",
       "title": "Prior Availability in Industrial Visual Sim-to-Real: A Review of CAD-Guided and CAD-Unavailable Regimes",
       "abstract": "Industrial visual sim-to-real is often described as transferring from synthetic images to real images, but industrial deployment usually involves a broader mismatch between available evidence and required decisions. A system may be built from CAD renderings, simulated RGB-D observations, normal reference images, synthetic defects, pretrained feature spaces, or language prompts, yet deployed under different sensors, lighting, materials, fixtures, calibration, production variation, and rare defect modes. This review reframes industrial visual sim-to-real as a domain-gap problem organized by prior availability. We distinguish CAD-available settings, where explicit object geometry can support rendering, calibration, pose estimation, segmentation, and test-time geometric verification; CAD-unavailable settings, where geometry is replaced by normal-reference appearance, feature distributions, teacher-student residuals, synthetic anomaly assumptions, foundation features, or vision-language priors; and boundary-prior settings, where approximate models, templates, reference views, or semantic correspondences preserve only part of the CAD role. This framing connects CAD-based detection and 6D pose-estimation literature with industrial anomaly and surface-inspection literature that is usually reviewed separately. To make the taxonomy concrete, we use empirical anchors on T-LESS/BOP, MVTec AD, and VisA. The anchors show that CAD render count alone does not close transfer; source-distribution design, detector capacity, and small real calibration can matter more. They also show that CAD at test time creates a distinct verification channel through mask, pose, and depth consistency, whereas CAD-unavailable inspection relies on calibrated normality and feature deviation. The review therefore argues against a single cross-task leaderboard and instead asks what prior grounds the deployment decision.",
@@ -150568,6 +150651,97 @@
       },
       "grade": "D",
       "read_priority": "B"
+    },
+    {
+      "arxiv_id": "2609.02493",
+      "doi": "10.48550/arxiv.2609.02493",
+      "source_kind": "arxiv",
+      "title": "MS-MEM: Multi-Skill Manipulation-Enhanced Mapping via Uncertainty- and Disturbance-Aware Action Selection",
+      "abstract": "Accurate scene understanding in confined, cluttered spaces such as shelves is essential for service robots, as many everyday tasks require them to locate and retrieve objects reliably. Yet, it remains challenging due to severe occlusions, restricted accessibility, and the need to avoid excessive scene changes. In this paper, we propose Multi-Skill Manipulation-Enhanced Mapping (MS-MEM), an evidential framework for uncertainty-aware mapping that integrates active viewpoint selection, object pushing, and grasping. MS-MEM combines scene-level metric-semantic evidential belief estimators with an uncertainty-aware grasp representation. This representation is learned using a novel full-evidential grasp estimator that models both grasp affordance and orientation uncertainty. In our framework, candidate perception and manipulation actions are evaluated within a unified action selection pipeline using a common information gain criterion. For manipulation actions, we further introduce a collateral disturbance constraint (CDC) that discourages excessive changes to confident regions of the scene belief. This enables MS-MEM to select actions that effectively reduce map uncertainty while limiting collateral scene changes. Experimental results show that, compared with single-skill and unconstrained baselines that ignore scene disturbance, MS-MEM achieves higher mapping accuracy while substantially reducing scene disturbance, highlighting the synergistic effects of active viewpoint selection, push, and grasp actions.",
+      "authors": [
+        "Yitian Shi",
+        "Jesper Mücke",
+        "Nils Dengler",
+        "Sicong Pan",
+        "Rania Rayyes",
+        "Maren Bennewitz"
+      ],
+      "categories": [],
+      "published": "2026-09-02",
+      "updated": "2026-09-02",
+      "url": "https://arxiv.org/abs/2609.02493",
+      "pdf_url": "https://arxiv.org/pdf/2609.02493",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.5,
+        "world_model": 0.3782,
+        "whole_body_control": 0.3336,
+        "dexterous_manipulation": 0.2803,
+        "sim2real_data": 0.2331,
+        "hardware_unitree": 0.1475,
+        "bci_neural_decoding": 0.0882,
+        "bci_foundation_models": 0.0817,
+        "bci_embodied_robot": 0.2576,
+        "bci_noninvasive_eeg": 0.1276,
+        "protein_ai": 0.1127,
+        "genomics_ai": 0.1088
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.444,
+      "first_seen": "2026-09-07",
+      "analysis": {
+        "tldr": "提出一个叫MS-MEM的框架，让服务机器人在杂乱狭窄的货架场景中边看边推边抓，主动选择最能减少地图不确定性的动作（视角、推、抓），同时约束推/抓动作不要破坏已确认的区域，从而在提升建图精度的同时显著降低对场景的扰动。",
+        "org": "波恩大学",
+        "country": "EU",
+        "org_type": "university",
+        "claim": "多技能（视角选择+推+抓）协同的、扰动感知的动作选择机制，能在受限杂乱场景中实现高精度低扰动的地图构建。",
+        "method_components": [
+          "model",
+          "simulator",
+          "policy",
+          "benchmark"
+        ],
+        "input": "RGB-D图像+当前语义地图信念（metric-semantic belief）+场景几何先验",
+        "output": "下一步执行的动作类型与参数（视角调整/推/抓的位置和姿态）",
+        "robot_dependency": "Franka Emika Panda 机械臂 + RealSense D435i（仿真与真实实验均用）",
+        "data_dependency": "依赖真实机器人采集的推/抓扰动评估数据（CDC约束基于真实扰动测量建模）",
+        "sim2real_status": "small-real",
+        "generalization": [
+          "cross-task",
+          "cross-scene"
+        ],
+        "reproducibility": "code-only",
+        "tags": [
+          "active-perception",
+          "manipulation",
+          "uncertainty-aware",
+          "sim2real"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 4,
+        "significance": 68,
+        "significance_reason": "解决了服务机器人在货架等受限场景中‘建图-操作’耦合扰动的关键矛盾，有真实机器人验证（多任务：推+抓+视角切换）、消融完整（含CDC约束贡献）、指标明确（扰动量化+地图误差双下降），但未跨机体泛化、未开源数据/模型、未接入VLA范式或大模型基座，属扎实的具身感知-操作联合优化工作，尚未达到基石级范式突破或规模效应。",
+        "one_sentence_verdict": "显著贡献：真机验证的扰动感知多技能协同建图，工程价值明确，但未达基础模型级分量",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 13.3,
+        "content": 20.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 33.3,
+        "bonus": 0.0,
+        "total": 33.3
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2609.02493.jpg"
     },
     {
       "arxiv_id": "2606.01313",
@@ -221442,6 +221616,90 @@
       "thumb": "assets/thumbs/2608.29023.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.08.26.747187",
+      "doi": "10.64898/2026.08.26.747187",
+      "source_kind": "biorxiv",
+      "title": "Sport expertise and motor imagery abilities shape sensorimotor rhythm modulations during visualisation tasks: Implications for neurofeedback-based cognitive training in athletes",
+      "abstract": "Abstract Kinaesthetic motor imagery (kMI) is widely used in sport to enhance motor performance by engaging cortical sensorimotor networks. Neurofeedback may further support kMI, but the optimal neural target to reinforce remains unclear. Maximal sensorimotor event-related desynchronisation (SMR-ERD) represents a relevant target as it may index sensorimotor cortex engagement, yet sport expertise has been associated with reduced SMR-ERD, potentially reflecting neural efficiency. The optimal neurofeedback target may therefore depend on sport expertise, movement expertise, and individual kMI ability. This study examined how these factors influence sensorimotor activity during kMI. We compared 17 basketball players (Experts) and 16 individuals without formal basketball training (Novices). kMI ability and frequency of use were assessed using questionnaires, while SMR-ERD was quantified using electroencephalography (EEG) during kMI. Participants imagined either a basketball-specific movement (Free throw), for which only Experts had extensive experience, or a generic movement (Box lifting), familiar to both groups. Experts reported greater kMI ability and more frequent kMI use than Novices. Only Experts exhibited significant and sustained SMR-ERD during kMI. Moreover, SMR-ERD was stronger in Experts than Novices specifically during Free throw kMI, corresponding to their movement of expertise. Nonetheless, within the Expert group, higher kMI ability was associated with reduced SMR-ERD. These findings suggest that sport expertise initially enhances voluntary recruitment of sensorimotor networks during kMI, whereas greater kMI ability may subsequently promote neural efficiency, resulting in reduced overall sensorimotor cortical activation. These results highlight the need to tailor kMI-based neurofeedback training to users’ sport expertise and kMI ability levels. Highlights · Current motor imagery-based neurofeedback designs may not be tailored to athletes. · Athletes show greater recruitment of sensorimotor cortex during motor imagery. · High motor imagery ability in athletes may be associated with neural efficiency. · Neurofeedback should be adapted to sport expertise and motor imagery ability.",
+      "authors": [
+        "Margaux Izac",
+        "Emeline Pierrieau",
+        "Elea Rossignol",
+        "Natalia Grechukhin",
+        "Elina Coudroy",
+        "Léa Pillette",
+        "Bernard N’Kaoua",
+        "Camille Jeunet"
+      ],
+      "categories": [],
+      "published": "2026-09-01",
+      "updated": "2026-09-01",
+      "url": "https://doi.org/10.64898/2026.08.26.747187",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/09/01/2026.08.26.747187.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2567,
+        "world_model": 0.3,
+        "whole_body_control": 0.1894,
+        "dexterous_manipulation": 0.09,
+        "sim2real_data": 0.0796,
+        "hardware_unitree": 0.1114,
+        "bci_neural_decoding": 0.4281,
+        "bci_foundation_models": 0.4031,
+        "bci_embodied_robot": 0.3968,
+        "bci_noninvasive_eeg": 0.5,
+        "protein_ai": 0.0239,
+        "genomics_ai": 0.0717
+      },
+      "best_route": "bci_noninvasive_eeg",
+      "relevance_raw": 0.4281,
+      "first_seen": "2026-09-07",
+      "analysis": {
+        "tldr": "这篇论文用脑电（EEG）发现：篮球运动员在想象投篮时，感觉运动皮层的SMR-ERD抑制更强且更持续，但其中想象能力越强的运动员，这种抑制反而越弱——说明专业经验先增强神经激活，高阶想象能力再转向神经效率；因此给运动员做运动想象神经反馈训练时，不能一刀切，得按其专项经验和想象能力水平动态调整靶标。",
+        "org": "波尔多大学",
+        "country": "FR",
+        "org_type": "university",
+        "claim": "运动专长与运动想象能力共同调节感觉运动节律（SMR-ERD）调制模式，且二者作用方向相反：专长增强SMR-ERD（反映网络招募），高想象能力削弱SMR-ERD（反映神经效率），故神经反馈靶标需个体化适配。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "EEG信号+运动想象任务类型（投篮/搬箱子）+问卷评估的运动想象能力与使用频率",
+        "output": "SMR频段（12–15 Hz）事件相关去同步化（ERD）强度与时间动态",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖机器人数据，仅依赖受试者EEG与行为问卷",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "benchmark"
+        ],
+        "novelty": 6,
+        "evidence": 8,
+        "reproducibility_score": 3,
+        "significance": 52,
+        "significance_reason": "扎实的组间对照（专家vs新手）、任务特异性设计（专项vs通用动作）、内部相关性分析（想象能力与ERD负相关），但样本量小（N=33）、仅单模态EEG、无干预验证、未提出新解码模型或闭环系统，属高质量认知神经机制研究，但未达BCI临床级或范式级突破（如基石文献中实时高精度解码、植入式长期稳定、端到端闭环控制等）",
+        "one_sentence_verdict": "扎实增量：揭示了运动专长与想象能力对SMR-ERD的双向调控机制，为神经反馈个性化提供实证依据，但未构建新工具、未验证闭环效果、未跨群体泛化，暂未形成技术跃迁",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 12.8,
+        "content": 17.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 29.8,
+        "bonus": 0.0,
+        "total": 29.8
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "2606.08059",
       "doi": "10.48550/arxiv.2606.08059",
       "source_kind": "arxiv",
@@ -231294,6 +231552,92 @@
       "scores": {
         "relevance": 12.3,
         "content": 17.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 29.3,
+        "bonus": 0.0,
+        "total": 29.3
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
+      "arxiv_id": "10.64898/2026.08.28.747697",
+      "doi": "10.64898/2026.08.28.747697",
+      "source_kind": "biorxiv",
+      "title": "From neuropeptide and receptor annotation to ligand-receptor pairing: a sequence- and structure-based framework for mapping the neuropeptide-receptor interactome in Gryllus bimaculatus",
+      "abstract": "Abstract Neuropeptides and their G protein-coupled receptors (GPCRs) control much of insect physiology and behaviour, but in Gryllus bimaculatus , an emerging model and edible insect, receptor sequence similarity hinders the mapping of which peptide each GPCR activates. We re-annotated a chromosome-scale genome (BUSCO 95.3%, from 86.7% on insecta_odb12) with comprehensive curation of 48 neuropeptide precursor families (51 loci, including seven not previously identified) and 134 candidate GPCRs (66 rhodopsin-class, 68 secretin-class), providing a near complete neuropeptide-receptor interactome catalogue. We modelled all 15,946 peptide-receptor pairs with AlphaFold3 and Boltz-2 and scored each interface with pLDDT and ipSAE. Ranking these scores, and cross-checking the top candidate for each family against a receptor phylogeny of known ligand specificity, gave a confident, phylogenetically related receptor for 27 of 35 curated receptor groups. These matches confirm the structural scorings with existing deorphanization data and propose receptors for peptides with no prior functional evidence. The annotation, curated peptide and receptor sets, and ranked complexes are available through CricketBase ( https://cricket.annotation.jp ), a genome browser with a structure viewer of peptide-receptor complexes, providing a resource for G. bimaculatus endocrinology and a workflow to deorphanize GPCRs in other non-model insects. Graphical Abstract Figure 2.",
+      "authors": [
+        "Febrina Margaretha",
+        "Mika Sakamoto",
+        "Hitomi Seike",
+        "Shinji Nagata",
+        "Yasukazu Nakamura",
+        "Takako Mochizuki"
+      ],
+      "categories": [],
+      "published": "2026-09-03",
+      "updated": "2026-09-03",
+      "url": "https://doi.org/10.64898/2026.08.28.747697",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/09/02/2026.08.28.747697.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1769,
+        "world_model": 0.1153,
+        "whole_body_control": 0.1169,
+        "dexterous_manipulation": 0.0666,
+        "sim2real_data": 0.0345,
+        "hardware_unitree": 0.1283,
+        "bci_neural_decoding": 0.1809,
+        "bci_foundation_models": 0.1678,
+        "bci_embodied_robot": 0.1226,
+        "bci_noninvasive_eeg": 0.1387,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2656
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.3103,
+      "first_seen": "2026-09-07",
+      "analysis": {
+        "tldr": "这篇论文为双斑蟋蟀（G. bimaculatus）系统性重建了神经肽-受体互作图谱：先通过高质量基因组重注释获得48个神经肽前体家族和134个GPCR候选受体，再用AlphaFold3+Boltz-2对全部近1.6万对肽-受体组合建模，结合结构置信度（pLDDT/ipSAE）打分+进化树校验，为27个受体群匹配到高置信度配体，并公开全部数据、结构和交互式浏览器CricketBase。",
+        "org": "东京大学",
+        "country": "JP",
+        "org_type": "university",
+        "claim": "基于序列与结构的联合框架可高效、可靠地在非模式昆虫中完成神经肽-GPCR配对去孤儿化（deorphanization），无需依赖功能实验即可产出可验证的配体-受体映射。",
+        "method_components": [
+          "model",
+          "dataset",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "神经肽前体序列、GPCR氨基酸序列、进化树先验知识",
+        "output": "肽-受体配对概率排序列表、结构复合物模型、pLDDT/ipSAE评分",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark",
+          "open-source"
+        ],
+        "novelty": 6,
+        "evidence": 9,
+        "reproducibility_score": 5,
+        "significance": 76,
+        "significance_reason": "显著推进非模式昆虫GPCR去孤儿化范式：首次将AlphaFold3+物理感知打分（ipSAE）+进化一致性校验三者闭环用于全肽-受体空间扫描，并产出可实验验证的27组高置信配对；但限于单一物种、未做湿实验验证、结构预测未经冷冻电镜或突变验证，尚未达到AlphaFold2级范式突破，属扎实重磅工作。",
+        "one_sentence_verdict": "工程整合：将前沿AI结构预测工具链与经典进化生物学逻辑深度耦合，构建出首个可复现、可扩展、可验证的昆虫神经肽互作推断流水线。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 9.3,
+        "content": 20.0,
         "heat": 0.0,
         "quality": 0.0,
         "base": 29.3,
@@ -245346,6 +245690,92 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2609.00769.jpg"
+    },
+    {
+      "arxiv_id": "2609.02035",
+      "doi": "10.48550/arxiv.2609.02035",
+      "source_kind": "arxiv",
+      "title": "Implicit Manipulation for Skill Selection in LLM Agents with Semantic Matching",
+      "abstract": "Skill selection is a key stage in LLM-agent workflows, determining which installed skill should handle a user request. Existing attacks on this stage primarily rely on explicit prompt injection or instruction-level steering, which can expose recognizable manipulation signals. In this work, we identify a new implicit attack surface for skill selection: even when the user prompt and skill description appear benign in isolation, their semantic relationship can still be strategically shaped to favor an attacker-chosen skill. Based on this observation, we present Implicit Skill-Selection Manipulation via Semantic Matching (ISM), which jointly shapes target-skill metadata and reusable prompts to manipulate skill selection without explicit selection instructions. Specifically, we develop a three-stage strategy to broaden semantic coverage, strengthen target distinctiveness, and preserve natural prompt wording. Across four task domains and eight selector models, ISM increases the average target-selection rate (TSR) from 15.2% to 63.5%. In a matched comparison, ISM achieves a 73.5% TSR, only 9.8 percentage points below Explicit Steering. Human reviewers block ISM in only 2.9% of judgments, versus 91.4% for Explicit Steering, while five LLM-based inspectors pass ISM at an average rate of 82.9%, versus 37.4% for Explicit Steering. Moreover, ISM remains effective against PPL-W, Llama Prompt Guard 2, and PIGuard.",
+      "authors": [
+        "Qikai Wang",
+        "Yongzhao Zhang",
+        "Zhiwei Chen",
+        "Y. Z. Sun",
+        "Jiguo Yu",
+        "Xiaosong Zhang"
+      ],
+      "categories": [],
+      "published": "2026-09-02",
+      "updated": "2026-09-02",
+      "url": "https://arxiv.org/abs/2609.02035",
+      "pdf_url": "https://arxiv.org/pdf/2609.02035",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.5,
+        "world_model": 0.2087,
+        "whole_body_control": 0.1979,
+        "dexterous_manipulation": 0.1833,
+        "sim2real_data": 0.1693,
+        "hardware_unitree": 0.1328,
+        "bci_neural_decoding": 0.1968,
+        "bci_foundation_models": 0.1382,
+        "bci_embodied_robot": 0.1544,
+        "bci_noninvasive_eeg": 0.1045,
+        "protein_ai": 0.0961,
+        "genomics_ai": 0.1632
+      },
+      "best_route": "vla",
+      "relevance_raw": 0.3513,
+      "first_seen": "2026-09-07",
+      "analysis": {
+        "tldr": "这篇论文发现了一种新型的隐式攻击方式：不靠修改用户提示词或插入指令，而是通过精心设计技能描述（metadata）和通用提示模板之间的语义匹配关系，悄悄让大模型代理错误地选择攻击者指定的技能；实验证明它比显式提示注入更难被人类和现有防护模型检测。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "技能选择阶段存在一种未被识别的隐式攻击面——仅通过调控技能描述与用户提示之间的语义匹配度，即可在无显式指令、无异常文本信号的情况下稳定劫持LLM代理的技能调度决策。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "用户自然语言请求 + 技能库（含技能名称、描述等metadata）",
+        "output": "被选中的技能ID（即技能选择结果）",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-task"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion"
+        ],
+        "novelty": 7,
+        "evidence": 8,
+        "reproducibility_score": 3,
+        "significance": 32,
+        "significance_reason": "属于AI安全子领域中针对LLM-Agent工作流的红队研究，问题新颖、实验扎实（跨4任务域/8选择器/对抗3种防护模型），但完全不涉及具身智能、机器人控制、科学发现或物理交互，与所列基石论文（全部是VLA/具身基础模型/机器人系统级突破）不在同一维度；其价值限于提示工程与AI对齐安全的狭窄切口，且未开源代码/模型，不可复现核心方法。",
+        "one_sentence_verdict": "概念包装——揭示了语义匹配层面的攻击可能性，但本质是提示工程+红队测试的组合技，无新模型架构、无真实世界闭环、无跨模态动作生成，对具身智能/机器人/AI×科学三大主赛道零贡献。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 10.5,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 28.5,
+        "bonus": 0.0,
+        "total": 28.5
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2609.02035.jpg"
     },
     {
       "arxiv_id": "2606.00449",
@@ -302427,6 +302857,90 @@
       "read_priority": "C"
     },
     {
+      "arxiv_id": "2609.02227",
+      "doi": "10.48550/arxiv.2609.02227",
+      "source_kind": "arxiv",
+      "title": "Towards Global Federated Genome-Wide Association Meta-Analysis Using GA4GH TES",
+      "abstract": "Genome-wide association studies (GWAS) gain statistical power from large, ancestrally diverse cohorts, but privacy regulations and data-residency constraints often prevent genomic data from being centrally pooled across institutional or national borders. We present a privacy-preserving federated GWAS meta-analysis pipeline built on the APPFL framework, in which each site computes local GWAS summary statistics and transmits only aggregate results, never individual-level genotypes. Analysis is executed through a global network of Global Alliance for Genomics and Health (GA4GH) Task Execution Service (TES) endpoints, which allows computation to move to the data rather than the reverse. The server performs inverse-variance-weighted fixed-effect meta-analysis and returns aggregated results to all sites, while HiveWatch, our developed geographic observability toolkit, provides real-time monitoring of distributed task execution. In a five-site simulation over 100,000 synthetic individuals and roughly 240,000 variants for Type 2 Diabetes and Body Mass Index, the federated meta-analysis reproduces the association signal expected from a pooled analysis without centralizing any genotype data, showing that standards-based task execution and federated learning enables a practical privacy-preserving infrastructure for international GWAS meta-analysis.",
+      "authors": [
+        "Abhijit Chunduru",
+        "Matthew Joel",
+        "Zilinghan Li",
+        "Ravi Madduri"
+      ],
+      "categories": [],
+      "published": "2026-09-02",
+      "updated": "2026-09-02",
+      "url": "https://arxiv.org/abs/2609.02227",
+      "pdf_url": "https://arxiv.org/pdf/2609.02227",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0882,
+        "world_model": 0.1122,
+        "whole_body_control": 0.0638,
+        "dexterous_manipulation": 0.1047,
+        "sim2real_data": 0.1412,
+        "hardware_unitree": 0.0508,
+        "bci_neural_decoding": 0.085,
+        "bci_foundation_models": 0.1837,
+        "bci_embodied_robot": 0.1092,
+        "bci_noninvasive_eeg": 0.1185,
+        "protein_ai": 0.1012,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.2736,
+      "first_seen": "2026-09-07",
+      "analysis": {
+        "tldr": "这篇论文搭建了一个基于GA4GH标准的联邦式基因组关联分析（GWAS）元分析系统，让多个机构在不共享原始基因型数据的前提下，各自计算本地统计结果，再通过标准化任务服务（TES）汇总成全局结果，并用仿真验证了其能复现集中式分析的关键信号。",
+        "org": "Argonne National Laboratory",
+        "country": "US",
+        "org_type": "institute",
+        "claim": "基于GA4GH TES标准的联邦元分析框架可在不传输个体基因型数据的前提下，实现跨机构、跨边界的统计效力等效的GWAS元分析。",
+        "method_components": [
+          "model",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "各站点本地的基因型-表型数据（用于计算局部GWAS摘要统计）",
+        "output": "全局逆方差加权固定效应元分析结果（SNP-level p值、效应量、置信区间）",
+        "robot_dependency": "none",
+        "data_dependency": "仅依赖合成数据仿真；无真实多中心人类基因组数据验证",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "federated",
+          "benchmark",
+          "open-source"
+        ],
+        "novelty": 5,
+        "evidence": 6,
+        "reproducibility_score": 4,
+        "significance": 48,
+        "significance_reason": "属扎实的工程整合：将现有联邦学习范式（APPFL）与GA4GH TES标准对接，完成端到端流程闭环，但未引入新统计模型、未验证真实异构临床队列、未解决关键偏差源（如人群分层校正的联邦化）、也未对比现有非联邦方案的实际瓶颈（如安全多方计算或差分隐私GWAS），仿真规模和表型复杂度远低于主流GWAS实践（如UK Biobank级）。",
+        "one_sentence_verdict": "工程整合：完成了标准兼容的联邦GWAS流水线搭建与合成数据验证，但缺乏真实世界多中心数据实证、未突破方法学瓶颈，属于可复用的基础设施演进，非科学突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 8.2,
+        "content": 15.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 23.2,
+        "bonus": 0.0,
+        "total": 23.2
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2609.02227.jpg"
+    },
+    {
       "arxiv_id": "2606.24842",
       "doi": "10.48550/arxiv.2606.24842",
       "source_kind": "arxiv",
@@ -319921,6 +320435,84 @@
         "base": 16.1,
         "bonus": 0.0,
         "total": 16.1
+      },
+      "grade": "D",
+      "read_priority": "D"
+    },
+    {
+      "arxiv_id": "10.64898/2026.09.02.748953",
+      "doi": "10.64898/2026.09.02.748953",
+      "source_kind": "biorxiv",
+      "title": "Structural Aspects of Nipah Virus Glycoproteins using Predictive Protein Modeling",
+      "abstract": "Nipah is a virus borne zoonotic disease that mostly occurs in Southeast Asian countries. Nipah virus (NiV) infection is potentially lethal as it can cause fatal encephalitis, and as of now, there are no vaccines or therapeutic treatments for this disease. The highly pathogenic NiV belongs to the Paramyxovirus family and the natural host of NiV is fruit bats of the Pteropodidae family. Though NiV has not been detected in the US, rather recently the Camp Hill virus (CHV) in shrew species was identified in Camp Hill, Alabama. This virus is characteristically similar to Nipah, and belongs to the henipavirus genus that include the Nipah and Hendra viruses. NiV has two surface glycoproteins namely the attachment glycoprotein (NiVG) and the fusion glycoprotein (NiVF). Being associated with host cell attachment and fusion of viral membrane, these glycoproteins tend to facilitate the viral entry to the host cell. The present paper describes the structures of the aforesaid viral glycoproteins based on the available database of protein structures and examines if they have an evolutionary link to other viral glycoproteins. Certain similar glycoproteins found in different countries are also explored. The structure-function relationship for these two NiV glycoproteins are determined using time-based molecular dynamics (MD) simulation. The interfacial ligand-receptor interactions between NiV proteins with human receptor and monoclonal antibody, Fab 66, are examined. A primary motivation for these structural studies is that the results might potentially contribute to future therapeutic developments and drug designs to effectively combat NiV.",
+      "authors": [
+        "Urmi Roy"
+      ],
+      "categories": [],
+      "published": "2026-09-04",
+      "updated": "2026-09-04",
+      "url": "https://doi.org/10.64898/2026.09.02.748953",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/09/04/2026.09.02.748953.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0991,
+        "world_model": 0.0546,
+        "whole_body_control": 0.0236,
+        "dexterous_manipulation": 0.0313,
+        "sim2real_data": 0.0,
+        "hardware_unitree": 0.0635,
+        "bci_neural_decoding": 0.0252,
+        "bci_foundation_models": 0.0026,
+        "bci_embodied_robot": 0.0037,
+        "bci_noninvasive_eeg": 0.0582,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.1588
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.2729,
+      "first_seen": "2026-09-07",
+      "analysis": {
+        "tldr": "这篇论文用已有的蛋白质结构数据库和分子动力学模拟，预测并分析了尼帕病毒两种糖蛋白（NiVG和NiVF）的三维结构、与人受体及抗体Fab 66的结合界面，并探讨其与其他亨尼帕病毒糖蛋白的结构相似性，但未构建新模型、未实验验证、未生成新结构预测、未做突变或功能验证。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "尼帕病毒糖蛋白NiVG和NiVF具有可建模的保守结构特征，其与人受体及抗体Fab 66的相互作用界面可通过计算模拟解析，且存在跨亨尼帕病毒属的结构演化关联。",
+        "method_components": [
+          "model",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "已知蛋白序列 + PDB中同源结构模板 + 分子动力学力场参数",
+        "output": "预测的糖蛋白三维构象、MD轨迹、结合界面残基列表、结构比对结果",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "none",
+        "tags": [
+          "multimodal-fusion"
+        ],
+        "novelty": 3,
+        "evidence": 4,
+        "reproducibility_score": 0,
+        "significance": 25,
+        "significance_reason": "纯计算回顾性分析，无新算法/模型（未用AlphaFold/ESMFold等前沿工具）、无湿实验验证、无结构测定、无突变功能验证、无药物设计输出；仅依赖已有PDB模板+常规MD，方法陈旧，结果未超越已知文献（如Nature Microbiol 2021 NiV-G/F cryo-EM结构），属低门槛生物信息学练习。",
+        "one_sentence_verdict": "暂时不用看——无新数据、无新模型、无实验支撑、不可复现，仅是套用标准流程对已知靶点的泛泛而谈",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 8.2,
+        "content": 7.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 15.2,
+        "bonus": 0.0,
+        "total": 15.2
       },
       "grade": "D",
       "read_priority": "D"
