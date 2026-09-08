@@ -8463,6 +8463,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-09-08": [
+      {
+        "arxiv_id": "2609.03591",
+        "title": "Scaling Bimanual Household Manipulation from 1,500 hours of Demonstrations to On-Policy Corrections",
+        "published": "2026-09-03",
+        "first_seen": "2026-09-06",
+        "url": "https://arxiv.org/abs/2609.03591",
+        "pdf_url": "https://arxiv.org/pdf/2609.03591",
+        "thumb": "assets/thumbs/2609.03591.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "智元",
+        "country": "CN",
+        "significance": 78,
+        "significance_reason": "数据规模（1500h真实双手机器人演示）和实证严谨性（系统性scaling实验+DAgger在线纠偏验证+多任务基准测试）显著超越ACT/ALOHA等早期工作，但尚未达到HiFi-UMI/YUBI级部署鲁棒性或T-Rex级触觉-运动闭环深度；是当前双手机器人学习领域最扎实的大规模数据驱动范式推进。",
+        "tier": "heavy",
+        "tldr": "这篇论文发布了1500小时真实人类双手机器人操作演示数据集，并基于它训练了一个视觉-语言-动作（VLA）模型XR-2；重点验证了任务成功率随演示数据量和在线人类纠偏数据量增加而稳定提升的可扩展性规律。",
+        "deep": {
+          "hook": "1500小时真实双手机器人演示数据+在线纠偏验证，首次实证双手机器人策略性能随数据量稳定扩展",
+          "why_now": "接续ALOHA/ACT的‘小规模演示驱动’范式，直面HiFi-UMI/YUBI等系统在泛化性与数据效率上的隐含瓶颈；踩中具身智能从‘单任务微调’转向‘规模化数据驱动可扩展学习’的核心演进趋势",
+          "problem": "双手机器人家庭操作长期受限于高质量真实演示数据稀缺，导致策略泛化弱、鲁棒性差；现有方法（如ACT）难以验证‘更多数据是否真能持续提升性能’，缺乏系统性scaling实证",
+          "method": "发布开源1500h真实双手机器人RGB+语言+关节动作演示数据集；构建XR-2模型——基于多阶段训练（预训练→指令微调→DAgger精调）的视觉-语言-动作联合VLA架构；设计两轴scaling实验：①固定纠偏量、逐步增加原始演示数据（从100h到1500h），②固定演示量、增量加入实时人类DAgger干预数据",
+          "results": "在自建多任务家庭操作基准（含开抽屉、叠毛巾、组装IKEA零件等）上，任务成功率随演示数据量和DAgger纠偏数据量增加呈现稳定单调上升趋势；所有实验均在真实机器人（非仿真）上闭环执行并报告成功率；数据集、模型权重、训练代码全部开源",
+          "limitations": "未披露具体任务成功率数值或提升幅度（摘要未给任何数字）；未做跨任务/跨物体零样本泛化测试，泛化边界不明；DAgger纠偏依赖人工实时介入，未评估纠偏成本（如每任务平均干预次数/时长），实用性存疑",
+          "significance_take": "显著推进——首次以真实机器人+系统性数据轴+在线纠偏轴双重验证‘scaling law’在双手机器人领域的存在性，将该方向从经验式工程推进到可量化、可复现、可外推的科学范式",
+          "who_should_read": "做双手机器人学习的研究者应读，能直接复用其数据管道设计、DAgger集成方案与scaling评估框架",
+          "verdict": "必读——它是当前唯一用千小时级真机数据+双轴scaling实验+全栈开源，把‘数据驱动双手机器人可扩展性’从主张变成可检验事实的工作",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2609.03889",
+        "title": "FWBC-VLA: Force-Aware Whole-Body Compensation for Contact-Rich Loco-Manipulation",
+        "published": "2026-09-03",
+        "first_seen": "2026-09-06",
+        "url": "https://arxiv.org/abs/2609.03889",
+        "pdf_url": "https://arxiv.org/pdf/2609.03889",
+        "thumb": "assets/thumbs/2609.03889.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "智元",
+        "country": "CN",
+        "significance": 78,
+        "significance_reason": "实机验证扎实（两典型contact-rich任务）、首次将残差扭矩估计token化嵌入VLA解码器并闭环驱动WBC，在无额外力传感前提下达成可部署级性能；但未跨机体泛化、未开源代码/模型、未与SOTA VLA（如RT-2、OpenVLA）或WBC（如GigaBrain-WBC-0.5）做公平对比，属强工程整合而非范式突破。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出FWBC-VLA框架，让轮腿机器人在擦白板、开门等需要频繁接触的移动操作任务中，不用额外装力传感器，就能通过纯软件方式估计接触力的大小和变化，并把这种‘力感知’融入视觉-语言-动作（VLA）模型的动作生成过程，再与底层全身控制（WBC）协同执行。",
+        "deep": {
+          "hook": "不用力传感器，靠关节扭矩残差+VLA token注入，让轮腿机器人‘摸’出接触力并闭环执行擦板/开门",
+          "why_now": "接续RT-2/OpenVLA等VLA模型缺乏物理交互感知的短板，踩中‘VLA需具身闭环’与‘低成本力感知’双重趋势；同期工作（如ForceGPT、Tactile-VLA）仍依赖硬件传感或仿真，FWBC-VLA是首个在真机contact-rich任务中实现sensorless力估计→VLA解码→WBC补偿全链路部署的工作",
+          "problem": "VLA模型生成语义动作但无法感知接触力变化，WBC控制器能稳定姿态却无法区分任务所需接触力与扰动力；加装六维力传感器成本高、集成难，尤其对非原生设计平台（如轮腿机器人）不友好。",
+          "method": "1）提出HSR-Force模块：纯软件估计关节扭矩残差，建模接触力强度与动态变化（ onset/sustain/release）；2）将该估计编码为可学习token，注入VLA解码器（而非仅输入端），使动作生成过程显式感知接触状态；3）把残差估计、雅可比反推体坐标系力、本体状态联合送入补偿生成器，输出修正力矩，与VLA任务动作融合后驱动WBC。",
+          "results": "在真实轮腿机器人上完成白板擦拭与带阻尼器的门开启两个contact-rich任务；使用WL&Arm数据集（>5,000 episodes）微调VLA；所有实验均在无额外力传感器条件下实机部署成功。",
+          "limitations": "未验证跨机体泛化性（仅在智元自研轮腿平台测试）；未与RT-2、OpenVLA或GigaBrain-WBC等SOTA方法做控制指标（如力跟踪误差、任务成功率）的公平对比；HSR-Force依赖精确雅可比与动力学参数，未报告标定误差敏感性或在线自适应机制。",
+          "significance_take": "属显著工程推进而非范式突破：首次将‘残差力估计’从底层控制模块提升为VLA解码器的可插拔感知token，打通了语义动作生成与物理交互反馈的语义-物理耦合通路，为资源受限平台提供了可部署级sensorless力感知范式。",
+          "who_should_read": "做移动操作（loco-manipulation）系统集成的工程师，能直接复用其残差建模思路与token注入架构，避开力传感硬件瓶颈。",
+          "verdict": "值得读——它不是理论新范式，但给出了当前工业落地中最卡脖子问题（contact-rich场景下无传感力反馈）的一套完整、实机验证、可拆解复用的技术栈。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2609.03681",
+        "title": "WISE: World-model-guided Imagination Scheduling for Efficient Post-training of Vision-Language-Action Models",
+        "published": "2026-09-03",
+        "first_seen": "2026-09-06",
+        "url": "https://arxiv.org/abs/2609.03681",
+        "pdf_url": "https://arxiv.org/pdf/2609.03681",
+        "thumb": "assets/thumbs/2609.03681.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "未知（作者无明确机构署名，摘要未提所属单位；姓名风格偏中文，但无高校/企业标识）",
+        "country": "unknown",
+        "significance": 78,
+        "significance_reason": "在π₀（95分档）已确立VLA世界模型辅助推理范式的基础上，WISE首次系统解耦‘想象’的调度逻辑（时机/范围/评估/反馈），并在真实机器人上验证其对计算效率（-80% GPU时间）和分布外泛化（robustness under distribution shifts）的双重增益；虽未达RT-2/τ₀-VLA级范式开创性，但属当前VLA后训练工程瓶颈中最具实证深度的突破之一：真机多任务+消融明确+效果可量化+问题切口精准。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出WISE框架，用世界模型在机器人操作任务的策略微调阶段智能调度‘想象’——只在关键状态启动有限步、多视角的想象 rollout，用进度和完成信号评估想象结果，并据此修正真实交互中生成的动作，从而大幅减少计算开销（GPU时间降80%）并提升真实场景鲁棒性和泛化性。",
+        "deep": {
+          "hook": "首次把‘世界模型该何时想、想多少、怎么用’做成可调度、可评估、可反馈的闭环机制",
+          "why_now": "紧接π₀（2024）和τ₀-VLA（2023）确立VLA+世界模型范式后，业界卡在‘想象滥用’：全时 rollout 导致误差累积与算力爆炸；WISE是首个在真机上系统解耦并实证‘想象调度’必要性的工作",
+          "problem": "VLA模型后训练依赖昂贵真机示范或不稳定的在线RL；世界模型虽能模拟未来，但盲目展开长程rollout会放大预测误差、污染监督信号，且计算开销巨大；尤其在机器人操作中，不同任务阶段（如接近物体/抓取/放置）对想象的需求差异极大，缺乏状态感知的调度策略",
+          "method": "WISE不追求更准的世界模型，而是构建四层调度逻辑：①状态触发器——仅在动作不确定性高或任务进展停滞时启动想象；②多视角有限步rollout（非单轨迹，含扰动/替代动作分支）；③双信号评估——用‘进度得分’（如夹爪距目标距离变化）和‘完成信号’（二值化成功判据）替代纯像素重建误差；④反向修正——将最优想象轨迹的动作差分映射回真实观测下的策略输出",
+          "results": "在π₀和π₀.₅两个基线VLA模型上验证：GPU计算时间降低约80%（摘要明确数值）；真实机器人多任务（抓取、堆叠、工具使用）中鲁棒性提升显著；分布外泛化测试涵盖光照变化、物体材质替换、背景杂乱等shift场景（摘要明确‘diverse real-world distribution shifts’）；含消融实验（摘要称‘extensive experiments’且强调‘selective invocation’‘bounded rollouts’等模块贡献）",
+          "limitations": "未公开代码/模型权重，复现性存疑；所有真实机器人结果未报告具体任务成功率数字（仅定性称‘substantial gains’），缺乏基线对比量化；世界模型本身仍是sim2real瓶颈——摘要未说明其是否经域自适应或在线校准，想象评估依赖手工设计的progress/completion信号，泛化到新任务需重定义信号",
+          "significance_take": "属显著推进（非范式级）：它没有发明新世界模型或新VLA架构，但首次将‘想象’从‘默认开启的重型模块’重构为‘按需调用的轻量服务’，为VLA后训练提供了可工程落地的效率-性能权衡新接口，直接指向具身智能部署的核心矛盾——计算预算与现实不确定性之间的张力",
+          "who_should_read": "做VLA部署/机器人策略微调的工程师读它，能立刻获得一套可移植的想象调度设计模板（触发条件+评估信号+反馈方式）",
+          "verdict": "必读——它是当前唯一在真机多任务上同时给出计算节省量化值（-80% GPU时间）、调度机制完整闭环、且直击VLA后训练工程痛点的实证工作",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -8741,8 +8833,11 @@
     "2609.03175",
     "2609.03199",
     "2609.03497",
+    "2609.03591",
+    "2609.03681",
+    "2609.03889",
     "2609.03984"
   ],
-  "latest": "2026-09-07",
-  "generated_at": "2026-09-07 05:40 UTC"
+  "latest": "2026-09-08",
+  "generated_at": "2026-09-08 05:40 UTC"
 }

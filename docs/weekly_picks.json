@@ -1,8 +1,8 @@
 {
   "week": {
-    "start": "2026-09-01",
-    "end": "2026-09-07",
-    "label": "09.01~09.07"
+    "start": "2026-09-02",
+    "end": "2026-09-08",
+    "label": "09.02~09.08"
   },
   "count": 15,
   "venue_count": 4,
@@ -11,92 +11,10 @@
     "IROS 2026",
     "T-RO"
   ],
-  "generated_at": "2026-09-07 05:41 UTC",
+  "generated_at": "2026-09-08 05:41 UTC",
   "picks": [
     {
       "rank": 1,
-      "arxiv_id": "2609.01596",
-      "title": "Facet-0: A Robotic Foundation Model for Contact-Rich Precise Manipulation",
-      "published": "2026-09-01",
-      "url": "https://arxiv.org/abs/2609.01596",
-      "pdf_url": "https://arxiv.org/pdf/2609.01596",
-      "thumb": "assets/thumbs/2609.01596.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "银河通用",
-      "country": "CN",
-      "org_type": "company",
-      "significance": 96,
-      "significance_reason": "达到T-Rex/ALOHA/ACT同档分量：首次将动作与力矩联合生成（而非后处理或分离预测）嵌入foundation model架构；在5个亚毫米真实装配任务上实现82%成功率（vs 15%最强基线），0.5mm精度+50ms延迟，且部署于3种异构机械臂+多制造单元，数据规模（1000h force-synced real-robot）和实证强度（多机体、多任务、真机rollout、消融充分）对标HiFi-UMI/FTP-1级里程碑工作；唯一短板是代码未开源全部权重与数据，但已提供可复现核心训练流程。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "tactile",
-        "dexterous",
-        "sim2real",
-        "real-robot",
-        "large-scale",
-        "benchmark"
-      ],
-      "tldr": "提出Facet-0机器人基础模型，用视觉-语言-力觉多模态联合表征+动作-力矩联合生成（action-wrench proposal）+分布式的力矩感知批评器，在真实装配任务中实现亚毫米级（0.5mm）精度、82%成功率的接触密集型精密操作，远超基线（15%），训练数据来自跨3种机器人平台、1000小时同步力觉-视觉-语言的真实制造数据集ManuFacet-1K。",
-      "claim": "通过联合建模动作与腕部力矩序列的因果关系，并在真实力觉同步数据上进行分布鲁棒的接触结果判别训练，可使机器人在亚毫米装配任务中实现高成功率、高精度、低延迟的接触密集型精密操作。",
-      "method_components": [
-        "model",
-        "dataset",
-        "simulator",
-        "policy",
-        "benchmark",
-        "hardware"
-      ],
-      "input": "RGB-D图像+自然语言任务指令+实时六维腕部力矩+关节状态",
-      "output": "笛卡尔空间动作块（含位姿+速度）及对应未来短时序腕部力矩预测",
-      "novelty": 9,
-      "evidence": 11,
-      "one_sentence_verdict": "真突破：它不是调参或刷榜，而是定义了‘动作-力矩联合生成’这一新范式，并用千小时真机力觉数据验证其在最苛刻的亚毫米装配场景中的有效性，实证完整度与工程落地深度已达当前机器人foundation model的顶尖水平。",
-      "deep": {}
-    },
-    {
-      "rank": 2,
-      "arxiv_id": "2609.00771",
-      "title": "Non-Prehensile Throwing: A Reinforcement Learning Perspective",
-      "published": "2026-09-01",
-      "url": "https://arxiv.org/abs/2609.00771",
-      "pdf_url": "https://arxiv.org/pdf/2609.00771",
-      "thumb": "assets/thumbs/2609.00771.jpg",
-      "venue": "IROS 2026",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "日本理化学研究所（RIKEN）",
-      "country": "JP",
-      "org_type": "institute",
-      "significance": 88,
-      "significance_reason": "达到T-Rex/ALOHA级分量：首次在非抓取抛掷这一长期被模型简化主导的难题上，用纯RL端到端突破物理极限（5m/s末端速度）、实现高成功率零样本真机部署，并系统验证了对质量鲁棒但对摩擦敏感的机制归因——证据链完整（仿真千配置+消融+敏感性分析+真机多尺寸/重量/材质物体+物理极限工况），远超以往基于动态抓取或简化碰撞模型的工程方法。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "sim2real",
-        "real-robot",
-        "large-scale"
-      ],
-      "tldr": "用强化学习直接优化机械臂关节空间轨迹来实现不抓取物体的抛掷（如推、滑、滚后甩出），在仿真中成功率99%，零样本迁移到UR5e真机上，能抛掷重达790克、体积20×20×28cm的大型/重型/软性物体，最远350cm、最高180cm，真实成功率97%。",
-      "claim": "非抓取式抛掷可通过端到端强化学习直接优化关节空间轨迹实现，无需解析接触模型或手工设计轨迹参数化，且具备强sim2real泛化能力与物理极限下的鲁棒部署性能。",
-      "method_components": [
-        "model",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "抛掷目标位置、物体三维模型（质量/惯量/摩擦系数）、机器人初始关节构型",
-      "output": "低频关节加加速度（jerk）轨迹，经上采样为高频速度控制指令",
-      "novelty": 8,
-      "evidence": 11,
-      "one_sentence_verdict": "真突破：它把非抓取抛掷从‘靠经验调模型’推进到‘可学习、可泛化、可部署’的新阶段，且所有关键主张均有跨仿真/真机/物体的实证支撑。",
-      "deep": {}
-    },
-    {
-      "rank": 3,
       "arxiv_id": "2609.03497",
       "title": "BRIDGE: An Open-Source Humanoid Platform via Morphology-Control Co-Design for Physical AI",
       "published": "2026-09-03",
@@ -136,7 +54,7 @@
       "deep": {}
     },
     {
-      "rank": 4,
+      "rank": 2,
       "arxiv_id": "2609.03067",
       "title": "GPU-Accelerated Astrodynamics World Models for Spacecraft Rendezvous and Proximity Operations",
       "published": "2026-09-02",
@@ -176,45 +94,7 @@
       "deep": {}
     },
     {
-      "rank": 5,
-      "arxiv_id": "2609.01938",
-      "title": "One Demonstration, Many Objects: Generalizing Manipulation via Local Contact Geometry",
-      "published": "2026-09-01",
-      "url": "https://arxiv.org/abs/2609.01938",
-      "pdf_url": "https://arxiv.org/pdf/2609.01938",
-      "thumb": "assets/thumbs/2609.01938.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "斯坦福",
-      "country": "US",
-      "org_type": "university",
-      "significance": 88,
-      "significance_reason": "实证扎实：真机验证覆盖16物体+4任务+2手型，71%平均成功率，sim-to-real drop最小；核心创新（局部接触几何建模）直击dexterous sim2real泛化瓶颈，与ALOHA/ACT同属‘单示教→多物体真实部署’范式升级，但未达T-Rex级触觉闭环深度或HiFi-UMI级纯真实数据驱动部署高度。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "dexterous",
-        "sim2real",
-        "multimodal-fusion"
-      ],
-      "tldr": "提出DemoMimic方法，通过只关注物体接触点附近的局部几何结构（而非全局形状），让一个从单个人类演示中学习的策略能在真实世界中泛化到16种不同形状、尺寸、质量、摩擦系数的物体上，且适配两种不同的多指机器人手。",
-      "claim": "仅需单个人类演示，即可训练出在真实多指机器人手上跨物体实例（形状/尺度/质量/摩擦）鲁棒操作的策略，关键在于建模局部接触几何而非全局物体表征。",
-      "method_components": [
-        "model",
-        "policy",
-        "simulator",
-        "benchmark"
-      ],
-      "input": "单个人类演示视频+RGB-D图像+接触点局部几何特征（曲率、法向、接触区域）",
-      "output": "多指机器人手的关节力矩序列（连续控制动作）",
-      "novelty": 7,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：首次将局部接触几何显式建模为泛化锚点，在真实多指手上实现单示教跨大分布物体操作，证据充分且范式清晰，属dexterous manipulation领域近2年最硬核的泛化工作之一。",
-      "deep": {}
-    },
-    {
-      "rank": 6,
+      "rank": 3,
       "arxiv_id": "2609.03199",
       "title": "RoboTok: An Internet-Scale Data Engine for Human Demonstration Retrieval and Dexterous Manipulation Learning",
       "published": "2026-09-02",
@@ -253,7 +133,7 @@
       "deep": {}
     },
     {
-      "rank": 7,
+      "rank": 4,
       "arxiv_id": "2609.03984",
       "title": "MulDP: Multimodal Diffusion Policy for Autonomous Quadruped Parkour Navigation across Complex Terrains",
       "published": "2026-09-03",
@@ -294,45 +174,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
-      "arxiv_id": "2609.01453",
-      "title": "Does Imitation Learning Preserve Temporal Robustness in Dexterous Manipulation? An Expert-Learner Comparison Across Task Execution Speeds",
-      "published": "2026-09-01",
-      "url": "https://arxiv.org/abs/2609.01453",
-      "pdf_url": "https://arxiv.org/pdf/2609.01453",
-      "thumb": "assets/thumbs/2609.01453.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "马里兰大学",
-      "country": "US",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "首次在真实灵巧操作任务（ParcelStow）中严格控制变量（同初始条件、同任务、同速度谱）对比专家与ACT的时序鲁棒性，用可复现的量化证据（失败率、阶段归因、力封闭必要性）揭露模仿学习的深层缺陷；虽未提出新方法，但其诊断深度和实证严谨性达到重磅级别（对标ALOHA/ACT工作中的关键验证环节），但尚未构成范式突破或部署级改进。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "dexterous",
-        "benchmark",
-        "open-source",
-        "real-robot"
-      ],
-      "tldr": "这篇论文系统测试了模仿学习（ACT）在灵巧操作任务中对执行速度变化的鲁棒性，发现即使在名义速度下成功率100%，当加快动作时，ACT策略失败率急剧上升（下降48个百分点），远不如专家（仅降16点），且失败集中在插入阶段的位姿错配，揭示了模仿学习表面成功下隐藏的时序脆弱性。",
-      "claim": "模仿学习策略（如ACT）在灵巧操作中无法继承专家的时序鲁棒性，其性能随执行速度加快而显著退化，且退化模式与专家本质不同。",
-      "method_components": [
-        "model",
-        "dataset",
-        "benchmark"
-      ],
-      "input": "多模态传感器数据（含视觉、关节位置、力/力矩等，依据ParcelStow任务推断）、任务阶段标记",
-      "output": "动作块（action chunks）序列",
-      "novelty": 7,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破——不是算法创新，而是对当前主流灵巧模仿学习（ACT）的一次关键压力测试，用扎实的真实机器人证据戳破了‘名义成功即鲁棒’的认知泡沫。",
-      "deep": {}
-    },
-    {
-      "rank": 9,
+      "rank": 5,
       "arxiv_id": "2609.03175",
       "title": "Real-Time Shape Control of Multi-Segment Soft Robotic Arms Using Koopman Operators with Global and Local Observables",
       "published": "2026-09-02",
@@ -370,7 +212,7 @@
       "deep": {}
     },
     {
-      "rank": 10,
+      "rank": 6,
       "arxiv_id": "2609.03591",
       "title": "Scaling Bimanual Household Manipulation from 1,500 hours of Demonstrations to On-Policy Corrections",
       "published": "2026-09-03",
@@ -409,45 +251,7 @@
       "deep": {}
     },
     {
-      "rank": 11,
-      "arxiv_id": "2609.00677",
-      "title": "ADAPT: Agile Diffusion Action Priors for Robust and Steerable Online Text-Driven Humanoid Control",
-      "published": "2026-09-01",
-      "url": "https://arxiv.org/abs/2609.00677",
-      "pdf_url": "https://arxiv.org/pdf/2609.00677",
-      "thumb": "assets/thumbs/2609.00677.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "whole_body_control",
-      "org": "苏黎世联邦理工学院",
-      "country": "EU",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "实证扎实：在H1真机上验证多任务语言控制（走、停、转向、蹲起）、支持prompt动态切换与风格迁移，有消融（diffusion prior + RL residual），但数据非真实交互采集、未跨机体泛化、未开源数据/模型权重，未达GR00T或H2O级范式突破，属显著推进SOTA的重磅工作。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "sim2real",
-        "multimodal-fusion",
-        "large-scale"
-      ],
-      "tldr": "用扩散模型学文本到动作的先验，再叠一个轻量残差强化学习策略来在线修正，实现能实时响应语言指令、保持平衡、平滑切换动作的人形机器人闭环控制。",
-      "claim": "扩散模型作为可微动作先验（action prior）能支撑端到端、鲁棒、可引导的文本驱动人形机器人在线闭环控制，无需运动捕捉后处理或独立追踪器。",
-      "method_components": [
-        "model",
-        "dataset",
-        "policy",
-        "simulator"
-      ],
-      "input": "自然语言指令 + 当前机器人状态（关节位置/速度/IMU等）",
-      "output": "低层关节力矩或PD目标轨迹（即闭环控制动作输出）",
-      "novelty": 7,
-      "evidence": 8,
-      "one_sentence_verdict": "工程整合：将扩散先验与轻量RL闭环控制有效耦合，在真机上实现稳健文本驱动控制，但核心数据与策略泛化仍受限于仿真合成与单机体部署。",
-      "deep": {}
-    },
-    {
-      "rank": 12,
+      "rank": 7,
       "arxiv_id": "2609.02159",
       "title": "World-Coherent Decoding: Self-Verifying Test-Time Planning for World Action Models",
       "published": "2026-09-02",
@@ -484,7 +288,7 @@
       "deep": {}
     },
     {
-      "rank": 13,
+      "rank": 8,
       "arxiv_id": "2609.03889",
       "title": "FWBC-VLA: Force-Aware Whole-Body Compensation for Contact-Rich Loco-Manipulation",
       "published": "2026-09-03",
@@ -524,7 +328,7 @@
       "deep": {}
     },
     {
-      "rank": 14,
+      "rank": 9,
       "arxiv_id": "2609.03681",
       "title": "WISE: World-model-guided Imagination Scheduling for Efficient Post-training of Vision-Language-Action Models",
       "published": "2026-09-03",
@@ -560,7 +364,7 @@
       "deep": {}
     },
     {
-      "rank": 15,
+      "rank": 10,
       "arxiv_id": "2609.02358",
       "title": "Humanoid Safe Stop via Learned Stoppability Value",
       "published": "2026-09-02",
@@ -595,6 +399,188 @@
       "novelty": 7,
       "evidence": 9,
       "one_sentence_verdict": "工程整合——将经典最优控制理论（HJ reach-avoid）与深度学习估计器巧妙耦合，在真实双足机器人上实现了可验证、可迁移、带理论保障的急停决策，是安全控制领域扎实且具落地价值的工程级整合。",
+      "deep": {}
+    },
+    {
+      "rank": 11,
+      "arxiv_id": "2609.02046",
+      "title": "Modeling What Changes: Sparse, Residual World Models for Object-Centric Manipulation",
+      "published": "2026-09-02",
+      "url": "https://arxiv.org/abs/2609.02046",
+      "pdf_url": "https://arxiv.org/pdf/2609.02046",
+      "thumb": "assets/thumbs/2609.02046.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "world_model",
+      "org": "unknown",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 78,
+      "significance_reason": "在object-centric物理预测这一关键子方向上，以清晰机制设计（稀疏+残差）取得扎实的多维提升（精度×4、参数×1/10、零样本跨物体数泛化、小样本学习、规划可用性），但仍在仿真环境、未接入真实机器人、未挑战长期rollout或复杂交互，尚未达到DreamerV3/WEAVER等基石工作所确立的通用世界模型范式高度。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "benchmark",
+        "open-source"
+      ],
+      "tldr": "这篇论文提出一种稀疏残差世界模型，只预测每个物体是否发生变化以及变化量（而非整个场景），在MuJoCo多物体推桌任务中显著提升预测精度、泛化性、数据效率和规划成功率，且参数量大幅减少。",
+      "claim": "显式建模‘什么发生了变化’（对象级变化门+残差增量头）比端到端预测完整状态更高效、更鲁棒、更具可解释性，且能支撑下游规划。",
+      "method_components": [
+        "model",
+        "simulator",
+        "benchmark"
+      ],
+      "input": "当前帧的物体姿态（位置+朝向）和动作",
+      "output": "下一帧各物体的姿态变化量（残差）及变化掩码（二值门）",
+      "novelty": 7,
+      "evidence": 10,
+      "one_sentence_verdict": "真突破：首次将稀疏残差建模系统性引入object-centric世界模型，在预测质量、泛化与规划实用性上实现可复现、可解释、多指标碾压式改进，是物理AI表征学习的重要方法论进展。",
+      "deep": {}
+    },
+    {
+      "rank": 12,
+      "arxiv_id": "2609.02542",
+      "title": "World-Model-Augmented Visual Locomotion for Humanoids on Foothold-Constrained Terrain",
+      "published": "2026-09-02",
+      "url": "https://arxiv.org/abs/2609.02542",
+      "pdf_url": "https://arxiv.org/pdf/2609.02542",
+      "thumb": "assets/thumbs/2609.02542.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "whole_body_control",
+      "org": "未知（作者单位未在摘要中体现，无机构署名线索；查公开信息该团队非主流实验室，无显著机构标识）",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 78,
+      "significance_reason": "真机跨三类高风险地形（gap/stepping stone/stairs）93.3%成功率+仿真明显超越基线，具备扎实工程落地证据；但未开源代码/模型，未验证跨机体/用户/任务泛化，也未挑战更开放问题（如动态障碍、长期规划），属稳健的重大工程推进，未达基石论文级范式突破或零样本泛化能力。",
+      "tier": "heavy",
+      "grade": "D",
+      "tags": [
+        "sim2real",
+        "real-robot"
+      ],
+      "tldr": "提出一个用世界模型预测未来观测和奖励来辅助人形机器人在踩踏点稀疏受限地形（如石墩、窄台阶、跨空隙）上行走的方法，不依赖显式足底标注，在仿真中大幅超越基线，在Unitree G1真机上实现93.3%平均成功率。",
+      "claim": "学习一个递归世界模型生成的前瞻性隐状态特征，能显著提升人形机器人在足接触稀疏、不可恢复型地形上的视觉步态鲁棒性，且无需足底标签监督。",
+      "method_components": [
+        "model",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "input": "本体感知数据（关节角度/速度/IMU）+ 单帧机载深度图",
+      "output": "全身关节力矩控制指令（底层WBC执行）",
+      "novelty": 6,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：在具身智能关键难点（ foothold-constrained terrain）上实现了有实证支撑的sim2real成功部署，但缺乏开源与泛化验证，尚未构成范式创新。",
+      "deep": {}
+    },
+    {
+      "rank": 13,
+      "arxiv_id": "2609.02531",
+      "title": "Spatially Aware World Action Model via Geometric Latent Diffusion",
+      "published": "2026-09-02",
+      "url": "https://arxiv.org/abs/2609.02531",
+      "pdf_url": "https://arxiv.org/pdf/2609.02531",
+      "thumb": "assets/thumbs/2609.02531.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "world_model",
+      "org": "Inria/Google Research",
+      "country": "FR",
+      "org_type": "institute",
+      "significance": 76,
+      "significance_reason": "实质性推进了WAM范式：首次将深度作为原生模态嵌入扩散世界模型主干，且验证了其在真实机器人上的增益（非纯仿真刷榜），但未构建新世界模型架构、未解决长期状态一致性等基石问题，也未开源代码/模型，证据强度略逊于DreamerV3或WEAVER级工作。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "sim2real",
+        "benchmark"
+      ],
+      "tldr": "这篇论文把现有的视频扩散世界模型（WAM）从只处理RGB图像，扩展为同时预测RGB、深度图和动作，通过非线性编码将无界深度值适配进冻结的VAE tokenizer，从而在不破坏预训练视觉先验的前提下引入3D几何信息，提升了仿真和真实UR5机械臂上的操作泛化能力。",
+      "claim": "在不破坏大规模预训练视频扩散模型视觉与物理先验的前提下，通过几何感知的深度编码方式，可将World Action Model原生扩展为支持RGB+depth+action联合生成的3D空间感知模型，并显著提升其在具身操作任务中的跨环境泛化性能。",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark"
+      ],
+      "input": "当前帧RGB图像+深度图+历史动作序列",
+      "output": "未来多步RGB帧+深度图+对应动作序列",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：在成熟WAM框架上稳健注入3D几何信号，实证扎实但未突破范式边界",
+      "deep": {}
+    },
+    {
+      "rank": 14,
+      "arxiv_id": "2609.03142",
+      "title": "Sensing Which Modality Matters: Evidence-Gated Regularization for Robust VLA Policies",
+      "published": "2026-09-02",
+      "url": "https://arxiv.org/abs/2609.03142",
+      "pdf_url": "https://arxiv.org/pdf/2609.03142",
+      "thumb": "assets/thumbs/2609.03142.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "英伟达",
+      "country": "US",
+      "org_type": "company",
+      "significance": 76,
+      "significance_reason": "在多机体真实机器人上验证了模态纠缠问题并提出可即插即用的训练目标EGR，实测提升显著（如单传感器fallback下性能翻倍+），但未开源代码/模型，也未在更大规模VLA基座模型（如Qwen-RobotManip、Xiaomi-Robotics-1）上验证，属于扎实推进鲁棒性子方向的重磅工作，尚未达到RT-2级范式突破量级。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "robustness",
+        "real-robot",
+        "benchmark"
+      ],
+      "tldr": "这篇论文发现当前视觉-语言-动作（VLA）模型在训练时容易把不同传感器信号错误绑定（模态纠缠），导致一有遮挡或干扰就失效；为此提出一种叫EGR的正则化方法，在训练时自动判断每帧每个传感器对任务的证据强度，并据此约束模型：对弱证据传感器要求不变性，对强证据传感器要求单模态也能完成任务，且不增加推理开销。",
+      "claim": "通过证据门控正则化（EGR）解耦多模态输入的虚假相关性，可显著提升VLA策略在传感器损坏、遮挡和单模态退化下的鲁棒性，且无需修改模型结构或增加推理负担。",
+      "method_components": [
+        "model",
+        "benchmark"
+      ],
+      "input": "RGB图像+语言指令+（可选）触觉信号等多模态传感器输入",
+      "output": "机器人动作序列（end-effector pose / joint actions）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：将模态鲁棒性问题形式化为可学习的证据门控正则化，在多个真实异构机器人上验证有效，但缺乏开源与大规模基座集成，属高质量工程驱动型改进。",
+      "deep": {}
+    },
+    {
+      "rank": 15,
+      "arxiv_id": "2609.03565",
+      "title": "Toward Physically Grounded JEPA World Models for Goal-Conditioned Robotic Planning",
+      "published": "2026-09-03",
+      "url": "https://arxiv.org/abs/2609.03565",
+      "pdf_url": "https://arxiv.org/pdf/2609.03565",
+      "thumb": "assets/thumbs/2609.03565.jpg",
+      "venue": "IROS 2026",
+      "domain": "embodied_ai",
+      "best_route": "world_model",
+      "org": "unknown",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 48,
+      "significance_reason": "虽在4个仿真benchmark上取得高成功率，但未开源代码/模型/数据，无真实机器人验证，未跨机体/跨任务泛化测试，对比基线LeWorldModel也未充分披露其实现细节；其核心贡献‘状态对齐’属JEPA框架内的合理工程改进，未突破世界模型表征物理一致性的根本瓶颈（如持续状态核心、显式物理约束建模），远未达DreamerV3/WEAVER等基石工作所确立的范式高度或系统性鲁棒性。",
+      "tier": "worth",
+      "grade": "D",
+      "tags": [
+        "sim2real"
+      ],
+      "tldr": "这篇论文提出一种带状态对齐（SA）和逆动力学（IDM）增强的JEPA世界模型，让机器人能根据视觉目标做规划，不依赖像素重建，重点是让隐空间表征更贴合物理运动状态，实验证明加SA比只用IDM规划成功率更高。",
+      "claim": "状态对齐（state alignment）能有效补充逆动力学，使JEPA世界模型的隐状态过渡更贴近真实物理构型与运动，从而提升目标条件下的机器人规划成功率。",
+      "method_components": [
+        "model",
+        "benchmark"
+      ],
+      "input": "当前观测图像+动作序列（或动作嵌入）",
+      "output": "未来多步隐状态预测+规划路径（用于下游控制器）",
+      "novelty": 6,
+      "evidence": 5,
+      "one_sentence_verdict": "工程整合：在JEPA框架内做了有依据的模块增强（IDM+SA），实验显示增益稳定，但缺乏开源、真机验证和泛化证据，属于扎实但窄域的仿真级改进。",
       "deep": {}
     }
   ]
