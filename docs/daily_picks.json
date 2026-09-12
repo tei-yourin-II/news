@@ -8831,6 +8831,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-09-12": [
+      {
+        "arxiv_id": "2609.06009",
+        "title": "How to Learn from What a Human Would Avoid? Intervention-Aware World Models with Real-World RL for Dexterous Manipulation",
+        "published": "2026-09-05",
+        "first_seen": "2026-09-12",
+        "url": "https://arxiv.org/abs/2609.06009",
+        "pdf_url": "https://arxiv.org/pdf/2609.06009",
+        "thumb": "assets/thumbs/2609.06009.jpg",
+        "venue": "CoRL 2026",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "智元",
+        "country": "CN",
+        "significance": 93,
+        "significance_reason": "首次将人类干预建模为可学习的、前向预测的潜变量（intervention-probability head），并在16-DoF真实灵巧手上完成跨物体/跨任务部署，实测减少84%干预步数且成功率96.7%，证据强度接近ALOHA/ACT级（96分）但稍逊于HiFi-UMI（94分）的纯数据驱动泛化能力，属当前真实灵巧操作RL中最扎实的安全闭环工作之一。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出WHIRL框架，让机器人通过预测‘人类何时会干预’来主动避开危险状态，从而在真实世界多指灵巧操作中大幅减少人为干预次数并提升成功率。",
+        "deep": {
+          "hook": "首次将人类‘要接管’的直觉建模为可预测的潜变量，让灵巧手主动绕开危险状态",
+          "why_now": "接续ALOHA/ACT的安全闭环短板，填补了真实灵巧操作中‘干预信号未被前摄利用’的关键空白；踩中具身智能从‘能做’到‘敢做’的安全范式迁移趋势",
+          "problem": "真实灵巧操作中硬件脆弱、试错成本高，人类干预虽能防失败，但现有HIL-RL仅将其当纠错标签，浪费了干预背后蕴含的操作者安全判断这一强先验信号；世界模型普遍忽略‘人何时会出手’这一关键风险维度。",
+          "method": "提出WHIRL框架：在潜空间世界模型中新增第四个预测头——intervention-probability head，直接以二值干预信号为监督，学习对未来状态的接管概率进行前向预测；该概率被注入策略损失函数，作为风险塑形项（risk-shaping term），使策略主动规避高接管概率区域；整个流程端到端在真实LEAP Hand上训练与部署，不依赖仿真预训练。",
+          "results": "在16-DoF LEAP Hand上实测：复杂抓取任务成功率96.7%；干预步数减少84%（step-weighted）；跨物体（凸/非凸）、跨任务（棱柱操作、多阶段长程任务）均稳定部署；所有结果均来自真实机器人闭环运行，无仿真过渡。",
+          "limitations": "干预信号依赖单操作员标注，未验证跨人泛化性；摘要未说明是否对干预延迟/误标鲁棒，也未报告干预头本身的预测准确率或校准性；未提供消融实验验证‘intervention head’相比简单奖励塑形或终止信号的必要性。",
+          "significance_take": "属显著推进——它不是增量改进，而是将‘人类干预’从被动标签升格为主动建模对象，确立了一种新的安全闭环范式：风险可预测 → 策略可规避 → 操作可持续；为真实世界dexterous RL提供了首个可落地的风险前摄架构。",
+          "who_should_read": "做真实灵巧操作、安全RL、人机协同的研究者和工程师，能直接复用其干预概率建模思路与风险塑形接口设计。",
+          "verdict": "必读——这是目前唯一把人类干预真正‘编译进世界模型’并实证有效的方案，硬指标扎实、部署完整、范式清晰，且避开了纯数据驱动泛化的不可控陷阱。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2609.09155",
+        "title": "SyncWorld: Visual Calibration Enables World Models as Zero-Shot Simulators",
+        "published": "2026-09-08",
+        "first_seen": "2026-09-12",
+        "url": "https://arxiv.org/abs/2609.09155",
+        "pdf_url": "https://arxiv.org/pdf/2609.09155",
+        "thumb": "assets/thumbs/2609.09155.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "MIT/UMass Amherst",
+        "country": "US",
+        "significance": 87,
+        "significance_reason": "实证扎实：在 4 类真实机器人平台（Franka/WidowX/UR5/Quadruped）和 3 类仿真环境上验证零样本 rollout 准确性，并用于 test-time policy improvement（PPO+DreamerV3），有消融（校准缺失/不匹配时性能崩塌）、对比基线（DreamerV3、WEAVER、Genie）；但未开源全部数据与完整训练 pipeline，且未达 AlphaFold/RT-2 级范式颠覆，属强工程突破+方法论升级。",
+        "tier": "heavy",
+        "tldr": "提出SyncWorld，一种通过一次视觉校准（配对的图像帧和动作）来动态建立‘动作-视觉映射’的世界模型，使其无需微调就能在全新机器人环境（不同相机视角、本体、场景）中零样本生成准确的动作 rollout。",
+        "deep": {
+          "hook": "用1段校准视频，让世界模型零样本泛化到4种真实机器人平台",
+          "why_now": "接续DreamerV3/Genie等世界模型在sim2real中的失效痛点，直击‘动作-像素映射不通用’这一被长期忽略的具身性瓶颈；同期工作（如RT-2、VoxPoser）依赖多任务微调或几何先验，SyncWorld首次将校准解耦为轻量上下文注入，契合当前‘少样本适配+大模型即服务’部署趋势",
+          "problem": "世界模型在仿真中训练后，迁移到新机器人时性能骤降——不是因为动力学不准，而是同一组动作向量在不同相机视角、本体构型、安装位置下引发的像素变化完全不同；传统方法靠重训练或域随机化治标不治本，缺乏对‘动作如何落地为视觉变化’的显式建模",
+          "method": "SyncWorld不修改主干模型结构，而是在输入序列中拼接一段‘视觉校准片段’（数秒内配对的帧+动作，覆盖所有可控自由度）；模型通过对比学习和上下文注意力，学会将后续动作解释为该校准设定下的像素位移模式；当无校准时，自动退化为基于历史交互的隐式映射估计",
+          "results": "在Franka/WidowX/UR5/Quadruped四类真机上实现零样本rollout（未微调），预测帧与真实帧PSNR达24.7–28.3；在3个仿真环境（Distractor, Maze, Quadruped）上rollout误差比DreamerV3低37%（L2 pixel error）；用于PPO+DreamerV3 test-time policy improvement时，任务成功率提升12–19个百分点（摘要明确给出）",
+          "limitations": "校准片段需人工设计并覆盖全部自由度（未说明最小帧数/动作范围要求，实操门槛高）；所有真机实验仅报告rollout准确性，未验证闭环控制稳定性（如是否能支撑实时MPC）；消融实验未测试跨形态泛化（如用Franka校准驱动Quadruped rollout）",
+          "significance_take": "属显著推进：首次将‘具身动作的视觉可观测性’从隐含归纳偏置升级为可插拔、可解释的上下文机制，为世界模型提供类似‘机器人USB驱动’的即插即用能力，而非推翻范式",
+          "who_should_read": "做具身RL部署的工程师该读——能直接复用DreamerV3主干+校准协议，把世界模型从‘每台机器人训一个’变成‘一台校准，多台通用’",
+          "verdict": "必读：它没造新模型，但精准钉住了世界模型落地最疼的关节，且所有实验均在真实硬件上完成，工程可信度远超纯仿真论文",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2609.10137",
+        "title": "Assembling Two Parts in One Hand",
+        "published": "2026-09-09",
+        "first_seen": "2026-09-12",
+        "url": "https://arxiv.org/abs/2609.10137",
+        "pdf_url": "https://arxiv.org/pdf/2609.10137",
+        "thumb": "assets/thumbs/2609.10137.jpg",
+        "venue": "CoRL 2026",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "腾讯AI Lab",
+        "country": "CN",
+        "significance": 82,
+        "significance_reason": "达到HiFi-UMI/ALOHA级分量：真机零样本部署+三类几何差异显著的装配任务+完整开源+明确揭示手形态约束与任务难度关联，但未引入新传感器模态（如触觉）、未覆盖跨机体泛化、未解决长期接触建模难题，故略低于T-Rex/Facet-0等94+档。",
+        "tier": "heavy",
+        "tldr": "用纯仿真训练的强化学习策略，让单只灵巧手在不依赖第二只手或固定装置的情况下，靠视觉+本体感知完成瓶盖、注射器、记号笔三类零件的在手内装配，零样本迁移到真实机器人单目相机场景，且对遮挡导致的状态估计噪声鲁棒。",
+        "deep": {
+          "hook": "纯仿真训练，零样本上真机完成三类在手装配——单手不靠夹具/第二臂，靠位姿驱动RL+人类姿态正则化",
+          "why_now": "紧接ALOHA、HiFi-UMI等真机端到端范式，但转向更细粒度的‘指间协同’建模；踩中sim2real向低标定、少硬件依赖演进的关键节点，与近期T-Rex（触觉+长程）形成互补而非重复",
+          "problem": "传统在手操作多依赖双臂协作或外部固定装置，而人类单手即可完成精细装配（如旋盖）；现有RL方法在仿真到真实迁移中对位姿估计噪声（尤其遮挡下）极度敏感，且缺乏对手部形态约束与任务难度关系的量化揭示。",
+          "method": "提出目标相对位姿（goal relative pose）驱动的RL框架，将装配任务统一为6D位姿收敛问题；引入基于功能的辅助奖励（如‘螺纹对齐进度’）引导指间分工；用单一人手参考姿态做L2正则化，约束策略不偏离生物合理构型；关键地，将历史本体感知（关节角+速度）与当前物体6D位姿观测融合输入策略网络，提升对瞬时位姿抖动的鲁棒性。",
+          "results": "在仿真中成功解决Bottle、Syringe、Marker三类几何差异显著的装配任务；零样本部署至真实灵巧手（单目RGB相机+标准本体传感器），无需任何真实数据微调；作者报告在真机上‘显著提升对遮挡导致的状态估计噪声的鲁棒性’（摘要原文）；开源全部代码、模型与仿真数据。",
+          "limitations": "未使用触觉等新模态，仅依赖视觉+本体感知，长期接触力演化建模缺失；所有实验限于同一款灵巧手，未验证跨机体泛化（如换Handy、Shadow Dexterous Hand）；未提供消融实验定量分离各组件（如人类姿态正则化、辅助奖励）的贡献度。",
+          "significance_take": "显著推进——它首次将‘在手装配’从双臂/夹具依赖场景解耦为纯单手问题，并用可解释的RL机制（位姿驱动+功能奖励+生物正则）实现零样本sim2real，为手部形态-任务难度关联提供了实证基准，而非仅算法改进。",
+          "who_should_read": "做灵巧手控制、sim2real RL、或具身操作benchmark设计的工程师与研究者，能直接复用其位姿驱动框架、人类姿态正则化设计与遮挡鲁棒融合结构。",
+          "verdict": "必读——它用极简输入（单目+本体）和明确可复现的机制，在真机上闭环验证了‘单手装配’这一人类级能力的可行性，且所有组件均开源，是当前最贴近实用落地的在手操作工作之一。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -9116,13 +9208,16 @@
     "2609.05266",
     "2609.05324",
     "2609.05588",
+    "2609.06009",
     "2609.07398",
     "2609.07498",
     "2609.07747",
+    "2609.09155",
     "2609.09158",
+    "2609.10137",
     "2609.10522",
     "2609.10540"
   ],
-  "latest": "2026-09-11",
-  "generated_at": "2026-09-11 05:42 UTC"
+  "latest": "2026-09-12",
+  "generated_at": "2026-09-12 05:31 UTC"
 }
