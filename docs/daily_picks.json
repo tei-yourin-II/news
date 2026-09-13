@@ -8923,6 +8923,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-09-13": [
+      {
+        "arxiv_id": "2609.07534",
+        "title": "Zero-Shot Sim-to-Real Contact-Rich Assembly via Proprioception-Anchored Cross-Modal Pretraining",
+        "published": "2026-09-07",
+        "first_seen": "2026-09-12",
+        "url": "https://arxiv.org/abs/2609.07534",
+        "pdf_url": "https://arxiv.org/pdf/2609.07534",
+        "thumb": "assets/thumbs/2609.07534.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "sim2real_data",
+        "org": "未知",
+        "country": "unknown",
+        "significance": 87,
+        "significance_reason": "达到ALOHA/Robot Self-Improvement级分量：真机多任务（4个接触密集装配）、零样本部署、93.3%成功率+仅2.7% sim2real drop、robust to perturbations，且机制清晰（proprioception as anchor）；但未开源数据/完整仿真配置，也未覆盖多机体泛化（如非Franka平台），略逊于DROID（全栈开源+多硬件支持）和RT-X（跨平台大规模数据集）。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出一个叫PACE的跨模态预训练方法，用机器人本体感知信号（关节位置/速度）作为锚点，来对齐仿真和真实世界中的视觉与力/扭矩数据，从而让只在仿真中训练的装配策略能直接部署到真实机器人上，不做任何微调就实现了93.3%的高成功率。",
+        "deep": {
+          "hook": "用关节运动当‘锚’，仿真训练的装配策略零样本上真机，93.3%成功率且几乎不掉点",
+          "why_now": "紧接RT-2、DROID、ALOHA等具身智能落地浪潮，首次将proprioception明确建模为跨模态对齐的稳定监督信号，而非辅助输入或后处理模块，直击sim2real中视觉/力觉失配的核心瓶颈",
+          "problem": "接触密集装配要求亚毫米精度与力觉实时解读，但仿真与真实在视觉外观、接触动力学、力传感器偏置上存在系统性差异；现有方法依赖位姿估计或真实数据微调，难以零样本泛化，且对扰动鲁棒性差",
+          "method": "提出PACE框架：以机器人关节位置/速度变化（Δq, Δdq）为唯一监督信号，联合预测RGB视频帧序列和F/T传感器读数的时间演化；视觉与力觉编码器共享同一目标——重构本体感知状态转移，从而被迫忽略域特异性噪声（如光照、纹理、传感器偏置），只保留与关节运动强相关的运动语义",
+          "results": "在4个接触密集装配任务（如插针、卡扣、螺纹预拧）上，纯仿真训练的策略零样本部署至Franka机械臂，平均成功率93.3%，sim2real drop仅2.7个百分点；在施加外力扰动时，显著优于位姿跟踪基线和端到端融合基线",
+          "limitations": "仅在Franka平台验证，未测试其他机械臂（如UR5、KUKA）的泛化性；仿真环境配置（如PyBullet/NVIDIA Isaac Gym细节）、真实传感器标定流程未公开，复现依赖作者私有配置；未提供消融实验验证‘proprioception作为anchor’是否优于其他潜在anchor（如末端雅可比变化）",
+          "significance_take": "显著推进——它不是简单换了个特征提取器，而是重新定义了sim2real的对齐范式：从‘对齐观测’转向‘对齐控制因果链的中间表示’，将本体感知从执行层上提到表征学习层，为无位姿感知、无外部相机、低标定依赖的部署铺出新路径",
+          "who_should_read": "做sim2real迁移、接触操作、多模态表征学习的工程师和研究者，能直接拿走‘以Δq为监督的跨模态预训练’这一可复用设计原则与损失构造方式",
+          "verdict": "必读——它用极简假设（本体感知一致）撬动了高难度零样本装配，机制清晰、实证扎实、失败案例透明，是当前少有的‘方法即结论’型工作",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2609.06852",
+        "title": "ContextFlow: In-Context Flow Matching for Robot Manipulation",
+        "published": "2026-09-06",
+        "first_seen": "2026-09-11",
+        "url": "https://arxiv.org/abs/2609.06852",
+        "pdf_url": "https://arxiv.org/pdf/2609.06852",
+        "thumb": "assets/thumbs/2609.06852.jpg",
+        "venue": "ECCV 2026",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "沙特阿卜杜拉国王科技大学（KAUST）/上海交通大学（联合署名中Jian Ding为上交博士，Dengxin Dai为KAUST教授，Bernard Ghanem/Mohamed Elhoseiny为KAUST核心PI；摘要未提工业界合作，项目页无企业logo；主贡献单位判为KAUST）",
+        "country": "SA",
+        "significance": 78,
+        "significance_reason": "在LIBERO上零样本超越ICRT达35个百分点，且首次在真实单臂+双臂平台上验证零样本跨配置泛化（如pen-uncapping），方法整合flow matching与in-context learning有实质性创新；但未开源代码/模型，未与π₀等SOTA做公平对比（仅称‘matching performance’而未给出具体指标数值），也未报告消融实验或错误传播分析，工程完备性弱于RT-2/π₀级工作。",
+        "tier": "heavy",
+        "tldr": "提出ContextFlow，一种将上下文学习与连续动作流匹配结合的方法，用多模态压缩器编码演示视频、本体感觉和动作序列，在不微调的情况下直接泛化到新任务配置，实现在LIBERO和真实机器人上的显著零样本性能提升。",
+        "deep": {
+          "hook": "首个将in-context learning与flow matching结合的零样本机器人操控框架，真机上泛化到未见开笔任务",
+          "why_now": "接续ICRT（2024）与π₀（2025）的零样本范式之争：它绕过自回归错误累积，又比纯flow方法（如FlowBot）首次引入上下文压缩机制，踩中‘连续动作+多模态上下文+跨配置泛化’三重技术交汇点",
+          "problem": "现有in-context模仿学习（如ICRT）将连续动作离散化并用自回归预测，导致早期误差快速累积；而flow-matching策略虽能建模连续动作分布，却缺乏对多模态演示上下文（视频+本体感+动作序列）的有效条件化机制，难以支撑零样本跨任务配置迁移。",
+          "method": "ContextFlow用Perceiver-style多模态压缩器，把演示视频、本体感觉和动作序列统一编码为紧凑latent context；再以此context为条件，训练一个flow-matching模型直接拟合连续动作分布p(a|s, context)；推理时仅需输入当前观测+原始演示上下文，无需微调即可采样生成动作。",
+          "results": "在LIBERO零样本设置下平均成功率超ICRT 35个百分点；在真实单臂/双臂平台上成功泛化至未见pen-uncapping配置，达40%成功率；声称匹配π₀性能但未给出具体指标数值（摘要仅写'matching the performance'）。",
+          "limitations": "未开源代码/模型；未与π₀等SOTA进行公平指标对比（无具体success rate或SPL数值）；无消融实验验证各模块贡献（如压缩器结构、flow条件化方式）；未分析动作噪声鲁棒性或错误传播路径；真实场景仅报告1个新任务（pen-uncapping）的成功率，泛化广度证据薄弱。",
+          "significance_take": "显著推进——它是首个将in-context learning的上下文机制与flow matching的连续动作建模显式耦合的工作，不是简单拼接，而是通过多模态压缩器实现context-to-flow的端到端条件化，为‘不微调、不重训、不离散化’的具身策略泛化提供了新基线。",
+          "who_should_read": "做零样本VLA或连续控制的研究者，可拿走多模态上下文压缩+flow条件化的设计范式；机器人工程师可评估其sim2real迁移链路是否适配自身平台。",
+          "verdict": "值得读——方法设计有明确创新且真机验证落地，但必须带着质疑读：所有‘匹配π₀’‘优于ICRT’的结论都缺关键数字支撑，复现与严格评估需等待开源。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2609.06256",
+        "title": "GloVLA: Let Geometry Move and Local VLA Interact for Robust Object-Centric Manipulation in Unstructured Environments",
+        "published": "2026-09-05",
+        "first_seen": "2026-09-11",
+        "url": "https://arxiv.org/abs/2609.06256",
+        "pdf_url": "https://arxiv.org/pdf/2609.06256",
+        "thumb": "assets/thumbs/2609.06256.jpg",
+        "venue": "RA-L",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "unknown",
+        "country": "unknown",
+        "significance": 78,
+        "significance_reason": "实证扎实：在LIBERO-Challenge（新增高干扰基准）、LIBERO-Plus及真实UR10e上均验证了显著提升（+54.4%真实成功率，推理耗时减半），解耦设计有明确工程价值；但未开源代码/模型，未证明跨机体泛化（仅UR10e），也未挑战更根本的VLA表征瓶颈（如世界模型缺失、多模态对齐机制未改进），属强工程整合而非范式突破。",
+        "tier": "heavy",
+        "tldr": "提出GloVLA框架，将物体中心操作拆分为几何长程运输（不依赖语言）和局部短程交互（用VLA），在杂乱、遮挡、光照变化等真实挑战场景下显著提升任务成功率并大幅降低推理开销。",
+        "deep": {
+          "hook": "把VLA拆成‘纯几何运输+局部语言交互’两段，真机成功率从35.6%飙到90.0%",
+          "why_now": "接续GR00T、OpenVLA等端到端VLA的落地瓶颈：近期工作（如2024 RA-L的VoxPoser、2024 CoRL的RT-2 fine-tuning）均暴露其在遮挡/光照/初始位姿扰动下的脆弱性；GloVLA是首个系统性解耦长程运动与短程交互的工程框架，踩中‘VLA实用化需结构化分治’这一共识性转向。",
+          "problem": "端到端VLA模型在真实非结构化环境中失败主因是‘任务耦合’：它被迫用同一策略同时解决远距离几何导航（对语言无关）和近距离接触式操作（强依赖语言指令），导致视觉微小扰动或初始位姿偏差即引发分布外崩溃。",
+          "method": "GloVLA不训练新模型，而是设计运行时架构：第一阶段用轻量几何控制器（基于深度图+目标检测+运动学规划）将机械臂末端自主运送到‘交互手交区’（interaction-centric handoff region），该区域由目标物体3D包围盒与安全距离定义；第二阶段才激活原VLA模型，但仅在该局部区域执行短序列动作（≤3步），输入裁剪后的局部图像+原始指令；全程不修改VLA权重、动作空间或成功判定逻辑。",
+          "results": "在新增高干扰基准LIBERO-Challenge上，GloVLA使GR00T N1.6成功率从20.9%升至88.5%；在真实UR10e上，整体任务成功率从35.6%提升至90.0%，平均推理耗时减半；在LIBERO-Plus Object任务上也报告显著提升（摘要未给具体数值，故不编造）。",
+          "limitations": "仅验证于UR10e单一体型，未测试跨机体泛化（如Franka、xArm）；所有实证依赖预置目标检测器与深度估计模块，未说明其在极端低光/反光场景下的鲁棒性；未开源代码/模型，无法验证几何控制器实现细节与消融必要性；未挑战VLA底层表征缺陷（如缺乏世界模型、多模态token对齐机制未改进）。",
+          "significance_take": "属强工程整合而非范式突破——它不改变VLA建模本质，但首次将‘几何先验可插拔’变为可复现、免重训、零数据开销的部署范式，为VLA从仿真走向真实产线提供了即插即用的鲁棒性增强路径。",
+          "who_should_read": "正在部署VLA模型的机器人工程师能直接复用其两阶段调度逻辑，快速提升真机成功率并降低GPU推理负载。",
+          "verdict": "必读：它是当前最干净、最易迁移、实证最强的VLA鲁棒性工程方案，且所有宣称提升均来自摘要明确列出的真实硬件与新基准数据。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -9209,8 +9301,11 @@
     "2609.05324",
     "2609.05588",
     "2609.06009",
+    "2609.06256",
+    "2609.06852",
     "2609.07398",
     "2609.07498",
+    "2609.07534",
     "2609.07747",
     "2609.09155",
     "2609.09158",
@@ -9218,6 +9313,6 @@
     "2609.10522",
     "2609.10540"
   ],
-  "latest": "2026-09-12",
-  "generated_at": "2026-09-12 05:31 UTC"
+  "latest": "2026-09-13",
+  "generated_at": "2026-09-13 05:44 UTC"
 }

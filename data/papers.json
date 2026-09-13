@@ -12310,18 +12310,18 @@
         "_llm": "qwen-plus"
       },
       "signals": {
-        "hf_upvotes": 13,
+        "hf_upvotes": 14,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 16.4,
         "content": 23.0,
-        "heat": 10.0,
+        "heat": 10.2,
         "quality": 0.0,
         "base": 39.4,
-        "bonus": 10.0,
-        "total": 49.4
+        "bonus": 10.2,
+        "total": 49.6
       },
       "grade": "C",
       "read_priority": "B",
@@ -13164,6 +13164,96 @@
       "grade": "C",
       "read_priority": "B",
       "thumb": "assets/thumbs/2606.12403.jpg"
+    },
+    {
+      "arxiv_id": "2609.11561",
+      "title": "Memory as Plans: World-Action Modeling with Memory-Grounded Planning",
+      "abstract": "Mainstream robotic policies often adopt a Markovian formulation, but many complex real-world manipulation tasks are inherently non-Markovian, requiring long-horizon memory beyond the current observation. Existing memory mechanisms often rely on language summaries, growing visual windows, or their combinations, and may therefore lose fine-grained visual evidence or face a trade-off between history coverage and execution efficiency. We introduce MaP-WAM, a Memory-as-Plans framework that decomposes memory-dependent world-action modeling into memory-grounded planning and plan-conditioned execution, and uses long-term multimodal episodic context as planning-time evidence rather than repeatedly conditioning the executor on the full history. MaP-WAM represents memory as completed segment records containing language instructions and sparse visual context, and converts this episodic memory into compact plans comprising the next segment-level language plan and corresponding visual guidance. A World-Action-Progress (WAP) model executes each plan over an unknown duration by jointly predicting action chunks and corresponding execution progress at inference time, calibrating predicted progress through plan-observation alignment for adaptive segment transitions and closed-loop context updates. MaP-WAM keeps the executor context length fixed, while structured attention further enables key-value caching in both planning and execution. MaP-WAM achieves state-of-the-art performance on RMBench with an 83.3% success rate and attains 78.0% success on real-robot tasks, while maintaining approximately constant executor inference latency as task history grows.",
+      "authors": [
+        "Sizhe Zhao",
+        "Haozhe Xie",
+        "Weiyu Zhao",
+        "Chenchu Zhang",
+        "Huan Wang",
+        "Chenyang Wang",
+        "Qinglin Liu",
+        "Shengping Zhang"
+      ],
+      "categories": [],
+      "published": "2026-09-10T00:00:00.000Z",
+      "updated": "2026-09-10T00:00:00.000Z",
+      "url": "https://arxiv.org/abs/2609.11561",
+      "pdf_url": "https://arxiv.org/pdf/2609.11561",
+      "hf_upvotes": 10,
+      "source": "hf_daily",
+      "route_scores": {
+        "vla": 0.5925,
+        "world_model": 0.5564,
+        "whole_body_control": 0.367,
+        "dexterous_manipulation": 0.2154,
+        "sim2real_data": 0.2761,
+        "hardware_unitree": 0.133,
+        "bci_neural_decoding": 0.2023,
+        "bci_foundation_models": 0.2024,
+        "bci_embodied_robot": 0.2394,
+        "bci_noninvasive_eeg": 0.1462,
+        "protein_ai": 0.2107,
+        "genomics_ai": 0.2648
+      },
+      "best_route": "world_model",
+      "relevance_raw": 0.5925,
+      "first_seen": "2026-09-12",
+      "analysis": {
+        "tldr": "提出MaP-WAM框架，把机器人记忆建模成‘已完成动作段落’的结构化记录（含语言指令+稀疏视觉帧），再将这些记录压缩为‘下一段语言计划+视觉引导’的紧凑计划；执行器只按当前计划运行、固定上下文长度、实时对齐计划与观测来动态切换段落，从而在长历史任务中保持低延迟和高成功率。",
+        "org": " unknown",
+        "country": "CN",
+        "org_type": "unknown",
+        "claim": "将记忆显式建模为结构化的已完成动作段落，并解耦为记忆接地的规划（memory-grounded planning）与计划条件执行（plan-conditioned execution），可突破马尔可夫假设限制，在长程非马尔可夫操作任务中实现高效、稳定、低延迟的闭环控制。",
+        "method_components": [
+          "model",
+          "simulator",
+          "policy",
+          "benchmark"
+        ],
+        "input": "多模态片段记忆（语言指令+稀疏关键帧视觉观测）+当前观测（RGB图像）",
+        "output": "动作块序列 + 对应的执行进度预测（用于自适应段落切换）",
+        "robot_dependency": "RMBench仿真环境及未指明型号的真实机械臂（摘要仅提'78.0% success on real-robot tasks'，无硬件型号）",
+        "data_dependency": "依赖RMBench仿真数据训练；真实机器人实验未说明是否使用额外真实数据微调或仅零样本迁移",
+        "sim2real_status": "small-real",
+        "generalization": [
+          "cross-task"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "multimodal-fusion",
+          "sim2real",
+          "benchmark"
+        ],
+        "novelty": 7,
+        "evidence": 8,
+        "reproducibility_score": 3,
+        "significance": 76,
+        "significance_reason": "在RMBench（主流长程操作基准）上达到SOTA（83.3%），且在真实机器人上验证了78.0%成功率，具备跨任务泛化性与闭环执行机制（plan-observation alignment + progress calibration），但未开源代码/模型，未披露真实机器人平台细节，也未在更严苛的跨机体/跨用户/长期持续学习场景验证，相比World Models/DreamerV3等基石工作，缺乏统一世界状态表征与生成式想象能力，属于强工程驱动的架构创新而非范式突破。",
+        "one_sentence_verdict": "工程整合：用结构化记忆分段+计划-执行解耦有效缓解了长程非马尔可夫问题，实证扎实但未触及世界模型本质，也未开源，属当前具身智能中上水平的系统级改进。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 26,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 17.8,
+        "content": 18.0,
+        "heat": 12.4,
+        "quality": 0.0,
+        "base": 35.8,
+        "bonus": 12.4,
+        "total": 48.2
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2609.11561.jpg"
     },
     {
       "arxiv_id": "2607.13960",
@@ -16311,96 +16401,6 @@
       "grade": "C",
       "read_priority": "A",
       "thumb": "assets/thumbs/2608.22301.jpg"
-    },
-    {
-      "arxiv_id": "2609.11561",
-      "title": "Memory as Plans: World-Action Modeling with Memory-Grounded Planning",
-      "abstract": "Mainstream robotic policies often adopt a Markovian formulation, but many complex real-world manipulation tasks are inherently non-Markovian, requiring long-horizon memory beyond the current observation. Existing memory mechanisms often rely on language summaries, growing visual windows, or their combinations, and may therefore lose fine-grained visual evidence or face a trade-off between history coverage and execution efficiency. We introduce MaP-WAM, a Memory-as-Plans framework that decomposes memory-dependent world-action modeling into memory-grounded planning and plan-conditioned execution, and uses long-term multimodal episodic context as planning-time evidence rather than repeatedly conditioning the executor on the full history. MaP-WAM represents memory as completed segment records containing language instructions and sparse visual context, and converts this episodic memory into compact plans comprising the next segment-level language plan and corresponding visual guidance. A World-Action-Progress (WAP) model executes each plan over an unknown duration by jointly predicting action chunks and corresponding execution progress at inference time, calibrating predicted progress through plan-observation alignment for adaptive segment transitions and closed-loop context updates. MaP-WAM keeps the executor context length fixed, while structured attention further enables key-value caching in both planning and execution. MaP-WAM achieves state-of-the-art performance on RMBench with an 83.3% success rate and attains 78.0% success on real-robot tasks, while maintaining approximately constant executor inference latency as task history grows.",
-      "authors": [
-        "Sizhe Zhao",
-        "Haozhe Xie",
-        "Weiyu Zhao",
-        "Chenchu Zhang",
-        "Huan Wang",
-        "Chenyang Wang",
-        "Qinglin Liu",
-        "Shengping Zhang"
-      ],
-      "categories": [],
-      "published": "2026-09-10T00:00:00.000Z",
-      "updated": "2026-09-10T00:00:00.000Z",
-      "url": "https://arxiv.org/abs/2609.11561",
-      "pdf_url": "https://arxiv.org/pdf/2609.11561",
-      "hf_upvotes": 10,
-      "source": "hf_daily",
-      "route_scores": {
-        "vla": 0.5925,
-        "world_model": 0.5564,
-        "whole_body_control": 0.367,
-        "dexterous_manipulation": 0.2154,
-        "sim2real_data": 0.2761,
-        "hardware_unitree": 0.133,
-        "bci_neural_decoding": 0.2023,
-        "bci_foundation_models": 0.2024,
-        "bci_embodied_robot": 0.2394,
-        "bci_noninvasive_eeg": 0.1462,
-        "protein_ai": 0.2107,
-        "genomics_ai": 0.2648
-      },
-      "best_route": "world_model",
-      "relevance_raw": 0.5925,
-      "first_seen": "2026-09-12",
-      "analysis": {
-        "tldr": "提出MaP-WAM框架，把机器人记忆建模成‘已完成动作段落’的结构化记录（含语言指令+稀疏视觉帧），再将这些记录压缩为‘下一段语言计划+视觉引导’的紧凑计划；执行器只按当前计划运行、固定上下文长度、实时对齐计划与观测来动态切换段落，从而在长历史任务中保持低延迟和高成功率。",
-        "org": " unknown",
-        "country": "CN",
-        "org_type": "unknown",
-        "claim": "将记忆显式建模为结构化的已完成动作段落，并解耦为记忆接地的规划（memory-grounded planning）与计划条件执行（plan-conditioned execution），可突破马尔可夫假设限制，在长程非马尔可夫操作任务中实现高效、稳定、低延迟的闭环控制。",
-        "method_components": [
-          "model",
-          "simulator",
-          "policy",
-          "benchmark"
-        ],
-        "input": "多模态片段记忆（语言指令+稀疏关键帧视觉观测）+当前观测（RGB图像）",
-        "output": "动作块序列 + 对应的执行进度预测（用于自适应段落切换）",
-        "robot_dependency": "RMBench仿真环境及未指明型号的真实机械臂（摘要仅提'78.0% success on real-robot tasks'，无硬件型号）",
-        "data_dependency": "依赖RMBench仿真数据训练；真实机器人实验未说明是否使用额外真实数据微调或仅零样本迁移",
-        "sim2real_status": "small-real",
-        "generalization": [
-          "cross-task"
-        ],
-        "reproducibility": "project-page",
-        "tags": [
-          "multimodal-fusion",
-          "sim2real",
-          "benchmark"
-        ],
-        "novelty": 7,
-        "evidence": 8,
-        "reproducibility_score": 3,
-        "significance": 76,
-        "significance_reason": "在RMBench（主流长程操作基准）上达到SOTA（83.3%），且在真实机器人上验证了78.0%成功率，具备跨任务泛化性与闭环执行机制（plan-observation alignment + progress calibration），但未开源代码/模型，未披露真实机器人平台细节，也未在更严苛的跨机体/跨用户/长期持续学习场景验证，相比World Models/DreamerV3等基石工作，缺乏统一世界状态表征与生成式想象能力，属于强工程驱动的架构创新而非范式突破。",
-        "one_sentence_verdict": "工程整合：用结构化记忆分段+计划-执行解耦有效缓解了长程非马尔可夫问题，实证扎实但未触及世界模型本质，也未开源，属当前具身智能中上水平的系统级改进。",
-        "_llm": "qwen-plus"
-      },
-      "signals": {
-        "hf_upvotes": 10,
-        "citations": 0,
-        "venue": ""
-      },
-      "scores": {
-        "relevance": 17.8,
-        "content": 18.0,
-        "heat": 9.0,
-        "quality": 0.0,
-        "base": 35.8,
-        "bonus": 9.0,
-        "total": 44.8
-      },
-      "grade": "C",
-      "read_priority": "B",
-      "thumb": "assets/thumbs/2609.11561.jpg"
     },
     {
       "arxiv_id": "2606.13102",
@@ -95783,6 +95783,92 @@
       "thumb": "assets/thumbs/2609.10050.jpg"
     },
     {
+      "arxiv_id": "2609.09380",
+      "doi": "10.48550/arxiv.2609.09380",
+      "source_kind": "arxiv",
+      "title": "AccelMPC: High-Rate, Low-Power FPGA-Accelerated Model Predictive Control for Tiny Drones",
+      "abstract": "Unlocking the potential of tiny aerial robots requires order of magnitude improvements in the performance of embedded edge control. In particular, although recent cached model predictive control (MPC) solvers can handle the fast system dynamics and complex constraints required for agile drone flight, their computational demands remain prohibitive for resource-constrained robots, forcing prior implementations to operate at reduced control rates. AccelMPC overcomes this challenge through an end-to-end co-design approach that jointly optimizes the solver algorithm, numerical representation, hardware mapping, and physical integration. AccelMPC pairs a co-designed FPGA-accelerated alternating direction method of multipliers (ADMM)-based MPC solver with a custom 6g PCB, providing high-bandwidth communication for deployment on a 35g Crazyflie. Hardware experiments demonstrate 1 kHz onboard constrained MPC with dynamic obstacles, up to 15.6x faster solve times and 195.4x improvement in energy-delay product over state-of-the-art embedded microcontroller-based solvers, all while scaling to optimization problems with over 20,000 optimization variables and a comparable number of constraints. We release our PCB design files, firmware, and FPGA solver code open source.",
+      "authors": [
+        "Andrea Grillo",
+        "Brian Plancher"
+      ],
+      "categories": [],
+      "published": "2026-09-08",
+      "updated": "2026-09-08",
+      "url": "https://arxiv.org/abs/2609.09380",
+      "pdf_url": "https://arxiv.org/pdf/2609.09380",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2475,
+        "world_model": 0.3094,
+        "whole_body_control": 0.5,
+        "dexterous_manipulation": 0.1524,
+        "sim2real_data": 0.1778,
+        "hardware_unitree": 0.1862,
+        "bci_neural_decoding": 0.0754,
+        "bci_foundation_models": 0.0966,
+        "bci_embodied_robot": 0.1759,
+        "bci_noninvasive_eeg": 0.074,
+        "protein_ai": 0.1111,
+        "genomics_ai": 0.1813
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.3111,
+      "first_seen": "2026-09-13",
+      "analysis": {
+        "tldr": "这篇论文设计了一款基于FPGA加速的模型预测控制器AccelMPC，首次在35克级微型无人机（Crazyflie）上实现了1kHz频率、带动态障碍物约束的实时MPC控制，并大幅降低能耗和求解延迟，所有硬件设计、固件和FPGA代码全部开源。",
+        "org": "哈佛大学",
+        "country": "US",
+        "org_type": "university",
+        "claim": "通过算法-数值-硬件-物理集成的端到端协同设计，可在超轻量级无人机上实现千赫兹级、高维约束下的实时MPC控制，且能效和延迟指标远超现有嵌入式MCU方案。",
+        "method_components": [
+          "model",
+          "hardware",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "系统状态估计（位置/速度/姿态）、参考轨迹、动态障碍物预测信息",
+        "output": "每毫秒更新一次的最优控制输入（电机PWM指令序列）",
+        "robot_dependency": "Crazyflie 2.1无人机 + 自研6g定制PCB + FPGA加速模块",
+        "data_dependency": "依赖真实飞行中采集的状态反馈与闭环执行数据，但未使用大规模离线真实机器人数据集训练模型；核心验证完全基于真机闭环实验",
+        "sim2real_status": "deployed",
+        "generalization": [
+          "cross-embodiment"
+        ],
+        "reproducibility": "code+model+data",
+        "tags": [
+          "sim2real",
+          "real-robot",
+          "open-source",
+          "hardware"
+        ],
+        "novelty": 8,
+        "evidence": 11,
+        "reproducibility_score": 8,
+        "significance": 78,
+        "significance_reason": "属具身智能底层控制范式的重大工程突破：首次将高维约束MPC实现实时化部署于克级平台，指标（1kHz、20k变量、动态障碍）远超此前所有嵌入式MPC工作，且全栈开源；但未引入新控制理论或学习机制，也未扩展至多机协同/长时序任务等更高阶智能范畴，故未达90+里程碑级。",
+        "one_sentence_verdict": "真突破——它不是刷榜或仿真包装，而是用硬核协同设计把长期被认为‘不可能上微型机’的优化控制真正落地到克级真机，且指标碾压前人、全部开源，为微型自主系统建立了新的性能基线。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 9.3,
+        "content": 27.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 36.3,
+        "bonus": 0.0,
+        "total": 36.3
+      },
+      "grade": "C",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2609.09380.jpg"
+    },
+    {
       "arxiv_id": "2606.00702",
       "doi": "10.48550/arxiv.2606.00702",
       "source_kind": "arxiv",
@@ -157754,6 +157840,92 @@
       "thumb": "assets/thumbs/2608.22750.jpg"
     },
     {
+      "arxiv_id": "2609.06810",
+      "doi": "10.48550/arxiv.2609.06810",
+      "source_kind": "arxiv",
+      "title": "OCTN: Neural OCT Representations for Robot-Guided Precision Intervention",
+      "abstract": "Optical coherence tomography (OCT) offers compact, contactless, micron-scale imaging suitable for intraoperative guidance, but native OCT volumes are discretely sampled, anisotropic, and currently inefficient for downstream geometric reasoning and robot integration. We present OCTN (pronounced \"octane\"), an implicit neural representation framework that converts volumetric OCT scans into a continuous, differentiable, and spatially faithful tissue-intensity field. OCTN uses a two-stage hybrid training strategy that combines supervision from acquired voxels with inter-slice interpolations, preserving B-scan fidelity while improving continuity in sparsely sampled regions. For versatility, we first show that OCTN enables fast volumetric reasoning by storing the learned tissue representation natively on the GPU, supporting intensity-based spatial queries with up to 43x speedup over conventional CPU processing. We then demonstrate OCTN-enabled OCT-guided robotic laser surgery where the continuous tissue representation supports implicit surface discovery and surface-constrained path planning via multiple optimization strategies, including Newton- and SGD-based optimization. Next, OCTN enables reconstruction of dense volumetric structure from sparsely acquired B-scans, while reducing acquisition time by 4x and preserving clinically relevant structures. Across the newly generated Duke TissueOCT dataset and public OCT datasets, OCTN achieves robust, high-fidelity reconstruction with PSNR > 30 dB and training time < 10 s, while preserving surface consistency within 10 $μ$m Chamfer distance relative to baseline reconstruction. The TissueOCT dataset and code are publicly available at raprakashvi.github.io/octn",
+      "authors": [
+        "Ravi Prakash",
+        "Ryan P. McNabb",
+        "Patrick J. Codd",
+        "Shan Lin"
+      ],
+      "categories": [],
+      "published": "2026-09-06",
+      "updated": "2026-09-06",
+      "url": "https://arxiv.org/abs/2609.06810",
+      "pdf_url": "https://arxiv.org/pdf/2609.06810",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.314,
+        "world_model": 0.2509,
+        "whole_body_control": 0.2741,
+        "dexterous_manipulation": 0.2008,
+        "sim2real_data": 0.2084,
+        "hardware_unitree": 0.1296,
+        "bci_neural_decoding": 0.2249,
+        "bci_foundation_models": 0.2269,
+        "bci_embodied_robot": 0.5,
+        "bci_noninvasive_eeg": 0.2111,
+        "protein_ai": 0.1549,
+        "genomics_ai": 0.1661
+      },
+      "best_route": "bci_embodied_robot",
+      "relevance_raw": 0.314,
+      "first_seen": "2026-09-13",
+      "analysis": {
+        "tldr": "提出OCTN——一个将离散、各向异性的光学相干断层扫描（OCT）体数据隐式编码为连续可微组织强度场的神经表示方法，用于提升机器人引导下的精准激光手术中的实时几何推理、表面发现、路径规划和稀疏B扫重建能力。",
+        "org": "杜克大学",
+        "country": "US",
+        "org_type": "university",
+        "claim": "通过隐式神经表示将原始OCT体数据建模为连续、可微、空间保真的组织强度场，可同时支撑高速GPU查询、机器人表面约束路径规划、以及4倍加速的临床级稀疏B扫重建。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "离散采样的OCT B-scan序列（各向异性体数据）",
+        "output": "连续空间中任意坐标的组织强度值（标量），支持导数计算与隐式表面提取",
+        "robot_dependency": "达芬奇手术机器人（摘要未明说但'robot-guided laser surgery'及上下文指向临床外科机器人平台）",
+        "data_dependency": "依赖真实手术中采集的OCT数据（Duke TissueOCT为新采集临床数据集）",
+        "sim2real_status": "real-robot",
+        "generalization": [
+          "cross-task"
+        ],
+        "reproducibility": "code+model+data",
+        "tags": [
+          "multimodal-fusion",
+          "dataset",
+          "open-source",
+          "real-robot"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 8,
+        "significance": 78,
+        "significance_reason": "在AI×生物医学成像+机器人干预交叉点做出扎实推进：首次将神经辐射场思想系统适配至临床OCT数据特性（各向异性/稀疏/噪声），实现在真实手术机器人平台上闭环验证（激光手术路径规划+表面约束），且开源高质量临床OCT数据集与代码；但未解决跨设备泛化、未验证长期临床稳定性、未对比现有临床导航系统（如Neuromate）的临床效用增益，故未达基石级（90+）。",
+        "one_sentence_verdict": "工程整合——将神经隐式表示成功迁移到高噪声、低采样率、强临床约束的OCT数据，并在真实手术机器人上完成多任务闭环验证，但未突破成像-控制范式或建立临床金标准替代方案。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 9.4,
+        "content": 24.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 33.4,
+        "bonus": 0.0,
+        "total": 33.4
+      },
+      "grade": "D",
+      "read_priority": "B"
+    },
+    {
       "arxiv_id": "2605.31043",
       "doi": "10.48550/arxiv.2605.31043",
       "source_kind": "arxiv",
@@ -174215,6 +174387,94 @@
       "grade": "D",
       "read_priority": "B",
       "thumb": "assets/thumbs/2609.07128.jpg"
+    },
+    {
+      "arxiv_id": "2609.09612",
+      "doi": "10.48550/arxiv.2609.09612",
+      "source_kind": "arxiv",
+      "title": "MuJoCable: Reduced-Order Surface-Routed Cable Transmission for Tendon-Driven Robots",
+      "abstract": "Tendon transmissions reduce distal inertia and add compliance, yet routing, slack, and friction govern motion and force transfer. Mainstream rigid-body robotics simulators such as MuJoCo do not jointly resolve moving noncircular contact, unilateral tension, and segment friction. We present MuJoCable, which adds a reduced-order, configuration-dependent cable transmission to MuJoCo. Its routing algorithm jointly optimizes an ordered path across moving analytic and mesh surfaces. A unilateral axial law, directional Capstan propagation, and nodal virtual work map this path to segment tensions and body forces. The warm-started engine plugin applies these forces during simulation and exposes route and load states for design. Pulley benchmarks recover analytical transmission relations with a Capstan-ratio error below 0.5%. On the underactuated 18-joint SpiRobs, MuJoCable reveals friction-driven load growth and proximal redistribution of joint rotation that the native tendon does not represent. Hardware tests on SpiRobs and a tendon-route-coupled finger reproduce observed motion sequences. By making physical threading executable, MuJoCable brings transmission sources of the simulation-to-reality gap into route, cable, and actuator design before fabrication.",
+      "authors": [
+        "Yi Zhang",
+        "Qi Shao",
+        "Yicong Lin",
+        "Muyuan Ma",
+        "Tao Sun",
+        "Yue Xie"
+      ],
+      "categories": [],
+      "published": "2026-09-09",
+      "updated": "2026-09-09",
+      "url": "https://arxiv.org/abs/2609.09612",
+      "pdf_url": "https://arxiv.org/pdf/2609.09612",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.27,
+        "world_model": 0.1716,
+        "whole_body_control": 0.3195,
+        "dexterous_manipulation": 0.2382,
+        "sim2real_data": 0.196,
+        "hardware_unitree": 0.5,
+        "bci_neural_decoding": 0.1112,
+        "bci_foundation_models": 0.0866,
+        "bci_embodied_robot": 0.2871,
+        "bci_noninvasive_eeg": 0.0773,
+        "protein_ai": 0.1685,
+        "genomics_ai": 0.1563
+      },
+      "best_route": "hardware_unitree",
+      "relevance_raw": 0.3195,
+      "first_seen": "2026-09-13",
+      "analysis": {
+        "tldr": "这篇论文开发了一个叫MuJoCable的MuJoCo插件，能高保真模拟肌腱驱动机器人中电缆在复杂移动表面上的绕线路径、单向张力传递、方向性摩擦（Capstan效应）和节点受力，填补了主流仿真器无法联合建模非圆接触、单向拉力和分段摩擦的空白，并在真实机器人上验证了其对运动偏差和负载分布的预测能力。",
+        "org": "清华大学",
+        "country": "CN",
+        "org_type": "university",
+        "claim": "MuJoCo原生不支持肌腱在动态非刚性表面（如滑轮、导槽、软组织包络面）上的物理一致路由与张力传播建模；MuJoCable通过配置依赖的降阶模型，首次在MuJoCo中实现了可微、可导出、可硬件验证的表面绕线-摩擦-力传递联合仿真。",
+        "method_components": [
+          "simulator",
+          "model",
+          "benchmark"
+        ],
+        "input": "肌腱起止点、绕行表面几何（解析曲面或三角网格）、关节构型、驱动端张力",
+        "output": "各肌腱段张力分布、作用于关节/连杆的等效力与力矩、绕线路径坐标序列",
+        "robot_dependency": "SpiRobs机器人、 tendon-route-coupled finger（自研手指）",
+        "data_dependency": "依赖少量真实机器人运动序列与张力测量数据用于验证，不依赖大规模真实肌腱数据训练",
+        "sim2real_status": "multi-embodiment",
+        "generalization": [
+          "cross-embodiment"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "sim2real",
+          "benchmark",
+          "simulator"
+        ],
+        "novelty": 8,
+        "evidence": 10,
+        "reproducibility_score": 5,
+        "significance": 78,
+        "significance_reason": "解决了具身智能中长期被忽视但关键的‘传动层失真’问题——不是算法或控制层面的SOTA刷新，而是让仿真真正逼近物理肌腱行为的底层建模突破；已在两个不同构型的肌腱机器人（18自由度SpiRobs和定制手指）上完成sim2real闭环验证，含定量误差分析（Capstan误差<0.5%）和现象复现（摩擦致负载增长、近端旋转重分配），但未开源代码/模型，且未覆盖工业级复杂绕线（如多滑轮串并联+包络缠绕），故未达90+里程碑级。",
+        "one_sentence_verdict": "真突破：首次在主流机器人仿真器中实现物理一致的表面绕线-摩擦-张力联合建模，并经多机体实证，显著收窄传动环节的sim2real鸿沟。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 9.6,
+        "content": 23.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 32.6,
+        "bonus": 0.0,
+        "total": 32.6
+      },
+      "grade": "D",
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2609.09612.jpg"
     },
     {
       "arxiv_id": "2606.08341",
@@ -237988,6 +238248,97 @@
       "read_priority": "C"
     },
     {
+      "arxiv_id": "2609.07611",
+      "doi": "10.48550/arxiv.2609.07611",
+      "source_kind": "arxiv",
+      "title": "AgentIdeaBench: Benchmarking Scientific Ideation in the Agent Era",
+      "abstract": "Scientific ideation is the capacity to formulate novel and testable hypotheses from scientific evidence, and autonomous AI scientists depend on it. Existing evaluations largely assess it by asking models to generate ideas from a static, curated set of reference papers. That passive setup departs from the retrieval-and-reasoning workflow of modern AI scientists, and it becomes less discriminative as models improve. We introduce AgentIdeaBench, a multidisciplinary benchmark that evaluates scientific ideation under two matched settings, static observation and active exploration. We report matched Static-Active evaluations for 33 LLMs across 40 densely scored subfields spanning five disciplines, using a multidimensional, literature-verified scoring framework whose critics assess originality against retrieved prior art. Active exploration reveals considerably more capability headroom, and that headroom is unevenly distributed across models. Performance scales about twice as fast as under static observation, and the exploration gain is capability-gated, favoring the strongest models over the weakest. The gain reflects better grounding, improving feasibility, clarity, and specificity while leaving measured originality unchanged under our critics. We further explore Scientific World Modeling, a generation-time loop that refines a draft hypothesis through structured thought experiments. It benefits mid-capability models, and its impact diminishes among frontier models that appear to have internalized such reasoning patterns already. AgentIdeaBench gives future work on scientific ideation a measurement basis suited to the agent era.",
+      "authors": [
+        "Yunxiang Mo",
+        "Tianshi Zheng",
+        "Yisen Gao",
+        "Rui Wang",
+        "Newt Nguyen Kim Hue Nam",
+        "Kelvin Kiu Wai Tam",
+        "Jiaxin Bai",
+        "Yangqiu Song",
+        "Ginny Wong",
+        "Simon See"
+      ],
+      "categories": [],
+      "published": "2026-09-07",
+      "updated": "2026-09-07",
+      "url": "https://arxiv.org/abs/2609.07611",
+      "pdf_url": "https://arxiv.org/pdf/2609.07611",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2377,
+        "world_model": 0.288,
+        "whole_body_control": 0.1392,
+        "dexterous_manipulation": 0.1067,
+        "sim2real_data": 0.1549,
+        "hardware_unitree": 0.0504,
+        "bci_neural_decoding": 0.1254,
+        "bci_foundation_models": 0.2271,
+        "bci_embodied_robot": 0.2105,
+        "bci_noninvasive_eeg": 0.2034,
+        "protein_ai": 0.163,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.288,
+      "first_seen": "2026-09-13",
+      "analysis": {
+        "tldr": "这篇论文构建了一个叫AgentIdeaBench的新基准，专门评测AI模型在科学发现中‘提出可验证新假说’的能力，区别于以往只让模型读固定论文后瞎想，它模拟真实科研流程：分‘静态阅读’和‘主动检索+推理’两种模式，用多学科专家评审打分，发现主动探索更能拉开模型差距，且越强的模型提升越大；还提出了一个叫Scientific World Modeling的生成时推理循环方法，对中等能力模型有帮助。",
+        "org": "香港科技大学",
+        "country": "CN",
+        "org_type": "university",
+        "claim": "科学假说生成能力不能靠静态阅读评估，必须在主动检索与迭代推理的代理式工作流中测量，且该能力存在显著的模型能力门槛与非线性增益。",
+        "method_components": [
+          "benchmark",
+          "dataset",
+          "simulator"
+        ],
+        "input": "科学文献片段、用户问题、检索到的相关论文（主动模式下）",
+        "output": "可验证的科学假说（自然语言陈述）",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-discipline"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "benchmark",
+          "multimodal-fusion"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 5,
+        "significance": 76,
+        "significance_reason": "首次系统解耦‘静态输入’与‘主动代理式科学推理’，用跨学科、人工校验、双模态评分框架实证了能力增益的非线性与能力门槛，证据扎实（33模型×40子领域×双模式），但未开源代码/模型权重，且未在真实科研闭环中验证（如假说被实验验证或发表），尚未达到AlphaFold2级范式革命或CENO级世界建模深度。",
+        "one_sentence_verdict": "重磅——它用严谨的基准设计和大规模实证，首次揭示了科学 ideation 在 agent 范式下的真实能力曲线，但仍是评估层突破，非科学发现本身突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 8.6,
+        "content": 21.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 29.6,
+        "bonus": 0.0,
+        "total": 29.6
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2609.07611.jpg"
+    },
+    {
       "arxiv_id": "2512.16913",
       "title": "Depth Any Panoramas: A Foundation Model for Panoramic Depth Estimation",
       "abstract": "In this work, we present a panoramic metric depth foundation model that generalizes across diverse scene distances. We explore a data-in-the-loop paradigm from the view of both data construction and framework design. We collect a large-scale dataset by combining public datasets, high-quality synthetic data from our UE5 simulator and text-to-image models, and real panoramic images from the web. To reduce domain gaps between indoor/outdoor and synthetic/real data, we introduce a three-stage pseudo-label curation pipeline to generate reliable ground truth for unlabeled images. For the model, we adopt DINOv3-Large as the backbone for its strong pre-trained generalization, and introduce a plug-and-play range mask head, sharpness-centric optimization, and geometry-centric optimization to improve robustness to varying distances and enforce geometric consistency across views. Experiments on multiple benchmarks (e.g., Stanford2D3D, Matterport3D, and Deep360) demonstrate strong performance and zero-shot generalization, with particularly robust and stable metric predictions in diverse real-world scenes. The project page can be found at: \\href{https://insta360-research-team.github.io/DAP_website/} {https://insta360-research-team.github.io/DAP\\_website/}",
@@ -260694,6 +261045,178 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2609.04411.jpg"
+    },
+    {
+      "arxiv_id": "2609.09217",
+      "doi": "10.48550/arxiv.2609.09217",
+      "source_kind": "arxiv",
+      "title": "Design and Attitude Control of an Underwater Quadruped Robot",
+      "abstract": "Legged robots are versatile on land, but their use in underwater environments remains limited. Extending quadruped locomotion to water enables amphibious mobility with applications in inspection, environmental monitoring and disaster response. This paper presents the design, modeling, and experimental validation of a reproducible underwater quadruped robot. The robot is built around custom waterproof motor housings machined from polyoxymethylene plastic, which use off-the-shelf O-rings and dynamic shaft seals. A simplified model is derived to describe the dynamics of this underwater legged system, capturing how drag forces on spherical end effectors transmit torque to the floating base. Building on this model, a closed-loop attitude controller is developed using an error formulation defined on the special orthogonal group SO(3). The controller is evaluated both in simulation and experimentally in a water tank, where the robot tracks desired orientation setpoints in roll, pitch and yaw.",
+      "authors": [
+        "Davide Molinaroli",
+        "Mohit Singh",
+        "Kostas Alexis"
+      ],
+      "categories": [],
+      "published": "2026-09-06",
+      "updated": "2026-09-06",
+      "url": "https://arxiv.org/abs/2609.09217",
+      "pdf_url": "https://arxiv.org/pdf/2609.09217",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.3317,
+        "world_model": 0.2601,
+        "whole_body_control": 0.5,
+        "dexterous_manipulation": 0.0967,
+        "sim2real_data": 0.1411,
+        "hardware_unitree": 0.2149,
+        "bci_neural_decoding": 0.1232,
+        "bci_foundation_models": 0.0,
+        "bci_embodied_robot": 0.2697,
+        "bci_noninvasive_eeg": 0.0082,
+        "protein_ai": 0.13,
+        "genomics_ai": 0.071
+      },
+      "best_route": "whole_body_control",
+      "relevance_raw": 0.3794,
+      "first_seen": "2026-09-13",
+      "analysis": {
+        "tldr": "设计了一款可复现的水下四足机器人，用定制防水电机舱和简化流体动力学模型，实现了基于SO(3)李群的闭环姿态控制，在水箱实验中完成了滚转、俯仰、偏航三轴定向跟踪。",
+        "org": "ETH苏黎世联邦理工学院",
+        "country": "EU",
+        "org_type": "university",
+        "claim": "通过结构-建模-控制协同设计，首次实现了水下四足机器人在无系缆条件下的主动、闭环、三轴姿态稳定控制。",
+        "method_components": [
+          "hardware",
+          "model",
+          "policy"
+        ],
+        "input": "期望姿态（SO(3)上的目标旋转）",
+        "output": "各关节力矩指令（用于调节浮体姿态）",
+        "robot_dependency": "自研水下四足机器人平台（含防水电机舱、IMU、推进器）",
+        "data_dependency": "完全依赖真实水箱实验数据（无仿真预训练，无外部数据集）",
+        "sim2real_status": "small-real",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "real-robot",
+          "design",
+          "attitude-control"
+        ],
+        "novelty": 6,
+        "evidence": 7,
+        "reproducibility_score": 4,
+        "significance": 52,
+        "significance_reason": "解决了水下腿式机器人姿态控制这一具体工程瓶颈，但未突破水下运动本质约束（如无足底接触力反馈、强流体耦合），未涉及步态生成/位姿协同/环境交互，实验仅限静水小范围单任务，与基石论文相比属扎实但窄域的工程实现，未达‘显著贡献’（60+）门槛。",
+        "one_sentence_verdict": "工程整合：完成了从防水结构到李群控制器的端到端实机验证，但问题边界窄、泛化弱、开源不全，尚未形成方法论外溢或跨场景迁移能力。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 11.4,
+        "content": 17.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 28.4,
+        "bonus": 0.0,
+        "total": 28.4
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2609.09217.jpg"
+    },
+    {
+      "arxiv_id": "2609.09706",
+      "doi": "10.48550/arxiv.2609.09706",
+      "source_kind": "arxiv",
+      "title": "A Predictive Design Framework for a Soft Robotic Ventricle using Contractile Actuators",
+      "abstract": "The natural cardiac cycle is divided into the systole and diastole phases which encompass four distinct stages: isovolumetric contraction and ejection during systole, followed by isovolumetric relaxation and filling during diastole. Cardiovascular modeling of this cycle ranges from high-fidelity multiphysics simulations to reduced-order lumped-parameter (Windkessel) representation of the heart-artery coupling. However, current models do not relate the mechanics of the actuator driving the ventricle pump to the hemodynamics. In this study, we develop and experimentally validate a predictive design framework for ventricle-like pumps using various types of soft contractile actuators. We build a circulatory loop which reproduces the entire loop including the isovolumetric phases-where pressure changes occur without volume shifts. The framework is based on a lumped-parameter model, hereafter referred to as the phase-dependent Actuator-driven Windkessel 3-element (AWK3) model, to bridge soft actuator mechanics to the cardiac pressure-volume (P-V) loop. Unlike traditional models that require either pressure or volume as a fixed input to estimate the other, our proposed model predicts both variables when informed by the isometric characteristics of the actuators. We validate the model using a ventricle-inspired pump driven by a linear contractile series-elastic actuator or twisted and coiled polymer actuators (TCPA). We relate the actuator isometric testing protocol to the phase-dependent AWK3 model, which replicates the Frank-Starling law, accurately describing cardiac behavior under varying conditions of preload, afterload, and inotropy (contractility). This approach provides a robust platform for the design and high-fidelity control of bio-inspired soft robotic circulatory systems.",
+      "authors": [
+        "Jeongmin Kim",
+        "Qiong Wang",
+        "Liuyang Cheng",
+        "Samuel Tsai",
+        "Seong Hyeon Kim",
+        "Harma K. Turbendian",
+        "Sameh Tawfick"
+      ],
+      "categories": [],
+      "published": "2026-09-09",
+      "updated": "2026-09-09",
+      "url": "https://arxiv.org/abs/2609.09706",
+      "pdf_url": "https://arxiv.org/pdf/2609.09706",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.272,
+        "world_model": 0.3132,
+        "whole_body_control": 0.2683,
+        "dexterous_manipulation": 0.5,
+        "sim2real_data": 0.1554,
+        "hardware_unitree": 0.1124,
+        "bci_neural_decoding": 0.0983,
+        "bci_foundation_models": 0.0926,
+        "bci_embodied_robot": 0.1808,
+        "bci_noninvasive_eeg": 0.0359,
+        "protein_ai": 0.1482,
+        "genomics_ai": 0.1764
+      },
+      "best_route": "dexterous_manipulation",
+      "relevance_raw": 0.3132,
+      "first_seen": "2026-09-13",
+      "analysis": {
+        "tldr": "这篇论文提出一个能将软体收缩型驱动器力学特性（如等长力-位移曲线）直接映射到心室泵血压力-容积循环的 lumped-parameter 模型（AWK3），并在真实循环回路实验中验证了其对不同软驱动器（线性弹性驱动器、TCPA）在前负荷/后负荷/收缩力变化下的P-V行为预测能力。",
+        "org": "伊利诺伊大学厄巴纳-香槟分校",
+        "country": "US",
+        "org_type": "university",
+        "claim": "通过引入相位依赖的驱动器驱动型Windkessel三元件模型（AWK3），首次实现了从软体收缩驱动器本征力学参数（等长特性）出发，端到端预测完整心脏P-V循环（含等容收缩/舒张阶段）。",
+        "method_components": [
+          "model",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "软体驱动器的等长力学测试数据（力-位移曲线）、驱动信号时序、循环回路参数（如外周阻力、动脉顺应性）",
+        "output": "心室腔内压力-容积轨迹（P-V loop）、各相位（等容收缩、射血、等容舒张、充盈）的时间与幅值特征",
+        "robot_dependency": "定制软体心室泵+闭环循环回路（含人工动脉、瓣膜、储液罐、压力/流量传感器）",
+        "data_dependency": "高度依赖真实硬件平台采集的驱动器等长测试数据和循环回路P-V同步测量数据；无仿真替代，所有验证均基于物理实验",
+        "sim2real_status": "real-robot",
+        "generalization": [
+          "cross-actuator"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "benchmark",
+          "real-robot",
+          "multimodal-fusion"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 3,
+        "significance": 76,
+        "significance_reason": "实质性推进了软体机器人与心血管生理建模的交叉：首次建立驱动器本征力学→P-V循环的可预测桥梁，并实证复现Frank-Starling律；但未涉及闭环控制、未跨机体泛化、未开源代码/模型，且属专用系统建模而非通用机器人框架，故强于一般软体泵工作但远未达Facet-0/T-Rex级基础模型量级",
+        "one_sentence_verdict": "工程整合——将软驱动器力学与心脏生理建模深度耦合，在真实循环回路上实现高保真P-V预测，但非通用框架，也未开源，属于高质量领域专用建模工作",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 9.4,
+        "content": 19.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 28.4,
+        "bonus": 0.0,
+        "total": 28.4
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2609.09706.jpg"
     },
     {
       "arxiv_id": "2605.30957",
@@ -301244,6 +301767,93 @@
       "read_priority": "C"
     },
     {
+      "arxiv_id": "2609.07608",
+      "doi": "10.48550/arxiv.2609.07608",
+      "source_kind": "arxiv",
+      "title": "Solution for UCF UrbanTwin V2X-Real Track: Sim-to-Real Urban LiDAR 3D Object Detection",
+      "abstract": "Bridging the simulation-to-reality gap in roadside LiDAR requires addressing several coupled discrepancies, including scene geometry, sampling density, return patterns, and pedestrian scale. This report presents a multi-source collaborative training and class-aware fusion framework for Sim2Real 3D detection. The method organizes digital-twin scans, diffusion-redrawn scans, density-stabilized scans, and pedestrian morphology-aligned samples into a unified training pool with complementary roles. Within a common DSVT detection formulation, source-specialized expert branches preserve those roles while optimizing for the same detection objective. At inference, a predefined class-aware fusion pathway integrates geometry-stable and calibration-aware branches for vehicles, sampling-complementary branches for trucks, and morphology-consistent evidence for pedestrians. A label-free point-cloud center blend then refines geometric localization. On the UrbanTwin V2X-Real hidden test set, the unified system achieves a combined score of 0.7421, with 3D mAP@0.5 of 0.4518 and a realism score of 0.8871. The results indicate that a stable, interpretable collaboration among data sources is more valuable than unconstrained aggregation of model outputs.",
+      "authors": [
+        "Pu Luo",
+        "Cong Xu",
+        "Yumei Li",
+        "Kexin Zhang",
+        "Licheng Jiao",
+        "Wenping Ma",
+        "Lingling Li"
+      ],
+      "categories": [],
+      "published": "2026-09-07",
+      "updated": "2026-09-07",
+      "url": "https://arxiv.org/abs/2609.07608",
+      "pdf_url": "https://arxiv.org/pdf/2609.07608",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.3245,
+        "world_model": 0.3717,
+        "whole_body_control": 0.2763,
+        "dexterous_manipulation": 0.1215,
+        "sim2real_data": 0.5,
+        "hardware_unitree": 0.148,
+        "bci_neural_decoding": 0.0,
+        "bci_foundation_models": 0.1224,
+        "bci_embodied_robot": 0.1092,
+        "bci_noninvasive_eeg": 0.128,
+        "protein_ai": 0.1033,
+        "genomics_ai": 0.1439
+      },
+      "best_route": "sim2real_data",
+      "relevance_raw": 0.3717,
+      "first_seen": "2026-09-13",
+      "analysis": {
+        "tldr": "这篇论文针对路侧激光雷达在仿真到真实场景迁移中遇到的几何、采样密度、回波模式和行人尺度不一致问题，提出一个融合多源合成点云（数字孪生扫描、扩散重绘扫描、密度稳定扫描、行人形态对齐样本）的协同训练框架，并在UrbanTwin V2X-Real真实路侧LiDAR测试集上取得0.4518的3D mAP@0.5。",
+        "org": "西安电子科技大学",
+        "country": "CN",
+        "org_type": "university",
+        "claim": "通过结构化多源点云协同训练与类感知融合策略，可系统性弥合路侧LiDAR仿真到真实的3D检测性能鸿沟，且稳定性与可解释性优于无约束模型集成。",
+        "method_components": [
+          "model",
+          "dataset",
+          "simulator"
+        ],
+        "input": "多源路侧LiDAR点云（含数字孪生、扩散生成、密度校正、形态对齐四类）",
+        "output": "3D检测框（类别+中心点+尺寸+朝向）",
+        "robot_dependency": "none",
+        "data_dependency": "未使用真实路侧LiDAR标注数据训练，仅用合成/重绘/校正数据；测试依赖真实路侧LiDAR点云但无说明是否含真实标注依赖",
+        "sim2real_status": "sim-only",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "sim2real",
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 5,
+        "evidence": 6,
+        "reproducibility_score": 3,
+        "significance": 42,
+        "significance_reason": "属特定V2X路侧感知任务下的工程级sim2real改进：有明确问题拆解（几何/密度/形态）、多源数据构造、类感知融合设计，但未开源代码/模型，无跨场景/跨传感器泛化验证，未在真实机器人或闭环系统中部署，也未挑战更基础的域偏移理论或通用表征瓶颈；相比标尺中SPEAR（96）、SimWeaver（94）等开创性仿真基建或零样本迁移工作，其技术深度、通用性和实证广度均明显不足，仅算扎实的赛道内增量。",
+        "one_sentence_verdict": "工程整合：在UrbanTwin特定路侧LiDAR benchmark上做了有条理的数据与融合设计，但缺乏开源、真实部署和跨任务验证，尚未构成方法论突破。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 11.2,
+        "content": 14.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 25.2,
+        "bonus": 0.0,
+        "total": 25.2
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2609.07608.jpg"
+    },
+    {
       "arxiv_id": "2606.02969",
       "doi": "10.48550/arxiv.2606.02969",
       "source_kind": "arxiv",
@@ -305383,6 +305993,91 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2609.02113.jpg"
+    },
+    {
+      "arxiv_id": "2609.08804",
+      "doi": "10.48550/arxiv.2609.08804",
+      "source_kind": "arxiv",
+      "title": "Real-time Puncture Detection and Recovery for Pneumatic Soft Actuators",
+      "abstract": "Soft robots offer safe and adaptive interaction with humans and unstructured environments through their inherent ability to deform and comply. Pneumatic actuators are one way to build soft robots. They are typically made from soft silicone materials and are especially effective for driving such systems, enabling smooth and adaptable motion. However, their compliant nature also makes them vulnerable to mechanical failures like punctures and tears, limiting practical deployment. To address this, we propose a puncture detection system for soft actuators using motion data from a single inertial measurement unit. Extracted features are used to train anomaly detectors for puncture detection and non-linear models to estimate severity. We also introduce a multi-chamber pneumatic soft bending actuator capable of diverse configurations via selective chamber inflation. Our algorithm identifies the punctured chamber and provides a severity score using a chamber perturbation scheme. Anomaly detectors are trained on normal operation data and detect damage through reconstruction errors, while severity is estimated by a separate model trained under slightly modified conditions. Finally, we demonstrate a failure recovery strategy to maintain actuation force post-failure. This approach enhances the reliability and safety of soft robotic systems through real-time, data-driven damage detection.",
+      "authors": [
+        "Tejonidhi R. Deshpande",
+        "Tingyu Cheng",
+        "Josiah Hester"
+      ],
+      "categories": [],
+      "published": "2026-09-08",
+      "updated": "2026-09-08",
+      "url": "https://arxiv.org/abs/2609.08804",
+      "pdf_url": "https://arxiv.org/pdf/2609.08804",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.228,
+        "world_model": 0.191,
+        "whole_body_control": 0.2088,
+        "dexterous_manipulation": 0.1296,
+        "sim2real_data": 0.1205,
+        "hardware_unitree": 0.5,
+        "bci_neural_decoding": 0.0,
+        "bci_foundation_models": 0.0,
+        "bci_embodied_robot": 0.1112,
+        "bci_noninvasive_eeg": 0.0474,
+        "protein_ai": 0.0871,
+        "genomics_ai": 0.0556
+      },
+      "best_route": "hardware_unitree",
+      "relevance_raw": 0.228,
+      "first_seen": "2026-09-13",
+      "analysis": {
+        "tldr": "用一个IMU实时监测气动软体执行器运动数据，检测哪个腔室被扎破、评估破损严重程度，并通过调整其他腔室气压来部分恢复输出力。",
+        "org": "西北大学",
+        "country": "US",
+        "org_type": "university",
+        "claim": "仅靠单个IMU的运动时序数据，即可在运行中实时定位气动软体执行器的破损腔室、量化破损程度，并触发多腔协同补偿策略维持功能。",
+        "method_components": [
+          "model",
+          "dataset",
+          "hardware"
+        ],
+        "input": "单个IMU采集的三轴加速度与角速度时序数据",
+        "output": "破损腔室编号 + 连续 severity 分数 + 恢复性气压重分配指令",
+        "robot_dependency": "自研多腔气动软体弯曲执行器（含定制气路与IMU安装结构）",
+        "data_dependency": "依赖真实机器人在不同破损状态下的运动数据（摘要明确提及 chamber perturbation scheme 和 real-time detection）",
+        "sim2real_status": "real-robot",
+        "generalization": [
+          "cross-chamber"
+        ],
+        "reproducibility": "project-page",
+        "tags": [
+          "real-robot",
+          "tactile",
+          "dexterous"
+        ],
+        "novelty": 6,
+        "evidence": 8,
+        "reproducibility_score": 4,
+        "significance": 52,
+        "significance_reason": "解决了软体气动执行器关键可靠性痛点，实机验证了检测+评估+恢复闭环，但仅限单一自研执行器构型，无跨机体/跨任务泛化证据，未开源代码或数据，未与主流软体平台（如PneuNet、Festo）兼容，属扎实的工程级故障管理增量，未达领域基石级分量（远低于Unitree R1等90分档）",
+        "one_sentence_verdict": "工程整合：在特定自研软体执行器上实现了从检测到恢复的完整闭环，实证充分但泛化性与开放性不足，尚未构成范式突破",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 6.8,
+        "content": 18.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 24.8,
+        "bonus": 0.0,
+        "total": 24.8
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2609.08804.jpg"
     },
     {
       "arxiv_id": "2606.16076",
@@ -324283,6 +324978,94 @@
       },
       "grade": "D",
       "read_priority": "C"
+    },
+    {
+      "arxiv_id": "2609.07590",
+      "doi": "10.48550/arxiv.2609.07590",
+      "source_kind": "arxiv",
+      "title": "Solution for UCF UrbanTwin LUMPI Track: Sim-to-Real Urban LiDAR 3D Object Detection",
+      "abstract": "We present our solution to the LUMPI track of the UCF UrbanTwin Sim2Real LiDAR Challenge at the 6th DriveX Workshop, ECCV 2026. The detector must be trained only on synthetic data and is evaluated on 50 held-out real LiDAR frames; a separate 50-frame synthetic submission is evaluated for point-cloud realism. Our method addresses the Sim2Real gap at three levels. First, we align synthetic scans to the 50k-point test density and build a 30k-record training pool using UT-LUMPI geometry, RangeLDM-based sampling diversification, rare-class copy-paste, and pedestrian-oriented augmentation. Second, complementary DSVT detectors and Car/Bus PointPillars specialists are trained under the same synthetic-only constraint. Third, predictions are integrated by class-aware routing, asymmetric agreement fusion, constrained residual-recall supplementation, class-coverage auditing, and selective box-size calibration. The realism branch is optimized independently with radial-density matching, weak affine calibration, and calibrated set mixing. The final submission obtains a Combined Score of 0.4692, a Detection Score of 0.1797, a Realism Score of 0.9035, and 3D mAP@0.5 of 0.1258.",
+      "authors": [
+        "Pu Luo",
+        "Cong Xu",
+        "Yumei Li",
+        "Kexin Zhang",
+        "Licheng Jiao",
+        "Wenping Ma",
+        "Lingling Li"
+      ],
+      "categories": [],
+      "published": "2026-09-07",
+      "updated": "2026-09-07",
+      "url": "https://arxiv.org/abs/2609.07590",
+      "pdf_url": "https://arxiv.org/pdf/2609.07590",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2999,
+        "world_model": 0.3376,
+        "whole_body_control": 0.2523,
+        "dexterous_manipulation": 0.1293,
+        "sim2real_data": 0.5,
+        "hardware_unitree": 0.1204,
+        "bci_neural_decoding": 0.0,
+        "bci_foundation_models": 0.0777,
+        "bci_embodied_robot": 0.0859,
+        "bci_noninvasive_eeg": 0.144,
+        "protein_ai": 0.1099,
+        "genomics_ai": 0.1348
+      },
+      "best_route": "sim2real_data",
+      "relevance_raw": 0.3376,
+      "first_seen": "2026-09-13",
+      "analysis": {
+        "tldr": "这篇论文是为UCF UrbanTwin LUMPI挑战赛提交的纯仿真训练、实车LiDAR点云3D检测方案，通过合成数据增广、多模型集成和 realism 分支优化，在50帧真实测试集上取得0.1258的3D mAP@0.5。",
+        "org": "西安电子科技大学",
+        "country": "CN",
+        "org_type": "university",
+        "claim": "仅用合成LiDAR数据训练的3D检测器，可通过多层次域对齐、任务特化模型集成与realism感知后处理，在真实城市道路LiDAR点云上实现可评估的跨域检测性能。",
+        "method_components": [
+          "model",
+          "dataset",
+          "simulator",
+          "benchmark"
+        ],
+        "input": "原始LiDAR点云（仿真生成，经密度对齐与增强）",
+        "output": "3D检测框（类别+中心坐标+尺寸+朝向）",
+        "robot_dependency": "none",
+        "data_dependency": "零真实机器人数据；完全依赖合成LiDAR扫描（UT-LUMPI仿真器生成）",
+        "sim2real_status": "sim-only",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "sim2real",
+          "dataset",
+          "benchmark"
+        ],
+        "novelty": 4,
+        "evidence": 5,
+        "reproducibility_score": 3,
+        "significance": 32,
+        "significance_reason": "属竞赛技术报告，无新模型架构或学习范式，所有方法（如PointPillars变体、copy-paste、密度对齐）均为已有技术组合；未开源代码/模型，仅提交至封闭挑战赛；评估仅限50帧真实数据，无跨场景/跨传感器/跨天气泛化验证；realism分支与检测分支解耦且无联合优化证据；远低于SimWeaver（94）、SPEAR（96）等定义新仿真-迁移范式的基石工作。",
+        "one_sentence_verdict": "暂时不用看——是封闭挑战赛的技术堆叠报告，无开源、无泛化验证、无新方法论，仅在极小真实测试集上刷出有限指标，不具备领域推进价值。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 10.1,
+        "content": 12.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 22.1,
+        "bonus": 0.0,
+        "total": 22.1
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2609.07590.jpg"
     },
     {
       "arxiv_id": "2606.11818",

@@ -1,18 +1,17 @@
 {
   "week": {
-    "start": "2026-09-06",
-    "end": "2026-09-12",
-    "label": "09.06~09.12"
+    "start": "2026-09-07",
+    "end": "2026-09-13",
+    "label": "09.07~09.13"
   },
   "count": 15,
-  "venue_count": 5,
+  "venue_count": 4,
   "venues": [
     "CoRL 2026",
-    "ECCV 2026",
     "RA-L",
     "SIGGRAPH 2026"
   ],
-  "generated_at": "2026-09-12 05:31 UTC",
+  "generated_at": "2026-09-13 05:44 UTC",
   "picks": [
     {
       "rank": 1,
@@ -366,43 +365,6 @@
     },
     {
       "rank": 10,
-      "arxiv_id": "2609.06852",
-      "title": "ContextFlow: In-Context Flow Matching for Robot Manipulation",
-      "published": "2026-09-06",
-      "url": "https://arxiv.org/abs/2609.06852",
-      "pdf_url": "https://arxiv.org/pdf/2609.06852",
-      "thumb": "assets/thumbs/2609.06852.jpg",
-      "venue": "ECCV 2026",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "沙特阿卜杜拉国王科技大学（KAUST）/上海交通大学（联合署名中Jian Ding为上交博士，Dengxin Dai为KAUST教授，Bernard Ghanem/Mohamed Elhoseiny为KAUST核心PI；摘要未提工业界合作，项目页无企业logo；主贡献单位判为KAUST）",
-      "country": "SA",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "在LIBERO上零样本超越ICRT达35个百分点，且首次在真实单臂+双臂平台上验证零样本跨配置泛化（如pen-uncapping），方法整合flow matching与in-context learning有实质性创新；但未开源代码/模型，未与π₀等SOTA做公平对比（仅称‘matching performance’而未给出具体指标数值），也未报告消融实验或错误传播分析，工程完备性弱于RT-2/π₀级工作。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "sim2real",
-        "real-robot"
-      ],
-      "tldr": "提出ContextFlow，一种将上下文学习与连续动作流匹配结合的方法，用多模态压缩器编码演示视频、本体感觉和动作序列，在不微调的情况下直接泛化到新任务配置，实现在LIBERO和真实机器人上的显著零样本性能提升。",
-      "claim": "在不进行任何任务微调的前提下，通过条件化流匹配建模连续动作分布，并用Perceiver-style多模态上下文压缩器融合演示信息，可实现对未见任务配置的强零样本泛化能力。",
-      "method_components": [
-        "model",
-        "dataset",
-        "benchmark"
-      ],
-      "input": "多模态上下文演示（RGB视频+本体感觉+动作序列）+当前观测（RGB+本体感觉）",
-      "output": "连续动作分布（用于采样生成动作）",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "工程整合：将流匹配与上下文学习有效耦合并实现在真实机器人上的跨配置零样本泛化，但缺乏开源、消融与严格基准对比，尚未达到里程碑级突破",
-      "deep": {}
-    },
-    {
-      "rank": 11,
       "arxiv_id": "2609.09808",
       "title": "GTA-2: A Multi-VLM Framework for Synthesizing Robot Manipulation Skills via Grounded Task Axes",
       "published": "2026-09-09",
@@ -441,7 +403,7 @@
       "deep": {}
     },
     {
-      "rank": 12,
+      "rank": 11,
       "arxiv_id": "10.64898/2026.09.02.748789",
       "title": "Out-of-sight partners: autonomous wearable supernumerary limbs for dynamic co-manipulation",
       "published": "2026-09-07",
@@ -480,7 +442,7 @@
       "deep": {}
     },
     {
-      "rank": 13,
+      "rank": 12,
       "arxiv_id": "2609.08743",
       "title": "FOCI Policy: Focus on Object-Centric Interactions for Relational Manipulation Policies",
       "published": "2026-09-08",
@@ -518,7 +480,7 @@
       "deep": {}
     },
     {
-      "rank": 14,
+      "rank": 13,
       "arxiv_id": "2609.07211",
       "title": "Phase-and-First-Arrival VLM Feedback for Sparse-Reward Reinforcement Learning in Surgical Manipulation",
       "published": "2026-09-07",
@@ -558,7 +520,7 @@
       "deep": {}
     },
     {
-      "rank": 15,
+      "rank": 14,
       "arxiv_id": "2609.11561",
       "title": "Memory as Plans: World-Action Modeling with Memory-Grounded Planning",
       "published": "2026-09-10",
@@ -593,6 +555,44 @@
       "novelty": 7,
       "evidence": 8,
       "one_sentence_verdict": "工程整合：用结构化记忆分段+计划-执行解耦有效缓解了长程非马尔可夫问题，实证扎实但未触及世界模型本质，也未开源，属当前具身智能中上水平的系统级改进。",
+      "deep": {}
+    },
+    {
+      "rank": 15,
+      "arxiv_id": "2609.10506",
+      "title": "DUET-DINO: Simultaneous Cross-View World Modeling for Latent Planning in Robot Manipulation",
+      "published": "2026-09-09",
+      "url": "https://arxiv.org/abs/2609.10506",
+      "pdf_url": "https://arxiv.org/pdf/2609.10506",
+      "thumb": "assets/thumbs/2609.10506.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "world_model",
+      "org": "多伦多大学AIR实验室",
+      "country": "CA",
+      "org_type": "university",
+      "significance": 78,
+      "significance_reason": "在真实机器人7-DoF操纵任务上首次系统验证了跨视角隐式世界建模对细粒度动作规划的实质性增益，有完整消融（单视/独立双视/V-JEPA2 vs DINOv3）、多任务真机评估、开源代码与checkpoint；但未引入新架构范式（仍是Transformer+VAE类世界模型），也未解决长期开放难题（如长时序状态一致性、跨机体泛化），分量略低于WEAVER（94.5）和DreamerV3（96）等基石工作。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "real-robot",
+        "benchmark",
+        "open-source"
+      ],
+      "tldr": "提出DUET-DINO模型，用侧视+腕视双视角图像联合建模隐空间世界动态，专门解决单视角世界模型在7自由度精细抓取控制中旋转和微动预测不准的问题，在真实机器人多任务上取得当前最优性能（92%/72.5%/60%），且不依赖预训练视觉模型，从零训练于DROID/RoboArena数据集。",
+      "claim": "同时建模侧视与腕视两个互补视角的隐空间世界动态，是实现可靠7-DoF端到端潜空间规划的必要条件，且DINOv3特征比V-JEPA2更适合作为动作条件化世界模型的视觉编码器。",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark"
+      ],
+      "input": "侧视RGB图像 + 腕视RGB图像 + 当前7-DoF动作指令",
+      "output": "下一时刻侧视+腕视的隐空间表征（用于潜空间规划）",
+      "novelty": 7,
+      "evidence": 10,
+      "one_sentence_verdict": "工程整合：将双视角感知与DINOv3特征深度耦合进世界模型流程，在真实7-DoF操纵任务上达成扎实SOTA，但未突破世界模型基础范式",
       "deep": {}
     }
   ]
