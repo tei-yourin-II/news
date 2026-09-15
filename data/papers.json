@@ -15045,7 +15045,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 20.9,
@@ -17254,7 +17254,7 @@
       "signals": {
         "hf_upvotes": 0,
         "citations": 0,
-        "venue": ""
+        "venue": "arXiv (Cornell University)"
       },
       "scores": {
         "relevance": 19.5,
@@ -104415,7 +104415,8 @@
         "total": 35.9
       },
       "grade": "C",
-      "read_priority": "B"
+      "read_priority": "B",
+      "thumb": "assets/thumbs/2607.27655.jpg"
     },
     {
       "arxiv_id": "2608.12743",
@@ -201568,6 +201569,88 @@
       "thumb": "assets/thumbs/2609.01281.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.09.10.750412",
+      "doi": "10.64898/2026.09.10.750412",
+      "source_kind": "biorxiv",
+      "title": "Agentic-AI-ready genome-wide poxvirus-host interaction screen refined by a protein language model",
+      "abstract": "Recent mpox outbreaks highlight the necessity to understand the interactions between poxviruses and the human host. These can be discovered systematically through screening for host genes involved in infection at the single-cell level using RNA interference. However, off-target effects and assay noise obscure true gene-phenotype relationships, hampering the discovery of therapeutically relevant targets. Here, we show that integrating protein-protein interaction information derived from a protein language model boosts the discovery of vaccinia virus-host interactions. We propose ICARus - a positive-unlabelled read-out refinement framework to achieve this. Our approach enhances the identification of human genes with potential antiviral function. We provide the raw and refined read-outs of a genome-wide screen for vaccinia virus host factors as an agentic-AI-enabled community resource. Our findings provide a generalisable strategy for robust hit prioritisation in functional screens, accelerating discovery across complex biological systems.",
+      "authors": [
+        "Jacob Anter",
+        "Jason Mercer",
+        "Artur Yakimovich"
+      ],
+      "categories": [],
+      "published": "2026-09-13",
+      "updated": "2026-09-13",
+      "url": "https://doi.org/10.64898/2026.09.10.750412",
+      "pdf_url": "https://doi.org/10.64898/2026.09.10.750412",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.2443,
+        "world_model": 0.2558,
+        "whole_body_control": 0.1723,
+        "dexterous_manipulation": 0.1097,
+        "sim2real_data": 0.1353,
+        "hardware_unitree": 0.1163,
+        "bci_neural_decoding": 0.1678,
+        "bci_foundation_models": 0.177,
+        "bci_embodied_robot": 0.1592,
+        "bci_noninvasive_eeg": 0.1957,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.4157
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.4157,
+      "first_seen": "2026-09-15",
+      "analysis": {
+        "tldr": "用蛋白语言模型（PLM）校正RNAi全基因组筛选数据中的噪声，提出ICARus方法提升痘病毒-宿主互作基因的识别准确率，并开源原始与校正后的筛选数据集，供AI驱动的生物学研究使用",
+        "org": "苏黎世大学/罗氏合作团队（依据作者Jason Mercer为苏黎世大学病毒学教授、Artur Yakimovich为罗氏研究院前研究员；Jacob Anter为苏黎世大学博士生；摘要未提及其他机构，主属苏黎世大学）",
+        "country": "CH",
+        "org_type": "university",
+        "claim": "整合蛋白语言模型推断的PPI先验知识，通过正-未标注（PU）学习框架ICARus校正功能筛选噪声读数，可显著提升抗病毒宿主因子的发现鲁棒性与优先级排序质量",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "RNAi全基因组筛选的原始单细胞表型读数（如感染率、细胞存活率）+ 蛋白语言模型预测的宿主-病毒蛋白互作概率矩阵",
+        "output": "校正后的基因级打分（反映其真实参与病毒感染的可能性），即去噪/重加权后的宿主因子优先级列表",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖机器人数据，仅依赖高通量细胞成像与测序产生的湿实验筛选数据",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark",
+          "open-source"
+        ],
+        "novelty": 6,
+        "evidence": 8,
+        "reproducibility_score": 5,
+        "significance": 63,
+        "significance_reason": "方法层面有实质性改进（PU学习+PLM先验融合），在真实RNAi筛选数据上验证了校正效果（含消融和对比基线），但未跨病毒种类/细胞类型/技术平台验证泛化性，且未展示下游实验验证（如CRISPR敲除表型确认），属于扎实的生物信息学方法学贡献，但未达‘开新范式’或‘解决长期开放难题’级别，显著弱于AlphaFold2/ESM-2等基石工作",
+        "one_sentence_verdict": "显著贡献：将PLM先验与PU学习结合用于功能基因组筛选去噪，实证充分但泛化与验证尚浅，非突破但值得复现与扩展",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 12.5,
+        "content": 19.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 31.5,
+        "bonus": 0.0,
+        "total": 31.5
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "2606.12499",
       "doi": "10.48550/arxiv.2606.12499",
       "source_kind": "arxiv",
@@ -236587,6 +236670,108 @@
       "thumb": "assets/thumbs/2609.07328.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.09.05.749592",
+      "doi": "10.64898/2026.09.05.749592",
+      "source_kind": "biorxiv",
+      "title": "Genetic regulation of circulating metabolome in cattle",
+      "abstract": "The circulating metabolome is a vital intermediate layer linking genetics to complex phenotypes, yet existing genome-wide studies-even in humans-rarely capture dynamic physiological contexts or cellular regulatory mechanisms. Here, we present the Cattle Metabolome Atlas (https://cattlema.farmgtex.org/), a comprehensive resource of 3,436 plasma metabolites and 4,851 serum metabolites from 4,651 animals with matched sequence-level genotypes across highly dynamic parity and lactation stages. We mapped 728 plasma and 622 serum metabolite quantitative trait loci (mQTL), revealing widespread context-dependent regulatory architectures. Integrating these mQTL with the multi-tissue expression quantitative trait loci (eQTL) and single-cell atlas of 59 tissues demonstrates that 74-79% of mQTL colocalize with eQTL across 29 tissues, prioritizing the liver as the primary systemic hub and resolving metabolic programs at single-cell resolution. Furthermore, we charted 538 causal gene-tissue-metabolite-trait cascades across 11 complex traits in cattle. Finally, cross-species analyses demonstrate partial evolutionary conservation of genetic metabolism between cattle and humans, establishing this atlas as a powerful asset for cattle genetics and genomics, selective breeding, and comparative biology.",
+      "authors": [
+        "Jun Teng",
+        "Houcheng Li",
+        "Jian Yang",
+        "Jingsheng Lu",
+        "Chongwei Duan",
+        "Zhujun Chen",
+        "Xinyi Zhang",
+        "Xiuxin Zhao",
+        "Fen Pei",
+        "Xiaoping Wu",
+        "Pengju Zhao",
+        "Haihan Zhang",
+        "Hongding Gao",
+        "Lewei Guo",
+        "Dan Wang",
+        "Chao Ning",
+        "Huiming Liu",
+        "Guosheng Su",
+        "Rongling Li",
+        "Yundong Gao",
+        "Jianbin Li",
+        "Qin Zhang",
+        "Lingzhao Fang",
+        "Xiao Wang"
+      ],
+      "categories": [],
+      "published": "2026-09-11",
+      "updated": "2026-09-11",
+      "url": "https://doi.org/10.64898/2026.09.05.749592",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/09/11/2026.09.05.749592.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0,
+        "world_model": 0.0036,
+        "whole_body_control": 0.0288,
+        "dexterous_manipulation": 0.0633,
+        "sim2real_data": 0.0096,
+        "hardware_unitree": 0.0271,
+        "bci_neural_decoding": 0.0619,
+        "bci_foundation_models": 0.0851,
+        "bci_embodied_robot": 0.0,
+        "bci_noninvasive_eeg": 0.1003,
+        "protein_ai": 0.165,
+        "genomics_ai": 0.5
+      },
+      "best_route": "genomics_ai",
+      "relevance_raw": 0.2277,
+      "first_seen": "2026-09-15",
+      "analysis": {
+        "tldr": "构建了牛血液代谢组与全基因组数据匹配的大规模图谱，系统定位了数千个代谢物数量性状位点（mQTL），揭示其在不同泌乳阶段的动态调控规律，并通过多组织eQTL和单细胞图谱将大部分mQTL锚定到肝脏等关键组织，进而推断出数百条从基因→组织→代谢物→经济性状的因果通路。",
+        "org": "中国农业大学",
+        "country": "CN",
+        "org_type": "university",
+        "claim": "牛 circulating metabolome 的遗传调控具有高度情境依赖性，其主效调控枢纽是肝脏，且可通过多组学整合解析出可解释、可验证的基因-组织-代谢物-性状因果级联。",
+        "method_components": [
+          "dataset",
+          "benchmark"
+        ],
+        "input": "牛血浆/血清代谢物丰度数据 + 全基因组序列型基因型数据 + 多组织eQTL数据 + 单细胞转录组图谱 + 11个复杂性状表型",
+        "output": "mQTL位点图谱、mQTL-eQTL共定位结果、肝主导的组织优先级排序、538条因果级联路径、跨物种保守性评估",
+        "robot_dependency": "none",
+        "data_dependency": "无机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": "cross-tissue",
+        "reproducibility": "project-page",
+        "tags": [
+          "dataset",
+          "benchmark",
+          "open-source"
+        ],
+        "novelty": 7,
+        "evidence": 10,
+        "reproducibility_score": 6,
+        "significance": 76,
+        "significance_reason": "属农业基因组学领域重大资源型工作：样本量大（4651头）、代谢物覆盖广（超3400种血浆+4800种血清）、动态生理分期精细（泌乳阶段）、多组学整合扎实（eQTL+scRNA-seq+性状），并产出可追溯的因果级联；但未提出新算法模型，也未解决人类代谢遗传研究中长期存在的因果推断根本难题（如混杂偏倚、反向因果），创新本质是高质量规模化实证测绘，非范式突破。",
+        "one_sentence_verdict": "工程整合：在牛这一重要农业物种上完成了迄今最系统、最动态、最跨尺度的代谢遗传图谱构建与因果解析，资源价值高、实证扎实，但未催生新方法论或颠覆性生物学机制发现。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 6.8,
+        "content": 23.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 29.8,
+        "bonus": 0.0,
+        "total": 29.8
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "2606.08059",
       "doi": "10.48550/arxiv.2606.08059",
       "source_kind": "arxiv",
@@ -249146,6 +249331,91 @@
       "grade": "D",
       "read_priority": "C",
       "thumb": "assets/thumbs/2609.08958.jpg"
+    },
+    {
+      "arxiv_id": "2609.08305",
+      "doi": "10.48550/arxiv.2609.08305",
+      "source_kind": "arxiv",
+      "title": "FPicker: Topology-Guided Evolution for Filament Tracing in Low-SNR Microscopy",
+      "abstract": "Automating filament tracing in Cryo-Electron Microscopy (Cryo-EM) is essential for 3D helical reconstruction but challenged by intersecting topologies and extremely low Signal-to-Noise Ratios ($\\text{SNR} = σ_s^2/σ_n^2$ < 0.1 or -10 dB). Existing paradigms fail: pixel-wise segmenters suffer from severe topological fracturing, box-based detectors face ghost center drift, sequential trackers derail due to error accumulation, and traditional active contours collapse under artificial closed-curve constraints. To resolve these bottlenecks, we present FPicker, the first topology-guided framework reconciling these incompatibilities. It unifies perception via a center-endpoint representation and an open-curve evolution module to explicitly model non-cyclic connectivity. On simulated benchmarks, FPicker outperforms top baselines by over $40\\%$ relative gain in mean spatio-angular precision (mSAP) and reduces topological gap rates by over $60\\%$ under extreme noise ($-20\\text{ dB}$). By learning intrinsic physical geometry rather than local texture, FPicker demonstrates strong potential as a resilient geometric backbone. Its zero-shot performance on the real-world EMPIAR dataset exhibits robust topological resistance, achieving a state-of-the-art 82.9\\% mSAP upon fine-tuning. Our results also suggest modeling physical priors is a highly robust path toward bridging the sim-to-real gap in signal-starved scientific imaging. The code is publicly available at: https://github.com/tomzhaosky/FPicker.",
+      "authors": [
+        "Tingyin Zhao",
+        "Mingtao Huang",
+        "Yuan Shen"
+      ],
+      "categories": [],
+      "published": "2026-09-08",
+      "updated": "2026-09-08",
+      "url": "https://arxiv.org/abs/2609.08305",
+      "pdf_url": "https://arxiv.org/pdf/2609.08305",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1076,
+        "world_model": 0.1822,
+        "whole_body_control": 0.1406,
+        "dexterous_manipulation": 0.0738,
+        "sim2real_data": 0.1268,
+        "hardware_unitree": 0.0756,
+        "bci_neural_decoding": 0.149,
+        "bci_foundation_models": 0.2365,
+        "bci_embodied_robot": 0.082,
+        "bci_noninvasive_eeg": 0.2505,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.2215
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.2741,
+      "first_seen": "2026-09-15",
+      "analysis": {
+        "tldr": "提出FPicker方法，用拓扑引导的开放曲线演化模型，在极低信噪比（-20 dB）电镜图像中精准追踪纤维状结构（如微管、肌动蛋白），解决传统分割、检测、跟踪方法因噪声和交叉拓扑导致的断裂、漂移、崩溃问题。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "建模物理几何先验（而非局部纹理）的开放曲线演化框架，能从根本上缓解低信噪比下纤维追踪的拓扑断裂问题，并实现强零样本跨域鲁棒性。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "低信噪比冷冻电镜（Cryo-EM）二维投影图像",
+        "output": "纤维中心线的拓扑连通轨迹（带端点的开放曲线）",
+        "robot_dependency": "none",
+        "data_dependency": "不依赖真实机器人数据；使用模拟电镜数据训练，验证于真实EMPIAR数据集",
+        "sim2real_status": "n/a",
+        "generalization": [
+          "cross-dataset"
+        ],
+        "reproducibility": "code-only",
+        "tags": [
+          "dataset",
+          "benchmark",
+          "open-source"
+        ],
+        "novelty": 7,
+        "evidence": 9,
+        "reproducibility_score": 5,
+        "significance": 76,
+        "significance_reason": "在信号极度匮乏的科学成像核心任务（Cryo-EM纤维追踪）上，首次系统性解耦并建模开放曲线拓扑与物理几何先验，实证效果显著（-20 dB下拓扑错误率降60%+，真实EMPIAR上达82.9% mSAP），且开源代码；但未构建通用分子几何世界模型，也未覆盖多尺度/多模态生物结构预测，故低于AlphaFold2/ESMFold等基石级工作，属扎实重磅贡献。",
+        "one_sentence_verdict": "工程整合：将几何先验、开放曲线建模与电镜物理约束深度耦合，显著提升低SNR下生物结构解析鲁棒性，但非范式变革，亦未扩展至三维结构生成或全蛋白质空间建模。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 8.2,
+        "content": 21.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 29.2,
+        "bonus": 0.0,
+        "total": 29.2
+      },
+      "grade": "D",
+      "read_priority": "C",
+      "thumb": "assets/thumbs/2609.08305.jpg"
     },
     {
       "arxiv_id": "10.64898/2026.05.27.728199",
@@ -299598,6 +299868,85 @@
       "thumb": "assets/thumbs/2609.08230.jpg"
     },
     {
+      "arxiv_id": "10.64898/2026.09.11.750898",
+      "doi": "10.64898/2026.09.11.750898",
+      "source_kind": "biorxiv",
+      "title": "PANDA: Protein All-atom Nested-tree Denoising Architecture for End-to-End Generation",
+      "abstract": "Deep generative models have expanded the scope of computational protein design, yet most approaches still separate backbone generation from sequence assignment or rely on latent and torsional representations that do not operate directly on all atoms in Cartesian space. We present PANDA, an end-to-end generative architecture that performs denoising in a unified all-atom representation, recovering sequence identity directly from atomic occupancy patterns. By coupling global and local coordinate tracks and introducing a sampling strategy that preserves side-chain geometry, PANDA achieves the highest self-consistency design success across protein lengths among evaluated all-atom methods. For functional design it conditions on pairwise distances between motif atoms rather than fixing their coordinates, allowing the functional atoms to be positioned jointly with the scaffold. On the Atomic Motif Enzyme benchmark, PANDA preserves motif geometry and delivers substantially higher scaffolding success than previous approaches, particularly for larger motifs. PANDA thus provides an efficient route to high-quality all-atom generative design with flexible atomic-level control.",
+      "authors": [
+        "Jie Bai",
+        "Huifeng Jiang"
+      ],
+      "categories": [],
+      "published": "2026-09-13",
+      "updated": "2026-09-13",
+      "url": "https://doi.org/10.64898/2026.09.11.750898",
+      "pdf_url": "https://doi.org/10.64898/2026.09.11.750898",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.1434,
+        "world_model": 0.254,
+        "whole_body_control": 0.1521,
+        "dexterous_manipulation": 0.1203,
+        "sim2real_data": 0.1492,
+        "hardware_unitree": 0.084,
+        "bci_neural_decoding": 0.192,
+        "bci_foundation_models": 0.2037,
+        "bci_embodied_robot": 0.0812,
+        "bci_noninvasive_eeg": 0.1481,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.3743
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.4273,
+      "first_seen": "2026-09-15",
+      "analysis": {
+        "tldr": "提出PANDA模型，直接在全原子笛卡尔空间中进行去噪生成，端到端同时输出蛋白质主链和侧链的全部原子坐标及对应氨基酸序列，无需分步建模或隐式表示。",
+        "org": "unknown",
+        "country": "unknown",
+        "org_type": "unknown",
+        "claim": "全原子笛卡尔空间下的端到端去噪生成可直接从原子密度模式恢复序列身份，并通过解耦全局-局部坐标流与几何感知采样实现高自洽性与功能基序柔性嵌入。",
+        "method_components": [
+          "model",
+          "benchmark",
+          "dataset"
+        ],
+        "input": "初始噪声全原子结构（含主链+侧链所有原子）或功能基序原子对距离约束",
+        "output": "去噪后的全原子3D结构（含所有重原子坐标）及对应氨基酸序列",
+        "robot_dependency": "none",
+        "data_dependency": "none",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "none",
+        "tags": [
+          "multimodal-fusion"
+        ],
+        "novelty": 7,
+        "evidence": 6,
+        "reproducibility_score": 0,
+        "significance": 52,
+        "significance_reason": "技术路径有实质性推进（全原子端到端去噪+序列联合恢复），但在基准覆盖（仅Atomic Motif Enzyme）、消融不充分、无开源代码/模型、未与ESMFold/Chroma/Protpardelle等主流方法全面对比、也未验证泛化到非酶/跨fold设计等关键维度，属扎实但窄域的增量贡献。",
+        "one_sentence_verdict": "扎实增量：首次实现全原子空间端到端序列-结构联合生成，但实证深度与广度不足，尚未达到领域基石级影响力。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 12.8,
+        "content": 13.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 25.8,
+        "bonus": 0.0,
+        "total": 25.8
+      },
+      "grade": "D",
+      "read_priority": "C"
+    },
+    {
       "arxiv_id": "2606.00933",
       "doi": "10.48550/arxiv.2606.00933",
       "source_kind": "arxiv",
@@ -340982,6 +341331,100 @@
         "base": 16.1,
         "bonus": 0.0,
         "total": 16.1
+      },
+      "grade": "D",
+      "read_priority": "D"
+    },
+    {
+      "arxiv_id": "10.64898/2026.09.04.749322",
+      "doi": "10.64898/2026.09.04.749322",
+      "source_kind": "biorxiv",
+      "title": "Integrated in silico identification of fungal-derived dual-target inhibitors for anti- schistosomal drug discovery",
+      "abstract": "Abstract Praziquantel, which has limited efficacy against young parasites and reduces susceptibility, is the principal therapy for schistosomiasis, a neglected tropical illness. This work identified fungal- derived compounds with potential dual inhibitory action against Schistosoma mansoni DHODH and cathepsin B1 using an integrated computational method. From 1,831 fungal metabolites, 120 were selected for molecular docking after structure standardisation, drug-likeness evaluation, ADMET, and toxicity screening. Ganoderlactone B (CID_122184973) and Spiroapplanatumine F (CID_132962217) strongly bound to DHODH and CB1, with docking affinities of −10.6 and −10.0 kcal/mol and -9.0 and -8.9, respectively. Docking validation showed good discrimination between active compounds and decoys with area-under-the-curve values of 0.98 for DHODH and 0.96 for CB1. The protein-ligand interaction study showed hydrogen bonding, hydrophobic interactions, and van der Waals contacts at the binding sites. In 100 ns molecular dynamics simulations, protein complexes exhibited modest backbone deviations and maintained compactness, although CID_132962217 showed sustained binding and a constrained conformation. MM-PBSA analysis identified CID_122184973 as the best common ligand for both targets. At the B3LYP/6-31G level, density functional theory calculations showed that CID_139584993 had the lowest HOMO-LUMO energy gap and hardness values of 3.552 and 1.776 eV, respectively, and the highest softness value of 0.282 eV -1 , indicating greater electronic reactivity. Electrostatic potential mapping and QSAR predictions supported their interaction and antiparasitic potential. Overall, CID_122184973 and CID_132962217 are promising fungal scaffolds for dual-target anti-schistosomal drug development. Experimental enzyme inhibition, parasite viability, toxicity, and in vivo research are needed to confirm computational findings.",
+      "authors": [
+        "Tamal Paul",
+        "Md. Al-Amin",
+        "Uma Shill",
+        "Nowshin Tabassum",
+        "Kaniz Fatema",
+        "Easin Al Rial",
+        "Milon Kumar Sarkar",
+        "Ahmad Abdullah Mahdeen",
+        "Ananya Majumder",
+        "Aminum Naher",
+        "Fubliha Firose Auishe",
+        "Fariha Bushra Khan",
+        "Foisal Ahmad",
+        "Hossain Bin Afridy",
+        "Md. Ashik Iqbal",
+        "Arnob Biswas",
+        "Khandokar Fahmida Sultana",
+        "Sanjay Dutta",
+        "Sabrin Bashar"
+      ],
+      "categories": [],
+      "published": "2026-09-08",
+      "updated": "2026-09-08",
+      "url": "https://doi.org/10.64898/2026.09.04.749322",
+      "pdf_url": "https://www.biorxiv.org/content/biorxiv/early/2026/09/08/2026.09.04.749322.full.pdf",
+      "cited_by_count": 0,
+      "route_scores": {
+        "vla": 0.0254,
+        "world_model": 0.0422,
+        "whole_body_control": 0.0068,
+        "dexterous_manipulation": 0.0581,
+        "sim2real_data": 0.0242,
+        "hardware_unitree": 0.018,
+        "bci_neural_decoding": 0.0101,
+        "bci_foundation_models": 0.0159,
+        "bci_embodied_robot": 0.0695,
+        "bci_noninvasive_eeg": 0.0422,
+        "protein_ai": 0.5,
+        "genomics_ai": 0.252
+      },
+      "best_route": "protein_ai",
+      "relevance_raw": 0.2793,
+      "first_seen": "2026-09-15",
+      "analysis": {
+        "tldr": "用计算方法从1831种真菌代谢物中筛选出两种能同时抑制血吸虫两个关键靶点（DHODH和组织蛋白酶B1）的化合物，全程未做任何实验验证，仅依赖分子对接、分子动力学和量子化学计算。",
+        "org": "unknown",
+        "country": "Other",
+        "org_type": "unknown",
+        "claim": "真菌来源的Ganoderlactone B和Spiroapplanatumine F是具有双重靶向潜力的抗血吸虫先导化合物。",
+        "method_components": [
+          "model",
+          "dataset",
+          "benchmark"
+        ],
+        "input": "1831个真菌代谢物的SMILES结构、Schistosoma mansoni DHODH和cathepsin B1的蛋白质三维结构",
+        "output": "两个预测性高亲和力双靶点小分子及其结合稳定性、电子反应性等理论表征",
+        "robot_dependency": "none",
+        "data_dependency": "无真实机器人数据依赖",
+        "sim2real_status": "n/a",
+        "generalization": "limited",
+        "reproducibility": "none",
+        "tags": [],
+        "novelty": 3,
+        "evidence": 4,
+        "reproducibility_score": 0,
+        "significance": 25,
+        "significance_reason": "纯in silico筛选，无实验验证（作者明确承认需后续酶活/寄生虫活性/体内实验），靶点选择未突破既有认知，方法组合（对接+MD+DFT）属常规流程，无新算法、无新基准、无开源代码或数据，未与已知药物（如PZQ）做头对头比较，亦未评估脱靶或选择性风险。",
+        "one_sentence_verdict": "暂时不用看：仅是标准计算流水线对已有数据库的例行筛选，零实证支撑，未解决任何领域内开放性问题，也未提供可复现资源。",
+        "_llm": "qwen-plus"
+      },
+      "signals": {
+        "hf_upvotes": 0,
+        "citations": 0,
+        "venue": ""
+      },
+      "scores": {
+        "relevance": 8.4,
+        "content": 7.0,
+        "heat": 0.0,
+        "quality": 0.0,
+        "base": 15.4,
+        "bonus": 0.0,
+        "total": 15.4
       },
       "grade": "D",
       "read_priority": "D"
