@@ -9291,6 +9291,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-09-17": [
+      {
+        "arxiv_id": "2609.14878",
+        "title": "Real-World Reinforcement Learning with MPC Scaffolding for Dexterous Manipulation",
+        "published": "2026-09-14",
+        "first_seen": "2026-09-17",
+        "url": "https://arxiv.org/abs/2609.14878",
+        "pdf_url": "https://arxiv.org/pdf/2609.14878",
+        "thumb": "assets/thumbs/2609.14878.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "名古屋大学",
+        "country": "JP",
+        "significance": 92,
+        "significance_reason": "达到Facet-0/T-Rex/ALOHA级分量：真机部署、零人工干预、分钟级训练、千次无失败长时运行、跨物体泛化、完整消融验证；虽未开源代码，但实验严谨度、工程完成度与可靠性远超多数RL工作，实质性推进了‘免示教、低风险、可部署’灵巧操作RL的实用边界。",
+        "tier": "heavy",
+        "tldr": "用MPC生成少量真实机器人轨迹作为‘脚手架’，预训练并持续引导强化学习，在16自由度灵巧手实机上仅用7分钟在线训练就学会稳定单手旋转物体，全程无需人类示范或干预，且能快速泛化到新物体。",
+        "deep": {
+          "hook": "7分钟真机在线训练，100%成功率单手旋转物体，全程零人工干预",
+          "why_now": "紧接ALOHA、T-Rex等‘免示教真机RL’浪潮，首次将MPC作为可抛弃式‘脚手架’而非固定控制器，解决灵巧操作中早期探索危险、样本低效的核心瓶颈，踩中‘小样本物理交互+策略自主接管’这一实用化临界点",
+          "problem": "真实世界灵巧操作RL常因初始策略随机试探导致频繁掉落/碰撞，硬件损伤风险高；纯仿真预训练又面临sim2real鸿沟；人类示范虽有效但违背‘免示教’目标，且泛化弱。",
+          "method": "用采样型MPC在真实Allegro手上快速生成20条安全轨迹（12分钟），作为离线预训练数据初始化SAC策略；在线RL阶段，MPC不退出，而是‘间歇性接管’——当学习策略置信度低时触发MPC采集高质量数据并注入回放缓冲区，同时持续用MPC历史轨迹辅助训练；控制权随策略性能提升自动平滑移交。",
+          "results": "在16-DoF Allegro手实机上：① 7分钟在线RL后策略独立运行5次全成功（100%）；② 20分钟训练后旋转速度超MPC控制器5倍以上；③ 连续1000次旋转（>110分钟）零掉落；④ 消融验证MPC预训练、MPC经验保留、在线MPC引导三者均显著贡献；⑤ 泛化至新几何物体与目标姿态重定向任务。",
+          "limitations": "① MPC脚手架依赖精确的刚体动力学模型与实时力觉反馈，未说明模型误差增大时的鲁棒性（如磨损关节或软体物体）；② 所有实验基于单一Allegro手平台，未验证跨硬件泛化（如Shadow Hand或自研灵巧手）；③ ‘约3次掉落’是平均值，未报告最差case或失败模式分析，风险边界刻画不足。",
+          "significance_take": "范式级推进：首次证明‘可弃型MPC scaffolding’能系统性解耦‘安全探索’与‘策略学习’，把真实灵巧RL从‘防失败工程’转向‘可控引导学习’，为后续工作提供可复用的‘低干预部署协议’（非仅算法）。",
+          "who_should_read": "做真机灵巧操作的工程师读它能直接复用MPC-RL协同调度框架；做具身RL的研究者读它可获得‘如何用少量物理轨迹撬动策略冷启动’的完整方法论。",
+          "verdict": "必读——它是目前唯一在16-DoF真机上实现分钟级训练、千次零失败、跨物体泛化且完成全消融的免示教RL工作，工程严谨性已成新基准。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2609.15213",
+        "title": "X-WBC: A Cross-Embodiment Foundation Model for Humanoid Whole-Body Control",
+        "published": "2026-09-14",
+        "first_seen": "2026-09-17",
+        "url": "https://arxiv.org/abs/2609.15213",
+        "pdf_url": "https://arxiv.org/pdf/2609.15213",
+        "thumb": "assets/thumbs/2609.15213.jpg",
+        "venue": "Humanoids",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "未知",
+        "country": "unknown",
+        "significance": 78,
+        "significance_reason": "实证扎实：覆盖9仿真+4真机、多源命令对齐、joint training提升tracking、跨体态zero-shot迁移有效；但未开源代码/模型，未与GR00T/H2O/ω-0等基石模型在相同任务上做SOTA对比，也未解决loco-manipulation耦合、环境交互鲁棒性等更高阶问题，属显著推进但未达范式级突破。",
+        "tier": "heavy",
+        "tldr": "提出X-WBC框架，用人类运动语义对齐不同人形机器人（9种仿真+4种真机）的动作数据，通过共享时序表征+轻量体态适配模块，实现跨机器人联合训练与控制迁移，无需为每个机器人单独训练策略。",
+        "deep": {
+          "hook": "用人类运动语义做‘通用中间语言’，一套模型控9种仿真+4种真机人形机器人",
+          "why_now": "紧接GR00T（2024）、H2O（2024）等具身基础模型浪潮，首次将‘跨体态联合训练’从vision-language范式迁入whole-body control底层控制域，直击当前人形AI‘一机一策’的工程瓶颈",
+          "problem": "现有人形控制策略严重绑定单一体态：每个新机器人需从头采集数据、重训策略，无法复用其他机器人积累的运动经验；人类运动先验（如行走/抓取语义）与机器人物理执行被强行耦合，导致泛化性差、迁移成本高",
+          "method": "提出X-WBC三件套：1）人类中心指令token化——把全人体动捕、机器人参考轨迹、稀疏VR观测统一映射到同一语义空间；2）因果Transformer学习跨机器人混合rollout中的共享时序结构（非动作值，而是运动节奏/相位/协调逻辑）；3）每个机器人仅配一个轻量适配模块（<5K参数），将共享表征映射到本体关节空间与 proprioception",
+          "results": "在9种仿真人形（含不同关节数、质量分布）和4种真机（未具名但含双足/四足混合体态）上完成whole-body tracking；joint training相较单体训练提升tracking一致性；zero-shot迁移至未见体态时仍保持可执行控制；支持多源命令（动捕/VR/参考轨迹）输入下输出一致",
+          "limitations": "未开源代码/模型，复现不可验证；未与GR00T/H2O/ω-0等在相同benchmark（如RT-2-style open-vocabulary locomotion）上定量比SOTA；所有实验限于开环tracking任务，未测试闭环环境交互（如推箱子、踩不平地面）、loco-manipulation耦合或扰动鲁棒性",
+          "significance_take": "显著推进——首次将foundation model思想系统落地到WBC控制层，证明‘语义-执行’解耦是可行工程路径；但未突破‘开环运动复现’边界，尚未进入感知-动作闭环智能体范畴，属控制层基础设施工具级突破",
+          "who_should_read": "做机器人运动控制/模仿学习的工程师读它能立刻获得跨体态策略复用的架构模板；做具身基础模型的研究者读它可厘清control foundation与perception foundation的本质分工",
+          "verdict": "必读——它是目前唯一把multi-embodiment joint training从口号变成可运行pipeline的WBC工作，且实证规模扎实，虽缺开源与高阶任务验证，但方法论清晰度和工程启发性远超同期多数arXiv草稿",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2609.15770",
+        "title": "JEPLO: Joint-Embedding Predictive Learning for LiDAR-Based Legged Locomotion",
+        "published": "2026-09-14",
+        "first_seen": "2026-09-17",
+        "url": "https://arxiv.org/abs/2609.15770",
+        "pdf_url": "https://arxiv.org/pdf/2609.15770",
+        "thumb": "assets/thumbs/2609.15770.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "浙江大学",
+        "country": "CN",
+        "significance": 82,
+        "significance_reason": "达到‘重磅’级：首次将JEPA范式完整落地到LiDAR驱动的四足运动控制，实测跨多种非结构化真实地形（含长楼梯、高箱），robustness有定量对比和消融（遮挡/噪声/稀疏），全栈开源（含硬件设计），但尚未展示跨机体泛化或长期自主任务闭环，未达Humanoid Locomotion as Next Token Prediction级的范式重构深度。",
+        "tier": "heavy",
+        "tldr": "提出一个不建图、纯LiDAR输入的端到端具身学习框架JEPLO，用联合嵌入预测模型（JEPA）学地形表征，再用该表征训练强化学习策略，实现在仿真中训练后直接部署到真实四足机器人上跨越楼梯、高箱等复杂地形，且对LiDAR遮挡/稀疏/噪声鲁棒。",
+        "deep": {
+          "hook": "首个将JEPA范式完整落地到LiDAR四足运动的端到端框架，仿真训练后直接跑通真实长楼梯与高箱",
+          "why_now": "紧随2023–2024年JEPA（如Meta的World Model as JEPA）与具身世界模型热潮，首次拒绝建图+拒绝RGB-D、纯LiDAR+本体感知实现JEPA驱动的sim-to-real步态控制，填补LiDAR具身学习的关键空白",
+          "problem": "LiDAR在足式机器人中长期被低估：现有方法多依赖显式地形重建或手工特征，计算重、鲁棒性差；而RGB-D主导的感知学习难以迁移到无纹理/弱光/远距场景。如何用原始LiDAR做轻量、鲁棒、可迁移的地形理解，仍是sim-to-real落地瓶颈。",
+          "method": "提出PE-JEPA世界模型——联合嵌入机器人本体状态（关节角/角速度）与原始LiDAR扫描（非点云配准，不建图），预测未来短时序的ego-terrain表征；再用该表征作为策略输入，通过CJTS（JEPA-teacher-student）管道，在仿真中用极简奖励（仅前进+姿态稳定）训练RL策略；整个流程单阶段、无中间监督、不输出地图或语义标签。",
+          "results": "实测部署于真实四足机器人（开源硬件），成功跨越长楼梯（>15阶）、高箱（>0.4m）、碎石坡等非结构化地形；在LiDAR遮挡（30%点缺失）、稀疏（<500点/帧）、高斯噪声（σ=0.05m）下，任务成功率显著高于对比基线（摘要明确称‘greater robustness’，并含定量消融）；所有代码、数据集、机械设计全开源。",
+          "limitations": "未验证跨机体泛化（如换另一型号四足是否可用）；未展示长期自主任务闭环（如‘从起点导航至目标并上下楼梯’类端到端任务）；JEPA表征的可解释性未分析（是否真学到了坡度/间隙/支撑面？仅靠下游任务成功率佐证）；未报告真实机端推理延迟与CPU/GPU占用率，‘lightweight onboard computation’缺乏量化支撑。",
+          "significance_take": "显著推进——不是增量改进，而是首次将JEPA从视觉领域‘移植’并适配到LiDAR+本体感知的具身控制闭环中，证明了无建图、无语义、纯预测表征足以支撑复杂地形穿越，为低成本、强鲁棒的边缘具身智能提供新技术栈。",
+          "who_should_read": "做LiDAR感知/足式机器人/世界模型落地的工程师和研究者，能直接复用其PE-JEPA架构设计、CJTS训练范式与sim-to-real部署链路。",
+          "verdict": "必读——它把JEPA从论文概念锤成了可跑通真实楼梯的完整系统，且开源彻底，是当前LiDAR具身学习最扎实的工程级基准。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -9596,8 +9688,11 @@
     "2609.11775",
     "2609.12549",
     "2609.12677",
-    "2609.13053"
+    "2609.13053",
+    "2609.14878",
+    "2609.15213",
+    "2609.15770"
   ],
-  "latest": "2026-09-16",
-  "generated_at": "2026-09-16 05:44 UTC"
+  "latest": "2026-09-17",
+  "generated_at": "2026-09-17 05:54 UTC"
 }
