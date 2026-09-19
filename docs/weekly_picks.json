@@ -1,16 +1,15 @@
 {
   "week": {
-    "start": "2026-09-12",
-    "end": "2026-09-18",
-    "label": "09.12~09.18"
+    "start": "2026-09-13",
+    "end": "2026-09-19",
+    "label": "09.13~09.19"
   },
   "count": 15,
   "venue_count": 2,
   "venues": [
-    "Humanoids",
-    "ICRA 2026"
+    "Humanoids"
   ],
-  "generated_at": "2026-09-18 05:41 UTC",
+  "generated_at": "2026-09-19 05:33 UTC",
   "picks": [
     {
       "rank": 1,
@@ -52,6 +51,124 @@
     },
     {
       "rank": 2,
+      "arxiv_id": "2609.18207",
+      "title": "Reinforcement Learning for Real-Time Vision-Language-Action Policies",
+      "published": "2026-09-16",
+      "url": "https://arxiv.org/abs/2609.18207",
+      "pdf_url": "https://arxiv.org/pdf/2609.18207",
+      "thumb": "assets/thumbs/2609.18207.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "斯坦福",
+      "country": "US",
+      "org_type": "university",
+      "significance": 88,
+      "significance_reason": "在RT-2（97）、DAM-VLA（96）等里程碑之后，首次系统性攻克VLA模型实时控制失配这一阻碍落地的核心工程瓶颈；实证扎实：覆盖4种异构真实机器人硬件、10个Kinetix仿真环境、多任务性能碾压所有基线（含非延迟方法），且仅用10分钟在线数据即完成适配——这是目前最接近'开箱即用VLA实时控制'的完整闭环方案，但尚未达到范式级突破（如RT-2定义VLA范式）。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "real-robot",
+        "multimodal-fusion"
+      ],
+      "tldr": "这篇论文提出Real-Time EXPO-FT框架，解决大视觉语言动作（VLA）模型因推理延迟导致动作过时的问题：用一个大模型生成粗粒度动作块，再用轻量编辑策略基于最新观测实时修正动作，从而在真实机器人上实现低延迟、高可靠性、仅10分钟在线数据就能将任务成功率从42%提升到97%。",
+      "claim": "通过解耦‘慢而强’的动作生成与‘快而敏’的动作编辑，RL微调可在严格实时约束下显著提升延迟VLA策略在动态真实机器人任务中的可靠性与适应性。",
+      "method_components": [
+        "model",
+        "benchmark",
+        "real-robot"
+      ],
+      "input": "RGB图像+语言指令+当前机器人状态（隐含于观测）",
+      "output": "编辑后的动作块/轨迹（用于执行）",
+      "novelty": 8,
+      "evidence": 11,
+      "one_sentence_verdict": "真突破：不是概念包装，而是直击VLA落地中最顽固的延迟-可靠性矛盾，并用可复现的解耦架构+真实硬件验证给出工程可行解。",
+      "deep": {}
+    },
+    {
+      "rank": 3,
+      "arxiv_id": "2609.18732",
+      "title": "PASSAGE: Scaling Scene-Aligned Motion Learning for Perceptive Humanoid Traversal in Cluttered Environments",
+      "published": "2026-09-16",
+      "url": "https://arxiv.org/abs/2609.18732",
+      "pdf_url": "https://arxiv.org/pdf/2609.18732",
+      "thumb": "assets/thumbs/2609.18732.jpg",
+      "venue": "Humanoids",
+      "domain": "embodied_ai",
+      "best_route": "whole_body_control",
+      "org": "智元",
+      "country": "CN",
+      "org_type": "company",
+      "significance": 82,
+      "significance_reason": "达到‘重磅’级：首次在真实双足机器人上实现无预设技能库、无障碍类型先验、全 onboard 的几何感知驱动穿越行为自主组合；实证扎实（50个物理新布局测试+消融+数据缩放曲线+Jetson实时部署），但未开新范式（仍属planner-tracker分治架构，非next-token或world model统一建模），略逊于Human-as-Humanoid（零样本人体视频迁移）和H2O（多模态闭环世界模型）等基石工作。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "perception-planning",
+        "real-robot",
+        "large-scale",
+        "dataset"
+      ],
+      "tldr": "用100小时人类在杂乱场景中的动作捕捉数据训练一个感知驱动的规划-跟踪框架，让双足机器人能实时根据激光雷达输入自主选择跨、挤、蹲等行为穿越未知障碍物，全程 onboard 运行，不依赖预建地图或离线计算。",
+      "claim": "仅靠场景对齐的人类运动数据和机器人本体感知（LiDAR+IMU），无需技能标注或障碍特化策略，即可实现泛化至未见几何布局的端到端双足穿越行为自主编排与执行。",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "policy",
+        "benchmark",
+        "hardware"
+      ],
+      "input": "机器人本体坐标系下的多层高程图（来自3D LiDAR）、历史运动序列、局部目标点",
+      "output": "短时域运动参考轨迹（位置/姿态/接触状态）及实时全身关节控制指令",
+      "novelty": 7,
+      "evidence": 10,
+      "one_sentence_verdict": "工程整合：将大规模人类运动对齐数据、轻量化多层高程表征、冻结跟踪器上的RL后训练等技术深度耦合，在真实双足平台上达成鲁棒跨场景穿越，是当前具身智能落地的重要工程里程碑，但理论范式未突破。",
+      "deep": {}
+    },
+    {
+      "rank": 4,
+      "arxiv_id": "2609.18455",
+      "title": "ForwardDLO: Model-Based Bimanual Shape Matching of Unconstrained Deformable Linear Objects",
+      "published": "2026-09-16",
+      "url": "https://arxiv.org/abs/2609.18455",
+      "pdf_url": "https://arxiv.org/pdf/2609.18455",
+      "thumb": "assets/thumbs/2609.18455.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "马克斯·普朗克智能系统研究所",
+      "country": "EU",
+      "org_type": "institute",
+      "significance": 86,
+      "significance_reason": "在DLO控制这一长期开放难题上，首次实现双臂任意抓取点+无固定约束+实时闭环的高成功率（98%）真实部署；证据扎实：真机多绳种测试、与多个强基线对比、消融证实轻量化设计有效性、全栈开源；但尚未扩展至动态交互（如绕桩、穿孔）或非线性大形变（打结），未达Facet-0/T-Rex级范式突破。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "dataset",
+        "benchmark",
+        "open-source",
+        "real-robot"
+      ],
+      "tldr": "提出ForwardDLO模型，用轻量级循环潜动力学模型预测未固定绳索在双臂操作下的分段位移，实现高效开环形状匹配——不依赖显式段间关系建模，显著提升候选动作评估吞吐量，在真实绳索形状控制任务中达到98%成功率（基线最高仅30%）。",
+      "claim": "在无固定、双臂任意抓取点操作的通用可变形线状物体（DLO）形状控制任务中，一个无需显式段间建模的轻量级循环潜动力学模型，能在固定计算预算下大幅扩展可评估动作空间，并实现实时、高成功率的真实世界形状匹配。",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "benchmark"
+      ],
+      "input": "RGB图像+深度图推导的绳索分段中心线状态（2D/3D关键点序列）、双臂当前抓取位置与姿态",
+      "output": "每段绳索的下一时刻位移向量（Δx, Δy, Δz）",
+      "novelty": 7,
+      "evidence": 10,
+      "one_sentence_verdict": "重磅——解决了DLO双臂形状控制中计算效率与真实性能不可兼得的核心矛盾，证据充分、部署完整、开源彻底，是近3年DLO领域最扎实的工程-算法协同突破。",
+      "deep": {}
+    },
+    {
+      "rank": 5,
       "arxiv_id": "2609.14254",
       "title": "Embracing Flow Unsteadiness: A High-Throughput Learning Platform Enables Vortex-Exploiting Bioinspired Propulsion",
       "published": "2026-09-13",
@@ -89,7 +206,46 @@
       "deep": {}
     },
     {
-      "rank": 3,
+      "rank": 6,
+      "arxiv_id": "2609.18174",
+      "title": "TacBPM: A Tactile-conditioned Behavior Prior Model for Dexterous Reorientation",
+      "published": "2026-09-16",
+      "url": "https://arxiv.org/abs/2609.18174",
+      "pdf_url": "https://arxiv.org/pdf/2609.18174",
+      "thumb": "assets/thumbs/2609.18174.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "清华大学",
+      "country": "CN",
+      "org_type": "university",
+      "significance": 86,
+      "significance_reason": "在灵巧操作核心难点——接触敏感、几何自适应、多自由度协调——上，提供了可复用、可迁移、可残差注入的行为先验范式；实验覆盖从单手in-hand到arm-hand协同、从各向异性物体到未知工具几何、从命令轴旋转到Grasp-to-AnyPose全流程，并完成多场景sim2real部署；虽未达Facet-0/T-Rex级基础模型规模与传感器通用性，但在触觉驱动的隐式行为抽象与策略复用机制上形成明确技术增量，证据强度（真机多任务+消融+跨几何泛化）支撑其进入重磅贡献档（75–89）上沿。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "tactile",
+        "dexterous",
+        "sim2real",
+        "multimodal-fusion"
+      ],
+      "tldr": "提出一个基于触觉-本体感历史的隐式行为先验模型TacBPM，用多尺度球面专家蒸馏出固定触觉先验，下游策略通过残差隐动作复用该先验，显著加速训练并提升灵巧重定向任务（如抓取后任意姿态调整、工具泛化）的稳定性，且在仿真和真实机器人上均验证有效。",
+      "claim": "固定触觉条件下的隐式行为先验可被下游策略以残差方式复用，从而在接触丰富、几何敏感的灵巧重定向任务中大幅降低探索难度并提升sim2real泛化性。",
+      "method_components": [
+        "model",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "input": "时序触觉图像+本体感序列（关节位置/速度）",
+      "output": "残差隐动作（latent action delta），用于驱动下游策略生成关节力矩或目标位置",
+      "novelty": 7,
+      "evidence": 10,
+      "one_sentence_verdict": "真突破：它不是刷榜或包装，而是首次将触觉历史蒸馏为可冻结、可残差复用的隐式行为先验，并在真实灵巧操作闭环任务中验证了该设计对稳定性与泛化的实质性提升。",
+      "deep": {}
+    },
+    {
+      "rank": 7,
       "arxiv_id": "2609.16331",
       "title": "ManiSkillFormer: Demonstration-Free Compositional Manipulation via Task-Conditioned Geometric Contracts",
       "published": "2026-09-14",
@@ -128,7 +284,7 @@
       "deep": {}
     },
     {
-      "rank": 4,
+      "rank": 8,
       "arxiv_id": "2609.15213",
       "title": "X-WBC: A Cross-Embodiment Foundation Model for Humanoid Whole-Body Control",
       "published": "2026-09-14",
@@ -168,7 +324,7 @@
       "deep": {}
     },
     {
-      "rank": 5,
+      "rank": 9,
       "arxiv_id": "2609.15770",
       "title": "JEPLO: Joint-Embedding Predictive Learning for LiDAR-Based Legged Locomotion",
       "published": "2026-09-14",
@@ -207,7 +363,7 @@
       "deep": {}
     },
     {
-      "rank": 6,
+      "rank": 10,
       "arxiv_id": "2609.17372",
       "title": "XPACE: Joint World and Action Modeling from Heterogeneous Experience",
       "published": "2026-09-15",
@@ -247,7 +403,7 @@
       "deep": {}
     },
     {
-      "rank": 7,
+      "rank": 11,
       "arxiv_id": "2609.15870",
       "title": "WLA$^3$: World Latent Action Modeling for Semantics, Dynamics, and Kinematics",
       "published": "2026-09-14",
@@ -287,45 +443,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
-      "arxiv_id": "2609.14173",
-      "title": "GIFT: Glove-Inferred Force Transfer: Force-Aware Human-to-Robot Skill Transfer from a Wearable Sensing Glove to a Robot Hand Without Tactile Sensors",
-      "published": "2026-09-12",
-      "url": "https://arxiv.org/abs/2609.14173",
-      "pdf_url": "https://arxiv.org/pdf/2609.14173",
-      "thumb": "assets/thumbs/2609.14173.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "unknown",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 82,
-      "significance_reason": "真机部署验证了跨硬件力通道迁移的可行性（非仿真/非小样本），在抓握任务中定量证明力输入显著降低握力（p<0.0001）、提升节能性与可控性；虽未达Facet-0/T-Rex级范式颠覆，但绕过触觉硬件依赖这一长期瓶颈，属扎实的重大工程突破，证据强度（50次rollout+消融+力量化对比）远超同类概念工作。",
-      "tier": "heavy",
-      "grade": "D",
-      "tags": [
-        "dexterous",
-        "teleoperation",
-        "sim2real"
-      ],
-      "tldr": "用普通手套测人手弯曲和校准过的指尖力，再通过头戴相机拍演示动作；机器人不装任何触觉传感器，只靠电机电流残差估计自身指尖力（单位牛顿），再用两个标定好的映射模块（姿态重定向+力估计）把人的力-动作关系迁移到任意位置控制机械手，成功实现更轻柔、更省力的杯子抓握。",
-      "claim": "无需机器人端触觉硬件，仅通过人类穿戴手套的力测量与机器人电机电流残差的物理标定映射，即可实现力感知层面的人到机器人灵巧操作技能迁移。",
-      "method_components": [
-        "model",
-        "dataset",
-        "hardware",
-        "policy"
-      ],
-      "input": "手套五通道弯曲信号+校准指尖力+手腕朝向+头戴相机视频",
-      "output": "七自由度机械手各指关节目标位置+实时估计的指尖力（牛顿）",
-      "novelty": 8,
-      "evidence": 9,
-      "one_sentence_verdict": "真突破：首次在无机器人触觉传感器前提下，实现牛顿级力感知的跨体技能迁移，并在真实机械手上完成统计显著的节能抓握验证。",
-      "deep": {}
-    },
-    {
-      "rank": 9,
+      "rank": 12,
       "arxiv_id": "2609.15195",
       "title": "HarnessVLN: Unifying Training-Free Embodied Navigation through an Agent Harness",
       "published": "2026-09-14",
@@ -363,7 +481,7 @@
       "deep": {}
     },
     {
-      "rank": 10,
+      "rank": 13,
       "arxiv_id": "2609.17172",
       "title": "Fingers as Legs: Learning Self-Supported Locomotion and Manipulation with an Anthropomorphic Hand",
       "published": "2026-09-15",
@@ -402,7 +520,7 @@
       "deep": {}
     },
     {
-      "rank": 11,
+      "rank": 14,
       "arxiv_id": "2609.16815",
       "title": "Rethinking Visual Embodiment Dependence in Visuomotor Policies",
       "published": "2026-09-15",
@@ -440,158 +558,40 @@
       "deep": {}
     },
     {
-      "rank": 12,
-      "arxiv_id": "2609.19554",
-      "title": "VABench: Measuring Embodied Spatial Intelligence through Visual Demonstrations, Active Perception, and Metric Control",
-      "published": "2026-09-17",
-      "url": "https://arxiv.org/abs/2609.19554",
-      "pdf_url": "https://arxiv.org/pdf/2609.19554",
-      "thumb": "assets/thumbs/2609.19554.jpg",
+      "rank": 15,
+      "arxiv_id": "2609.18651",
+      "title": "FIERCE: From Generalist Robot Policies to Fast Specialists via Progress-Failure Feedback",
+      "published": "2026-09-16",
+      "url": "https://arxiv.org/abs/2609.18651",
+      "pdf_url": "https://arxiv.org/pdf/2609.18651",
+      "thumb": "assets/thumbs/2609.18651.jpg",
       "venue": "",
       "domain": "embodied_ai",
       "best_route": "vla",
-      "org": "大连理工大学",
-      "country": "CN",
-      "org_type": "university",
-      "significance": 76,
-      "significance_reason": "VABench是首个系统性解耦‘视觉演示学习-主动感知-度量控制-执行反馈修正’四阶段的具身空间智能评测框架，设计严谨（三轮独立运行、20物理种子、9项轨迹诊断）、挑战性强（零真值位姿、零oracle轨迹、零learned action head），实证发现active camera提升近30pt、几何泛化暴跌30+pt、长程任务全失败等关键现象，显著推进评测范式；但未开源代码/模型/数据，且纯仿真、无真机验证，尚未达到RT-2/π0等基石工作所要求的‘真实世界部署级鲁棒性’或‘跨 embodiment 基础模型级扩展’。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "benchmark",
-        "sim2real",
-        "dataset"
-      ],
-      "tldr": "这篇论文构建了一个叫VABench的新评测基准，专门测试多模态大语言模型（MLLM）能否仅靠视觉演示、主动调整摄像头视角、并发出精确的笛卡尔空间指令来完成真实机器人操作任务，重点考察其在不依赖物体真值位姿、不预设动作头、不使用仿真特权信息下的完整‘观察-推理-行动-修正’闭环能力。",
-      "claim": "通用多模态大语言模型（MLLM）在无真值空间先验、无特权感知、无专用动作头的前提下，能否通过视觉演示学习+主动感知+度量级控制实现鲁棒的具身空间智能。",
-      "method_components": [
-        "benchmark",
-        "dataset",
-        "simulator"
-      ],
-      "input": "RGB视频演示 + 当前相机图像 + 执行反馈（如失败信号/部分成功状态）",
-      "output": "笛卡尔空间坐标目标点（x,y,z）及可选姿态，由固定控制器执行",
-      "novelty": 8,
-      "evidence": 9,
-      "one_sentence_verdict": "重磅贡献：它不是新模型，而是迄今最严苛、最解耦的具身空间智能评测基准，用扎实的仿真实验揭示了当前MLLM在空间闭环中的核心断点，但因无真机、无开源，暂未构成范式级突破。",
-      "deep": {}
-    },
-    {
-      "rank": 13,
-      "arxiv_id": "2609.15781",
-      "title": "When the World Lies: Backdoor Attacks on Latent World Models for Downstream Control",
-      "published": "2026-09-14",
-      "url": "https://arxiv.org/abs/2609.15781",
-      "pdf_url": "https://arxiv.org/pdf/2609.15781",
-      "thumb": "assets/thumbs/2609.15781.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
       "org": "未知",
       "country": "unknown",
       "org_type": "unknown",
       "significance": 78,
-      "significance_reason": "首次系统揭示世界模型作为‘动力学即服务’（Dynamics-as-a-Service）组件时的供应链级后门脆弱性，实证覆盖多任务、多触发机制、多下游控制器（Dreamer/MPC/CEM），且攻击具备时间门控、高劫持率（100%）、清洁诊断逃逸三大关键特征；但未涉及真实机器人部署、未提出防御方案、未挑战世界模型基础能力边界，故强于一般安全分析（60+），弱于DreamerV3/WEAVER等架构级突破（94+）。",
+      "significance_reason": "实证扎实：在两个接触丰富的真机任务上验证了反馈质量、学习效率与部署成本，对比了反馈消融、策略蒸馏效率，并开源全部代码/模型/数据恢复工具；但未跨机体泛化验证，未挑战长程操作或开放词汇任务，也未证明相较RT-2/π0等基石模型在通用性-专用性权衡上有范式级突破，属于对‘通用策略落地难’这一关键瓶颈的高质量工程化解法。",
       "tier": "heavy",
       "grade": "C",
       "tags": [
-        "sim2real",
-        "benchmark",
-        "open-source"
-      ],
-      "tldr": "这篇论文发现预训练世界模型作为下游控制器的‘动力学骨干’时，存在供应链后门攻击风险：攻击者只需篡改发布的模型检查点，就能让受害者在完全使用干净数据训练和测试的情况下，被隐蔽触发、全程劫持控制动作，且模型在常规清洁测试中仍表现正常（成功率保持75%以上）。",
-      "claim": "预训练世界模型作为可复用的动力学骨干时，其潜在空间动态可被后门污染，导致下游控制器在无显式触发规则、无接触攻击者数据的情况下被完全劫持，且该漏洞在标准清洁评估中不可检出。",
-      "method_components": [
-        "model",
-        "simulator",
-        "benchmark"
-      ],
-      "input": "观测序列（如图像帧）+ 动作序列（用于世界模型自监督训练）",
-      "output": "潜变量状态预测 + 未来观测/奖励预测（供下游Dreamer/MPC等控制器使用）",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：首次证实世界模型潜空间动态可被隐蔽后门操控，构成模型复用范式下的新型可信威胁，证据扎实、复现完备、影响面广，但属安全维度的纵深发现，非建模能力本身跃迁。",
-      "deep": {}
-    },
-    {
-      "rank": 14,
-      "arxiv_id": "2609.14310",
-      "title": "VLBiMan++: Expanding the Generalization Boundary of Vision-Language Anchored One-Shot Bimanual Manipulation",
-      "published": "2026-09-13",
-      "url": "https://arxiv.org/abs/2609.14310",
-      "pdf_url": "https://arxiv.org/pdf/2609.14310",
-      "thumb": "assets/thumbs/2609.14310.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "清华大学",
-      "country": "CN",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "实证扎实：5维泛化均在真实双臂机器人上验证（含动态干扰、长期闭环扰动、跨平台部署），有消融且对比基线明确；但未开源代码/模型，未达RT-2级范式突破，也未覆盖多机体协同或世界模型引导等更高阶机制，属显著推进但非基石级。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "dexterous",
         "sim2real",
         "real-robot",
-        "large-scale"
+        "open-source"
       ],
-      "tldr": "用一个真人示范视频，让双臂机器人在没见过的任务、物体、场景、不同型号机器人上都能完成新操作，靠的是把示范拆解成可复用技能块，并用视觉-语言对齐做几何自适应迁移，全程不重新训练模型。",
-      "claim": "通过任务感知技能分解与视觉-语言锚定的几何自适应，VLA驱动的单样本双臂操作框架可在任务/物体/场景/机体/部署五大维度实现系统性泛化，无需策略重训练。",
+      "tldr": "提出FIERCE框架，用一个统一的、任务自适应的‘进展-失败’评估器替代传统密集奖励，从通用机器人策略出发，仅靠少量真实交互就能快速蒸馏出轻量专用策略，不依赖仿真器、不需人工标注奖励、不调用原通用模型推理。",
+      "claim": "通过联合监督的进展-失败评估器，可在无密集奖励、无目标任务仿真、无持续通用模型调用的前提下，实现通用策略到紧凑专用策略的高效真实世界蒸馏。",
       "method_components": [
         "model",
-        "dataset",
-        "simulator",
         "policy",
         "benchmark"
       ],
-      "input": "单帧RGB图像+自然语言任务描述+单段人类双臂演示视频（含手部姿态）",
-      "output": "双臂协同动作序列（关节轨迹或末端位姿序列）",
+      "input": "多模态观测（视觉+语言指令）与动作序列",
+      "output": "进展得分、失败概率、以及用于策略更新的稠密内在奖励信号",
       "novelty": 7,
       "evidence": 9,
-      "one_sentence_verdict": "工程整合：将VLA、技能分解、几何自适应三者在真实双臂系统上深度耦合，实现了迄今最系统的单样本泛化验证，但缺乏开源和理论新范式，尚未达到基石论文量级。",
-      "deep": {}
-    },
-    {
-      "rank": 15,
-      "arxiv_id": "2609.13679",
-      "title": "How to Better Train VLAs: Lessons Learned From the REAL-I Challenge at ICRA 2026",
-      "published": "2026-09-12",
-      "url": "https://arxiv.org/abs/2609.13679",
-      "pdf_url": "https://arxiv.org/pdf/2609.13679",
-      "thumb": "assets/thumbs/2609.13679.jpg",
-      "venue": "ICRA 2026",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "未知（作者单位未在摘要中披露，仅知来自NUS-CLEAR/RCL-Lab/Deeptouch.ai等团队，但无主导方声明；摘要为挑战赛综述，非单一团队成果）",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 52,
-      "significance_reason": "属高质量工程经验总结，有真实双臂人形平台多队对比、闭环实测验证、对离线指标失效的实证揭示，但未提出新模型/架构/理论，也未开源代码或数据，未建立新基准标准，仅为挑战赛事后分析，分量介于扎实增量（50+）与显著贡献（60+）之间，明显低于所有列出的基石工作（最低Xiaomi-Robotics-1=94.8）",
-      "tier": "worth",
-      "grade": "D",
-      "tags": [
-        "sim2real",
-        "benchmark",
-        "dataset",
-        "real-robot"
-      ],
-      "tldr": "这篇论文不是提出新模型，而是对ICRA 2026 REAL-I挑战赛的赛后分析报告，总结了三支参赛队（NUS-CLEAR、RCL-Lab、Deeptouch.ai）在固定演示数据预算下训练视觉语言动作模型（VLA）的工程实践教训，包括数据筛选、分阶段适配、检查点选择和动作空间设计等经验，并指出离线动作预测指标无法反映真实闭环性能。",
-      "claim": "在固定演示数据预算下，VLA的有效训练不取决于更大模型或更多数据，而取决于部署环境适配策略、演示质量的时间尺度把控、非活跃部件误差抑制，以及抛弃以离线动作预测指标替代闭环评估的错误范式。",
-      "method_components": [
-        "model",
-        "dataset",
-        "benchmark",
-        "simulator",
-        "real-robot"
-      ],
-      "input": "多模态演示数据（视觉+语言+动作序列）",
-      "output": "机器人双臂操作策略（动作块/轨迹）",
-      "novelty": 3,
-      "evidence": 7,
-      "one_sentence_verdict": "工程整合：提供了真实场景下VLA训练的关键实践约束和失败信号，但无原创方法论或可复用技术组件，价值在于避坑指南而非技术推进",
+      "one_sentence_verdict": "工程整合：解决了通用策略向真实世界专用策略高效蒸馏的关键落地障碍，证据充分、开源完整，但未开创新范式或覆盖更广的机器人能力边界。",
       "deep": {}
     }
   ]
