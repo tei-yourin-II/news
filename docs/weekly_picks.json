@@ -1,15 +1,15 @@
 {
   "week": {
-    "start": "2026-09-13",
-    "end": "2026-09-19",
-    "label": "09.13~09.19"
+    "start": "2026-09-14",
+    "end": "2026-09-20",
+    "label": "09.14~09.20"
   },
   "count": 15,
   "venue_count": 2,
   "venues": [
     "Humanoids"
   ],
-  "generated_at": "2026-09-19 05:33 UTC",
+  "generated_at": "2026-09-20 05:50 UTC",
   "picks": [
     {
       "rank": 1,
@@ -129,6 +129,45 @@
     },
     {
       "rank": 4,
+      "arxiv_id": "2609.20649",
+      "title": "DexTouch-WM: Learning Action-Conditioned Tactile World Models from Human Touch for Dexterous Robot Manipulation",
+      "published": "2026-09-17",
+      "url": "https://arxiv.org/abs/2609.20649",
+      "pdf_url": "https://arxiv.org/pdf/2609.20649",
+      "thumb": "assets/thumbs/2609.20649.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "智元",
+      "country": "CN",
+      "org_type": "company",
+      "significance": 87,
+      "significance_reason": "实证扎实：5小时固定真实机器人数据下，用0→100小时人类触觉数据显著提升多模态预测性能；首次实现人类触觉到灵巧机器人世界模型的跨体征迁移，并验证其在策略评估与合成数据生成中的下游效用；虽未达Facet-0/T-Rex级范式颠覆，但明显超越ALOHA/ACT（纯视觉模仿）、Diffusion Policy（无触觉建模）等基石工作在接触动力学建模维度的深度与实证广度。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "tactile",
+        "dexterous",
+        "multimodal-fusion",
+        "real-robot"
+      ],
+      "tldr": "用人类手部触觉数据（配对的RGB视频+柔性压阻阵列信号）训练一个动作条件的世界模型，通过统一传感器布局和动作空间映射，让人类触摸能监督机器人触觉动力学预测，并在真实机器人上验证其可迁移的视觉、几何和接触预测能力，以及作为策略评估环境和合成轨迹生成器的有效性。",
+      "claim": "人类触觉数据可通过传感-动作对齐迁移到机器人世界模型训练中，无需机器人自身大量触觉交互即可学习高保真接触动力学预测。",
+      "method_components": [
+        "model",
+        "dataset",
+        "hardware",
+        "simulator"
+      ],
+      "input": "人类/机器人手部RGB视频 + 双侧压阻式触觉序列 + 动作序列（经retargeting对齐）",
+      "output": "未来帧RGB图像 + 未来时刻双侧触觉信号 + 接触几何状态（如接触点、压力分布演化）",
+      "novelty": 8,
+      "evidence": 10,
+      "one_sentence_verdict": "真突破：首次建立可验证的人类触觉→机器人世界模型跨体征迁移通路，用有限真机数据撬动高质量接触动力学建模，证据链完整（预测+策略评估+合成训练），非概念包装。",
+      "deep": {}
+    },
+    {
+      "rank": 5,
       "arxiv_id": "2609.18455",
       "title": "ForwardDLO: Model-Based Bimanual Shape Matching of Unconstrained Deformable Linear Objects",
       "published": "2026-09-16",
@@ -165,44 +204,6 @@
       "novelty": 7,
       "evidence": 10,
       "one_sentence_verdict": "重磅——解决了DLO双臂形状控制中计算效率与真实性能不可兼得的核心矛盾，证据充分、部署完整、开源彻底，是近3年DLO领域最扎实的工程-算法协同突破。",
-      "deep": {}
-    },
-    {
-      "rank": 5,
-      "arxiv_id": "2609.14254",
-      "title": "Embracing Flow Unsteadiness: A High-Throughput Learning Platform Enables Vortex-Exploiting Bioinspired Propulsion",
-      "published": "2026-09-13",
-      "url": "https://arxiv.org/abs/2609.14254",
-      "pdf_url": "https://arxiv.org/pdf/2609.14254",
-      "thumb": "assets/thumbs/2609.14254.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "whole_body_control",
-      "org": "中国科学院力学研究所",
-      "country": "CN",
-      "org_type": "institute",
-      "significance": 87,
-      "significance_reason": "达到GR00T N1/ω-0同档：首次在真实非定常流体中实现跨推进原理的零样本迁移，且所有结果均基于高通量实测数据（非仿真），含PIV验证机制、多类型推进器验证、力包络定量提升（>2×）、消融明确（排除固定映射假设），但未开源代码模型，未覆盖人形/通用移动体，领域边界较窄（流体推进）。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "large-scale",
-        "real-robot",
-        "benchmark"
-      ],
-      "tldr": "这篇论文构建了一个叫REEF的软硬件协同平台，用高通量物理实验阵列（SHOAL）采集真实流体-结构交互数据，再通过三阶段学习算法（V-STAR）让机器人学会主动利用不稳定的涡流来增强推进力，首次在真实流体中实现了跨多种推进机制（升力型/阻力型/动量射流型）的零样本迁移。",
-      "claim": "通过物理-学习联合设计的高通量实验平台与分阶段策略学习框架，机器系统可从真实非定常流场中自主习得可泛化的涡流耦合推进原理，而非优化固定运动模式。",
-      "method_components": [
-        "hardware",
-        "dataset",
-        "policy",
-        "simulator"
-      ],
-      "input": "多通道同步流场测量数据（PIV）、结构形变/力传感器信号、推进器运动状态",
-      "output": "实时自适应控制策略（力/位姿/形变序列）",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破——它不是在仿真里调参数，而是在真实湍流中教会机器‘借势’，用物理实验规模+学习范式创新打通了生物启发推进的实证闭环。",
       "deep": {}
     },
     {
@@ -325,6 +326,46 @@
     },
     {
       "rank": 9,
+      "arxiv_id": "2609.19863",
+      "title": "Feeling Terrain Before Crossing: World Models for Off-Road Navigation",
+      "published": "2026-09-17",
+      "url": "https://arxiv.org/abs/2609.19863",
+      "pdf_url": "https://arxiv.org/pdf/2609.19863",
+      "thumb": "assets/thumbs/2609.19863.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "world_model",
+      "org": "韩国科学技术院",
+      "country": "KR",
+      "org_type": "university",
+      "significance": 82,
+      "significance_reason": "首次将本体感知显式嵌入世界模型预测目标，实现物理未来建模，并在真实山地部署验证跨平台（轮式+四足）、跨地形泛化能力；虽未达DreamerV3级通用世界模型范式突破，但针对越野导航这一长期开放难题提供了首个有实证支撑的物理感知世界模型方案，证据扎实（真机部署+多平台对比+失败风险量化+消融明确）。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "real-robot",
+        "multimodal-fusion",
+        "tactile"
+      ],
+      "tldr": "这篇论文提出了首个专为越野导航设计的世界模型Feel-WM，它不仅预测相机将看到什么，还联合预测机器人本体感受（如滑移、倾斜、震动）和地形失败风险，并用这些物理未来信号指导规划，在真实山地越野场景中让Husky机器人成功绕开危险路段，而端到端策略会失败。",
+      "claim": "越野导航必须建模机器人-地形物理交互，仅靠视觉预测的场景世界模型不够；引入本体感知作为条件输入并联合预测物理未来（本体状态+失败风险），可显著提升真实复杂非结构化地形中的开环规划与闭环导航鲁棒性。",
+      "method_components": [
+        "model",
+        "simulator",
+        "policy",
+        "benchmark",
+        "hardware"
+      ],
+      "input": "当前RGB图像+本体传感器数据（IMU、轮速、关节角度等）",
+      "output": "未来多步的本体状态序列（预测滑移/倾角/震动）+每步失败风险概率+对应视觉帧",
+      "novelty": 8,
+      "evidence": 10,
+      "one_sentence_verdict": "真突破：它不是把视觉世界模型简单迁移到越野场景，而是重构了世界模型的预测目标——从‘看见什么’升级为‘感受到什么+是否会失败’，并在真实山地完成端到端闭环验证。",
+      "deep": {}
+    },
+    {
+      "rank": 10,
       "arxiv_id": "2609.15770",
       "title": "JEPLO: Joint-Embedding Predictive Learning for LiDAR-Based Legged Locomotion",
       "published": "2026-09-14",
@@ -363,7 +404,7 @@
       "deep": {}
     },
     {
-      "rank": 10,
+      "rank": 11,
       "arxiv_id": "2609.17372",
       "title": "XPACE: Joint World and Action Modeling from Heterogeneous Experience",
       "published": "2026-09-15",
@@ -403,7 +444,7 @@
       "deep": {}
     },
     {
-      "rank": 11,
+      "rank": 12,
       "arxiv_id": "2609.15870",
       "title": "WLA$^3$: World Latent Action Modeling for Semantics, Dynamics, and Kinematics",
       "published": "2026-09-14",
@@ -443,7 +484,46 @@
       "deep": {}
     },
     {
-      "rank": 12,
+      "rank": 13,
+      "arxiv_id": "2609.19613",
+      "title": "TacSushi: Tactile-Grounded World-Action Modeling for Dexterous Sushi Manipulation",
+      "published": "2026-09-17",
+      "url": "https://arxiv.org/abs/2609.19613",
+      "pdf_url": "https://arxiv.org/pdf/2609.19613",
+      "thumb": "assets/thumbs/2609.19613.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "三菱电机",
+      "country": "JP",
+      "org_type": "company",
+      "significance": 82,
+      "significance_reason": "真机部署、跨食材泛化、多维终端质量评估（人类+VLM）、消融完整（对比无后果监督/直接拼接触觉）、数据量合理（390真实轨迹），但未开源代码/模型，且任务域聚焦食品操作，通用性弱于T-Rex/Facet-0等跨物体/跨场景/跨传感器的基础模型；属当前触觉灵巧操作中工程扎实、实证充分的顶尖应用级工作。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "tactile",
+        "dexterous",
+        "real-robot",
+        "benchmark"
+      ],
+      "tldr": "用真实机器人做寿司操作任务，提出一个融合指尖触觉的视觉-语言-手部状态策略模型TacSushi，核心是训练时用未来视觉/风险/触觉等后果预测做监督（部署时去掉预测头），并通过门控式触觉特征融合提升灵巧操作鲁棒性，在3个标准寿司任务和2种新食材上验证了效果。",
+      "claim": "触觉特征需通过特征级门控融合而非简单拼接接入动作表征，且仅在训练阶段利用多模态未来后果预测进行监督，可显著提升真实灵巧食品操作的泛化性与成功率。",
+      "method_components": [
+        "model",
+        "dataset",
+        "hardware",
+        "benchmark"
+      ],
+      "input": "RGB图像+语言指令+手部关节/姿态状态+4指指尖触觉信号",
+      "output": "动作块（action chunk）序列",
+      "novelty": 7,
+      "evidence": 10,
+      "one_sentence_verdict": "工程整合：在真实灵巧操作闭环中系统验证了触觉融合范式与后果监督的有效性，但未突破基础建模范式或跨域泛化边界，属于高完成度、强实证的应用标杆",
+      "deep": {}
+    },
+    {
+      "rank": 14,
       "arxiv_id": "2609.15195",
       "title": "HarnessVLN: Unifying Training-Free Embodied Navigation through an Agent Harness",
       "published": "2026-09-14",
@@ -481,7 +561,7 @@
       "deep": {}
     },
     {
-      "rank": 13,
+      "rank": 15,
       "arxiv_id": "2609.17172",
       "title": "Fingers as Legs: Learning Self-Supported Locomotion and Manipulation with an Anthropomorphic Hand",
       "published": "2026-09-15",
@@ -517,81 +597,6 @@
       "novelty": 8,
       "evidence": 9,
       "one_sentence_verdict": "工程整合：将具身智能中‘形态复用’理念扎实落地到真实灵巧手平台，证明了单一末端结构可承载运动与操作双重角色，但未突破接触建模、触觉策略或基础模型层面。",
-      "deep": {}
-    },
-    {
-      "rank": 14,
-      "arxiv_id": "2609.16815",
-      "title": "Rethinking Visual Embodiment Dependence in Visuomotor Policies",
-      "published": "2026-09-15",
-      "url": "https://arxiv.org/abs/2609.16815",
-      "pdf_url": "https://arxiv.org/pdf/2609.16815",
-      "thumb": "assets/thumbs/2609.16815.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "上海交通大学",
-      "country": "CN",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "提出了可解释、可编辑的‘规范末端执行器表示’（CER）这一新抽象范式，实证表明其比简单移除形态输入或端到端黑盒迁移更有效；在无真实机器人演示前提下实现跨机体迁移，且开源代码/模型/数据；但未覆盖多任务长程操作、未部署于复杂动态环境、未与RT-2/π0等foundation model级方法直接对标，属扎实的范式改进而非范式革命。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "sim2real",
-        "dataset",
-        "open-source"
-      ],
-      "tldr": "这篇论文发现视觉运动策略会偷懒地依赖机器人自身可见形态（比如机械臂姿态）作为任务完成的捷径，于是提出用3D点云中的‘规范末端执行器表示’（CER）替代原始机器人形态，既保留控制所需几何信息，又剥离具体机体形态，再配合配置解耦增强来防止CER本身变成新捷径，最终在不使用任何真实机器人演示数据的情况下显著提升人类动作到机器人策略的跨机体迁移效果。",
-      "claim": "视觉运动策略不应消除对机器人形态的视觉依赖，而应将其结构化为控制相关、形态无关的规范表示（CER），并辅以配置解耦增强，才能实现鲁棒的跨机体泛化。",
-      "method_components": [
-        "model",
-        "simulator",
-        "benchmark"
-      ],
-      "input": "RGB-D图像+3D点云（含原始机器人形态）",
-      "output": "动作序列（6DoF末端位姿变化）",
-      "novelty": 8,
-      "evidence": 9,
-      "one_sentence_verdict": "真突破：首次将‘视觉形态依赖’从需规避的缺陷重构为可设计的控制接口，并给出几何可解释、可编辑、可增强的实现路径，解决了跨机体模仿学习中长期存在的形态捷径问题。",
-      "deep": {}
-    },
-    {
-      "rank": 15,
-      "arxiv_id": "2609.18651",
-      "title": "FIERCE: From Generalist Robot Policies to Fast Specialists via Progress-Failure Feedback",
-      "published": "2026-09-16",
-      "url": "https://arxiv.org/abs/2609.18651",
-      "pdf_url": "https://arxiv.org/pdf/2609.18651",
-      "thumb": "assets/thumbs/2609.18651.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "未知",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 78,
-      "significance_reason": "实证扎实：在两个接触丰富的真机任务上验证了反馈质量、学习效率与部署成本，对比了反馈消融、策略蒸馏效率，并开源全部代码/模型/数据恢复工具；但未跨机体泛化验证，未挑战长程操作或开放词汇任务，也未证明相较RT-2/π0等基石模型在通用性-专用性权衡上有范式级突破，属于对‘通用策略落地难’这一关键瓶颈的高质量工程化解法。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "sim2real",
-        "real-robot",
-        "open-source"
-      ],
-      "tldr": "提出FIERCE框架，用一个统一的、任务自适应的‘进展-失败’评估器替代传统密集奖励，从通用机器人策略出发，仅靠少量真实交互就能快速蒸馏出轻量专用策略，不依赖仿真器、不需人工标注奖励、不调用原通用模型推理。",
-      "claim": "通过联合监督的进展-失败评估器，可在无密集奖励、无目标任务仿真、无持续通用模型调用的前提下，实现通用策略到紧凑专用策略的高效真实世界蒸馏。",
-      "method_components": [
-        "model",
-        "policy",
-        "benchmark"
-      ],
-      "input": "多模态观测（视觉+语言指令）与动作序列",
-      "output": "进展得分、失败概率、以及用于策略更新的稠密内在奖励信号",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：解决了通用策略向真实世界专用策略高效蒸馏的关键落地障碍，证据充分、开源完整，但未开创新范式或覆盖更广的机器人能力边界。",
       "deep": {}
     }
   ]
