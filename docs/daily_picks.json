@@ -9751,6 +9751,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-09-22": [
+      {
+        "arxiv_id": "2609.22966",
+        "title": "Transferring the Intelligence of VLMs to Robotic Control",
+        "published": "2026-09-19",
+        "first_seen": "2026-09-22",
+        "url": "https://arxiv.org/abs/2609.22966",
+        "pdf_url": "https://arxiv.org/pdf/2609.22966",
+        "thumb": "assets/thumbs/2609.22966.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "清华大学",
+        "country": "CN",
+        "significance": 78,
+        "significance_reason": "实证扎实：在两个主流仿真基准（RoboTwin 2.0 C2R、RoboDojo）上零样本超越π0.5基线，单样本达SOTA；且真机部署成功（Franka块堆叠/入篮），验证了VLM到具身控制的可迁移性；但未开源代码/模型，未覆盖多机体泛化（仅Franka），也未挑战长时序复杂任务（如工具使用、多步骤装配），尚未达到RT-2或π0级范式突破强度。",
+        "tier": "heavy",
+        "tldr": "用一个轻量级离散指令接口（平移/旋转/夹爪）把视觉语言模型（VLM）直接接入机器人闭环控制，不微调VLM、不训练机器人策略，靠上下文学习（ICL）给几个示例就能让VLM在仿真和真实Franka机器人上完成抓取、堆叠等任务。",
+        "deep": {
+          "hook": "不训练机器人策略，仅靠VLM+3行离散指令+1个示例，真机堆叠成功",
+          "why_now": "紧随RT-2、PaLM-E、VoxPoser等VLM-to-robot路线，但首次完全剥离策略网络与微调，用纯ICL+轻量接口实现sim2real闭环控制，踩中‘大模型即控制器’的范式收缩趋势",
+          "problem": "现有VLM具身方法多依赖微调VLM、蒸馏到策略网络或复杂动作解码器，导致部署重、泛化弱、sim2real断裂；而人类只需少量示范就能操作新工具——如何让VLM像人一样‘看懂就上手’？",
+          "method": "提出RoboDawn接口：将机器人动作压缩为7维离散符号（Δx/y/z, Δroll/pitch/yaw, gripper open/close），VLM直接输出该符号序列；全程不更新VLM参数，仅靠上下文学习（ICL）注入2–4个<图像+指令+动作序列>示例，让VLM自主完成状态观测→动作推理→执行→反馈迭代的闭环",
+          "results": "在RoboTwin 2.0 C2R零样本53.2% → 单样本73.6%，超π0.5基线（46.0%）；RoboDojo零样本35.67% → 单样本47.17%；真实Franka完成块入篮与两层堆叠（摘要明确提及，未给数值但属可验证真机任务）",
+          "limitations": "1. 仅在Franka单臂验证，未测试双臂/移动底盘/异构机体泛化；2. 所有仿真任务均为短时序（≤10步）、无遮挡、固定物体位姿，未覆盖长程规划（如‘先移开障碍再取物’）或工具链使用；3. ICL示例需人工构造，未说明示例鲁棒性（换视角/光照/物体外观是否失效）；4. 未开源代码/模型，复现依赖项目页（仅提供demo视频与技术报告）",
+          "significance_take": "显著推进‘VLM as controller’路线：不是增量改进，而是范式收缩——证明无需策略网络、无需VLM微调、无需连续动作解码，仅靠接口对齐+ICL即可建立有效闭环。但尚未动摇RT-2级‘端到端感知-动作联合建模’的底层合理性，属于轻量化落地分支而非替代",
+          "who_should_read": "做VLM具身落地的工程师应读，能直接复用其离散动作接口设计与ICL prompt结构，避开策略训练工程负担",
+          "verdict": "必读——它用最简架构击穿了VLM到真机的最后一道‘策略黑箱’，虽未解决长时序与泛化，但给出了当前最干净的迁移存在性证明",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2609.21788",
+        "title": "From Pretraining to Proficiency: Real-World Subtask RL for Long-Horizon Manipulation with Minimal Human Intervention",
+        "published": "2026-09-18",
+        "first_seen": "2026-09-22",
+        "url": "https://arxiv.org/abs/2609.21788",
+        "pdf_url": "https://arxiv.org/pdf/2609.21788",
+        "thumb": "assets/thumbs/2609.21788.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "未知（作者单位未在摘要中披露，无机构署名线索；Sichang Su等姓名常见于中美高校，但无法确认主导机构）",
+        "country": "unknown",
+        "significance": 78,
+        "significance_reason": "实证扎实：在两个真实机器人平台（bimanual YAM + Franka）上实现+29%和+45%端到端成功率提升，仅用数十分钟真实rollout，显著优于现有real-world RL微调方法（+25% success under same rollout budget），且明确规避了整任务重演示的低效性；但未开源代码/模型，未构建新benchmark或通用子任务定义标准，创新属于强工程驱动的范式优化，尚未达到Facet-0/T-Rex/ALOHA级的范式开创或跨域通用性。",
+        "tier": "heavy",
+        "tldr": "论文提出PARTS框架，针对预训练机器人策略在长程操作任务中反复卡在少数子任务（如插拔、对准）的问题，不重采整任务演示，而是冻结主策略，仅对失败子任务用稀疏奖励RL微调残差策略，并用成功重加权的在线-离线混合训练提升真实机器人上的端到端成功率。",
+        "deep": {
+          "hook": "只用几十分钟真机rollout，专攻失败子任务微调，端到端成功率翻倍",
+          "why_now": "接续ALOHA/RT-2等foundation policy落地瓶颈：预训练策略在长程任务中‘卡点’频发，而现有real-world RL微调（如RDT、BC-RF）仍依赖整任务稀疏奖励或大量重演示；PARTS首次将‘子任务级RL微调’工程化闭环落地于双臂/单臂真实平台。",
+          "problem": "预训练机器人策略在长程操作中常能完成80%步骤，却反复卡在少数子任务（如插拔、视觉对准）；重采整任务演示浪费人力，纯端到端稀疏奖励RL在真实机器人上收敛极慢、成功率低。",
+          "method": "冻结主策略（不更新），仅对人工标注的失败子任务训练轻量残差策略；用selector触发残差动作、success verifier提供子任务级稀疏奖励；采用在线RL + 成功样本重加权的离线再训练混合范式，迭代部署新残差策略收集更多数据。",
+          "results": "在bimanual YAM上端到端成功率从32%→61%，Franka上从50%→95%；平均仅需数十分钟真实rollout；相比其他real-world RL微调方法，在相同rollout预算下+25%以上全任务成功率。",
+          "limitations": "未开源代码/模型，复现门槛极高；子任务划分与selector设计依赖人工定义和物理reset，缺乏通用子任务边界标准；所有实验限于论文中列出的特定任务（未验证跨任务泛化性）。",
+          "significance_take": "显著推进‘foundation policy + real-world adaptation’工程路线：不是新范式（如RT-2的scaling），而是首个把‘子任务RL微调’做成可部署、低干预、高增益闭环系统的实践标杆，为工业场景快速适配预训练策略提供可复用架构。",
+          "who_should_read": "做真实机器人部署的工程师读它能立刻拿到‘冻结主干+残差微调+成功重加权’三件套落地方案。",
+          "verdict": "必读——它用最克制的创新（不改主干、不造新reward、不扩数据），在最难的real-robot setting里交出了当前最扎实的微调增益证据。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2609.24682",
+        "title": "Think Like a World Model, Act Like a VLA: Distilling World-Model Representations into Compact Robot Policies",
+        "published": "2026-09-21",
+        "first_seen": "2026-09-22",
+        "url": "https://arxiv.org/abs/2609.24682",
+        "pdf_url": "https://arxiv.org/pdf/2609.24682",
+        "thumb": "assets/thumbs/2609.24682.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "加州大学戴维斯分校",
+        "country": "US",
+        "significance": 78,
+        "significance_reason": "方法简洁有力，实证扎实：在LIBERO达97.9%（接近SOTA）、RoboCasa-GR1提升2.3个百分点，并跨单臂/双臂真实平台验证；但未挑战世界模型核心缺陷（如长期状态一致性、闭环控制中的误差累积），也未提供新世界模型架构或新仿真-真实闭环机制，属于对表征迁移范式的高质量工程化推进，尚未达到DreamerV3或WEAVER级的范式突破。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出一种知识蒸馏方法，把世界模型（World Model）内部学到的物理场景表征‘嫁接’到轻量级视觉语言动作（VLA）策略上，不增加推理开销、不改变部署模型结构，仅靠训练时对齐世界模型的冻结特征，就提升了VLA在仿真和真实机器人上的泛化性能。",
+        "deep": {
+          "hook": "把世界模型的‘物理直觉’蒸馏进VLA策略，零推理开销、不改部署模型，真机双臂平台直接提升",
+          "why_now": "接续2023–2024年VLA泛化瓶颈（如OpenVLA、RT-2在真实场景掉点）与世界模型‘能想不能动’的割裂问题；踩中具身智能核心共识——表征接地性比生成能力更关键，且正从‘堆大模型+强仿真’转向‘轻量策略+高质量表征迁移’。",
+          "problem": "VLA策略缺乏对物理动态的显式建模，泛化依赖数据覆盖，真实场景易失效；世界模型虽具物理接地性，但前向rollout耗时（秒级），无法嵌入实时控制环；二者长期被当作互斥范式，未解耦‘表征知识’与‘生成机制’。",
+          "method": "提出‘表征蒸馏’：冻结预训练世界模型（如MUSE或DreamerV3 backbone），在训练集上单次前向提取其中间层特征并缓存；VLA学生模型在常规监督损失外，额外最小化与该缓存特征的L2距离；不引入任何测试时教师调用、不修改部署结构、不增加推理参数或延迟。",
+          "results": "LIBERO-Spatial达97.9%（接近SOTA）；RoboCasa-GR1从48.2%提升至50.5%；在单臂UR5e与双臂GR1真实机器人上均验证有效；增益跨学生规模（0.8B）、骨干网络、对齐层、教师模型保持稳定。",
+          "limitations": "仅使用‘small-real’真实数据，未验证长程任务或闭环误差累积下的退化；世界模型本身仍是黑箱冻结特征，未分析哪些层/通道承载物理接地性；所有实证基于已有世界模型（摘要未指明具体teacher架构），未提供新世界模型设计或仿真-真实校准机制。",
+          "significance_take": "显著推进‘表征迁移’路线：首次严格证明世界模型的物理接地性可剥离生成目标独立存在，并能高效注入轻量策略——不是增量改进，而是为VLA赋予隐式动力学先验的可行路径，绕开了世界模型实时化的工程死结。",
+          "who_should_read": "做VLA部署的工程师能拿走即插即用的蒸馏模块；做世界模型的研究者能看清‘表征即知识’的实证边界；做sim2real的实践者可复用其小样本真实平台验证范式。",
+          "verdict": "必读——它用最克制的方法（单个loss项+缓存特征）撬动了表征与控制的解耦，是当前VLA落地中最扎实、最无幻觉的泛化增强方案。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -10071,8 +10163,11 @@
     "2609.19480",
     "2609.19613",
     "2609.19863",
-    "2609.20649"
+    "2609.20649",
+    "2609.21788",
+    "2609.22966",
+    "2609.24682"
   ],
-  "latest": "2026-09-21",
-  "generated_at": "2026-09-21 05:54 UTC"
+  "latest": "2026-09-22",
+  "generated_at": "2026-09-22 06:01 UTC"
 }
