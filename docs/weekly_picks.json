@@ -1,13 +1,15 @@
 {
   "week": {
-    "start": "2026-09-19",
-    "end": "2026-09-25",
-    "label": "09.19~09.25"
+    "start": "2026-09-20",
+    "end": "2026-09-26",
+    "label": "09.20~09.26"
   },
   "count": 15,
-  "venue_count": 0,
-  "venues": [],
-  "generated_at": "2026-09-25 05:53 UTC",
+  "venue_count": 2,
+  "venues": [
+    "Humanoids"
+  ],
+  "generated_at": "2026-09-26 06:00 UTC",
   "picks": [
     {
       "rank": 1,
@@ -211,6 +213,42 @@
     },
     {
       "rank": 6,
+      "arxiv_id": "2609.27449",
+      "title": "X2Real: an eXtensive simulation benchmark for real-world generalist policies",
+      "published": "2026-09-23",
+      "url": "https://arxiv.org/abs/2609.27449",
+      "pdf_url": "https://arxiv.org/pdf/2609.27449",
+      "thumb": "assets/thumbs/2609.27449.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "sim2real_data",
+      "org": "英伟达",
+      "country": "US",
+      "org_type": "company",
+      "significance": 91,
+      "significance_reason": "达到ALOHA/RT-X级分量：首次在通用操作基准中实证sim-real评估强相关（0.84），且覆盖44个长程任务+10维能力体系，远超SPEAR/Cosmos-H-Dreams等单点仿真增强工作；但未开源代码/模型/数据，仅提供项目页，削弱复现性，故略低于Open X-Embodiment（97）和DROID（93）的全栈开源+真机验证水准。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "benchmark",
+        "sim2real"
+      ],
+      "tldr": "提出了X2Real——一个基于Nvidia Isaac Lab-Arena构建的可演进仿真基准，通过视觉与物理参数校准、10维能力分类+44个长程任务、严格隔离训/测流程和多轴域随机化，首次在仿真中实现了与真实机器人性能高度一致（0.84线性相关）的通用操作策略评估。",
+      "claim": "X2Real是首个在仿真中实现与真实机器人评估结果强线性相关（r=0.84）、同时满足保真性、多样性、公平性三原则的可演进通用操作策略基准。",
+      "method_components": [
+        "benchmark",
+        "simulator",
+        "dataset"
+      ],
+      "input": "RGB图像+语言指令+状态观测（如关节位置、末端位姿）",
+      "output": "动作序列（6D末端位姿+夹爪开合）",
+      "novelty": 8,
+      "evidence": 9,
+      "one_sentence_verdict": "真突破：它不是又一个刷榜仿真环境，而是首个用系统性校准+统计验证（r=0.84）把仿真评估真正锚定到真实机器人性能的基准，为通用策略研发提供了可信标尺。",
+      "deep": {}
+    },
+    {
+      "rank": 7,
       "arxiv_id": "2609.26420",
       "title": "Sample, Simulate, Select: Physics-in-the-Loop Text-to-Motion for Humanoids Without Training",
       "published": "2026-09-22",
@@ -245,46 +283,6 @@
       "novelty": 8,
       "evidence": 11,
       "one_sentence_verdict": "工程整合——它没发明新模型或新学习范式，但把现有最强部件（冻结T2M、SONIC、G1动力学）用物理闭环‘拧’成一个可靠执行系统，且真机验证扎实，是当前文本驱动人形最落地的推理架构。",
-      "deep": {}
-    },
-    {
-      "rank": 7,
-      "arxiv_id": "2609.22966",
-      "title": "Transferring the Intelligence of VLMs to Robotic Control",
-      "published": "2026-09-19",
-      "url": "https://arxiv.org/abs/2609.22966",
-      "pdf_url": "https://arxiv.org/pdf/2609.22966",
-      "thumb": "assets/thumbs/2609.22966.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "清华大学",
-      "country": "CN",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "实证扎实：在两个主流仿真基准（RoboTwin 2.0 C2R、RoboDojo）上零样本超越π0.5基线，单样本达SOTA；且真机部署成功（Franka块堆叠/入篮），验证了VLM到具身控制的可迁移性；但未开源代码/模型，未覆盖多机体泛化（仅Franka），也未挑战长时序复杂任务（如工具使用、多步骤装配），尚未达到RT-2或π0级范式突破强度。",
-      "tier": "heavy",
-      "grade": "B",
-      "tags": [
-        "multimodal-fusion",
-        "sim2real",
-        "teleoperation",
-        "benchmark"
-      ],
-      "tldr": "用一个轻量级离散指令接口（平移/旋转/夹爪）把视觉语言模型（VLM）直接接入机器人闭环控制，不微调VLM、不训练机器人策略，靠上下文学习（ICL）给几个示例就能让VLM在仿真和真实Franka机器人上完成抓取、堆叠等任务。",
-      "claim": "视觉语言模型（VLM）的通用智能可通过简洁的离散动作接口和上下文学习，零样本或单样本迁移到真实机器人控制任务，无需任何机器人策略训练。",
-      "method_components": [
-        "model",
-        "simulator",
-        "policy",
-        "benchmark",
-        "hardware"
-      ],
-      "input": "RGB图像+自然语言任务指令",
-      "output": "离散动作序列（3D平移+3D旋转+二值夹爪）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：将现成VLM通过极简接口+ICL落地到真实机器人闭环控制，证据充分、部署可信，但属于高效工程嫁接而非底层建模创新。",
       "deep": {}
     },
     {
@@ -482,6 +480,41 @@
     },
     {
       "rank": 13,
+      "arxiv_id": "2609.26872",
+      "title": "MSK-Bench: Benchmarking Full-Body Musculoskeletal Motor Control Across Tasks, Control Paradigms, and Physiological Metrics",
+      "published": "2026-09-22",
+      "url": "https://arxiv.org/abs/2609.26872",
+      "pdf_url": "https://arxiv.org/pdf/2609.26872",
+      "thumb": "assets/thumbs/2609.26872.jpg",
+      "venue": "Humanoids",
+      "domain": "embodied_ai",
+      "best_route": "whole_body_control",
+      "org": "未知",
+      "country": "CN",
+      "org_type": "unknown",
+      "significance": 76,
+      "significance_reason": "是首个覆盖全身体肌肉控制、融合任务性能+鲁棒性+生理诊断三维度的标准化基准，实证扎实（22任务×5范式×多指标），但未涉及真实硬件、未开源代码/模型，且所有结论限于仿真；虽未达RT-2/GR00T级范式突破，但显著超越此前碎片化MSK评估（如仅gait或仅hand），属扎实重磅贡献。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "benchmark",
+        "simulator"
+      ],
+      "tldr": "提出一个面向全身肌肉骨骼人形机器人的综合基准MSK-Bench，包含22个分级任务、5类控制范式对比、以及生理合理性指标（如肌电相似性、激活代价），首次在统一协议下系统评估肌肉驱动控制的性能、鲁棒性与生理可解释性。",
+      "claim": "全身体肌肉骨骼人形控制必须同时评估任务成功率、鲁棒性与生理合理性（如EMG相似性、平滑性、能耗），现有基准因任务割裂、指标单一而无法支撑这一多维评估需求。",
+      "method_components": [
+        "benchmark",
+        "simulator"
+      ],
+      "input": "肌肉骨骼仿真器状态（关节角度/速度、肌腱长度/速度、肌电包络参考等）",
+      "output": "肌肉激励信号（每块肌肉0–1的归一化激活值）",
+      "novelty": 8,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：构建了迄今最系统、可复现性中等的肌肉骨骼控制评估框架，但缺乏真机验证和开源支持，尚未形成方法论级影响。",
+      "deep": {}
+    },
+    {
+      "rank": 14,
       "arxiv_id": "2609.25636",
       "title": "RoboFollow: Unveiling the Instruction Following Mirage in Embodied Agents",
       "published": "2026-09-22",
@@ -517,80 +550,41 @@
       "deep": {}
     },
     {
-      "rank": 14,
-      "arxiv_id": "2609.26458",
-      "title": "Code Plans, Diffusion Renders: Open-Ended Generative World Modeling",
+      "rank": 15,
+      "arxiv_id": "2609.27003",
+      "title": "Learning Expressive Humanoid Locomotion from Monocular Runway Videos for Robot Fashion Shows",
       "published": "2026-09-22",
-      "url": "https://arxiv.org/abs/2609.26458",
-      "pdf_url": "https://arxiv.org/pdf/2609.26458",
-      "thumb": "assets/thumbs/2609.26458.jpg",
-      "venue": "",
+      "url": "https://arxiv.org/abs/2609.27003",
+      "pdf_url": "https://arxiv.org/pdf/2609.27003",
+      "thumb": "assets/thumbs/2609.27003.jpg",
+      "venue": "Humanoids",
       "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "中国科学技术大学",
-      "country": "CN",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "首次系统实现‘代码即世界模型’的显式符号化建模范式，并与扩散视频生成端到端协同，在开放性、持久性和可干预性上显著超越纯隐式视频预测模型（如Genie、DreamerV3），但尚未在真实物理一致性、长程因果推理鲁棒性或下游RL闭环验证中提供足够强的实证支撑，未达World Models或DreamerV1级的范式奠基性。",
-      "tier": "heavy",
-      "grade": "C",
+      "best_route": "vla",
+      "org": "Booster Robotics",
+      "country": "KR",
+      "org_type": "company",
+      "significance": 48,
+      "significance_reason": "实现了单目视频到真实人形机器人 expressive locomotion 的端到端落地，有物理部署和稳定性验证，但未跨机体/跨任务泛化，未开源代码或模型，未与SOTA locomotion 方法（如Diffusion Policy、VLA-based walking）对比，也未证明其‘表达性’超越传统retargeting+IK pipeline；属于扎实的工程整合，但未触及基础建模或范式突破。",
+      "tier": "worth",
+      "grade": "D",
       "tags": [
-        "multimodal-fusion",
-        "open-source",
-        "dataset",
-        "benchmark"
+        "sim2real",
+        "real-robot"
       ],
-      "tldr": "提出CoDeR框架，用可执行代码显式建模世界规则和动态，再用扩散模型生成对应视频，实现带长期记忆、多智能体持续交互与自主演化的开放世界建模。",
-      "claim": "世界建模不应仅隐式拟合视觉序列，而应解耦为可编辑、可执行的代码化世界规则 + 生成式视觉渲染，从而支持真正开放、持久、可干预的世界模拟。",
+      "tldr": "用单目 runway 视频（如T台走秀视频）提取人体运动，经过动作恢复、机器人重定向、修正和策略训练，最终在 Booster K1 人形机器人上跑出稳定且有窄步幅、肢体协调的‘时装秀式’行走。",
+      "claim": "仅从单目 runway 视频出发，无需动捕、无需真实机器人演示数据，即可端到端生成能在真实人形机器人上稳定执行且具备风格化表达能力的行走策略。",
       "method_components": [
         "model",
         "dataset",
         "simulator",
-        "benchmark"
+        "policy",
+        "hardware"
       ],
-      "input": "文本指令或初始状态描述（如‘一个红色球滚下斜坡撞倒蓝色积木’）",
-      "output": "视频序列 + 对应的结构化Python代码（含实体、状态变量、物理规则、事件触发逻辑）",
-      "novelty": 8,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：将程序合成、世界建模与视频生成三者深度耦合，架构新颖且开源完整，但核心科学主张（代码化世界是否真能泛化到复杂物理/社会因果）仍缺硬核验证。",
-      "deep": {}
-    },
-    {
-      "rank": 15,
-      "arxiv_id": "2609.24682",
-      "title": "Think Like a World Model, Act Like a VLA: Distilling World-Model Representations into Compact Robot Policies",
-      "published": "2026-09-21",
-      "url": "https://arxiv.org/abs/2609.24682",
-      "pdf_url": "https://arxiv.org/pdf/2609.24682",
-      "thumb": "assets/thumbs/2609.24682.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "加州大学戴维斯分校",
-      "country": "US",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "方法简洁有力，实证扎实：在LIBERO达97.9%（接近SOTA）、RoboCasa-GR1提升2.3个百分点，并跨单臂/双臂真实平台验证；但未挑战世界模型核心缺陷（如长期状态一致性、闭环控制中的误差累积），也未提供新世界模型架构或新仿真-真实闭环机制，属于对表征迁移范式的高质量工程化推进，尚未达到DreamerV3或WEAVER级的范式突破。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "sim2real",
-        "dataset",
-        "benchmark"
-      ],
-      "tldr": "这篇论文提出一种知识蒸馏方法，把世界模型（World Model）内部学到的物理场景表征‘嫁接’到轻量级视觉语言动作（VLA）策略上，不增加推理开销、不改变部署模型结构，仅靠训练时对齐世界模型的冻结特征，就提升了VLA在仿真和真实机器人上的泛化性能。",
-      "claim": "世界模型的物理接地性（grounding）存在于其内部表征中，而非生成未来的能力本身；该表征可被高效蒸馏进VLA策略，显著提升其鲁棒性与跨平台泛化性，且零推理开销。",
-      "method_components": [
-        "model",
-        "dataset",
-        "benchmark"
-      ],
-      "input": "RGB图像序列+语言指令",
-      "output": "动作序列（关节扭矩或末端位姿）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：用极简蒸馏桥接世界模型与VLA，在保持低延迟前提下实证提升泛化性，是当前VLA落地的重要加固手段，但未重构世界建模或控制范式",
+      "input": "单目RGB runway视频（无标注、无相机标定、无深度）",
+      "output": "可部署的端到端神经网络行走策略（输出关节力矩或目标姿态序列）",
+      "novelty": 5,
+      "evidence": 7,
+      "one_sentence_verdict": "工程整合：完成了从单目视频到真实人形机器人风格化行走的闭环，有实机验证，但方法无本质创新、泛化弱、不可复现，未挑战领域核心难点（如长时序协调、多风格解耦、跨形态迁移）。",
       "deep": {}
     }
   ]
