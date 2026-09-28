@@ -22,6 +22,15 @@
           "why": "首次系统性解耦多模态采样频率并实现物理真实性的异步表征更新，从根本上重构VLA的时序建模范式，突破同步时钟强耦合这一长期隐性假设，且在真实接触操作中实现质变级性能跃迁（41%→95%）与硬实时保障（100Hz）"
         },
         {
+          "name": "InternW0-Δ: A World Action Model Bridging Predictive Dynamics and Actions with 20K+ Hours of Open Data",
+          "org": "InternRobotics",
+          "country": "CN",
+          "year": "2026",
+          "arxiv_id": "2609.31394",
+          "significance": 95.8,
+          "why": "首次将世界模型的预测性动力学（4D几何运动先验）与动作生成在统一MoT架构中因果解耦，并以‘因果印记’机制根治滚动生成失真——实现了世界模型从‘辅助理解’到‘动作生成本体’的范式跃迁，实质性打破VLA中感知-预测-动作的串行耦合瓶颈。"
+        },
+        {
           "name": "$τ_0$-VLA: a Hierarchical Robot Foundation Model with World-Model-Guided Test-Time Computation",
           "org": "未知（作者无明确机构署名，摘要未提所属单位；虽有中文名但无法对应到清华/智元/银河通用等已知团队；arXiv提交者未标注affiliation）",
           "country": "unknown",
@@ -321,7 +330,7 @@
           "note": "ViLLA"
         }
       ],
-      "verdict": "中国在真实世界数据规模化采集与建模（Xiaomi-Robotics-1）、对齐范式突破（Qwen-RobotManip）、以及新开源基础范式构建（UCAG-P）上取得三重范式级自主突破，其中UCAG-P首次确立‘相机中心动作几何统一表征’新范式，显著降低跨机体部署门槛，推动VLA从‘每机一策’迈向‘一策泛体’；但底层VLM骨干、世界模型融合、多模态时序建模及新型推理-动作统一架构（如G0.5）仍高度依赖美方进展。",
+      "verdict": "中国在真实世界数据规模化采集与建模（Xiaomi-Robotics-1）、对齐范式突破（Qwen-RobotManip）、新开源基础范式构建（UCAG-P）及世界-动作本体融合新范式（InternW0-Δ）上取得四重范式级自主突破；其中InternW0-Δ首次确立‘因果驱动的世界动作统一本体’范式，使世界模型从动作生成的‘外部协作者’升格为‘内在生成引擎’，推动VLA从‘感知引导动作’迈向‘世界自洽生成动作’；但底层VLM骨干、多模态时序建模基座及新型推理-动作统一架构（如G0.5）仍高度依赖美方进展。",
       "activity": "领域处于爆发期：2025-2026年每月稳定产出3-5篇奠基性工作，范式收敛（流匹配/双系统/混合）与数据范式转移（合成数据主导）同步加速。",
       "id": "vla",
       "name": "VLA 视觉-语言-动作",
@@ -916,6 +925,15 @@
           "why": "Facet-0首次将力觉（wrench）原生嵌入多模态基础模型的联合表征与生成范式，以动作-力矩联合提案+分布式力矩感知批评器实现接触物理约束下的亚毫米闭环控制，突破了灵巧操作长期依赖纯运动学/视觉开环或单点力反馈的架构瓶颈，确立‘多模态物理闭环基础模型’新范式。"
         },
         {
+          "name": "EgoWild2Dex: Learning Dexterous Robotic Manipulation from In-the-Wild Human Experience",
+          "org": "智元",
+          "country": "CN",
+          "year": "2026",
+          "arxiv_id": "2609.23755",
+          "significance": 97,
+          "why": "首次将未经筛选、无标注、多场景混杂的‘ego-wild’第一视角人类操作视频（非实验室/专业演示）作为灵巧操作知识源，通过几何对齐与人机协同训练实现双臂端到端策略迁移，在零样本泛化与长程任务成功率上突破物理仿真-示教范式的根本瓶颈，实质性推动灵巧操作从‘受控示范’走向‘开放世界经验蒸馏’新范式。"
+        },
+        {
           "name": "T-Rex: Tactile-Reactive Dexterous Manipulation",
           "org": "斯坦福",
           "country": "US",
@@ -923,6 +941,15 @@
           "arxiv_id": "2606.17055",
           "significance": 97,
           "why": "T-Rex首次建立‘运动原语-触觉-实时响应’三位一体的闭环建模范式，以可变采样率MoT与时序VQ-VAE突破VLA模型对高频触觉信号的感知瓶颈，实质性终结了灵巧操作中‘视觉主导、触觉滞后’的架构惯性，将触觉从辅助模态升维为驱动级控制信号源。"
+        },
+        {
+          "name": "From Instrument-Mounted Demonstrations to In-Vivo Execution: Learning Bimanual Laparoscopic Appendectomy Without Robot-Collected Demonstrations",
+          "org": "首尔国立大学",
+          "country": "KR",
+          "year": "2026",
+          "arxiv_id": "2609.25625",
+          "significance": 96,
+          "why": "首次实现‘器械原位传感+活体闭环执行’的纯临床操作范式，彻底剥离对机器人本体、外部视觉/触觉系统及仿真环境的依赖，将灵巧操作的数据源从‘人示范—机器人复现’单向链路，升级为‘医生在体操作—器械端直采—手术级策略生成—活体实时执行’闭环，定义了医疗灵巧操作的临床落地新基线。"
         },
         {
           "name": "ALOHA/ACT",
@@ -1239,7 +1266,7 @@
           "note": "Dex5（20-DoF，94触觉传感器）"
         }
       ],
-      "verdict": "Facet-0则开创‘多模态物理闭环基础模型’范式，通过视觉-语言-力觉三模态联合表征、动作-力矩联合生成（action-wrench proposal）与分布式力矩感知批评器，在真实装配任务中实现亚毫米级（0.5mm）精度与82%成功率，较基线提升67个百分点；其核心突破在于将接触力学（wrench）从辅助信号升格为与动作同构的一等生成变量，并在跨平台1000小时真实制造数据上验证泛化性，首次实现接触密集型精密操作的端到端物理闭环建模，将灵巧操作范式从‘感知-规划-执行’三层解耦架构，推向‘多模态感知-物理一致动作-力矩协同优化’的统一基础模型架构。",
+      "verdict": "From Instrument-Mounted Demonstrations开创‘原位传感-活体执行’临床闭环范式，摒弃机器人本体、外部追踪与仿真环境三重依赖，仅凭器械端IMU/ToF/霍尔信号直采真实腹腔镜手术动作，驱动扩散策略在活体兔子完成全自主阑尾切除——将灵巧操作的验证场域从实验室台面、仿真器或离体组织，首次锚定至高动态、不可见、强约束的活体腹腔内环境，标志着该领域进入‘临床即训练场、器械即传感器、手术即数据’的原生医疗智能新纪元。",
       "activity": "该领域处于爆发期：2025–2026年基石工作密集涌现，论文年均增长超40%，工业界融资与产品化节奏显著加快。",
       "id": "dexterous_manipulation",
       "name": "灵巧操作",
@@ -1283,6 +1310,15 @@
           "arxiv_id": "2606.28276",
           "significance": 95,
           "why": "首次实现从单段视频全自动构建功能保真、可泛化变体（数字表亲）的模块化场景生成范式，将Sim2Real的瓶颈从‘数据规模’转向‘场景语义可控生成’，实质性突破零样本迁移对人工建模/领域先验的依赖。"
+        },
+        {
+          "name": "PhyVisGen: Physically and Visually High-Fidelity Robotic Manipulation Data Generation",
+          "org": "上海交通大学",
+          "country": "CN",
+          "year": "2026",
+          "arxiv_id": "2609.25653",
+          "significance": 94,
+          "why": "首次实现IPC级软体物理保真与实景重建+路径追踪视觉保真的端到端紧耦合生成，突破SimWeaver（仅RGB零样本）和Cosmos-H-Dreams（专注手术、非通用操纵）的范式边界，使‘纯仿真训练即达真实任务高成功率’从特例变为可复现的通用路径。"
         },
         {
           "name": "SimWeaver: Zero-Shot RGB Sim-to-Real for Deformable Manipulation",
@@ -1572,7 +1608,7 @@
           "note": "UMI"
         }
       ],
-      "verdict": "美国以SimWeaver（94）、SimFoundry（95）、SPEAR（96）与新晋Cosmos-H-Dreams（95）四擎驱动，确立‘软体操纵-场景生成-光追级具身仿真-生成式手术物理’四维支柱；PACE（93）作为第五擎，首次以本体感知锚定跨模态对齐，开辟‘接触密集任务零样本迁移’新维度，八维体系升级为‘标准-硬件-生成（SimFoundry）-软体（SimWeaver）-具身仿真（SPEAR）-生成物理基座（Cosmos-H-Dreams）-接触零样本（PACE）-自修复（Robot Self-Improvement）’九维领先体系；中欧在生成式可编程物理仿真及感知锚定跨模态迁移双维度仍呈代际空白。",
+      "verdict": "美国以PhyVisGen（94）为第六擎，补全‘高保真物理-视觉联合生成’维度，九维体系升级为‘标准-硬件-生成（SimFoundry）-软体（SimWeaver）-具身仿真（SPEAR）-生成物理基座（Cosmos-H-Dreams）-物理视觉联合生成（PhyVisGen）-接触零样本（PACE）-自修复（Robot Self-Improvement）’，中欧在该联合生成维度仍存代际空白。",
       "activity": "该领域处于爆发期：2025-2026年每月稳定产出3-5篇arXiv重磅工作，工业界融资密集（AgiBot/Mecka/Physical Intelligence超$600M），数据正从‘稀缺资源’转向‘可规模化生产基础设施’。",
       "id": "sim2real_data",
       "name": "Sim2Real / 数据",
