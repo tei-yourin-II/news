@@ -10579,6 +10579,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-10-01": [
+      {
+        "arxiv_id": "2609.34256",
+        "title": "UMR: Universal Manipulation Representation",
+        "published": "2026-09-28",
+        "first_seen": "2026-10-01",
+        "url": "https://arxiv.org/abs/2609.34256",
+        "pdf_url": "https://arxiv.org/pdf/2609.34256",
+        "thumb": "assets/thumbs/2609.34256.jpg",
+        "venue": "ICRA",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "未知（作者单位未在摘要中披露，无法从姓名推断主流机构；github域名 umr-wepvla.github.io 无明确机构归属）",
+        "country": "unknown",
+        "significance": 88,
+        "significance_reason": "达到Facet-0基石档位（如ALOHA/ACT=96、HiFi-UMI=94）的实质水平：真机零样本跨机体部署（6种异构设置）、仅10分钟/任务人类演示、无任何机器人数据、有完整消融（DES提升+12.3%）、在LIBERO/RLBench仿真强基准上SOTA级表现；虽未开源数据/模型权重，但代码已公开且实验可复现路径清晰，属扎实的里程碑级推进。",
+        "tier": "heavy",
+        "tldr": "提出一种叫UMR的通用操作表征，把人类示范动作拆解成世界坐标系下的物体运动（World Flow）和机器人自身坐标系下的末端轨迹（Ego Trajectory），用一个0.5B参数的点云VLA模型WEPVLA实现仅靠人类演示（无任何机器人数据）就能零样本迁移到多种真实机器人上，6种部署场景平均成功率91.7%。",
+        "deep": {
+          "hook": "仅靠人类演示（无任何机器人数据），零样本部署到6种真实机器人，平均成功率91.7%",
+          "why_now": "紧接ACT/HiFi-UMI等端到端模仿学习范式，首次将‘世界坐标系物体运动’与‘机体坐标系末端轨迹’在SE(3)下显式解耦建模，直击跨机体泛化这一ICRA/CoRL近三年核心瓶颈",
+          "problem": "现有操作策略严重依赖机器人本体特定动作空间（如关节角、笛卡尔速度），导致人类示范无法直接复用；微调或重收集机器人数据成本高，且难以应对新机体/新空间布局。",
+          "method": "UMR提出双流几何表征：World Flow（世界帧下物体点云运动场）描述‘任务本质’，Ego Trajectory（机体帧下末端6D SE(3)轨迹）描述‘如何执行’；二者通过SE(3)共轭严格耦合；WEPVLA模型用0.5B点云VLA实现联合建模；DES策略通过阶段感知的点云编辑增广人类演示，保留接触几何但扰动物体位姿以提升鲁棒性。",
+          "results": "仿真：LIBERO平均97.5%，RLBench 10任务平均85.7%；真实世界：6种异构部署设置（不同机器人/相机/场景）零样本平均成功率91.7%，显著高于基线HumanEgo的60.8%；消融显示DES贡献+12.3%。",
+          "limitations": "未开源训练数据与模型权重，复现需自行采集人类演示并重建WEPVLA训练流程；所有真机实验均未说明具体机器人型号/自由度/控制频率，泛化性细节模糊；DES依赖人工定义‘阶段’，未验证自动阶段分割下的效果。",
+          "significance_take": "范式级推进：首次将操作表征从‘机器人动作输出’升维为‘世界物理变化+机体执行映射’的几何双变量，为具身智能建立可迁移、可解释、可验证的动作语义层，而非仅拟合行为统计。",
+          "who_should_read": "做跨机体模仿学习、VLA for robotics、仿真到真实迁移的研究者和工程师——能直接复用UMR的SE(3)解耦思想与DES增广逻辑。",
+          "verdict": "必读：它用清晰几何语言重新定义了‘什么是可迁移的操作’，且真机零样本结果扎实，是当前最接近通用操作表征实质突破的工作。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2609.35761",
+        "title": "DexRoam: Learning Mobile Bimanual Dexterous Manipulation from Egocentric Whole-Body Human Demonstrations",
+        "published": "2026-09-28",
+        "first_seen": "2026-10-01",
+        "url": "https://arxiv.org/abs/2609.35761",
+        "pdf_url": "https://arxiv.org/pdf/2609.35761",
+        "thumb": "assets/thumbs/2609.35761.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "清华",
+        "country": "CN",
+        "significance": 92,
+        "significance_reason": "达到Facet-0（98）、EgoWild2Dex（97）同级水准：首次实现无标记、egocentric、whole-body human-to-robot的端到端对齐，并在两个主流真机平台（GR00T/pi0.5）上完成多任务部署验证，消融证明三阶段缺一不可，且显著降低对昂贵机器人演示数据的依赖——这是移动灵巧操作规模化落地的关键瓶颈突破。",
+        "tier": "heavy",
+        "tldr": "用普通VR头盔+双目摄像头无标记捕捉人类全身（含手指）第一视角操作视频，通过三阶段对齐（形体/语义/时间）把人类动作映射到机器人动作空间，让视觉-语言-动作大模型能直接学人类的移动式双手灵巧操作，实测在GR00T和pi0.5任务上将成功率从约30%提升到56%~57%，且只需一半的机器人真机演示数据。",
+        "deep": {
+          "hook": "用VR头盔+双目相机无标记捕获人类第一视角全身操作，三阶段对齐让VLA模型直接学会移动式双手灵巧操作",
+          "why_now": "紧接Facet-0、EgoWild2Dex等egocentric具身学习工作，首次在不简化人体运动耦合结构的前提下完成human-to-robot端到端对齐，踩中‘降低真机演示成本’这一当前规模化落地最硬瓶颈",
+          "problem": "移动式双手灵巧操作需底盘、躯干、双臂、手指在单条轨迹中连续耦合协调，但机器人真机演示采集极慢、昂贵、难泛化；现有egocentric方法为迁徙便利而丢弃人体运动的精细耦合结构，导致学不到关键协调模式",
+          "method": "1）无标记捕捉：仅用消费级VR头盔+头戴双目相机重建egocentric人体全身（含手指）关节序列；2）三阶段显式对齐：先形体对齐（human/robot运动学链映射），再动作语义对齐（将人体关节运动解耦为‘抓取’‘移动’等可迁移动作基元），最后时间对齐（保持跨模态动作节奏一致性）；3）对齐后数据直接喂给标准VLA策略（如RT-2、OpenVLA变体）联合训练",
+          "results": "在GR00T N1.7和pi0.5两个真机平台实测：平均任务成功率从29%→56%、32%→57%；仅用一半机器人真机演示数据即达到纯机器人数据训练的性能；消融实验证明三阶段缺一不可",
+          "limitations": "1）依赖高质量人体运动重建（摘要未提重建误差或失败案例，手指运动精度存疑）；2）未说明VR头盔标定/光照/遮挡鲁棒性，也未报告跨人泛化能力（是否只在采集者身上有效？）；3）所有结果基于‘不同VLA backbones’但未指明具体架构与训练细节，复现门槛隐含较高",
+          "significance_take": "显著推进——不是简单加数据，而是重构了human-to-robot对齐范式：首次坚持‘保留耦合结构’而非妥协简化，证明精细运动结构本身是可迁移的关键信号，为VLA从人类视频学习设立新基线",
+          "who_should_read": "做VLA策略、移动操作、人机模仿学习的工程师和研究者，能直接拿走三阶段对齐框架、无标记捕捉pipeline设计、以及‘耦合结构即先验’这一关键建模启示",
+          "verdict": "必读——它用可部署、可复现的方式，把‘人类演示该保留什么’这个长期争论问题，转化成了可验证、可消融、有真机增益的工程答案",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2609.30667",
+        "title": "StarWM: Self-Supervised Trained Attention Routing for Robust World Models",
+        "published": "2026-09-25",
+        "first_seen": "2026-09-30",
+        "url": "https://arxiv.org/abs/2609.30667",
+        "pdf_url": "https://arxiv.org/pdf/2609.30667",
+        "thumb": "assets/thumbs/2609.30667.jpg",
+        "venue": "NeurIPS 2026",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "德国蒂宾根大学",
+        "country": "EU",
+        "significance": 82,
+        "significance_reason": "在DM Control标准benchmark上系统验证了注意力路由对世界模型鲁棒性的实质性提升（尤其在强干扰下超越DreamerV3等主流方法），有消融、机制探测和多干扰范式对比，但未扩展至真实机器人或跨域控制任务，尚未达到World Models/DreamerV1级范式开创性，属扎实重磅推进。",
+        "tier": "heavy",
+        "tldr": "提出StarWM世界模型，用自监督学习的交叉注意力机制动态决定哪些图像区域值得重建，避免背景干扰物污染隐状态，从而在带动态视频干扰的DeepMind Control任务中显著提升长程想象和策略性能。",
+        "deep": {
+          "hook": "用自监督注意力路由动态屏蔽干扰背景，只重建动力学相关像素——世界模型终于学会‘看重点’",
+          "why_now": "接续DreamerV3与World Models系列对表征鲁棒性的长期攻坚；直击2024–2025年具身智能社区核心痛点——仿真中动态视频干扰（如TV播放、粒子运动）导致隐状态污染，而现有方法在‘重建保真’与‘抽象抗扰’间只能二选一。",
+          "problem": "传统重建式世界模型（如DreamerV3）按像素面积分配表征容量，易被动态背景干扰物（如飘动窗帘、滚动字幕）主导隐状态；无重建方法（如Muesli、SLAC）虽抗扰但可能丢弃关键动力学线索。二者均难兼顾长程想象的保真性与鲁棒性。",
+          "method": "StarWM引入一个自监督训练的交叉注意力模块，不依赖奖励，仅通过时序一致性约束学习‘哪些图像区域的运动能被未来帧预测’；再用双流解码器：主流通路重建全图但梯度截断，注意力流只重建掩码区域并反向传播；两个目标通过stop-gradient屏障解耦，确保潜变量只被动力学相关重建监督。",
+          "results": "在DM Control + 动态视频背景基准上：默认（reward-free）StarWM在随机帧干扰下SOTA，在连续视频干扰下显著优于DreamerV3等重建基线；reward-augmented变体在所有干扰范式中取得最高平均return；机制探测显示其长程想象中状态属性保真度近100%，且系统性丢弃干扰物。",
+          "limitations": "纯仿真（sim-only），未验证真实机器人部署或跨域泛化（如从CartPole到真实抓取）；所有实验限于DM Control，未测试更复杂视觉动力学场景（如遮挡、多物体交互）；消融未分离‘注意力路由’与‘双流解码’的独立贡献，二者耦合紧密，难以判断哪部分驱动主要增益。",
+          "significance_take": "属扎实重磅推进（非范式级）：它首次将‘动力学感知的注意力路由’作为可学习、自监督、解耦的模块嵌入世界模型主干，为‘重建该建什么’这一根本问题提供了可验证、可探测的工程解，而非启发式mask或后处理。",
+          "who_should_read": "做世界模型/具身预训练的研究者应读——能直接复用其注意力路由设计思路与双流解码结构，规避背景污染陷阱。",
+          "verdict": "必读：它用极简机制（一个cross-attention+stop-gradient双流）解决了领域内持续三年的表征污染顽疾，且所有结论均有显式探针与多干扰范式验证，不是黑箱提升。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -10924,10 +11016,13 @@
     "2609.29092",
     "2609.29850",
     "2609.30249",
+    "2609.30667",
     "2609.31394",
+    "2609.34256",
+    "2609.35761",
     "2609.37089",
     "2609.38059"
   ],
-  "latest": "2026-09-30",
-  "generated_at": "2026-09-30 06:46 UTC"
+  "latest": "2026-10-01",
+  "generated_at": "2026-10-01 07:02 UTC"
 }
