@@ -10671,6 +10671,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-10-02": [
+      {
+        "arxiv_id": "2609.38172",
+        "title": "Counterfactual Video Generation Enables Scalable Humanoid Loco-Manipulation",
+        "published": "2026-09-29",
+        "first_seen": "2026-10-02",
+        "url": "https://arxiv.org/abs/2609.38172",
+        "pdf_url": "https://arxiv.org/pdf/2609.38172",
+        "thumb": "assets/thumbs/2609.38172.jpg",
+        "venue": "CoRL 2026",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "加州大学伯克利分校",
+        "country": "US",
+        "significance": 92,
+        "significance_reason": "首次实现从极少量人类视频（非机器人数据）端到端生成可直接部署于真机人形机器人（Optimus级）的loco-manipulation策略，跨物体类别、尺寸、位姿泛化且无real-world fine-tuning；证据扎实：真机多任务（pick-carry-drop）、6类物体、3种尺寸梯度、5+初始配置、消融验证了counterfactual多样性与contact-anchoring的关键性；虽未开源代码，但项目页含完整pipeline说明、视频、定量指标（成功率/失败模式），逼近GR00T N1/H2O级工程闭环强度，但理论深度略逊于Humanoid Locomotion as Next Token Prediction的范式重构。",
+        "tier": "heavy",
+        "tldr": "用少量真实人类操作视频，通过生成反事实视频（换物体、姿态、场景）来扩充数据，再经接触感知的仿真重建生成物理合理轨迹，训练出一个无需真实微调就能在真机上泛化操作多种未见尺寸/形状/摆放位置的箱、桶、球等物体的人形机器人策略。",
+        "deep": {
+          "hook": "仅用几段人类操作视频，生成反事实视频+接触锚定重建，真机零微调完成多尺寸/多类别物体搬运",
+          "why_now": "接续GR00T、H2O等端到端视觉策略工作，但绕开‘需海量机器人交互数据’瓶颈；踩中‘few-shot human priors + generative sim2real’这一2025年爆发趋势（如ICRA'25多篇V2V-for-robotics）",
+          "problem": "人形机器人loco-manipulation需泛化到未见物体（尺寸/形状/位姿），但真实人类操作视频稀缺且遮挡严重；纯仿真训练泛化差，真实微调成本高、难扩展。",
+          "method": "PRISM框架三步走：1）用V2V模型从few-shot真实人类视频生成数百个反事实视频（换物体、位姿、背景）；2）设计contact-anchored重建——以接触点为物理约束，将模糊视频运动重建成带力/接触合理性的sim轨迹；3）用这些合成轨迹训练单个视觉策略，输入onboard depth序列，输出全身关节力矩。",
+          "results": "真机部署无fine-tuning：完成pick-carry-drop全流程；覆盖6类物体（boxes/bins/barrels/balls等）、3种尺寸梯度、5+初始配置；项目页公布定量成功率（未给具体数值，摘要未提）及失败模式分析；消融证实counterfactual多样性与contact anchoring缺一不可。",
+          "limitations": "未开源代码，复现依赖未公开的V2V生成器与contact-anchored重建模块；所有反事实视频基于单视角深度输入生成，未验证多视角或严重遮挡下的鲁棒性；未报告跨类别泛化（如用box视频训练后操作ball）是否需类别标签，摘要未说明zero-shot跨类能力。",
+          "significance_take": "显著推进‘human priors as scalable data engine’路线：不是增量改进，而是首次把few-shot human video→真机部署闭环做通，且工程强度逼近GR00T/H2O级；但未挑战运动控制底层表征（如tokenization），理论深度不及‘locomotion as next token’范式。",
+          "who_should_read": "做具身视觉策略、sim2real、人形操作的研究者和工程师——能直接借鉴其contact-anchored重建设计与V2V数据扩增架构。",
+          "verdict": "必读：它用扎实的真机证据，把‘人类视频驱动人形泛化操作’从概念验证推到可部署阶段，且方法模块清晰、问题定位精准。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2609.35318",
+        "title": "DexAgent: An Agentic Human2Sim2Robot Framework for Dexterous Manipulation with Self-Evolving Tool Library",
+        "published": "2026-09-28",
+        "first_seen": "2026-10-02",
+        "url": "https://arxiv.org/abs/2609.35318",
+        "pdf_url": "https://arxiv.org/pdf/2609.35318",
+        "thumb": "assets/thumbs/2609.35318.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "斯坦福",
+        "country": "US",
+        "significance": 92,
+        "significance_reason": "达到Facet-0/EGOWild2Dex级分量：首次在零真实机器人演示前提下，系统性打通Human→Sim→Real全链路，且覆盖铰接/可变形等长期难点；11个真实任务+3.5×提升+多机体验证+工具库自演化机制构成强实证，但开源程度弱于EGOWild2Dex（仅网页无代码/模型），略逊于Facet-0的接触建模深度和基础模型架构创新。",
+        "tier": "heavy",
+        "tldr": "用单个第一人称人类操作视频+任务描述，自动构建仿真环境、优化机器人动作轨迹、生成多样化训练数据，并通过可验证的技能库自演化来适配不同物体（包括铰接/可变形体），最终在11个真实机器人任务上将成功率提升3.5倍。",
+        "deep": {
+          "hook": "单条第一人称人类视频→真机灵巧操作策略，首次端到端打通Human→Sim→Real全链路",
+          "why_now": "紧接Facet-0（2024）与EGOWild2Dex（2023）之后，是首个在零真实机器人演示前提下，系统性覆盖铰接/可变形体、支持多机体部署且具自演化能力的Human2Sim2Robot框架，踩中‘用人类视频替代昂贵真机采集’与‘工具化技能复用’双重趋势",
+          "problem": "现有Human2Sim2Robot方法依赖固定流程，难以泛化至铰接体（如门把手）、可变形体（如布料）等复杂物性；仿真到真实的误差易逐级放大；技能无法跨任务积累，每次重建流程成本高。",
+          "method": "DexAgent将流程拆为四阶段闭环：1）从单段egocentric视频中提取语义动作+物体属性；2）基于属性（刚性/铰接/可变形）自动构建物理一致的仿真环境；3）用多阶段物理验证器（如接触力合理性、运动学可行性）实时反馈修正轨迹；4）在仿真中扰动物体状态/机器人位姿生成多样化轨迹，并重纹理渲染提升sim2real鲁棒性；所有新技能与验证器自动入库，形成自演化工具库。",
+          "results": "在11个真实机器人任务（含铰接门、拉绳、捏软硅胶等）上，用DexAgent生成数据训练的策略，成功率达基线的3.5×；支持多机体（Allegro Hand、Shadow Hand、Franka）；所有结果均在真实机器人上验证；工具库随任务增加使后续处理耗时下降（摘要明确提及‘reduces processing time’）。",
+          "limitations": "未开源代码或模型（仅网页），复现门槛极高；全部实证基于单一视频输入，未测试多视角/遮挡/低质视频鲁棒性；‘自演化’仅体现为技能入库与调用，未验证跨任务迁移能力（如新任务能否复用旧技能而无需重优化）；无消融实验说明各验证器/工具选择模块的独立贡献。",
+          "significance_take": "显著推进Human2Sim2Robot路线：不是简单pipeline升级，而是引入‘验证驱动的动态工具调度+可沉淀技能库’范式，把该方向从‘静态映射’推向‘闭环演进系统’，为长期构建机器人通用技能基础设施提供新架构原型。",
+          "who_should_read": "做sim2real灵巧操作的研究者应读——能直接借鉴其四阶段验证机制设计与工具库抽象方式；工程师可拿走其重纹理渲染+状态扰动生成策略数据的工程方案。",
+          "verdict": "必读：它是当前唯一将‘人类视频→真机部署’链条中物理保真性、任务多样性、系统可扩展性三者同时做到实证级落地的工作，虽开源不足，但方法论骨架清晰、实证扎实。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2609.38164",
+        "title": "Rho: A Foundation for Efficiently Adaptable VLA Models",
+        "published": "2026-09-29",
+        "first_seen": "2026-10-02",
+        "url": "https://arxiv.org/abs/2609.38164",
+        "pdf_url": "https://arxiv.org/pdf/2609.38164",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "Rho Team",
+        "country": "US",
+        "significance": 88,
+        "significance_reason": "实证扎实：三具真实双臂机体+仿真+物理实验+系统消融+多baseline对比+15样本在线适应验证；但未达RT-2级范式突破（如统一世界建模+通用推理链），仍属VLA架构演进中的强工程实现与适应机制创新，与DAM-VLA/τ₀-VLA同档但略逊于前者在异构机体统一表征上的理论深度。",
+        "tier": "heavy",
+        "tldr": "提出Rho系列开源VLA模型，专为双臂机器人（YAM Box/UR AI Trainer/FR3 Duo）设计，用数据极少的微调就能适配新任务，并通过一个轻量在线模块接收15次人工纠正就能泛化到训练分布边缘的任务场景。",
+        "deep": {
+          "hook": "15次人工纠正就能让双臂机器人泛化到训练没见过的任务边缘场景",
+          "why_now": "紧随DAM-VLA/τ₀-VLA之后，首次在三具异构双臂真机（YAM Box/UR AI Trainer/FR3 Duo）上系统验证‘embodiment-aware midtraining + latent policy在线适应’双轨机制，踩中VLA从‘多体适配’迈向‘小样本在线鲁棒泛化’的关键工程落地窗口。",
+          "problem": "现有VLA模型在双臂操作任务中面临三重断层：1）离线微调需大量真机数据，成本高；2）跨机体迁移常需重新训练或复杂标定；3）面对分布外任务（如遮挡、新物体组合、微小位姿偏移）时缺乏轻量级在线纠错能力，导致部署僵化。",
+          "method": "Rho采用‘两阶段解耦架构’：先用embodiment-aware midtraining在多机体仿真+真实数据上联合优化视觉-语言-动作联合表征；再冻结主干，仅训练一个可插拔的latent policy模块——该模块不改动作生成主干，而是学习将人工纠正信号映射为flow-matching动作专家所需的条件噪声输入，实现对冻结模型的‘外部扰动式调控’。",
+          "results": "在YAM Box/UR AI Trainer/FR3 Duo三具真机上完成15样本在线适应验证；Rho变体在多任务基准中匹配或超越现有开源VLA；消融实验证实embodiment midtraining带来可观下游适应增益；所有模型、代码、数据集已开源。",
+          "limitations": "1）在线适应仅验证了15次纠正下的边缘任务泛化，未测试持续交互退化（如纠正冲突、反馈延迟）、长期记忆衰减或跨任务干扰；2）embodiment midtraining依赖多机体仿真与真实数据混合训练，但摘要未说明各机体仿真-真实数据配比及sim2real gap量化指标，物理实验细节（如失败率、重试次数）未披露。",
+          "significance_take": "属于VLA架构演进中的显著推进（非范式级）：它把‘多机体统一表征’和‘冻结主干+轻量在线策略’两条路线工程化落地，比RT-2更聚焦双臂控制粒度，比DAM-VLA更强调低开销在线闭环，是当前最接近工业部署要求的VLA适应框架之一。",
+          "who_should_read": "做双臂操作算法/系统集成的工程师可直接复用其latent policy接口设计与midtraining数据组织方式；研究者能借此厘清embodiment-aware pretraining与online adaptation的边界与耦合代价。",
+          "verdict": "必读——它是目前唯一在三具异构双臂真机上完整跑通‘少样本离线微调+极轻量在线纠错’全链路的开源VLA工作，工程严谨性与实证密度远超同期多数论文。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -11019,10 +11111,13 @@
     "2609.30667",
     "2609.31394",
     "2609.34256",
+    "2609.35318",
     "2609.35761",
     "2609.37089",
-    "2609.38059"
+    "2609.38059",
+    "2609.38164",
+    "2609.38172"
   ],
-  "latest": "2026-10-01",
-  "generated_at": "2026-10-01 07:02 UTC"
+  "latest": "2026-10-02",
+  "generated_at": "2026-10-02 06:46 UTC"
 }
