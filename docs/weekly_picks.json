@@ -1,17 +1,16 @@
 {
   "week": {
-    "start": "2026-09-26",
-    "end": "2026-10-02",
-    "label": "09.26~10.02"
+    "start": "2026-09-27",
+    "end": "2026-10-03",
+    "label": "09.27~10.03"
   },
   "count": 15,
   "venue_count": 4,
   "venues": [
     "CoRL 2026",
-    "ICRA",
-    "IROS 2026"
+    "ICRA"
   ],
-  "generated_at": "2026-10-02 06:47 UTC",
+  "generated_at": "2026-10-03 06:17 UTC",
   "picks": [
     {
       "rank": 1,
@@ -94,6 +93,45 @@
     },
     {
       "rank": 3,
+      "arxiv_id": "2609.39403",
+      "title": "IronMind: Scaling Humanoid Dexterous Manipulation via Camera-Space Ego-Centric Pretraining",
+      "published": "2026-09-30",
+      "url": "https://arxiv.org/abs/2609.39403",
+      "pdf_url": "https://arxiv.org/pdf/2609.39403",
+      "thumb": "assets/thumbs/2609.39403.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "智元",
+      "country": "CN",
+      "org_type": "company",
+      "significance": 93,
+      "significance_reason": "实证扎实：真机部署、6个跨对象/跨功能/跨提示的OOD任务、从250h到10000h的系统性数据量消融、camera-space vs torso-frame控制变量对比、显著性能跃迁（55% vs ≤11.7%），逼近Facet-0/EGOWild2Dex级分量；但未开源全部数据与仿真器，且未展示多机体迁移或长期部署鲁棒性，略逊于最顶尖的96+分标杆。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "dexterous",
+        "sim2real",
+        "real-robot",
+        "large-scale"
+      ],
+      "tldr": "这篇论文用大量第一人称视角的人类操作视频（不依赖高精度人体动作捕捉）预训练一个视觉-语言-动作模型IronMind，核心创新是把机器人动作直接定义在相机坐标系里，绕过传统需要精确人体-机器人运动学映射的难题，最终在真实人形机器人上实现了对未见过物体和任务的灵巧操作，10000小时预训练后成功率55%，远超小规模预训练或无预训练基线。",
+      "claim": "在无需显式身体重定向的前提下，通过相机空间动作表征与异构人类/机器人数据联合预训练，可规模化提升人形机器人灵巧操作的泛化能力。",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator"
+      ],
+      "input": "RGB第一人称视频帧+自然语言指令",
+      "output": "相机坐标系下的末端执行器6D位姿增量动作序列",
+      "novelty": 8,
+      "evidence": 10,
+      "one_sentence_verdict": "真突破：首次在人形机器人上验证了纯相机空间动作表征+大规模人类egocentric视频预训练的有效性，并取得真实场景下质的性能跃迁，解决了长期存在的embodiment gap工程瓶颈。",
+      "deep": {}
+    },
+    {
+      "rank": 4,
       "arxiv_id": "2609.35761",
       "title": "DexRoam: Learning Mobile Bimanual Dexterous Manipulation from Egocentric Whole-Body Human Demonstrations",
       "published": "2026-09-28",
@@ -133,7 +171,7 @@
       "deep": {}
     },
     {
-      "rank": 4,
+      "rank": 5,
       "arxiv_id": "2609.35318",
       "title": "DexAgent: An Agentic Human2Sim2Robot Framework for Dexterous Manipulation with Self-Evolving Tool Library",
       "published": "2026-09-28",
@@ -172,7 +210,46 @@
       "deep": {}
     },
     {
-      "rank": 5,
+      "rank": 6,
+      "arxiv_id": "2609.36602",
+      "title": "OTRetarget: Joint Robot and Object Motion Retargeting via Optimal Transport",
+      "published": "2026-09-29",
+      "url": "https://arxiv.org/abs/2609.36602",
+      "pdf_url": "https://arxiv.org/pdf/2609.36602",
+      "thumb": "assets/thumbs/2609.36602.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "INRIA",
+      "country": "EU",
+      "org_type": "institute",
+      "significance": 87,
+      "significance_reason": "达到EgoWild2Dex/T-Rex同档水平：首次实现机器人+多物体联合重定向且在G1真机部署，接触保真度（87% Jaccard）和深度误差（8.7mm）远超基线，解决了loco-manipulation中‘物体轨迹固定导致形态适配失效’这一长期痛点，但未开源数据/模型，且未覆盖跨用户泛化或大规模任务评测。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "multimodal-fusion",
+        "dexterous",
+        "real-robot"
+      ],
+      "tldr": "这篇论文提出OTRetarget方法，把人类演示动作同时重定向到机器人本体和被操作物体上，用最优传输技术建模人-物-机器人三者表面接触关系（如距离、最近点、方向），再通过带约束的逆运动学联合优化机器人姿态和物体位姿，最终在仿真和G1人形机器人上实现了高保真接触保持的双臂操作迁移。",
+      "claim": "通过基于最优传输的几何交互表征与联合机器人-物体运动优化，可实现无需场景缩放、不依赖真实机器人数据、且保持多接触点一致性的跨形态运动重定向。",
+      "method_components": [
+        "model",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "input": "人类骨骼动作序列 + 物体网格模型 + 机器人URDF模型 + 场景几何（如桌面/地面）",
+      "output": "每帧的机器人关节姿态 + 所有被操作物体的6D位姿",
+      "novelty": 8,
+      "evidence": 10,
+      "one_sentence_verdict": "真突破：首次将最优传输引入机器人-物体协同重定向，在G1上完成双臂接触敏感操作部署，证据扎实（真机+定量对比+消融隐含在OMOMO验证中），非概念包装。",
+      "deep": {}
+    },
+    {
+      "rank": 7,
       "arxiv_id": "2609.38059",
       "title": "WorldLine: Action-Driven Visual Simulation for Robotic Manipulation",
       "published": "2026-09-29",
@@ -211,13 +288,13 @@
       "deep": {}
     },
     {
-      "rank": 6,
+      "rank": 8,
       "arxiv_id": "2609.38164",
       "title": "Rho: A Foundation for Efficiently Adaptable VLA Models",
       "published": "2026-09-29",
       "url": "https://arxiv.org/abs/2609.38164",
       "pdf_url": "https://arxiv.org/pdf/2609.38164",
-      "thumb": "",
+      "thumb": "assets/thumbs/2609.38164.jpg",
       "venue": "",
       "domain": "embodied_ai",
       "best_route": "vla",
@@ -253,7 +330,7 @@
       "deep": {}
     },
     {
-      "rank": 7,
+      "rank": 9,
       "arxiv_id": "2609.37089",
       "title": "Real2Gym: Building Gyms from Videos, Bringing Skills to Robots",
       "published": "2026-09-29",
@@ -290,7 +367,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
+      "rank": 10,
       "arxiv_id": "2609.38078",
       "title": "MotorMind: Scaffolding General Vision Language Models for Zero-Shot Robot Manipulation",
       "published": "2026-09-29",
@@ -330,7 +407,7 @@
       "deep": {}
     },
     {
-      "rank": 9,
+      "rank": 11,
       "arxiv_id": "2609.35652",
       "title": "MM-ABC: Towards Generalist Mobile Manipulation via Seeing, Coordinating and Imagining",
       "published": "2026-09-28",
@@ -368,7 +445,48 @@
       "deep": {}
     },
     {
-      "rank": 10,
+      "rank": 12,
+      "arxiv_id": "2609.37677",
+      "title": "Learning Expressive and Compositional Motion Representation via Spectral Skills",
+      "published": "2026-09-29",
+      "url": "https://arxiv.org/abs/2609.37677",
+      "pdf_url": "https://arxiv.org/pdf/2609.37677",
+      "thumb": "assets/thumbs/2609.37677.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "whole_body_control",
+      "org": "智元",
+      "country": "CN",
+      "org_type": "company",
+      "significance": 88,
+      "significance_reason": "在人形机器人运动表征层面做出实质性突破：首次将频谱建模+预测式隐编码+线性可组合性三者统一，且在真实G1硬件上完成跟踪、链式调用、零样本组合、语言规划闭环四大验证，证据强度接近GR00T N1和H2O级别（真机+多范式泛化+冻结控制器复用），但尚未展现跨机体迁移或超大规模行为库构建能力，故略低于95分档基石。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "compositional",
+        "latent-representation",
+        "real-robot",
+        "sim2real"
+      ],
+      "tldr": "这篇论文提出‘谱技能’（spectral skills）——一种基于运动频谱预测学习的紧凑隐式运动表征，让控制器能直接链式调用、线性组合已有技能来生成新动作，且在Unitree G1人形机器人上实测显著降低跟踪误差、无需额外过渡策略或微调。",
+      "claim": "谱技能是一种可预测、可组合、可链式复用的运动隐空间表征，其设计使控制器无需重训练即可实现跨技能无缝衔接与正交线性合成，突破传统运动基元（primitives）的离散性和不可加性限制。",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "policy",
+        "benchmark",
+        "hardware"
+      ],
+      "input": "短时运动片段（如关节轨迹序列）及其频谱特征",
+      "output": "下一时刻运动片段的频谱预测（即谱技能），用于驱动下游控制器输出关节控制指令",
+      "novelty": 8,
+      "evidence": 10,
+      "one_sentence_verdict": "真突破：它不是换壳微调，而是重构了运动接口的数学本质（从时域重建转向频谱预测），并在真实人形机器人上验证了可链、可加、可语言驱动的三重能力，解决了分层控制中‘技能粘合难’这一长期工程瓶颈。",
+      "deep": {}
+    },
+    {
+      "rank": 13,
       "arxiv_id": "2609.38046",
       "title": "EgoAlign: Bridging the Human-Humanoid Gap for Long-Range Loco-Manipulation",
       "published": "2026-09-29",
@@ -406,124 +524,43 @@
       "deep": {}
     },
     {
-      "rank": 11,
-      "arxiv_id": "2609.36416",
-      "title": "FineART: Fine-grained Annotated Robotic Trajectory Dataset and Vision-Language-Action Model for Bimanual Manipulation",
-      "published": "2026-09-29",
-      "url": "https://arxiv.org/abs/2609.36416",
-      "pdf_url": "https://arxiv.org/pdf/2609.36416",
-      "thumb": "assets/thumbs/2609.36416.jpg",
-      "venue": "",
+      "rank": 14,
+      "arxiv_id": "2609.38989",
+      "title": "Cue the Flow: Steering Flow-Matching Policies for Open-World Delivery Manipulation",
+      "published": "2026-09-30",
+      "url": "https://arxiv.org/abs/2609.38989",
+      "pdf_url": "https://arxiv.org/pdf/2609.38989",
+      "thumb": "assets/thumbs/2609.38989.jpg",
+      "venue": "CoRL 2026",
       "domain": "embodied_ai",
       "best_route": "vla",
-      "org": "Hugging Face",
-      "country": "US",
-      "org_type": "company",
-      "significance": 82,
-      "significance_reason": "数据规模（1718h真实双臂轨迹）和标注密度（53万+子任务）远超现有双臂数据集，且首次验证VLA模型可零样本迁移到新机器人并仅用1/10数据微调；但未达RT-2级范式突破（无世界模型/无统一动作表征/未覆盖多机体统一预训练），属扎实重磅贡献而非里程碑。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "dataset",
-        "benchmark",
-        "open-source",
-        "real-robot",
-        "multimodal-fusion"
-      ],
-      "tldr": "构建了一个大规模、细粒度标注的双臂操作轨迹数据集FineART（4万+ episodes，53万+子任务），并提出一个能自主预测下一步子任务的视觉-语言-动作模型FineART-VLA，在空间消歧和长程任务上显著提升成功率，且支持跨机器人零样本迁移和极少量微调。",
-      "claim": "通过密集子任务标注与自预测子任务机制，FineART-VLA在双臂长程操作中实现强泛化、低数据依赖的跨硬件零样本迁移，并显著提升复杂任务成功率。",
-      "method_components": [
-        "dataset",
-        "model",
-        "benchmark"
-      ],
-      "input": "RGB视频帧+自然语言任务指令+历史子任务序列",
-      "output": "下一个子任务文本描述+对应动作序列（端到端VLA输出）",
-      "novelty": 7,
-      "evidence": 10,
-      "one_sentence_verdict": "工程整合：以高质量数据基建+实用VLA架构推动双臂长程操作落地，证据充分、开源完整，但未开创新范式",
-      "deep": {}
-    },
-    {
-      "rank": 12,
-      "arxiv_id": "2609.38087",
-      "title": "CrossBFM: Distilling a Shared Latent Behavior Space Across Humanoid Embodiments",
-      "published": "2026-09-29",
-      "url": "https://arxiv.org/abs/2609.38087",
-      "pdf_url": "https://arxiv.org/pdf/2609.38087",
-      "thumb": "assets/thumbs/2609.38087.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "whole_body_control",
-      "org": "德国马克斯·普朗克智能系统研究所/达姆施塔特工业大学",
-      "country": "EU",
-      "org_type": "institute",
-      "significance": 78,
-      "significance_reason": "首次在BFM范式下系统解决跨机体潜在空间不一致问题，实证扎实：3种人形机体+3类提示+真实机器人部署+消融（子集训练/四分之一数据）；但未突破‘行为即token’或‘人类视频驱动零样本’等更高阶范式，也未挑战复杂环境交互或长时序任务，相比Human-as-Humanoid（95分）或ω-0（94分）仍属重要但非范式级推进。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "sim2real",
-        "multimodal-fusion",
-        "benchmark",
-        "large-scale"
-      ],
-      "tldr": "这篇论文提出CrossBFM，用一个不依赖具体机器人形态的统一编码器，从多个仿真人形机器人动作数据中蒸馏出共享的潜在行为空间，使得同一个行为向量能在不同人形机器人上复用（如模仿动作、到达姿态、优化奖励），大幅降低训练开销（<1 GPU小时编码器+10 GPU小时策略），并在仿真和真实机器人上验证了跨机体迁移能力。",
-      "claim": "通过无机器人参数的统一编码器蒸馏跨人形机体的共享潜在行为空间，实现行为表征的可迁移性、高效训练与多提示模式泛化。",
-      "method_components": [
-        "model",
-        "dataset",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "多机体仿真运动轨迹（关节角度序列）、姿态目标、奖励函数描述",
-      "output": "共享潜在行为向量（用于动作模仿/姿态到达/奖励优化）及对应全身体控制策略",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：首次实现跨人形机体共享行为潜空间的高效蒸馏与真实机验证，解决了BFM落地的核心可迁移瓶颈，但尚未触及更广义的具身通用性边界。",
-      "deep": {}
-    },
-    {
-      "rank": 13,
-      "arxiv_id": "2609.35047",
-      "title": "EMPIRIC: Experiment-Driven Learning of Residual World Models for Robot Planning",
-      "published": "2026-09-28",
-      "url": "https://arxiv.org/abs/2609.35047",
-      "pdf_url": "https://arxiv.org/pdf/2609.35047",
-      "thumb": "assets/thumbs/2609.35047.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "MIT",
-      "country": "US",
+      "org": "香港中文大学",
+      "country": "CN",
       "org_type": "university",
-      "significance": 82,
-      "significance_reason": "达到WORLD MODELS（97）和DREAMERV3（96）之下的强第二梯队：首次将程序合成+贝叶斯隐状态估计+主动实验闭环嵌入残差世界建模，在5个异构仿真域+1个真实机器人任务中验证了机制级泛化（非仅物体/姿态泛化），且残差模块可解释、可迁移；但未开源数据/基准，真实实验仅1任务，未覆盖多机体或多用户场景，尚未形成新范式级影响力。",
+      "significance": 76,
+      "significance_reason": "在RT-2（97）、DAM-VLA（96）等里程碑之后，本文提出一种低侵入式、cue-driven的flow-matching策略调控机制，在真实机器人上验证了跨物体泛化能力，并有清晰消融（对比不同cue表征/适配器结构），但未开源代码、未报告多机体/多用户/长期部署结果，也未挑战更难的接触动力学建模或长程规划，属扎实推进SOTA的重磅工作，未达范式级突破。",
       "tier": "heavy",
       "grade": "C",
       "tags": [
-        "sim2real",
-        "world-model",
-        "active-learning",
-        "bayesian-inference"
+        "multimodal-fusion",
+        "sim2real"
       ],
-      "tldr": "这篇论文提出EMPIRIC方法，让机器人通过主动实验学习物理引擎缺失的未知机制（比如风力、胶水固化），用可解释的程序化残差模块扩展世界模型，并用贝叶斯推理在线估计参数和隐状态，从而在仿真和真实机械臂上实现更少交互、更强泛化、可诊断的规划。",
-      "claim": "通过实验驱动学习可解释、可组合的程序化残差模块来扩展物理引擎，构建具备隐状态推断与假设修正能力的残差世界模型，显著降低真实交互成本并提升跨机制泛化性。",
+      "tldr": "用一个轻量级适配器把空间提示（如目标物体位置）注入预训练的流匹配视觉语言动作模型，让机器人能根据自由语言指令操作新物体，提升开放世界递送任务的成功率，且几乎不增加推理开销。",
+      "claim": "预训练VLA模型本身已具备强操作先验，只需少量空间提示即可泛化到新物体和新指令组合，无需重训底层策略。",
       "method_components": [
         "model",
-        "simulator",
+        "dataset",
         "benchmark"
       ],
-      "input": "物理引擎仿真输出 + 机器人执行动作后的多模态观测（位置、力、图像等） + 主动实验设计信号",
-      "output": "残差程序代码（含新力/约束/隐状态）、其贝叶斯后验分布、未来状态预测、实验选择策略",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破——它不是改进某个模块，而是重建了‘世界模型如何与未知物理共存’的认知框架：把不可建模的黑箱变成可写、可估、可证伪的程序残差，且在真实机器人上跑通了闭环。",
+      "input": "语言指令+RGB图像+空间提示（如目标区域坐标或掩码）",
+      "output": "动作块（action chunk，即短时序动作向量序列）",
+      "novelty": 7,
+      "evidence": 8,
+      "one_sentence_verdict": "工程整合：将预训练VLA与空间引导解耦设计，以极小代价换取显著泛化增益，实证充分但生态闭环不足",
       "deep": {}
     },
     {
-      "rank": 14,
+      "rank": 15,
       "arxiv_id": "2609.34674",
       "title": "HOI-Retarget: Contact-Centric Retargeting for Human-Object Interaction",
       "published": "2026-09-28",
@@ -560,43 +597,6 @@
       "novelty": 7,
       "evidence": 8,
       "one_sentence_verdict": "显著贡献：方法设计扎实、开源完整、泛化维度明确，但缺真机验证与下游任务闭环，尚未达到基石论文所要求的部署级可靠性或任务级SOTA提升。",
-      "deep": {}
-    },
-    {
-      "rank": 15,
-      "arxiv_id": "2609.37681",
-      "title": "ProAct-VLM: Pre-Failure Vision-Language Task Replanning with Continuous Perception Feedback",
-      "published": "2026-09-29",
-      "url": "https://arxiv.org/abs/2609.37681",
-      "pdf_url": "https://arxiv.org/pdf/2609.37681",
-      "thumb": "assets/thumbs/2609.37681.jpg",
-      "venue": "IROS 2026",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "unknown",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 48,
-      "significance_reason": "核心思想（连续感知触发重规划）有直觉合理性，但全文无真实机器人验证、无跨机体/跨用户泛化证据、无消融实验证明‘连续反馈’比‘离散检查’或‘失败后重试’带来实质性增益；仅报告‘against multiple baselines’而未列基线名称/性能差距，也未说明仿真环境复杂度与动态性强度；相比RT-2/π0等95+分基石模型（真机多任务、千万级轨迹、世界模型耦合、开源完整栈），本文属纯仿真层面的流程改进，未触及感知-动作联合建模本质突破。",
-      "tier": "worth",
-      "grade": "D",
-      "tags": [
-        "multimodal-fusion",
-        "sim2real"
-      ],
-      "tldr": "提出一个叫ProAct-VLM的框架，让机器人在执行长周期操作任务时，不是等失败了再重规划，而是边看（连续视觉感知）边想（VLM实时理解环境变化），一发现关键状态变化就立刻动态重写后续动作计划。",
-      "claim": "通过将VLM嵌入连续感知-反馈闭环，实现基于预失败（pre-failure）检测的实时任务重规划，显著提升动态环境中长周期操作的成功率与效率。",
-      "method_components": [
-        "model",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "RGB视频流+自然语言任务指令",
-      "output": "修正后的动作序列（文本形式的step-by-step操作计划）",
-      "novelty": 6,
-      "evidence": 5,
-      "one_sentence_verdict": "暂时不用看——仅是VLM接入感知反馈环的概念性拼接，缺乏真机验证、量化消融和可复现细节，尚未达到领域主流技术演进的关键节点",
       "deep": {}
     }
   ]
