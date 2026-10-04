@@ -10855,6 +10855,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-10-04": [
+      {
+        "arxiv_id": "2610.00438",
+        "title": "Towards a General Humanoid Loco-Manipulation Model via Egocentric Whole-Body Human Data Pretraining",
+        "published": "2026-09-30",
+        "first_seen": "2026-10-04",
+        "url": "https://arxiv.org/abs/2610.00438",
+        "pdf_url": "https://arxiv.org/pdf/2610.00438",
+        "thumb": "assets/thumbs/2610.00438.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "智元",
+        "country": "CN",
+        "significance": 93,
+        "significance_reason": "HumanVerse-500是首个同步采集egocentric视觉+全身运动+手部精细动作的大规模开放数据集；λ₀首次实现从纯人体egocentric数据出发、经显式人体-机器人表征对齐、支持多具身部署的端到端loco-manipulation策略；实测覆盖4个真实人形机器人任务（非仿真刷榜），且有消融与scaling分析，实质推进了‘human-as-supervision’范式的工程落地能力，略逊于GR00T N1（全栈端到端生成式控制）和ω-0（世界模型级并发预测），但强于H2O（仅上半身+无真实硬件验证）和Human-as-Humanoid（未发布数据/模型）。",
+        "tier": "heavy",
+        "tldr": "用500小时穿戴式采集的 egocentric 人体全身运动视频（含身体+双手+场景交互）预训练一个视觉-语言-动作联合模型，再经三阶段迁移适配到人形机器人，实现跨人体/机器人形态的全身位移+操作控制。",
+        "deep": {
+          "hook": "首个用500小时穿戴式egocentric人体全身数据预训练、实测跑通4个真实人形机器人loco-manipulation任务的端到端模型",
+          "why_now": "紧接GR00T N1（生成式控制）和ω-0（世界模型）之后，首次将‘human-as-supervision’从上半身/仿真/小规模推进到全身+真机+可复现工程闭环；踩中具身智能‘降低机器人交互数据依赖’的核心瓶颈",
+          "problem": "人形机器人全身位移+操作（loco-manipulation）需协调基座移动、躯干姿态、双臂协同与灵巧手动作，但真实机器人收集高质量交互数据成本极高；现有egocentric人类视频缺乏同步全身运动+手部精细轨迹，而teleoperation又难规模化。",
+          "method": "提出三阶段训练：①在多源egocentric视频（含Ego4D等）上预训练视觉-语言-动作联合表征；②用HumanVerse-500（500小时同步egocentric视频+全身关节+双手6DoF轨迹）进行人体-机器人显式表征对齐，引入可学习的‘形态适配器’桥接人体/机器人运动学差异；③针对具体机器人本体（如Figure 01、H1等）微调策略，输出原生关节动作序列。",
+          "results": "在SIMPLE基准和4个真实人形机器人任务（含开门、取放杯、跨障碍取物、桌面协同操作）上达到SOTA；报告了scaling分析（模型大小/数据量/性能关系）与三阶段消融（验证第二阶段HumanVerse-500对全身协调的关键作用）；代码、模型、HumanVerse-500数据集全部开源。",
+          "limitations": "未披露HumanVerse-500中真实场景交互任务的具体分布（如是否覆盖非结构化户外/动态障碍）；所有真机实验均未说明是否使用外部定位（如Vicon）或仅依赖本体传感器，sim2real鲁棒性边界未量化；‘形态适配器’未公开参数量与延迟开销，多本体部署的实际计算负载存疑。",
+          "significance_take": "显著推进‘human-as-supervision’范式——首次证明纯人体egocentric数据经显式对齐后，可支撑多本体、全身、真机locomanipulation，而非仅上半身模仿或仿真迁移；是当前最接近‘用人类行为直接蒸馏机器人控制’的工程可行路径。",
+          "who_should_read": "做具身策略迁移、人形机器人sim2real、或human-centric pretraining的研究者/工程师，能直接复用HumanVerse-500数据、λ₀架构设计与三阶段训练范式。",
+          "verdict": "必读——它把‘用人类数据教机器人动全身’从口号变成可下载、可运行、可验证的完整技术栈，且所有关键组件（数据/模型/真机结果）均已落地。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2609.34182",
+        "title": "Unified Visual-Tactile-Action Modeling from Human Demonstrations for Dexterous Manipulation",
+        "published": "2026-09-28",
+        "first_seen": "2026-10-04",
+        "url": "https://arxiv.org/abs/2609.34182",
+        "pdf_url": "https://arxiv.org/pdf/2609.34182",
+        "thumb": "assets/thumbs/2609.34182.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "清华",
+        "country": "CN",
+        "significance": 93,
+        "significance_reason": "达到HiFi-UMI（94）同档：首次系统性验证人类触觉演示对机器人灵巧操作的强迁移价值，构建首个千级人类触觉-视觉-动作同步数据集UVTA，真机五任务部署且无仿真环节，70%成功率远超基线，消融与扩展性实验扎实；但未开源代码/模型，略逊于HiFi-UMI的全开源+UMI硬件复现友好性",
+        "tier": "heavy",
+        "tldr": "用人类戴传感器手套做灵巧操作的视频+触觉+动作数据，构建UVTA数据集，训练一个统一模型把人类和机器人触觉-视觉-动作映射到共享表征空间，仅用人类触觉数据监督学习接触感知表征，最终在真实机器人上实现70%平均成功率，显著超越纯机器人数据基线（29%）",
+        "deep": {
+          "hook": "用人类戴手套做灵巧操作的触觉+视觉+动作数据，零机器人触觉演示，真机五任务70%成功率",
+          "why_now": "接续HiFi-UMI（94分）对人类演示价值的验证，但首次系统性剥离‘机器人触觉采集’瓶颈，直击当前具身智能中触觉数据稀缺与sim2real断裂两大痛点；同期工作多依赖仿真触觉或单模态人类数据，本工作是首个千级同步触觉-视觉-动作人类数据集+真机闭环验证",
+          "problem": "机器人灵巧操作严重依赖触觉反馈，但机器人自身采集高质量触觉演示成本极高（需精密手部遥操作+力反馈），导致触觉策略学习数据匮乏；而人类操作天然富含接触物理信号，却长期未被建模为可迁移的表征源。",
+          "method": "构建UVTA数据集：1000条人类同步RGB+触觉（传感器手套）+运动轨迹演示，覆盖5个接触密集任务；提出Unified Visual-Tactile-Action Model——用共享编码器将人类/机器人输入映射到统一表征空间，联合预测未来动作序列与未来触觉信号；关键创新是‘人类触觉仅用于监督表征学习，不参与动作执行’，实现人类物理先验向机器人策略的无监督迁移。",
+          "results": "真机部署5个任务，平均成功率70%；显著高于最强视觉-触觉基线（29%）和消融模型（42%）；性能随人类演示数量增加持续提升，1000条/任务未见饱和；所有实验均在真实机器人上完成，无仿真环节。",
+          "limitations": "未开源代码与模型权重，复现门槛高；UVTA中机器人演示仅150条/任务（远少于人类），但论文未说明其是否参与训练或仅作评估，训练数据构成模糊；触觉传感器为定制手套，未验证跨硬件（如不同品牌触觉阵列）泛化性。",
+          "significance_take": "显著推进‘人类演示作为物理先验源’这一路线：它不是简单模仿人类动作，而是将人类触觉建模为接触动力学代理，使机器人无需重采触觉数据即可获得接触感知能力——这跳出了‘机器人必须自己摸够才懂’的传统范式。",
+          "who_should_read": "做触觉学习、人类演示迁移、灵巧操作部署的工程师和研究者，能直接获得可复现的数据构建逻辑、表征对齐设计与真机验证方法论。",
+          "verdict": "必读：它是目前唯一用千级真实人类触觉演示驱动真机灵巧操作、且明确切断‘机器人触觉采集依赖’的完整技术链，工程闭环扎实，问题定义精准。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2610.00904",
+        "title": "Screw Attention: Rigid-Body Algebra Inside a Transformer",
+        "published": "2026-10-01",
+        "first_seen": "2026-10-04",
+        "url": "https://arxiv.org/abs/2610.00904",
+        "pdf_url": "https://arxiv.org/pdf/2610.00904",
+        "thumb": "assets/thumbs/2610.00904.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "unknown",
+        "country": "unknown",
+        "significance": 88,
+        "significance_reason": "在LIBERO-Spatial上以1/27参数量超越大模型，且通过坐标系重定义、位姿噪声、关节偏移等严苛鲁棒性测试，首次将刚体李代数结构（se(3)变换+螺旋运动学）深度嵌入attention计算流，不是简单加几何先验，而是重构attention的relation定义与message transport方式；虽未达World Models级范式革命（95+），但属近年具身智能中‘结构先验驱动架构设计’方向最扎实、最可复现、最具物理可信度的突破之一。",
+        "tier": "heavy",
+        "tldr": "提出一种叫Screw Attention的Transformer层，把每个token当作刚体（带位姿），用空间变换（而非标量注意力）建模两刚体间的相对位姿和关节螺旋轴，使网络天然满足刚体运动学的坐标系不变性和速度递推关系，在仅用物体位姿输入的模拟操作任务中，用极小参数量（1.6万）达到97.3%成功率，且对坐标系约定变更、位姿噪声、关节标定偏差完全鲁棒。",
+        "deep": {
+          "hook": "把每个token当刚体，用se(3)变换重定义attention——刚体运动学直接进前向传播",
+          "why_now": "接续2023–2024年‘几何先验嵌入’热潮（如SE(3)-Transformer、GNO），但首次将螺旋运动学（screw theory）与速度递推关系硬编码进attention计算流，而非后处理或损失约束；踩中具身智能从‘数据驱动拟合’转向‘结构驱动建模’的关键拐点",
+          "problem": "现有具身策略网络（尤其纯位姿输入的轻量模型）严重依赖大量仿真数据拟合空间关系，导致对坐标系约定变更、传感器噪声、关节标定偏差等物理扰动极度脆弱；而刚体运动学本就以坐标系不变性和递推速度链为基石——这些结构却被标准attention完全忽略。",
+          "method": "Screw Attention层中：每个token代表一个刚体（含6D位姿）；两token间的关系不再是标量相似度，而是se(3)相对变换+关节螺旋轴（screw axis）；消息传递时，发送方特征被刚体变换到接收方坐标系下再聚合；attention score仅基于frame-invariant量（如相对旋转角、螺旋节距）计算；单层即天然满足速度递推（Twist composition）和坐标系等变性。",
+          "results": "在LIBERO-Spatial上，16,162参数模型达97.3%成功率；参数量仅为对比flat网络的1/27；坐标系约定变更时成功率保持97.3%，其他模型跌至<3%；对≤10 mm位姿噪声、Franka出厂级关节偏移完全鲁棒；作为门控残差接入解析控制器，插入任务成功率提升17.3个百分点。",
+          "limitations": "仅验证于纯位姿输入的模拟操作任务（无图像/语言/触觉），未测试多模态融合场景；所有实验均在simulator中完成，small-real仅指‘可部署到真实Franka’，但未报告真机闭环成功率；未提供消融实验验证screw axis建模 vs 单纯se(3)变换的独立贡献。",
+          "significance_take": "显著推进‘结构先验驱动架构设计’路线：不是加几何loss或预训练，而是将李代数运算深度耦合进attention的relation定义与message transport机制，属可复现、可验证、物理可解释的架构级改进，为轻量高鲁棒策略网络树立新基线。",
+          "who_should_read": "做具身策略轻量化、几何泛化、sim2real鲁棒性的工程师和研究者，能直接复用其se(3)-aware attention实现并规避坐标系敏感陷阱。",
+          "verdict": "必读——它用最小改动（重定义attention relation）兑现了最大承诺（坐标系不变性+物理递推），且所有宣称鲁棒性均有明确实验对照，是近年少有的‘说清楚、做扎实、验得狠’的工作。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -11202,6 +11294,7 @@
     "2609.30249",
     "2609.30667",
     "2609.31394",
+    "2609.34182",
     "2609.34256",
     "2609.35318",
     "2609.35761",
@@ -11211,8 +11304,10 @@
     "2609.38078",
     "2609.38164",
     "2609.38172",
-    "2609.39403"
+    "2609.39403",
+    "2610.00438",
+    "2610.00904"
   ],
-  "latest": "2026-10-03",
-  "generated_at": "2026-10-03 06:16 UTC"
+  "latest": "2026-10-04",
+  "generated_at": "2026-10-04 06:52 UTC"
 }
