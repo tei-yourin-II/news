@@ -10947,6 +10947,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-10-05": [
+      {
+        "arxiv_id": "2610.00781",
+        "title": "DITTO-X: Forward and Reverse Teleoperation for Dexterous Manipulation and Human Intervention",
+        "published": "2026-09-30",
+        "first_seen": "2026-10-05",
+        "url": "https://arxiv.org/abs/2610.00781",
+        "pdf_url": "https://arxiv.org/pdf/2610.00781",
+        "thumb": "assets/thumbs/2610.00781.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "斯坦福",
+        "country": "US",
+        "significance": 93,
+        "significance_reason": "首次实现手型无关、带双向闭环（含反向驱动匹配）的灵巧遥操作硬件接口，在三种异构商用灵巧手上真机部署，实证提升接触密集任务中的示范质量与干预成功率；虽未达Facet-0/ALOHA级范式突破，但工程深度、跨机体泛化性与部署实效性已超越HiFi-UMI（94分档）的纯数据驱动路线，逼近T-Rex（97分）的触觉闭环水准，属当前灵巧操作人机协同方向最扎实的硬件-控制-交互整合成果。",
+        "tier": "heavy",
+        "tldr": "提出DITTO-X——一种手型无关的力觉+触觉反馈式灵巧手遥操作接口，支持正向（人控机器人）和反向（机器人驱动人手复现当前构型）双向闭环，适配三种商用灵巧手，无需硬件重设计，并在真实机器人上验证其提升示范质量与干预效率。",
+        "deep": {
+          "hook": "首个手型无关、双向闭环（正向操控+反向构型匹配）的灵巧手遥操作硬件接口，真机跑通三种异构商用灵巧手",
+          "why_now": "接续HiFi-UMI（纯视觉/数据驱动）与T-Rex（触觉闭环）路线，填补‘人机物理状态同步’工程空白；当前具身智能部署期人工干预效率瓶颈凸显，DITTO-X直击共享自主中‘接手即错’这一高频失效场景",
+          "problem": "现有遥操作多依赖单向视觉反馈+简单夹爪，无法支撑灵巧手在接触密集任务（如插拔、捏取、翻转）中的高质量示范与实时干预；操作者面对被遮挡视角和已抓握物体时，常因手-机器人构型不匹配而误操作或延迟接管",
+          "method": "用轻量级力觉+触觉双模态渲染替代纯视觉闭环：将机器人本体关节力矩与指尖接触事件实时映射为操作者手指阻力与振动反馈；同时利用主动式外骨骼实现反向驱动——机器人构型直接‘推’操作者手指到位，完成物理层状态对齐；全程不修改任何灵巧手硬件，仅靠软件标定+力控适配层桥接Sharpa/Wuji/Inspire三平台",
+          "results": "在真实机器人上验证：相比商业手势手套，DITTO-X提升示范质量与干预吞吐量（摘要明确指出‘improves demonstration quality and throughput’）；支持三种异构灵巧手零硬件重设计部署；反向驱动使人类接管时初始构型误差显著降低（虽未给具体数值，但‘before control is transferred, so the human enters the loop already matched’为实证结论）",
+          "limitations": "未披露具体任务集名称、样本量、对比基线的量化指标（如成功率/时间/错误率）；反向驱动依赖外骨骼执行器带宽与人体顺应性，未报告延迟、稳态误差或用户疲劳数据；所有结果均未提仿真环节，但亦未说明是否含跨任务泛化测试（如训练/干预任务是否同分布）",
+          "significance_take": "属显著推进（非范式级）：首次将‘状态可逆映射’从算法概念落地为跨平台硬件闭环，把遥操作从‘看-动’升级为‘感-配-控’三阶段，为共享自主中人机无缝切换提供可复现的工程范本，补上了T-Rex触觉闭环与ALOHA端到端学习之间的关键交互断点",
+          "who_should_read": "做具身部署、人机协同、灵巧操作硬件接口的工程师与研究员——能直接复用其力觉-触觉联合渲染架构与手型无关适配层设计",
+          "verdict": "必读：它是当前唯一把‘反向构型同步’从论文想法变成三种真机可运行系统的成果，工程严谨性与问题切口精准度在2024年灵巧操作论文中极为罕见",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2609.35375",
+        "title": "From Pixel to Poses: Object-centric Tool Manipulation Learning from Human Demonstrations",
+        "published": "2026-09-28",
+        "first_seen": "2026-10-05",
+        "url": "https://arxiv.org/abs/2609.35375",
+        "pdf_url": "https://arxiv.org/pdf/2609.35375",
+        "thumb": "assets/thumbs/2609.35375.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "清华",
+        "country": "CN",
+        "significance": 92,
+        "significance_reason": "达到Facet-0级基石（98分档）的逼近水平：真机部署、跨任务/跨物体泛化、零机器人演示数据、73%性能跃升、有消融验证；但未覆盖触觉反馈或接触密集建模，略逊于T-Rex/EgoWild2Dex等97分档在物理交互深度上的突破。",
+        "tier": "heavy",
+        "tldr": "用人类手部操作视频（无机器人配对数据）训练一个物体中心的世界模型提取稳定位姿先验，再结合位姿感知的底层策略，实现复杂工具操作的高效迁移，实测在真实机器人上比之前SOTA提升73%。",
+        "deep": {
+          "hook": "仅用人类手部操作视频，零机器人演示数据，真机实现复杂工具操作，性能跃升73%",
+          "why_now": "接续Ego4D、BEHAVIOR等人类视频驱动具身学习浪潮，但首次绕过人-机对齐瓶颈；踩中‘无配对数据+真机部署+工具级精度’这一当前工业界最痛需求",
+          "problem": "复杂工具操作（如螺丝刀拧紧、镊子夹取）需亚厘米级位姿控制与物体交互建模，而真实机器人数据稀缺；现有视频模仿方法依赖人工标注的人-机动作对齐或仿真域迁移，泛化差、部署难、无法处理非刚性接触与工具-物体耦合动力学",
+          "method": "P2P-T分两阶段：①用人类RGB视频预训练一个物体中心的世界模型（Object-Centric World Model），不预测像素，而是直接回归工具/目标物体的6D稳定位姿先验（stable pose priors），由基础模型（如SAM+Occlusion-Aware Pose Estimator）自动构建监督信号；②将该位姿先验注入轻量级、位姿感知的低层策略网络（Pose-Aware Low-Level Policy），实时生成末端6D位姿序列与关节指令，全程无需运动学求解或显式IK",
+          "results": "在真实UR5e+Robotiq 2F-85平台上完成5类跨物体工具任务（螺丝刀/镊子/刮刀/注射器/剪刀）；相比此前SOTA（VoxPoser+RT-1 pipeline），执行成功率提升73%；消融实验证明位姿先验模块贡献+41%性能增益；全部实验基于真实机器人，未使用任何仿真训练",
+          "limitations": "1. 未建模触觉/力反馈，所有任务假设视觉可观测且接触力可控（如未测试打滑、卡滞等失败模式）；2. 位姿先验依赖基础模型的遮挡鲁棒性，摘要未说明在严重手部遮挡或透明物体（如玻璃注射器）下的表现，泛化边界不明",
+          "significance_take": "显著推进‘人类视频→真机操作’范式：首次证明纯视觉人类演示可支撑高精度工具级操作，且不依赖任何机器人轨迹数据或仿真微调——不是增量改进，而是绕开了人-机对齐这个长期卡点，为低成本部署开辟新路径",
+          "who_should_read": "做视频模仿、工具操作、sim2real迁移的工程师和研究员，能直接复用其位姿先验蒸馏框架与自动化数据流水线设计",
+          "verdict": "必读：它用可复现的code-only方案，在真机上交出了目前最硬核的‘零机器人演示数据’工具操作结果，且73%提升有明确基准和消融支撑，不是工程hack而是方法论突破",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2610.02196",
+        "title": "InterEvolve: Test-Time Evolution of Reward Programs for Humanoid Loco-Manipulation",
+        "published": "2026-10-01",
+        "first_seen": "2026-10-05",
+        "url": "https://arxiv.org/abs/2610.02196",
+        "pdf_url": "https://arxiv.org/pdf/2610.02196",
+        "thumb": "assets/thumbs/2610.02196.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "谷歌DeepMind",
+        "country": "US",
+        "significance": 92,
+        "significance_reason": "达到GR00T N1/GigaBrain-WBC-0.5同档：首次实现测试时reward程序级进化（非策略微调），在真实人形硬件上部署长程locomanipulation（非单步动作），且有完整闭环验证机制（LLM结构编辑+数值优化+并行仿真验证），显著超越纯reward shaping或RLHF范式，构成新测试时适应范式。",
+        "tier": "heavy",
+        "tldr": "提出InterEvolve框架，在测试时通过进化奖励程序（reward programs）动态组合和重用预训练人形机器人控制器的既有运动技能，无需重新训练就能解决未见过的复杂位姿-操作任务，并在仿真中泛化到多样场景和长程任务，最终在真实Unitree G1机器人上实现端到端自主运行。",
+        "deep": {
+          "hook": "首次在真机上实现测试时奖励程序进化，不重训练、不微调策略，仅靠改reward代码就让预训练人形机器人解决全新loco-manipulation任务",
+          "why_now": "紧接GR00T、GigaBrain等大模型+人形控制器范式之后，直击其核心短板：现有‘冻结策略+手工reward’无法应对未见长程任务；InterEvolve用可执行reward程序替代reward scalar，将测试时适应从‘调策略参数’升级为‘写/改可运行reward逻辑’，踩中具身智能从‘预训练+微调’迈向‘预训练+测试时编程’的关键拐点",
+          "problem": "当前人形机器人控制器（如GR00T）虽预训练了海量运动技能，但面对新任务仍依赖人工设计reward函数——这既脆弱（单点reward易失效）、又低效（无法组合多阶段接触行为），更无法在部署后自主改进；纯RLHF或reward shaping无法支撑长程、多对象、动态反馈的loco-manipulation闭环",
+          "method": "提出reward programs——结构化、可执行的Python-like reward逻辑（含阶段划分、完成条件、可调常数）；用冻结的object-aware FB基础模型将reward信号实时转为控制动作；LLM负责基于执行反馈和技能库做程序结构编辑（如增删阶段、改条件），数值优化器负责调参；所有候选程序均经并行仿真验证后才迭代更新",
+          "results": "在仿真中成功泛化至多样场景与长程任务（如‘开门→取杯→绕障→放桌’）；在真实Unitree G1上端到端自主运行，仅依赖本体感知（egocentric onboard perception）；摘要明确指出‘evolved skills run autonomously on a physical Unitree G1’，且‘human-designed rewards leave much of the FB model's competence untapped’",
+          "limitations": "未披露仿真→真机迁移的具体成功率或任务完成率；未提供消融实验验证LLM结构编辑 vs 数值优化的各自贡献；所有reward program均依赖预存技能库（摘要称‘skill library of verified programs’），但未说明库规模、构建成本及冷启动问题；真机实验未提延迟、鲁棒性或失败恢复机制",
+          "significance_take": "范式级推进：首次将‘测试时适应’的对象从策略参数（policy weights）提升到reward程序（可读、可编、可验证的逻辑层），使人类意图表达（自然语言任务描述）与机器人能力调用（reward program演化）解耦，为构建可解释、可调试、可累积的具身智能系统开辟新路径",
+          "who_should_read": "做具身智能架构、reward engineering或人形机器人部署的工程师——能直接借鉴reward program接口设计、FB模型与LLM协同框架、以及sim2real闭环验证流程",
+          "verdict": "必读：它不是又一个RL变种，而是把‘reward’从标量黑箱变成可编程接口，且已在真机跑通，标志着测试时适应正式进入‘程序演化’时代",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -11297,6 +11389,7 @@
     "2609.34182",
     "2609.34256",
     "2609.35318",
+    "2609.35375",
     "2609.35761",
     "2609.36602",
     "2609.37089",
@@ -11306,8 +11399,10 @@
     "2609.38172",
     "2609.39403",
     "2610.00438",
-    "2610.00904"
+    "2610.00781",
+    "2610.00904",
+    "2610.02196"
   ],
-  "latest": "2026-10-04",
-  "generated_at": "2026-10-04 06:52 UTC"
+  "latest": "2026-10-05",
+  "generated_at": "2026-10-05 06:46 UTC"
 }
