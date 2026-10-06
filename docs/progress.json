@@ -655,6 +655,15 @@
           "why": "首个开源人形机器人行为基础模型，50k H100 GPU-hrs训练，VLA双系统架构，定义‘预训练+提示即控’新范式，推动WBC从任务专用走向通用智能体"
         },
         {
+          "name": "Towards a General Humanoid Loco-Manipulation Model via Egocentric Whole-Body Human Data Pretraining",
+          "org": "智元",
+          "country": "CN",
+          "year": "2026",
+          "arxiv_id": "2610.00438",
+          "significance": 95,
+          "why": "首次系统性将egocentric全身人类运动数据（含手-眼-身-环境四元耦合）作为通用人形具身智能的预训练基底，突破了现有范式对动作捕捉、仿真先验或任务标注的依赖，确立‘人体即最优仿真器’的新范式锚点。"
+        },
+        {
           "name": "GigaBrain-WBC-0.5: A Behavior World Model for Robust Whole-Body Control with Environment Interaction",
           "org": "银河通用",
           "country": "CN",
@@ -906,7 +915,7 @@
           "note": "H1/G1平台及Humanoid-Gym仿真支持"
         }
       ],
-      "verdict": "美国在范式开创（NTP、H2O、ExBody、GRAIL、Human-as-Humanoid、RoboTTT、Transformer Transformer、ω-0、GigaBrain-WBC-0.5）上仍领先；中国在工程落地（SUGAR、ULTRA、ASAP）、真机验证密度（PKU/上交/上海AI Lab密集部署）和规模化应用（宇树/智元量产）上已形成反超态势，中美呈现‘美主原创、中主闭环’双强格局",
+      "verdict": "美国在范式开创（NTP、H2O、ExBody、GRAIL、Human-as-Humanoid、RoboTTT、Transformer Transformer、ω-0、GigaBrain-WBC-0.5、EgoWhole）上仍领先；中国在工程落地（SUGAR、ULTRA、ASAP）、真机验证密度（PKU/上交/上海AI Lab密集部署）和规模化应用（宇树/智元量产）上已形成反超态势，中美呈现‘美主原创、中主闭环’双强格局",
       "activity": "该领域处于爆发临界点：2025–2026年顶级会议（ICLR/CoRL/Robotics: Science and Systems）中WBC相关论文占比跃升至37%，真机验证论文年增120%，已从实验室探索迈入产业级技术攻坚阶段",
       "id": "whole_body_control",
       "name": "全身控制 / 人形",
@@ -923,6 +932,15 @@
           "arxiv_id": "2609.01596",
           "significance": 98,
           "why": "Facet-0首次将力觉（wrench）原生嵌入多模态基础模型的联合表征与生成范式，以动作-力矩联合提案+分布式力矩感知批评器实现接触物理约束下的亚毫米闭环控制，突破了灵巧操作长期依赖纯运动学/视觉开环或单点力反馈的架构瓶颈，确立‘多模态物理闭环基础模型’新范式。"
+        },
+        {
+          "name": "IronMind: Scaling Humanoid Dexterous Manipulation via Camera-Space Ego-Centric Pretraining",
+          "org": "智元",
+          "country": "CN",
+          "year": "2026",
+          "arxiv_id": "2609.39403",
+          "significance": 97,
+          "why": "首次确立‘相机空间本征动作表征’为灵巧操作的通用动作基元，解耦人体运动学建模与机器人执行，使跨形态（人→人形机器人）、跨标定（免运动捕捉/免手眼标定）、跨任务（零样本泛化）的灵巧策略迁移成为可扩展范式，从根本上重构了数据-表征-执行的技术三角。"
         },
         {
           "name": "EgoWild2Dex: Learning Dexterous Robotic Manipulation from In-the-Wild Human Experience",
@@ -1266,7 +1284,7 @@
           "note": "Dex5（20-DoF，94触觉传感器）"
         }
       ],
-      "verdict": "From Instrument-Mounted Demonstrations开创‘原位传感-活体执行’临床闭环范式，摒弃机器人本体、外部追踪与仿真环境三重依赖，仅凭器械端IMU/ToF/霍尔信号直采真实腹腔镜手术动作，驱动扩散策略在活体兔子完成全自主阑尾切除——将灵巧操作的验证场域从实验室台面、仿真器或离体组织，首次锚定至高动态、不可见、强约束的活体腹腔内环境，标志着该领域进入‘临床即训练场、器械即传感器、手术即数据’的原生医疗智能新纪元。",
+      "verdict": "IronMind开创‘相机空间本征动作表征’范式，摒弃传统依赖高精度人体动捕、机器人运动学建模与手眼标定的三重桎梏，仅凭海量第一人称操作视频即构建可直迁至人形机器人的视觉-语言-动作联合表征；其将动作定义在相机坐标系这一本征感知空间，首次实现免标定、跨形态、零样本的灵巧策略泛化——标志着灵巧操作从‘运动学对齐驱动’迈入‘感知空间原生驱动’新纪元，技术三角（数据-表征-执行）被根本性重构。",
       "activity": "该领域处于爆发期：2025–2026年基石工作密集涌现，论文年均增长超40%，工业界融资与产品化节奏显著加快。",
       "id": "dexterous_manipulation",
       "name": "灵巧操作",
