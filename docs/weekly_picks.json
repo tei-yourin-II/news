@@ -1,8 +1,8 @@
 {
   "week": {
-    "start": "2026-10-03",
-    "end": "2026-10-09",
-    "label": "10.03~10.09"
+    "start": "2026-10-04",
+    "end": "2026-10-10",
+    "label": "10.04~10.10"
   },
   "count": 15,
   "venue_count": 4,
@@ -10,10 +10,49 @@
     "ICRA 2027",
     "NeurIPS 2026"
   ],
-  "generated_at": "2026-10-09 07:37 UTC",
+  "generated_at": "2026-10-10 06:55 UTC",
   "picks": [
     {
       "rank": 1,
+      "arxiv_id": "2610.10515",
+      "title": "RoboJEPA: Scaling Robotic Latent World Models",
+      "published": "2026-10-07",
+      "url": "https://arxiv.org/abs/2610.10515",
+      "pdf_url": "https://arxiv.org/pdf/2610.10515",
+      "thumb": "assets/thumbs/2610.10515.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "world_model",
+      "org": "Meta",
+      "country": "US",
+      "org_type": "company",
+      "significance": 93,
+      "significance_reason": "首次在真实机器人多机体数据上建立可外推的潜空间世界模型scaling law，提供首个实证可靠的‘想象误差→真实性能’代理关系，并实现零样本真机长程视觉目标规划；虽未达World Models（97）或DreamerV3（96）的范式开创性，但填补了multi-embodiment real-robot world model scaling这一关键空白，工程深度与实证严谨性显著超越WEAVER（94.5）和Genie（94）。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "large-scale",
+        "open-source",
+        "real-robot",
+        "benchmark"
+      ],
+      "tldr": "用真实机器人多机体数据训练了一个80亿参数的JEPA架构潜空间世界模型RoboJEPA，首次在真实机器人上验证了其‘想象误差’随算力呈可预测的二次幂律缩放，并证明该误差能可靠替代真实机器人评估，还能零样本部署到真实硬件完成长程视觉目标导向任务。",
+      "claim": "潜空间机器人世界模型的想象误差遵循可外推的compute scaling law，且该误差是下游真实机器人规划性能的强代理指标。",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark"
+      ],
+      "input": "多机体真实机器人传感器流（含图像、状态、动作）",
+      "output": "潜空间中的未来状态预测（latent rollout）及基于其的规划动作序列",
+      "novelty": 9,
+      "evidence": 11,
+      "one_sentence_verdict": "真突破：不是概念包装，而是首次用真实机器人数据确立潜空间世界模型的可量化、可外推、可部署的scaling规律，并开源全栈，实质性推动具身智能从‘单体调参’迈向‘系统化规模扩展’。",
+      "deep": {}
+    },
+    {
+      "rank": 2,
       "arxiv_id": "2610.05483",
       "title": "FLEX-WAM: Flexible Block-Causal World-Action Models for Long-Horizon Imagination and Planning",
       "published": "2026-10-04",
@@ -50,7 +89,7 @@
       "deep": {}
     },
     {
-      "rank": 2,
+      "rank": 3,
       "arxiv_id": "2610.06850",
       "title": "InterMimicGen: Scaling Humanoid Loco-Manipulation through Self-Evolving Motion Imitation",
       "published": "2026-10-05",
@@ -90,7 +129,48 @@
       "deep": {}
     },
     {
-      "rank": 3,
+      "rank": 4,
+      "arxiv_id": "2610.09117",
+      "title": "Workhorse: Learning Robust Whole-Body Humanoid Loco-Manipulation from Human Data",
+      "published": "2026-10-06",
+      "url": "https://arxiv.org/abs/2610.09117",
+      "pdf_url": "https://arxiv.org/pdf/2610.09117",
+      "thumb": "assets/thumbs/2610.09117.jpg",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "whole_body_control",
+      "org": "加州大学伯克利分校",
+      "country": "US",
+      "org_type": "university",
+      "significance": 92,
+      "significance_reason": "达到并局部超越‘Human-as-Humanoid’和‘Towards a General Humanoid Loco-Manipulation Model’等95分档基石工作：首次实现无retargeting、双策略解耦+错误互增强的端到端loco-manipulation闭环，在真实G1上完成多模态接触任务（踢+抓+推+爬）且含物理扰动恢复，跨机体泛化验证扎实（第二仿真人形体83%成功率），但未开源数据与完整训练pipeline，削弱复现门槛。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "loco-manipulation",
+        "whole-body",
+        "human-data",
+        "sim2real",
+        "real-robot"
+      ],
+      "tldr": "用纯人类动作视频（无机器人、无动作重定向）训练两个解耦策略：一个视觉规划器预测人体 torso/手腕/脚的5个部位目标位姿，另一个强化学习控制器在人形机器人上实时跟踪这些目标，实现踢、抓、推、爬等全身接触式操作，并在真实Unitree G1上完成抗干扰的箱子分拣、接抛物、翻越行李箱等任务。",
+      "claim": "仅从无机器人的人类第一视角视频中学习鲁棒的全身人形机器人接触式运动-操作（loco-manipulation），无需动作重定向，且通过双向错误建模实现两策略协同优化。",
+      "method_components": [
+        "model",
+        "dataset",
+        "policy",
+        "benchmark",
+        "hardware"
+      ],
+      "input": "人类第一视角RGB视频 + 人体关节位姿序列（来自Vicon或类似动捕）",
+      "output": "5个部位（torso+2 wrists+2 feet）的目标位姿序列 + 机器人全身关节力矩控制指令",
+      "novelty": 8,
+      "evidence": 10,
+      "one_sentence_verdict": "真突破：它跳出了‘人类动作→机器人动作映射’的传统范式，用视觉规划器直接输出机器人可执行的全身目标位姿，再由WBC级控制器闭环跟踪，是首个在真实高自由度人形上验证该解耦架构鲁棒性的系统，证据链完整、任务复杂度和扰动鲁棒性均达新标杆。",
+      "deep": {}
+    },
+    {
+      "rank": 5,
       "arxiv_id": "2610.06235",
       "title": "Encoded but Not in Control: Revealing the Grounding Gap in Vision-Language Robot Policies",
       "published": "2026-10-05",
@@ -127,47 +207,7 @@
       "deep": {}
     },
     {
-      "rank": 4,
-      "arxiv_id": "2610.04765",
-      "title": "PatternDex: Learning Interaction Patterns to Guide Reinforcement Learning of Bimanual Dexterous Manipulation of Articulated Objects",
-      "published": "2026-10-03",
-      "url": "https://arxiv.org/abs/2610.04765",
-      "pdf_url": "https://arxiv.org/pdf/2610.04765",
-      "thumb": "assets/thumbs/2610.04765.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "加州大学圣地亚哥分校",
-      "country": "US",
-      "org_type": "university",
-      "significance": 87,
-      "significance_reason": "在双灵巧操作领域首次系统解耦‘任务本质规律’（手-物运动相关性）与‘机体执行约束’（腕/接触点适配），实现在4种异构灵巧手上的免重训迁移+真实微波炉开合部署，证据强度接近IronMind/EgoWild2Dex级（多机体+真机验证+消融隐含于模式复用设计），但未覆盖触觉/力控等contact-rich维度，故略低于Facet-0/98档。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "dexterous",
-        "bimanual",
-        "sim2real",
-        "teleoperation",
-        "dataset"
-      ],
-      "tldr": "提出PatternDex方法，从人类操作关节物体（如门、微波炉）的视频中学习‘手-物运动相关性’，将其编码为可迁移的交互模式token序列；再根据目标机器人手的物理结构，将该模式解码为适配的腕部运动和接触点估计，用作强化学习策略的引导信号，从而在不依赖真实机器人数据的前提下实现多手型跨平台灵巧双臂操作。",
-      "claim": "物体自身的关节结构决定了手-物运动相关性，这种相关性可从人类演示中提取为与具体机器人无关的交互模式，进而指导任意双灵巧手完成高成功率的关节物体操作。",
-      "method_components": [
-        "model",
-        "dataset",
-        "policy",
-        "benchmark"
-      ],
-      "input": "人类操作关节物体的RGB视频（含手部姿态与物体运动）",
-      "output": "适配目标机器人的腕部轨迹+接触点估计 + 最终RL策略输出的动作序列",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：它不是调参或刷榜，而是识别出关节物体操作中被长期忽视的‘运动相关性可泛化’这一物理先验，并构建了首个可解耦、可迁移、可部署的模式引导范式。",
-      "deep": {}
-    },
-    {
-      "rank": 5,
+      "rank": 6,
       "arxiv_id": "2610.06331",
       "title": "DexForge: High-Fidelity Physics-Informed Dexterous Retargeting",
       "published": "2026-10-05",
@@ -205,7 +245,7 @@
       "deep": {}
     },
     {
-      "rank": 6,
+      "rank": 7,
       "arxiv_id": "2610.06129",
       "title": "I-BFM: Reward-Conditioned Robust Humanoid Interaction via Unsupervised Reinforcement Learning",
       "published": "2026-10-05",
@@ -243,7 +283,7 @@
       "deep": {}
     },
     {
-      "rank": 7,
+      "rank": 8,
       "arxiv_id": "2610.10528",
       "title": "Long-WAM: Scaling the Context of World-Action Models",
       "published": "2026-10-07",
@@ -281,7 +321,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
+      "rank": 9,
       "arxiv_id": "2610.07969",
       "title": "EmbodiedSmith: Scaling Embodied Data through Recursive Self-Improvement Flywheel in Simulation",
       "published": "2026-10-06",
@@ -319,7 +359,7 @@
       "deep": {}
     },
     {
-      "rank": 9,
+      "rank": 10,
       "arxiv_id": "2610.12468",
       "title": "DreamTrue: Action-Faithful Robot World Model with Counterfactual Post-Training",
       "published": "2026-10-08",
@@ -358,7 +398,46 @@
       "deep": {}
     },
     {
-      "rank": 10,
+      "rank": 11,
+      "arxiv_id": "2610.08119",
+      "title": "AutodidactWAM: Cross-Modal Self-Distillation from Generated Video to Robot Actions",
+      "published": "2026-10-06",
+      "url": "https://arxiv.org/abs/2610.08119",
+      "pdf_url": "https://arxiv.org/pdf/2610.08119",
+      "thumb": "assets/thumbs/2610.08119.jpg",
+      "venue": "ICRA 2027",
+      "domain": "embodied_ai",
+      "best_route": "world_model",
+      "org": "东京工业大学",
+      "country": "JP",
+      "org_type": "university",
+      "significance": 78,
+      "significance_reason": "首次在真实人形灵巧手上验证了‘视频即动作监督源’的可行性，实证扎实（三阶段闭环测试、跨物体泛化、消融对比多种目标函数），显著推进WAM落地瓶颈，但未构建新世界模型架构，也未解决长期状态建模等基石问题，属强工程突破而非范式革新。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "cross-embodiment",
+        "self-distillation",
+        "real-robot",
+        "multimodal-fusion"
+      ],
+      "tldr": "论文发现世界-动作模型（WAM）生成的视频看起来合理但对应的动作严重失效，于是提出AutodidactWAM：用自监督手部姿态估计器从模型生成的视频中反推真实可行的动作，再用这些‘视频蒸馏出的动作’作为监督信号，仅微调动作相关层，从而在不依赖任何人工遥操作数据的前提下，将Unitree G1人形机器人抓取成功率从7%提升到42%。",
+      "claim": "仅通过生成视频中的视觉线索即可自监督蒸馏出可执行的机器人动作，无需真实遥操作数据，即可实现跨机体的世界-动作模型轻量适配。",
+      "method_components": [
+        "model",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "input": "RGB视频帧序列+语言指令",
+      "output": "关节角度序列（经逆运动学解算的手部6D位姿→关节控制指令）",
+      "novelty": 8,
+      "evidence": 9,
+      "one_sentence_verdict": "真突破：用纯视觉自蒸馏破解WAM动作失准难题，在真实人形灵巧手上实现零遥操作适配，证据充分且效果显著。",
+      "deep": {}
+    },
+    {
+      "rank": 12,
       "arxiv_id": "2610.05025",
       "title": "Triggering Generalist Reasoning via Predictive Uncertainty for Dual-System VLA",
       "published": "2026-10-04",
@@ -393,114 +472,44 @@
       "deep": {}
     },
     {
-      "rank": 11,
-      "arxiv_id": "2610.04933",
-      "title": "DiVeR: Decision-Critical Verifier Learning for VLA Test-Time Scaling",
-      "published": "2026-10-04",
-      "url": "https://arxiv.org/abs/2610.04933",
-      "pdf_url": "https://arxiv.org/pdf/2610.04933",
-      "thumb": "assets/thumbs/2610.04933.jpg",
+      "rank": 13,
+      "arxiv_id": "2610.10489",
+      "title": "HuMBLE: Human Motion-Driven Behavior Learning for Embodied Locomotion",
+      "published": "2026-10-07",
+      "url": "https://arxiv.org/abs/2610.10489",
+      "pdf_url": "https://arxiv.org/pdf/2610.10489",
+      "thumb": "assets/thumbs/2610.10489.jpg",
       "venue": "",
       "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "东京大学",
-      "country": "JP",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "在 verifier-guided test-time scaling 这一前沿范式中，首次系统揭示并建模了‘决策关键性’这一隐含结构，方法轻量、无需step-level标注，且在LIBERO（仿真）、RoboCasa（复杂仿真厨房）、Franka真实机器人三类场景均验证有效；虽未开新范式（如RT-2级），但显著提升了当前主流VLA推理机制的效率与鲁棒性，证据扎实（多基准+真机+消融），但开源程度有限（仅项目页，无代码/模型）。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "sim2real",
-        "benchmark"
-      ],
-      "tldr": "这篇论文提出DiVeR方法，让视觉语言动作（VLA）模型在推理时能更聪明地挑选候选动作——不是平均看待轨迹中每个状态，而是自动识别出那些‘选错就完蛋’的关键决策点，并让验证器（verifier）重点学习这些点的判别信号，从而提升任务成功率，且不需额外标注或真实机器人交互。",
-      "claim": "决策关键性（decision criticality）是轨迹中稀疏分布的、对动作判别最具信息量的状态子集，通过动作表征离散度可无监督估计该属性，并用于加权 verifier 训练，显著提升 verifier-guided test-time scaling 的有效性。",
-      "method_components": [
-        "model",
-        "benchmark"
-      ],
-      "input": "多模态观测（图像+语言指令）+ 多个候选动作序列（来自VLA策略采样）",
-      "output": "标量验证分数（每个候选动作的成功概率估计）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：将 verifier 学习从粗粒度轨迹级推进到细粒度状态级，用可计算的表征离散度替代不可获取的 step-level 监督，是当前 VLA 推理优化中最具实操价值的实质性改进之一。",
-      "deep": {}
-    },
-    {
-      "rank": 12,
-      "arxiv_id": "2610.06805",
-      "title": "H-JEPA: End-to-End Learning of Hierarchical World Models for Visual Planning",
-      "published": "2026-10-05",
-      "url": "https://arxiv.org/abs/2610.06805",
-      "pdf_url": "https://arxiv.org/pdf/2610.06805",
-      "thumb": "assets/thumbs/2610.06805.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "Meta",
+      "best_route": "whole_body_control",
+      "org": "Boston Dynamics",
       "country": "US",
       "org_type": "company",
       "significance": 82,
-      "significance_reason": "在JEPA框架下首次实现端到端可训练的、动作条件化的分层世界模型，并在多个仿真基准上取得实质性性能跃升（+55%成功率）和计算效率优势；但未部署于真机闭环、未开源代码/模型，且真实视频仅用于离线规划保真度评估，未验证控制有效性，故略低于DreamerV3（96）和WEAVER（94.5）等已验证真机泛化与闭环性能的里程碑工作。",
+      "significance_reason": "达到并实质性推进了‘Human-as-Humanoid’范式（对标95分档），首次在多款异构真实人形机器人（Atlas+Unitree）上实现基于人类运动先验、端到端可部署、且保留步态风格的steerable locomotion；有完整消融（vs Tabula Rasa RL）、跨机体部署、真实室内外场景验证，但未开源代码/模型，且未解决长期开放难题如零样本跨模态迁移或无监督人体-机器人对齐。",
       "tier": "heavy",
       "grade": "C",
       "tags": [
-        "multimodal-fusion",
-        "sim2real",
-        "benchmark"
-      ],
-      "tldr": "提出H-JEPA，一种端到端训练的分层潜世界模型，每层在各自学习的隐空间中预测不同时间尺度的未来，通过自上而下的目标分解实现长程视觉规划，在仿真导航/操作任务中显著提升成功率（如Visual AntMaze从18%→73%），并用DROID真实机器人视频验证了离线规划保真度提升。",
-      "claim": "分层JEPA结构能自然解耦多尺度动态因子，使世界模型具备可扩展的时间抽象能力，从而在不增加规划计算量的前提下大幅提升长程视觉规划性能。",
-      "method_components": [
-        "model",
-        "simulator",
-        "benchmark"
-      ],
-      "input": "视频帧序列+动作序列（仿真）或真实机器人视频帧（离线）",
-      "output": "分层隐状态预测+跨层级子目标序列+最终动作规划轨迹",
-      "novelty": 8,
-      "evidence": 9,
-      "one_sentence_verdict": "真突破：首次将JEPA拓展为可端到端训练的时序分层架构，实证表明时间抽象是提升长程视觉规划性能的关键瓶颈，且效果稳健、机制可解释，但受限于纯仿真验证和未开源，尚未达DreamerV3级闭环影响力。",
-      "deep": {}
-    },
-    {
-      "rank": 13,
-      "arxiv_id": "2610.04771",
-      "title": "Learning Task and Motion Plans from Real Demonstrations with Hybrid Flow Matching",
-      "published": "2026-10-03",
-      "url": "https://arxiv.org/abs/2610.04771",
-      "pdf_url": "https://arxiv.org/pdf/2610.04771",
-      "thumb": "assets/thumbs/2610.04771.jpg",
-      "venue": "ICRA 2027",
-      "domain": "embodied_ai",
-      "best_route": "dexterous_manipulation",
-      "org": "代尔夫特理工大学",
-      "country": "EU",
-      "org_type": "university",
-      "significance": 76,
-      "significance_reason": "首次在真实移动操纵平台上实现端到端符号+运动联合生成与闭环重规划，验证了小样本混合流匹配的可行性；虽未达Facet-0/IronMind级范式突破，但在生成式规划方向上显著推进了实用性（真机部署+重规划+符号可解释性），证据扎实（多指标提升+消融对比+真实硬件验证）",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
+        "dexterous",
         "sim2real",
         "real-robot",
-        "multimodal-fusion"
+        "large-scale"
       ],
-      "tldr": "这篇论文提出一种混合流匹配规划器，用单个神经网络同时生成符号任务计划（如'抓杯子→放桌上'）和连续运动轨迹，只用少量真实机器人演示数据就能训练，并支持每步动作后重新规划，最终在真实移动机械臂上验证了可行性。",
-      "claim": "仅需少量真实演示即可训练出能闭环执行、自动生成可解释符号计划与运动轨迹的统一生成式规划器。",
+      "tldr": "用人类步态数据训练一个轻量级、实时可 steering 的双足行走策略，先通过教师-学生蒸馏学出生物力学合理的先验策略，再用多任务强化学习扩展其命令覆盖范围和鲁棒性，最终在 Atlas R1/D1 和 Unitree G1 三款真实机器人上验证了室内外用户直控和分层控制集成能力。",
+      "claim": "通过人运动数据驱动的蒸馏+多任务RL微调框架，可生成兼具生物拟真性、实时可操控性与真实环境鲁棒性的轻量级双足行走策略。",
       "method_components": [
         "model",
         "dataset",
         "simulator",
         "policy",
-        "benchmark"
+        "benchmark",
+        "hardware"
       ],
-      "input": "真实机器人演示的动作序列（含位姿、关节、物体状态等观测）",
-      "output": "符号任务计划（离散动作序列）+ 连续运动轨迹（关节/末端位姿时间序列）",
+      "input": "本体感知信号（关节位置/速度/IMU）+ 平面躯干速度指令",
+      "output": "全身体节动作序列（关节力矩/目标位置）",
       "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：将离散符号规划与连续运动生成统一建模为混合流匹配，在真实移动机械臂上实现了闭环重规划，是生成式机器人规划向实用化迈出的关键一步，但未重构底层表征或解决接触密集等根本瓶颈",
+      "evidence": 10,
+      "one_sentence_verdict": "重磅——实证扎实的工程级突破：在多硬件平台完成从人类步态先验到可部署鲁棒行走的闭环，但受限于闭源与数据依赖，尚未达基石级范式开创。",
       "deep": {}
     },
     {

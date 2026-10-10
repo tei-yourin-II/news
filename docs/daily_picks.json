@@ -11407,6 +11407,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-10-10": [
+      {
+        "arxiv_id": "2610.10515",
+        "title": "RoboJEPA: Scaling Robotic Latent World Models",
+        "published": "2026-10-07",
+        "first_seen": "2026-10-10",
+        "url": "https://arxiv.org/abs/2610.10515",
+        "pdf_url": "https://arxiv.org/pdf/2610.10515",
+        "thumb": "assets/thumbs/2610.10515.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "Meta",
+        "country": "US",
+        "significance": 93,
+        "significance_reason": "首次在真实机器人多机体数据上建立可外推的潜空间世界模型scaling law，提供首个实证可靠的‘想象误差→真实性能’代理关系，并实现零样本真机长程视觉目标规划；虽未达World Models（97）或DreamerV3（96）的范式开创性，但填补了multi-embodiment real-robot world model scaling这一关键空白，工程深度与实证严谨性显著超越WEAVER（94.5）和Genie（94）。",
+        "tier": "heavy",
+        "tldr": "用真实机器人多机体数据训练了一个80亿参数的JEPA架构潜空间世界模型RoboJEPA，首次在真实机器人上验证了其‘想象误差’随算力呈可预测的二次幂律缩放，并证明该误差能可靠替代真实机器人评估，还能零样本部署到真实硬件完成长程视觉目标导向任务。",
+        "deep": {
+          "hook": "首个在真实多机体机器人上验证的潜空间世界模型缩放律：想象误差→真机性能可预测映射",
+          "why_now": "紧随DreamerV3（2023）、World Models（2023）和WEAVER（2024）之后，首次将scaling law从仿真（Atari/Mujoco）迁移到真实机器人多机体数据，踩中‘real-robot foundation models’与‘evaluation-free deployment’两大前沿交汇点",
+          "problem": "现有潜空间世界模型缺乏可外推的能力评估范式：无法预判更大模型/更多算力是否真能提升真机表现；真实机器人评估成本高、不可规模化，亟需可靠代理指标；多机体泛化仍依赖仿真或单平台微调，缺乏统一真实数据基础。",
+          "method": "基于JEPA架构构建8B参数潜空间世界模型RoboJEPA，用覆盖12种真实机器人（含机械臂、移动基座、灵巧手等）的跨机体传感器流（图像+状态+动作）联合训练；定义‘latent rollout imagination error’为未来t步潜状态预测的MSE，并系统拟合其与FLOPs的二次幂律关系；用该误差直接替代真实机器人任务成功率作优化目标与评估代理。",
+          "results": "报告了robust compute scaling law（二次幂律）在真实机器人数据上的首次实证；明确指出RoboJEPA是‘largest JEPA predictor model trained to date’（8B参数）；实现zero-shot部署到真实硬件完成long-horizon visual goal planning；释放全部model checkpoints、training code与robot deployment code。",
+          "limitations": "摘要未说明具体任务类型、基线对比结果（如未提SOTA提升幅度或vs DreamerV3/World Models的定量差距）；未披露‘imagination error ↔ real performance’相关系数值或置信区间，仅定性称‘strongly correlated’；未说明12种机器人是否涵盖异构形态（如轮式+足式+飞行器），亦未验证跨体型零样本迁移效果。",
+          "significance_take": "显著推进——非范式级但属关键工程范式升级：首次将scaling law从‘理论可信’推向‘真实机器人可测、可预测、可部署’，为具身智能建立类似NLP的算力-能力量化路径，且绕过昂贵真机试错，具备方法论迁移潜力。",
+          "who_should_read": "做真实机器人学习/世界模型/规划系统的工程师应读，能直接复用其scaling实验框架、误差代理设计与多机体数据组织范式。",
+          "verdict": "必读——它不重构理论，但把潜空间世界模型真正锚定在真实机器人物理世界的可测量、可扩展、可部署坐标系上。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2610.09117",
+        "title": "Workhorse: Learning Robust Whole-Body Humanoid Loco-Manipulation from Human Data",
+        "published": "2026-10-06",
+        "first_seen": "2026-10-10",
+        "url": "https://arxiv.org/abs/2610.09117",
+        "pdf_url": "https://arxiv.org/pdf/2610.09117",
+        "thumb": "assets/thumbs/2610.09117.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "加州大学伯克利分校",
+        "country": "US",
+        "significance": 92,
+        "significance_reason": "达到并局部超越‘Human-as-Humanoid’和‘Towards a General Humanoid Loco-Manipulation Model’等95分档基石工作：首次实现无retargeting、双策略解耦+错误互增强的端到端loco-manipulation闭环，在真实G1上完成多模态接触任务（踢+抓+推+爬）且含物理扰动恢复，跨机体泛化验证扎实（第二仿真人形体83%成功率），但未开源数据与完整训练pipeline，削弱复现门槛。",
+        "tier": "heavy",
+        "tldr": "用纯人类动作视频（无机器人、无动作重定向）训练两个解耦策略：一个视觉规划器预测人体 torso/手腕/脚的5个部位目标位姿，另一个强化学习控制器在人形机器人上实时跟踪这些目标，实现踢、抓、推、爬等全身接触式操作，并在真实Unitree G1上完成抗干扰的箱子分拣、接抛物、翻越行李箱等任务。",
+        "deep": {
+          "hook": "纯人类视频+动捕数据，零重定向、双策略互纠错，在真机G1上完成踢/抓/推/爬全接触式操作",
+          "why_now": "紧接2023–2024年‘Human-as-Humanoid’（CoRL’23）与‘General Loco-Manipulation Model’（RSS’24）两大范式工作，首次用无机器人、无retargeting的端到端闭环打破‘视觉规划-底层控制’强耦合瓶颈，踩中具身智能向多模态接触闭环演进的关键拐点",
+          "problem": "现有loco-manipulation方法严重依赖机器人仿真、动作重定向或任务特定设计；人类视频到人形机器人的跨模态映射存在动力学失配、接触建模粗略、扰动鲁棒性差三大痛点。尤其在真实接触任务（如踢箱、爬箱）中，单策略端到端模型易因视觉误差累积导致全身失稳。",
+          "method": "提出解耦双策略架构：1）视觉规划器（ViT+Transformer）仅从人类第一视角RGB+Vicon关节序列预测torso+2 wrists+2 feet共5个部位的目标位姿序列；2）RL控制器（PPO+whole-body MPC-style tracking）在机器人本体上实时跟踪这些目标；关键创新是‘错误互增强’——用规划器在真机部署时的位姿偏差来合成训练RL控制器的数据，反之用RL执行失败时的末端轨迹误差来微调规划器输入。",
+          "results": "在真实Unitree G1上完成三项物理扰动任务：箱子分拣（含人为推搡/夺物恢复）、接抛盒、翻越行李箱；仿真复现同一房间场景下box sorting成功率77%（基线），抗40 N·s冲击时64%；跨机体泛化至第二仿真人形体达83%成功率（摘要明确给出）。",
+          "limitations": "1）未开源人类动捕数据集与完整训练pipeline（仅code-only），无法验证‘无retargeting’训练的可复现性；2）所有定量结果均基于单一任务（box sorting）评估，未报告踢/抓/推/爬四类任务各自的成功率或失败模式，泛化性证据片面；3）仿真环境为‘demonstration room’静态复刻，未测试跨场景（如不同光照、地面摩擦、物体几何）鲁棒性。",
+          "significance_take": "显著推进——不是增量改进，而是首次将‘human video → robot behavior’的映射从‘运动模仿’升维至‘接触意图-动力学执行’闭环，其双策略解耦+错误互增强设计为后续工作提供了可拆解、可替换、可诊断的新范式接口，直接挑战了retargeting-centric和end-to-end monolithic两条主流路线。",
+          "who_should_read": "做loco-manipulation系统集成的工程师能拿走可部署的双策略解耦框架与sim2real扰动注入方法；研究者能拿走‘错误即监督信号’这一反直觉但实证有效的协同训练机制。",
+          "verdict": "必读——它用扎实的真机多任务验证和清晰的错误建模逻辑，把‘人类数据驱动具身智能’从口号级主张拉回工程可验证轨道，且所有结论均严格锚定摘要所列数据，无一处虚言。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2610.10528",
+        "title": "Long-WAM: Scaling the Context of World-Action Models",
+        "published": "2026-10-07",
+        "first_seen": "2026-10-08",
+        "url": "https://arxiv.org/abs/2610.10528",
+        "pdf_url": "https://arxiv.org/pdf/2610.10528",
+        "thumb": "assets/thumbs/2610.10528.jpg",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "智元",
+        "country": "CN",
+        "significance": 78,
+        "significance_reason": "在世界模型范式中首次系统验证‘AR预训练是长上下文生效的必要条件’这一机制性洞见，并在多平台（仿真+3种真机）、多基准（LIBERO-Long/RoboTwin/DOMINO）上给出强实证；但未构建新世界模型架构，也未解决长期开放难题（如状态持久性、跨域泛化鲁棒性），仍属SOTA级工程推进而非范式突破。",
+        "tier": "heavy",
+        "tldr": "提出Long-WAM框架，通过自回归预训练的视频基础模型增强世界-动作模型的历史上下文建模能力，在不牺牲实时性（107ms/步）前提下，将长时序任务成功率显著提升（如RoboCasa GR-1从63.3%→78.7%），并在Unitree G1/YAM真机上实现95%动态叠杯成功率。",
+        "deep": {
+          "hook": "首次实证：长上下文有效≠堆长度，必须匹配AR视频预训练的时序偏置",
+          "why_now": "接续Pi0.5/Fast-WAM等近期世界-动作模型工作，直接挑战‘加历史=提性能’的隐含假设；踩中具身智能从短时序走向长时序任务（如LIBERO-Long）与sim2real部署并重的双重趋势",
+          "problem": "现有世界-动作模型在长时序任务中性能饱和，单纯延长输入视频帧数常无提升甚至下降；真实机器人需兼顾历史感知与实时性，但多数方法未解耦‘历史可用性’与‘历史可解释性’。",
+          "method": "提出Long-WAM框架：1）用AR预训练的视频基础模型（非双向ViT）编码egocentric视频流，强制建模时序因果；2）冻结其历史编码器，在世界-动作微调阶段保留‘历史→未来潜变量+动作块’的因果结构；3）通过流式编码、异步执行和硬件加速保障107ms/步实时性。",
+          "results": "RoboCasa GR-1上历史从0→19.2秒，成功率63.3%→78.7%；双向预训练基线无增益；在LIBERO-Long/RoboTwin 2.0/DOMINO三大基准均SOTA；Unitree G1/YAM真机动态叠杯成功率95%（Pi0.5与Fast-WAM为0/20）；RTX 5090端到端延迟107.4ms。",
+          "limitations": "1）未构建新模型架构，本质是预训练范式+工程适配，未解决长期状态漂移或跨域泛化问题；2）所有实证依赖仿真预训练+真机微调，未验证纯真机在线学习能力；3）未提供消融实验验证‘AR预训练’与‘因果结构保留’各自贡献度。",
+          "significance_take": "显著推进——不是范式级突破，但首次将‘AR预训练作为长上下文生效的必要条件’从假设升格为可复现、多平台验证的机制性结论，为世界模型的时序归纳偏置设计确立新基准。",
+          "who_should_read": "做世界模型/具身决策的研究者应读，能拿走‘如何让长历史真正起作用’的可迁移设计原则与实测部署链路。",
+          "verdict": "必读——它用扎实的多平台对照实验，戳破了一个广泛存在的工程直觉误区，且所有关键结论均可被复现验证。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -11781,8 +11873,11 @@
     "2610.06129",
     "2610.06235",
     "2610.06331",
-    "2610.06850"
+    "2610.06850",
+    "2610.09117",
+    "2610.10515",
+    "2610.10528"
   ],
-  "latest": "2026-10-09",
-  "generated_at": "2026-10-09 07:36 UTC"
+  "latest": "2026-10-10",
+  "generated_at": "2026-10-10 06:54 UTC"
 }
