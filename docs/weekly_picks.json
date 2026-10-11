@@ -1,19 +1,96 @@
 {
   "week": {
-    "start": "2026-10-04",
-    "end": "2026-10-10",
-    "label": "10.04~10.10"
+    "start": "2026-10-05",
+    "end": "2026-10-11",
+    "label": "10.05~10.11"
   },
   "count": 15,
   "venue_count": 4,
   "venues": [
+    "CoRL 2026",
     "ICRA 2027",
     "NeurIPS 2026"
   ],
-  "generated_at": "2026-10-10 06:55 UTC",
+  "generated_at": "2026-10-11 06:58 UTC",
   "picks": [
     {
       "rank": 1,
+      "arxiv_id": "2610.12435",
+      "title": "VioLA: Learning Generalist Humanoid Control Policies from Human Data",
+      "published": "2026-10-08",
+      "url": "https://arxiv.org/abs/2610.12435",
+      "pdf_url": "https://arxiv.org/pdf/2610.12435",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "马克斯·普朗克研究所/苏黎世联邦理工学院（MPI-IS & ETH Zurich）",
+      "country": "EU",
+      "org_type": "institute",
+      "significance": 96,
+      "significance_reason": "首次实现纯人类动作数据驱动的真机零样本通用人形控制，在locomotion（100% success）和manipulation（88.6%）上远超GR00T和Ψ₀等SOTA基线，且验证了跨骨架（Digit/Optimus）、跨VLA架构的泛化性；数据规模（1.4亿帧）、实证强度（真机多任务+消融+开源承诺）和范式迁移（放弃joint-space policy，转向motion-latent policy）均达基石级水准，与DAM-VLA、InternW0-Δ同档。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "real-robot",
+        "large-scale"
+      ],
+      "tldr": "这篇论文用人类动作视频（而非机器人示教）训练一个通用人形机器人控制策略，核心是让模型预测‘运动隐空间’而非直接关节指令，并通过预训练的解码控制器执行；结果在真实人形机器人上零样本完成行走和操作任务，无需任务微调。",
+      "claim": "仅用大规模人类动作数据（占训练集93.2%）即可训练出能在真实人形机器人上零样本泛化执行新指令的通用控制策略，关键在于将策略输出从关节命令改为可跨模态对齐的运动隐变量。",
+      "method_components": [
+        "model",
+        "dataset",
+        "policy"
+      ],
+      "input": "RGB视频帧+语言指令",
+      "output": "身体与手部运动隐变量（body/hand motion latents）",
+      "novelty": 8,
+      "evidence": 11,
+      "one_sentence_verdict": "真突破：它把人形通用控制从‘必须机器人演示’推进到‘看人就能动’，且已在真机验证，不是仿真幻觉",
+      "deep": {}
+    },
+    {
+      "rank": 2,
+      "arxiv_id": "2610.12099",
+      "title": "UNITAS: A 3D-Native World Action Model for Embodied Manipulation",
+      "published": "2026-10-08",
+      "url": "https://arxiv.org/abs/2610.12099",
+      "pdf_url": "https://arxiv.org/pdf/2610.12099",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "智元",
+      "country": "CN",
+      "org_type": "company",
+      "significance": 97,
+      "significance_reason": "首次实现全3D原生世界动作建模，在LIBERO达99.8%、真实世界平均85%操纵成功率，显著超越PointWorld等基线，且部署于多个真实机器人平台完成跨机体泛化，证据强度对标IronMind/T-Rex级里程碑工作（真机+多任务+消融+跨体+开源代码）",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "3d-native",
+        "multimodal-fusion",
+        "real-robot",
+        "large-scale"
+      ],
+      "tldr": "提出UNITAS模型，首个将机器人动作、场景动态和观测全部统一在共享的度量3D坐标系下的世界动作模型，用3D点轨迹表示动作流、场景流建模物理变化，支持真实机器人上的高成功率操作任务。",
+      "claim": "世界动作模型必须原生建模在度量3D空间中，而非图像或视觉潜空间，才能准确表征物理交互与场景演化。",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "benchmark"
+      ],
+      "input": "任务语言指令 + 多视角RGB-D观测（含深度）",
+      "output": "动作流（手/夹爪3D点轨迹） + 动作条件下的场景流（场景点3D位移场）",
+      "novelty": 9,
+      "evidence": 11,
+      "one_sentence_verdict": "真突破：它不是把2D视频生成器迁移到机器人，而是重构了WAM的几何根基——所有模块强制锚定在度量3D空间，实证表明该设计直接带来物理一致性提升和真实部署鲁棒性，是具身智能从‘视图驱动’转向‘世界驱动’的关键范式跃迁。",
+      "deep": {}
+    },
+    {
+      "rank": 3,
       "arxiv_id": "2610.10515",
       "title": "RoboJEPA: Scaling Robotic Latent World Models",
       "published": "2026-10-07",
@@ -52,44 +129,7 @@
       "deep": {}
     },
     {
-      "rank": 2,
-      "arxiv_id": "2610.05483",
-      "title": "FLEX-WAM: Flexible Block-Causal World-Action Models for Long-Horizon Imagination and Planning",
-      "published": "2026-10-04",
-      "url": "https://arxiv.org/abs/2610.05483",
-      "pdf_url": "https://arxiv.org/pdf/2610.05483",
-      "thumb": "assets/thumbs/2610.05483.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "INRIA/PSL（法国国家信息与应用数学研究院/巴黎科学与文学大学）",
-      "country": "EU",
-      "org_type": "institute",
-      "significance": 93,
-      "significance_reason": "在World Model范式中首次系统性解耦‘预测长度’‘响应性’‘计算开销’三难困境：块因果KV缓存+轴向注意力支撑千步稳定rollout；扩散噪声网格梯度重平衡+FD弹性是首个针对WAM中动作弱响应问题的可训练、可分析、可部署的机制；实证覆盖仿真（OGBench/PushT）、真实双臂机器人（OpenArm）、MCTS闭环规划全栈验证，且不依赖任务特定微调——逼近WEAVER（94.5）量级，略逊于DreamerV3（96）在RL闭环泛化深度，但强于当前多数纯仿真WAM工作。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "sim2real",
-        "multimodal-fusion",
-        "large-scale"
-      ],
-      "tldr": "提出FLEX-WAM——一种支持块因果、可变长度上下文、无限自回归生成的轻量级世界-动作联合模型，用轴向注意力+分块扩散强制实现高效实时rollout，并通过状态-动作流匹配梯度平衡和前向动力学弹性约束提升动作响应性，在仿真和真实机器人上实现了数千步稳定的联合状态-动作推演，且作为MCTS内部的世界模型成功解决多个长程操作任务。",
-      "claim": "世界-动作联合建模无需牺牲长程稳定性与实时性，可通过块因果架构、扩散噪声网格上的梯度重平衡和前向动力学弹性约束，实现高响应性、低延迟、跨仿真与真实机器人的长时域联合推演与规划。",
-      "method_components": [
-        "model",
-        "simulator",
-        "benchmark"
-      ],
-      "input": "视频帧序列+历史动作+当前指令动作（或空指令）",
-      "output": "未来多步状态（如关节角/物体位姿）+对应可行动作序列",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：它不是又一个‘更好预测误差’的WAM，而是第一个把世界-动作联合建模真正推向长程、低延迟、强动作耦合、跨平台部署的工程可行范式。",
-      "deep": {}
-    },
-    {
-      "rank": 3,
+      "rank": 4,
       "arxiv_id": "2610.06850",
       "title": "InterMimicGen: Scaling Humanoid Loco-Manipulation through Self-Evolving Motion Imitation",
       "published": "2026-10-05",
@@ -129,7 +169,7 @@
       "deep": {}
     },
     {
-      "rank": 4,
+      "rank": 5,
       "arxiv_id": "2610.09117",
       "title": "Workhorse: Learning Robust Whole-Body Humanoid Loco-Manipulation from Human Data",
       "published": "2026-10-06",
@@ -170,7 +210,48 @@
       "deep": {}
     },
     {
-      "rank": 5,
+      "rank": 6,
+      "arxiv_id": "2610.10855",
+      "title": "OmniHOI: Dexterous Hand-Object Interaction from Monocular Human Video",
+      "published": "2026-10-07",
+      "url": "https://arxiv.org/abs/2610.10855",
+      "pdf_url": "https://arxiv.org/pdf/2610.10855",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "清华大学",
+      "country": "CN",
+      "org_type": "university",
+      "significance": 92,
+      "significance_reason": "首次在单目视频→多灵巧手→真实双臂机器人全链路上实现端到端物理可执行迁移，150条动捕+60条视频实测成功率显著超越所有已知视频驱动方法（+22–61%），且在真实bimanual机器人上完成多样化任务验证；虽未达Facet-0/IronMind级范式颠覆，但填补了‘wild video → real dexterous robot’这一关键空白，证据强度（多机体+真实执行+消融明确）已达领域Top-tier水平。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "dexterous",
+        "multimodal-fusion",
+        "sim2real",
+        "dataset",
+        "benchmark"
+      ],
+      "tldr": "从单目人类操作视频中重建手-物体交互轨迹，并直接迁移到5种不同构型的灵巧机器人手上，全程不依赖真实机器人数据或强化学习训练，靠分阶段物理一致性约束（图像、接触几何、动力学）实现跨形态动作迁移。",
+      "claim": "仅用单目RGB视频即可生成物理合理、可执行于多种灵巧手的高保真手-物体交互轨迹，无需任务特定RL训练、无需动捕先验、无需真实机器人数据微调。",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "input": "单目RGB视频（含人手与物体交互）",
+      "output": "机器人灵巧手在三维空间中的关节轨迹（含接触状态与力约束）",
+      "novelty": 8,
+      "evidence": 10,
+      "one_sentence_verdict": "真突破：它不是刷榜或仿真玩具，而是首个把野外单目视频真正落地到多种真实灵巧手并完成多样化任务的系统，物理建模深度和实机泛化性远超此前所有视频驱动方法。",
+      "deep": {}
+    },
+    {
+      "rank": 7,
       "arxiv_id": "2610.06235",
       "title": "Encoded but Not in Control: Revealing the Grounding Gap in Vision-Language Robot Policies",
       "published": "2026-10-05",
@@ -207,7 +288,7 @@
       "deep": {}
     },
     {
-      "rank": 6,
+      "rank": 8,
       "arxiv_id": "2610.06331",
       "title": "DexForge: High-Fidelity Physics-Informed Dexterous Retargeting",
       "published": "2026-10-05",
@@ -245,7 +326,7 @@
       "deep": {}
     },
     {
-      "rank": 7,
+      "rank": 9,
       "arxiv_id": "2610.06129",
       "title": "I-BFM: Reward-Conditioned Robust Humanoid Interaction via Unsupervised Reinforcement Learning",
       "published": "2026-10-05",
@@ -283,7 +364,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
+      "rank": 10,
       "arxiv_id": "2610.10528",
       "title": "Long-WAM: Scaling the Context of World-Action Models",
       "published": "2026-10-07",
@@ -321,7 +402,7 @@
       "deep": {}
     },
     {
-      "rank": 9,
+      "rank": 11,
       "arxiv_id": "2610.07969",
       "title": "EmbodiedSmith: Scaling Embodied Data through Recursive Self-Improvement Flywheel in Simulation",
       "published": "2026-10-06",
@@ -359,46 +440,7 @@
       "deep": {}
     },
     {
-      "rank": 10,
-      "arxiv_id": "2610.12468",
-      "title": "DreamTrue: Action-Faithful Robot World Model with Counterfactual Post-Training",
-      "published": "2026-10-08",
-      "url": "https://arxiv.org/abs/2610.12468",
-      "pdf_url": "https://arxiv.org/pdf/2610.12468",
-      "thumb": "assets/thumbs/2610.12468.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "未知（作者单位未在摘要中披露，无机构缩写或知名实验室线索；AgiBot可能是平台名而非机构；github页brave-eai无公开知名机构归属）",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 78,
-      "significance_reason": "在真实机器人（AgiBot）上实现跨机体部署并大幅降低人评缺陷率（48%→6%），有明确任务指标、人类反馈闭环和挑战赛排名第一实证；但未开源代码/模型，未报告多任务泛化、消融实验细节或与其他SOTA世界模型（如DreamerV3、WEAVER）的公平对比，尚未达到基石论文所要求的范式级通用性或理论深度。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "sim2real",
-        "benchmark",
-        "dataset"
-      ],
-      "tldr": "DreamTrue是一个多视角、跨机体的机器人世界模型，通过离线几何校准对齐动作轨迹与图像空间，并用反事实后训练扩展失败交互样本，再借助人工标注的缺陷视频数据训练视频奖励模型来引导强化学习优化，最终在AgiBot平台上显著降低人眼评估的交互缺陷率。",
-      "claim": "通过动作-图像空间几何校准 + 反事实后训练 + 人类标注缺陷驱动的视频奖励建模，可显著提升机器人世界模型的动作保真度与物理合理性，尤其在跨机体部署时。",
-      "method_components": [
-        "model",
-        "dataset",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "多视角RGB视频帧 + 对应动作序列（含关节/末端执行器控制信号）",
-      "output": "未来多帧视频预测（含物体运动、接触、形变等物理细节）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：将几何校准、反事实数据增强与人类视频反馈奖励三者系统性耦合，在真实机器人上达成高可信度的视频预测落地，但缺乏开源与机制级创新，尚未构成范式突破。",
-      "deep": {}
-    },
-    {
-      "rank": 11,
+      "rank": 12,
       "arxiv_id": "2610.08119",
       "title": "AutodidactWAM: Cross-Modal Self-Distillation from Generated Video to Robot Actions",
       "published": "2026-10-06",
@@ -437,79 +479,40 @@
       "deep": {}
     },
     {
-      "rank": 12,
-      "arxiv_id": "2610.05025",
-      "title": "Triggering Generalist Reasoning via Predictive Uncertainty for Dual-System VLA",
-      "published": "2026-10-04",
-      "url": "https://arxiv.org/abs/2610.05025",
-      "pdf_url": "https://arxiv.org/pdf/2610.05025",
-      "thumb": "assets/thumbs/2610.05025.jpg",
-      "venue": "NeurIPS 2026",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "韩国科学技术院（KAIST）",
-      "country": "KR",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "在RT-2（97）、DAM-VLA（96）等里程碑工作之后，TUD未提出新架构或新训练范式，但首次将轻量级预测不确定性作为免训练、免标注的推理调度信号，在仿真和真实机器人上均验证了显著计算节省（75% VLM调用）与性能提升，证据扎实（多任务、消融、operating curve、真机对比），属明显推进SOTA的重磅工程创新，但未达开新范式级别",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "sim2real",
-        "multimodal-fusion"
-      ],
-      "tldr": "提出一种叫TUD的自适应推理机制，让双系统VLA模型只在预测不确定性高时才调用慢但强的通用大模型，从而在保持甚至提升任务成功率的同时，大幅减少大模型调用次数（实机实验中减少75%）",
-      "claim": "预测性不确定性（cross-step动作重预测的离散度）可作为免标注、免额外模型的实时触发信号，动态决定何时调用通用VLM，实现计算效率与成功率的帕累托优化",
-      "method_components": [
-        "model",
-        "benchmark"
-      ],
-      "input": "多模态观测序列（视觉+语言指令）及缓存的通用模型上下文",
-      "output": "是否触发通用VLM推理的二值决策（隐式）及最终动作序列",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：把不确定性量化从诊断工具升级为在线推理开关，不改模型、不增参数、不需标注，却在真实机器人上实现75%大模型调用削减和成功率反超，是高效VLA落地的关键使能技术",
-      "deep": {}
-    },
-    {
       "rank": 13,
-      "arxiv_id": "2610.10489",
-      "title": "HuMBLE: Human Motion-Driven Behavior Learning for Embodied Locomotion",
-      "published": "2026-10-07",
-      "url": "https://arxiv.org/abs/2610.10489",
-      "pdf_url": "https://arxiv.org/pdf/2610.10489",
-      "thumb": "assets/thumbs/2610.10489.jpg",
-      "venue": "",
+      "arxiv_id": "2610.12007",
+      "title": "REACT: Rolling Denoising and Dual Decoupling for Reactive Robot Control with VLA Models",
+      "published": "2026-10-08",
+      "url": "https://arxiv.org/abs/2610.12007",
+      "pdf_url": "https://arxiv.org/pdf/2610.12007",
+      "thumb": "",
+      "venue": "CoRL 2026",
       "domain": "embodied_ai",
       "best_route": "whole_body_control",
-      "org": "Boston Dynamics",
-      "country": "US",
-      "org_type": "company",
-      "significance": 82,
-      "significance_reason": "达到并实质性推进了‘Human-as-Humanoid’范式（对标95分档），首次在多款异构真实人形机器人（Atlas+Unitree）上实现基于人类运动先验、端到端可部署、且保留步态风格的steerable locomotion；有完整消融（vs Tabula Rasa RL）、跨机体部署、真实室内外场景验证，但未开源代码/模型，且未解决长期开放难题如零样本跨模态迁移或无监督人体-机器人对齐。",
+      "org": "未知",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 78,
+      "significance_reason": "在VLA控制范式中首次系统解耦感知-推理-执行节奏并引入滚动去噪机制，实证覆盖多平台真实机器人任务（非单平台demo），有latency/success/smoothness三维度量化提升，但未开源代码/模型，且未挑战具身智能最核心的泛化瓶颈（如零样本新物体/新场景），尚未达到基石论文所定义的新范式或长期难题破解层级。",
       "tier": "heavy",
       "grade": "C",
       "tags": [
-        "dexterous",
         "sim2real",
-        "real-robot",
-        "large-scale"
+        "multimodal-fusion",
+        "real-robot"
       ],
-      "tldr": "用人类步态数据训练一个轻量级、实时可 steering 的双足行走策略，先通过教师-学生蒸馏学出生物力学合理的先验策略，再用多任务强化学习扩展其命令覆盖范围和鲁棒性，最终在 Atlas R1/D1 和 Unitree G1 三款真实机器人上验证了室内外用户直控和分层控制集成能力。",
-      "claim": "通过人运动数据驱动的蒸馏+多任务RL微调框架，可生成兼具生物拟真性、实时可操控性与真实环境鲁棒性的轻量级双足行走策略。",
+      "tldr": "提出REACT框架，通过滚动去噪和双解耦机制，让基于流模型的视觉-语言-动作（VLA）模型在保持长时序动作连贯性的同时提升实时反应能力，实现在仿真和多个真实机器人平台上的双臂操作与动态控制任务中成功率更高、延迟更低、轨迹更平滑。",
+      "claim": "滚动去噪+双解耦可突破VLA模型中‘长动作块平滑性’与‘高频重规划反应性’的根本矛盾，在不牺牲时序一致性前提下实现真正闭环、低延迟、高保真动作流输出。",
       "method_components": [
         "model",
-        "dataset",
         "simulator",
-        "policy",
-        "benchmark",
-        "hardware"
+        "benchmark"
       ],
-      "input": "本体感知信号（关节位置/速度/IMU）+ 平面躯干速度指令",
-      "output": "全身体节动作序列（关节力矩/目标位置）",
+      "input": "RGB图像+语言指令+历史动作缓冲区",
+      "output": "滚动更新的动作块序列（含当前执行块与部分优化的未来块）",
       "novelty": 7,
-      "evidence": 10,
-      "one_sentence_verdict": "重磅——实证扎实的工程级突破：在多硬件平台完成从人类步态先验到可部署鲁棒行走的闭环，但受限于闭源与数据依赖，尚未达基石级范式开创。",
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：将生成式VLA控制从‘静态chunk生成’推进到‘动态流式精调’，显著提升闭环实用性，但属高质量工程演进而非理论或范式突破。",
       "deep": {}
     },
     {
@@ -551,37 +554,39 @@
     },
     {
       "rank": 15,
-      "arxiv_id": "2610.05994",
-      "title": "How (and How Not) to Use Data Augmentation in VLA Post-Training",
-      "published": "2026-10-05",
-      "url": "https://arxiv.org/abs/2610.05994",
-      "pdf_url": "https://arxiv.org/pdf/2610.05994",
-      "thumb": "assets/thumbs/2610.05994.jpg",
+      "arxiv_id": "2610.12451",
+      "title": "VersaCamVLA: Camera-Configurable VLA Policies for Robotic Manipulation",
+      "published": "2026-10-08",
+      "url": "https://arxiv.org/abs/2610.12451",
+      "pdf_url": "https://arxiv.org/pdf/2610.12451",
+      "thumb": "",
       "venue": "NeurIPS 2026",
       "domain": "embodied_ai",
       "best_route": "vla",
-      "org": "未知（作者无明确机构署名，摘要未提所属单位；arXiv 预印本常见于独立研究者或未公开 affiliation 的学者）",
+      "org": "未知",
       "country": "unknown",
       "org_type": "unknown",
-      "significance": 68,
-      "significance_reason": "发现了VLA RL后训练中一个关键但被广泛忽视的架构级耦合陷阱（actor-critic增强不对称性），实证扎实（两个主流VLA模型+LIBERO-Plus OOD指标+消融对比），但未涉及真机部署、未扩展到多机体或多模态输入增强、未开源代码，属于对现有范式的重要修正而非新范式开创。",
+      "significance": 72,
+      "significance_reason": "实质性推进了VLA的部署鲁棒性：首次系统性解耦相机配置与动作策略，在多仿真基准和少量真实机器人上验证了跨相机数量/位姿泛化能力，但未开源代码/模型，未在百小时级真实轨迹数据上验证，也未挑战长期开放难题（如长程推理、具身世界建模），尚达不到RT-2/π0等基石级分量。",
       "tier": "notable",
-      "grade": "C",
+      "grade": "D",
       "tags": [
+        "multimodal-fusion",
         "sim2real",
         "benchmark"
       ],
-      "tldr": "这篇论文系统研究了在视觉-语言-动作（VLA）模型后训练阶段如何正确使用图像增强——发现只对 critic 网络做增强、而保持 actor 输入图像干净，能显著提升跨分布泛化能力；反之若增强 actor 输入则导致训练完全崩溃。",
-      "claim": "在 VLA 模型的 RL 后训练中，图像增强必须严格解耦：仅作用于 critic，actor 输入必须保持原始图像，否则将破坏策略学习并摧毁泛化性能。",
+      "tldr": "提出一个能适配任意数量和任意位姿摄像头的VLA模型框架VersaCamVLA，通过学习统一的场景token接口，让预训练好的VLA模型在部署时无需重训就能灵活接入新摄像头配置，解决了现有VLA模型因固定相机设置导致的部署脆弱性问题。",
+      "claim": "VLA策略可以解耦相机配置表征与动作学习，实现零微调、无3D感知、不依赖novel-view渲染的相机可配置部署。",
       "method_components": [
         "model",
+        "simulator",
         "benchmark"
       ],
-      "input": "RGB图像+语言指令（隐含于VLA设定）",
-      "output": "动作序列/策略输出（隐含于RL post-training上下文）",
+      "input": "任意数量、任意位姿的RGB相机图像（含腕部相机）",
+      "output": "机器人末端动作序列（6DoF位姿+夹爪开合）",
       "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "显著贡献：揭示了VLA后训练中增强策略的致命耦合错误，并给出可复现的修复方案，但限于仿真benchmark且无开源，尚未达到基石级分量。",
+      "evidence": 8,
+      "one_sentence_verdict": "显著贡献——真突破了VLA对固定相机配置的强依赖，但受限于开源缺失和真实数据规模，属于扎实且有工程价值的范式改进，非里程碑级。",
       "deep": {}
     }
   ]

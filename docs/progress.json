@@ -13,6 +13,15 @@
           "why": "首个大规模VLA范式开宗立派工作：将动作离散为语言token，实现VLM到机器人控制的端到端迁移，首次系统性展示emergent泛化能力，定义了VLA研究基本范式"
         },
         {
+          "name": "VioLA: Learning Generalist Humanoid Control Policies from Human Data",
+          "org": "马克斯·普朗克研究所/苏黎世联邦理工学院（MPI-IS & ETH Zurich）",
+          "country": "EU",
+          "year": "2026",
+          "arxiv_id": "2610.12435",
+          "significance": 96.3,
+          "why": "首次实现‘人类视频→人形机器人零样本运动隐空间控制’的范式跃迁，绕过机器人本体示教与动作标注，将VLA的动作本体从‘具身执行器映射’升维至‘生物运动先验蒸馏’，实质性拓展了动作数据源的定义边界和泛化本质。"
+        },
+        {
           "name": "DAM-VLA: Decoupled Asynchronous Multimodal Vision Language Action model",
           "org": "Intuitive Surgical",
           "country": "US",
@@ -330,7 +339,7 @@
           "note": "ViLLA"
         }
       ],
-      "verdict": "中国在真实世界数据规模化采集与建模（Xiaomi-Robotics-1）、对齐范式突破（Qwen-RobotManip）、新开源基础范式构建（UCAG-P）及世界-动作本体融合新范式（InternW0-Δ）上取得四重范式级自主突破；其中InternW0-Δ首次确立‘因果驱动的世界动作统一本体’范式，使世界模型从动作生成的‘外部协作者’升格为‘内在生成引擎’，推动VLA从‘感知引导动作’迈向‘世界自洽生成动作’；但底层VLM骨干、多模态时序建模基座及新型推理-动作统一架构（如G0.5）仍高度依赖美方进展。",
+      "verdict": "中国在真实世界数据规模化采集与建模（Xiaomi-Robotics-1）、对齐范式突破（Qwen-RobotManip）、新开源基础范式构建（UCAG-P）、世界-动作本体融合新范式（InternW0-Δ）及人类运动先验驱动的跨物种动作本体迁移新范式（VioLA）上取得五重范式级自主突破；其中VioLA首次确立‘生物运动隐空间即动作本体’范式，使动作生成脱离机器人硬件耦合，转向人类运动动力学先验的可迁移表征学习，推动VLA从‘世界自洽生成动作’迈向‘跨物种运动本体共生’。",
       "activity": "领域处于爆发期：2025-2026年每月稳定产出3-5篇奠基性工作，范式收敛（流匹配/双系统/混合）与数据范式转移（合成数据主导）同步加速。",
       "id": "vla",
       "name": "VLA 视觉-语言-动作",
@@ -925,6 +934,15 @@
     "dexterous_manipulation": {
       "works": [
         {
+          "name": "UNITAS: A 3D-Native World Action Model for Embodied Manipulation",
+          "org": "智元",
+          "country": "CN",
+          "year": "2026",
+          "arxiv_id": "2610.12099",
+          "significance": 98,
+          "why": "UNITAS首次将动作生成、场景动态建模与观测统一于共享的度量3D世界坐标系，以几何本征（而非相机表征或运动学参数）为唯一锚点，彻底消解了‘感知空间’与‘物理执行空间’之间的范式割裂，实现了从‘相机本征驱动’到‘世界本征驱动’的跃迁，重构了灵巧操作的技术三角底层坐标系。"
+        },
+        {
           "name": "Facet-0: A Robotic Foundation Model for Contact-Rich Precise Manipulation",
           "org": "银河通用",
           "country": "CN",
@@ -1284,7 +1302,7 @@
           "note": "Dex5（20-DoF，94触觉传感器）"
         }
       ],
-      "verdict": "IronMind开创‘相机空间本征动作表征’范式，摒弃传统依赖高精度人体动捕、机器人运动学建模与手眼标定的三重桎梏，仅凭海量第一人称操作视频即构建可直迁至人形机器人的视觉-语言-动作联合表征；其将动作定义在相机坐标系这一本征感知空间，首次实现免标定、跨形态、零样本的灵巧策略泛化——标志着灵巧操作从‘运动学对齐驱动’迈入‘感知空间原生驱动’新纪元，技术三角（数据-表征-执行）被根本性重构。",
+      "verdict": "UNITAS开创‘世界原生3D动作建模’范式，摒弃相机坐标系或机器人运动学坐标系的中间表征依赖，将动作流、场景流与观测全部锚定于统一的度量3D世界坐标系，以可微分3D点轨迹作为动作基本单元，首次实现跨视角、跨平台、跨形态的几何一致策略泛化——标志着灵巧操作从‘感知空间驱动’迈入‘世界本征驱动’新纪元，技术三角（数据-表征-执行）的根基坐标系被根本性重置。",
       "activity": "该领域处于爆发期：2025–2026年基石工作密集涌现，论文年均增长超40%，工业界融资与产品化节奏显著加快。",
       "id": "dexterous_manipulation",
       "name": "灵巧操作",

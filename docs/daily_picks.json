@@ -11499,6 +11499,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-10-11": [
+      {
+        "arxiv_id": "2610.12435",
+        "title": "VioLA: Learning Generalist Humanoid Control Policies from Human Data",
+        "published": "2026-10-08",
+        "first_seen": "2026-10-11",
+        "url": "https://arxiv.org/abs/2610.12435",
+        "pdf_url": "https://arxiv.org/pdf/2610.12435",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "马克斯·普朗克研究所/苏黎世联邦理工学院（MPI-IS & ETH Zurich）",
+        "country": "EU",
+        "significance": 96,
+        "significance_reason": "首次实现纯人类动作数据驱动的真机零样本通用人形控制，在locomotion（100% success）和manipulation（88.6%）上远超GR00T和Ψ₀等SOTA基线，且验证了跨骨架（Digit/Optimus）、跨VLA架构的泛化性；数据规模（1.4亿帧）、实证强度（真机多任务+消融+开源承诺）和范式迁移（放弃joint-space policy，转向motion-latent policy）均达基石级水准，与DAM-VLA、InternW0-Δ同档。",
+        "tier": "heavy",
+        "tldr": "这篇论文用人类动作视频（而非机器人示教）训练一个通用人形机器人控制策略，核心是让模型预测‘运动隐空间’而非直接关节指令，并通过预训练的解码控制器执行；结果在真实人形机器人上零样本完成行走和操作任务，无需任务微调。",
+        "deep": {
+          "hook": "首次用纯人类视频数据训练出真机零样本通用人形控制器，不碰机器人示教",
+          "why_now": "紧随DAM-VLA、InternW0-Δ等VLA范式突破，但首次将‘人类动作即标签’落地到真实人形硬件；踩中具身智能从‘机器人专属数据’向‘人类行为即监督信号’的范式迁移关键节点",
+          "problem": "现有人形通用策略严重依赖稀缺的机器人遥操作数据，导致任务泛化差、部署前必须微调；而人类动作数据海量却无法直接用——因人体与机器人运动学不匹配、关节空间不可对齐。",
+          "method": "放弃预测关节角（joint commands），改让VLA模型预测‘运动隐变量’（motion latents）：身体和手部各一个低维连续向量；这些latents由预训练的专用控制器（body/hand controller）解码为实际关节指令；人类动作视频通过对应motion encoder映射到同一latent空间，从而天然成为监督信号。",
+          "results": "在真实Digit与Optimus人形上零样本执行locomotion达100%成功率（GR00T N1.7为16.7%，Ψ₀为0%）；manipulation达88.6%成功率；验证跨骨架（Digit/Optimus）、跨VLA架构（3种backbone）泛化性；训练集含140.6M帧，93.2%为人类数据。",
+          "limitations": "未披露human-to-robot motion encoder的具体训练方式与配对数据来源（是否需人工对齐？是否引入隐式机器人先验？）；所有真机结果仅报告locomotion/manipulation两类粗粒度任务成功率，未展示细粒度指标（如轨迹误差、力控稳定性、多步任务完成率）；未提供sim2real gap分析（如仿真预训练占比、域偏移缓解手段）。",
+          "significance_take": "范式级推进：首次证明‘人类动作视频 = 可直接优化的控制标签’在真实人形上可行，绕开了数十年来关节空间策略对机器人示教的强依赖，为具身智能开辟‘行为蒸馏（behavioral distillation）’新主干。",
+          "who_should_read": "做VLA、人形控制、sim2real或运动表征的研究者/工程师，能直接获得motion-latent policy设计范式、跨模态对齐工程方案与真机零样本验证基线。",
+          "verdict": "必读——它不是又一个仿真SOTA，而是首个把‘看人做事’真正焊死在真机上的通用控制框架，且开源承诺明确，复现路径清晰。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2610.12099",
+        "title": "UNITAS: A 3D-Native World Action Model for Embodied Manipulation",
+        "published": "2026-10-08",
+        "first_seen": "2026-10-11",
+        "url": "https://arxiv.org/abs/2610.12099",
+        "pdf_url": "https://arxiv.org/pdf/2610.12099",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "智元",
+        "country": "CN",
+        "significance": 97,
+        "significance_reason": "首次实现全3D原生世界动作建模，在LIBERO达99.8%、真实世界平均85%操纵成功率，显著超越PointWorld等基线，且部署于多个真实机器人平台完成跨机体泛化，证据强度对标IronMind/T-Rex级里程碑工作（真机+多任务+消融+跨体+开源代码）",
+        "tier": "heavy",
+        "tldr": "提出UNITAS模型，首个将机器人动作、场景动态和观测全部统一在共享的度量3D坐标系下的世界动作模型，用3D点轨迹表示动作流、场景流建模物理变化，支持真实机器人上的高成功率操作任务。",
+        "deep": {
+          "hook": "首个全3D原生世界动作模型：动作、场景变化、观测全部统一在度量3D坐标系中",
+          "why_now": "紧随IronMind/T-Rex真机里程碑之后，直击当前WAM主流范式（图像/视觉潜空间建模）的物理失准痛点，响应具身智能向‘真实物理交互’转向的关键拐点",
+          "problem": "现有世界动作模型依赖图像或视觉潜空间表征世界演化，但像素距离≠物理距离，视角依赖性强，无法准确建模机器人在真实3D空间中的力-位移耦合、接触动力学与跨视角一致性；导致sim2real泛化弱、动作漂移、场景预测失真。",
+          "method": "UNITAS将观测（多视角RGB-D）、动作（手/夹爪3D点轨迹）和场景动态（场景点3D位移场）全部锚定在共享的度量3D坐标系下；用物理时间轨迹分词器将每条3D点轨迹编码为单个token，以世界对齐的3D位置嵌入统一视觉与深度token；动作流驱动场景流，二者联合端到端训练。",
+          "results": "在RoboTwin上动作条件下的场景预测位移误差比PointWorld低49%；LIBERO操纵成功率99.8%；真实机器人多任务平均成功率85%；已部署于多个真实机器人平台并实现跨机体泛化。",
+          "limitations": "摘要未说明真实世界任务数量、具体平台型号及任务分布；未报告消融实验中3D位置嵌入/轨迹分词器等核心模块的独立贡献；所有实证均未提及是否使用真实机器人闭环反馈（如在线重规划），可能隐含开环执行假设。",
+          "significance_take": "范式级推进——它不是对视觉-语言动作模型的增量改进，而是首次系统性弃用‘图像中心主义’，确立‘度量3D空间即第一性原理’的建模范式，为物理可信的世界模型奠定新基线。",
+          "who_should_read": "做具身操作、世界模型、sim2real迁移的研究者和工程师，能直接获得可部署的3D动作接口设计、跨体动作表征方案与真机验证路径。",
+          "verdict": "必读——它用严格3D原生设计封住了当前WAM主流路线的物理合理性漏洞，且真机结果扎实，是少数同时满足‘思想清晰+工程落地+证据完整’的标杆工作。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2610.10855",
+        "title": "OmniHOI: Dexterous Hand-Object Interaction from Monocular Human Video",
+        "published": "2026-10-07",
+        "first_seen": "2026-10-11",
+        "url": "https://arxiv.org/abs/2610.10855",
+        "pdf_url": "https://arxiv.org/pdf/2610.10855",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "dexterous_manipulation",
+        "org": "清华大学",
+        "country": "CN",
+        "significance": 92,
+        "significance_reason": "首次在单目视频→多灵巧手→真实双臂机器人全链路上实现端到端物理可执行迁移，150条动捕+60条视频实测成功率显著超越所有已知视频驱动方法（+22–61%），且在真实bimanual机器人上完成多样化任务验证；虽未达Facet-0/IronMind级范式颠覆，但填补了‘wild video → real dexterous robot’这一关键空白，证据强度（多机体+真实执行+消融明确）已达领域Top-tier水平。",
+        "tier": "heavy",
+        "tldr": "从单目人类操作视频中重建手-物体交互轨迹，并直接迁移到5种不同构型的灵巧机器人手上，全程不依赖真实机器人数据或强化学习训练，靠分阶段物理一致性约束（图像、接触几何、动力学）实现跨形态动作迁移。",
+        "deep": {
+          "hook": "单目视频→5种灵巧手→真实双臂机器人，全程无RL、无动捕先验、无真机数据微调",
+          "why_now": "接续2023–2024年视频驱动具身智能热潮（如VoxPoser、RT-2视频扩展），但首次绕过‘视频→语言→动作’间接链路，直击‘视频→物理可执行手轨迹’这一被长期回避的硬核瓶颈；与同期sim2real工作（如Diffuser-Hand、HOI-Gen）相比，明确拒绝隐式神经拟合，转向显式物理分阶段校正。",
+          "problem": "人类单目操作视频虽海量，但单视角导致深度/接触/力模糊；现有方法或依赖高精度动捕（脱离wild场景），或需任务级强化学习微调（不可扩展），无法将‘人怎么做’直接变成‘机器人手怎么动且不掉/不滑/不撞’。",
+          "method": "三阶段物理一致性优化：1）图像约束重建——用单帧深度+光度+边缘+手部语义分割联合优化初始手-物SDF与姿态；2）接触几何重定向——在源人手与目标机器人手之间建立接触点-法向-摩擦锥映射，强制保持接触拓扑与相对运动可行性；3）动力学闭环精修——在MuJoCo中以接触力矩平衡+关节扭矩限幅为硬约束，迭代优化轨迹，不依赖任何学习模块。",
+          "results": "在150条动捕轨迹上迁移到5种灵巧手（6–22 DoF），成功率39–89%；在60条单目视频上达53%执行成功率，显著高于前序最佳方法28%；在真实bimanual机器人（Shadow Dexterous Hand ×2 + Franka arms）上完成开瓶盖、翻书页、捏取软糖等7类任务验证。",
+          "limitations": "1）所有实测成功率为作者报告值，未说明是否含人工筛选视频/失败重试次数，亦未公开失败案例分析；2）接触几何重定向依赖手工定义的‘接触关键点’（如指尖、指腹），对非刚性物体（布料、泡沫）或复杂曲面接触泛化存疑；3）动力学精修阶段使用MuJoCo而非真实接触模型，未报告仿真-现实接触参数偏差影响。",
+          "significance_take": "显著推进——不是范式颠覆（因仍属‘重建→重定向→仿真精修’经典pipeline），但首次将该pipeline的物理约束粒度推至接触法向与摩擦锥级别，并在多机体+真实执行双重验证下证明其工程可用性，为‘免RL视频到机器人’路线确立新baseline。",
+          "who_should_read": "做手-物交互、sim2real迁移、物理驱动运动规划的工程师和研究者，能直接复用其三阶段约束设计与接触映射接口。",
+          "verdict": "必读——它是当前唯一把‘单目视频→多构型灵巧手→真实双臂执行’全链路走通且公开方法细节的工作，所有环节拒绝黑箱补偿，可检验、可拆解、可增量改进。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -11876,8 +11968,11 @@
     "2610.06850",
     "2610.09117",
     "2610.10515",
-    "2610.10528"
+    "2610.10528",
+    "2610.10855",
+    "2610.12099",
+    "2610.12435"
   ],
-  "latest": "2026-10-10",
-  "generated_at": "2026-10-10 06:54 UTC"
+  "latest": "2026-10-11",
+  "generated_at": "2026-10-11 06:58 UTC"
 }
