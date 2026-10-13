@@ -1,18 +1,17 @@
 {
   "week": {
-    "start": "2026-10-06",
-    "end": "2026-10-12",
-    "label": "10.06~10.12"
+    "start": "2026-10-07",
+    "end": "2026-10-13",
+    "label": "10.07~10.13"
   },
   "count": 15,
   "venue_count": 4,
   "venues": [
     "CoRL 2026",
-    "ICRA 2027",
     "IROS 2026",
     "NeurIPS 2026"
   ],
-  "generated_at": "2026-10-12 07:06 UTC",
+  "generated_at": "2026-10-13 07:36 UTC",
   "picks": [
     {
       "rank": 1,
@@ -131,47 +130,6 @@
     },
     {
       "rank": 4,
-      "arxiv_id": "2610.09117",
-      "title": "Workhorse: Learning Robust Whole-Body Humanoid Loco-Manipulation from Human Data",
-      "published": "2026-10-06",
-      "url": "https://arxiv.org/abs/2610.09117",
-      "pdf_url": "https://arxiv.org/pdf/2610.09117",
-      "thumb": "assets/thumbs/2610.09117.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "whole_body_control",
-      "org": "加州大学伯克利分校",
-      "country": "US",
-      "org_type": "university",
-      "significance": 92,
-      "significance_reason": "达到并局部超越‘Human-as-Humanoid’和‘Towards a General Humanoid Loco-Manipulation Model’等95分档基石工作：首次实现无retargeting、双策略解耦+错误互增强的端到端loco-manipulation闭环，在真实G1上完成多模态接触任务（踢+抓+推+爬）且含物理扰动恢复，跨机体泛化验证扎实（第二仿真人形体83%成功率），但未开源数据与完整训练pipeline，削弱复现门槛。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "loco-manipulation",
-        "whole-body",
-        "human-data",
-        "sim2real",
-        "real-robot"
-      ],
-      "tldr": "用纯人类动作视频（无机器人、无动作重定向）训练两个解耦策略：一个视觉规划器预测人体 torso/手腕/脚的5个部位目标位姿，另一个强化学习控制器在人形机器人上实时跟踪这些目标，实现踢、抓、推、爬等全身接触式操作，并在真实Unitree G1上完成抗干扰的箱子分拣、接抛物、翻越行李箱等任务。",
-      "claim": "仅从无机器人的人类第一视角视频中学习鲁棒的全身人形机器人接触式运动-操作（loco-manipulation），无需动作重定向，且通过双向错误建模实现两策略协同优化。",
-      "method_components": [
-        "model",
-        "dataset",
-        "policy",
-        "benchmark",
-        "hardware"
-      ],
-      "input": "人类第一视角RGB视频 + 人体关节位姿序列（来自Vicon或类似动捕）",
-      "output": "5个部位（torso+2 wrists+2 feet）的目标位姿序列 + 机器人全身关节力矩控制指令",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：它跳出了‘人类动作→机器人动作映射’的传统范式，用视觉规划器直接输出机器人可执行的全身目标位姿，再由WBC级控制器闭环跟踪，是首个在真实高自由度人形上验证该解耦架构鲁棒性的系统，证据链完整、任务复杂度和扰动鲁棒性均达新标杆。",
-      "deep": {}
-    },
-    {
-      "rank": 5,
       "arxiv_id": "2610.10855",
       "title": "OmniHOI: Dexterous Hand-Object Interaction from Monocular Human Video",
       "published": "2026-10-07",
@@ -212,42 +170,7 @@
       "deep": {}
     },
     {
-      "rank": 6,
-      "arxiv_id": "2610.07597",
-      "title": "The Robot Is Not Its Description: GaugeBench for Representation Robustness in Morphology-Aware Policies",
-      "published": "2026-10-06",
-      "url": "https://arxiv.org/abs/2610.07597",
-      "pdf_url": "https://arxiv.org/pdf/2610.07597",
-      "thumb": "",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "加州大学圣地亚哥分校",
-      "country": "US",
-      "org_type": "university",
-      "significance": 87,
-      "significance_reason": "首次系统揭示并量化‘描述等价性’对策略鲁棒性的致命影响，提出可验证、可修复的表示鲁棒性新维度，填补跨机体评估的根本盲区；证据扎实（多框架复现、消融定位到轴向、修复效果显著），虽未部署真机，但问题本质深刻且影响所有基于描述的形态感知学习范式，属领域方法论级警示与奠基工作。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "benchmark",
-        "sim2real"
-      ],
-      "tldr": "这篇论文发现机器人策略对机器人描述的数学约定（比如关节轴方向、零点定义、连杆顺序）极度敏感——哪怕机器人本体完全不变，仅改写其描述文件，策略性能就从4030暴跌到51；作者构建了GaugeBench基准来系统暴露这一‘表示脆弱性’，并证明仅靠翻转关节轴就能复现崩溃，而调整零点几乎无影响；最后给出可修复方案：跨等价约定训练或两描述间精确映射可将鲁棒性从3.6%提升至80.6%。",
-      "claim": "形态感知策略的鲁棒性必须区分‘机制鲁棒性’（换机器人）和‘表示鲁棒性’（换描述），而当前跨机体评估严重忽视后者，导致高估策略泛化能力。",
-      "method_components": [
-        "benchmark",
-        "simulator"
-      ],
-      "input": "机器人URDF/MJCF描述文件 + 策略权重",
-      "output": "策略在重描述机器人上的任务回报（标量）及崩溃归因分析",
-      "novelty": 9,
-      "evidence": 11,
-      "one_sentence_verdict": "真突破：它没有发明新模型，却揪出整个形态感知策略社区长期忽略的‘描述幻觉’——把策略对URDF文本格式的过拟合误认为跨机体泛化，问题直击根基，修复路径清晰且实证充分。",
-      "deep": {}
-    },
-    {
-      "rank": 7,
+      "rank": 5,
       "arxiv_id": "2610.10528",
       "title": "Long-WAM: Scaling the Context of World-Action Models",
       "published": "2026-10-07",
@@ -285,45 +208,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
-      "arxiv_id": "2610.07969",
-      "title": "EmbodiedSmith: Scaling Embodied Data through Recursive Self-Improvement Flywheel in Simulation",
-      "published": "2026-10-06",
-      "url": "https://arxiv.org/abs/2610.07969",
-      "pdf_url": "https://arxiv.org/pdf/2610.07969",
-      "thumb": "assets/thumbs/2610.07969.jpg",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "sim2real_data",
-      "org": "智元",
-      "country": "CN",
-      "org_type": "company",
-      "significance": 82,
-      "significance_reason": "达到SimFoundry（95分档）和PhyVisGen（94分档）的实质性水平：首次实现场景-任务双向驱动的闭环生成飞轮，支持多机体+复杂物理（流体/变形体），且实验证明数据多样性提升下游策略泛化；但未开源代码/模型，无真实机器人部署或sim2real迁移验证，尚未形成开放社区标准，故略低于SimFoundry的模块化通用性与PhyVisGen的视觉-物理双高保真实证强度。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "sim2real",
-        "dataset",
-        "benchmark",
-        "large-scale"
-      ],
-      "tldr": "提出一个叫EmbodiedSmith的仿真数据生成框架，通过场景生成和任务生成互相引导的循环优化机制，在仿真中自动、递归地生成多样化的具身交互数据（含移动操作、人形、灵巧手、可变形物体、流体等），目标是为机器人基础模型提供更丰富、更贴近真实物理的训练和评测数据。",
-      "claim": "通过场景与任务联合迭代优化的递归自改进飞轮机制，可在仿真中规模化生成高多样性、高物理保真度、跨形态具身交互数据，显著提升下游策略的泛化能力。",
-      "method_components": [
-        "simulator",
-        "dataset",
-        "benchmark"
-      ],
-      "input": "自然语言指令 + 当前仿真状态（含资产/场景/任务约束）",
-      "output": "合成的具身交互轨迹数据集（含动作、观测、任务成功标签、物理状态序列）",
-      "novelty": 7,
-      "evidence": 8,
-      "one_sentence_verdict": "工程整合——在仿真数据生成范式上做出扎实系统性升级，机制新颖、覆盖广、实证充分，但缺乏开源与真实世界锚点，尚未构成领域基石级突破。",
-      "deep": {}
-    },
-    {
-      "rank": 9,
+      "rank": 6,
       "arxiv_id": "2610.12468",
       "title": "DreamTrue: Action-Faithful Robot World Model with Counterfactual Post-Training",
       "published": "2026-10-08",
@@ -362,46 +247,7 @@
       "deep": {}
     },
     {
-      "rank": 10,
-      "arxiv_id": "2610.08119",
-      "title": "AutodidactWAM: Cross-Modal Self-Distillation from Generated Video to Robot Actions",
-      "published": "2026-10-06",
-      "url": "https://arxiv.org/abs/2610.08119",
-      "pdf_url": "https://arxiv.org/pdf/2610.08119",
-      "thumb": "assets/thumbs/2610.08119.jpg",
-      "venue": "ICRA 2027",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "东京工业大学",
-      "country": "JP",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "首次在真实人形灵巧手上验证了‘视频即动作监督源’的可行性，实证扎实（三阶段闭环测试、跨物体泛化、消融对比多种目标函数），显著推进WAM落地瓶颈，但未构建新世界模型架构，也未解决长期状态建模等基石问题，属强工程突破而非范式革新。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "cross-embodiment",
-        "self-distillation",
-        "real-robot",
-        "multimodal-fusion"
-      ],
-      "tldr": "论文发现世界-动作模型（WAM）生成的视频看起来合理但对应的动作严重失效，于是提出AutodidactWAM：用自监督手部姿态估计器从模型生成的视频中反推真实可行的动作，再用这些‘视频蒸馏出的动作’作为监督信号，仅微调动作相关层，从而在不依赖任何人工遥操作数据的前提下，将Unitree G1人形机器人抓取成功率从7%提升到42%。",
-      "claim": "仅通过生成视频中的视觉线索即可自监督蒸馏出可执行的机器人动作，无需真实遥操作数据，即可实现跨机体的世界-动作模型轻量适配。",
-      "method_components": [
-        "model",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "RGB视频帧序列+语言指令",
-      "output": "关节角度序列（经逆运动学解算的手部6D位姿→关节控制指令）",
-      "novelty": 8,
-      "evidence": 9,
-      "one_sentence_verdict": "真突破：用纯视觉自蒸馏破解WAM动作失准难题，在真实人形灵巧手上实现零遥操作适配，证据充分且效果显著。",
-      "deep": {}
-    },
-    {
-      "rank": 11,
+      "rank": 7,
       "arxiv_id": "2610.12007",
       "title": "REACT: Rolling Denoising and Dual Decoupling for Reactive Robot Control with VLA Models",
       "published": "2026-10-08",
@@ -438,7 +284,7 @@
       "deep": {}
     },
     {
-      "rank": 12,
+      "rank": 8,
       "arxiv_id": "2610.12046",
       "title": "SkillWeave: Weaving Heterogeneous Demonstrations into Long-Horizon Manipulation Skills",
       "published": "2026-10-08",
@@ -476,7 +322,7 @@
       "deep": {}
     },
     {
-      "rank": 13,
+      "rank": 9,
       "arxiv_id": "2610.10465",
       "title": "LLA-MPPI: Rapidly Adaptive Whole-body Control of Legged Robots with GPU-Accelerated Parallel Simulations",
       "published": "2026-10-07",
@@ -515,7 +361,43 @@
       "deep": {}
     },
     {
-      "rank": 14,
+      "rank": 10,
+      "arxiv_id": "2610.10857",
+      "title": "Self-Supervised Keyframe Discovery for Horizon-Invariant Behavior Cloning",
+      "published": "2026-10-07",
+      "url": "https://arxiv.org/abs/2610.10857",
+      "pdf_url": "https://arxiv.org/pdf/2610.10857",
+      "thumb": "",
+      "venue": "NeurIPS 2026",
+      "domain": "embodied_ai",
+      "best_route": "whole_body_control",
+      "org": "unknown",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 78,
+      "significance_reason": "在非马尔可夫BC中提出有理论保障的关键帧记忆机制，实证覆盖合成域+23任务真实机器人操作+20倍时域外推，消融与baseline对比扎实；但未开源数据、未披露模型权重、未构建新标准基准，且未突破‘记忆压缩’这一已有范式（如Memformer、Memory-Augmented BC等已有类似思想），故强于一般增量但未达里程碑级。",
+      "tier": "heavy",
+      "grade": "D",
+      "tags": [
+        "sim2real",
+        "benchmark"
+      ],
+      "tldr": "提出一种自监督的关键帧发现方法（Keyframe Mnemonics），让行为克隆策略不再依赖RNN或Transformer建模长程上下文，而是自动选出少量信息关键帧作为记忆锚点，从而在无限时域下稳定保留决策相关上下文，并在合成记忆任务和真实机器人操作任务中显著提升长时程泛化能力。",
+      "claim": "通过自监督发现信息关键帧（mnemonics）并以此为条件进行行为克隆，可在理论保证下实现无限时域的上下文保留，同时仅需极小工作记忆容量。",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark"
+      ],
+      "input": "原始观测序列（如图像/状态序列）",
+      "output": "动作分布（行为克隆输出）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "真突破：首次将自监督关键帧发现与无限时域上下文保证结合，并在真实机器人多任务上验证长程泛化鲁棒性，超越现有RNN/Transformer BC方法的实用瓶颈。",
+      "deep": {}
+    },
+    {
+      "rank": 11,
       "arxiv_id": "2610.10489",
       "title": "HuMBLE: Human Motion-Driven Behavior Learning for Embodied Locomotion",
       "published": "2026-10-07",
@@ -553,6 +435,121 @@
       "novelty": 7,
       "evidence": 10,
       "one_sentence_verdict": "重磅——实证扎实的工程级突破：在多硬件平台完成从人类步态先验到可部署鲁棒行走的闭环，但受限于闭源与数据依赖，尚未达基石级范式开创。",
+      "deep": {}
+    },
+    {
+      "rank": 12,
+      "arxiv_id": "2610.12470",
+      "title": "Dex-One2Many: Learning Dexterous Manipulation from a Single Human Demonstration",
+      "published": "2026-10-08",
+      "url": "https://arxiv.org/abs/2610.12470",
+      "pdf_url": "https://arxiv.org/pdf/2610.12470",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "dexterous_manipulation",
+      "org": "首尔国立大学",
+      "country": "KR",
+      "org_type": "university",
+      "significance": 82,
+      "significance_reason": "在‘单视频→灵巧操作’范式中首次将场景图显式建模为关系约束+分阶段奖励源，实证覆盖5个工具操作任务、显著拉开未见配置下71%性能差距，且真机部署成功；但未开源数据/模型，且场景图构建未开放细节，相比IronMind/EgoWild2Dex等97分工作仍缺大规模预训练、跨机体泛化或野外数据驱动维度。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "dexterous",
+        "sim2real",
+        "multimodal-fusion"
+      ],
+      "tldr": "用单段人类手部操作视频，通过提取场景图作为结构化先验来引导仿真中的强化学习，训练出能泛化到新物体位姿、新抓取方式和新任务目标的灵巧手策略，并零样本迁移到真实多指灵巧手。",
+      "claim": "从单个人类视频中抽象出关系型场景图，可作为生成式约束与分阶段稠密奖励信号，使纯仿真训练的灵巧操作策略获得强跨位姿/跨抓取/跨目标泛化能力，并实现零样本sim2real迁移。",
+      "method_components": [
+        "model",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "input": "单段RGB人类手部操作视频（无标注、无传感器数据）",
+      "output": "面向多指灵巧手的分阶段动作策略（连续控制输出）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "真突破：解决了单视频灵巧操作中‘运动模仿泛化弱’与‘纯RL探索难’的根本矛盾，用可解释的结构先验实现高质量sim2real迁移，证据扎实、任务多样、真机验证充分。",
+      "deep": {}
+    },
+    {
+      "rank": 13,
+      "arxiv_id": "2610.12432",
+      "title": "FAITH: Feasibility-Aware Safety-Filtered RL for High-Dimensional Systems",
+      "published": "2026-10-08",
+      "url": "https://arxiv.org/abs/2610.12432",
+      "pdf_url": "https://arxiv.org/pdf/2610.12432",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "sim2real_data",
+      "org": "伊利诺伊大学厄巴纳-香槟分校",
+      "country": "US",
+      "org_type": "university",
+      "significance": 82,
+      "significance_reason": "在29-DoF人形和真实G1上达成99.95%安全率+97%任务保留率，且支持不可行状态下的伤害最小化降级——这是目前少有在高自由度人形上同时满足严格安全率、高任务保真度、真机部署、无模型依赖的完整闭环方案；虽未开新范式（如RT-X级数据基建或Cosmos-H-Dreams级生成物理），但属当前安全RL向高维具身系统落地的关键工程突破。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "real-robot",
+        "large-scale"
+      ],
+      "tldr": "提出FAITH框架，用一个前馈神经网络学习安全过滤器，在动作执行时动态修正策略输出以满足安全约束，不修改任务策略本身的目标函数；在仿真和真实人形机器人（Unitree G1）上验证了高安全性（99.95%）与高任务性能（保留97%原始回报）的兼顾能力。",
+      "claim": "通过解耦安全过滤与任务优化，并用数据驱动方式学习可行性感知的安全价值函数，可在无解析模型、无安全先验的前提下实现高维系统中最小干预、长程安全感知、且在不可行时主动降级为伤害最小化的行为。",
+      "method_components": [
+        "model",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "input": "当前状态+任务策略输出的动作",
+      "output": "经安全过滤后的修正动作",
+      "novelty": 8,
+      "evidence": 10,
+      "one_sentence_verdict": "真突破：首次在29-DoF人形及真实G1上实现无模型、可行性感知、伤害可降级的安全过滤，实证强度远超同类安全RL工作，填补了高维具身系统安全执行的关键缺口。",
+      "deep": {}
+    },
+    {
+      "rank": 14,
+      "arxiv_id": "2610.10787",
+      "title": "NavGPT-3: Harnessing Context in a Hierarchical Navigation Runtime",
+      "published": "2026-10-07",
+      "url": "https://arxiv.org/abs/2610.10787",
+      "pdf_url": "https://arxiv.org/pdf/2610.10787",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "world_model",
+      "org": "澳大利亚国立大学",
+      "country": "AU",
+      "org_type": "university",
+      "significance": 78,
+      "significance_reason": "显著推进SOTA：在RxR-CE上首次实现与人类持平的双指标（SR/nDTW），且通过完整消融验证了运行时架构（而非单纯模型规模）是性能跃升主因；但仍在纯仿真环境，未跨机体/传感器/真实扰动，未解决sim2real根本问题，未触及世界建模或持续学习等更底层挑战，故低于DreamerV3/World Models等基石工作。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "sim2real",
+        "benchmark",
+        "open-source"
+      ],
+      "tldr": "这篇论文提出NavGPT-3，一个类操作系统架构，把大语言模型（做高层推理/规划）和专用视觉-语言-动作策略模型（NavGPT VLA，做低延迟物理执行）解耦为可中断、可调度的并行线程，首次让具身导航智能体在RxR-CE上达到与人类相当的成功率和路径保真度，并将反应延迟从秒级降至亚秒级。",
+      "claim": "通过构建具备上下文隔离、线程调度与中断机制的分层运行时系统，可实质性弥合大语言模型的长程推理能力与机器人实时物理控制之间的鸿沟，且该接口设计本身是提升具身智能性能的关键瓶颈。",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark",
+        "simulator"
+      ],
+      "input": "自然语言指令+RGB视频流（含时序视觉token动态分配）",
+      "output": "机器人导航动作序列（离散转向/前进/停止）及运行时线程调度决策",
+      "novelty": 8,
+      "evidence": 10,
+      "one_sentence_verdict": "工程整合：将LLM推理与VLA策略通过OS级运行时深度耦合，在仿真导航任务中达成人类水平性能，实证扎实、开源完备，但仍是特定任务上的高性能封装，非范式突破",
       "deep": {}
     },
     {
