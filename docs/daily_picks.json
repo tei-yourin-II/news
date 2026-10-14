@@ -11775,6 +11775,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-10-14": [
+      {
+        "arxiv_id": "2610.13816",
+        "title": "Dream to Remember: Continual Steering of Generalist Robot Policies with World Models",
+        "published": "2026-10-09",
+        "first_seen": "2026-10-14",
+        "url": "https://arxiv.org/abs/2610.13816",
+        "pdf_url": "https://arxiv.org/pdf/2610.13816",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "弗莱堡大学",
+        "country": "EU",
+        "significance": 87,
+        "significance_reason": "实质性推进了世界模型驱动的持续学习范式：首次在通用策略+世界模型双冻结前提下，实现多任务序列的纯想象持续引导，并在真实机器人上复现；效果显著优于LoRA微调（63.7%→74.8% vs 11.7%），且跨仿真（CALVIN/LIBERO）与真实平台一致验证，证据链完整扎实，但尚未达到World Models或DreamerV3级的基础建模突破（如状态表示重构、通用世界建模架构）。",
+        "tier": "heavy",
+        "tldr": "提出Dream to Remember（D2R）方法，用冻结的世界模型在想象中回放旧任务，持续引导一个冻结的通用机器人策略学习新任务，避免灾难性遗忘；在CALVIN、LIBERO-90和真实Franka机器人上验证了纯想象学习新任务的同时保留旧技能。",
+        "deep": {
+          "hook": "冻结策略+冻结世界模型，纯靠想象回放旧任务，实现新技能持续学习不遗忘",
+          "why_now": "接续DreamerV3、A2World与CALVIN通用策略工作，直击当前具身智能持续学习两大死结：真实数据回放成本高、微调引发灾难性遗忘；同期多数工作仍依赖真实重放或策略更新，D2R是首个在双冻结前提下完成纯想象持续引导的完整验证",
+          "problem": "通用机器人策略（如CALVIN）一旦用RL微调适配新任务，就会严重遗忘旧技能；而现有持续学习方法（如LoRA微调、steering模块）仍需更新参数或依赖真实数据回放，无法在资源受限的真实场景中长期部署。",
+          "method": "D2R引入一个轻量steering模块（仅调制策略输入噪声），在训练新任务时，让预训练且完全冻结的世界模型（如A2World）对所有已学旧任务进行纯想象rollout，生成伪轨迹作为约束信号，强制steering模块在优化新任务时‘记住’旧行为；全程不更新策略π₀、不重放真实数据、不微调世界模型。",
+          "results": "在CALVIN上8任务序列纯想象学习，平均成功率从63.7%升至74.8%，LoRA微调同期跌至11.7%；在LIBERO-90上用真实环境学新任务，同时保持π₀在原LIBERO子集上的性能；在真实Franka机器人上完成3任务序列纯想象提升并保留历史改进。",
+          "limitations": "1. 世界模型 fidelity 决定能否纯想象学习——摘要明确承认A2World在LIBERO上‘不够准以支撑策略优化’，此时D2R退化为常规RL+回放式约束，想象仅用于复习；2. 所有实证均基于单一世界模型架构（A2World）与单一通用策略（π₀），未做世界模型替换/消融，泛化性存疑；3. 真机实验仅3任务、无跨形态迁移（如从Franka到UR5）、未报告失败模式或长程遗忘曲线。",
+          "significance_take": "显著推进（非范式级）世界模型驱动的持续学习路线：首次将‘想象回放’从辅助工具（如Dreamer中的policy evaluation）升格为持续学习的核心机制，并在仿真+真机+多基准上闭环验证其可行性；但未挑战世界模型本身建模能力边界（如状态解耦、跨任务泛化表示），仍是‘用好已有模型’而非‘重构建模范式’。",
+          "who_should_read": "做机器人持续学习、世界模型落地、或通用策略蒸馏的研究者/工程师——能直接复用D2R框架设计免重训的现场升级方案。",
+          "verdict": "必读：它是目前唯一把‘冻结策略+冻结WM+纯想象回放’走通全链路（仿真→LIBERO→真机）的工作，工程接口清晰、代码开源、结论可复现，为边缘端机器人在线适应提供了可信技术路径。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2610.12910",
+        "title": "Sampling-based Kinodynamic Planning with World Models",
+        "published": "2026-10-09",
+        "first_seen": "2026-10-14",
+        "url": "https://arxiv.org/abs/2610.12910",
+        "pdf_url": "https://arxiv.org/pdf/2610.12910",
+        "thumb": "",
+        "venue": "ICRA",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "莱斯大学",
+        "country": "US",
+        "significance": 78,
+        "significance_reason": "实质性推进了世界模型落地具身控制的路径：首次系统性将高维采样规划引入WM隐空间，提供可验证的替代范式；在4个仿真域+真实推块任务上超越CEM/MPPI，含消融与跨场景测试；但未开源数据/模型，未覆盖复杂灵巧操作或开放环境，尚未达到DreamerV3或WEAVER级的通用性与架构深度。",
+        "tier": "heavy",
+        "tldr": "这篇论文把传统机器人运动规划里的采样算法（如RRT、KPIECE）搬到世界模型的隐空间里做搜索，用树形结构主动探索中间状态，解决了CEM/MPPI等优化器在长视野任务中因短视而卡住的问题，在仿真和真实机械臂推块任务上更快且成功率更高。",
+        "deep": {
+          "hook": "首次把RRT/KPIECE采样规划搬进世界模型隐空间，绕开梯度优化短视缺陷，真机推块成功率+20%",
+          "why_now": "紧接DreamerV3、WEAVER等WM架构爆发期，但指出其下游规划层被长期忽视——本文是首个系统性用经典采样法替代CEM/MPPI的实证工作，踩中‘WM+规划’落地瓶颈突破点",
+          "problem": "世界模型虽能预测图像演化，但主流规划器（CEM/MPPI）依赖短视目标函数梯度，在需迂回动作的长视野任务（如绕障推块）中频繁卡在局部；缺乏对中间状态的主动探索机制。",
+          "method": "不优化损失函数，而将世界模型当作隐空间中的‘动力学仿真器’，在其latent space里构建搜索树：用DINO-WM编码图像为隐状态，RRT按最近邻扩展，KPIECE按投影划分区域采样，全部GPU批处理实现高效树生长。",
+          "results": "在4个仿真域和真实机械臂推块任务上验证：规划时间比CEM/MPPI低至13.8倍；真实机器人任务成功率提升20%；含跨场景泛化测试与消融（验证采样策略比随机扩展关键）。",
+          "limitations": "仅用DINO-WM（非SOTA WM），未开源模型/数据；任务限于单物体推块与简单仿真环境，未覆盖灵巧操作、多物体交互或开放动态场景；所有真机实验仅在一个硬件平台完成，sim2real迁移细节未披露。",
+          "significance_take": "显著推进：它不是WM架构创新，而是首次证明‘经典规划算法在WM隐空间仍有效’这一范式迁移可行性，为WM下游提供可解释、可验证、非黑箱的新规划基线，补全了WM-to-action链条的关键缺环。",
+          "who_should_read": "做具身规划的研究者应读——拿走隐空间树搜索的工程实现方案与跨任务验证框架；机器人工程师可直接复用其GPU批处理RRT/KPIECE模板加速真机部署。",
+          "verdict": "必读：它用扎实的对比实验和真机验证，戳破了‘WM必须配梯度优化’的思维定式，是少有的让规划老方法在新范式下重获生命力的工作。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2610.13732",
+        "title": "LAPT-Scale: Scaling Embodied Policies with Latent Action Pre-Training on Human Videos",
+        "published": "2026-10-09",
+        "first_seen": "2026-10-14",
+        "url": "https://arxiv.org/abs/2610.13732",
+        "pdf_url": "https://arxiv.org/pdf/2610.13732",
+        "thumb": "",
+        "venue": "CoRL 2026",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "未知（作者单位未在摘要中披露，无机构署名线索；姓名组合未指向明确头部实验室/企业，非清华/伯克利/DeepMind/智元等常见团队）",
+        "country": "unknown",
+        "significance": 78,
+        "significance_reason": "实证扎实：23.3K小时真实人类视频+真实机器人部署验证+多阶段消融（1K→5K小时缩放曲线）、跨视觉条件泛化、85%真机成功率；但未突破‘人类视频→机器人动作’范式（VioLA/π0已确立），也未解决核心sim2real对齐难题（仍需target-robot embodiment alignment和task-specific post-training），属强工程整合与规模驱动的显著推进，未达RT-2/VioLA级范式开创或基础建模突破。",
+        "tier": "heavy",
+        "tldr": "用23.3K小时第一人称人类视频，通过无监督学习建模帧间视觉变化，提取连续隐空间动作表征（LAPT-Scale-LAM），再以此作为弱监督信号预训练视觉语言动作（VLA）策略，最终在真实机器人上将任务成功率从63.3%提升至85.0%，且泛化到新视觉条件。",
+        "deep": {
+          "hook": "用23.3K小时无标注人类视频，学出连续隐动作，真机成功率从63.3%→85.0%",
+          "why_now": "接续VioLA/π0的‘人类视频驱动具身策略’范式，但首次系统验证连续隐动作空间+多模态对齐在大规模缩放下的收益，踩中‘低成本预训练→真机高效微调’工程落地主航道",
+          "problem": "真实机器人交互数据采集极贵；人类视频虽海量却无动作标签；现有动作标注方法（如keypoint tracking、inverse dynamics）在复杂视觉和动态下噪声大、泛化差；离散隐动作（如VQ-VAE）丢失精细操作动力学。",
+          "method": "先用LAPT-Scale-LAM：输入第一人称视频帧序列+光学流+语义分割+感知特征，在连续隐空间建模帧间视觉变化，不依赖人工动作标签；再用该模型输出的隐动作向量作为弱监督信号，预训练VLA策略（LAPT-Scale-Policy），辅以target-robot embodiment alignment和task-specific post-training；关键创新是连续隐空间+三路对齐（感知/语义/光流）替代单一像素重建。",
+          "results": "在真实机器人上任务成功率从63.3%提升至85.0%；23.3K小时视频训练，缩放实验显示1K→5K小时视频带来持续性能增益；报告了跨视觉条件泛化能力（摘要明确提及）；所有结果均基于真实机器人部署验证（摘要强调‘deployed’）。",
+          "limitations": "仍需target-robot embodiment alignment和task-specific post-training，未解决sim2real根本对齐难题；未披露消融中‘三路对齐’各自贡献，多信号融合是否冗余或耦合未知；未说明23.3K小时视频来源、多样性分布及是否含失败案例，数据偏差风险未评估。",
+          "significance_take": "显著推进‘视频→动作→策略’工程链路：不是范式开创（VioLA已奠基），但首次以连续隐空间+实证缩放曲线+真机SOTA幅度，证明该路线可规模化、可复现、可部署——属当前最扎实的规模驱动型落地推进。",
+          "who_should_read": "做VLA策略训练/机器人部署的工程师可直接借鉴其连续隐动作建模与三路对齐设计，拿去替换自己pipeline中的动作先验模块。",
+          "verdict": "必读：它把已被接受的范式推到了可量产验证的临界点，所有数字都来自真机，且方法完全开源可复现（摘要未提闭源限制），是当下最值得工程迁移的技术基线。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -12161,8 +12253,11 @@
     "2610.12007",
     "2610.12046",
     "2610.12099",
-    "2610.12435"
+    "2610.12435",
+    "2610.12910",
+    "2610.13732",
+    "2610.13816"
   ],
-  "latest": "2026-10-13",
-  "generated_at": "2026-10-13 07:35 UTC"
+  "latest": "2026-10-14",
+  "generated_at": "2026-10-14 06:03 UTC"
 }
