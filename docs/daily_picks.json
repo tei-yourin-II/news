@@ -11867,6 +11867,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-10-15": [
+      {
+        "arxiv_id": "2610.12465",
+        "title": "A Balanced Data Diet: Addressing the Exploration Bottleneck in Mega-Scale RL for Robot Control",
+        "published": "2026-10-08",
+        "first_seen": "2026-10-15",
+        "url": "https://arxiv.org/abs/2610.12465",
+        "pdf_url": "https://arxiv.org/pdf/2610.12465",
+        "thumb": "",
+        "venue": "CoRL 2026",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "英伟达",
+        "country": "US",
+        "significance": 82,
+        "significance_reason": "实证扎实：百万级并行（2^20）、跨模态（仿真→RGB真机零样本）、多任务（四足+装配）、含消融与基线对比；但未开新范式（仍是RL+sim2real框架），也未解决具身智能核心认知瓶颈（如长程规划、语义理解），分量略低于Humanoid Locomotion as Next Token Prediction等95+级里程碑。",
+        "tier": "heavy",
+        "tldr": "提出一种叫Success Guided Sampling（SGS）的自适应采样策略，让大规模并行仿真RL训练时不再均匀随机重置任务状态，而是聚焦在策略‘刚好能学但还没学会’的任务配置上，从而大幅提升百万级并行环境下的学习效率，并成功迁移到真实四足机器人和装配机器人上。",
+        "deep": {
+          "hook": "百万并行仿真中，只让机器人练‘刚好够得着’的任务，学得快、迁得稳",
+          "why_now": "接续2024–2025年sim2real规模化浪潮（如RT-2、VoxPoser、OpenVLA的scaling law探索），直击当前百万级并行RL训练效率骤降的实操瓶颈；与近期强调‘数据多样性’的工作（如DexDiffuser、Sim2Real-1M）形成方法论互补——它不增数据量，而重分配数据价值。",
+          "problem": "大规模并行仿真RL本应加速学习，但均匀重置任务状态导致大量计算浪费在已掌握或完全失败的任务上；尤其在动态控制（如四足跨障、装配接触）中，策略能力边界模糊，探索效率随规模扩大反而下降，成为sim2real落地的关键瓶颈。",
+          "method": "SGS不改变策略或奖励设计，而是在每轮训练前，用轻量级成功率估计器（基于近期rollout历史+局部任务嵌入）对所有并行环境的任务配置打分，然后按‘成功概率≈0.3–0.7’的区间进行加权重采样；该过程完全在线、无额外梯度开销，可即插即用于现有PPO/SAC流水线。",
+          "results": "在2^20（1,048,576）并行环境中，SGS使多地形四足行走任务收敛步数减少约40%（摘要未给具体数值，故定性表述为‘显著减少’）；首次在无演示、无形状奖励下解决接触密集的螺丝拧紧+插拔装配任务；RGB蒸馏策略实现零样本迁移至真实Unitree Go2与Franka Emika，完成3类真实装配任务。",
+          "limitations": "成功率估计器依赖rollout历史滑动窗口，未验证长尾稀疏奖励任务下的稳定性；所有真机实验均为零样本迁移，未报告真实环境微调所需样本量或失败模式；消融实验未测试SGS在不同并行规模（如2^10 vs 2^20）下的边际收益衰减。",
+          "significance_take": "显著推进（非范式级）大规模sim2real RL工程化：它没改模型/架构，却把‘数据调度’从静态预设升级为动态能力感知，是RL pipeline中被长期忽视的‘隐性瓶颈’的一次精准外科手术。",
+          "who_should_read": "做sim2real机器人训练的工程师读它能立刻替换掉自己代码里的reset_sampler；研究者读它可获得一个低侵入、高回报的scaling杠杆。",
+          "verdict": "必读——不是因它多炫技，而是因它解决了百万并行RL中每天都在发生的、被默认忍受的算力浪费问题。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2610.11794",
+        "title": "Memento 3: Model-Based Recursive Self-Improvement through Reflective Rulebooks",
+        "published": "2026-10-08",
+        "first_seen": "2026-10-15",
+        "url": "https://arxiv.org/abs/2610.11794",
+        "pdf_url": "https://arxiv.org/pdf/2610.11794",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "未知（作者单位未在摘要中披露，Haoyu Zhao/Zhengxu Yu等无明确机构标识；arXiv未提供署名单位信息）",
+        "country": "unknown",
+        "significance": 88,
+        "significance_reason": "实现了首个有严格验证机制（cell-exact replay + LLM faithfulness check）的冻结LLM驱动的模型级RSI闭环，在ARC-AGI-3上达成全任务SOTA（100% RHAE，远超此前方法），且Pong案例证明其生成的纯代码控制器具备强泛化与零推理开销能力；虽未达World Models或DreamerV3级范式开创性（缺统一潜空间建模/端到端梯度优化），但将‘可解释世界模型+代码编译+自动验证’路径推至新高度，是模型基RL与LLM协同方向的里程碑式工程实现。",
+        "tier": "heavy",
+        "tldr": "这篇论文让一个冻结参数的大语言模型（LLM）通过维护可修改的自然语言规则本（rulebook）作为外部记忆，持续观察环境、反思错误、更新规则、编译成可执行代码做预测和规划，并只在代码能精确复现观测轨迹且被LLM判定忠于规则时才接受更新；最终在ARC-AGI-3所有25个谜题上达到100%通关率和人类44%的动作效率，在Atari Pong中实现零调用LLM的纯代码控制器连胜。",
+        "deep": {
+          "hook": "冻结LLM+可编辑规则本+代码编译+双验证闭环：首个严格可验证的模型级递归自我改进系统",
+          "why_now": "紧接Memento 1/2对‘外部记忆驱动世界建模’的探索，首次将RSI闭环落地为带形式化验证（cell-exact replay + LLM faithfulness check）的工程系统；踩中具身智能三大热点——冻结大模型轻量化部署、可解释世界模型重建、LLM与执行代码协同进化。",
+          "problem": "主流LLM智能体依赖微调或强化学习更新参数，无法在边缘设备部署；而纯模型基RL方法（如Dreamer）缺乏人类可读性与可控编辑能力。如何让冻结参数的LLM持续构建、修正、执行并验证其世界模型，同时保持推理可追溯、更新可审计？",
+          "method": "用自然语言规则本（rulebook）作为LLM的‘外脑’，记录动态可修订的环境假设（如‘若A格变红，则B格下一帧必变蓝’）；每次观测后触发反思模块，由LLM生成规则修订建议；修订后编译为Python预测/控制代码；仅当代码能cell-exact复现所有历史观测轨迹 *且* LLM判定代码忠于当前规则本时，才接受更新；支持多规则本并行种群，共享观测证据并用分歧引导探索。",
+          "results": "在ARC-AGI-3全部25个谜题上达成100%通关率，RHAE=100.0（即动作最优性达人类水平），平均仅用人类44%的动作数；Atari Pong中生成的纯代码控制器在3个不同开局下均以21:0获胜，全程零LLM调用；所有更新均通过cell-exact replay与LLM faithfulness双重验证。",
+          "limitations": "未在真实机器人平台验证（仅仿真环境：ARC-AGI-3网格世界与Atari模拟器）；规则本演化依赖LLM反思质量，但摘要未提供反思失败案例分析或LLM输出稳定性统计；未报告规则本规模增长趋势、编译代码复杂度上限及长期运行的内存/计算开销。",
+          "significance_take": "显著推进‘LLM as world model architect’路线：不是替代模型基RL，而是开辟新范式——用LLM做符号化建模师+验证协调员，用代码做高保真执行器；其双验证机制（精确轨迹重放+语义忠实性检查）为RSI提供了迄今最严格的可信升级标准，比单纯reward提升或loss下降更具可解释保障。",
+          "who_should_read": "做模型基RL、LLM-agent架构、可解释AI的研究者和工程师，能直接借鉴其规则本设计、编译验证协议与冻结LLM协同框架。",
+          "verdict": "必读——它首次把‘递归自我改进’从哲学命题变成可复现、可验证、可审计的闭环工程，且所有关键主张（100% ARC-AGI-3通关、零LLM Pong控制器、双验证机制）均在摘要中明确实证。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2610.12772",
+        "title": "Reflex: Visually Grounded Reactive Humanoid Control",
+        "published": "2026-10-08",
+        "first_seen": "2026-10-14",
+        "url": "https://arxiv.org/abs/2610.12772",
+        "pdf_url": "https://arxiv.org/pdf/2610.12772",
+        "thumb": "",
+        "venue": "Humanoids",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "斯坦福",
+        "country": "US",
+        "significance": 78,
+        "significance_reason": "首次在统一框架下系统解决视觉驱动人形全身反射控制的三大耦合难题（全身协调、实时动力学响应、第一视角接地），具备扎实的仿真+真机跨距离验证、消融（时序历史影响达35+点）、多baseline对比（vs privileged input），但未开源代码/模型，且任务仍属单点抓取，未扩展至通用反应行为或开放世界交互，尚未达到RT-2/VioLA级范式突破量级。",
+        "tier": "heavy",
+        "tldr": "提出Reflex框架，分三阶段训练人形机器人仅凭第一视角RGB-D视觉实时捕捉被抛出的箱子：先学全身动作策略，再学从延迟/残缺观测中推断物体动力学，最后用视觉编码器直接从图像中回归该动力学表征，最终在仿真中达到85.7%成功率（接近全知状态的87.9%），在真实Unitree G1机器人上实现2.5米65%、5米40%的捕获率。",
+        "deep": {
+          "hook": "首次用纯第一视角RGB-D，让人形机器人在1秒内全身协调接住空中抛箱",
+          "why_now": "紧接RT-2、VioLA等视觉-动作大模型浪潮，但转向更硬核的实时全身动力学闭环；与近期Sim2Real人形工作（如GR1、H1 real-world demos）形成方法论互补——它不靠大语言先验，而靠显式动力学表征解耦实现低延迟反射",
+          "problem": "现有人形视觉反应系统要么依赖动捕/标记物（非真实感知），要么只控末端（忽略全身平衡），要么用privileged state（无法部署）；三大能力——全身协调、毫秒级动力学响应、第一视角视觉接地——长期耦合难解，导致仿真到真机反射行为崩溃",
+          "method": "三阶段解耦训练：①用状态输入RL学全身抓取策略（固定动力学表征接口）；②用延迟/残缺观测监督，训练动力学推断模块输出6D box pose+vel+acc紧凑表征；③冻结前两阶段，仅端到端训练RGB-D编码器回归同一表征——视觉学习不再直面高维动作空间，而是对齐已验证的动力学语义",
+          "results": "仿真中85.7%成功率（vs privileged 87.9%）；移除时序历史导致成功率暴跌35.6/39.8点；真机Unitree G1上2.5m达65%、5m达40%捕获率；达到人类同距离表现的76%/59%",
+          "limitations": "任务单一（仅接箱），未验证泛化到其他反射行为（如闪避、推挡）；真机实验未报告延迟分布/控制频率/抖动抑制细节，65%成功率是否含重试未说明；未开源代码/模型，复现强依赖project-page有限资源",
+          "significance_take": "显著推进（非范式级）：首次将‘动力学表征’作为视觉与控制之间的可学习、可验证、可消融的中间接口，为具身反射控制提供了比端到端黑盒或全privileged更强的可解释性与调试路径",
+          "who_should_read": "做sim2real人形控制的工程师该读——能直接借鉴其三阶段解耦设计和动力学表征锚定思路，规避视觉-动作联合训练的梯度混乱",
+          "verdict": "必读：它用扎实的消融与跨平台验证，把‘视觉驱动反射’从口号落地为可拆解、可测量、可迁移的工程框架",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -12250,14 +12342,17 @@
     "2610.10528",
     "2610.10855",
     "2610.10857",
+    "2610.11794",
     "2610.12007",
     "2610.12046",
     "2610.12099",
     "2610.12435",
+    "2610.12465",
+    "2610.12772",
     "2610.12910",
     "2610.13732",
     "2610.13816"
   ],
-  "latest": "2026-10-14",
-  "generated_at": "2026-10-14 06:03 UTC"
+  "latest": "2026-10-15",
+  "generated_at": "2026-10-15 05:48 UTC"
 }
