@@ -1,8 +1,8 @@
 {
   "week": {
-    "start": "2026-10-10",
-    "end": "2026-10-16",
-    "label": "10.10~10.16"
+    "start": "2026-10-11",
+    "end": "2026-10-17",
+    "label": "10.11~10.17"
   },
   "count": 15,
   "venue_count": 4,
@@ -11,7 +11,7 @@
     "ICLR 2027",
     "ICRA 2027"
   ],
-  "generated_at": "2026-10-16 05:43 UTC",
+  "generated_at": "2026-10-17 05:39 UTC",
   "picks": [
     {
       "rank": 1,
@@ -90,6 +90,46 @@
     },
     {
       "rank": 3,
+      "arxiv_id": "2610.18711",
+      "title": "Steertuning Policies from a Few Human Videos",
+      "published": "2026-10-13",
+      "url": "https://arxiv.org/abs/2610.18711",
+      "pdf_url": "https://arxiv.org/pdf/2610.18711",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "纽约大学",
+      "country": "US",
+      "org_type": "university",
+      "significance": 92,
+      "significance_reason": "首次实现‘纯人类视频→真机部署’闭环，5视频/2分钟/12环境/71%成功率全部实测达成，开源全栈（含100小时人类egocentric数据集），在数据效率、部署速度与跨环境泛化上显著超越RT-1级工作，逼近RT-2级范式迁移能力但路径更轻量。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "real-robot",
+        "open-source",
+        "dataset",
+        "benchmark"
+      ],
+      "tldr": "用5个普通人拍摄的第一视角视频（无需机器人数据），2分钟微调+反向采样时动态引导，就能让机器人在12个全新家庭厨房和实验室环境中完成新任务，全流程耗时不到5分钟。",
+      "claim": "仅需5个未经标注的人类第一视角视频，即可在2分钟内适配出能在真实新环境中泛化执行新操作任务的机器人策略。",
+      "method_components": [
+        "model",
+        "dataset",
+        "policy",
+        "benchmark"
+      ],
+      "input": "人类第一视角RGB视频帧序列（含手部动作）+任务自然语言描述",
+      "output": "机器人末端执行器的6DoF动作序列",
+      "novelty": 8,
+      "evidence": 11,
+      "one_sentence_verdict": "真突破：绕过机器人数据采集瓶颈，将人类视频到真机策略的链路压缩至分钟级，且在多样化真实家庭场景中验证有效",
+      "deep": {}
+    },
+    {
+      "rank": 4,
       "arxiv_id": "2610.18873",
       "title": "LoopWAM: Closed-Loop Generalist Policy Improvement from Deployment Rollouts",
       "published": "2026-10-13",
@@ -125,7 +165,46 @@
       "deep": {}
     },
     {
-      "rank": 4,
+      "rank": 5,
+      "arxiv_id": "2610.20552",
+      "title": "KinoGen: Customizable Humanoid Loco-Manipulation References via Kinematically Grounded Video Generation",
+      "published": "2026-10-14",
+      "url": "https://arxiv.org/abs/2610.20552",
+      "pdf_url": "https://arxiv.org/pdf/2610.20552",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "斯坦福",
+      "country": "US",
+      "org_type": "university",
+      "significance": 87,
+      "significance_reason": "首次将视频生成与运动学反解闭环耦合，绕过传统人体先验/重定向范式，实现在8个loco-manipulation任务中零人工标注、零真实数据依赖下生成物理可行轨迹，并在带灵巧手的真实人形机器人上端到端部署成功；证据扎实（多任务对比、穿透/滑动量化、接触保持率、消融隐含在重建流程中），但未开源代码/模型，且未验证跨机体泛化（仅G1），故略低于RT-2/VioLA级里程碑",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "dexterous",
+        "real-robot",
+        "multimodal-fusion"
+      ],
+      "tldr": "用视频生成模型合成双视角机器人操作视频，再通过运动学约束优化反解出符合真实机器人构型的运动参考轨迹，支持用户编辑关键帧来精确指定物体目标位姿，并在Unitree G1人形机器人上成功部署跟踪策略。",
+      "claim": "无需人体代理或运动重定向，仅通过可微分的、基于运动学约束的视频生成与重建闭环，即可生成高保真、可定制、物理可行的人形机器人loco-manipulation参考轨迹。",
+      "method_components": [
+        "model",
+        "simulator",
+        "benchmark",
+        "hardware"
+      ],
+      "input": "任务场景的仿真渲染（含机器人与物体的标定双视角图像）、用户编辑的关键帧（如目标物体位姿）",
+      "output": "机器人全身关节轨迹（含手部）及物体运动轨迹，满足运动学可行性与接触约束",
+      "novelty": 8,
+      "evidence": 10,
+      "one_sentence_verdict": "真突破：它不是刷榜或包装，而是用生成式建模重构了loco-manipulation参考生成的底层范式——把‘生成→重建→执行’做成一个运动学自洽的端到端可微管道，并在真实复杂人形平台上验证了可行性",
+      "deep": {}
+    },
+    {
+      "rank": 6,
       "arxiv_id": "2610.18443",
       "title": "PACT: Posture-Aligned Co-Design Technique for Hand Configuration and Retargeting in Multi-Finger Imitation Learning",
       "published": "2026-10-13",
@@ -164,7 +243,7 @@
       "deep": {}
     },
     {
-      "rank": 5,
+      "rank": 7,
       "arxiv_id": "2610.18147",
       "title": "Walk Like This: Stylized Locomotion for Physics-Based Characters through Example-Driven Diffusion",
       "published": "2026-10-13",
@@ -203,7 +282,7 @@
       "deep": {}
     },
     {
-      "rank": 6,
+      "rank": 8,
       "arxiv_id": "2610.18697",
       "title": "UniW(A)M: A Unified Mixture-of-Experts Framework for World and World-Action Models",
       "published": "2026-10-13",
@@ -239,7 +318,7 @@
       "deep": {}
     },
     {
-      "rank": 7,
+      "rank": 9,
       "arxiv_id": "2610.18855",
       "title": "Interaction Latents as Actions for Contact-Rich Manipulation",
       "published": "2026-10-13",
@@ -280,44 +359,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
-      "arxiv_id": "2610.14704",
-      "title": "PRISM: Precision Forcing for Generalist Vision-Language-Action Policies",
-      "published": "2026-10-10",
-      "url": "https://arxiv.org/abs/2610.14704",
-      "pdf_url": "https://arxiv.org/pdf/2610.14704",
-      "thumb": "",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "清华",
-      "country": "CN",
-      "org_type": "university",
-      "significance": 82,
-      "significance_reason": "实证扎实：在3个物理容忍度极严（亚毫米/毫牛级）的真实机器人任务上实现成功率翻倍（+48.4pp），且保持通用任务性能不降；机制分析清晰（Flow-Time Starvation），方法可解释、模块化（重加权+内化），跨任务泛化验证充分；但未开源代码/模型，未覆盖多机体部署（仅Panda），也未挑战更底层的触觉/本体感知缺失问题，尚未达到RT-2级范式开创量级。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "sim2real",
-        "real-robot"
-      ],
-      "tldr": "这篇论文发现现有视觉-语言-动作（VLA）模型在需要亚毫米级精度的任务（如插线、拧螺丝）上失败，根本原因是扩散式动作生成中监督信号平均分配，忽略了关键时间步的误差影响；于是提出PRISM方法，通过离线评估任务精度需求、动态加权关键流时间步的监督、并将精度需求内化到视觉语言模型条件表示中，在不增加传感器或模态的前提下，把三类精密操作的成功率从38.3%大幅提升至86.7%。",
-      "claim": "精度敏感任务的性能瓶颈源于扩散动作生成中监督信号在上下文与流时间维度上的不均衡分配（Flow-Time Starvation），而通过精度感知的监督重加权与条件表示内化可系统性突破该瓶颈。",
-      "method_components": [
-        "model",
-        "simulator",
-        "policy"
-      ],
-      "input": "RGB图像+语言指令",
-      "output": "动作序列（连续控制信号）",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破——首次定位并定量刻画了VLA模型在精密操作中的‘流时间监督饥渴’本质缺陷，并给出可验证、可复现、可迁移的精度增强架构，显著拓展了当前通用具身策略的物理可行性边界。",
-      "deep": {}
-    },
-    {
-      "rank": 9,
+      "rank": 10,
       "arxiv_id": "2610.18872",
       "title": "EgoExplorer: A Vision-Motion-Touch Observatory for Human Loco-Manipulation In Situ",
       "published": "2026-10-13",
@@ -355,7 +397,45 @@
       "deep": {}
     },
     {
-      "rank": 10,
+      "rank": 11,
+      "arxiv_id": "2610.21306",
+      "title": "VLA-Δ: Learning Physical State Transition for Vision-Language-Action Models",
+      "published": "2026-10-15",
+      "url": "https://arxiv.org/abs/2610.21306",
+      "pdf_url": "https://arxiv.org/pdf/2610.21306",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "浙江大学",
+      "country": "CN",
+      "org_type": "university",
+      "significance": 72,
+      "significance_reason": "首次将物理状态变化量Δ作为VLA核心监督信号，数据构造有新意且在LIBERO/RoboTwin和少量真实机器人任务上验证有效；但未展示跨机体/跨用户泛化，真实机器人仅单臂单任务对比π₀.₅，缺乏消融证明Δ监督本身贡献（如是否只是数据量增益），也未开源标注数据集，未达RT-2级范式突破，但强于纯刷榜工作。",
+      "tier": "notable",
+      "grade": "B",
+      "tags": [
+        "multimodal-fusion",
+        "dataset",
+        "benchmark",
+        "open-source"
+      ],
+      "tldr": "这篇论文提出VLA-Δ框架，让视觉-语言-动作模型不再只学‘看到什么就做什么’，而是显式地学习‘当前物理状态到下一物理状态的变化量（Δ）’，并用大规模构造的物理状态变化标注数据来监督这个Δ预测，从而提升动作生成的泛化性和真实性。",
+      "claim": "显式建模并监督物理状态变化量（Δ）比隐式映射观察到动作更能提升VLA模型在真实机器人上的泛化与鲁棒性。",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark"
+      ],
+      "input": "RGB图像+语言指令",
+      "output": "连续动作序列（或动作块）",
+      "novelty": 7,
+      "evidence": 8,
+      "one_sentence_verdict": "显著贡献：提出了有物理意义的监督目标Δ并构造配套数据，在多基准和真实机器人上实证有效，但证据链尚不完整，未达里程碑级。",
+      "deep": {}
+    },
+    {
+      "rank": 12,
       "arxiv_id": "2610.17748",
       "title": "I3L: Iterative Interactive Imitation Learning for Whole-Body Mobile Manipulation",
       "published": "2026-10-13",
@@ -397,7 +477,7 @@
       "deep": {}
     },
     {
-      "rank": 11,
+      "rank": 13,
       "arxiv_id": "2610.18792",
       "title": "SEAR: Self-Evolving Agentic Robotics",
       "published": "2026-10-13",
@@ -435,7 +515,7 @@
       "deep": {}
     },
     {
-      "rank": 12,
+      "rank": 14,
       "arxiv_id": "2610.17922",
       "title": "WoVR+: World Model as Reliable Simulator for Versatile VLA Policy Optimization with RL",
       "published": "2026-10-13",
@@ -470,83 +550,6 @@
       "novelty": 7,
       "evidence": 9,
       "one_sentence_verdict": "工程整合：在VLA-RL中系统性解决了世界模型幻觉与长程rollout失稳问题，并在多真实机器人平台实证有效，但缺乏开源与理论深度，尚未达到世界模型领域里程碑级贡献。",
-      "deep": {}
-    },
-    {
-      "rank": 13,
-      "arxiv_id": "2610.15425",
-      "title": "Exploring the Limits of Combinatorial Generalization in Embodied Manipulation",
-      "published": "2026-10-11",
-      "url": "https://arxiv.org/abs/2610.15425",
-      "pdf_url": "https://arxiv.org/pdf/2610.15425",
-      "thumb": "",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "上海交通大学AutoLab",
-      "country": "CN",
-      "org_type": "university",
-      "significance": 76,
-      "significance_reason": "首次明确定义并实证验证‘start state gap’这一关键瓶颈，提出可复现的诊断框架HSE与专用基准RoboCombine，PRTI方法在无联合训练轨迹下将重组成功率从7.7%提至18.16%，证据扎实（多消融、oracle控制、明确failure mode定位），但限于仿真、未上真机、未接入大模型基座，尚未达到RT-2/π0等里程碑级范式突破量级。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "benchmark",
-        "sim2real",
-        "dataset"
-      ],
-      "tldr": "这篇论文发现当前具身操作中的VLA模型虽然能做好单个原子技能，但在把多个技能组合成长序列时严重失败，主要因为前一个技能结束时的‘交接状态’（handoff state）和后一个技能期望的‘标准起始状态’不匹配；为此作者提出诊断框架HSE、新基准RoboCombine，并设计轻量后训练方法PRTI来拓宽原子技能的起始状态鲁棒性，显著提升技能重组成功率。",
-      "claim": "组合泛化失败的核心原因是原子技能缺乏对交接状态的鲁棒性，而非规划或分解能力不足；解决起点状态失配（start state gap）比改进高层规划更能提升长程技能重组性能。",
-      "method_components": [
-        "model",
-        "benchmark",
-        "simulator"
-      ],
-      "input": "自然语言指令 + 视觉观测（RGB图像）",
-      "output": "动作序列（按子任务边界划分的离散动作块）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "重磅：首次系统揭示并量化技能重组中的起点状态失配问题，提供可复现诊断工具与有效缓解策略，证据充分、定位精准，是组合泛化方向的关键推进，但尚未跨越sim2real与基础模型集成门槛。",
-      "deep": {}
-    },
-    {
-      "rank": 14,
-      "arxiv_id": "2610.18373",
-      "title": "DR-VLA: Learning Human-Like Quadruped Navigation from Egocentric Web Videos via Domain-Invariant Scene Representations",
-      "published": "2026-10-13",
-      "url": "https://arxiv.org/abs/2610.18373",
-      "pdf_url": "https://arxiv.org/pdf/2610.18373",
-      "thumb": "",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "未知（作者单位未在摘要中披露，无机构署名线索；非英伟达/DeepMind/清华/伯克利等常见头部团队，也无企业logo式命名如Xiaomi-Robotics-1）",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 78,
-      "significance_reason": "实证扎实：真机数据驱动、多维QNS指标验证、消融证明web预训练有效、DISR对比5种视觉表征且逼近3D感知性能；但未跨机体泛化（仅单型四足）、未开源代码/模型、未与RT-2/VioLA等基石模型在统一基准比拼，属显著贡献而非里程碑级突破",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "dataset",
-        "benchmark",
-        "real-robot"
-      ],
-      "tldr": "用10000小时人类第一视角网络视频（如GoPro骑行、徒步）预训练一个视觉-语言-动作模型，再用2000段真实四足机器人送快递的遥操作数据微调，让机器人学会像人一样在复杂户外场景中安全、舒适、合规地导航。",
-      "claim": "通过构建域不变场景表示（DISR），可将未经动作标注的人类第一视角网络视频中的导航先验有效迁移到四足机器人，显著提升其在真实配送场景中的导航安全性、指令遵循性与运动舒适性。",
-      "method_components": [
-        "model",
-        "dataset",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "机器人本体RGB图像+语言导航指令（如‘绕过前方行人左转’）",
-      "output": "可执行的导航轨迹（含速度、转向角、步态协调参数）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "显著贡献：用高质量自建数据+域不变表征打通了人类视频到四足导航的迁移链路，证据充分但生态位窄于通用具身基础模型",
       "deep": {}
     },
     {
