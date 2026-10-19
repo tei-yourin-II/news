@@ -1,56 +1,21 @@
 {
   "week": {
-    "start": "2026-10-12",
-    "end": "2026-10-18",
-    "label": "10.12~10.18"
+    "start": "2026-10-13",
+    "end": "2026-10-19",
+    "label": "10.13~10.19"
   },
   "count": 15,
-  "venue_count": 5,
+  "venue_count": 6,
   "venues": [
     "CoRL 2026",
     "ICLR 2027",
     "ICRA 2027",
     "IROS 2026"
   ],
-  "generated_at": "2026-10-18 05:42 UTC",
+  "generated_at": "2026-10-19 05:55 UTC",
   "picks": [
     {
       "rank": 1,
-      "arxiv_id": "2610.17350",
-      "title": "Can a Frontier VLM Serve as a Robot Policy for Memory-Dependent Manipulation?",
-      "published": "2026-10-12",
-      "url": "https://arxiv.org/abs/2610.17350",
-      "pdf_url": "https://arxiv.org/pdf/2610.17350",
-      "thumb": "",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "未知（作者名无明显机构标识，项目网站域名embodied-astra.github.io与GitHub账号jackbjed无公开隶属关系；GPT-6-Astra为虚构模型名，非OpenAI发布；RoboMME为新基准，无署名机构信息）",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 93,
-      "significance_reason": "首次在真实机器人上验证冻结VLM可端到端接管记忆密集型长程操纵全栈（规划+记忆+控制），92.1%成功率远超SOTA（60.8%）且逼近人类（90.5%），失败模式可解释、集中于两类物理交互边界问题；虽未开源模型权重（GPT-6-Astra为闭源前沿VLM），但代码/提示/日志全公开，复现门槛可控；其范式冲击力堪比RT-2级——将‘通用模型即策略’从仿真推向真实长程操纵硬任务。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "real-robot",
-        "benchmark"
-      ],
-      "tldr": "直接用冻结的前沿视觉语言模型GPT-6-Astra（未在RoboMME上微调）作为端到端机器人策略，处理16个需记忆的操纵任务，在800个真实机器人测试片段中成功率92.1%，超过人类基线（90.5%，但人类使用了技能接口）和所有已知方法，失败集中在两个任务中的误触发按钮和过早终止。",
-      "claim": "一个冻结的、未针对机器人任务微调的前沿VLM，仅靠上下文窗口维持完整任务历史，即可直接输出高精度末端执行器轨迹和夹爪指令，完成复杂记忆依赖型操纵，性能超越人类操作员（在同等评估协议下）及所有现有方法。",
-      "method_components": [
-        "model",
-        "benchmark"
-      ],
-      "input": "多帧RGB视频流+自然语言任务指令+完整历史对话/动作序列（全episode上下文）",
-      "output": "末端执行器六维位姿序列（waypoint）和夹爪开合指令",
-      "novelty": 8,
-      "evidence": 11,
-      "one_sentence_verdict": "真突破：用冻结VLM在真实机器人上实现记忆依赖操纵的端到端策略，性能碾压现有方法并逼近人类，实证扎实、失败可归因，重新定义了VLM在具身智能中的角色边界。",
-      "deep": {}
-    },
-    {
-      "rank": 2,
       "arxiv_id": "2610.18774",
       "title": "GreenWAM: A World Foundation Model for Robotics",
       "published": "2026-10-13",
@@ -90,7 +55,7 @@
       "deep": {}
     },
     {
-      "rank": 3,
+      "rank": 2,
       "arxiv_id": "2610.18711",
       "title": "Steertuning Policies from a Few Human Videos",
       "published": "2026-10-13",
@@ -130,7 +95,7 @@
       "deep": {}
     },
     {
-      "rank": 4,
+      "rank": 3,
       "arxiv_id": "2610.22342",
       "title": "Spark-0: Scaling Spatially Aligned Tactile Pretraining for Robot Dexterous Manipulation",
       "published": "2026-10-15",
@@ -170,7 +135,7 @@
       "deep": {}
     },
     {
-      "rank": 5,
+      "rank": 4,
       "arxiv_id": "2610.20320",
       "title": "TacClaw-Infinity: A Large-Scale Vision-Tactile-Language-Action Dataset for Dexterous Manipulation",
       "published": "2026-10-14",
@@ -209,7 +174,7 @@
       "deep": {}
     },
     {
-      "rank": 6,
+      "rank": 5,
       "arxiv_id": "2610.22178",
       "title": "REKI: Registering Knowledge in VLAs",
       "published": "2026-10-15",
@@ -246,7 +211,7 @@
       "deep": {}
     },
     {
-      "rank": 7,
+      "rank": 6,
       "arxiv_id": "2610.18873",
       "title": "LoopWAM: Closed-Loop Generalist Policy Improvement from Deployment Rollouts",
       "published": "2026-10-13",
@@ -282,7 +247,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
+      "rank": 7,
       "arxiv_id": "2610.20552",
       "title": "KinoGen: Customizable Humanoid Loco-Manipulation References via Kinematically Grounded Video Generation",
       "published": "2026-10-14",
@@ -321,7 +286,7 @@
       "deep": {}
     },
     {
-      "rank": 9,
+      "rank": 8,
       "arxiv_id": "2610.22364",
       "title": "T2-z: Test-Time Optimization of Environment Latents for Robotic World Models",
       "published": "2026-10-15",
@@ -357,7 +322,7 @@
       "deep": {}
     },
     {
-      "rank": 10,
+      "rank": 9,
       "arxiv_id": "2610.18443",
       "title": "PACT: Posture-Aligned Co-Design Technique for Hand Configuration and Retargeting in Multi-Finger Imitation Learning",
       "published": "2026-10-13",
@@ -396,7 +361,7 @@
       "deep": {}
     },
     {
-      "rank": 11,
+      "rank": 10,
       "arxiv_id": "2610.20504",
       "title": "Graph-Reweighted Behavior Cloning with Human Interventions for Precise Robotic Manipulation",
       "published": "2026-10-14",
@@ -433,7 +398,7 @@
       "deep": {}
     },
     {
-      "rank": 12,
+      "rank": 11,
       "arxiv_id": "2610.18147",
       "title": "Walk Like This: Stylized Locomotion for Physics-Based Characters through Example-Driven Diffusion",
       "published": "2026-10-13",
@@ -472,7 +437,7 @@
       "deep": {}
     },
     {
-      "rank": 13,
+      "rank": 12,
       "arxiv_id": "2610.18697",
       "title": "UniW(A)M: A Unified Mixture-of-Experts Framework for World and World-Action Models",
       "published": "2026-10-13",
@@ -508,7 +473,86 @@
       "deep": {}
     },
     {
+      "rank": 13,
+      "arxiv_id": "2610.23479",
+      "title": "HexaShell: A Thin Harness for Exploring the Limits of VLM Agents as Robot Coding Agents",
+      "published": "2026-10-16",
+      "url": "https://arxiv.org/abs/2610.23479",
+      "pdf_url": "https://arxiv.org/pdf/2610.23479",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "未知（作者单位未在摘要中披露，无机构署名线索；GitHub组织HexaFuture无公开隶属关系）",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 76,
+      "significance_reason": "实证扎实：真机运行42个RoboDojo任务、报告细粒度失败归因（接触类任务仅8.3%）、提供可复现工具链与消融逻辑（冻结工具后跨布局测试），显著优于纯仿真或刷榜工作；但未突破VLA范式（仍依赖GPT-6-Astra黑箱推理+手工设计几何先验），也未解决接触动力学建模这一根本瓶颈，故未达RT-2/π0级里程碑水平。",
+      "tier": "heavy",
+      "grade": "B",
+      "tags": [
+        "multimodal-fusion",
+        "teleoperation",
+        "open-source",
+        "real-robot",
+        "benchmark"
+      ],
+      "tldr": "用轻量级外壳把视觉语言模型（VLM）变成机器人编程代理，让VLM像写代码一样调试失败动作、生成几何工具（如三角定位、平面交点），在RoboDojo上刷出39.7%新SOTA，但失败主因是物理接触控制不准，而非推理错误。",
+      "claim": "VLM作为机器人编程代理的能力瓶颈不在高层推理或代码生成，而在底层接触式操作的运动执行精度；通过将失败归因于可编码的几何感知缺陷并固化为轻量工具，可在极少量布局（10个）上泛化到新布局，实现当前RoboDojo最高成功率。",
+      "method_components": [
+        "model",
+        "simulator",
+        "benchmark",
+        "dataset"
+      ],
+      "input": "三视角RGB图像+相机标定参数+执行日志（含失败原因）",
+      "output": "Python工具函数（如triangulate_point, intersect_ray_with_plane）+机器人运动指令序列",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：将VLM推理与几何感知工具链深度耦合，在真实机器人上验证了‘失败即调试信号’的编程代理范式，但核心运动控制仍外包给底层控制器，非算法突破。",
+      "deep": {}
+    },
+    {
       "rank": 14,
+      "arxiv_id": "2610.17802",
+      "title": "Beyond the End-Effector: Learning Whole-Arm Contact Manipulation from Human Demonstrations",
+      "published": "2026-10-13",
+      "url": "https://arxiv.org/abs/2610.17802",
+      "pdf_url": "https://arxiv.org/pdf/2610.17802",
+      "thumb": "",
+      "venue": "CoRL 2026",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "斯坦福",
+      "country": "US",
+      "org_type": "university",
+      "significance": 78,
+      "significance_reason": "首次在真实机器人上系统验证整臂接触操作的可学习性与约束解耦性，实测成功率显著超越强基线（78% vs 33%），且支持零样本约束迁移；但未开源代码/模型，未覆盖多机体/跨用户泛化，未接入VLA大模型范式，尚未达到RT-2级范式突破量级",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "dexterous",
+        "teleoperation",
+        "dataset",
+        "sim2real"
+      ],
+      "tldr": "提出WACL框架，让机器人从10次裸手人类演示中学会用整条手臂（不止末端）接触操作物体，通过分层表示+物理约束优化实现端到端接触轨迹生成，在真实7自由度机械臂上完成4个任务，且能零样本适应新的末端约束。",
+      "claim": "仅需10次无器械的人类裸手演示，即可让机器人学会满足末端安全约束的整臂接触操作，且接触策略与机器人本体解耦、可零样本泛化至新约束。",
+      "method_components": [
+        "model",
+        "dataset",
+        "policy",
+        "simulator"
+      ],
+      "input": "任务自然语言描述 + 10段裸手人类操作视频（含RGB+可能深度） + 当前场景视觉观测",
+      "output": "整臂接触轨迹（含接触链路、接触点位置、关节配置序列）",
+      "novelty": 8,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：将人类整臂接触先验形式化为可优化的机器人无关表征，并在真机上验证其约束鲁棒性与零样本适应能力，但未开源且未融入当前主流VLA基础模型架构",
+      "deep": {}
+    },
+    {
+      "rank": 15,
       "arxiv_id": "2610.19141",
       "title": "Collective Learning for Unified Robotic Manipulation via Predictive Dynamics Adaptation",
       "published": "2026-10-13",
@@ -544,47 +588,6 @@
       "novelty": 7,
       "evidence": 9,
       "one_sentence_verdict": "工程整合：在跨本体状态空间控制上做出系统性改进，实证充分且真机落地，但未达RT-2/π0级范式创新或数据规模量级，属于当前SOTA之上的稳健增强。",
-      "deep": {}
-    },
-    {
-      "rank": 15,
-      "arxiv_id": "2610.18855",
-      "title": "Interaction Latents as Actions for Contact-Rich Manipulation",
-      "published": "2026-10-13",
-      "url": "https://arxiv.org/abs/2610.18855",
-      "pdf_url": "https://arxiv.org/pdf/2610.18855",
-      "thumb": "",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "智元",
-      "country": "CN",
-      "org_type": "company",
-      "significance": 82,
-      "significance_reason": "在真实机器人上实现多任务显著提升（+21–36.5pp），有完整消融验证接触演化编码的必要性，且打通了VLA/WAM后训练、flow-matching策略训练、专家引导离线优化三条技术路径；但未跨机体/跨用户泛化，未开源数据与模型权重，尚未达到RT-2级范式颠覆量级，属扎实重磅贡献。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "tactile",
-        "dexterous",
-        "sim2real",
-        "real-robot",
-        "offline-improvement"
-      ],
-      "tldr": "提出一种将接触、力和运动的联合演化压缩为可解码隐变量（Interaction Latents）作为动作单元的新范式，用它替代传统轨迹动作，在真实机器人上四个接触密集任务中平均提升成功率21–36.5个百分点，并支持预训练VLA/WAM模型的后训练适配与专家引导的离线策略改进。",
-      "claim": "将接触-力-运动的耦合动态显式编码为可解码的动作隐空间，比仅用触觉信号辅助的传统动作表征更能支撑接触密集操作的泛化、评估与离线优化。",
-      "method_components": [
-        "model",
-        "dataset",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "RGB图像+触觉信号（可能来自GelSight或类似触觉传感器）+时间戳",
-      "output": "可解码的交互隐变量（Interaction Latents），经共享解码器映射为末端执行器6D位姿变化+夹爪开合动作",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "工程整合：将接触动力学显式嵌入动作空间并实证有效，技术链条完整、真机结果扎实，但非概念首创（隐变量动作早有探索），也未达开新范式门槛。",
       "deep": {}
     }
   ]
