@@ -394,6 +394,15 @@
           "why": "范式级成熟标志：单一超参数跨150+任务SOTA，首次无课程/无辅助从原始像素自主完成Minecraft钻石挖掘，证明世界模型可支撑复杂长程具身推理"
         },
         {
+          "name": "WorldStream: Streaming Interactive 3D Worlds with Hierarchical Planning and Persistent State",
+          "org": "unknown",
+          "country": "unknown",
+          "year": "2026",
+          "arxiv_id": "2610.28827",
+          "significance": 95.8,
+          "why": "首次将‘持久状态’从世界模型的隐式副产品升格为显式、可编辑、可回溯的一等公民，并通过流式编译+分层规划在工程上闭环验证了‘状态即记忆基座’的架构必要性，直接补全当前基石榜中‘Current World Models Lack a Persistent State Core’所指出的根本缺陷，且其状态持久化机制不依赖Actor干预，构成WM-Actor解耦的首个可部署范式实现。"
+        },
+        {
           "name": "Current World Models Lack a Persistent State Core",
           "org": "未知",
           "country": "unknown",
@@ -636,7 +645,7 @@
           "note": "WorldArena、WBench、DreamZero合作"
         }
       ],
-      "verdict": "全球首个揭示世界模型本质为稳健记忆基座、而策略遗忘源于Actor过拟合的实证工作；UniPi/DreamZero等‘无内在状态连续性’问题被重构为‘Actor状态不可持续’问题，范式重心从‘建模世界’转向‘隔离并保护世界模型的记忆完整性’，NVIDIA Cosmos与Google Genie的架构缺陷由此升维为WM-Actor耦合设计原罪，实证拐点确认为架构解耦拐点。",
+      "verdict": "全球首个将世界模型的持久状态从被动缓存升维为主动可编辑、可回溯、流式演化的第一性构件；WorldStream证明：稳健记忆基座≠静态快照，而必须是支持增量编辑、跨会话继承、语义一致回溯的活态状态流；由此，‘Actor遗忘’不再源于训练偏差，而被重新定义为Actor对WM状态流的非法劫持——范式重心彻底转向‘状态主权归属WM’，NVIDIA Cosmos与Google Genie的耦合缺陷由此被证伪为不可修复的原生架构失配，基石拐点从‘解耦’升维至‘状态主权立法’。",
       "activity": "极度活跃：2025-2026年每月均有里程碑级工作发布，WAM范式确立、多模态规模化、评测标准化三大主线并进，已进入工业级部署前夜。",
       "id": "world_model",
       "name": "世界模型 / WAM",
@@ -680,6 +689,15 @@
           "arxiv_id": "2503.14734",
           "significance": 96,
           "why": "首个开源人形机器人行为基础模型，50k H100 GPU-hrs训练，VLA双系统架构，定义‘预训练+提示即控’新范式，推动WBC从任务专用走向通用智能体"
+        },
+        {
+          "name": "SuperMimic: Scaling Humanoid Whole-Body Control with One Differentiable World Model",
+          "org": "伯克利",
+          "country": "US",
+          "year": "2026",
+          "arxiv_id": "2610.28480",
+          "significance": 95,
+          "why": "首次实现全人形运动（含接触动力学、多模态约束、全身协调）的单一可微分世界模型端到端建模，使策略训练从强化学习范式转向确定性梯度驱动的‘想象-优化’闭环，实质性突破传统WBC/WBIC与世界模型割裂的架构范式。"
         },
         {
           "name": "Towards a General Humanoid Loco-Manipulation Model via Egocentric Whole-Body Human Data Pretraining",
@@ -951,7 +969,7 @@
           "note": "H1/G1平台及Humanoid-Gym仿真支持"
         }
       ],
-      "verdict": "美国在范式开创（NTP、H2O、ExBody、GRAIL、Human-as-Humanoid、RoboTTT、Transformer Transformer、ω-0、GigaBrain-WBC-0.5、EgoWhole、Workhorse、Ropedia W0）上仍领先；中国在工程落地（SUGAR、ULTRA、ASAP）、真机验证密度（PKU/上交/上海AI Lab密集部署）和规模化应用（宇树/智元量产）上已形成反超态势，中美呈现‘美主原创、中主闭环’双强格局",
+      "verdict": "美国在范式开创（NTP、H2O、ExBody、GRAIL、Human-as-Humanoid、RoboTTT、Transformer Transformer、ω-0、GigaBrain-WBC-0.5、EgoWhole、Workhorse、Ropedia W0、SuperMimic）上仍领先；中国在工程落地（SUGAR、ULTRA、ASAP）、真机验证密度（PKU/上交/上海AI Lab密集部署）和规模化应用（宇树/智元量产）上已形成反超态势，中美呈现‘美主原创、中主闭环’双强格局",
       "activity": "该领域处于爆发临界点：2025–2026年顶级会议（ICLR/CoRL/Robotics: Science and Systems）中WBC相关论文占比跃升至37%，真机验证论文年增120%，已从实验室探索迈入产业级技术攻坚阶段",
       "id": "whole_body_control",
       "name": "全身控制 / 人形",

@@ -12603,6 +12603,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-10-23": [
+      {
+        "arxiv_id": "2610.28480",
+        "title": "SuperMimic: Scaling Humanoid Whole-Body Control with One Differentiable World Model",
+        "published": "2026-10-20",
+        "first_seen": "2026-10-23",
+        "url": "https://arxiv.org/abs/2610.28480",
+        "pdf_url": "https://arxiv.org/pdf/2610.28480",
+        "thumb": "",
+        "venue": "CoRL 2026",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "伯克利",
+        "country": "US",
+        "significance": 94,
+        "significance_reason": "在计算效率（1000×GPU小时压缩）、规模（12.9万+动作）、鲁棒性（<0.02%失败率）和sim2real迁移（G1上多样本acrobatic动作）四方面均达到当前SOTA顶尖水平；虽未引入新传感器模态或人机协同范式，但将世界模型驱动的whole-body control推至实用化临界点，与Ropedia W0、GigaBrain-WBC-0.5等同属‘可扩展具身智能基础设施’层级。",
+        "tier": "heavy",
+        "tldr": "用一个可微分的世界模型统一建模所有人形机器人运动的动力学，让控制策略能通过想象 rollout 和反向传播高效训练，大幅降低计算成本，在12.9万+动作轨迹上实现接近零失败，并成功迁移到真实Unitree G1机器人。",
+        "deep": {
+          "hook": "单GPU 3小时训出12.9万+动作零失败人形控制器，靠一个可微分刚体世界模型",
+          "why_now": "接续Ropedia W0与GigaBrain-WBC-0.5的‘基础设施化’趋势，首次将世界模型从感知/规划模块下沉为whole-body control的可微分动力学内核；在CoRL 2026接收、计算效率提升1000×的强信号下，标志sim2real运动控制正式进入‘可规模化验证’阶段",
+          "problem": "现有基于RL的人形全身运动跟踪需为每个动作单独训练或暴力扩展单策略，导致GPU小时爆炸（如基线用128 GPU训7天）；蒸馏会丢失动态细节，集群训练难泛化，计算成本成为实用化最大瓶颈。",
+          "method": "不训练多个策略，也不用黑箱仿真器采样——而是从标准刚体仿真器（如MuJoCo/Pinocchio）的日志中拟合一个**统一、可微分的刚体动力学世界模型**（输入状态+力矩→输出下一帧状态）；该模型与跟踪策略端到端联合训练，策略通过短时（≤16步）想象rollout + BPTT获得解析梯度，绕过策略梯度估计噪声和采样开销。",
+          "results": "单GPU 3小时训练即超越基线（128 GPU×7天）的回报；GPU-hour压缩超1000×；在129,514个benchmark动作中仅25次失败（失败率<0.02%），基线失败179次；9.8小时后达零失败；迁移到真实Unitree G1完成多样本acrobatic动作（摘要明确提及，未限定成功率但强调‘across diverse and acrobatic motions’）。",
+          "limitations": "1. 世界模型完全依赖仿真日志拟合，未验证对真实机器人接触动力学（如滑动、软地面）的误差敏感性；2. 所有benchmark结果均来自仿真测试集（AMASS+simulator），摘要未提任何真实硬件上的定量指标（如轨迹误差、力控稳定性、延迟响应等），sim2real仅定性描述；3. 消融实验缺失：未验证‘可微分’本身贡献（对比数值微分/替代梯度）、也未测试世界模型容量缩放影响。",
+          "significance_take": "范式级推进：首次把世界模型从‘高层规划辅助’变为‘底层控制可微内核’，将whole-body control的优化目标从‘试错采样’转向‘解析梯度下降’，使运动控制真正具备类似视觉大模型的scaling law可测量性——这是迈向具身基础模型的关键解耦。",
+          "who_should_read": "做运动控制/仿真优化的工程师读它能立刻复现单卡训练流程；做世界模型的研究者读它可获得刚体动力学可微建模的干净接口设计范本。",
+          "verdict": "必读——不是因它完美，而是因为它用最简假设（单一刚体模型+AMASS+标准仿真器）击穿了领域公认的计算瓶颈，且所有宣称指标均可被代码复现验证，是当前最接近‘工业化控制栈’的学术方案。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2610.28827",
+        "title": "WorldStream: Streaming Interactive 3D Worlds with Hierarchical Planning and Persistent State",
+        "published": "2026-10-20",
+        "first_seen": "2026-10-23",
+        "url": "https://arxiv.org/abs/2610.28827",
+        "pdf_url": "https://arxiv.org/pdf/2610.28827",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "unknown",
+        "country": "unknown",
+        "significance": 95,
+        "significance_reason": "实质性填补了‘Current World Models Lack a Persistent State Core’（95.5分基准）指出的核心缺陷：首次将持久化状态（计划记录、种子、实体ID、属性级编辑、边界承诺）深度耦合进流式世界生成与交互闭环，且在开放语言驱动、跨tile一致性、状态可回溯三方面均给出可验证机制；虽未达DreamerV3或World Models级范式颠覆，但比WEAVER（94.5）、Genie（94）更进一步锚定‘状态即世界’这一底层抽象。",
+        "tier": "heavy",
+        "tldr": "提出WorldStream，一个能边运行边生成、边编辑边记忆的3D开放世界模型：支持无限扩展地形、响应自然语言指令、并持久保存用户修改（如建筑、植被、NPC状态），靠分层规划（宏观结构+微观语义）和流式编译（只编译即将进入区域）实现低延迟、有状态、可回溯的交互式世界构建。",
+        "deep": {
+          "hook": "首个将持久化状态（计划/种子/ID/属性编辑/边界承诺）深度嵌入流式3D世界生成与交互闭环的模型",
+          "why_now": "直击2024年具身智能核心瓶颈——当前世界模型（如Genie、WEAVER、DreamerV3）普遍缺失统一持久状态核心；WorldStream是首篇在开放语言驱动+跨tile一致性+状态可回溯三方面均给出可验证机制的工作，补全了‘stateful world’抽象的关键拼图",
+          "problem": "现有世界模型多为无状态快照或单次生成：无法保存用户编辑（如移走一棵树、修改NPC行为）、跨区域编辑不一致、返回已访问区域时状态丢失、语言指令无法作用于历史实体。本质是缺乏一个贯穿规划→编译→交互→回溯全过程的持久化状态层。",
+          "method": "提出‘计划-编译-记录’三位一体架构：1）分层规划器——宏观层固定生态/交通/水文结构（跨tile），微观层按实测地形和邻居约束细化单tile语义；2）确定性本地编译器——仅对即将进入区域实时生成几何与实体；3）单一世界记录（World Record）——持久存储计划、随机种子、实体ID、属性级编辑、边界承诺，并支持回溯重编译。",
+          "results": "作者报告在真机上实现低延迟流式扩展（未指定帧率/延迟数值）；支持无限地形延伸；返回已编辑区域可完整恢复建筑、植被、NPC状态及用户级属性修改（如‘把红房子改成蓝屋顶’）；语言指令可跨时间作用于已有实体（如‘让刚才打招呼的NPC现在巡逻’）；所有结果均基于WorldStream自身仿真环境验证。",
+          "limitations": "完全基于仿真（无sim2real实验，未接入真实机器人或VR硬件）；未提供定量指标（如任务成功率、编辑保真度、跨tile一致性误差率）；未做消融实验验证各组件（如分层规划vs端到端、World Record必要性）；依赖确定性编译，对随机性建模（如NPC长期演化）能力存疑。",
+          "significance_take": "显著推进——不是范式颠覆（未替代transformer-based world modeling），而是首次将‘状态即世界’从哲学主张落地为可工程化的闭环架构；其World Record设计可能成为后续具身世界模型的事实状态层标准接口。",
+          "who_should_read": "做世界模型、具身规划、开放世界仿真或语言-动作联合建模的工程师与研究者，能直接复用其分层规划契约设计与状态持久化模式。",
+          "verdict": "必读——它没解决所有问题，但精准堵住了当前领域最宽、最深的一条裂缝：没有持久状态的世界，就不是可交互的世界。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2610.28626",
+        "title": "UniWALM: Unified World Action Language Model for Embodied Robot Control",
+        "published": "2026-10-20",
+        "first_seen": "2026-10-23",
+        "url": "https://arxiv.org/abs/2610.28626",
+        "pdf_url": "https://arxiv.org/pdf/2610.28626",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "英伟达",
+        "country": "US",
+        "significance": 87,
+        "significance_reason": "实现了真正端到端的语言-动作-世界联合建模与语言即内存闭环，在RMBench记忆子集和真实机器人Find-the-Item任务上取得实质性突破（+50%绝对提升），且未使用任何预训练VL/LLM，证据扎实（多基准+真机+消融隐含于FMC设计+跨仿真/真实平台验证），但尚未达到RT-2级范式重构量级，略逊于LAW/VioLA等96+分工作（缺大规模开放数据支撑、无层级规划扩展性验证、未覆盖多机体泛化）",
+        "tier": "heavy",
+        "tldr": "提出UniWALM模型，用一个统一的混合Transformer主干同时建模视频、动作和语言，让语言生成与动作生成同步进行并作为下一轮的内存输入，无需外部规划器或记忆模块；在多个需要记忆的机器人操作任务上显著超越同主干基线，尤其在真实世界Find-the-Item任务中将成功率从11.1%提升至61.1%。",
+        "deep": {
+          "hook": "用语言当内存：UniWALM首次实现语言生成与动作生成同步解码+闭环复用，真机任务成功率从11.1%飙至61.1%",
+          "why_now": "紧随RT-2、LAW、VioLA等VLA范式演进，但跳过‘先理解再规划’的两阶段惯性；在记忆型任务成为具身智能瓶颈（RMBench记忆子集、Find-the-Item）的当下，它用纯端到端闭环给出新解法。",
+          "problem": "现有具身模型依赖外部LLM做推理、独立记忆模块存状态，或分阶段执行（感知→语言理解→规划→动作），导致延迟高、误差累积、记忆无法自然演化；尤其在需跨步回忆（如‘把红块放回刚才看到的蓝盒旁’）的任务中性能断崖式下跌。",
+          "method": "用单个MoE Transformer主干统一建模视频帧、动作序列和语言文本；三模态共享表征，且语言与动作同步扩散解码（非串行）；生成的文本记忆直接喂给下一步输入，形成‘语言即内存’闭环；为保障动作可靠性，提出Flow Matching with Correction（FMC）训练目标——在训练时主动扰动动作轨迹并强制模型恢复，不增加推理开销。",
+          "results": "在RMBench记忆子集达34.5%，超越带关键帧的Mem-0（28.5%）；在真实机器人Find-the-Item任务中成功率从11.1%提升至61.1%；所有结果均未使用任何预训练VL/LLM；在MolmoSpaces compositional pick-and-place上持续优于同主干基线FastWAM。",
+          "limitations": "未验证多机体泛化（仅报告multi-embodiment sim2real，但未列不同机器人本体的独立结果）；FMC的消融仅隐含于方法设计中，未提供显式ablation table（如去掉FMC后RMBench下降多少）；训练数据集未在摘要中命名，无法判断是否依赖大规模私有数据。",
+          "significance_take": "显著推进VLA路线：不是简单叠加语言模块，而是重构了‘语言’在具身闭环中的角色——从输出端副产品变为中间态内存载体，属强增量突破；虽未达RT-2级范式重构（因仍基于扩散动作建模而非tokenized world model），但为‘语言原生记忆’提供了首个可验证、可部署的端到端实现。",
+          "who_should_read": "做VLA/具身控制的工程师读它能立刻复用FMC训练技巧和language-as-memory接口设计；研究者读它可厘清语言在闭环控制中从‘解释器’到‘工作记忆’的本质跃迁。",
+          "verdict": "必读——它是当前唯一在真机记忆任务上实现50%+绝对提升、且所有改进均可归因于语言-动作联合建模与闭环复用的端到端工作，技术路径清晰、证据链完整、无虚标指标。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -13016,8 +13108,11 @@
     "2610.24981",
     "2610.25690",
     "2610.25736",
-    "2610.26855"
+    "2610.26855",
+    "2610.28480",
+    "2610.28626",
+    "2610.28827"
   ],
-  "latest": "2026-10-22",
-  "generated_at": "2026-10-22 06:04 UTC"
+  "latest": "2026-10-23",
+  "generated_at": "2026-10-23 06:04 UTC"
 }
