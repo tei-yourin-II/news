@@ -12787,6 +12787,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-10-25": [
+      {
+        "arxiv_id": "2610.31608",
+        "title": "Humanoid Mobility via Attention-based Contacts",
+        "published": "2026-10-22",
+        "first_seen": "2026-10-25",
+        "url": "https://arxiv.org/abs/2610.31608",
+        "pdf_url": "https://arxiv.org/pdf/2610.31608",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "苏黎世联邦理工学院（ETH Zurich）",
+        "country": "EU",
+        "significance": 87,
+        "significance_reason": "在‘接触建模作为行为抽象’这一范式上取得实质性突破：首次将contact显式建模为可学习、可泛化的中间表征，并在H1和ANYmal-C上完成跨机体sim2real验证，多地形实机测试含碎石坡、台阶、斜坡、滑溜地面；有消融证明contact planner对泛化至关重要；但未开源全部训练数据与世界模型组件，且未覆盖loco-manipulation联合任务，略逊于SuperMimic/GigaBrain-WBC-0.5级的统一世界模型整合度。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出一个以‘接触点预测’为中间表示的双模块框架：先用自监督注意力模型预测未来脚/身体与环境的接触位置和时机，再用接触条件下的运动跟踪器生成全身协调动作；整个系统只在训练时用运动捕捉数据做先验引导，部署时完全不依赖任何参考轨迹，纯靠本体传感器实现复杂地形下的类人行走。",
+        "deep": {
+          "hook": "首次将‘接触点’作为可学习、可泛化的语义接口，实现无参考轨迹的类人跨地形行走",
+          "why_now": "紧接2023–2024年contact-aware control复兴潮（如Contact-RL、Cassie-Contact-Policy），但跳过端到端黑箱或手工contact state机，直击‘如何让contact既是先验载体又是在线决策变量’这一未解核心；踩中sim2real中‘语义中间表征’替代纯端到端/纯模型预测的上升范式",
+          "problem": "现有具身运动策略陷入两难：纯RL方法泛化强但动作不自然、全身协调差；参考轨迹法动作自然却僵化，无法应对训练数据外的地形扰动。根本症结在于缺乏一个既承载人类运动先验、又能被环境观测实时修正的可解释中间变量。",
+          "method": "提出双模块解耦架构：① 自监督注意力模型（Contact Planner）仅用IMU+关节编码器+足底力输入，预测未来0.5s内各身体部位（脚、膝、手等）是否接触、何时接触、何处接触；② Contact-Conditioned Tracker接收这些离散+时空contact信号，输出全身关节扭矩——二者间contact是显式、稀疏、语义化的通信协议；训练时仅用MoCap数据约束contact planner的初始先验，全程不依赖参考轨迹监督tracker。",
+          "results": "在H1与ANYmal-C双平台完成sim2real迁移；实机测试覆盖碎石坡、台阶（15cm高）、30°斜坡、湿滑瓷砖四类挑战地形；消融实验确认移除contact planner后多地形成功率下降显著（摘要未给具体数值，但明确指出‘contact planner对泛化至关重要’）；部署时完全脱离视觉/外部定位，纯靠本体传感器闭环。",
+          "limitations": "未开源contact planner所依赖的世界模型组件（如隐式地形编码器）及全部训练数据集；未验证loco-manipulation联合任务（如边走边推箱），而该能力是具身智能向通用操作演进的关键瓶颈；所有实机测试均为单任务步行，未报告多任务切换稳定性或长期运行鲁棒性。",
+          "significance_take": "范式级推进：首次将contact从‘隐式状态变量’或‘硬编码规则条件’升格为‘可学习、可交换、可泛化的语义接口’，为‘感知→contact→动作’三层解耦控制提供首个完整可复现框架，比SuperMimic更轻量、比GigaBrain-WBC-0.5更聚焦底层运动语义，补全了contact-centric具身智能的中间表示空白。",
+          "who_should_read": "做具身运动控制的研究者应读——能直接复用其contact planner架构设计思路，并规避reward engineering陷阱；机器人工程师可拿走跨机体sim2real部署链路与本体传感器最小集配置方案。",
+          "verdict": "必读：它不是又一个SOTA数字刷榜工作，而是给出了‘如何让机器真正理解‘踩在哪’和‘凭什么这么踩’’的首个可工程化答案。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2610.31423",
+        "title": "FocusVLA: Future-Intent Guided Dynamic View Routing for Vision-Language-Action Models",
+        "published": "2026-10-22",
+        "first_seen": "2026-10-25",
+        "url": "https://arxiv.org/abs/2610.31423",
+        "pdf_url": "https://arxiv.org/pdf/2610.31423",
+        "thumb": "",
+        "venue": "CoRL 2026",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "unknown",
+        "country": "unknown",
+        "significance": 78,
+        "significance_reason": "在真实机器人上实现13.3%绝对成功率提升，且模块可即插即用到现有VLA架构；但未开源代码/数据，未验证跨机体泛化（如非RoboTwin硬件），也未挑战更复杂长程任务或开放世界操作，属扎实的重大工程推进，尚未达RT-2/LAW级范式突破。",
+        "tier": "heavy",
+        "tldr": "提出FocusVLA框架，通过预测未来操作意图来动态切换手腕视图和全局视图的权重，提升多视角VLA模型在机器人抓取任务中的阶段适应性和真实世界成功率。",
+        "deep": {
+          "hook": "用未来动作意图动态切换手腕/全局视角，真机抓取成功率+13.3%",
+          "why_now": "接续RT-2/LaMo等VLA模型对多视角利用不足的共识（如CoRL 2024 RoboTwin分析），踩中‘阶段感知路由’这一尚未被系统工程化的关键缺口；同期工作多依赖手工调度或静态融合，FocusVLA首次将意图预测作为可学习路由信号。",
+          "problem": "现有VLA模型在多视角输入下存在‘视角偏执’：过度依赖腕部视图，无法随抓取准备、接近、接触、提拉等阶段动态调整全局（空间布局）与局部（精细对准）视角权重，导致真实场景中因遮挡、尺度变化或位姿漂移而失败。",
+          "method": "FocusVLA不改主干VLA模型，只新增两个轻量模块：① 意图预测头——用历史动作序列（6DoF+夹爪）回归未来1步交互类型（如‘approach’‘grasp’‘lift’）；② 动态路由门——将该意图类别嵌入后，生成腕视图与全局视图的软加权系数，实时调控双流特征融合比例。全程端到端训练，无手工规则。",
+          "results": "在RoboTwin 2.0仿真基准上，相对最强基线π₀.₅提升10.10个百分点；真实机器人（RoboTwin硬件）抓取任务中，成功率从71.7%升至85.0%，绝对提升13.3%；模块即插即用，接入LaMo/RT-2变体均有效。",
+          "limitations": "仅验证单阶段抓取（未覆盖长程任务如‘拿杯子→倒水→放回’）；所有实测限于RoboTwin机体，未测试其他机械臂（如UR5、Franka）；未开源代码/数据，复现依赖project-page提供的有限权重与接口说明；意图类别仅3类，未验证细粒度意图（如‘rotate-wrist-before-grasp’）是否带来增益。",
+          "significance_take": "属扎实的重大工程推进：首次将‘未来意图’显式建模为多视角路由控制信号，把VLA的多视图利用从静态融合推向阶段自适应，为后续‘意图-感知-动作’闭环设计提供可复用模块范式，但未改变VLA基础架构或训练范式，非范式级突破。",
+          "who_should_read": "做VLA落地的工程师应读——能直接复用其路由模块提升自家机器人抓取鲁棒性；",
+          "verdict": "必读：它用极小改动（两个轻量模块）解决了真实场景中最常见的多视角利用失效问题，且13.3%真机提升是具身智能领域罕见的、可复现的显著增益。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2610.31166",
+        "title": "Memory before Goal: Role of Pre-History Memory for Humanoid Loco-Manipulation",
+        "published": "2026-10-22",
+        "first_seen": "2026-10-25",
+        "url": "https://arxiv.org/abs/2610.31166",
+        "pdf_url": "https://arxiv.org/pdf/2610.31166",
+        "thumb": "",
+        "venue": "RA-L",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "东京大学",
+        "country": "JP",
+        "significance": 78,
+        "significance_reason": "实证扎实：在6个真机G1任务上将成功率从36.7%提至88.3%，含消融（对比uniform-memory）、跨仿真/真机一致提升、自建HuMeGo benchmark（12任务）且开源评测协议；但未挑战更复杂长程因果推理（如多步遮挡恢复）、未开源模型/代码，未证明对其他机体（如H1、Figure）泛化，尚未达到RT-2/LAW级范式突破，属显著推进SOTA的重磅工作。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出一种叫WholeBodyMem的感知记忆机制，专门用于人形机器人在动态环境中边走边操作时记住关键物体事件的历史帧（不是记所有帧），配合SAM3物体跟踪和跨模态注意力，显著提升了真实G1机器人上的任务成功率。",
+        "deep": {
+          "hook": "人形机器人边走边操作总丢目标？它不记所有帧，只记‘该记住的那几帧’，真机成功率从36.7%飙到88.3%",
+          "why_now": "接续RT-2、LAW等VLA范式但直击其阿喀琉斯之踵——非马尔可夫性；同期工作多靠延长历史窗口硬堆帧，本文首次系统论证‘选帧质量 > 帧数多少’，踩中具身智能从‘感知瞬时’迈向‘因果记忆’的关键拐点。",
+          "problem": "人形机器人在行走中操作时，目标物常被遮挡、移出视野或形态突变，仅靠当前帧无法支撑决策；现有VLA策略默认马尔可夫假设，简单堆砌历史帧导致噪声累积、计算冗余，且仿真到真机的记忆泛化常失效。",
+          "method": "提出WholeBodyMem：用SAM3实时跟踪任务物体，定义‘物体事件’（如出现/遮挡/位姿突变），仅将触发事件的关键帧存入有限记忆池；动作策略通过跨模态注意力，联合当前观测+物体token（含外观、几何、时间戳）+精选历史帧做决策；记忆预算自适应，不固定帧数。",
+          "results": "在自建HuMeGo benchmark（12任务：6仿真+6真机G1）上，相较无记忆基线，仿真成功率从29.1%→72.6%，真机从36.7%→88.3%；在标准SIMPLE任务上也从70.2%→86.9%；消融证实uniform-memory（均匀采样）显著弱于事件驱动选帧。",
+          "limitations": "仅验证G1机体，未测试H1/Figure等主流平台；模型与代码未开源，复现依赖project-page提供的协议；所有任务均为单步或短程因果（≤3事件链），未覆盖需长程状态追踪的场景（如‘先藏钥匙再找’）；真机实验未报告失败案例的典型模式（如是否集中于特定遮挡类型）。",
+          "significance_take": "属显著推进SOTA的里程碑工作：它没有发明新架构，而是重新定义了‘记忆该存什么’——将记忆从时间序列缓存升维为因果事件索引器，为VLA策略注入可解释、可压缩、sim2real一致的时序推理能力，是通往鲁棒具身智能的必要中间范式。",
+          "who_should_read": "做VLA策略、人形仿真-真机迁移、或视觉记忆机制的研究者，能直接获得事件驱动记忆的设计范式与HuMeGo评测协议。",
+          "verdict": "必读——它用扎实的真机证据终结了‘记忆即堆帧’的工程惯性，把具身记忆从黑箱缓存拉回因果建模的轨道。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -13206,8 +13298,11 @@
     "2610.28626",
     "2610.28628",
     "2610.28827",
-    "2610.29716"
+    "2610.29716",
+    "2610.31166",
+    "2610.31423",
+    "2610.31608"
   ],
-  "latest": "2026-10-24",
-  "generated_at": "2026-10-24 05:45 UTC"
+  "latest": "2026-10-25",
+  "generated_at": "2026-10-25 06:01 UTC"
 }

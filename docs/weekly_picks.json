@@ -1,16 +1,17 @@
 {
   "week": {
-    "start": "2026-10-18",
-    "end": "2026-10-24",
-    "label": "10.18~10.24"
+    "start": "2026-10-19",
+    "end": "2026-10-25",
+    "label": "10.19~10.25"
   },
   "count": 15,
-  "venue_count": 4,
+  "venue_count": 5,
   "venues": [
     "CoRL 2026",
-    "NeurIPS 2026"
+    "NeurIPS 2026",
+    "RA-L"
   ],
-  "generated_at": "2026-10-24 05:46 UTC",
+  "generated_at": "2026-10-25 06:02 UTC",
   "picks": [
     {
       "rank": 1,
@@ -210,45 +211,6 @@
     },
     {
       "rank": 6,
-      "arxiv_id": "2610.24981",
-      "title": "Dream What I Can: Sparse Visual Planning for Long-Horizon Robot Manipulation",
-      "published": "2026-10-18",
-      "url": "https://arxiv.org/abs/2610.24981",
-      "pdf_url": "https://arxiv.org/pdf/2610.24981",
-      "thumb": "",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "斯坦福",
-      "country": "US",
-      "org_type": "university",
-      "significance": 93,
-      "significance_reason": "首次实现纯视觉视频模型驱动的、无动作标注的稀疏子目标规划范式，在LIBERO-Long（业界公认最难长程基准）达91.2% SOTA，且真机验证双手机器人泛化能力（含未见物体组合），证据强度接近RT-2级里程碑——但低层策略参数量仅0.1B（远小于RT-2的~5B），未开源全部训练数据与世界模型权重，故略低于RT-2（97）和LAW（96.5）。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "sim2real",
-        "real-robot",
-        "large-scale"
-      ],
-      "tldr": "提出DreamCan系统，用预训练视频模型做高层稀疏视觉子目标规划（不预测密集轨迹），再由轻量级低层视觉运动策略执行；仅用无动作标注的离线机器人视频数据自动估计子目标可达性与任务效用，通过动态规划选最优子目标序列，在长程操作任务（如LIBERO-Long）上达到91.2%成功率，并在真实双手机器人上完成未见过物体组合的折纸盒、装箱等复杂任务。",
-      "claim": "稀疏视觉子目标规划（而非密集轨迹预测）能更可靠地桥接视频模型的通用视觉先验与可执行的机器人操控，且无需动作标注即可从纯视觉机器人视频中自监督建模子目标质量。",
-      "method_components": [
-        "model",
-        "dataset",
-        "policy",
-        "benchmark"
-      ],
-      "input": "RGB视频帧序列 + 任务语言指令",
-      "output": "稀疏视觉子目标图像序列（非动作/轨迹）",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：它用极简低层策略撬动视频大模型的规划能力，绕过动作标注瓶颈，实证覆盖仿真到真机、单/双臂、已知/未知物体，是具身智能中‘视觉优先规划’范式的奠基性工作。",
-      "deep": {}
-    },
-    {
-      "rank": 7,
       "arxiv_id": "2610.29716",
       "title": "Reconstruction-Augmented Visuomotor Pre-Training of 3D-Grounded Bimanual Dexterity from RGB-Only Human Videos",
       "published": "2026-10-21",
@@ -288,7 +250,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
+      "rank": 7,
       "arxiv_id": "2610.28626",
       "title": "UniWALM: Unified World Action Language Model for Embodied Robot Control",
       "published": "2026-10-20",
@@ -325,7 +287,7 @@
       "deep": {}
     },
     {
-      "rank": 9,
+      "rank": 8,
       "arxiv_id": "2610.25600",
       "title": "Vector-Quantized World Model: Latent Feedback Motion Planning for Robot Manipulation",
       "published": "2026-10-19",
@@ -360,6 +322,45 @@
       "novelty": 8,
       "evidence": 11,
       "one_sentence_verdict": "真突破：首次在真实机械臂上以零先验解法知识、仅靠短演示实现长程组合操作的可靠泛化，且机制设计（首达时间准度量+潜空间离散搜索+视觉反馈闭环）有强实证支撑。",
+      "deep": {}
+    },
+    {
+      "rank": 9,
+      "arxiv_id": "2610.31608",
+      "title": "Humanoid Mobility via Attention-based Contacts",
+      "published": "2026-10-22",
+      "url": "https://arxiv.org/abs/2610.31608",
+      "pdf_url": "https://arxiv.org/pdf/2610.31608",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "whole_body_control",
+      "org": "苏黎世联邦理工学院（ETH Zurich）",
+      "country": "EU",
+      "org_type": "university",
+      "significance": 87,
+      "significance_reason": "在‘接触建模作为行为抽象’这一范式上取得实质性突破：首次将contact显式建模为可学习、可泛化的中间表征，并在H1和ANYmal-C上完成跨机体sim2real验证，多地形实机测试含碎石坡、台阶、斜坡、滑溜地面；有消融证明contact planner对泛化至关重要；但未开源全部训练数据与世界模型组件，且未覆盖loco-manipulation联合任务，略逊于SuperMimic/GigaBrain-WBC-0.5级的统一世界模型整合度。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "multimodal-fusion",
+        "real-robot"
+      ],
+      "tldr": "这篇论文提出一个以‘接触点预测’为中间表示的双模块框架：先用自监督注意力模型预测未来脚/身体与环境的接触位置和时机，再用接触条件下的运动跟踪器生成全身协调动作；整个系统只在训练时用运动捕捉数据做先验引导，部署时完全不依赖任何参考轨迹，纯靠本体传感器实现复杂地形下的类人行走。",
+      "claim": "接触点（contact）可作为感知输入与控制输出之间的语义接口，使策略既能吸收运动数据的自然先验，又能通过强化学习自主适应未见环境。",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "input": "本体传感器数据（IMU、关节编码器、足底力传感器等），无外部参考或视觉输入",
+      "output": "全身关节扭矩指令（即低层控制动作）",
+      "novelty": 8,
+      "evidence": 9,
+      "one_sentence_verdict": "真突破：它把contact从隐式约束升级为可学习、可泛化、可解耦的语义接口，实机证据扎实，是当前最接近‘通用接触感知行走’的系统级方案。",
       "deep": {}
     },
     {
@@ -405,6 +406,82 @@
     },
     {
       "rank": 11,
+      "arxiv_id": "2610.31423",
+      "title": "FocusVLA: Future-Intent Guided Dynamic View Routing for Vision-Language-Action Models",
+      "published": "2026-10-22",
+      "url": "https://arxiv.org/abs/2610.31423",
+      "pdf_url": "https://arxiv.org/pdf/2610.31423",
+      "thumb": "",
+      "venue": "CoRL 2026",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "unknown",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 78,
+      "significance_reason": "在真实机器人上实现13.3%绝对成功率提升，且模块可即插即用到现有VLA架构；但未开源代码/数据，未验证跨机体泛化（如非RoboTwin硬件），也未挑战更复杂长程任务或开放世界操作，属扎实的重大工程推进，尚未达RT-2/LAW级范式突破。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "sim2real",
+        "real-robot"
+      ],
+      "tldr": "提出FocusVLA框架，通过预测未来操作意图来动态切换手腕视图和全局视图的权重，提升多视角VLA模型在机器人抓取任务中的阶段适应性和真实世界成功率。",
+      "claim": "未来交互意图可作为动态多视角路由的可靠引导信号，显著提升VLA模型在真实机器人上的操作鲁棒性与阶段适应性。",
+      "method_components": [
+        "model",
+        "benchmark"
+      ],
+      "input": "多视角图像（腕部+全局）+语言指令+历史动作序列",
+      "output": "动作序列（6DoF末端位姿+夹爪开合）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：解决了VLA中长期被忽视的多视角静态绑定问题，实证充分、部署有效，但缺乏开源与广义泛化验证，未构成新范式",
+      "deep": {}
+    },
+    {
+      "rank": 12,
+      "arxiv_id": "2610.31166",
+      "title": "Memory before Goal: Role of Pre-History Memory for Humanoid Loco-Manipulation",
+      "published": "2026-10-22",
+      "url": "https://arxiv.org/abs/2610.31166",
+      "pdf_url": "https://arxiv.org/pdf/2610.31166",
+      "thumb": "",
+      "venue": "RA-L",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "东京大学",
+      "country": "JP",
+      "org_type": "university",
+      "significance": 78,
+      "significance_reason": "实证扎实：在6个真机G1任务上将成功率从36.7%提至88.3%，含消融（对比uniform-memory）、跨仿真/真机一致提升、自建HuMeGo benchmark（12任务）且开源评测协议；但未挑战更复杂长程因果推理（如多步遮挡恢复）、未开源模型/代码，未证明对其他机体（如H1、Figure）泛化，尚未达到RT-2/LAW级范式突破，属显著推进SOTA的重磅工作。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "sim2real",
+        "real-robot",
+        "benchmark"
+      ],
+      "tldr": "这篇论文提出一种叫WholeBodyMem的感知记忆机制，专门用于人形机器人在动态环境中边走边操作时记住关键物体事件的历史帧（不是记所有帧），配合SAM3物体跟踪和跨模态注意力，显著提升了真实G1机器人上的任务成功率。",
+      "claim": "在非马尔可夫式人形 loco-manipulation 场景中，选择性保留与任务物体因果相关的历史关键帧（而非堆砌历史长度），比无记忆或均匀采样记忆更能支撑视觉-语言-动作策略的鲁棒决策。",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "benchmark",
+        "hardware"
+      ],
+      "input": "RGB视频流+语言指令+实时IMU/关节状态（仿真与真机）",
+      "output": "全身关节扭矩控制序列（仿真）或底层电机命令（G1真机）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：把因果驱动的记忆选择机制与VLA策略深度耦合，在真实人形平台上验证了非马尔可夫建模的有效性，但模型未开源、泛化范围有限，属于高质量工程整合而非理论或范式突破",
+      "deep": {}
+    },
+    {
+      "rank": 13,
       "arxiv_id": "2610.28628",
       "title": "Learning Adaptable Dexterous Skills via Hybrid Dexterous Mimicking",
       "published": "2026-10-20",
@@ -445,7 +522,7 @@
       "deep": {}
     },
     {
-      "rank": 12,
+      "rank": 14,
       "arxiv_id": "2610.28523",
       "title": "VLM-Guided Contact Retargeting and Generative Partner Modeling for Humanoid-Human Interaction",
       "published": "2026-10-20",
@@ -485,114 +562,37 @@
       "deep": {}
     },
     {
-      "rank": 13,
-      "arxiv_id": "2610.29612",
-      "title": "Watch Your Step: Anticipated Perception for Humanoid Locomotion",
-      "published": "2026-10-21",
-      "url": "https://arxiv.org/abs/2610.29612",
-      "pdf_url": "https://arxiv.org/pdf/2610.29612",
+      "rank": 15,
+      "arxiv_id": "2610.30735",
+      "title": "When One Step Is Enough: An Empirical Study of Euler Integration in Flow-Matching Policies",
+      "published": "2026-10-22",
+      "url": "https://arxiv.org/abs/2610.30735",
+      "pdf_url": "https://arxiv.org/pdf/2610.30735",
       "thumb": "",
-      "venue": "",
+      "venue": "CoRL 2026",
       "domain": "embodied_ai",
       "best_route": "vla",
-      "org": "苏黎世联邦理工学院（ETH Zurich）",
-      "country": "EU",
-      "org_type": "university",
-      "significance": 82,
-      "significance_reason": "在人形具身智能中首次系统性解耦‘感知采样’与‘策略学习’，用极低成本（无attention、无大模型）实现接近attention encoder的性能，且在Unitree G1上完成多类未见障碍（楼梯/缝隙/阶跃/室内外）的零样本部署——证据扎实（多地形对比、消融、真实硬件验证），推进了perception-aware locomotion的工程可行边界，但未开新范式（仍属VLA/RL pipeline内优化）。",
+      "org": "DeepMind",
+      "country": "UK",
+      "org_type": "company",
+      "significance": 76,
+      "significance_reason": "实证扎实：横跨6个主流flow-matching VLA模型，在统一评估协议下验证单步≈多步，结论具强泛化性；虽未引入新模型/数据/硬件，但颠覆了当前VLA部署中默认采用多步ODE求解的工程范式，为低延迟真机控制提供即插即用方案；但未涉及真实机器人闭环控制验证，也未解决流匹配本身的建模缺陷，故未达RT-2级里程碑水平。",
       "tier": "heavy",
       "grade": "C",
       "tags": [
-        "sim2real",
-        "dexterous",
-        "real-robot"
+        "sim2real"
       ],
-      "tldr": "这篇论文提出一种轻量级的‘预判式感知’方法：不直接把整张地形高程图喂给控制策略，而是先用一个仅依赖本体感知和速度指令的小模型预测下一步落脚点，再只裁剪这些落脚点周围的局部地形 patch 作为策略输入，从而大幅加速训练、提升泛化性，并在真实人形机器人上实现零样本跨地形迁移。",
-      "claim": "移除感知输入中的冗余区域（即非落脚区的高程信息），通过轻量级 foothold 预测模型实现‘感知-动作协同预判’，可显著提升人形机器人步态策略的训练效率、泛化能力与sim2real迁移性。",
-      "method_components": [
-        "model",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "本体感知数据（关节角度/速度/IMU）+ 速度指令 + 局部高程图patch（由FPM预测后采样）",
-      "output": "关节力矩/动作序列（底层PD控制目标或端到端运动输出）",
-      "novelty": 7,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：不是概念包装，而是用精巧的输入结构设计，在不增加计算负担前提下，实质性解决了高维感知输入导致的训练低效与泛化脆弱问题，并在真实人形机器人上得到强实证。",
-      "deep": {}
-    },
-    {
-      "rank": 14,
-      "arxiv_id": "2610.25981",
-      "title": "FR-VLA: Implicit Force Reasoning VLA for Contact-Rich Manipulation",
-      "published": "2026-10-19",
-      "url": "https://arxiv.org/abs/2610.25981",
-      "pdf_url": "https://arxiv.org/pdf/2610.25981",
-      "thumb": "",
-      "venue": "CoRL 2026",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "未知",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 68,
-      "significance_reason": "首次在VLA框架中显式建模‘力相关性推理’并实现在双真实机器人平台上的跨机体部署，有清晰消融（力准入信号有效性）和五任务验证，但缺乏开源、未与主流VLA基线（如RT-2、DAM-VLA）在统一设置下对比，也未展示跨任务泛化或大规模预训练证据，属于显著但非范式级贡献。",
-      "tier": "notable",
-      "grade": "D",
-      "tags": [
-        "force-sensing",
-        "contact-rich",
-        "real-robot"
-      ],
-      "tldr": "这篇论文提出FR-VLA模型，让视觉-语言-动作模型能动态判断‘当前任务是否需要用力’以及‘该用多大力’，不是简单把力传感器数据塞进去，而是用可学习的力查询令牌生成一个基于视觉和语言上下文的‘力准入信号’，再用这个信号调控力信息进入动作决策的过程，在两个真实机器人平台上完成了五个高接触度操作任务验证。",
-      "claim": "力反馈不应被固定注入VLA动作通路，而应由视觉-语言上下文动态推断其相关性，并据此门控力信息对动作生成的影响。",
-      "method_components": [
-        "model",
-        "real-robot"
-      ],
-      "input": "RGB图像+自然语言指令+六维力/力矩（wrench）测量值",
-      "output": "机器人末端执行器的动作序列（位置/姿态/力控参数等）",
-      "novelty": 7,
-      "evidence": 8,
-      "one_sentence_verdict": "显著贡献：真机双平台验证了力相关性动态门控的有效性，但缺开源、缺强基线对比、缺泛化广度，尚未达到基石模型量级。",
-      "deep": {}
-    },
-    {
-      "rank": 15,
-      "arxiv_id": "2610.27736",
-      "title": "AWLS: Advantage-Weighted Latent Steering for One-Step Generative Robotic Manipulation Policies",
-      "published": "2026-10-20",
-      "url": "https://arxiv.org/abs/2610.27736",
-      "pdf_url": "https://arxiv.org/pdf/2610.27736",
-      "thumb": "",
-      "venue": "CoRL 2026",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "未知",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 62,
-      "significance_reason": "技术路径清晰（优势加权+潜空间残差修正）、实证覆盖仿真与少量真实机械臂任务、有消融验证噪声敏感性准则有效性，但未展示跨机体泛化、无大规模真实数据验证、未对比SOTA生成式策略（如Diffusion Policy、RT-1/2变体）、开源仅限项目页无代码模型，属扎实但非范式级的算法改进。",
-      "tier": "notable",
-      "grade": "C",
-      "tags": [
-        "offline-rl",
-        "behavior-cloning",
-        "generative-policy",
-        "noise-steering"
-      ],
-      "tldr": "提出一种叫AWLS的离线后训练方法，不改动已训练好的一步生成式机械臂策略的解码器，而是学习一个观测条件下的残差噪声修正器，用优势函数加权的动作重建损失来引导策略避开演示数据中低质量动作片段，从而在保持推理速度的同时提升真实机器人操作性能。",
-      "claim": "通过优势加权的潜在空间噪声修正（而非梯度更新或解码器微调），可在冻结生成式操纵策略的前提下，有效抑制混合质量演示中的次优行为模式，且不损害原始先验分布。",
+      "tldr": "这篇论文发现，当前主流的流匹配（flow-matching）视觉-语言-动作（VLA）机器人策略在推理时其实不需要多步欧拉积分求解ODE，只要模型训练充分、容量足够，单步欧拉近似就能达到和多步几乎一样的动作生成质量，因此可直接零成本启用低延迟部署。",
+      "claim": "对已训练好的多步流匹配VLA策略，单步欧拉积分在动作质量上不显著劣于多步积分，无需额外训练、蒸馏或新目标函数。",
       "method_components": [
         "model",
         "benchmark"
       ],
-      "input": "机器人观测（如图像、关节状态等）",
-      "output": "一步生成的动作（如末端位姿或关节增量）",
-      "novelty": 7,
-      "evidence": 8,
-      "one_sentence_verdict": "显著贡献：解决了生成式BC在混杂质量演示下易复现次优动作的关键痛点，方法轻量且保留单步推理，但实证规模和开源完整性不足，尚未达到基石模型量级",
+      "input": "多模态观测（图像+语言指令）",
+      "output": "单步动作向量（即直接输出动作，非轨迹）",
+      "novelty": 5,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：它不是新模型也不是新学习范式，而是对现有SOTA流匹配VLA策略的一次关键部署可行性再发现——把‘必须多步’变成‘一步就够’，省掉推理开销且无需重训，属高价值工程落地优化。",
       "deep": {}
     }
   ]
