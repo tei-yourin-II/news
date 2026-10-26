@@ -1,17 +1,17 @@
 {
   "week": {
-    "start": "2026-10-19",
-    "end": "2026-10-25",
-    "label": "10.19~10.25"
+    "start": "2026-10-20",
+    "end": "2026-10-26",
+    "label": "10.20~10.26"
   },
   "count": 15,
-  "venue_count": 5,
+  "venue_count": 6,
   "venues": [
     "CoRL 2026",
     "NeurIPS 2026",
     "RA-L"
   ],
-  "generated_at": "2026-10-25 06:02 UTC",
+  "generated_at": "2026-10-26 06:09 UTC",
   "picks": [
     {
       "rank": 1,
@@ -131,86 +131,6 @@
     },
     {
       "rank": 4,
-      "arxiv_id": "2610.26855",
-      "title": "Ropedia W0: Scaling Loco-Manipulation World Models across Embodiments with Human Experience",
-      "published": "2026-10-19",
-      "url": "https://arxiv.org/abs/2610.26855",
-      "pdf_url": "https://arxiv.org/pdf/2610.26855",
-      "thumb": "",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "whole_body_control",
-      "org": "智元",
-      "country": "CN",
-      "org_type": "company",
-      "significance": 94,
-      "significance_reason": "实质达成‘人类经验驱动的跨本体世界模型’范式落地：首次系统性打通人类egocentric数据→机器人运动学对齐→多机体联合训练→真实机器人+VR实时rollout全链路；性能覆盖5个独立跨机体基准（含Ω-0、Ψ_0等强基线），且明确展示scaling law（人类数据量↑→机器人性能↑），证据强度接近ω-0（94分档）但未宣称端到端闭环控制或长期自主任务，略逊于GR00T N1/H2O级工程整合深度",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "dexterous",
-        "teleoperation",
-        "dataset",
-        "benchmark",
-        "large-scale"
-      ],
-      "tldr": "用10,000小时人类第一视角视频+3,000小时机器人数据，构建首个统一建模人类与多形态机器人运动-操作的‘世界模型’，支持跨人体/机器人零样本预测、实时分钟级仿真，并在5个跨机体基准上刷SOTA。",
-      "claim": "统一人类与异构机器人本体的运动-操作世界模型可通过大规模、高质量、多模态对齐的人类经验预训练实现，并能泛化到真实机器人控制与VR交互。",
-      "method_components": [
-        "model",
-        "dataset",
-        "benchmark",
-        "simulator"
-      ],
-      "input": "egocentric视频+多模态标注（相机位姿+投影骨架+动作语义）",
-      "output": "未来多步视觉观测+状态预测（世界模型输出）及隐空间动作表征",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：不是概念包装，而是首个将人类第一视角经验规模化、结构化、运动学对齐后成功迁移到多机器人本体的世界模型，实证完整、基准扎实、部署可行",
-      "deep": {}
-    },
-    {
-      "rank": 5,
-      "arxiv_id": "2610.25736",
-      "title": "Learning from Fleet Experience: A Collective Learning Paradigm for Robots",
-      "published": "2026-10-19",
-      "url": "https://arxiv.org/abs/2610.25736",
-      "pdf_url": "https://arxiv.org/pdf/2610.25736",
-      "thumb": "",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "智元",
-      "country": "CN",
-      "org_type": "company",
-      "significance": 88,
-      "significance_reason": "在真实机器人集群（最高96台）上完成5个跨任务、跨机体的部署验证，有固定采集时长下的规模扩展实验、消融（隐含于FERT vs baseline对比）、多阶段任务成功率从79.2%→98.3%的实质性跃升，且完全规避人类实时纠偏——这是首个将fleet-scale experience retrieval落地为免人工闭环优化并证明其可扩展性的工程级方案，虽未达RT-2级范式革命，但已超越DAM-VLA/π0等偏模型架构的工作，在真实世界可部署性维度形成明确领先。",
-      "tier": "heavy",
-      "grade": "B",
-      "tags": [
-        "real-robot",
-        "large-scale",
-        "teleoperation"
-      ],
-      "tldr": "提出一种叫集体经验学习（CEL）的范式，让部署中的机器人把各自执行时的成功轨迹共享到一个公共池，当某台机器人失败时，系统用失败上下文去池里检索相似的成功轨迹片段，直接用这些轨迹的动作作为监督信号来微调策略，全程不依赖人类干预或专家示范。",
-      "claim": "无需人类纠正、仅靠多机器人部署中自然产生的成功经验共享与失败驱动的检索式微调，即可显著提升真实机器人操作策略的泛化性与可靠性。",
-      "method_components": [
-        "model",
-        "dataset",
-        "policy",
-        "benchmark",
-        "hardware"
-      ],
-      "input": "失败时刻的观测上下文（如视觉+状态）",
-      "output": "修正后的动作序列（端到端策略输出）",
-      "novelty": 7,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：首次实现大规模真实机器人集群的免人工、失败驱动、检索增强型在线策略进化，证据扎实、部署闭环完整、扩展性实证充分。",
-      "deep": {}
-    },
-    {
-      "rank": 6,
       "arxiv_id": "2610.29716",
       "title": "Reconstruction-Augmented Visuomotor Pre-Training of 3D-Grounded Bimanual Dexterity from RGB-Only Human Videos",
       "published": "2026-10-21",
@@ -250,7 +170,7 @@
       "deep": {}
     },
     {
-      "rank": 7,
+      "rank": 5,
       "arxiv_id": "2610.28626",
       "title": "UniWALM: Unified World Action Language Model for Embodied Robot Control",
       "published": "2026-10-20",
@@ -287,45 +207,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
-      "arxiv_id": "2610.25600",
-      "title": "Vector-Quantized World Model: Latent Feedback Motion Planning for Robot Manipulation",
-      "published": "2026-10-19",
-      "url": "https://arxiv.org/abs/2610.25600",
-      "pdf_url": "https://arxiv.org/pdf/2610.25600",
-      "thumb": "",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "苏黎世联邦理工学院",
-      "country": "EU",
-      "org_type": "university",
-      "significance": 87,
-      "significance_reason": "在真实机器人上完成高难度长视野组合任务（汉诺塔3层全解）并达100%成功率，显著优于所有对比基线（包括VLAs/WAMs等foundation models），且消融验证了首达时间准度量与离散-连续协同机制的关键作用；虽未开源全部数据与模型权重，但代码已公开、实验可复现核心结论，属扎实推进SOTA的重磅工作，但尚未达到World Models或DreamerV3级范式开创性。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "sim2real",
-        "multimodal-fusion",
-        "large-scale"
-      ],
-      "tldr": "提出一种向量量化世界模型（VQ-WM），用离散潜在状态建模长程任务转移，再通过视觉反馈的连续控制器逐步执行；在真实机械臂解塔式汉诺塔任务上实现100%成功率，仅需短轨迹演示数据，不依赖预存解法，且在多个仿真操纵/行走基准上大幅超越现有最强世界模型。",
-      "claim": "通过将世界模型的潜空间离散化并用首达时间准度量对齐控制器能力，可实现可靠、可组合、无需长轨迹示范的长视野机器人操作规划。",
-      "method_components": [
-        "model",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "RGB图像序列+任务目标描述（如汉诺塔终态）",
-      "output": "分阶段的潜状态序列（离散路径）+实时视觉反馈下的关节控制指令（连续执行）",
-      "novelty": 8,
-      "evidence": 11,
-      "one_sentence_verdict": "真突破：首次在真实机械臂上以零先验解法知识、仅靠短演示实现长程组合操作的可靠泛化，且机制设计（首达时间准度量+潜空间离散搜索+视觉反馈闭环）有强实证支撑。",
-      "deep": {}
-    },
-    {
-      "rank": 9,
+      "rank": 6,
       "arxiv_id": "2610.31608",
       "title": "Humanoid Mobility via Attention-based Contacts",
       "published": "2026-10-22",
@@ -364,48 +246,7 @@
       "deep": {}
     },
     {
-      "rank": 10,
-      "arxiv_id": "2610.25690",
-      "title": "ScaleNav: Scalable Internet Video Pretraining for Language-Conditioned Local Navigation",
-      "published": "2026-10-19",
-      "url": "https://arxiv.org/abs/2610.25690",
-      "pdf_url": "https://arxiv.org/pdf/2610.25690",
-      "thumb": "",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "浙江大学",
-      "country": "CN",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "首次系统性将海量无标注互联网egocentric视频用于语言条件局部导航的世界模型预训练，并完成从视频动力学到可执行动作的解耦建模与sim2real闭环验证；虽未达RT-2/π0级范式突破，但在数据效率、跨域泛化和真机部署完整性上显著优于多数VLA工作（如仅仿真刷榜或依赖百小时真机数据的模型），属扎实重磅贡献。",
-      "tier": "heavy",
-      "grade": "B",
-      "tags": [
-        "multimodal-fusion",
-        "sim2real",
-        "real-robot",
-        "large-scale",
-        "open-source"
-      ],
-      "tldr": "用互联网上大量第一人称视角视频（如YouTube步行/探索类视频）预训练一个视觉-语言-动作模型，让机器人能根据自然语言指令（如‘走到那扇红门旁边’）在真实场景中完成短距离导航并精准停靠，不依赖大量真机采集数据，且在仿真和真实四足机器人上都验证了效果。",
-      "claim": "仅通过互联网egocentric视频预训练视觉动力学，再经轻量级仿真动作对齐与联合微调，即可构建泛化性强、可部署到真实机器人的语言条件局部导航策略。",
-      "method_components": [
-        "model",
-        "dataset",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "初始RGB图像 + 自然语言目标描述",
-      "output": "动作块序列（如[前进0.3m, 左转15°, 停止]）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：把互联网视频动力学建模、指令对齐、仿真动作蒸馏和真机部署串成完整链路，实证充分、开源完整、部署可信，但未提出新架构范式或解决根本性语义-动作对齐难题。",
-      "deep": {}
-    },
-    {
-      "rank": 11,
+      "rank": 7,
       "arxiv_id": "2610.31423",
       "title": "FocusVLA: Future-Intent Guided Dynamic View Routing for Vision-Language-Action Models",
       "published": "2026-10-22",
@@ -441,7 +282,7 @@
       "deep": {}
     },
     {
-      "rank": 12,
+      "rank": 8,
       "arxiv_id": "2610.31166",
       "title": "Memory before Goal: Role of Pre-History Memory for Humanoid Loco-Manipulation",
       "published": "2026-10-22",
@@ -481,7 +322,7 @@
       "deep": {}
     },
     {
-      "rank": 13,
+      "rank": 9,
       "arxiv_id": "2610.28628",
       "title": "Learning Adaptable Dexterous Skills via Hybrid Dexterous Mimicking",
       "published": "2026-10-20",
@@ -522,7 +363,7 @@
       "deep": {}
     },
     {
-      "rank": 14,
+      "rank": 10,
       "arxiv_id": "2610.28523",
       "title": "VLM-Guided Contact Retargeting and Generative Partner Modeling for Humanoid-Human Interaction",
       "published": "2026-10-20",
@@ -562,7 +403,7 @@
       "deep": {}
     },
     {
-      "rank": 15,
+      "rank": 11,
       "arxiv_id": "2610.30735",
       "title": "When One Step Is Enough: An Empirical Study of Euler Integration in Flow-Matching Policies",
       "published": "2026-10-22",
@@ -593,6 +434,159 @@
       "novelty": 5,
       "evidence": 9,
       "one_sentence_verdict": "工程整合：它不是新模型也不是新学习范式，而是对现有SOTA流匹配VLA策略的一次关键部署可行性再发现——把‘必须多步’变成‘一步就够’，省掉推理开销且无需重训，属高价值工程落地优化。",
+      "deep": {}
+    },
+    {
+      "rank": 12,
+      "arxiv_id": "2610.29612",
+      "title": "Watch Your Step: Anticipated Perception for Humanoid Locomotion",
+      "published": "2026-10-21",
+      "url": "https://arxiv.org/abs/2610.29612",
+      "pdf_url": "https://arxiv.org/pdf/2610.29612",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "苏黎世联邦理工学院（ETH Zurich）",
+      "country": "EU",
+      "org_type": "university",
+      "significance": 82,
+      "significance_reason": "在人形具身智能中首次系统性解耦‘感知采样’与‘策略学习’，用极低成本（无attention、无大模型）实现接近attention encoder的性能，且在Unitree G1上完成多类未见障碍（楼梯/缝隙/阶跃/室内外）的零样本部署——证据扎实（多地形对比、消融、真实硬件验证），推进了perception-aware locomotion的工程可行边界，但未开新范式（仍属VLA/RL pipeline内优化）。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "dexterous",
+        "real-robot"
+      ],
+      "tldr": "这篇论文提出一种轻量级的‘预判式感知’方法：不直接把整张地形高程图喂给控制策略，而是先用一个仅依赖本体感知和速度指令的小模型预测下一步落脚点，再只裁剪这些落脚点周围的局部地形 patch 作为策略输入，从而大幅加速训练、提升泛化性，并在真实人形机器人上实现零样本跨地形迁移。",
+      "claim": "移除感知输入中的冗余区域（即非落脚区的高程信息），通过轻量级 foothold 预测模型实现‘感知-动作协同预判’，可显著提升人形机器人步态策略的训练效率、泛化能力与sim2real迁移性。",
+      "method_components": [
+        "model",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "input": "本体感知数据（关节角度/速度/IMU）+ 速度指令 + 局部高程图patch（由FPM预测后采样）",
+      "output": "关节力矩/动作序列（底层PD控制目标或端到端运动输出）",
+      "novelty": 7,
+      "evidence": 10,
+      "one_sentence_verdict": "真突破：不是概念包装，而是用精巧的输入结构设计，在不增加计算负担前提下，实质性解决了高维感知输入导致的训练低效与泛化脆弱问题，并在真实人形机器人上得到强实证。",
+      "deep": {}
+    },
+    {
+      "rank": 13,
+      "arxiv_id": "2610.28594",
+      "title": "Learning the 4D World through Point Trajectory Forecasting",
+      "published": "2026-10-20",
+      "url": "https://arxiv.org/abs/2610.28594",
+      "pdf_url": "https://arxiv.org/pdf/2610.28594",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "world_model",
+      "org": "KAIST/ETH Zurich/NVIDIA",
+      "country": "KR",
+      "org_type": "university",
+      "significance": 76,
+      "significance_reason": "首次将持久点轨迹作为4D世界建模的显式监督信号，实证表明其能统一提升视频生成质量、3D运动精度和机器人策略性能；但所有核心结果均基于自建仿真数据，真实世界验证仅限少量机器人任务，无跨域迁移消融、无开源代码/模型，未挑战长期开放难题（如动态遮挡下的长期轨迹一致性），属扎实推进但未达里程碑级",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "dataset",
+        "benchmark",
+        "sim2real"
+      ],
+      "tldr": "这篇论文提出Video-Point Model（VPM），用多视角视频+语言指令联合预测未来任意视角视频和场景中持久点的4D（3D空间+时间）轨迹，并构建了带真值轨迹的仿真数据集VPM-Data和跨仿真/真实的评测基准VP-WorldBench；还把VPM扩展成机器人控制器，将动作token与点轨迹共享同一3D感知表征，提升操作成功率。",
+      "claim": "通过显式监督场景中持久点的4D轨迹，可同时提升多视角视频预测的保真度、3D运动一致性及下游机器人控制的泛化性与成功率。",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "benchmark"
+      ],
+      "input": "多视角同步视频序列+语言指令（+可选机器人动作token）",
+      "output": "未来多视角视频帧+每个视角下对应持久点的3D轨迹（随时间变化的点坐标）+（控制模式下）机器人动作序列",
+      "novelty": 7,
+      "evidence": 8,
+      "one_sentence_verdict": "工程整合：在世界模型框架中创新性嵌入点轨迹监督并打通到机器人控制，证据扎实但依赖强仿真、缺乏开源与真实复杂场景验证，尚未构成范式突破",
+      "deep": {}
+    },
+    {
+      "rank": 14,
+      "arxiv_id": "2610.30814",
+      "title": "DRILL: Training World Models to Improve Policies, Not Predict Pixels",
+      "published": "2026-10-22",
+      "url": "https://arxiv.org/abs/2610.30814",
+      "pdf_url": "https://arxiv.org/pdf/2610.30814",
+      "thumb": "",
+      "venue": "NeurIPS 2026",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "未知（作者单位未在摘要中披露，无机构署名线索，无法从姓名可靠推断归属；非明显头部实验室常见署名模式）",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 76,
+      "significance_reason": "提出了有理论支撑（bilevel meta-optimization + surrogate DRILL-VWI）且实证扎实（5个仿真器+2个VLA backbone，多基线对比，消融隐含在VWI/IMG设计中）的新训练范式，实质性修正了世界模型的目标函数，但尚未跨入真机部署或开放世界泛化，未达RT-2/LAW级范式革命，属强SOTA推进。",
+      "tier": "heavy",
+      "grade": "D",
+      "tags": [
+        "sim2real",
+        "benchmark"
+      ],
+      "tldr": "这篇论文指出当前视觉语言动作（VLA）策略训练中使用的‘世界模型’被错误地训练成预测像素，而它真正该做的其实是生成能提升策略性能的想象轨迹；为此提出DRILL框架，让世界模型直接优化下游策略回报，而非像素误差，在多个仿真操纵任务上显著提升了成功率。",
+      "claim": "世界模型不应以像素预测为目标，而应以提升下游策略在想象轨迹上的回报为目标进行训练。",
+      "method_components": [
+        "model",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "input": "视觉观测（RGB帧）、语言指令、历史动作",
+      "output": "未来状态/奖励的想象轨迹（用于策略更新的内部rollout信号）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "真突破：首次将世界模型训练目标从像素重建明确转向策略梯度效用，并给出可计算的meta-gradient与闭式代理方案，在仿真VLA强化学习中取得稳健增益，证据充分、动机清晰、方法可复现路径明确。",
+      "deep": {}
+    },
+    {
+      "rank": 15,
+      "arxiv_id": "2610.28470",
+      "title": "Fast Motion Retargeting Pipeline for Scalable Humanoid Robot Learning",
+      "published": "2026-10-20",
+      "url": "https://arxiv.org/abs/2610.28470",
+      "pdf_url": "https://arxiv.org/pdf/2610.28470",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "whole_body_control",
+      "org": "首尔国立大学",
+      "country": "KR",
+      "org_type": "university",
+      "significance": 78,
+      "significance_reason": "在运动重定向这一关键瓶颈环节实现了显著工程突破：速度提升百倍、支持跨机体、引入轻量但有效的动力学验证闭环，并完成真机部署；虽未开新范式（如非自回归建模或端到端世界模型），但解决了当前人形学习中数据-机体适配的规模化落地障碍，证据扎实（多baseline RL策略对比、消融验证、G1实机演示）。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "benchmark",
+        "open-source",
+        "real-robot"
+      ],
+      "tldr": "提出一个叫FRDV的快速运动重定向框架，能把人类动捕数据高效适配到不同人形机器人上，先用超快的约束运动学优化做初步重定向（每秒9000+帧），再用接触感知的iLQR动力学验证来修正脚部漂浮、打滑等物理不可行问题，并在Unitree G1真机上验证了仿真到现实的迁移效果。",
+      "claim": "通过解耦的‘高速运动学重定向 + 轻量动力学验证’两阶段流程，可实现跨机体、高保真、计算高效且具备物理可行性的运动重定向，显著提升人形机器人从人类动捕数据中学习的可扩展性。",
+      "method_components": [
+        "model",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "input": "人类动捕序列（如SMPL/AMASS格式）+ 目标机器人URDF模型及关节/碰撞约束",
+      "output": "满足运动学约束与接触动力学可行性的机器人关节轨迹（含接触状态）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合——不是理论或架构层面的范式突破，但在运动重定向这一核心使能技术上做到了速度、保真度、泛化性与实机可用性的实质性统一，属当前人形机器人实用化进程中关键的高质量工程推进。",
       "deep": {}
     }
   ]
