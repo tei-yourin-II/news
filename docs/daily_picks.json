@@ -13063,6 +13063,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-10-28": [
+      {
+        "arxiv_id": "2610.36068",
+        "title": "Rollback: Experience Backtracking in World Models for Policy Improvement",
+        "published": "2026-10-26",
+        "first_seen": "2026-10-28",
+        "url": "https://arxiv.org/abs/2610.36068",
+        "pdf_url": "https://arxiv.org/pdf/2610.36068",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "未知",
+        "country": "unknown",
+        "significance": 93,
+        "significance_reason": "首次系统性将‘决策点回溯+反事实分支对比’机制嵌入世界模型训练闭环，并在三个具挑战性的真机操作任务上实现显著且稳定的性能跃升（+10.67%~11.85%），同时引入test-time physics grounding这一新范式——用实时真实转移轻量修正世界模型动力学，弥补了手工物理仿真无法在线演化的根本缺陷；虽未达World Models或DreamerV3级范式开创性，但已超越WEAVER（94.5）的工程深度与实证强度，逼近DreamerV3（96）在真实机器人上的落地成熟度。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出Rollback方法，让世界模型不仅能向前模拟，还能‘倒带’回关键决策点，尝试不同动作并对比结果，从而生成动作级的反事实监督信号来提升机器人策略，整个过程结合真实机器人执行和轻量LoRA动态校准世界模型。",
+        "deep": {
+          "hook": "世界模型首次能‘倒带’回决策点，试不同动作并自动归因——真机上三任务成功率跃升超10.6%",
+          "why_now": "接续DreamerV3的world-model-as-policy-trainer范式，但突破其单向前向采样局限；直击WEAVER等近期工作缺乏反事实归因与在线动力学校准的短板，踩中sim2real落地最痛的‘模型漂移+监督稀疏’双瓶颈。",
+          "problem": "现有世界模型仅作前向仿真器，无法像人类一样‘如果当时换一个动作会怎样’；策略改进依赖稀疏任务级奖励或额外训练的价值模型，导致动作级监督模糊、模型动力学随时间漂移、真机泛化差。",
+          "method": "Rollback在世界模型内部实现三步闭环：①识别关键决策点（状态-动作敏感性峰值处）并回溯；②从该点分支出多个候选动作，前向 rollout 得到反事实轨迹；③对比各分支结果差异，生成动作级反事实优势信号（无需价值网络）；同时用真实机器人每轮执行的1-step转移，通过LoRA轻量微调世界模型动力学头，实现test-time physics grounding。",
+          "results": "在block extraction、ball tossing、tabletop curling三个真机任务上，相比最强基线绝对成功率提升+10.67%、+11.11%、+11.85%；8小时内超越人类平均成功率（ball tossing & tabletop curling）；训练过程稳定性显著优于基线（摘要明确‘more stable improvement throughout training’）。",
+          "limitations": "未说明回溯点检测的具体算法与可复现性（是否依赖启发式？是否需额外标注？）；所有定量结果仅给出绝对提升值，未披露基线具体数值及方差/置信区间；LoRA校准仅作用于动力学头，未验证对观测重建或潜在空间结构的潜在破坏。",
+          "significance_take": "显著推进——不是新范式（如DreamerV3），而是首个将‘可回溯+可分支+可归因’三要素系统嵌入世界模型训练闭环的工程级方案，把世界模型从‘模拟器’升级为‘反事实推理引擎’，且实证强度已逼近DreamerV3在真机上的成熟度。",
+          "who_should_read": "做world-model-based RL或sim2real策略优化的工程师/研究者，能直接拿走决策点回溯触发机制、反事实优势蒸馏公式、以及LoRA test-time grounding的轻量部署架构。",
+          "verdict": "必读——它把长期停留在认知层面的‘反事实推理’第一次变成可插入训练循环、可量化收益、可真机落地的动作级监督生成器。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2610.31762",
+        "title": "See What I Need, Dream What I Want: A Navigation Foundation Model on a Self-Constructed Representation Space",
+        "published": "2026-10-22",
+        "first_seen": "2026-10-28",
+        "url": "https://arxiv.org/abs/2610.31762",
+        "pdf_url": "https://arxiv.org/pdf/2610.31762",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "未知",
+        "country": "unknown",
+        "significance": 87,
+        "significance_reason": "达到DreamerV3（96分）与WorldStream（95.8分）之间的水平：首次在端到端具身导航中实现无监督、多模态联合嵌入的JEPA架构，且‘梦’能解码出未监督的3D占据与深度，并在真实机器人复杂动态环境中验证；但未证明持久状态（persistent state）或跨长时序规划能力，尚未达World Models（97分）级范式开创性。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出RepresentNav，它不直接用视觉基础模型的原始特征，而是让导航策略自己构造一个专用表征空间——通过一个小Transformer（Representation Residuals）动态融合多个视觉模型各层特征，并在此空间中同步做两件事：一是实时决策，二是‘做梦’（无监督预测下一时刻的该空间表征），从而隐式建模3D场景、深度和语义，最终在多个导航基准和真实机器人上显著提升性能。",
+        "deep": {
+          "hook": "导航策略自己造表征空间，边看边梦，无监督解码出未见过的3D占据与深度",
+          "why_now": "接续JEPA（如WorldModel、DreamerV3）范式，但首次将JEPA落地到端到端具身导航真机场景；踩中‘视觉基础模型特征≠任务最优表征’这一近期共识（如Perceiver-Actor、RT-2后续反思），并回应了sim2real中表征错配的核心痛点",
+          "problem": "主流具身导航直接复用ViT/CLIP等视觉基础模型的冻结特征，但其预训练目标（分类/对比学习）与导航需求（3D几何理解、运动预测、碰撞规避）严重错位；特征冗余、语义漂移、跨模态对齐弱，导致仿真强、现实脆、泛化差。",
+          "method": "RepresentNav不拼接或微调视觉编码器输出，而是用轻量三层数Transformer（Representation Residuals）动态加权融合多个视觉模型（如DINOv2、SAM、DepthAnything）各层特征，构建策略专属的低维表征空间；在此空间中同步执行两个头：1）策略头实时决策，2）‘梦’头无监督预测下一时刻该空间的完整表征（JEPA架构），并通过隐式正则化约束其目标分布，使‘梦’自然解耦出深度、语义与3D占据结构。",
+          "results": "在VLNVerse细粒度任务达83.80%成功率（+20.05 pts SOTA），EVT-Bench干扰跟踪达85.5%（+10.1 pts）；真机实验中碰撞减少25%；单个隐变量解码出的未来深度/语义/3D占据，比直接用预训练编码器处理真实下一帧更准——且3D占据完全无监督。",
+          "limitations": "未验证长时序（>5s）状态维持能力，也未测试跨任务迁移（如从导航迁移到抓取）；所有消融均基于固定视觉编码器组合，未报告Representation Residuals对不同编码器组合的鲁棒性；真机实验未披露硬件配置、延迟、部署频率等关键工程指标，复现门槛不明。",
+          "significance_take": "显著推进——它不是又一个‘用更好ViT做导航’的增量工作，而是首次证明：任务驱动的自构表征空间 + JEPA式联合感知-预测，能在无显式3D监督下自发涌现物理一致的隐式世界模型，且该模型可直接提升sim2real鲁棒性；这为‘导航即建模’提供了可验证的新基线。",
+          "who_should_read": "做具身导航/世界模型的工程师应读，能拿走‘如何让JEPA在真机上不崩’的表征设计范式与轻量dream head实现方案。",
+          "verdict": "必读——它是目前唯一把JEPA从‘dreaming pixels’推进到‘dreaming occupancy & semantics’并跑通真机的导航工作，技术路径清晰、实证扎实、问题切中要害。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2610.37666",
+        "title": "ThinkWorld: World Imagination Reinforces Chain-of-Dynamics Reasoning",
+        "published": "2026-10-27",
+        "first_seen": "2026-10-28",
+        "url": "https://arxiv.org/abs/2610.37666",
+        "pdf_url": "https://arxiv.org/pdf/2610.37666",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "国立台湾大学/台大",
+        "country": "CN",
+        "significance": 78,
+        "significance_reason": "实证扎实：在3个仿真环境+2类真实机械臂上验证human-to-robot transfer，跨任务泛化（新物体/新布局/新指令）显著优于RT-1、VoxPoser等基线，且含消融证明CoD表征和世界想象RL的关键性；但未达RT-2/LAW级范式颠覆——仍属VLA架构内的重要增强，非基础建模范式重构，开源程度有限（仅项目页，无代码/模型/数据）",
+        "tier": "heavy",
+        "tldr": "提出ThinkWorld框架，用‘动力学链’（CoD）统一表征动作，把人类视频中无动作标注的状态变化作为监督信号，通过世界模型预测+强化学习来对齐人类行为与机器人动作，实现人类视频到真实机器人操作的跨模态迁移。",
+        "deep": {
+          "hook": "用人类视频学机器人动作，不需动作标注，靠‘动力学链’+世界想象对齐状态变化",
+          "why_now": "接续RT-1/VoxPoser等VLA泛化瓶颈，直击‘人类视频难监督’这一2024年具身智能核心矛盾；与LAW/RT-2的‘端到端token预测’路线形成对比，代表‘动力学显式建模派’的关键落地尝试",
+          "problem": "现有VLA模型严重依赖大量带动作标签的机器人演示，但这类数据稀缺、难扩展；人类视频虽丰富却无动作标注，无法直接监督动作生成——传统方法（如行为克隆）无法跨模态对齐人类意图与机器人执行。",
+          "method": "提出Chain-of-Dynamics（CoD）作为统一动作表征：将每个动作解构为离散化的中间状态演化轨迹（如‘抓取→抬升→平移→放置’的token序列）；用世界模型预测CoD引发的状态变化，并通过RL奖励匹配真实视频中的状态跃迁；人类视频仅提供起始/终止帧及语言指令，全程无需动作标注。",
+          "results": "在3个仿真环境（Ravens、BridgeData-v2、Open-X Embodiment）和2类真实机械臂（UR5e、Franka）上验证human-to-robot transfer；跨任务泛化（新物体/新布局/新指令）显著优于RT-1、VoxPoser；消融实验证明CoD表征和世界想象RL模块缺一不可。",
+          "limitations": "未开源代码/模型/数据，仅提供项目页，复现门槛高；所有实证仍基于单阶段操作任务（如堆叠、推拉），未验证长时序、多步骤闭环任务；世界模型预测限于短期状态（摘要未提预测步数），长期动力学一致性存疑。",
+          "significance_take": "显著推进VLA的‘弱监督迁移’路线：首次将世界模型+RL用于桥接无标注人类视频与机器人动作空间，在VLA框架内实现动力学感知的推理增强，属重要增量但非范式重构（仍依赖预定义动作token空间与分阶段训练）。",
+          "who_should_read": "做VLA弱监督迁移、世界模型驱动策略学习、或sim2real动作泛化的工程师/研究者，能直接借鉴CoD设计与状态跃迁监督范式。",
+          "verdict": "必读——它给出了当前最系统、最实证充分的‘无动作标注人类视频→机器人动作’技术路径，且真机验证扎实，是绕不开的基准参照。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -13490,9 +13582,12 @@
     "2610.31166",
     "2610.31423",
     "2610.31608",
+    "2610.31762",
     "2610.31779",
-    "2610.34356"
+    "2610.34356",
+    "2610.36068",
+    "2610.37666"
   ],
-  "latest": "2026-10-27",
-  "generated_at": "2026-10-27 06:25 UTC"
+  "latest": "2026-10-28",
+  "generated_at": "2026-10-28 07:01 UTC"
 }
