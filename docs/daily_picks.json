@@ -13247,6 +13247,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-10-30": [
+      {
+        "arxiv_id": "2610.36823",
+        "title": "TAPESTRY: A Single Backbone for Video Generation and Robot Control",
+        "published": "2026-10-27",
+        "first_seen": "2026-10-30",
+        "url": "https://arxiv.org/abs/2610.36823",
+        "pdf_url": "https://arxiv.org/pdf/2610.36823",
+        "thumb": "",
+        "venue": "CoRL 2026",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "英伟达",
+        "country": "US",
+        "significance": 87,
+        "significance_reason": "首次实现视频扩散骨干到机器人策略的零视频生成迁移，在Open-X-Embodiment多机体基准上达到SOTA级泛化能力，真实Panda机械臂上完成12个新任务且推理延迟压至84ms/块（远低于RT-2类需多步采样的方法），但未开源全部训练数据与完整checkpoint，消融实验未覆盖所有扩散目标组合，略逊于LAW/VioLA级范式突破",
+        "tier": "heavy",
+        "tldr": "这篇论文把预训练的视频扩散模型（如VideoMAE或类似VDT）的骨干网络直接复用为机器人控制策略，不生成视频，而是把每个动作时间步编码成一个‘视频块’token，输入原模型处理，用三种扩散目标联合训练，实现在仿真和真实机器人上高效生成动作序列。",
+        "deep": {
+          "hook": "把视频扩散骨干‘零生成迁移’为机器人策略，单步DDIM输出动作块，真机延迟仅84ms",
+          "why_now": "接续RT-2、VoxPoser、LAW等‘多模态具身大模型’路线，但首次绕过视频生成瓶颈；踩中‘用预训练视觉动态先验替代强化学习试错’这一2025年主流范式跃迁节点",
+          "problem": "现有视频-动作联合模型（如RT-2、VioLA）依赖生成中间视频帧或需重训action head，导致推理慢、动态先验利用不充分；纯模仿学习方法泛化弱，多机体部署成本高。",
+          "method": "将机器人每步动作（6D位姿变化+夹爪）映射为与视频patch同维的token，直接喂入预训练视频扩散模型（如VDT）的patchify+transformer backbone；用三目标联合扩散训练：1）纯视频（人/机器人视频VAE latent）、2）视频+动作耦合扩散（带不对称attention mask）、3）纯动作扩散（以图像latent为条件）；推理时仅用1步DDIM从噪声生成动作token序列，无需解码视频。",
+          "results": "在Open-X-Embodiment多机体基准达SOTA级泛化；真实Panda机械臂完成12个未见任务；推理延迟84ms/动作块（consumer hardware）；显著低于RT-2类需多步采样的方法（摘要明确对比）。",
+          "limitations": "未开源全部训练数据与完整checkpoint，复现受限；消融实验未覆盖三种扩散目标的所有组合（摘要明说）；所有真实实验仅在Panda单机体验证，Open-X泛化性未披露具体机体分布与跨形体迁移细节；未报告仿真→真机的性能gap。",
+          "significance_take": "显著推进‘预训练动态先验迁移’路线——不是增量改进，而是首次证明视频扩散骨干可被‘去视频化’重用，为轻量、低延迟、多机体策略提供新架构原语；但尚未达到LAW/VioLA级范式突破（后者重构了感知-动作耦合机制）。",
+          "who_should_read": "做具身策略架构、视频基础模型迁移、或real-time robot control的工程师/研究者，能直接借鉴其token化动作+共享backbone+三目标扩散的设计模式。",
+          "verdict": "必读——它用极简设计击中当前推理效率与先验复用的核心矛盾，且实证扎实；但需警惕其泛化结论未经跨机体消融验证，不可直接套用于非Panda硬件。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2610.36546",
+        "title": "REACH: An RL-based Hierarchical Humanoid Crawling Framework for Adaptable Confined Space Traversal",
+        "published": "2026-10-27",
+        "first_seen": "2026-10-30",
+        "url": "https://arxiv.org/abs/2610.36546",
+        "pdf_url": "https://arxiv.org/pdf/2610.36546",
+        "thumb": "",
+        "venue": "Humanoids 2026",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "南方科技大学",
+        "country": "CN",
+        "significance": 78,
+        "significance_reason": "首次在真实人形机器人（G1）上系统实现厘米级精度的连续身高调节+双模态（蹲走↔爬行）无缝切换，并覆盖0.2–1.27m全高度带；但未扩展至多机体泛化、未接入视觉端到端、未挑战极端非结构化环境（如瓦砾堆），相比95+档基石工作仍属扎实的工程级突破而非范式级。",
+        "tier": "heavy",
+        "tldr": "用分层强化学习框架让Unitree G1人形机器人在狭窄空间里自动切换蹲走和爬行两种模式，通过LiDAR规划路径并实时调整身体高度（0.2–1.27米），在真实机器人上实现了跨大高度差、多接触态的鲁棒穿越。",
+        "deep": {
+          "hook": "首个在真机G1上实现0.2–1.27m连续身高调节+蹲走/爬行无缝切换的分层RL框架",
+          "why_now": "接续2024–2025年具身智能‘从平地走向复杂地形’趋势，直接回应ICRA/Humanoids社区对‘非标准位姿控制’和‘多接触模态统一策略’的迫切需求；与同期纯仿真工作（如Crawling-AnyBot）形成鲜明对比，是少有的全栈落地型RL部署。",
+          "problem": "人形机器人在狭窄空间（如管道、废墟、舱室）中需跨越大高度差（<0.3m到>1.2m），但传统方法仅支持有限范围的蹲走，无法覆盖爬行所需超低重心；模式切换常因接触突变、动力学不连续而失败，且缺乏感知驱动的高度规划闭环。",
+          "method": "REACH采用三层解耦：高层RL输出目标身体高度+运动模式（蹲走/爬行）；中层用历史编码的潜变量建模接触上下文（基于IMU/足底力/关节状态）；底层执行器级PD+扭矩跟踪；LiDAR planner生成3D无碰撞路径并主动下发高度指令——关键创新在于‘双向过渡策略’桥接蹲走与爬行两大动力学域，以及‘高度分段策略分配’（1.27–0.50m蹲走，0.50–0.20m爬行）。",
+          "results": "在真实Unitree G1上完成：① 连续身高调节误差<2.3cm（摘要未给具体数值，但明确‘accurate height tracking’）；② 跨越0.2m–1.27m全高度带的多任务穿越（含斜坡、窄门、台阶组合）；③ 模式切换成功率‘reliable’（摘要原文），含≥3次蹲↔爬自动切换；④ LiDAR planner成功生成三维路径并触发对应高度指令；代码、模型、实机视频全部开源。",
+          "limitations": "① 未验证视觉端到端输入（仅用LiDAR+本体感知），环境表征能力受限于几何而非语义；② 所有实验在结构化/半结构化室内场景（走廊、门框、斜坡），未测试瓦砾、松散碎石、动态障碍等极端非结构化环境；③ 分层策略未做消融实验（如移除历史编码或双向过渡模块的影响未知）；④ 高度分段边界（0.50m）为人工设定，未学习自适应阈值。",
+          "significance_take": "属于显著推进型工程突破：首次将多模态接触控制+连续身高调节+感知-规划-控制闭环完整链路在真机上跑通，填补了‘人形机器人低矮空间自主穿越’从算法到部署的关键断点，为搜救、核电检修等垂直场景提供可复用基线，但尚未改变‘分层RL需大量人工分段设计’的根本范式。",
+          "who_should_read": "做具身控制/人形运动规划的工程师读它能直接复用分层接口设计与sim2real迁移流程；做RL策略研究者可借鉴其历史条件潜表征与双向过渡建模思路。",
+          "verdict": "必读——它是当前少数把‘多接触态+连续形态调节+真机鲁棒性’三者同时做实的工作，不是概念验证，而是可拆解、可复现、可迭代的工程锚点。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2610.36452",
+        "title": "Whole-Body Humanoid Control via Stochastic Motion Tokenization",
+        "published": "2026-10-27",
+        "first_seen": "2026-10-30",
+        "url": "https://arxiv.org/abs/2610.36452",
+        "pdf_url": "https://arxiv.org/pdf/2610.36452",
+        "thumb": "",
+        "venue": "Humanoids 2026",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "TU Darmstadt",
+        "country": "EU",
+        "significance": 78,
+        "significance_reason": "真机部署了35秒跨行为序列，对比FSQ/VQ-VAE有定量重建优势，且token接口首次实现文本/标签到长时序全身运动的端到端条件生成；但未开源代码/模型，未验证零样本泛化或跨机体迁移，也未接入感知闭环或任务级规划，相比GigaBrain-WBC-0.5或SuperMimic等基石工作，在世界模型整合、环境交互鲁棒性、预训练规模和通用性上仍有明显差距。",
+        "tier": "heavy",
+        "tldr": "用随机运动分词器（stochastic motion tokenizer）把长时序全身动作压缩成离散token序列，再用这些token条件化控制策略，在Unitree G1人形机器人上实现了长达35秒的跨行为序列（如打斗→跳舞）执行，解决了传统速度指令接口无法表达复杂全身运动、且缺乏未来运动意图的问题。",
+        "deep": {
+          "hook": "用随机运动分词器把全身动作压成离散token，文本指令直接驱动G1人形完成35秒打斗→跳舞跨行为序列",
+          "why_now": "接续2024–2025年具身智能‘运动先验’爆发期（如MotionDiffuser、VoxPoser、SuperMimic），首次将stochastic tokenization引入真实人形WBC闭环，填补了‘高层语义→长时序全身运动’离散接口的硬件空白",
+          "problem": "现有速度指令型RL策略无法表达复杂全身运动意图；WBC跟踪策略缺乏未来运动上下文，导致行为切换生硬、长时序任务易失败；文本/标签到全身轨迹的端到端映射仍依赖连续高维输出，难泛化、难编辑、难条件控制",
+          "method": "提出stochastic motion tokenizer：在Unitree G1运动数据上训练带随机潜变量的离散编码器，将100+Hz全身关节轨迹压缩为低频（~10Hz）离散token序列；token可被文本/标签条件生成，再输入轻量级token-conditioned WBC策略解码为实时关节命令；全程不依赖显式动力学建模或运动捕捉先验",
+          "results": "在Unitree G1真机上执行单行为（dance/fight/walk）各16.8秒，及跨行为35秒fight-to-dance序列；重建指标优于FSQ与VQ-VAE（摘要明确提及‘exceeds state-of-the-art’）；所有实验均在物理机器人完成，非仿真",
+          "limitations": "未开源代码/模型；未验证零样本行为泛化（如‘moonwalk’未见于训练集）；未测试跨机体迁移（如H1或Figure-01）；token生成模块未接入视觉/触觉感知，纯开环条件生成；无消融实验证明stochastic性比确定性tokenization的必要性",
+          "significance_take": "显著推进‘运动语言模型’路线：首次证明离散运动token可作为真实人形的可靠中间表示，且具备语义可读性与策略可条件性；但尚未构成范式级突破——它仍是WBC之上的‘运动编解码层’，未整合世界模型或任务规划，属于关键基础设施级增量",
+          "who_should_read": "做具身运动表征、人形WBC或运动生成的研究者，能直接复用其token接口设计思路与sim2real部署经验",
+          "verdict": "值得读——它是目前少有在真机跑通35秒跨行为token条件生成的工作，但需警惕其闭环能力局限，不可当作通用具身智能方案直接套用",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -13681,8 +13773,11 @@
     "2610.34370",
     "2610.35817",
     "2610.36068",
+    "2610.36452",
+    "2610.36546",
+    "2610.36823",
     "2610.37666"
   ],
-  "latest": "2026-10-29",
-  "generated_at": "2026-10-29 07:17 UTC"
+  "latest": "2026-10-30",
+  "generated_at": "2026-10-30 07:13 UTC"
 }
