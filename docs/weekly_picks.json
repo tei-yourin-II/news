@@ -1,17 +1,16 @@
 {
   "week": {
-    "start": "2026-10-25",
-    "end": "2026-10-31",
-    "label": "10.25~10.31"
+    "start": "2026-10-26",
+    "end": "2026-11-01",
+    "label": "10.26~11.01"
   },
   "count": 15,
   "venue_count": 4,
   "venues": [
     "CoRL 2026",
-    "Humanoids 2026",
-    "IROS"
+    "Humanoids 2026"
   ],
-  "generated_at": "2026-10-31 07:03 UTC",
+  "generated_at": "2026-11-01 07:37 UTC",
   "picks": [
     {
       "rank": 1,
@@ -53,40 +52,40 @@
     },
     {
       "rank": 2,
-      "arxiv_id": "2610.34356",
-      "title": "RynnVLA-Latent: Scaling Robotic Manipulation Foundation Models with 3D-Grounded Latent Actions",
-      "published": "2026-10-25",
-      "url": "https://arxiv.org/abs/2610.34356",
-      "pdf_url": "https://arxiv.org/pdf/2610.34356",
+      "arxiv_id": "2610.38388",
+      "title": "ELEVATE: Agentic Controller Acquisition from Task Failure for Quadrupedal Manipulation",
+      "published": "2026-10-28",
+      "url": "https://arxiv.org/abs/2610.38388",
+      "pdf_url": "https://arxiv.org/pdf/2610.38388",
       "thumb": "",
       "venue": "",
       "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "未知（作者单位未在摘要中披露，无机构署名线索；姓名风格偏CN，但无明确 affiliation 提示）",
-      "country": "unknown",
-      "org_type": "unknown",
+      "best_route": "whole_body_control",
+      "org": "卡内基梅隆大学",
+      "country": "US",
+      "org_type": "university",
       "significance": 93,
-      "significance_reason": "实证扎实：覆盖LIBERO/LIBERO-Plus/VLABench/RoboTwin 2.0四大基准+6个真实双臂/灵巧手/移动夹爪任务，全部SOTA；首次将30K小时开放视频（含人类行为）系统性转化为3D-grounded latent action监督信号，且消融验证了camera-motion decoupling等核心设计有效性；虽未开源代码/模型，但数据规模、评测广度与真机验证强度已逼近Xiaomi-Robotics-1（94.8）量级，略逊于RT-2级范式突破，但显著超越DAM-VLA/π0等纯仿真或单机体方案。",
+      "significance_reason": "首次实现从失败驱动的全自动控制器生成闭环（失败检测→能力缺口诊断→RL问题构造→训练→验证→组合重试→实机零样本部署），在7个仿真任务中自主扩展能力边界，并在真实机器人上达成>90%成功率，证据链完整（多任务、多运行、消融隐含于baseline对比、实机验证），虽未达AlphaFold级范式颠覆，但已超越当前多数具身智能工作，逼近Ropedia W0/GR00T N1等基石工作的工程深度与迁移鲁棒性。",
       "tier": "heavy",
       "grade": "C",
       "tags": [
+        "sim2real",
         "multimodal-fusion",
-        "dataset",
-        "benchmark",
         "large-scale"
       ],
-      "tldr": "用30K小时多源视频（人/机器人/仿真）学出一个统一的3D空间对齐的隐式动作表征，再让大模型学会根据视觉+语言预测这些隐式动作块，最后适配到不同真实机器人上，实现在多个标准benchmark和6个真实操作任务上的SOTA级表现。",
-      "claim": "无需原生机器人动作标注，仅通过跨模态视频（含人类、仿真、真实机器人）即可构建可泛化、3D-grounded的隐式动作表征，并支撑大规模VLA策略预训练与跨机体迁移。",
+      "tldr": "这篇论文提出ELEVATE框架，让四足机器人在任务失败时自动识别缺失的物理能力（比如靠墙抬升身体），然后由一个编程智能体自动生成并迭代优化强化学习任务，训练出新控制器，最终在仿真中自主学会多种全身操作能力，并直接迁移到真实四足机器人上完成货架取放任务，无需任何真实数据微调。",
+      "claim": "通过将任务失败信号转化为控制器获取触发机制，实现四足机器人在无预设能力库前提下，自主发现、定义、训练并复用新全身控制能力，且所获控制器具备跨仿真-现实的零样本迁移能力。",
       "method_components": [
         "model",
-        "dataset",
-        "simulator"
+        "simulator",
+        "policy",
+        "benchmark"
       ],
-      "input": "RGB视频帧序列 + 自然语言指令",
-      "output": "连续隐式动作块（latent-action chunks），经解码后映射为具体机器人关节/末端执行器控制",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：不是刷榜或工程缝合，而是建立了首个可扩展、3D空间对齐、免原生动作标注的视频驱动隐式动作预训练范式，并在多基准+多真实平台验证其泛化上限。",
+      "input": "任务程序失败日志、当前任务目标、已有控制器库",
+      "output": "新训练的RL策略（即控制器）及可组合的任务程序",
+      "novelty": 9,
+      "evidence": 11,
+      "one_sentence_verdict": "真突破：不是改进某个模块，而是构建了首个失败驱动的具身能力自主生长系统，且实证覆盖仿真习得、程序合成、跨机体复用、零样本部署全链条。",
       "deep": {}
     },
     {
@@ -131,6 +130,45 @@
     },
     {
       "rank": 4,
+      "arxiv_id": "2610.40565",
+      "title": "Gym-Anything for Robotics: Scaling physical simulations with digital agents",
+      "published": "2026-10-29",
+      "url": "https://arxiv.org/abs/2610.40565",
+      "pdf_url": "https://arxiv.org/pdf/2610.40565",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "world_model",
+      "org": "未知（作者无明确机构署名，摘要未提所属单位；GitHub主页gym-anything.github.io无机构归属信息）",
+      "country": "unknown",
+      "org_type": "unknown",
+      "significance": 88,
+      "significance_reason": "首次将仿真构建本身形式化为可自动化、可审计、可规模化的AI编码任务，而非工程劳动；RoboWorld覆盖经济关键场景且暴露SOTA模型根本性缺陷（0.06平均奖励），其‘失败即信号’的设计比单纯刷榜更深刻；提出的特权教师/自辅助学习等范式直击世界模型缺乏状态持久性、VLAs缺乏物理 grounding 的核心瓶颈，且全部开源可复现，属强推进型工作，但尚未验证sim2real迁移，故略低于DreamerV3/World Models级里程碑（95+）。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "benchmark",
+        "open-source",
+        "sim2real",
+        "large-scale"
+      ],
+      "tldr": "用AI编程代理自动编写机器人仿真环境，基于经济价值（美国GDP数据）筛选任务，构建了25个仿真+175个训练/25个测试RL环境的RoboWorld基准，发现当前最先进模型在测试任务上几乎全失败（平均奖励仅0.06），并提出多种新学习范式（如特权教师、自辅助学习、代码生成演示）显著提升性能，全部开源。",
+      "claim": "仿真环境的规模化构建不应依赖人工编码专家，而应作为可自动化的编程任务，由AI编码代理完成，从而实现与经济现实对齐、可审计、可扩展的物理仿真基建。",
+      "method_components": [
+        "simulator",
+        "benchmark",
+        "dataset",
+        "policy"
+      ],
+      "input": "自然语言任务描述 + 经济指标约束（U.S. GDP行业分布） + 仿真质量定义（物理保真度、可控性、可观测性等）",
+      "output": "可运行的PyBullet/MuJoCo风格Python仿真环境代码 + 对应的RL训练/测试环境封装 + 审计报告",
+      "novelty": 9,
+      "evidence": 10,
+      "one_sentence_verdict": "真突破：不是又一个仿真器或RL基准，而是把‘造仿真’这件事本身变成AI可解任务，并用经济现实锚定物理建模优先级，重构了具身智能基础设施的生产范式。",
+      "deep": {}
+    },
+    {
+      "rank": 5,
       "arxiv_id": "2610.37652",
       "title": "Pushing Dexterity and Safety for In-Hand Object Pose Reaching That Works Remarkably Well",
       "published": "2026-10-27",
@@ -173,7 +211,7 @@
       "deep": {}
     },
     {
-      "rank": 5,
+      "rank": 6,
       "arxiv_id": "2610.35817",
       "title": "Pretraining Knows What, Simulation Teaches How: Compositional Generalization in a Sim-Trained Robot Agent",
       "published": "2026-10-26",
@@ -211,7 +249,7 @@
       "deep": {}
     },
     {
-      "rank": 6,
+      "rank": 7,
       "arxiv_id": "2610.37543",
       "title": "Rendering-Free Event Frame Simulation for Fast Reinforcement Learning of Autonomous Robot Navigation",
       "published": "2026-10-27",
@@ -247,46 +285,6 @@
       "novelty": 8,
       "evidence": 11,
       "one_sentence_verdict": "真突破：它不是又一个仿真器改进，而是砍掉了事件仿真中冗余的光栅化渲染层，让RL第一次能在事件模态下实现‘分钟级训练+克级部署+真实穿越’三位一体",
-      "deep": {}
-    },
-    {
-      "rank": 7,
-      "arxiv_id": "2610.34370",
-      "title": "ThinkLocoManip: A Whole-Body Control Agentic Harness for Legged Loco-Manipulation",
-      "published": "2026-10-25",
-      "url": "https://arxiv.org/abs/2610.34370",
-      "pdf_url": "https://arxiv.org/pdf/2610.34370",
-      "thumb": "",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "智元",
-      "country": "CN",
-      "org_type": "company",
-      "significance": 86,
-      "significance_reason": "达到RT-2级里程碑之后、LAW/VioLA级重磅工作的水平：首次将locomotion作为一级可调度工具嵌入agent reasoning loop，并在真机上完成跨场景/跨任务/跨机体验证，含消融（关键帧机制、工具解耦、interleaving），成功率翻倍且部署落地，但尚未建立通用世界模型或开源完整数据与策略权重。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "sim2real",
-        "real-robot",
-        "large-scale"
-      ],
-      "tldr": "提出一个名为ThinkLocoManip的具身智能体框架，让四足机器人在大场景中边想边做，把行走、感知、导航、操作等能力拆成可调用的工具，用关键帧记忆辅助长程任务失败后的恢复，实测在复杂长时序腿式移动操作任务上成功率77%，是当前最强规划-执行基线（37.1%）的两倍多。",
-      "claim": "通过将行走显式建模为可调度工具、引入交错式推理-执行范式和关键帧思考机制，显著提升四足机器人在长时序、开放环境下的具身任务泛化性与容错性。",
-      "method_components": [
-        "model",
-        "simulator",
-        "policy",
-        "benchmark",
-        "hardware"
-      ],
-      "input": "多模态传感器输入（RGB-D、IMU、关节编码器等）+ 高层自然语言任务指令",
-      "output": "全身体运动控制指令（包含腿部步态、躯干姿态、机械臂末端位姿与力矩）",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "真突破：不是单纯堆模块，而是重构了腿式操作agent的决策架构，实证扎实、部署有效、范式可迁移。",
       "deep": {}
     },
     {
@@ -371,6 +369,41 @@
     },
     {
       "rank": 10,
+      "arxiv_id": "2610.40614",
+      "title": "L3G-World: Real-Time Infinite World Generation with Latent 3D Gaussian Memory",
+      "published": "2026-10-29",
+      "url": "https://arxiv.org/abs/2610.40614",
+      "pdf_url": "https://arxiv.org/pdf/2610.40614",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "world_model",
+      "org": "KAIST",
+      "country": "KR",
+      "org_type": "university",
+      "significance": 78,
+      "significance_reason": "在世界模型的3D内存表征方向做出实质性突破：首次解耦内存增长与时间步长，用隐式高斯+VAE latent直连实现免重编码渲染，指标提升显著（359×渲染加速），但未接入真实机器人闭环、未验证跨场景泛化、未开源代码，尚未达到DreamerV3或WorldStream级的系统性影响。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "large-scale"
+      ],
+      "tldr": "提出一种叫L3G的隐式3D高斯内存，让世界模型能边探索边实时生成无限大、空间一致的3D世界视频，内存增长只随场景大小而非时间长度，避免反复VAE编码，实测比最强基线快数百倍、显存更省，达到9FPS实时生成。",
+      "claim": "通过将3D高斯表示与VAE隐空间联合设计，构建可增量更新、直接渲染进扩散模型隐空间的紧凑3D内存，从而实现长时程空间一致且真正实时的世界生成。",
+      "method_components": [
+        "model",
+        "simulator"
+      ],
+      "input": "用户动作+当前观测图像（隐式驱动）",
+      "output": "空间一致的连续视频帧（在DiT隐空间中生成）",
+      "novelty": 8,
+      "evidence": 9,
+      "one_sentence_verdict": "真突破——解决了世界模型长期存在的‘内存爆炸’和‘实时性-一致性不可兼得’核心瓶颈，但限于纯仿真和单任务设定，属强技术突破而非范式革命。",
+      "deep": {}
+    },
+    {
+      "rank": 11,
       "arxiv_id": "2610.36452",
       "title": "Whole-Body Humanoid Control via Stochastic Motion Tokenization",
       "published": "2026-10-27",
@@ -410,79 +443,7 @@
       "deep": {}
     },
     {
-      "rank": 11,
-      "arxiv_id": "2610.40614",
-      "title": "L3G-World: Real-Time Infinite World Generation with Latent 3D Gaussian Memory",
-      "published": "2026-10-29",
-      "url": "https://arxiv.org/abs/2610.40614",
-      "pdf_url": "https://arxiv.org/pdf/2610.40614",
-      "thumb": "",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "KAIST",
-      "country": "KR",
-      "org_type": "university",
-      "significance": 78,
-      "significance_reason": "在世界模型的3D内存表征方向做出实质性突破：首次解耦内存增长与时间步长，用隐式高斯+VAE latent直连实现免重编码渲染，指标提升显著（359×渲染加速），但未接入真实机器人闭环、未验证跨场景泛化、未开源代码，尚未达到DreamerV3或WorldStream级的系统性影响。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "sim2real",
-        "large-scale"
-      ],
-      "tldr": "提出一种叫L3G的隐式3D高斯内存，让世界模型能边探索边实时生成无限大、空间一致的3D世界视频，内存增长只随场景大小而非时间长度，避免反复VAE编码，实测比最强基线快数百倍、显存更省，达到9FPS实时生成。",
-      "claim": "通过将3D高斯表示与VAE隐空间联合设计，构建可增量更新、直接渲染进扩散模型隐空间的紧凑3D内存，从而实现长时程空间一致且真正实时的世界生成。",
-      "method_components": [
-        "model",
-        "simulator"
-      ],
-      "input": "用户动作+当前观测图像（隐式驱动）",
-      "output": "空间一致的连续视频帧（在DiT隐空间中生成）",
-      "novelty": 8,
-      "evidence": 9,
-      "one_sentence_verdict": "真突破——解决了世界模型长期存在的‘内存爆炸’和‘实时性-一致性不可兼得’核心瓶颈，但限于纯仿真和单任务设定，属强技术突破而非范式革命。",
-      "deep": {}
-    },
-    {
       "rank": 12,
-      "arxiv_id": "2610.33966",
-      "title": "InteractiveWorld: A Verifiable Human-Centric Environment for Building Better Interactive MLLM Assistants",
-      "published": "2026-10-25",
-      "url": "https://arxiv.org/abs/2610.33966",
-      "pdf_url": "https://arxiv.org/pdf/2610.33966",
-      "thumb": "",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "杜克大学",
-      "country": "US",
-      "org_type": "university",
-      "significance": 76,
-      "significance_reason": "首次建立人本闭环交互仿真范式并配套动态评测基准，实证揭露当前MLLM在物理协作中的根本性失效，证据扎实（12模型+120任务+状态奖励+多维度失败分析），但未开源数据与完整环境状态定义，且人类代理行为仍为简化规则驱动，未达World Models级的通用世界建模深度。",
-      "tier": "heavy",
-      "grade": "B",
-      "tags": [
-        "multimodal-fusion",
-        "benchmark",
-        "sim2real"
-      ],
-      "tldr": "提出InteractiveWorld——一个可验证的人本交互仿真环境，让大模型作为‘AI助手’给虚拟人类代理下指令，人类代理自主感知、理解并执行动作，环境闭环反馈；配套发布InteractiveBench动态评测基准（120个多轮任务），实证发现当前12个前沿多模态大模型在真实物理协作任务上表现极差（最强模型仅20%-25%成功率）。",
-      "claim": "要评估AI助手能否真正辅助人类完成物理世界任务，必须构建以人类代理为中心、指令-执行-反馈闭环可验证的仿真环境，而非沿用机器人中心范式。",
-      "method_components": [
-        "simulator",
-        "benchmark",
-        "dataset"
-      ],
-      "input": "第一人称视觉观测（egocentric video frames）+自然语言指令",
-      "output": "自然语言指令序列（用于指导人类代理完成任务）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：开创性地将评测焦点从机器人执行转向人机协同指令闭环，并用大规模动态任务暴露MLLM能力断层，但仿真中‘人类代理’仍是轻量规则模块，非学习型认知模型，尚未构成新世界模型范式。",
-      "deep": {}
-    },
-    {
-      "rank": 13,
       "arxiv_id": "2610.35075",
       "title": "Zero-HLM: Generalizable Humanoid Loco-Manipulation without Real Robot Data",
       "published": "2026-10-26",
@@ -521,7 +482,7 @@
       "deep": {}
     },
     {
-      "rank": 14,
+      "rank": 13,
       "arxiv_id": "2610.39287",
       "title": "OpenFlyV2: An onboard vision-language-action model for aerial perception and navigation",
       "published": "2026-10-29",
@@ -560,42 +521,78 @@
       "deep": {}
     },
     {
-      "rank": 15,
-      "arxiv_id": "2610.37582",
-      "title": "EgoThumb: A Vision-Driven Supernumerary Robotic Thumb for Autonomous Grasp and Holding Assistance",
+      "rank": 14,
+      "arxiv_id": "2610.36420",
+      "title": "SO-101 Bench: Accessible Spatial Manipulation",
       "published": "2026-10-27",
-      "url": "https://arxiv.org/abs/2610.37582",
-      "pdf_url": "https://arxiv.org/pdf/2610.37582",
+      "url": "https://arxiv.org/abs/2610.36420",
+      "pdf_url": "https://arxiv.org/pdf/2610.36420",
       "thumb": "",
-      "venue": "IROS",
+      "venue": "",
       "domain": "embodied_ai",
       "best_route": "vla",
-      "org": "清华大学",
-      "country": "CN",
+      "org": "unknown",
+      "country": "US",
+      "org_type": "unknown",
+      "significance": 78,
+      "significance_reason": "首次在低成本臂上实现仿真策略排序与真机完全一致（ρ=1.0），且覆盖空间约束、旋转适配、遮挡记忆等关键挑战；但未开源代码/模型，仅提供项目页，且所有VLAs性能仍低于61%，LLM+策略组合虽达83.2%但属混合架构，未解决核心空间控制瓶颈，属扎实推进SOTA的重磅工作，但未达RT-2级范式突破。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "benchmark",
+        "sim2real",
+        "multimodal-fusion"
+      ],
+      "tldr": "构建了一个基于SO-101低成本机械臂数字孪生的仿真基准SO-101 Bench，支持语言驱动的空间操作任务，包含138个物体、916个评测场景和3629个仿真演示，并首次验证了仿真中策略排名与真实机器人完全一致（Spearman ρ=1.0），但所有策略在真实空间操作上仍远未达标。",
+      "claim": "SO-101 Bench是首个在低成本真实硬件对应仿真中实现策略排名与真机严格一致（ρ=1.0）的语言条件化空间操作基准，可作为可靠、可扩展的预训练与评估平台。",
+      "method_components": [
+        "benchmark",
+        "simulator",
+        "dataset"
+      ],
+      "input": "自然语言指令+RGB图像（仿真环境）",
+      "output": "动作序列（6DoF末端位姿+夹爪开合）",
+      "novelty": 7,
+      "evidence": 10,
+      "one_sentence_verdict": "工程整合：把低成本硬件、数字孪生、语言条件化空间操作和严格sim2real对齐做成可复现基准，实证扎实，但未提出新模型或解决根本控制难题",
+      "deep": {}
+    },
+    {
+      "rank": 15,
+      "arxiv_id": "2610.37974",
+      "title": "FORGE: Feasible Online Reduced-Order Reference Generation and Whole-Body Execution for Agile Humanoid Locomotion",
+      "published": "2026-10-27",
+      "url": "https://arxiv.org/abs/2610.37974",
+      "pdf_url": "https://arxiv.org/pdf/2610.37974",
+      "thumb": "",
+      "venue": "Humanoids 2026",
+      "domain": "embodied_ai",
+      "best_route": "whole_body_control",
+      "org": "加州理工学院",
+      "country": "US",
       "org_type": "university",
-      "significance": 68,
-      "significance_reason": "真机验证+跨用户泛化+全开源是扎实贡献，但缺乏多任务基准对比、无消融实验说明视觉输入关键性、未测试复杂动态交互（如滑动/重定向抓握）、未与现有超量设备（如MIT Supernumerary Robotic Fingers, EPFL Polythumb）定量对比性能；属显著但非范式级的工程-算法协同创新。",
+      "significance": 72,
+      "significance_reason": "技术路线清晰、实证扎实（真机多模态运动+连续指令切换），但未开源代码/模型，未对比SOTA基线（如RT-2、GR00T、SuperMimic等），也未引入新数据源、新架构或新范式，属于对ROM+tracking分层控制框架的高质量工程实现与扩展，尚未达到基石论文所定义的范式级突破或通用性跃迁。",
       "tier": "notable",
       "grade": "C",
       "tags": [
-        "open-source",
-        "real-robot",
-        "multimodal-fusion",
-        "teleoperation"
+        "sim2real",
+        "whole-body",
+        "real-robot"
       ],
-      "tldr": "提出一个戴在人手上的视觉驱动额外拇指机器人EgoThumb，用掌心摄像头看手和物体，直接输出关节角度实现自主抓握辅助，硬件轻量、全开源。",
-      "claim": "通过掌心视角的端到端视觉模仿学习，可实现无需显式触发、不依赖手部运动信号、跨用户泛化的自主超量拇指辅助抓握。",
+      "tldr": "用简化动力学模型在线生成运动参考轨迹，再用全动力学模型训练全身跟踪控制器，在Unitree G1人形机器人上实现了从倒退、侧移、原地旋转到单腿跳跃的统一控制，所有动作共享同一个参考策略和同一个跟踪策略。",
+      "claim": "通过解耦‘参考生成’与‘全身跟踪’两个阶段，并在简化动力学空间中学习命令条件化的参考生成器，可实现覆盖宽泛指令空间、多模态步态（含非稳态跳跃）且无需任务切换的统一人形运动控制。",
       "method_components": [
         "model",
-        "hardware",
-        "dataset",
-        "ui"
+        "policy",
+        "simulator",
+        "hardware"
       ],
-      "input": "掌心摄像头拍摄的egocentric RGB图像（含手部与目标物体）",
-      "output": "连续关节位置（3个自由度的拇指姿态）",
-      "novelty": 7,
+      "input": "高层运动指令（如纵向/横向/角速度目标值）",
+      "output": "全身关节角度、力矩及质心/角动量轨迹（供底层控制器执行）",
+      "novelty": 6,
       "evidence": 8,
-      "one_sentence_verdict": "显著贡献：真机可用、开源完整、泛化实证充分，但未突破超量辅助的底层感知-控制耦合瓶颈，仍属高质量工程整合",
+      "one_sentence_verdict": "工程整合：在真实G1机器人上验证了分阶段参考生成+全动力学跟踪的可行性与鲁棒性，但缺乏开源、基线对比和跨机体泛化证据，未构成范式创新。",
       "deep": {}
     }
   ]

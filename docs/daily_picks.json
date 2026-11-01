@@ -13431,6 +13431,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-11-01": [
+      {
+        "arxiv_id": "2610.38388",
+        "title": "ELEVATE: Agentic Controller Acquisition from Task Failure for Quadrupedal Manipulation",
+        "published": "2026-10-28",
+        "first_seen": "2026-11-01",
+        "url": "https://arxiv.org/abs/2610.38388",
+        "pdf_url": "https://arxiv.org/pdf/2610.38388",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "卡内基梅隆大学",
+        "country": "US",
+        "significance": 93,
+        "significance_reason": "首次实现从失败驱动的全自动控制器生成闭环（失败检测→能力缺口诊断→RL问题构造→训练→验证→组合重试→实机零样本部署），在7个仿真任务中自主扩展能力边界，并在真实机器人上达成>90%成功率，证据链完整（多任务、多运行、消融隐含于baseline对比、实机验证），虽未达AlphaFold级范式颠覆，但已超越当前多数具身智能工作，逼近Ropedia W0/GR00T N1等基石工作的工程深度与迁移鲁棒性。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出ELEVATE框架，让四足机器人在任务失败时自动识别缺失的物理能力（比如靠墙抬升身体），然后由一个编程智能体自动生成并迭代优化强化学习任务，训练出新控制器，最终在仿真中自主学会多种全身操作能力，并直接迁移到真实四足机器人上完成货架取放任务，无需任何真实数据微调。",
+        "deep": {
+          "hook": "失败即指令：四足机器人自动从失败中诊断能力缺口、生成RL任务、训练新控制器并直上真机",
+          "why_now": "接续Ropedia/GR00T对‘能力可组合性’的探索，但首次将failure signal作为controller acquisition trigger，踩中具身智能从‘预设能力库’迈向‘自主能力生长’的关键转折点；同期工作多依赖人工定义能力边界或仿真-现实联合训练，ELEVATE反其道而行。",
+          "problem": "当前四足操作机器人受限于预置控制器库——任务规划器无法调用未被提前实现的物理能力（如靠墙抬升身体），导致任务失败后只能报错或重试，无法自主扩展能力边界；人工编写新控制器成本高、泛化差、难迁移。",
+          "method": "ELEVATE构建闭环：1）监控任务程序执行失败日志，用LLM-based coding agent分析失败根因（如‘末端执行器够不到货架上层’→推断需‘wall-supported elevation’能力）；2）该agent自动生成定制化RL任务（含行为奖励函数、分阶段curriculum、终止条件）；3）训练新策略并验证；4）将成功策略注入能力库，与原有控制器组合重试原任务；全程无需人工干预或真实数据。",
+          "results": "在7个仿真任务序列中，从仅1个预训练loco-manipulation控制器出发，自主习得wall-supported elevation、supported manipulation、wall descent等新能力；在5个超出初始控制器能力的任务上，5次独立运行平均成功率98.4%–100%；合成的任务程序+新控制器直接部署至真机，在rack retrieval（18/20）和floor-to-rack placement（16/20）中零样本达成>90%成功率。",
+          "limitations": "1）失败归因依赖LLM推理，摘要未提供归因准确率或错误案例分析，存在‘幻觉式能力诊断’风险；2）所有仿真结果基于单一simulator（未指明引擎名，但项目页显示为Isaac Gym），未测试跨仿真器泛化；3）真机仅验证2个任务，未覆盖所获全部3类新能力（如wall descent未见实机视频）。",
+          "significance_take": "显著推进‘具身能力自生长’路线：不是增量式微调，而是首次实现failure-driven、闭环可控、可组合、可迁移的能力获取范式；其‘编程智能体+RL问题生成’架构，为后续构建机器人版‘AutoML for control’提供了可复现的工程基线。",
+          "who_should_read": "做具身控制/任务规划/robotic RL的工程师应读——能直接复用其failure-triggered controller acquisition pipeline设计逻辑，并规避‘能力硬编码’陷阱。",
+          "verdict": "必读：它把‘失败’从调试副产品升格为能力演化的第一信号源，且证据链完整到可复现、可部署，是当前少有的‘理论动机-方法闭环-仿真验证-真机落地’四重达标的具身智能工作。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2610.40565",
+        "title": "Gym-Anything for Robotics: Scaling physical simulations with digital agents",
+        "published": "2026-10-29",
+        "first_seen": "2026-11-01",
+        "url": "https://arxiv.org/abs/2610.40565",
+        "pdf_url": "https://arxiv.org/pdf/2610.40565",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "未知（作者无明确机构署名，摘要未提所属单位；GitHub主页gym-anything.github.io无机构归属信息）",
+        "country": "unknown",
+        "significance": 88,
+        "significance_reason": "首次将仿真构建本身形式化为可自动化、可审计、可规模化的AI编码任务，而非工程劳动；RoboWorld覆盖经济关键场景且暴露SOTA模型根本性缺陷（0.06平均奖励），其‘失败即信号’的设计比单纯刷榜更深刻；提出的特权教师/自辅助学习等范式直击世界模型缺乏状态持久性、VLAs缺乏物理 grounding 的核心瓶颈，且全部开源可复现，属强推进型工作，但尚未验证sim2real迁移，故略低于DreamerV3/World Models级里程碑（95+）。",
+        "tier": "heavy",
+        "tldr": "用AI编程代理自动编写机器人仿真环境，基于经济价值（美国GDP数据）筛选任务，构建了25个仿真+175个训练/25个测试RL环境的RoboWorld基准，发现当前最先进模型在测试任务上几乎全失败（平均奖励仅0.06），并提出多种新学习范式（如特权教师、自辅助学习、代码生成演示）显著提升性能，全部开源。",
+        "deep": {
+          "hook": "用AI写仿真代码，按GDP选任务，造出25个高保真机器人仿真环境，SOTA模型全军覆没（平均奖励仅0.06）",
+          "why_now": "接续DreamerV3/World Models对世界建模的追求，但反向切入——不优化模型学仿真，而让AI自动构建更广、更真、更经济对齐的仿真本身；踩中‘仿真瓶颈’共识与‘AI编程代理爆发’双重趋势，且直击当前VLAs和世界模型在物理持久性与grounding上的实证短板。",
+          "problem": "现有机器人仿真（如DM Control、Meta-World）覆盖窄、人工编写成本高、与真实经济需求脱节；导致RL/VA/世界模型训练数据失真，泛化能力虚高；仿真构建长期被视作工程劳动，而非可自动化、可审计的AI任务。",
+          "method": "将仿真构建形式化为‘带约束的代码生成任务’：输入是自然语言任务描述+U.S. GDP行业权重+物理仿真质量标准（保真度/可控性/可观测性），输出是PyBullet/MuJoCo风格可运行Python仿真代码；引入对抗式‘创建-审计’循环，由独立审计代理验证每个仿真是否满足定义；最终产出RoboWorld基准（25个仿真母体+175训练/25测试RL环境）；并基于该基准提出特权教师（teacher读sim state实时指导student）、自辅助学习（模型回放自身privileged轨迹再蒸馏）、代码策略（生成跨场景演示代码供VLA训练）等新范式。",
+          "results": "RoboWorld含25个仿真母体，衍生175个训练与25个测试RL环境；SOTA模型（摘要明确提及π₀.₅等前沿VLA）在全部25个测试任务上失败，平均奖励仅0.06；特权教师、自辅助学习、代码策略等方法均‘substantially improves performance’（摘要原文定性）；全部代码、模型、数据开源可复现。",
+          "limitations": "纯仿真环境（sim-only），未报告任何sim2real迁移实验或真实机器人验证；未提供消融研究（如各学习范式单独贡献度、审计模块有效性验证）；RoboWorld任务虽按GDP筛选，但未说明是否覆盖长尾物理现象（如粘性流体、非线性接触磨损、多材质摩擦耦合）；‘0.06平均奖励’未给出基线对比（如随机策略或经典控制器表现），削弱失败归因力度。",
+          "significance_take": "范式级推进：首次将‘仿真基建构建’从手工劳动升维为AI可执行、可审计、可规模化的认知任务，把世界模型的‘输入端’问题前置解决；其‘失败即信号’设计比刷榜式benchmark更具诊断力，迫使社区正视物理grounding与状态持久性的根本缺口。",
+          "who_should_read": "做世界模型、VLAs、仿真强化学习的研究者，能直接拿走可复现的RoboWorld基准、特权教师实现模板、以及‘用AI建仿真’的方法论框架。",
+          "verdict": "必读——它不只发布一个新benchmark，而是宣告‘仿真即代码’的新基建范式已落地，且用硬核失败数据戳破当前SOTA的幻觉泡沫。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2610.33584",
+        "title": "HA-DiPO: Diffusion Policy Optimization for Heterogeneous Cooperative Transport",
+        "published": "2026-10-24",
+        "first_seen": "2026-10-30",
+        "url": "https://arxiv.org/abs/2610.33584",
+        "pdf_url": "https://arxiv.org/pdf/2610.33584",
+        "thumb": "",
+        "venue": "RA-L",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "浙江大学/意大利那不勒斯腓特烈二世大学（联合主导，第一作者Xuebin Li为浙大，通讯作者Bruno Siciliano为那不勒斯大学；摘要未提工业界合作，但Siciliano团队长期与IIT等机构深度合作；综合判断以浙大为最主要署名单位）",
+        "country": "CN",
+        "significance": 78,
+        "significance_reason": "真机验证覆盖异构机体（四足+轮式+人）、跨形态协同、无通信架构，且高层扩散策略带来可解释的多模态协调行为；但未开源代码/模型，未报告消融实验细节，未在标准benchmark（如Multi-Agent MuJoCo Transport）上横向对比，也未证明对未知载荷/地形/机体组合的泛化能力，因此强于一般增量工作，但未达RT-2/LAW级范式突破",
+        "tier": "heavy",
+        "tldr": "提出一种分层多智能体强化学习框架HA-DiPO，让腿足机器人和轮式机器人（甚至人）能不依赖通信、不依赖对方状态，仅靠本地观测就协作搬运不稳定共享载荷，高层用扩散策略建模多模态协调动作，底层用鲁棒运动控制器跟踪指令，在仿真中超越基线，并在真实四足+轮式机器人及人-机器人场景中成功验证。",
+        "deep": {
+          "hook": "不通信、不看队友状态、不靠演示，四足+轮式机器人就能稳搬共享载荷",
+          "why_now": "继RT-2、LAW等端到端具身大模型后，该工作直击多智能体协同中‘异构’与‘去中心化’两大现实瓶颈——恰逢ICRA 2024多篇工作聚焦无通信协作，且Siciliano团队近年持续推动‘可解释分层控制’范式，本工作是该脉络下首个在真机验证跨形态（腿+轮+人）协同的RL方案",
+          "problem": "异构机器人（如四足与轮式）协同搬运时，运动模态差异大、动力学不匹配；传统方法依赖显式通信、伙伴状态估计或预设协调协议，导致鲁棒性差、部署难、泛化弱；而端到端联合策略又难以解耦协调意图与本体执行，易在sim2real中崩溃",
+          "method": "提出分层框架HA-DiPO：高层用扩散策略（非单高斯）建模多模态协调动作（如‘加速+转向’或‘减速+抗扭’两种合理响应），仅输入本地本体状态+载荷状态；底层用独立鲁棒运动控制器（如QP-based或learned low-level policy）跟踪高层指令；训练采用CTDE，但高层策略完全去中心化执行——每个机器人只用自己观测生成协调命令，不接收任何伙伴信息",
+          "results": "仿真中相比基线（如MAPPO、MADDPG）取得更高最终平均回报、更高速度跟踪成功率、更低速度误差；真机验证覆盖两个场景：1）Unitree A1四足 + TurtleBot3轮式机器人协同搬运；2）人类操作者与A1四足机器人手-足协同搬运；摘要明确提及‘real-world experiments further demonstrate’，但未给出具体成功率/误差数值",
+          "limitations": "未开源代码或模型；未报告任何消融实验（如扩散策略vs高斯策略、分层结构vs端到端、本地观测vs伪伙伴状态输入的影响）；未在标准多智能体benchmark（如Multi-Agent MuJoCo Transport）上横向对比；所有真实实验均为固定载荷/平整地面/预设起始位姿，未测试未知质量、倾斜地形或新增机体类型（如无人机加入）下的泛化能力",
+          "significance_take": "显著推进‘分层解耦+扩散建模’这一具身协同新路线：它不是端到端黑箱，也不是手工规则堆砌，而是用扩散策略为高层协调注入可解释的多模态性（如不同地形触发不同协作模式），同时保留底层运动控制的领域知识鲁棒性——这是对‘LLM for Robotics’之外另一条务实路径的有力实证",
+          "who_should_read": "做多机器人协同、分层强化学习或sim2real迁移的研究者，能直接复用其‘本地观测驱动扩散协调’设计范式与真机部署链路",
+          "verdict": "必读——它是少有的将扩散策略真正嵌入具身多智能体闭环、且跨越仿真-真机-异构-人机四重边界的扎实工作，虽缺消融与开源，但技术选型清醒、验证维度丰富，代表当前分层协同RL的SOTA实践水位",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -13861,6 +13953,7 @@
     "2610.31762",
     "2610.31779",
     "2610.33446",
+    "2610.33584",
     "2610.34356",
     "2610.34370",
     "2610.35817",
@@ -13871,8 +13964,10 @@
     "2610.37543",
     "2610.37652",
     "2610.37666",
+    "2610.38388",
+    "2610.40565",
     "2610.40614"
   ],
-  "latest": "2026-10-31",
-  "generated_at": "2026-10-31 07:02 UTC"
+  "latest": "2026-11-01",
+  "generated_at": "2026-11-01 07:36 UTC"
 }
