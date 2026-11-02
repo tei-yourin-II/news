@@ -13523,6 +13523,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-11-02": [
+      {
+        "arxiv_id": "2610.40799",
+        "title": "CaPtain: A Pipeline for Post-Training Code-as-Policy Robot Agents",
+        "published": "2026-10-29",
+        "first_seen": "2026-11-02",
+        "url": "https://arxiv.org/abs/2610.40799",
+        "pdf_url": "https://arxiv.org/pdf/2610.40799",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "智元",
+        "country": "CN",
+        "significance": 92,
+        "significance_reason": "首次实现小开源VLM在纯仿真后端训练下，全面超越闭源前沿模型代理（如GPT-4o/Claude-based CaP agents）在LIBERO-PRO和CaP-Bench上的表现，并完成跨平台（WidowX）、跨扰动（3套）、跨仿真-真机的鲁棒部署，且提供完整物理感知增强的RL机制（物理critic）与可复现全栈工具链，实质性降低CaP范式门槛，逼近RT-2级范式迁移价值。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出CaPtain流程，把一个小的开源视觉语言模型（Qwen3.5-4B）通过监督微调+多轮强化学习，训练成能直接写代码调用机器人API执行操作的‘代码即策略’代理，在多个仿真基准（LIBERO、SimplerEnv、CaP-Bench）上达到甚至超过闭源大模型代理的效果，且全程不依赖VLAs、前沿大模型或真实机器人数据，最后还在真机上部署成功。",
+        "deep": {
+          "hook": "用4B开源VLM+纯仿真RL，干翻GPT-4o/Claude的CaP代理，真机直跑",
+          "why_now": "恰逢CaP范式从‘调大模型API’转向‘端到端训练小模型’的关键拐点；此前工作（如RT-2 Code、VoxPoser、OpenHands-CaP）均依赖闭源模型或VLAs，CaPtain首次证明小VLM可独立胜任全栈CaP闭环",
+          "problem": "现有CaP代理本质是prompt工程或VLA封装器，无法泛化、难调试、不可复现；小开源VLM在CaP任务上零样本失败，主因缺乏对机器人物理动态与API副作用的建模能力，且标准RL信用分配机制在长链代码执行中完全失效",
+          "method": "提出CaPtain-Harness统一接口层，暴露感知/几何/运动原语；用GPT-6 Astra合成SFT数据（非人工标注）；设计物理critic——仅在训练时读取simulator特权状态（如物体位姿、接触力），反向计算每行代码对成功概率梯度，实现跨多步的精准信用分配；全程不接触真实机器人数据，不调用任何VLA或闭源模型",
+          "results": "Qwen3.5-4B经SFT达55.4% LIBERO零样本成功率，RL后升至73.8%；LIBERO-PRO达78.5%，超GPT-4o/Claude基线；在3套扰动测试中RL增益+17.6~+21.2点；SimplerEnv WidowX达83.3%；CaP-Bench超越前沿模型；真机部署成功（WidowX）",
+          "limitations": "物理critic依赖simulator特权状态（如精确物体位姿），在真实世界无法直接复用，sim2real迁移未说明是否需额外微调；所有结果基于GPT-6 Astra生成的合成SFT数据，其分布偏差与错误注入方式未公开评估；未报告推理延迟、代码生成长度分布或API调用失败率等工程关键指标",
+          "significance_take": "显著推进CaP范式：从‘大模型即策略’转向‘可训练小模型即策略’，且首次验证物理感知增强的RL机制对长程代码策略的有效性，逼近RT-2级范式迁移价值——因它证明了小模型+结构化RL+物理先验=可部署的具身策略，而非仅靠scaling law",
+          "who_should_read": "做CaP/具身Agent的工程师应读，能直接复用CaPtain-Harness接口设计、物理critic实现与合成数据构建逻辑",
+          "verdict": "必读——它是首个把‘小VLM+纯仿真RL+真机部署’闭环走通的CaP工作，所有组件开源，且指标全面碾压闭源基线，不是demo而是可复现的工程方案",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2610.37806",
+        "title": "TACOS: Terrain-Aware COntact Supervision for Visual Footstep Planning",
+        "published": "2026-10-27",
+        "first_seen": "2026-11-02",
+        "url": "https://arxiv.org/abs/2610.37806",
+        "pdf_url": "https://arxiv.org/pdf/2610.37806",
+        "thumb": "",
+        "venue": "ICRA 2027",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "拉瓦尔大学",
+        "country": "CA",
+        "significance": 78,
+        "significance_reason": "真机部署+跨场景（森林/泥地/植被/障碍物）验证+多指标碾压SOTA+开源完整数据与代码+消融明确（硬/软score对比+上下文增强），但未扩展至多机体/用户/任务，也未构建通用世界模型或动作策略，属具身智能中‘感知-行动闭环’关键环节的重大工程突破，尚未达RT-2级范式变革量级。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出了一种叫TACOS的新监督信号，用腿式机器人状态估计中因子图残差来定义脚踩地面是否不稳，并把这种连续不稳定性分数映射回历史图像，用来训练视觉模型预测每一步的稳定性；它在真实地形（泥地、植被、树枝）上实现了无需几何建模的步态规划。",
+        "deep": {
+          "hook": "用因子图残差定义‘踩下去会不会打滑’，再反向监督视觉模型——真机实测泥地/植被/树枝全扛住",
+          "why_now": "继RT-2、VoxPoser等‘世界模型+规划’范式后，本文直击具身智能落地卡点：真实非结构化地形中‘视觉-接触’闭环缺乏可靠监督信号；同期工作多依赖仿真或人工标注，TACOS首次用状态估计内生残差构建可部署、可解释、无需几何建模的连续监督信号",
+          "problem": "现有视觉步态规划器依赖人工设计的监督信号（如二值接触/深度不连续），无法刻画‘软性不稳’（如泥地沉陷、苔藓打滑）；这些信号与真实机器人接触动力学脱节，导致模型在真实复杂地形上泛化差、误判率高。",
+          "method": "核心是把腿式机器人状态估计中因子图优化后的残差（反映运动模型与传感器观测不一致程度）作为地面接触不稳定性的真实代理；再将该残差沿运动轨迹反向投影到历史RGB图像帧上，生成像素级连续不稳定性热图；训练视觉编码器（ViT+U-Net）预测该热图，支持硬（回溯式）和软（在线因果式）两种部署模式。",
+          "results": "在1716个手动标注的真实接触样本上，TACOS硬/软分数检测不稳定性AUC超所有基线，严重性排序（pooled severity ranking）提升28%；3段户外测试中，其训练的视觉预测器rank correlation比最强基线高58%，加装上下文增强后进一步提升25%；50米森林真机轨迹中成功规避 fallen branches 并稳定通过 mud/vegetation 区域。",
+          "limitations": "仅验证于单台四足机器人（ANYmal）；未测试跨机体泛化（如双足/轮腿）；监督信号依赖高质量因子图状态估计（需IMU+关节编码器+良好初始化），在剧烈扰动或传感器失效时残差可能失真；未提供计算延迟或实时性指标，软分数的‘因果性’未在高速动态场景中验证。",
+          "significance_take": "属感知-行动闭环的关键工程突破：它没有追求通用世界模型，而是精准锚定‘接触稳定性’这一具身决策最脆弱环节，用状态估计内生信号替代人工启发式，为视觉-触觉-本体感知联合建模提供了可复现、可解释、可部署的新范式，是迈向鲁棒野外导航的必要中间件。",
+          "who_should_read": "做腿式机器人步态规划、视觉地形分类、sim2real迁移的研究者与工程师——能直接复用其监督构造逻辑、数据标注协议与真机评估框架。",
+          "verdict": "必读：它用严谨的状态估计理论解决了长期被忽视的监督信号可信度问题，且所有结论均基于真实数据与真机验证，不是‘仿真漂亮、现实趴窝’的典型论文。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2610.39798",
+        "title": "Surrogate Uncertainty for Black-box Visual Grounding",
+        "published": "2026-10-29",
+        "first_seen": "2026-11-02",
+        "url": "https://arxiv.org/abs/2610.39798",
+        "pdf_url": "https://arxiv.org/pdf/2610.39798",
+        "thumb": "",
+        "venue": "CoRL 2026",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "新加坡国立大学",
+        "country": "SG",
+        "significance": 78,
+        "significance_reason": "首次将代理贝叶斯不确定性分解（aleatoric/epistemic）系统引入黑盒VLM视觉指代任务，实现在真实Fetch机器人上的主动交互部署，有跨任务/场景泛化验证和消融，但未开源代码模型，且未挑战VLM底层架构或构建新基础模型，属扎实的重大工程+理论整合，未达RT-2级范式突破，但显著优于纯仿真或纯离线不确定性校准工作。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出一种不依赖黑盒视觉语言模型（VLM）自身输出的外部代理不确定性估计方法，用贝叶斯方式在小规模校准集上局部建模VLM预测的随机性（aleatoric）和认知性（epistemic）不确定，并支持与共形预测或规划结合，让机器人在视觉指代任务中主动提问或调整动作以提升鲁棒性。",
+        "deep": {
+          "hook": "首次用外部代理贝叶斯模型分解黑盒VLM的aleatoric/epistemic不确定性，真机上实现可行动的视觉指代鲁棒决策",
+          "why_now": "紧接2024–2025年VLM部署热潮（如RT-2、PaLI-X落地）与不确定性校准反思潮（ICLR'25多篇质疑VLM自带置信度），填补‘黑盒VLM不可信→但又不能重训’这一工程刚需空白",
+          "problem": "黑盒VLM（如LLaVA、Qwen-VL）在视觉指代中输出的不确定性（如logit熵、token prob）与其预测共享参数与偏差，无法区分是数据噪声（aleatoric）还是模型无知（epistemic）；导致机器人盲目执行或过度保守，缺乏可解释、可干预的鲁棒性机制。",
+          "method": "不触碰VLM内部：将VLM预测视为观测值，用轻量级代理贝叶斯模型（基于高斯过程+模态对齐嵌入）在输入联合空间（语言+图像特征）中构建局部邻域，仅用小规模校准集（未说明具体数量，摘要未给）估计两类不确定性；通过分层跨模态检索压缩邻域维度；输出可直接接入共形预测（生成可靠定位框）或规划器（触发提问/移动）。",
+          "results": "在多个视觉指代benchmark（摘要未列具体名，仅称‘grounding benchmarks’）和SOTA VLMs上提升校准性（calibration）与任务性能（task performance）；在真实Fetch机器人上验证开放世界指令下的主动交互能力，支持‘自信执行’与‘信息采集’间的可解释权衡（摘要未给数值，仅定性描述‘substantially improving robustness’）。",
+          "limitations": "未开源代码/模型，复现门槛高；校准集规模、构造方式、邻域半径等关键超参未披露，消融实验未说明是否验证了aleatoric/epistemic分解的必要性；所有实证均未挑战VLM底层（如未测试不同VLM间迁移性），泛化边界模糊。",
+          "significance_take": "属显著推进型工作：它跳出了‘修VLM输出’或‘纯仿真不确定性’的旧路径，确立了‘代理不确定性建模→可行动接口’这一新工程范式，为黑盒大模型在具身系统中的安全集成提供了首个可部署、可解耦、可组合的不确定性基础设施。",
+          "who_should_read": "做VLM机器人部署的工程师读它能立刻拿到一套免改VLM、真机可用的不确定性封装方案；做不确定性研究者读它可获得黑盒场景下贝叶斯分解的实操约束与设计权衡。",
+          "verdict": "必读——它是当前唯一将贝叶斯不确定性分解从理论定义落地到真实机器人主动交互的完整闭环，且所有组件均服务于可部署性，不是论文玩具。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -13964,10 +14056,13 @@
     "2610.37543",
     "2610.37652",
     "2610.37666",
+    "2610.37806",
     "2610.38388",
+    "2610.39798",
     "2610.40565",
-    "2610.40614"
+    "2610.40614",
+    "2610.40799"
   ],
-  "latest": "2026-11-01",
-  "generated_at": "2026-11-01 07:36 UTC"
+  "latest": "2026-11-02",
+  "generated_at": "2026-11-02 07:47 UTC"
 }
