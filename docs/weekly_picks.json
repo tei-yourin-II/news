@@ -1,8 +1,8 @@
 {
   "week": {
-    "start": "2026-11-02",
-    "end": "2026-11-08",
-    "label": "11.02~11.08"
+    "start": "2026-11-03",
+    "end": "2026-11-09",
+    "label": "11.03~11.09"
   },
   "count": 15,
   "venue_count": 6,
@@ -11,7 +11,7 @@
     "NeurIPS 2026",
     "RA-L"
   ],
-  "generated_at": "2026-11-08 07:37 UTC",
+  "generated_at": "2026-11-09 08:11 UTC",
   "picks": [
     {
       "rank": 1,
@@ -172,83 +172,6 @@
     },
     {
       "rank": 5,
-      "arxiv_id": "2611.03815",
-      "title": "AIRoA-0: Long-Horizon, Precise, Cross-Embodiment Manipulation from Handheld Data",
-      "published": "2026-11-02",
-      "url": "https://arxiv.org/abs/2611.03815",
-      "pdf_url": "https://arxiv.org/pdf/2611.03815",
-      "thumb": "",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "AIRoA",
-      "country": "JP",
-      "org_type": "institute",
-      "significance": 94,
-      "significance_reason": "首次实现完全脱离机器人硬件闭环的数据采集范式（手持gripper→真机部署），规模达16k+小时、覆盖10+长程多阶段任务、跨4种异构双臂平台实测部署，成功率78%显著超越SOTA VLA基线（27%），且全栈开源（硬件/数据/模型/微调流程），实质性推动‘人类中心数据驱动具身智能’新范式，接近RT-2级范式突破但尚未覆盖更广物理世界建模维度。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "open-source",
-        "dataset",
-        "real-robot",
-        "cross-embodiment",
-        "large-scale"
-      ],
-      "tldr": "用16151小时普通人手持开源 gripper（YUBI）录制的视频数据，训练出一个不依赖任何机器人数据、不需强化学习或遥操作、纯靠视觉-语言-动作建模的通用操作模型AIRoA-0，能在没见过的场地用多种真实双臂机器人（Franka/UR等）完成十余种长程精细操作任务，平均成功率78%，远超其他VLA模型。",
-      "claim": "仅靠大规模手持式人类操作视频（无机器人数据、无RL、无teleop），可训练出跨机体、长时序、高精度的具身操作策略，且具备强泛化性与即插即用部署能力。",
-      "method_components": [
-        "model",
-        "dataset",
-        "hardware",
-        "benchmark"
-      ],
-      "input": "双腕摄像头RGB视频流 + 自然语言指令",
-      "output": "连续动作流（6D末端位姿+夹爪开合）",
-      "novelty": 9,
-      "evidence": 11,
-      "one_sentence_verdict": "真突破：它把‘人类随手录、机器直接干’从设想变成可复现、可部署、跨机体的工程现实，且证据链完整扎实。",
-      "deep": {}
-    },
-    {
-      "rank": 6,
-      "arxiv_id": "2611.02497",
-      "title": "RoboColosseum: Evaluating Physical Intelligence at Scale In-The-Wild",
-      "published": "2026-11-02",
-      "url": "https://arxiv.org/abs/2611.02497",
-      "pdf_url": "https://arxiv.org/pdf/2611.02497",
-      "thumb": "",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "未知（作者无明确机构署名，摘要未提所属单位；虽有中文名作者但无法确认归属清华/港科/南洋理工等；arXiv未标注affiliation）",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 87,
-      "significance_reason": "这是首个在百级真实机器人节点、四类异构本体、开放环境条件下完成的大规模物理智能盲评测工作，用硬数据证伪了‘VLA开箱即用’的流行假设，揭示了跨本体泛化失效、微调不可预测、任务成功指标失真等关键问题——证据强度（5699次实机pairwise对比+细粒度进展测量+主动匹配采样验证）远超多数benchmark论文，接近RT-2级工作的实证严谨性，但尚未提出新模型或新训练范式，故略低于RT-2（97）和LAW（96.5）。",
-      "tier": "heavy",
-      "grade": "B",
-      "tags": [
-        "benchmark",
-        "real-robot",
-        "large-scale"
-      ],
-      "tldr": "这篇论文搭建了一个叫RoboColosseum的分布式真实机器人评测网络，在124个不同地点、4种机器人本体上，对5个VLA模型和3个前沿AI智能体进行了大规模物理世界盲测与微调评测，发现当前模型跨本体泛化能力极弱、开箱即用性能与微调后性能几乎无关、任务成功率掩盖了实际进展差异。",
-      "claim": "分布式、多地点、多本体的真实机器人物理智能评测框架能揭示当前VLA政策在泛化性、可适配性与进展度量上的系统性缺陷，而传统单点仿真或封闭实验室评测会严重高估其能力。",
-      "method_components": [
-        "benchmark",
-        "dataset",
-        "policy"
-      ],
-      "input": "视觉-语言指令（VLA输入）+本地环境观测（RGB+可能深度/状态）",
-      "output": "机器人动作序列（执行结果），以及量化指标：任务成功与否、部分进展百分比、 pairwise 胜率、Kendall一致性系数",
-      "novelty": 8,
-      "evidence": 11,
-      "one_sentence_verdict": "真突破：不是靠新算法，而是用前所未有的物理规模与协议严谨性，首次系统性戳破VLA领域关键幻觉，为整个具身智能评测范式立下新基线。",
-      "deep": {}
-    },
-    {
-      "rank": 7,
       "arxiv_id": "2611.05113",
       "title": "HLO-AMP: Hierarchical Loco-Manipulation from Object-Aware Motion Priors",
       "published": "2026-11-03",
@@ -288,46 +211,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
-      "arxiv_id": "2611.02341",
-      "title": "AgiWorld: An Agentic Video World Model for Building Persistent Worlds",
-      "published": "2026-11-02",
-      "url": "https://arxiv.org/abs/2611.02341",
-      "pdf_url": "https://arxiv.org/pdf/2611.02341",
-      "thumb": "",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": "浙江大学",
-      "country": "CN",
-      "org_type": "university",
-      "significance": 93,
-      "significance_reason": "达到WorldStream（95.8）和WEAVER（94.5）同量级：首次在视频世界建模中实现分钟级闭环持久化（非帧堆叠）、显式空间记忆管理、遮挡感知的历史检索与可靠性驱动的记忆更新，并在world revisiting/exploration双基准上SOTA；但尚未部署到物理系统或接入真实传感器，未覆盖多智能体协同或长期记忆衰减建模等更深层持久性挑战。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "sim2real",
-        "benchmark",
-        "large-scale"
-      ],
-      "tldr": "这篇论文提出AgiWorld，一个能从单张图片和自然语言指令出发，通过智能体（agent）与视频世界模型（WM）闭环协作，逐步生成并维护一个几何一致、可回访的持久化3D视频世界，核心创新是用空间记忆+可靠性感知机制解决长程生成中的遮挡与几何漂移问题。",
-      "claim": "持久化视频世界不能仅靠更强的视频生成模型实现，而必须通过智能体规划与视频世界模型在共享空间记忆上的闭环交互来达成。",
-      "method_components": [
-        "model",
-        "simulator",
-        "policy",
-        "benchmark"
-      ],
-      "input": "单张RGB图像 + 自由形式的中文/英文文本指令 + 用户指定的相机运动轨迹（metric尺度）",
-      "output": "分钟级连续视频序列 + 对应的隐式/显式几何表示（存于空间记忆中） + 可查询的世界状态图",
-      "novelty": 8,
-      "evidence": 9,
-      "one_sentence_verdict": "真突破：它不是把现有视频扩散模型加个prompt wrapper，而是重构了世界建模的信息流闭环——用agent做状态管理者、WM做执行器、空间记忆做唯一真相源，解决了此前所有视频世界模型无法维持几何一致性的根本缺陷。",
-      "deep": {}
-    },
-    {
-      "rank": 9,
+      "rank": 6,
       "arxiv_id": "2611.08338",
       "title": "GPWM: Modeling the World as 3D Particle Motion",
       "published": "2026-11-05",
@@ -365,7 +249,7 @@
       "deep": {}
     },
     {
-      "rank": 10,
+      "rank": 7,
       "arxiv_id": "2611.04391",
       "title": "Human-to-Robot Transfer via Bridging Representation and Action Space in VLAs",
       "published": "2026-11-03",
@@ -403,46 +287,7 @@
       "deep": {}
     },
     {
-      "rank": 11,
-      "arxiv_id": "2611.02777",
-      "title": "Beyond Policy Patches: Distilling RL Specialists into Vision-Language-Action Policies",
-      "published": "2026-11-02",
-      "url": "https://arxiv.org/abs/2611.02777",
-      "pdf_url": "https://arxiv.org/pdf/2611.02777",
-      "thumb": "",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "清华",
-      "country": "CN",
-      "org_type": "university",
-      "significance": 87,
-      "significance_reason": "在真实机器人上完成6个跨类型精细操作任务（含插孔、拧盖、穿针等），100%成功率+更低jerk，且消融验证了价值加权分布与两阶段训练缺一不可；虽未开新范式，但显著突破了VLA在precision-critical阶段的可靠性瓶颈，证据强度接近RT-2级工程落地水准，但理论深度略逊于LAW/VioLA等统一建模范式工作。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "sim2real",
-        "real-robot",
-        "multimodal-fusion"
-      ],
-      "tldr": "这篇论文解决了视觉-语言-动作（VLA）策略在精细操作阶段容易失败的问题，提出REPAIR框架，用轻量级RL专家模型生成带价值加权的动作分布，蒸馏进单一流匹配VLA模型中，最终在6个真实机器人任务上实现100%成功率，且动作更平滑，部署时无需专家模型或切换逻辑。",
-      "claim": "通过价值引导的分阶段蒸馏（离线初始化+在线精调），可将多个RL专家的能力无损注入单一流匹配VLA策略，消除部署时的辅助控制器和模式切换，同时提升精度、鲁棒性与动作质量。",
-      "method_components": [
-        "model",
-        "dataset",
-        "policy",
-        "benchmark",
-        "hardware"
-      ],
-      "input": "RGB图像+自然语言指令",
-      "output": "连续动作向量（end-effector位姿变化）",
-      "novelty": 8,
-      "evidence": 11,
-      "one_sentence_verdict": "真突破：首次在真实机器人上实现VLA模型对RL专家能力的端到端无切换蒸馏，解决长期存在的‘长程泛化强、短程精度弱’矛盾，且所有结果均来自实机多轮验证，非仿真补丁。",
-      "deep": {}
-    },
-    {
-      "rank": 12,
+      "rank": 8,
       "arxiv_id": "2611.07417",
       "title": "MessyNav: Zero-Shot Navigation via Manipulation in Messy Environments",
       "published": "2026-11-05",
@@ -478,7 +323,7 @@
       "deep": {}
     },
     {
-      "rank": 13,
+      "rank": 9,
       "arxiv_id": "2611.08407",
       "title": "Social Humanoid: Socially Responsive Human-Humanoid Interaction",
       "published": "2026-11-05",
@@ -519,7 +364,7 @@
       "deep": {}
     },
     {
-      "rank": 14,
+      "rank": 10,
       "arxiv_id": "2611.04477",
       "title": "Spectrally Routed Diffusion Policy for Multi-Task Robotic Manipulation",
       "published": "2026-11-03",
@@ -556,7 +401,7 @@
       "deep": {}
     },
     {
-      "rank": 15,
+      "rank": 11,
       "arxiv_id": "2611.04166",
       "title": "Say the Same, Act Differently: Diagnosing and Steering Text-Action Divergence in Reasoning VLAs",
       "published": "2026-11-03",
@@ -590,6 +435,163 @@
       "novelty": 8,
       "evidence": 9,
       "one_sentence_verdict": "真突破——不是改进模型，而是戳破了整个VLA可解释性安全范式的底层幻觉，证据充分、问题致命、影响深远",
+      "deep": {}
+    },
+    {
+      "rank": 12,
+      "arxiv_id": "2611.08097",
+      "title": "STEP: Spatiotemporal Training with Explicit Prediction for Perceptive Humanoid Locomotion",
+      "published": "2026-11-05",
+      "url": "https://arxiv.org/abs/2611.08097",
+      "pdf_url": "https://arxiv.org/pdf/2611.08097",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "智元",
+      "country": "CN",
+      "org_type": "company",
+      "significance": 82,
+      "significance_reason": "真机部署覆盖5类高难度地形且成功率98%，含视觉受限（深度丢弃/延迟）下的鲁棒验证；提出‘策略空间内EMA目标’的动作演化监督机制，区别于常规状态预测；但未开源代码/模型，未提供跨机体迁移细节（如是否适配其他平台），也未与RT-2/VioLA等范式级工作在统一基准对比",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "sim2real",
+        "real-robot",
+        "large-scale"
+      ],
+      "tldr": "提出STEP框架，用双向掩码跨模态预测（深度↔本体感知）和动作条件下的策略状态演化预测，统一建模地形-身体动态耦合关系，在仿真中优于现有融合方法，并在Noetix E1人形机器人上完成98/100次高难度真实场景通行（楼梯、断崖、窄缝、倒退下楼等）",
+      "claim": "显式建模地形与机体状态的动作依赖性联合演化，比仅做特征聚合或同步跨模态预测更能提升具身感知型人形运动的鲁棒性与泛化性",
+      "method_components": [
+        "model",
+        "simulator",
+        "policy",
+        "hardware",
+        "benchmark"
+      ],
+      "input": "单帧深度图+本体感知信号（关节角、IMU、足底力）",
+      "output": "低维策略状态向量+下一时刻融合状态预测+动作输出",
+      "novelty": 7,
+      "evidence": 11,
+      "one_sentence_verdict": "重磅：真机多地形高成功率+新监督机制+消融充分，但开源缺失和跨平台证据不足，尚未达到RT-2级范式突破",
+      "deep": {}
+    },
+    {
+      "rank": 13,
+      "arxiv_id": "2611.05129",
+      "title": "WayTrace: A Map-to-Language-to-Trace Hierarchy for Embodied Urban Navigation",
+      "published": "2026-11-03",
+      "url": "https://arxiv.org/abs/2611.05129",
+      "pdf_url": "https://arxiv.org/pdf/2611.05129",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "苏黎世联邦理工学院",
+      "country": "EU",
+      "org_type": "university",
+      "significance": 82,
+      "significance_reason": "首次系统性打通‘Web地图→语言指令→图像轨迹→真实机器人运动’全链路，在真实城市多模态复杂场景（含楼梯、施工区）完成>1km部署级验证，有消融实验、多baseline对比（GNSS/point-goal/VLN）、百万级自动标注数据支撑，但未开源代码/模型，且trace预测模块未证明跨机体泛化能力，尚未达到RT-2级范式突破，属扎实重磅工程推进。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "sim2real",
+        "real-robot",
+        "large-scale"
+      ],
+      "tldr": "用网页地图导航指令作为输入，先通过大模型把文字指令转成原子级语言动作（如‘向左过马路’），再让轻量模型在实时图像上画出该动作对应的视觉轨迹（trace），最后用强化学习策略跟踪这条轨迹行走；在仿真和真实城市复杂场景（含红绿灯路口、楼梯、施工区）中完成超1公里长距离导航，显著优于GNSS依赖型和端到端VLA基线。",
+      "claim": "将公开Web地图服务的自然语言导航指令可靠地转化为机器人可执行的像素级视觉轨迹，并在多地形真实城市环境中实现鲁棒长程具身导航。",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "policy",
+        "benchmark",
+        "hardware"
+      ],
+      "input": "卫星地图+街景图像+网页端逐条步行导航文本指令",
+      "output": "图像坐标系中的二维轨迹点序列（trace）及对应机器人运动控制信号",
+      "novelty": 7,
+      "evidence": 10,
+      "one_sentence_verdict": "工程整合：把现有技术（VLM+RL+自动标注）在真实城市导航这一高难度任务上做到可部署、可复现、有量化优势，但非新范式或底层方法创新。",
+      "deep": {}
+    },
+    {
+      "rank": 14,
+      "arxiv_id": "2611.06564",
+      "title": "Playing Soccer Like Humans Do: Learning Versatile and Agile Humanoid Soccer via Latent Motion Priors",
+      "published": "2026-11-04",
+      "url": "https://arxiv.org/abs/2611.06564",
+      "pdf_url": "https://arxiv.org/pdf/2611.06564",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "清华大学",
+      "country": "CN",
+      "org_type": "university",
+      "significance": 82,
+      "significance_reason": "真机部署覆盖全链路足球技能（移动+控球+接触+切换），具备多任务鲁棒性与运动自然性双重实证；但运动先验构建未开源动捕数据处理pipeline，且未与VioLA等同源人类数据驱动方法做消融对比，未证明其先验结构设计优于简单运动编码器，故略低于VioLA（96.3）但显著高于纯仿真刷榜工作。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "dataset",
+        "multimodal-fusion"
+      ],
+      "tldr": "用人类足球动捕数据构建隐式运动先验，约束强化学习策略在自然运动流形内优化，让一个统一策略在仿真中学会跑、带球、停球、射门，并零样本迁移到Unitree G1人形机器人上完成真实足球动作。",
+      "claim": "通过从大规模人类足球动捕数据蒸馏出的结构化隐式运动先验，可使单一人形机器人策略在不牺牲运动自然性前提下，统一掌握动态连续的足球技能谱系，并实现零样本sim2real迁移。",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "input": "技能指令（如'dribble'）+机器人本体状态（关节角/角速度/IMU等）",
+      "output": "关节力矩控制指令（低层动作）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "真突破：首次在真实人形机器人上零样本实现人类级足球技能谱系的统一控制，运动质量与任务完整性均经实机验证，非概念包装。",
+      "deep": {}
+    },
+    {
+      "rank": 15,
+      "arxiv_id": "2611.04527",
+      "title": "Future Representation Distillation for Imagination-Free World Action Models",
+      "published": "2026-11-03",
+      "url": "https://arxiv.org/abs/2611.04527",
+      "pdf_url": "https://arxiv.org/pdf/2611.04527",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "world_model",
+      "org": "KAIST",
+      "country": "KR",
+      "org_type": "university",
+      "significance": 78,
+      "significance_reason": "在WAM范式中首次解耦‘预测’与‘生成’，用表征蒸馏替代迭代去噪，实证覆盖多任务、跨机体视频示范学习、11Hz真机闭环，且基于14B大模型；但未开源代码/模型，未报告消融实验细节，也未挑战长期状态建模或持久世界状态等基石工作核心难题，属扎实的重大工程改进而非范式突破。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "sim2real",
+        "dataset"
+      ],
+      "tldr": "这篇论文提出DreamFree，不用生成未来视频帧，而是把预训练视频扩散模型的‘未来预测能力’蒸馏成一个轻量视觉编码器，仅用当前观测就能提取出对动作决策有用的时间前瞻表征，从而实现高速、高成功率的机器人控制。",
+      "claim": "无需显式未来视频生成，即可将视频扩散模型的时序预测先验蒸馏为当前观测驱动的动作决策表征，显著提升世界动作模型（WAM）的实时性与泛化性。",
+      "method_components": [
+        "model",
+        "dataset",
+        "benchmark"
+      ],
+      "input": "当前RGB视频帧序列（短时序观测）",
+      "output": "机器人动作（离散或连续动作向量）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：将视频扩散模型的预测能力从生成路径转向表征路径，大幅提效并拓展了视频到动作的学习边界，但未触及世界模型持久状态、因果推理或在线记忆等根本挑战。",
       "deep": {}
     }
   ]
