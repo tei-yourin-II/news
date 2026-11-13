@@ -14535,6 +14535,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-11-13": [
+      {
+        "arxiv_id": "2611.10994",
+        "title": "RoboMoCap: A Large-Scale Whole-Body Motion Capture Dataset with Egocentric Vision for Robot Learning",
+        "published": "2026-11-07",
+        "first_seen": "2026-11-12",
+        "url": "https://arxiv.org/abs/2611.10994",
+        "pdf_url": "https://arxiv.org/pdf/2611.10994",
+        "thumb": "",
+        "venue": "Humanoids",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "英伟达",
+        "country": "US",
+        "significance": 82,
+        "significance_reason": "数据规模（200h/14人/6摄像头/120Hz动捕）、任务覆盖广度（地形穿越、约束导航、行进中操作等）和模态对齐精度均显著超越Prior egocentric datasets（如Ego4D、EPIC-Kitchens），且三个benchmark任务评估扎实（含foot contact estimation消融），但未开源代码/模型，也未在真实机器人上验证下游策略迁移效果，尚未达到GR00T或SuperMimic级的范式突破",
+        "tier": "heavy",
+        "tldr": "构建了一个大规模、高精度、多模态的人类全身运动捕捉数据集RoboMoCap，包含200+小时第一人称视角视频与120Hz光学动捕数据，专为解决人形机器人从人类演示中学习行走-操作协同行为提供基础数据支撑",
+        "deep": {
+          "hook": "首个专为机器人学习‘边走边干’设计的200小时全身动捕+六目第一人称视频数据集",
+          "why_now": "紧随GR00T、SuperMimic等具身模仿学习大模型热潮，但现有egocentric数据集（如Ego4D）严重缺失下肢高精度运动与足底接触信号——RoboMoCap直击loco-manipulation建模最大盲区",
+          "problem": "人形机器人从人类演示中学习‘行走中操作’面临双重瓶颈：1）第一人称视角看不见脚和地面交互；2）现有egocentric数据集无高保真光学动捕，无法提供足底接触、关节力矩、精确足位等机器人控制必需信号。",
+          "method": "用6目头戴RGB相机+双腕视觉/IMU+120Hz光学动捕（覆盖全身标记点，含足底传感器级对齐）同步采集14人200小时行为；任务设计强制暴露下肢动态——包括斜坡穿越、窄道转向、持物急停等；所有模态严格时间对齐，并提供可直接retarget到人形机器人的SMPL-X+contact标注格式。",
+          "results": "在三个benchmark上完成系统评估：1）egocentric full-body motion reconstruction（SOTA方法在该数据上误差仍达~8.2cm，暴露泛化瓶颈）；2）foot contact estimation（报告显著优于单目基线，但未给具体F1值）；3）human-to-humanoid retargeting（验证序列可在模拟器中驱动H1等模型完成地形穿越，摘要未提成功率或失败模式）。",
+          "limitations": "1）纯仿真验证：所有下游任务均在Isaac Gym/Mujoco中测试，零真实机器人部署结果；2）未开源代码/模型：仅提供数据下载页，无预处理pipeline、retargeting脚本或baseline训练配置，复现门槛极高；3）参与者仅14人、无跨年龄/体型/障碍物多样性说明，泛化边界不明。",
+          "significance_take": "属于关键基础设施级增量——不是范式突破（如GR00T的统一token化），但首次把‘足底接触+六目ego视觉+全身动力学’三要素拉齐到同一数据集，使loco-manipulation模仿学习从‘猜脚在哪’进入‘算脚怎么踩’阶段。",
+          "who_should_read": "做模仿学习、motion retargeting或egocentric perception的工程师，能直接拿去训foot contact detector或调优retargeting loss权重。",
+          "verdict": "必读——当前唯一能同时支撑下肢运动解耦建模与ego-vision联合优化的数据集，但务必搭配自建真机闭环验证，不可轻信仿真指标",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2611.13160",
+        "title": "How Much of Your VLA Is kNN",
+        "published": "2026-11-09",
+        "first_seen": "2026-11-13",
+        "url": "https://arxiv.org/abs/2611.13160",
+        "pdf_url": "https://arxiv.org/pdf/2611.13160",
+        "thumb": "",
+        "venue": "CoRL 2026",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "Serene AI",
+        "country": "US",
+        "significance": 78,
+        "significance_reason": "实证扎实：在统一基准（LIBERO/LIBERO-Plus）上系统评测9个公开VLA，揭示其行为本质是检索而非泛化；提出可解释、可优化的LAC指标并验证其预测性；全部代码/模型/数据开源；但未涉及真实机器人、未突破仿真边界、未构建新范式，属于对VLA机制理解的重大深化而非范式转移，略低于RT-2等96+分里程碑，但显著优于一般增量工作。",
+        "tier": "heavy",
+        "tldr": "这篇论文发现当前SOTA级视觉-语言-动作（VLA）模型在LIBERO仿真基准上的高成功率，其实主要靠近邻检索（kNN）复用训练演示的动作片段，而非真正学到了泛化策略；作者证明纯检索不训练策略就能达到91.7%成功率，且比所有微调VLA更鲁棒，并提出一个可离线计算的表示空间局部动作一致性指标LAC来量化并指导检索键的设计。",
+        "deep": {
+          "hook": "SOTA VLA模型在LIBERO上95%的成功率，本质是kNN检索而非泛化",
+          "why_now": "正值VLA领域从‘刷榜’转向机制反思的关键节点：RT-2/Act-1等模型引发范式争议，而本文首次系统证伪‘强泛化’叙事，直击当前评估体系盲区（未扰动、未解耦检索/建模）",
+          "problem": "LIBERO高成功率被默认归因于VLA的跨任务策略泛化能力，但缺乏对行为机制的归因分析；现有评估无法区分‘学到策略’和‘精准复用演示片段’；模型黑箱导致优化方向模糊。",
+          "method": "作者构建纯kNN检索基线：将测试观测嵌入到训练演示的表示空间中，直接复用最近邻演示对应的动作块（不训练任何策略）；提出LAC指标——计算每个训练样本邻域内动作序列的余弦相似度均值，完全离线、无需执行；用LAC指导检索键（vision-language encoder）的微调目标。",
+          "results": "纯kNN检索在LIBERO上达91.7%成功率；在LIBERO-Plus扰动下性能下降最小（摘要明确指出‘smallest drop’）；LAC与检索成功率强相关（摘要称‘tracks the success rate’）；9个公开VLA的微调结果均显示其动作输出与最近邻演示高度一致（摘要称‘actions remain close to the demonstrations’）。",
+          "limitations": "全部实验限于LIBERO/LIBERO-Plus仿真环境，无真实机器人验证；未测试非演示分布外任务（如全新物体/构型），泛化边界未界定；LAC仅在表示空间局部定义，未验证其在更高维或不同嵌入空间下的鲁棒性；未开源LIBERO-Plus具体扰动类型与强度细节（摘要未说明）。",
+          "significance_take": "属于重大深化型工作：不是新范式，但彻底重置了VLA评估与设计的认知基线——它证明当前SOTA的‘智能’主要来自检索保真度，而非策略抽象，迫使社区将‘解耦检索能力与泛化能力’列为首要方法论问题。",
+          "who_should_read": "所有VLA研究者和工程师该读，能立刻获得可复现的归因工具（LAC）、可靠的检索基线、以及评估报告中必须加入的消融维度。",
+          "verdict": "必读——它用极简实验戳破行业共识泡沫，提供的不是新模型，而是判断一切VLA工作的标尺。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2611.11123",
+        "title": "HARP-Bench: Benchmarking Robot Manipulation Around Active Humans",
+        "published": "2026-11-08",
+        "first_seen": "2026-11-12",
+        "url": "https://arxiv.org/abs/2611.11123",
+        "pdf_url": "https://arxiv.org/pdf/2611.11123",
+        "thumb": "",
+        "venue": "CoRL 2026",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "UMass Amherst",
+        "country": "US",
+        "significance": 78,
+        "significance_reason": "首次将‘主动人类’作为操纵任务的一等公民建模并结构化为可评测基准，实证揭示VLA策略在人类贡献/打断下的根本性脆弱性（非简单泛化失败），且提供可复现的仿真-真实闭环验证路径；但真实世界验证仅限1个任务族、未覆盖多机体/多用户/长期交互，尚未达到RT-2级范式突破或LAW级理论整合深度。",
+        "tier": "heavy",
+        "tldr": "这篇论文构建了一个专门评估机器人在有人类主动参与的共享工作空间中操作能力的基准测试HARP-Bench，定义了四种人类行为模式（提示、协作、打断、共在），提供仿真任务、动态演示生成流程，并在仿真和真实机器人上验证了现有VLA/模仿学习策略在此场景下的失败模式与改进潜力。",
+        "deep": {
+          "hook": "首个将‘主动人类’作为一等公民建模的机器人操纵基准HARP-Bench",
+          "why_now": "接续RT-2、OpenVLA等VLA范式热潮，直击其在真实人机共融场景中系统性失效的盲区；踩中具身智能从‘静态任务’迈向‘动态社会交互’的关键转折点。",
+          "problem": "现有操纵基准（如RT-X、Bridge）默认人类是静止背景或不存在，但现实中人类会提示、协作、打断、共在——这些主动行为改写任务语义、约束安全边界、破坏指令-动作映射，导致VLA策略在仿真中成功、在真人旁立即崩溃。",
+          "method": "提出四类人类角色化条件（Cueing/Contribution/Interruption/Co-presence），为每个标准操纵任务构造配对的‘有人类’变体；构建可复现的仿真环境（含参数化人类行为模型）+ 动态演示生成流水线；提供仿真数据集+1个真实任务族的sim2real闭环验证路径。",
+          "results": "在仿真中全面评测VLA/模仿学习/启发式策略：所有方法在人类存在时成功率显著下降，且高成功率不伴随高安全性；消融显示‘操纵执行’与‘失败后恢复’是两大瓶颈；用HARP-Bench数据训练后，仿真性能提升；真实世界验证覆盖1个任务族，证实人类贡献下性能改善，但中断场景未改善。",
+          "limitations": "真实验证仅限1个任务族（如‘递工具’），未覆盖多机器人、多用户、长期交互或跨任务泛化；人类行为模型为预设规则驱动，非学习型或真实人类轨迹驱动；未提供跨基准SOTA对比数值（如相对提升%），也未报告具体成功率/安全率绝对值。",
+          "significance_take": "显著推进——它不是增量补丁，而是首次将‘人类主动性’结构化为可测量、可复现、可归因的操纵问题维度，为后续工作建立不可绕过的评估坐标系；虽未达RT-2级范式整合，但填补了VLA向真实社会环境迁移中最关键的方法论缺口。",
+          "who_should_read": "做VLA、模仿学习或人机协作的研究者/工程师，能直接拿走可复现的基准框架、失败模式诊断模板和sim2real验证脚手架。",
+          "verdict": "必读——它用扎实的工程实现和清醒的问题界定，把一个被长期模糊处理的‘常识性挑战’变成了可攻可守的技术命题。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -15009,10 +15101,13 @@
     "2611.09892",
     "2611.10137",
     "2611.10771",
+    "2611.10994",
+    "2611.11123",
     "2611.11854",
     "2611.12870",
-    "2611.12885"
+    "2611.12885",
+    "2611.13160"
   ],
-  "latest": "2026-11-12",
-  "generated_at": "2026-11-12 08:52 UTC"
+  "latest": "2026-11-13",
+  "generated_at": "2026-11-13 08:17 UTC"
 }
