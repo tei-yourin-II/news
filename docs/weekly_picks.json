@@ -1,17 +1,17 @@
 {
   "week": {
-    "start": "2026-11-07",
-    "end": "2026-11-13",
-    "label": "11.07~11.13"
+    "start": "2026-11-08",
+    "end": "2026-11-14",
+    "label": "11.08~11.14"
   },
   "count": 15,
-  "venue_count": 7,
+  "venue_count": 6,
   "venues": [
     "CoRL 2026",
     "Humanoids",
     "ICRA 2027"
   ],
-  "generated_at": "2026-11-13 08:17 UTC",
+  "generated_at": "2026-11-14 08:00 UTC",
   "picks": [
     {
       "rank": 1,
@@ -133,80 +133,6 @@
     },
     {
       "rank": 4,
-      "arxiv_id": "2611.10994",
-      "title": "RoboMoCap: A Large-Scale Whole-Body Motion Capture Dataset with Egocentric Vision for Robot Learning",
-      "published": "2026-11-07",
-      "url": "https://arxiv.org/abs/2611.10994",
-      "pdf_url": "https://arxiv.org/pdf/2611.10994",
-      "thumb": "",
-      "venue": "Humanoids",
-      "domain": "embodied_ai",
-      "best_route": "whole_body_control",
-      "org": "英伟达",
-      "country": "US",
-      "org_type": "company",
-      "significance": 82,
-      "significance_reason": "数据规模（200h/14人/6摄像头/120Hz动捕）、任务覆盖广度（地形穿越、约束导航、行进中操作等）和模态对齐精度均显著超越Prior egocentric datasets（如Ego4D、EPIC-Kitchens），且三个benchmark任务评估扎实（含foot contact estimation消融），但未开源代码/模型，也未在真实机器人上验证下游策略迁移效果，尚未达到GR00T或SuperMimic级的范式突破",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "dataset",
-        "benchmark",
-        "multimodal-fusion"
-      ],
-      "tldr": "构建了一个大规模、高精度、多模态的人类全身运动捕捉数据集RoboMoCap，包含200+小时第一人称视角视频与120Hz光学动捕数据，专为解决人形机器人从人类演示中学习行走-操作协同行为提供基础数据支撑",
-      "claim": "RoboMoCap是首个系统覆盖多样化loco-manipulation行为、同步融合高保真光学动捕与六目头戴相机+手部IMU/Vision的egocentric whole-body motion dataset，填补了现有数据集在下肢运动建模与真实场景泛化能力上的关键空白",
-      "method_components": [
-        "dataset",
-        "benchmark"
-      ],
-      "input": "六目头戴RGB视频 + 双手腕视觉/IMU + 光学动捕标记点轨迹",
-      "output": "时间对齐的全身关节位姿（含足底接触状态）、脚部放置位置、可被retarget到人形机器人的运动序列",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合——高质量数据基建已到位，但缺乏下游机器人闭环验证与开源支持，尚未构成算法范式突破",
-      "deep": {}
-    },
-    {
-      "rank": 5,
-      "arxiv_id": "2611.10771",
-      "title": "WorldFoundry: Towards Unified Infrastructure for World Intelligence",
-      "published": "2026-11-07",
-      "url": "https://arxiv.org/abs/2611.10771",
-      "pdf_url": "https://arxiv.org/pdf/2611.10771",
-      "thumb": "",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "world_model",
-      "org": " unknown",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 78,
-      "significance_reason": "显著推进了世界模型领域的工程基座建设：提供首个覆盖多模态世界建模范式的统一评测框架，含270模型/74基准/62指标且全部带执行证据标记；但未解决‘如何建模持久状态’这一核心科学问题（如World Models/DreamerV3级的状态抽象机制），也未在真机或复杂仿真中验证闭环智能增益，属重磅工程整合而非理论或算法突破。",
-      "tier": "heavy",
-      "grade": "B",
-      "tags": [
-        "open-source",
-        "benchmark",
-        "dataset"
-      ],
-      "tldr": "这篇论文没有提出新模型或新算法，而是构建了一个名为WorldFoundry的开源基础设施系统，用于统一管理、运行、评估和比较各种世界模型（video/3D/4D/具身交互等），核心是标准化模型注册、执行契约、证据追踪和可复现评测流程。",
-      "claim": "世界智能的进步亟需统一、可验证、证据可追溯的基础设施，而非仅依赖单点模型创新；WorldFoundry通过显式契约、持久化工件管理和证据感知评分卡，首次系统性支撑对‘持久状态+可控动力学’这一世界模型核心能力的跨范式可复现评测。",
-      "method_components": [
-        "benchmark",
-        "dataset",
-        "simulator",
-        "ui"
-      ],
-      "input": "多模态输入（视频帧、3D场景、动作指令、交互事件等，由各适配器原生支持）",
-      "output": "时序一致的预测轨迹（视频/3D/4D/动作序列）、状态演化图、证据感知评分卡（含执行就绪度与评测有效性分离标记）",
-      "novelty": 7,
-      "evidence": 9,
-      "one_sentence_verdict": "工程整合：它把散落的世界模型研究拧成一股可测量、可追溯、可比较的工程流，但没回答‘世界模型该怎么建’这个根本问题。",
-      "deep": {}
-    },
-    {
-      "rank": 6,
       "arxiv_id": "2611.13160",
       "title": "How Much of Your VLA Is kNN",
       "published": "2026-11-09",
@@ -243,7 +169,7 @@
       "deep": {}
     },
     {
-      "rank": 7,
+      "rank": 5,
       "arxiv_id": "2611.11123",
       "title": "HARP-Bench: Benchmarking Robot Manipulation Around Active Humans",
       "published": "2026-11-08",
@@ -281,7 +207,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
+      "rank": 6,
       "arxiv_id": "2611.14274",
       "title": "From Prediction to Action: Learning Physical Context for Deformable Linear Object Manipulation",
       "published": "2026-11-10",
@@ -320,7 +246,7 @@
       "deep": {}
     },
     {
-      "rank": 9,
+      "rank": 7,
       "arxiv_id": "2611.11941",
       "title": "Flip Anything with Agentic Robotics Self-Learning",
       "published": "2026-11-09",
@@ -358,7 +284,7 @@
       "deep": {}
     },
     {
-      "rank": 10,
+      "rank": 8,
       "arxiv_id": "2611.11718",
       "title": "Accelerated Reinforcement Learning for Soft Robotics: Hours Instead of Years",
       "published": "2026-11-09",
@@ -395,7 +321,7 @@
       "deep": {}
     },
     {
-      "rank": 11,
+      "rank": 9,
       "arxiv_id": "2611.14115",
       "title": "LEASH: Stay Safe in Agentic Robotics",
       "published": "2026-11-10",
@@ -433,7 +359,7 @@
       "deep": {}
     },
     {
-      "rank": 12,
+      "rank": 10,
       "arxiv_id": "2611.12102",
       "title": "SPARK: Simple Post-training for Adapting pRetrained Knowledge to Robot Control",
       "published": "2026-11-09",
@@ -469,7 +395,7 @@
       "deep": {}
     },
     {
-      "rank": 13,
+      "rank": 11,
       "arxiv_id": "2611.14488",
       "title": "Is Your Robot's Memory Just a Clock? Temporal Shortcuts in Memory-Augmented VLA Policies",
       "published": "2026-11-10",
@@ -504,7 +430,7 @@
       "deep": {}
     },
     {
-      "rank": 14,
+      "rank": 12,
       "arxiv_id": "2611.12806",
       "title": "Learning Heterogeneous Tactile Representation for General Dexterous Manipulation",
       "published": "2026-11-09",
@@ -542,7 +468,48 @@
       "deep": {}
     },
     {
-      "rank": 15,
+      "rank": 13,
+      "arxiv_id": "2611.16728",
+      "title": "EgoX: Egocentric Cross-Embodiment Manipulation with Embodiment Dreaming",
+      "published": "2026-11-12",
+      "url": "https://arxiv.org/abs/2611.16728",
+      "pdf_url": "https://arxiv.org/pdf/2611.16728",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "谷歌DeepMind",
+      "country": "US",
+      "org_type": "company",
+      "significance": 78,
+      "significance_reason": "实证扎实：覆盖5类任务+6种具身（5真机+1仿真）、13个任务-具身组合，有明确baseline（从零训练）、消融验证（具身梦境/模块化接口/数据混合广度），且out-of-distribution提升显著（+0.24），但未开源代码/模型，也未报告真实部署或长期鲁棒性，尚未达到RT-2/VioLA级范式突破，属强工程整合+方法创新的重磅推进。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "cross-embodiment",
+        "sim2real",
+        "benchmark",
+        "large-scale"
+      ],
+      "tldr": "这篇论文提出EgoX框架，用统一的Transformer主干网络处理来自人类、多种真实机器人和仿真机器人的第一人称视角操作演示数据，通过模态专用分词器+动作专家+训练时‘具身梦境’（预测未来视觉/本体感觉隐状态）机制，实现跨形态预训练，显著提升在新任务和新机器人上的泛化性能。",
+      "claim": "通过语义对齐的跨具身演示组织方式与具身梦境预训练目标，可使共享Transformer主干有效建模不同形态的动力学，从而提升下游操作策略在未见任务和未见机器人上的泛化能力。",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "input": "第一人称RGB视频+本体感觉信号（如关节角度、速度）+语言任务描述",
+      "output": "动作序列（关节扭矩或末端位姿控制指令）",
+      "novelty": 8,
+      "evidence": 10,
+      "one_sentence_verdict": "工程整合——在跨具身操作泛化上做出系统性、可复现、多真机验证的实质性推进，但缺乏开源与部署证据，未开新范式",
+      "deep": {}
+    },
+    {
+      "rank": 14,
       "arxiv_id": "2611.14092",
       "title": "DexSeed: Expanding Human Hand-Object Interactions into Robot Demonstrations for Dexterous Policy Learning",
       "published": "2026-11-10",
@@ -578,6 +545,44 @@
       "novelty": 7,
       "evidence": 9,
       "one_sentence_verdict": "工程整合：将人类动作理解、运动重定向、物理仿真与RL手指控制深度耦合，落地扎实，但未挑战VLA底层架构或科学问题，属于当前灵巧操作数据瓶颈下的高质量解决方案。",
+      "deep": {}
+    },
+    {
+      "rank": 15,
+      "arxiv_id": "2611.13482",
+      "title": "ExRL: Sample-Efficient Online Adaptation of Long-Chunk Policies via Execution Length Control",
+      "published": "2026-11-10",
+      "url": "https://arxiv.org/abs/2611.13482",
+      "pdf_url": "https://arxiv.org/pdf/2611.13482",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": " unknown",
+      "country": "CN",
+      "org_type": "university",
+      "significance": 76,
+      "significance_reason": "在真实UR5e和多个仿真任务上验证了跨任务/场景的样本高效适应（相比基线节省~5×交互量），含消融与多长块策略（BC-RNN、VLA等）兼容性测试，但未开源数据、未部署到多机体、未挑战开放世界泛化，属扎实推进SOTA且工程落地导向明确的重磅工作，但未达RT-2级范式突破。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "real-robot",
+        "large-scale"
+      ],
+      "tldr": "这篇论文发现直接微调长动作块策略（如连续执行30步的动作）在线适应效率极低，于是提出只优化每个动作块的执行时长（而非动作本身），用一个轻量级适配器加在原策略上，用离线RL训练，大幅减少真实机器人交互样本需求。",
+      "claim": "通过将在线适应目标从高维动作块优化转为低维执行时长控制，可在保持表达力的同时实现样本高效的长动作块策略在线适应。",
+      "method_components": [
+        "model",
+        "policy",
+        "simulator",
+        "benchmark"
+      ],
+      "input": "状态观测（如图像/本体感知）+ 当前长动作块预测",
+      "output": "每个动作块的实际执行步数（标量整数）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "工程整合：巧妙降维思路+真机验证+多策略兼容，显著提升长动作块策略的实用适应能力，但非理论或范式创新。",
       "deep": {}
     }
   ]
