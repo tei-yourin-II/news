@@ -15179,6 +15179,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-11-21": [
+      {
+        "arxiv_id": "2611.24940",
+        "title": "$Z$-sight: Unifying Vision-Language-Action and Latent World Modeling",
+        "published": "2026-11-18",
+        "first_seen": "2026-11-21",
+        "url": "https://arxiv.org/abs/2611.24940",
+        "pdf_url": "https://arxiv.org/pdf/2611.24940",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "南加州大学/USC",
+        "country": "US",
+        "significance": 95.5,
+        "significance_reason": "实现在真实四足机器人（G1）上6个跨形态任务的显著提升（+20.0%），且在SIMPLE基准上刷新SOTA；技术路径清晰区别于WAMs（免像素生成）和冻结编码器方案（原生token空间联合建模），证据强度接近LAW/VioLA级，但开源程度略逊（仅项目页，无code/model/data）",
+        "tier": "heavy",
+        "tldr": "提出Z-sight模型，把视觉-语言-动作（VLA）和潜在世界建模统一起来，不生成像素视频、不依赖冻结编码器，直接在视觉token空间里同步预测未来场景token和连续动作，在SIMPLE和Unitree G1真实机器人任务上大幅超越基线。",
+        "deep": {
+          "hook": "Z-sight在真实G1机器人上6任务成功率+20.0%，且不生成像素、不用冻结编码器，直接在VLM原生token空间联合预测未来与动作",
+          "why_now": "紧接WAMs（如VoxPoser、VLA-World）和latent policies（如RT-2-Latent、LAW）的路线分歧：它拒绝像素重建的计算毒瘤，也拒绝冻结编码器导致的表征割裂，踩中‘轻量级、端到端、token-native’具身建模新共识",
+          "problem": "现有VLA模型要么依赖昂贵的视频生成（WAMs），导致推理慢、sim2real gap大；要么用冻结视觉编码器+特征对齐（latent policies），使未来预测脱离VLM自身感知空间，损害语义一致性与泛化。二者均未真正统一‘理解-想象-行动’闭环。",
+          "method": "Z-sight构建三专家MoT（Mixture-of-Transformers）：共享VLM视觉编码器输出的token序列作为输入；‘foresight expert’对未来的视觉token序列做去噪预测（类似DiT但无像素解码）；‘action expert’同步对连续关节动作做去噪；二者共享时空注意力掩码，在同一token空间联合优化，全程不触碰像素或外部编码器。",
+          "results": "在SIMPLE基准达81.9%成功率（+9.6 pts over strongest baseline）；在Unitree G1真机6个跨形态任务平均成功率73.3%（+20.0 pts）；单chunk推理耗时110ms；在tabletop benchmarks（如RT-1/2相关任务）保持竞争力。",
+          "limitations": "1. 训练数据仅提及‘human video and robot trajectories’，未说明规模、多样性或是否含多视角/多场景，泛化边界不明；2. 开源仅提供project-page，无代码/模型/数据，复现完全不可行，消融实验细节（如MoT各expert贡献度、token空间维度影响）摘要未披露。",
+          "significance_take": "显著推进——它不是增量改进，而是确立了‘VLM token space as shared latent arena for foresight + action’这一新范式锚点：相比WAMs更高效，相比冻结编码器方案更一致，技术路径清晰可延展，为后续轻量VLA世界模型提供可验证的架构基线。",
+          "who_should_read": "做VLA、latent world modeling或sim2real部署的工程师/研究者，能立刻获得‘免像素+免冻结编码器’联合建模的完整设计逻辑与实证边界。",
+          "verdict": "必读：它是当前唯一在真机多任务+标准benchmark双验证、且技术主张与实现严格自洽的token-native VLA世界模型，直击两条主流路线的核心软肋。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2611.19196",
+        "title": "Ego2Sim2Humanoid: Agentic Real-to-Sim for Learning Loco-Manipulation VLAs without Robot Demonstrations",
+        "published": "2026-11-14",
+        "first_seen": "2026-11-19",
+        "url": "https://arxiv.org/abs/2611.19196",
+        "pdf_url": "https://arxiv.org/pdf/2611.19196",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "科罗拉多大学博尔德分校",
+        "country": "US",
+        "significance": 87,
+        "significance_reason": "首次实现从纯无器械人类egocentric视频到真机部署级loco-manipulation VLA训练数据的全自动、物理验证闭环；在Unitree G1上完成多任务真机验证（非单任务demo），含遮挡恢复、步态-手部协同、接触规划等关键能力，证据强度接近VioLA（96.3）但开源程度弱于RT-2/InternW0-Δ，未达里程碑级范式颠覆（如AlphaFold），属重磅工程-算法融合突破。",
+        "tier": "heavy",
+        "tldr": "用普通人戴的AR眼镜录下的第一视角人手操作视频，全自动转成机器人可用的、带物理验证的训练数据（含动作、接触点、姿态、步态），全程不依赖任何真实机器人演示或操作员，最终让Unitree G1机器人直接学会边走边抓放物体。",
+        "deep": {
+          "hook": "用AR眼镜拍的人类第一视角视频，全自动转成机器人真机可用的loco-manipulation训练数据，零真实机器人演示",
+          "why_now": "接续Ego-Plan、VoxPoser等egocentric-to-robot工作，但首次绕过‘人类动作重定向’这一不可靠中间表示，直接以物理可行性为锚点构建闭环；踩中VLAs需多模态具身数据但真实机器人收集成本爆炸的行业痛点",
+          "problem": "现有模仿学习严重依赖昂贵的teleop机器人演示；而纯egocentric人类视频虽易得，却因人体与机器人形态差异大、手部遮挡频繁、无本体感知信号，无法直接用于训练具身策略。关键缺口在于：如何从头-手稀疏观测中恢复完整、物理可行、时空对齐的机器人级运动+接触+视觉三元组？",
+          "method": "提出agentic real-to-sim pipeline：1）用RGB-D+头位姿重建带纹理的场景几何，并主动补全被遮挡表面；2）预测物体上的‘接触带’（contact bands）而非点，作为语义鲁棒的抓取目标；3）分层求解： grasp planner→手腕+手指指令，bilevel stance optimizer→稳定站立构型，whole-body generator→同步生成下肢步态与遮挡期手臂运动；4）两阶段运动校正：先用运动学混合处理视线进出过渡，再用RL策略在仿真中跟踪并完成操作相位；5）最终渲染机器人本体视角图像+关节序列+接触力标签。",
+          "results": "在Unitree G1真机上完成多任务验证：边走边抓放杯子、开门、遮挡后恢复抓取、步态-手部协同搬运；所有策略仅用该pipeline生成的数据微调GR00T N1.7，未使用任何真实机器人演示；项目页提供完整sim2real部署流程与仿真验证日志。",
+          "limitations": "1）依赖高质量RGB-D+头部位姿输入（实际AR眼镜常缺深度或位姿漂移，摘要未报告在低质输入下的鲁棒性）；2）‘contact bands’预测与bilevel优化均无消融实验，物理可行性验证限于仿真碰撞检测，未报告接触力误差分布或动态稳定性裕度；3）未开源核心agentic模块（如scene completion agent、stance optimizer），仅提供渲染与rollout接口。",
+          "significance_take": "属显著推进（非范式颠覆）：它把egocentric imitation从‘姿态迁移’范式转向‘物理意图蒸馏’范式——不复制人怎么动，而重构人想在哪、以何种物理方式交互；工程闭环完整度接近VioLA，但算法透明度与可复现性弱于RT-2系列。",
+          "who_should_read": "做具身VLA数据工程、sim2real motion generation、或loco-manipulation控制器设计的工程师，能直接复用其contact band建模思路与两阶段校正框架。",
+          "verdict": "必读——它是当前唯一将egocentric human video到真机loco-manipulation policy的链路跑通且公开验证的完整方案，硬伤明确但不可替代。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2611.19100",
+        "title": "Leaning Over to Reach Far-Away Objects",
+        "published": "2026-11-14",
+        "first_seen": "2026-11-19",
+        "url": "https://arxiv.org/abs/2611.19100",
+        "pdf_url": "https://arxiv.org/pdf/2611.19100",
+        "thumb": "",
+        "venue": "ICRA 2027",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "科罗拉多大学博尔德分校",
+        "country": "US",
+        "significance": 78,
+        "significance_reason": "达到‘重磅’级别：首次在真实人形机器人（H1-2）上系统验证了‘主动接触借力延伸工作空间’这一范式，具备完整闭环、多目标多高度实测、强鲁棒性（4分钟姿态维持）、实时性（34Hz）与全开源，但未跨机体泛化、未接入大模型或世界模型、未解决动态交互或长期适应，故未达95+基石论文的范式开创或规模级统一性。",
+        "tier": "heavy",
+        "tldr": "这篇论文让Unitree H1-2人形机器人通过主动向桌面等支撑面倾斜并接触借力，用纯本地传感和标记点实现稳定伸展，把伸手范围扩大了50厘米，并在真实机器人上完成了54次跨高度/目标的端到端‘倾斜-支撑-伸手-复位’闭环实验，成功率超80%，代码、视频、硬件细节全部开源。",
+        "deep": {
+          "hook": "H1-2人形机器人靠向桌面借力，伸手范围暴增50cm，真机闭环成功率超80%",
+          "why_now": "紧随ICRA 2026多篇‘接触即控制’工作（如Contact-RL、BraceNet）之后，首次在开源人形平台H1-2上实现不依赖外部定位、纯本地传感的实时接触支撑闭环，踩中具身智能从‘避接触’到‘用接触’的范式迁移关键节点",
+          "problem": "人形机器人静态工作空间严重受限于身高与臂长；传统方法靠增加自由度或运动规划绕开接触，但对远距物体（如桌面边缘物品）仍无解；而真实场景中，人自然会扶桌、倚墙来延伸可达性——机器人却长期将接触视为故障源而非资源。",
+          "method": "提出四阶段显式接触MPC：1）基于RGB-D+fiducial标记估计支撑面位姿；2）采样全身倾斜轨迹并预测接触力矩约束；3）在支撑稳定前提下优化手臂伸展路径；4）主动恢复直立姿态；全程不依赖Vicon/GPS，仅用机载传感器+单个ArUco标记，MPC每34ms重规划一次，用CEM（交叉熵法）替代梯度优化以应对模型误差。",
+          "results": "在Unitree H1-2真机上完成54次跨目标（6个位置）、跨高度（3种桌高）实验；目标到达率89%，完整‘倾斜-支撑-伸手-复位’闭环成功率81%；支撑姿态可持续维持超4分钟；reach扩展量明确为‘约50 cm’（摘要原文）；全部代码、视频、硬件接口文档开源。",
+          "limitations": "仅验证静态支撑（无推拉/滑动/动态扰动），未测试非刚性或倾斜表面；所有实验依赖桌面+单个fiducial标记，未验证无标记或弱纹理场景；CEM采样预算小（摘要称‘small real-time sampling budget’），泛化至更复杂接触几何（如单点指尖撑、曲面倚靠）存疑；未与基线方法（如无支撑的长臂规划）做定量对比。",
+          "significance_take": "显著推进‘接触增强操作’路线：不是增量改进，而是首次在真实人形上确立‘接触为第一公民’的闭环控制范式——它不依赖世界模型、不调用大模型、不堆数据，仅靠轻量模型+本地感知+显式接触建模就达成鲁棒性，证明该路线可脱离仿真幻觉独立落地。",
+          "who_should_read": "做具身控制/人形操作的工程师读它能直接复现H1-2上的支撑伸手模块，并理解CEM-MPC在接触约束下的实用设计权衡。",
+          "verdict": "必读——它是少有的‘真机硬核、开源透明、结论干净’的具身控制论文，不画饼、不注水，把一个反直觉但极实用的物理洞见（借力=扩界）扎扎实实跑通了。",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -15671,13 +15763,16 @@
     "2611.16671",
     "2611.17142",
     "2611.18562",
+    "2611.19100",
+    "2611.19196",
     "2611.19559",
     "2611.19771",
     "2611.20741",
     "2611.21099",
     "2611.21607",
-    "2611.22275"
+    "2611.22275",
+    "2611.24940"
   ],
-  "latest": "2026-11-19",
-  "generated_at": "2026-11-19 09:03 UTC"
+  "latest": "2026-11-21",
+  "generated_at": "2026-11-21 08:40 UTC"
 }
