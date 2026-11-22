@@ -15271,6 +15271,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-11-22": [
+      {
+        "arxiv_id": "2611.26420",
+        "title": "Awaken-HI: Scaling Humanoid Intelligence with Whole-Body Human Experience",
+        "published": "2026-11-19",
+        "first_seen": "2026-11-22",
+        "url": "https://arxiv.org/abs/2611.26420",
+        "pdf_url": "https://arxiv.org/pdf/2611.26420",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "EngineAI",
+        "country": "US",
+        "significance": 96.3,
+        "significance_reason": "与VioLA（96.3）同档：首次构建超大规模（50k小时）、高保真（全身动捕+egocentric video同步）、覆盖100+技能的human-to-humanoid迁移数据集，并在真实人形机器人上验证了scaling law、跨物体泛化、长时序任务性能，实证强度和系统性接近VioLA，但未开源代码/模型，略逊于VioLA的全开源实践",
+        "tier": "heavy",
+        "tldr": "用5万小时带同步全身动捕的自拍视频数据，训练一个视觉-语言-动作模型，让机器人直接模仿人类全身运动并泛化到新物体和新任务，在8个真实机器人任务上达到93.75%成功率，显著优于GR00T和π₀.₅",
+        "deep": {
+          "hook": "5万小时同步全身动捕+第一视角视频，让机器人直接学人类全身动作，在8个真机任务达93.75%成功率",
+          "why_now": "紧随VioLA（2024.6）之后，首个在同等数据规模（50k小时）、同等真机验证强度下，实现human-to-humanoid全链路迁移的闭源但高实证系统；踩中‘具身智能需真实人体运动先验’与‘scaling law向机器人动作迁移是否成立’两大前沿争议点",
+          "problem": "现有egocentric视频数据集（如Ego4D、EgoPortal）缺乏同步全身运动标注，无法支撑人形机器人所需的loco-manipulation（行走+操作）联合建模；纯模仿学习或RL方法难以泛化到新物体/新组合，且缺乏可量化的预训练数据-性能关系",
+          "method": "1）构建Awaken-Human数据集：50,000小时第一视角立体视频 + 高精度全身动捕（含手指、足底力、关节角速度），覆盖100+日常技能；2）提出Awaken-HI模型：共享‘action expert’头，同时预测原始人类轨迹和retargeted机器人关节序列，用人类轨迹作强监督；3）验证human pretraining data量与robot action prediction error呈反比scaling law，并通过T800轻量适配（非微调）部署至真机",
+          "results": "在8个真实人形机器人任务（含开门、取放杯碗、开关抽屉、端托盘行走等）上平均成功率93.75%；明确超越GR00T N1.7和π₀.₅；报告跨物体泛化（unseen objects）与新任务组合泛化（familiar objects → new destinations）能力；验证了human pretraining data↑ → robot action error↓的实证scaling律",
+          "limitations": "1）未开源代码/模型，仅提供project-page，复现门槛极高；2）真机实验仅在单一平台（未说明型号，但推断为定制版T800人形）上完成，未报告跨硬件泛化；3）‘T800 adaptation’细节缺失（是标定？inference-time retargeting？还是少量真实机器人数据微调？摘要未界定），削弱方法透明度；4）未提供消融实验（如去掉human trajectory supervision的影响、shared expert vs. separate heads对比）",
+          "significance_take": "显著推进human-to-humanoid迁移范式：首次将‘人类全身运动作为直接监督信号’提升为可量化、可扩展的工程路径，而非辅助损失或后处理；其scaling law实证若被后续工作复现，将动摇当前主流‘纯语言驱动动作生成’或‘仿真预训练+真实微调’的技术优先级",
+          "who_should_read": "做机器人模仿学习、motion retargeting、人形具身智能落地的工程师——能拿走数据构建逻辑、shared action expert架构设计、以及真机泛化验证的baseline设计方法",
+          "verdict": "值得读：它用扎实的50k小时数据+8项真机指标，把‘人类运动是最佳先验’从口号变成可测量工程命题，但因闭源和方法黑箱，暂不构成可复现的技术基座",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2611.25778",
+        "title": "ECHO: In-Context Behavior foundation model for Humanoid Whole-Body Control",
+        "published": "2026-11-19",
+        "first_seen": "2026-11-22",
+        "url": "https://arxiv.org/abs/2611.25778",
+        "pdf_url": "https://arxiv.org/pdf/2611.25778",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "whole_body_control",
+        "org": "智元",
+        "country": "CN",
+        "significance": 93,
+        "significance_reason": "达到并局部超越GigaBrain-WBC-0.5和SuperMimic水准：首次在单模型框架下实现免参数更新的上下文驱动残差适配，且在Unitree G1上完成高难度全身体操、多地形交互、负载突变等严苛部署验证，实证强度与工程闭环完整性优于多数95分档工作（如未部署的SuperMimic、未展示极端动态的GigaBrain）；但尚未证明跨机体零样本泛化（如直接迁移到Boston Dynamics Atlas），故未达97分档（Humanoid Locomotion as Next Token Prediction）的范式开创性。",
+        "tier": "heavy",
+        "tldr": "提出ECHO模型，一种能在不同物理环境（如不同地面摩擦、负载、地形）中，通过少量交互历史实时调整人形机器人全身控制策略的上下文感知基础模型，不更新参数就能实现动态适配。",
+        "deep": {
+          "hook": "首个免参数更新、靠上下文实时适配物理环境的人形全身控制基础模型",
+          "why_now": "接续GigaBrain-WBC与SuperMimic的‘行为-执行’耦合瓶颈，踩中具身智能从‘多技能’迈向‘高保真物理闭环’的关键转折——当前95分档工作普遍缺严苛实机验证，ECHO用Unitree G1上负载突变+全身体操+多地形交互三重硬指标补全工程闭环。",
+          "problem": "现有行为基础模型（如GigaBrain）虽能模仿海量动作，但将行为策略与具体物理动力学（摩擦、惯性、接触）混训，导致部署时要么保守失效，要么需重新微调；真实世界要求同一模型在不同地面/负载/地形下零样本动态适配，而无需在线梯度更新。",
+          "method": "提出‘行为先验冻结+残差上下文驱动’双层架构：1）用Mixed and Annealed Sampling预训练一个泛化行为先验（覆盖广谱动作但不绑定动力学）；2）用轻量Context Representation网络从历史交互序列（关节状态+力矩+IMU+接触信号）提取环境动力学表征；3）该表征仅用于调制冻结先验输出的残差项，全程无参数更新。",
+          "results": "在仿真与Unitree G1真机上验证：支持全身体操（后空翻接单腿平衡）、多地形交互（斜坡/碎石/湿滑地面）、负载突变（0→3kg瞬时加载）；摘要明确指出‘outperforms all baseline methods across diverse motions and physical conditions’，且是当前唯一完成这三类严苛部署的BFM。",
+          "limitations": "未验证跨机体泛化（如直接迁移到Atlas或H1），摘要与正文均未提及其他硬件平台；所有上下文表征依赖完整历史交互序列（含力矩/接触信号），对传感器缺失或噪声鲁棒性未评估；未提供消融实验说明Context Representation模块各输入模态（如是否必须IMU+接触信号）的贡献度。",
+          "significance_take": "显著推进‘行为-执行解耦’路线：不是增量改进，而是首次将‘上下文即适配器’范式落地到人形全身控制层级，为后续构建可组合、可诊断、可解释的具身控制栈提供新基座——类似ViT之于视觉，它把动力学适配从权重空间移入特征空间。",
+          "who_should_read": "做机器人运动控制/具身基础模型的研究者和工程师，能直接复用其‘冻结先验+残差上下文’架构设计思路，并获取Unitree G1端到端部署的传感器同步、延迟处理、安全限幅等工程细节。",
+          "verdict": "必读——它是目前唯一把上下文驱动自适应从语言/视觉领域成功移植到人形全身动力学控制，并经受住极端物理扰动检验的实证标杆。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2611.25980",
+        "title": "Learning What Actions Change: Action Effect Matching for Dynamics-Faithful World Models",
+        "published": "2026-11-19",
+        "first_seen": "2026-11-21",
+        "url": "https://arxiv.org/abs/2611.25980",
+        "pdf_url": "https://arxiv.org/pdf/2611.25980",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "KAIST",
+        "country": "KR",
+        "significance": 78,
+        "significance_reason": "在多个真实机器人平台（DROID/ALOHA-2）和仿真基准（OGBench）上验证了动作扰动响应建模的有效性，提供了策略成功率相关性（0.47→0.79）和FVD（-23%）、规划成功率（+8.3%）等强实证；但未引入新架构或新表示范式，属对世界模型训练目标的关键补全，尚未达到DreamerV3/World Models级的范式开创性。",
+        "tier": "heavy",
+        "tldr": "这篇论文提出AFFECT训练目标，让世界模型学会匹配动作微小扰动所引发的视觉变化模式，从而提升其对动作-结果因果关系的建模保真度，最终改善基于世界模型的策略评估和规划效果。",
+        "deep": {
+          "hook": "让世界模型真正‘懂’动作微调如何改变世界：不靠重采样，只靠匹配视觉变化分布",
+          "why_now": "接续DreamerV3/SLM等高保真视频预测工作，直击其‘形似神不似’痛点——近期OGBench、DROID真实机器人评估暴露出世界模型策略评估相关性低（<0.5）的系统性缺陷，AFFECT是首个针对‘动作-结果因果敏感性’设计的轻量级训练目标补全",
+          "problem": "现有世界模型虽能生成逼真视频，但对动作的微小扰动（如+0.02rad关节偏移）缺乏鲁棒响应，导致策略评估失真、规划易选中‘看似合理实则失效’的动作序列；根本原因是标准重建/预测损失不约束动作扰动下的动态一致性",
+          "method": "提出AFFECT辅助目标：在人类遥操作数据上注入时序相关动作噪声（非独立高斯），强制世界模型生成的未来帧变化分布（∇video）与真实录像中对应噪声引发的变化分布对齐；无需同起点多次重执行，仅用单次采集数据即可构建扰动-响应配对",
+          "results": "在DROID真机上策略成功率相关性从0.47→0.79；FVD降低23%；规划成功率提升8.3%；OGBench和ALOHA-2上均验证跨平台泛化性",
+          "limitations": "1. 依赖人类遥操作数据中的动作多样性与覆盖度，未验证在稀疏奖励或长尾动作上的鲁棒性；2. 所有消融均在固定噪声强度下进行，未分析扰动尺度敏感性，也未报告不同噪声类型（如白噪声vs.马尔可夫噪声）的影响差异",
+          "significance_take": "属关键补全型进展：不颠覆世界模型架构，但首次将‘动作扰动响应建模’显式定义为可学习目标，为世界模型从‘视频拟合器’转向‘因果模拟器’提供了可复现、可即插即用的训练信号",
+          "who_should_read": "所有正在用世界模型做策略评估/规划的研究者，能立刻拿走AFFECT损失函数实现和在DROID/ALOHA-2上的部署经验",
+          "verdict": "必读——这是目前唯一在真实机器人上把策略评估相关性突破0.7的世界模型工作，且代码已开源，技术路径清晰无黑箱",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -15771,8 +15863,11 @@
     "2611.21099",
     "2611.21607",
     "2611.22275",
-    "2611.24940"
+    "2611.24940",
+    "2611.25778",
+    "2611.25980",
+    "2611.26420"
   ],
-  "latest": "2026-11-21",
-  "generated_at": "2026-11-21 08:40 UTC"
+  "latest": "2026-11-22",
+  "generated_at": "2026-11-22 08:31 UTC"
 }
