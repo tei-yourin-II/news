@@ -1,16 +1,16 @@
 {
   "week": {
-    "start": "2026-11-16",
-    "end": "2026-11-22",
-    "label": "11.16~11.22"
+    "start": "2026-11-17",
+    "end": "2026-11-23",
+    "label": "11.17~11.23"
   },
   "count": 15,
   "venue_count": 4,
   "venues": [
     "CoRL 2026",
-    "NeurIPS 2026"
+    "IROS 2026"
   ],
-  "generated_at": "2026-11-22 08:32 UTC",
+  "generated_at": "2026-11-23 09:17 UTC",
   "picks": [
     {
       "rank": 1,
@@ -128,45 +128,6 @@
     },
     {
       "rank": 4,
-      "arxiv_id": "2611.21099",
-      "title": "ForceHarness: Turning Force into Action and Physics for Frozen Frontier Models",
-      "published": "2026-11-16",
-      "url": "https://arxiv.org/abs/2611.21099",
-      "pdf_url": "https://arxiv.org/pdf/2611.21099",
-      "thumb": "",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "新加坡国立大学",
-      "country": "SG",
-      "org_type": "university",
-      "significance": 87,
-      "significance_reason": "在真实机械臂上将零样本力控成功率从3.3%→90.0%，远超基线；构建HiddenPhys新基准验证物理量翻译的有效性；消融证明‘物理量’比‘原始力’对小模型决策提升显著；但未开源代码/模型，且未跨机体泛化到双臂/灵巧手等更复杂形态，尚未达RT-2级范式突破，属扎实重磅推进",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "multimodal-fusion",
-        "sim2real",
-        "benchmark",
-        "real-robot"
-      ],
-      "tldr": "提出ForceHarness框架，让已冻结的多模态大模型（如GPT-6 Astra）无需微调、无需示教，仅靠腕部力传感器或关节扭矩信号，就能实时理解并利用接触力完成精细操作任务；核心是自终止力原语（解决控制频率鸿沟）和物理量翻译层（将原始力信号转为带不确定性的可推理物理量，如'施加了3.2±0.4N正压力'）",
-      "claim": "冻结的多模态大模型可通过ForceHarness零样本接入真实接触力信号，无需微调或演示，即可实现高成功率的力敏操作，且其决策质量随物理量抽象层级提升而显著改善。",
-      "method_components": [
-        "model",
-        "simulator",
-        "benchmark",
-        "hardware"
-      ],
-      "input": "原始力信号（腕部六维力/关节扭矩）+ 多模态大模型的视觉-语言输入（图像+指令）",
-      "output": "物理量形式的力反馈结果（如'压入深度约1.8cm，置信度0.92'）+ 模型生成的动作指令",
-      "novelty": 8,
-      "evidence": 10,
-      "one_sentence_verdict": "工程整合：把冻结大模型与物理世界力交互的鸿沟实质性填平，非概念包装，但依赖特定硬件接口与仿真-真实协同设计，尚未形成通用协议层",
-      "deep": {}
-    },
-    {
-      "rank": 5,
       "arxiv_id": "2611.22275",
       "title": "Heave-Ho: Decentralized Long-Horizon Multi-Humanoid Collaboration",
       "published": "2026-11-17",
@@ -207,46 +168,7 @@
       "deep": {}
     },
     {
-      "rank": 6,
-      "arxiv_id": "2611.20741",
-      "title": "Robotic Reward Models in the Foundation-Model Era",
-      "published": "2026-11-16",
-      "url": "https://arxiv.org/abs/2611.20741",
-      "pdf_url": "https://arxiv.org/pdf/2611.20741",
-      "thumb": "",
-      "venue": "",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "香港中文大学",
-      "country": "CN",
-      "org_type": "university",
-      "significance": 88,
-      "significance_reason": "首次建立RRM语义分类框架，揭露领域长期忽视的‘奖励≠任务完成’根本性评估漏洞，并以1117段带多维度真值标注的真实机器人视频构建首个可解耦评测基准（RRM-Bench-1K），实证27个模型全部失效于任务状态判别——这是RT-2级工作之后具身智能评估范式的实质性跃迁，但尚未达到开新范式（如AlphaFold）或重构整个训练范式（如RT-2）的里程碑量级。",
-      "tier": "heavy",
-      "grade": "C",
-      "tags": [
-        "benchmark",
-        "dataset",
-        "open-source",
-        "real-robot"
-      ],
-      "tldr": "这篇论文系统梳理了114种机器人奖励模型（RRM），按其输出语义分成5类，并指出当前评估方法存在根本缺陷——无法验证奖励是否真在衡量任务完成状态；为此构建了首个带细粒度任务状态标注的真实机器人视频评测集RRM-Bench-1K（1117段闭环执行视频），并开源工具箱RRM-Hub，统一评测27个现有RRM，发现所有模型都更擅长跟踪执行过程而非判断任务是否真正完成。",
-      "claim": "机器人奖励模型的语义类型决定其可评估的能力边界，而当前主流评估范式（如排序一致性、策略提升）无法验证奖励是否真实反映任务完成状态，必须用带任务状态真值标注的真实执行数据进行解耦评测。",
-      "method_components": [
-        "model",
-        "dataset",
-        "benchmark",
-        "open-source"
-      ],
-      "input": "真实机器人执行视频+任务指令+时间戳对齐的任务状态标签（如'杯子已拿起'/'门已关上'）",
-      "output": "标量奖励值或序列化时序奖励",
-      "novelty": 8,
-      "evidence": 11,
-      "one_sentence_verdict": "真突破：它不是提出一个新模型，而是用扎实的实证和系统性框架，戳破了整个RRM领域长期依赖的评估幻觉，并提供了首个可复现、可解耦、真实物理世界驱动的检验标准。",
-      "deep": {}
-    },
-    {
-      "rank": 7,
+      "rank": 5,
       "arxiv_id": "2611.23143",
       "title": "TCP4D: A Unified Tool-Center-Point Tracking and Generation Model for Robot Manipulation",
       "published": "2026-11-17",
@@ -287,7 +209,7 @@
       "deep": {}
     },
     {
-      "rank": 8,
+      "rank": 6,
       "arxiv_id": "2611.25980",
       "title": "Learning What Actions Change: Action Effect Matching for Dynamics-Faithful World Models",
       "published": "2026-11-19",
@@ -325,7 +247,7 @@
       "deep": {}
     },
     {
-      "rank": 9,
+      "rank": 7,
       "arxiv_id": "2611.24011",
       "title": "WAM-Policy: World Action Models with On-Policy Distillation for Quadrupedal Loco-Manipulation",
       "published": "2026-11-18",
@@ -364,7 +286,7 @@
       "deep": {}
     },
     {
-      "rank": 10,
+      "rank": 8,
       "arxiv_id": "2611.25336",
       "title": "MoRE: Mixture-of-Experts for Multi-Physics Robotic World Models",
       "published": "2026-11-19",
@@ -406,7 +328,7 @@
       "deep": {}
     },
     {
-      "rank": 11,
+      "rank": 9,
       "arxiv_id": "2611.24585",
       "title": "SHAPE: Discrete Supervision and Parallel Continuous Streams for Learning Dexterous Manipulation from Egocentric Human Data",
       "published": "2026-11-18",
@@ -443,7 +365,7 @@
       "deep": {}
     },
     {
-      "rank": 12,
+      "rank": 10,
       "arxiv_id": "2611.22388",
       "title": "Hidden Variables Behind Real-Robot Data Quality: Lessons from Hundreds of Thousands of Hours",
       "published": "2026-11-17",
@@ -485,7 +407,118 @@
       "deep": {}
     },
     {
+      "rank": 11,
+      "arxiv_id": "2611.23916",
+      "title": "ReLoco: Unified Humanoid Locomotion and Fall Recovery via Behavior-Conditioned Motion Priors",
+      "published": "2026-11-18",
+      "url": "https://arxiv.org/abs/2611.23916",
+      "pdf_url": "https://arxiv.org/pdf/2611.23916",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "whole_body_control",
+      "org": "智元",
+      "country": "CN",
+      "org_type": "company",
+      "significance": 82,
+      "significance_reason": "在统一单策略、无控制器切换、全本体感觉输入前提下，首次在真实大质量双足机器人（Tiangong 3.0）上同时实现高成功率跌倒恢复（96.8%）、抗扰动行走（97.0% push-recovery）和指令续跑，且量化指标优于消融基线；虽未开源代码/模型，但实机部署完整闭环远超纯仿真工作，属显著推进SOTA的工程级突破，但尚未达到AlphaFold/RT-2级范式重构量级。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "sim2real",
+        "real-robot",
+        "multimodal-fusion"
+      ],
+      "tldr": "这篇论文提出ReLoco框架，用一个仅依赖本体感觉的统一策略，让双足机器人既能稳定行走/奔跑，又能从任意摔倒姿态自主起身并恢复指令运动，全程无需切换控制器或在线微调，在真实64.5公斤Tiangong 3.0机器人上全部验证成功。",
+      "claim": "通过行为条件化的对抗运动先验与共享判别器设计，可在单一本体感觉策略中统一建模双足机器人的持续运动、任意姿态跌倒恢复与指令重跟踪能力。",
+      "method_components": [
+        "model",
+        "simulator",
+        "policy",
+        "benchmark"
+      ],
+      "input": "本体感觉信号（关节角度、角速度、IMU等）+行为指令（如‘起身’‘行走’‘继续前进’）",
+      "output": "低层关节力矩控制指令（即端到端运动策略输出）",
+      "novelty": 7,
+      "evidence": 10,
+      "one_sentence_verdict": "真突破：它把长期割裂的跌倒恢复与运动控制整合进一个可部署的本体感觉策略，在真实大体重人形上达成高鲁棒性闭环，不是概念包装，而是实打实的系统级跨越。",
+      "deep": {}
+    },
+    {
+      "rank": 12,
+      "arxiv_id": "2611.24925",
+      "title": "Render the Robot, Generate the World: One Video World Model Across Embodiments",
+      "published": "2026-11-18",
+      "url": "https://arxiv.org/abs/2611.24925",
+      "pdf_url": "https://arxiv.org/pdf/2611.24925",
+      "thumb": "",
+      "venue": "",
+      "domain": "embodied_ai",
+      "best_route": "world_model",
+      "org": "卡内基梅隆大学",
+      "country": "US",
+      "org_type": "university",
+      "significance": 82,
+      "significance_reason": "首次在视频世界模型中系统性剥离动作语义歧义，用几何渲染图作统一视觉条件接口，并实证验证其在8种异构实体上的泛化增益（尤其OOD下+1.2dB PSNR及更稳的物体运动），但未开源代码/模型，且未部署到闭环控制或下游RL任务，尚未达到World Models/DreamerV3级范式开创性。",
+      "tier": "heavy",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "dataset",
+        "benchmark",
+        "large-scale"
+      ],
+      "tldr": "提出Doppel模型，用机器人身体的相机对齐渲染图（而非原始动作向量）作为条件输入，统一建模8种不同机器人和人体形态的视频世界动态，不依赖 embodiment 标签，在多机器人数据上联合训练，提升了跨形态视频预测的PSNR和物体运动一致性。",
+      "claim": "显式提供几何一致的、相机对齐的身体渲染图作为条件，比仅用数值动作更能解耦并准确预测环境响应，且可实现跨形态（robot/human）、跨构型（单臂/双臂/人形/手部）的通用视频世界建模。",
+      "method_components": [
+        "model",
+        "dataset",
+        "simulator"
+      ],
+      "input": "相机对齐的身体未来姿态渲染图 + 数值动作轨迹",
+      "output": "未来多帧RGB视频帧",
+      "novelty": 8,
+      "evidence": 10,
+      "one_sentence_verdict": "真突破：它用渲染图替代动作向量作为世界模型条件输入，解决了动作空间异构导致的建模失配问题，并在真实多机体数据上验证了跨形态泛化有效性，是视频世界模型走向具身通用性的关键一步。",
+      "deep": {}
+    },
+    {
       "rank": 13,
+      "arxiv_id": "2611.24178",
+      "title": "Adaptive Action Horizon Selection via Flow-Field Uncertainty",
+      "published": "2026-11-18",
+      "url": "https://arxiv.org/abs/2611.24178",
+      "pdf_url": "https://arxiv.org/pdf/2611.24178",
+      "thumb": "",
+      "venue": "IROS 2026",
+      "domain": "embodied_ai",
+      "best_route": "vla",
+      "org": "Technion-Israel Institute of Technology",
+      "country": "IL",
+      "org_type": "university",
+      "significance": 72,
+      "significance_reason": "在VLA不确定性建模这一关键但被忽视的方向上做出扎实推进：首次系统挖掘流场几何结构作为不确定性源，理论清晰（闭式协方差推导）、实证充分（四大benchmark跨任务验证）、工程友好（单次前向+零重训），显著优于AAC等基线；但未涉及真实机器人部署、未开源代码、未挑战更根本的VLA泛化瓶颈（如分布外指令/长程规划），故属显著贡献而非里程碑。",
+      "tier": "notable",
+      "grade": "C",
+      "tags": [
+        "multimodal-fusion",
+        "sim2real"
+      ],
+      "tldr": "这篇论文提出DUAC方法，利用预训练视觉-语言-动作（VLA）模型内部的流场（flow field）结构，通过雅可比向量积快速计算单次推理下的轨迹条件不确定性，从而动态选择最优动作步长（action horizon），避免了传统方法需多次采样带来的高延迟和混淆策略多样性与真实不确定性的缺陷。",
+      "claim": "VLA模型隐式学习的流场向量场本身蕴含轨迹条件下的局部预测不确定性，可被高效提取并用于低延迟、高判别力的自适应动作步长选择。",
+      "method_components": [
+        "model",
+        "benchmark"
+      ],
+      "input": "视觉-语言指令+当前观测（RGB图像+语言任务描述）",
+      "output": "动作步长（即自适应动作块长度）",
+      "novelty": 7,
+      "evidence": 9,
+      "one_sentence_verdict": "真突破——它不是刷榜或包装概念，而是从VLA模型内在几何结构中挖出一个被长期忽略的、可解析、可计算、可落地的不确定性信号，并用严谨实验验证其优于现有主流方法。",
+      "deep": {}
+    },
+    {
+      "rank": 14,
       "arxiv_id": "2611.23676",
       "title": "Finetuning VLAs for Dexterous Manipulation: The Right Checkpoint Is All You Need",
       "published": "2026-11-18",
@@ -520,41 +553,6 @@
       "novelty": 6,
       "evidence": 7,
       "one_sentence_verdict": "显著贡献：真突破谈不上，但工程整合扎实，在灵巧VLA适配这个具体瓶颈问题上给出了有反直觉洞见、可立即复用的实证结论。",
-      "deep": {}
-    },
-    {
-      "rank": 14,
-      "arxiv_id": "2611.20481",
-      "title": "Lift, See, Act: Hierarchical Robot Policy Pretraining with 3D Foundation Models",
-      "published": "2026-11-16",
-      "url": "https://arxiv.org/abs/2611.20481",
-      "pdf_url": "https://arxiv.org/pdf/2611.20481",
-      "thumb": "",
-      "venue": "NeurIPS 2026",
-      "domain": "embodied_ai",
-      "best_route": "vla",
-      "org": "unknown",
-      "country": "unknown",
-      "org_type": "unknown",
-      "significance": 58,
-      "significance_reason": "提出‘用3D FM中间特征做dense lift’有启发性，但未开源代码/模型，真实机器人验证仅限1-2个简单任务（摘要未列具体任务名），无跨机体/跨用户泛化证据，消融实验细节缺失，未与RT-2/VioLA等基石工作在同等真实部署条件下对比，属扎实但窄幅的增量改进。",
-      "tier": "worth",
-      "grade": "D",
-      "tags": [
-        "multimodal-fusion",
-        "sim2real"
-      ],
-      "tldr": "用多个3D基础模型的中间特征（不只是最终手部轨迹）来提升2D视频到3D表征的质量，再通过深度图重建和手部区域注意力监督，分三阶段预训练机器人操作策略，提升从人类视频中泛化出动作的能力。",
-      "claim": "利用3D基础模型的中间层密集特征而非仅稀疏手部轨迹，构建层次化预训练框架（Lift→See→Act），可显著提升从无标注人类视频中学习鲁棒机器人操作策略的泛化能力。",
-      "method_components": [
-        "model",
-        "simulator"
-      ],
-      "input": "2D人类操作视频（无动作标注）",
-      "output": "机器人末端执行器的动作序列（6DoF位姿+开合）",
-      "novelty": 6,
-      "evidence": 7,
-      "one_sentence_verdict": "工程整合：将3D基础模型中间表征用于策略预训练的设计合理，但实证深度不足、开源缺失、真实世界验证薄弱，尚未达到领域基石级贡献。",
       "deep": {}
     },
     {
