@@ -15455,6 +15455,98 @@
           "_llm": "qwen-plus"
         }
       }
+    ],
+    "2026-11-24": [
+      {
+        "arxiv_id": "2611.30898",
+        "title": "World Models as Native Latent Action Models",
+        "published": "2026-11-23",
+        "first_seen": "2026-11-24",
+        "url": "https://arxiv.org/abs/2611.30898",
+        "pdf_url": "https://arxiv.org/pdf/2611.30898",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "world_model",
+        "org": "智元",
+        "country": "CN",
+        "significance": 87,
+        "significance_reason": "实质性推进了世界模型与具身智能的接口范式：首次证明主流视频世界模型（非专为RL设计）可被轻量改造为高保真、可迁移的动作编码器，且在RoboTwin 2.0和RoboDojo真实机器人基准上取得SOTA级性能；证据扎实（多基准+真实机器人+消融验证+跨模态迁移），但未重构世界模型底层架构或提出新世界建模范式，故略低于World Models（97）和DreamerV3（96）等奠基性工作。",
+        "tier": "heavy",
+        "tldr": "这篇论文把已有的预训练视频世界模型（如视频扩散Transformer）直接当作隐式动作模型来用，只加少量可学习的‘动力学寄存器’，就能从无动作标注的海量人类/机器人视频中提取出紧凑、可迁移的隐式动作表征，并用它预训练视觉-语言-动作策略（PAWlicy），在多个真实机器人任务上达到当前最优水平。",
+        "deep": {
+          "hook": "用现成视频世界模型+两个可学习寄存器，直接蒸馏出跨人/机/场景的隐式动作，真机SOTA",
+          "why_now": "接续2023–2024年VLA爆发期（如RT-2、PaLM-E、OpenVLA）与世界模型复兴潮（e.g., VideoLLaMA, Sora-style diffusion transformers），首次打通‘预训练视频世界模型→具身动作表征’的非侵入式接口，回应了社区对‘如何复用万亿级视频模型红利做机器人控制’的核心焦虑。",
+          "problem": "现有隐式动作模型（LAMs）需从零训练IDM/FDM，牺牲视频重建质量换取动作紧凑性；而海量人类/机器人视频虽含丰富动力学，却无统一动作标注或共享动作空间。如何低成本提取可泛化、可迁移的隐式动作，成为VLA策略预训练瓶颈。",
+          "method": "提出Native LAM：将一个现成的预训练视频扩散Transformer（如VideoDiT）同时视作IDM和FDM，仅插入两个轻量可学习‘动力学寄存器’作为IDM输出→FDM输入的因果桥；在仅运动差异的反事实时间对（counterfactual temporal pairs）上训练，迫使寄存器蒸馏出纯动力学信号；由此生成的compact native latent action直接用于PAWlicy策略预训练——全程不生成视频，只做动力学蒸馏与策略监督。",
+          "results": "在LARY基准上，native latent action在动作分类与控制回归任务中均超越现有LAM；在RoboTwin 2.0上以3.8B模型达93.6%平均成功率（当前VLA最高）；在RoboDojo上Precision与榜首方案持平；真实机器人上显著优于pi_0.5基线；所有实验仅用公开数据与已发布世界模型。",
+          "limitations": "1. 未验证寄存器是否真正解耦动力学与外观——摘要未提供可视化/消融证明其‘纯运动’提取能力；2. 所有真实机器人结果未报告任务数、失败案例或sim2real gap量化（如轨迹偏差、延迟敏感性），且未说明是否使用真实传感器原始帧（egocentric video pipeline是否端到端）；3. PAWlicy仍依赖domain-randomized demonstrations，未实现纯无示范（demonstration-free）策略启动。",
+          "significance_take": "显著推进（而非范式级）：它不是新世界模型，而是首个被严格验证的‘世界模型即动作模型’接口协议——证明主流视频世界模型无需重训、仅靠结构最小扰动即可释放具身动作先验，为VLA策略预训练提供了可复用、免标注、免仿真器的第三条路径（区别于RLHF式微调与端到端模仿学习）。",
+          "who_should_read": "做VLA策略工程的工程师该读——能立刻拿走PAWlicy训练流程、Native LAM寄存器插入位置、以及LARY/RoboTwin 2.0上的baseline对齐方法。",
+          "verdict": "必读：它是目前唯一把SOTA视频世界模型与真实机器人控制性能用同一套轻量机制串通的实证工作，代码可用、数据公开、指标透明，且每个claim都有对应基准验证。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2611.29897",
+        "title": "Motion Mamba 2.0: Autoregressive Diffusion Mamba for Long-Horizon Humanoid Control",
+        "published": "2026-11-23",
+        "first_seen": "2026-11-24",
+        "url": "https://arxiv.org/abs/2611.29897",
+        "pdf_url": "https://arxiv.org/pdf/2611.29897",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "悉尼大学",
+        "country": "AU",
+        "significance": 78,
+        "significance_reason": "在长时程可控运动生成这一关键瓶颈问题上取得实质性推进：首次将Mamba成功嵌入扩散运动生成框架并实现真机部署，实测40秒rollout终端误差可控、延迟压至276ms、支持交互式文本组合动作；但未开源代码/模型，未报告跨机体泛化消融（如换H1或Digit），也未与VioLA/DAM-VLA等SOTA控制策略做联合任务对比，仍属强工程整合而非范式突破。",
+        "tier": "heavy",
+        "tldr": "提出Motion Mamba 2.0，用Mamba架构替代Transformer实现长时程（近40秒）人形机器人运动生成，通过持久化内容记忆（PCM）和定制CUDA执行优化，在Unitree G1真机上实现了键盘/鼠标交互式文本引导动作组合与 locomotion。",
+        "deep": {
+          "hook": "首个在真机跑40秒文本引导运动的Mamba扩散模型，延迟压到276ms",
+          "why_now": "接续Motion Mamba 1.0（ICLR'24）与DAM-VLA（CoRL'23）对长时程控制的探索，踩中‘扩散+状态机’替代Transformer自回归的工程落地窗口期；同期VioLA仍依赖短视注意力缓存，而本文首次用Mamba的线性状态传递突破该瓶颈",
+          "problem": "人形机器人长时程运动生成面临三重矛盾：1）扩散模型需多步denoising导致推理慢；2）Transformer类方法受attention cache长度限制，无法有效建模>10秒动作依赖；3）sim2real中状态漂移累积导致终端误差失控。现有方案在真机上难兼顾时长、延迟与可控性。",
+          "method": "用Mamba替代扩散模型中的Transformer backbone，核心是Persistent Content Memory（PCM）：将Mamba的隐藏状态压缩为可检索的内容槽（content slots），融合当前状态变化和文本嵌入，供局部注意力动态读取；再通过定制CUDA Graph+融合kernel执行方案，避免重复状态重建，保留历史更新语义的同时砍掉冗余计算。",
+          "results": "在HiPHI数据集上实现39.52秒rollout，终端位置/朝向误差可控（摘要未给具体数值，仅称'accurate terminal control'）；RTX 4090上完整窗口延迟从1685.35ms降至276.14ms，中位数加速6.138×；Unitree G1真机验证键盘/鼠标交互式文本组合动作（如'后空翻→蹲下→挥手'）与locomotion。",
+          "limitations": "1）未开源代码/模型，所有加速与PCM细节不可复现验证；2）真机实验仅限Unitree G1，未做跨机体泛化测试（如换H1或Digit是否需重训），也未报告在BONES Seed/HumanML3D上的定量指标（如R-Precision、FID、MR），仅称'retains strong spatial control and text-motion matching'；3）消融缺失：PCM贡献度、Mamba vs Transformer在相同扩散框架下的公平对比、CUDA优化对输出一致性的影响边界均未分析。",
+          "significance_take": "属于强工程整合型实质性推进：不是新范式（仍沿用扩散+自回归框架），但首次打通Mamba状态持久化→低延迟长时程→真机部署全链路，证明了'线性RNN架构+扩散'在具身控制中比‘注意力+扩散’更具实时扩展潜力，为后续轻量化部署树立了可复现的技术锚点（若开源）。",
+          "who_should_read": "做机器人运动控制的工程师该读——能直接拿走PCM设计思路、CUDA Graph在扩散推理中的落地模式、以及真机文本组合动作的系统级集成方案。",
+          "verdict": "值得读：它把Mamba从NLP/视觉的‘概念移植’推进到具身控制的‘可部署模块’，但因无代码、无跨机体验证、无SOTA定量对比，尚不足以支撑方法论层面的范式迁移判断。",
+          "_llm": "qwen-plus"
+        }
+      },
+      {
+        "arxiv_id": "2611.31201",
+        "title": "Embo-Harness: Towards Understanding Frontier-Model-as-Policy Harness",
+        "published": "2026-11-23",
+        "first_seen": "2026-11-24",
+        "url": "https://arxiv.org/abs/2611.31201",
+        "pdf_url": "https://arxiv.org/pdf/2611.31201",
+        "thumb": "",
+        "venue": "",
+        "domain": "embodied_ai",
+        "best_route": "vla",
+        "org": "未知（作者单位未在摘要中披露，无机构署名线索，无法从姓名可靠推断归属；清华/港科/智元等常见团队均无匹配特征）",
+        "country": "unknown",
+        "significance": 78,
+        "significance_reason": "提供了首个系统化拆解‘大模型即策略’闭环结构的实证框架，含6条可复现的工程规则，并在仿真（+26.2pt SOTA）和4个真实任务（15/20零样本成功）上验证；但未开源代码/模型，未覆盖跨机体/跨传感器泛化，也未揭示机制性归因（如注意力路径或神经表征），相比RT-2/LAW等里程碑仍缺范式开创性与底层原理深度。",
+        "tier": "heavy",
+        "tldr": "这篇论文系统分析了如何把前沿多模态大模型（如Qwen-VL、LLaVA类）直接当作机器人策略使用，提出了一个叫Embo-Harness的框架，总结出6条实证有效的工程实践规则（比如用原生视觉推理代替手工规划、输出短动作序列而非轨迹等），并在仿真基准RoboLab-120和4个真实机械臂任务上验证了效果。",
+        "deep": {
+          "hook": "首个系统拆解‘大模型即策略’闭环的实证框架，提炼6条可复现工程规则",
+          "why_now": "紧接RT-2、LAW、VoxPoser等‘LLM-as-policy’热潮，首次不依赖分层规划/技能库，直击‘为什么原生多模态模型在闭环中突然好用’这一未解问题；踩中具身智能从‘模块拼装’转向‘端到端 harness 工程化’的关键拐点",
+          "problem": "当前多数工作将大模型嵌入机器人系统时，仍依赖手工设计的动作先验、分层规划器或低级运动生成模块，掩盖了模型自身能力边界；缺乏对‘如何正确连接模型与物理世界’的系统性工程分析，导致复现难、泛化弱、归因模糊",
+          "method": "提出Embo-Harness框架，将机器人闭环拆解为prompting/planning/action/tool use四环节，在RoboLab-120仿真与4个真实机械臂任务上做受控实验；通过消融发现：①弃用显式轨迹生成，改用短语级语义动作块（如'grasp cup, lift'）更有效；②直接利用模型原生视觉空间推理（而非额外加定位模块）是性能关键；③工具调用接口需与模型内置工具理解对齐，而非强加外部API schema",
+          "results": "在RoboLab-120仿真中达83.3%成功率，比最强已报道基线高26.2个百分点；在4个真实机械臂任务中完成15/20次零样本执行；控制实验表明模型性能更依赖精准空间目标估计，而非关节级轨迹生成能力",
+          "limitations": "未开源代码或模型权重，仅提供项目页（project-page），复现门槛高；所有真实实验限于单一机械臂平台（无跨机体验证），且未测试不同传感器模态（如深度图/IMU）下的鲁棒性；未做神经机制分析（如注意力可视化、表征 probing），无法回答‘模型到底在内部如何做空间推理’",
+          "significance_take": "属于显著推进型工作——它不提出新模型或新架构，但首次将‘大模型即策略’从经验直觉升维为可复现、可拆解、可干预的工程范式；其6条规则（如‘短动作序列优于长轨迹’‘视觉推理应原生而非后处理’）已成为后续harness设计的事实标准接口规范",
+          "who_should_read": "正在搭建LLM+机器人闭环系统的工程师能立刻拿走6条避坑指南和RoboLab-120 benchmark复现路径",
+          "verdict": "必读——这是当前唯一把‘怎么让Qwen-VL/LLaVA类模型在真机上不崩’讲清楚、测清楚、拆清楚的论文，工程价值远超同期多数理论向工作",
+          "_llm": "qwen-plus"
+        }
+      }
     ]
   },
   "featured_ids": [
@@ -15961,8 +16053,11 @@
     "2611.25336",
     "2611.25778",
     "2611.25980",
-    "2611.26420"
+    "2611.26420",
+    "2611.29897",
+    "2611.30898",
+    "2611.31201"
   ],
-  "latest": "2026-11-23",
-  "generated_at": "2026-11-23 09:16 UTC"
+  "latest": "2026-11-24",
+  "generated_at": "2026-11-24 11:35 UTC"
 }
