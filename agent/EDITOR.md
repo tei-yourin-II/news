@@ -21,7 +21,8 @@
 字段含义:`merit` 内容分、`hot` 关注度、`combo` 综合、`rank_tier` S/A/B、`takeaway`、`headline_result`、
 `evidence_facts`(正文里查到的事实)、`hype_gap`(说法与证据的落差)、`fulltext`(false=只读过摘要,证据未核对)、
 `org_unverified`(true=机构是猜的,不要引用)、`rank_why`(只有 S/A 档才有)。
-`routes` 和 `best_route` 目前不可靠(过半被标成 vla),不要据此下结论。
+`approach` 是方法标签(多选,词表和定义在 `pipeline/approach.py`),比 `routes` / `best_route` 可靠(后两者过半被标成 vla,不要用)。
+发现某类标签经常打错或词表缺了明显的一类,写进 `notes`。
 
 做法:
 1. 新论文大多还没有关注度,所以主要看内容排名:先看全部 S 档和 A 档靠前的,

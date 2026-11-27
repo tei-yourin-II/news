@@ -29,6 +29,7 @@ SYSTEM = """你是科技情报系统的资深论文分析员,覆盖三大领域:
   "generalization": "跨任务/跨场景/跨机体/跨用户 中命中的,或 limited",
   "reproducibility": "code+model+data | code-only | project-page | none | unknown",
   "tags": ["从 multimodal-fusion,tactile,dexterous,sim2real,teleoperation,dataset,benchmark,open-source,real-robot,large-scale 里命中的"],
+  "approach": ["方法标签,1~4 个,只能从【方法标签词表】里选确实符合定义的;都不符合给空数组"],
   "novelty": 0,            // 0-10 真突破=10 概念包装=2
   "evidence": 0,           // 0-12 真机多任务多baseline有消融=12 纯概念=2
   "reproducibility_score": 0,  // 0-8 全开源=8 啥都没=0
@@ -82,6 +83,10 @@ def _user_content(paper):
     if venue:
         base += (f"\n\n【发表信息】本文为 {venue} 论文。顶会接收/获奖是强质量信号,"
                  "significance 应据此抬高一档,但仍按实质证据打分,别只因顶会给满分。")
+    from . import approach
+    base += ("\n\n【方法标签词表(approach 字段只能从这里选)】\n" + approach.menu() +
+             "\n区分:只预测未来不出动作=WM;预测未来和动作联合建模=WAM;大模型骨干直接出动作=VLA;"
+             "调用现成大模型写代码/规划驱动机器人=Agentic。可多选。")
     anchors = paper.get("_anchors")
     if anchors:
         base += (f"\n\n【该领域基石参照(分量分标尺,衡量本文水平用)】:\n{anchors}\n"
@@ -135,7 +140,8 @@ def _analyze_openai_compat(paper, llm_cfg, provider):
         data["_llm"] = llm_cfg.get("model")
         data["_fulltext"] = bool(paper.get("_fulltext"))
         data["_org_src"] = "pdf" if paper.get("_fulltext") else "abstract"
-        from . import grounding
+        from . import approach, grounding
+        data["approach"] = approach.clean(data.get("approach"))
         grounding.scrub(data, f"{paper.get('title', '')} {paper.get('abstract', '')} {paper.get('_fulltext', '')}")
         return data
     except Exception as e:

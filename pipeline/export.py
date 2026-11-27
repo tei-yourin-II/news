@@ -80,6 +80,7 @@ def _slim(p, rid_domain=None):
         "domain": rid_domain.get(best, "embodied_ai"),
         "routes": [k for k, v in (p.get("route_scores") or {}).items() if v >= 0.15],
         "tags": a.get("tags", []),
+        "approach": a.get("approach", []),
         "scores": p.get("scores", {}),
         "grade": p.get("grade"), "read_priority": p.get("read_priority"),
         "tldr": a.get("tldr", ""),

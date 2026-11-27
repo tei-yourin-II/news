@@ -177,7 +177,8 @@
   .rrow .num small{display:block; font-size:9.5px; color:var(--mut); margin-top:4px;}
   .rrow .mid{flex:1; min-width:0;}
   .rrow .take{font-size:14px; font-weight:650; line-height:1.45; color:var(--fg);}
-  .rtag{border:1px solid var(--line2); border-radius:4px; padding:0 5px; font-size:10.5px; color:var(--mut2);}
+  .rtag{border:1px solid var(--line2); border-radius:4px; padding:0 5px; font-size:10.5px; color:var(--mut2); cursor:pointer;}
+  .rtag:hover,.rtag.on{border-color:var(--accent); color:var(--accent);}
   .rrow .tt2{font-size:11.5px; color:var(--mut); margin-top:2px; line-height:1.4;}
   .rrow .fact{font-size:12px; color:var(--mut2); margin-top:5px; line-height:1.5;
               display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;}
@@ -616,7 +617,7 @@ function loadHint(){
 }
 function getQuery(){ return (document.getElementById('fQuery')?.value||'').trim().toLowerCase(); }
 function paperText(p){
-  return [p.title,p.tldr,p.claim,p.verdict,p.org,p.country,p.org_type,p.best_route,(p.tags||[]).join(' '),
+  return [p.title,p.tldr,p.claim,p.verdict,p.org,p.country,p.org_type,p.best_route,(p.tags||[]).join(' '),(p.approach||[]).join(' '),
     (p.method_components||[]).join(' ')].filter(Boolean).join(' ').toLowerCase();
 }
 function hasPaperFilters(){
@@ -686,6 +687,7 @@ function card(p){
     <h3>${esc(p.title)}</h3>
     ${p.venue?`<div class="venue">🏆 ${esc(p.venue)}</div>`:''}
     <div class="tldr">${esc(p.takeaway||p.tldr||p.claim||'')}</div>
+    ${(p.approach||[]).length?`<div style="margin-top:6px;display:flex;gap:5px;flex-wrap:wrap">${p.approach.map(x=>`<span class="rtag">${esc(x)}</span>`).join('')}</div>`:''}
     <div class="foot">${esc((p.published||'').slice(0,10))}<span>·</span>内容 ${Math.round(p.merit||0)}<span>·</span>关注度 ${Math.round(p.hot||0)}</div>
   </div>`;
 }
@@ -714,13 +716,17 @@ function pills(p){
     +(g.citations?`<span class="pill star">引 ${g.citations}</span>`:'')
     +(p.award?`<span class="pill S">🏆 ${esc(p.award)}</span>`:'');
 }
-let RW=7, RDOM='embodied_ai', RALL=false;
+let RW=7, RDOM='embodied_ai', RALL=false, RTAG=null;
 const rdate=p=>(p.first_seen||p.published||'').slice(0,10);
 function dateAdd(iso,n){ const t=new Date(iso+'T00:00:00Z'); t.setUTCDate(t.getUTCDate()+n); return t.toISOString().slice(0,10); }
 // 细分标签用缩写,省地方
 const RSHORT={vla:'VLA',world_model:'WM',whole_body_control:'WBC',dexterous_manipulation:'灵巧手',sim2real_data:'Sim2Real',
   hardware_unitree:'硬件',bci_neural_decoding:'解码',bci_foundation_models:'神经基模',bci_embodied_robot:'BCI×具身',
   bci_noninvasive_eeg:'EEG',protein_ai:'蛋白',genomics_ai:'基因',hri:'HRI',llm_agent:'Agent'};
+function atags(p){
+  const t=(p.approach&&p.approach.length)?p.approach:(routeName(p.best_route)?[routeName(p.best_route)]:[]);
+  return t.map(x=>`<span class="rtag${RTAG===x?' on':''}" onclick="event.stopPropagation();setRTag('${esc(x)}')">${esc(x)}</span>`).join('');
+}
 function routeName(id){ if(RSHORT[id])return RSHORT[id]; const r=(DATA.routes||[]).find(x=>x.id===id); return r?r.name.split(/[ (\/]/)[0]:''; }
 const VTAG={'真突破':'#5fae6f','工程整合':'#6e9bd6','概念包装':'#b0748a','暂时不用看':'#5a5a61'};
 function vtag(p){ const v=(p.verdict||p.one_sentence_verdict||''); const k=Object.keys(VTAG).find(k=>v.includes(k));
@@ -746,7 +752,7 @@ function rrow(p,lead){
       ${res?`<div class="fact"><i>结果</i>${esc(res)}</div>`:(p.evidence_facts?`<div class="fact"><i>证据</i>${esc(p.evidence_facts)}</div>`:'')}
       ${!noGap(p.hype_gap)?`<div class="fact gap"><i>存疑</i>${esc(p.hype_gap)}</div>`:''}
       ${lead==='merit'&&p.rank_why?`<div class="fact"><i>排名理由</i>${esc(p.rank_why)}</div>`:''}
-      <div class="sb">${co?CO[co]+' ':''}${o?esc(o):''}<span>${esc(rdate(p).slice(5))}</span>${routeName(p.best_route)?`<span class="rtag">${esc(routeName(p.best_route))}</span>`:''}
+      <div class="sb">${co?CO[co]+' ':''}${o?esc(o):''}<span>${esc(rdate(p).slice(5))}</span>${atags(p)}
         ${pills(p)}${vtag(p)}${p.venue?`<span class="venue" style="margin:0">🏆 ${esc(p.venue)}</span>`:''}
         ${deepOf(p.arxiv_id)?'<span class="pill" style="background:#6e9bd622;color:var(--accent)">深读</span>':''}${g.repo?'<span>有代码</span>':''}${p.fulltext?'':'<span title="这篇只读了摘要,证据未核对正文">仅摘要</span>'}</div>
     </span></div>`;
@@ -755,13 +761,18 @@ function renderHome(){
   const all=(RECENT.papers||[]).filter(p=>p.domain===RDOM);
   const latest=RECENT.latest||all.map(rdate).sort().pop()||'';
   const cut=latest?dateAdd(latest,-(RW-1)):'';
-  const ps=all.filter(p=>rdate(p)>=cut);
+  const win=all.filter(p=>rdate(p)>=cut);
+  const ps=RTAG?win.filter(p=>(p.approach||[]).includes(RTAG)):win;
+  const tc={}; win.forEach(p=>(p.approach||[]).forEach(t=>tc[t]=(tc[t]||0)+1));
+  const tagbar=Object.entries(tc).sort((a,b)=>b[1]-a[1]).map(([t,n])=>
+    `<button class="chip${RTAG===t?' on':''}" onclick="setRTag('${esc(t)}')">${esc(t)} ${n}</button>`).join('');
   document.getElementById('stat').textContent=`近 ${RW} 天 ${ps.length} 篇 · 更新于 ${RECENT.generated_at||DATA.generated_at||''}`;
   const seg=(items,cur,fn)=>`<span class="seg">${items.map(([v,t])=>`<button class="${v===cur?'on':''}" onclick="${fn}(${typeof v==='string'?`'${v}'`:v})">${t}</button>`).join('')}</span>`;
   let html=`<div class="rbar">
     ${seg([[1,'今天'],[3,'3 天'],[7,'7 天'],[30,'30 天']],RW,'setRW')}
     ${seg([['embodied_ai','具身智能'],['bci','脑机接口'],['ai_science','AI×科学']],RDOM,'setRDOM')}
-    <span class="rnote">${latest?`入库截至 ${latest}`:''} · 点 ❔ 看两条轴怎么算</span></div>`;
+    <span class="rnote">${latest?`入库截至 ${latest}`:''} · 点 ❔ 看两条轴怎么算</span></div>
+    ${tagbar?`<div class="rbar" style="margin-top:-10px;gap:6px">${tagbar}${RTAG?`<button class="clear-btn" onclick="setRTag(null)">清除标签</button>`:''}</div>`:''}`;
   html+=briefHtml();
   if(!ps.length){
     html+=`<div class="empty">这个时间窗内没有论文。${LOAD_ISSUES.length?'<br>'+esc(LOAD_ISSUES.join(';')):''}</div>`;
@@ -796,9 +807,10 @@ function briefHtml(){
     ${notes?`<details class="scoredetail"><summary>编辑手记(分类与权重的调整)</summary><ul class="bnotes">${notes}</ul></details>`:''}</div>`;
 }
 function setRW(n){ RW=n; RALL=false; renderHome(); }
-function setRDOM(d){ RDOM=d; RALL=false; renderHome(); }
+function setRTag(t){ RTAG=(RTAG===t?null:t); RALL=false; if(mode!=='home'){mode='home';syncDom();} else renderHome(); }
+function setRDOM(d){ RDOM=d; RALL=false; RTAG=null; renderHome(); }
 function toggleRAll(){ RALL=!RALL; renderHome(); }
-Object.assign(window,{setRW,setRDOM,toggleRAll});
+Object.assign(window,{setRW,setRDOM,toggleRAll,setRTag});
 
 // ===== 全景 =====
 function renderPanorama(){
@@ -1141,6 +1153,7 @@ function openPaper(p, ctx){
     ${sec('👤 谁该读',dp.who_should_read)}
     ${(p.input||p.output)?`<dl class="kv"><dt>输入</dt><dd>${esc(p.input||'-')}</dd><dt>输出</dt><dd>${esc(p.output||'-')}</dd>
       ${p.sim2real_status?`<dt>Sim2Real</dt><dd>${esc(p.sim2real_status)}</dd>`:''}${p.reproducibility?`<dt>可复现</dt><dd>${esc(p.reproducibility)}</dd>`:''}</dl>`:''}
+    ${(p.approach&&p.approach.length)?`<div class="section-t">方法标签</div><div>${p.approach.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>`:''}
     ${(p.tags&&p.tags.length)?`<div class="section-t">标签</div><div>${p.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>`:''}
     ${scoreBlock}
     <div style="margin-top:14px">
