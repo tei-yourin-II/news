@@ -14,6 +14,8 @@ SYSTEM = """你是科技情报系统的资深论文分析员,覆盖三大领域:
 只输出一个 JSON 对象,字段如下:
 {
   "tldr": "用一句中文白话讲清这篇到底做了啥、解决什么问题(给完全没读过的人看)",
+  "takeaway": "读者为什么要在意,一句大白话,不超过40字:它让什么事第一次能做 / 把什么做便宜做快了多少 / 推翻了什么常识。不许出现方法名、模块名、英文缩写,不许用'提出了''框架''范式'这类词;如果其实没什么可在意的,就直说'增量改进:……'",
+  "headline_result": "正文里最硬的一个结果,带数字和条件,不超过40字(如'真机G1上100次试验成功94%');没有量化结果写'无量化结果'",
   "org": "主要团队/机构(中文简称,如 英伟达/谷歌DeepMind/Meta/斯坦福/伯克利/清华/智元/宇树/银河通用;依据作者名与摘要里的署名判断,多个取最主要的一个;实在判断不了写 unknown)",
   "country": "该机构所属国家/地区,从 [US, CN, JP, EU, UK, KR, Other, unknown] 里选一个(美国US/中国CN/日本JP/欧洲EU/英国UK/韩国KR)",
   "org_type": "发布机构类型,从 [company, university, institute, mixed, unknown] 选一个(企业/高校/研究机构/产学研合作/未知)",
@@ -32,6 +34,8 @@ SYSTEM = """你是科技情报系统的资深论文分析员,覆盖三大领域:
   "reproducibility_score": 0,  // 0-8 全开源=8 啥都没=0
   "significance": 0,       // 0-100 分量分:这篇对领域的真实价值,要挑剔!⚠️忽略作者自吹的"突破性/novel/SOTA/first/state-of-the-art"等措辞(人人都写),只看实质证据。标尺:90-100=里程碑(开新范式/解决长期开放难题,如AlphaFold/RT-2级);75-89=重磅(明显推进SOTA且证据扎实:真机+多任务+消融+开源);60-74=显著贡献;40-59=扎实增量;20-39=一般/窄/纯benchmark;0-19=灌水/纯概念包装。自吹但无实证、只仿真小数据、纯刷榜的一律压到40以下。
   "significance_reason": "给这个分量分的一句话中文理由(点明它是真推进还是包装)",
+  "evidence_facts": "只列正文里能查到的事实(中文,一两句):真机还是仿真、几个任务/多少次试验、跟谁比了、有没有消融、开源了什么。正文没写的就写'未报告',不要替作者补",
+  "hype_gap": "摘要/标题的说法与正文实证之间的落差(中文一句,如'摘要称通用,实验只有3个桌面任务');没有落差写 none",
   "one_sentence_verdict": "一句话判断(中文),从 真突破/工程整合/概念包装/暂时不用看 里选一个并简述为什么"
 }
 严格只输出 JSON,不要 markdown 代码块。"""
@@ -69,6 +73,11 @@ def _user_content(paper):
     base = (f"标题: {paper['title']}\n\n"
             f"作者: {authors or '(未提供)'}\n\n"
             f"摘要: {paper['abstract']}")
+    full = paper.get("_fulltext")
+    if full:
+        base += ("\n\n【正文节选(PDF 抽取,可能有排版噪声)】下面是论文正文。"
+                 "evidence / significance / evidence_facts / hype_gap 必须以正文的实验部分为准,"
+                 "不要照抄摘要的自我评价;机构也以正文署名为准。\n" + full)
     venue = paper.get("_venue")
     if venue:
         base += (f"\n\n【发表信息】本文为 {venue} 论文。顶会接收/获奖是强质量信号,"
@@ -114,7 +123,7 @@ def _analyze_openai_compat(paper, llm_cfg, provider):
         client = OpenAI(api_key=key, base_url=base_url)
         resp = client.chat.completions.create(
             model=llm_cfg.get("model", "qwen-plus"),
-            max_tokens=1024,
+            max_tokens=1600,
             temperature=0.2,
             response_format={"type": "json_object"},  # 强制 JSON,省去剥壳
             messages=[
@@ -124,6 +133,7 @@ def _analyze_openai_compat(paper, llm_cfg, provider):
         )
         data = _parse_json(resp.choices[0].message.content)
         data["_llm"] = llm_cfg.get("model")
+        data["_fulltext"] = bool(paper.get("_fulltext"))
         return data
     except Exception as e:
         print(f"  [analyze] {provider} 失败,出占位: {e}")
@@ -141,7 +151,7 @@ def _analyze_anthropic(paper, llm_cfg):
         client = anthropic.Anthropic()
         msg = client.messages.create(
             model=llm_cfg.get("model", "claude-sonnet-4-6"),
-            max_tokens=1024,
+            max_tokens=1600,
             system=[{"type": "text", "text": SYSTEM,
                      "cache_control": {"type": "ephemeral"}}],  # 静态 system 走缓存省钱
             messages=[{"role": "user", "content": _user_content(paper)}],

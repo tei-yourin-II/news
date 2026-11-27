@@ -20,7 +20,7 @@ import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from pipeline import analyze, config, store
+from pipeline import analyze, config, rank, store
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "docs" / "daily_picks.json"
@@ -102,10 +102,8 @@ def _sig(p):
 
 
 def _pscore(p):
-    """选片分:significance(挑剔标尺)主导,base(今日读价值)/heat(热度)/venue 轻加权。"""
-    s = p.get("scores", {}) or {}
-    venue_bonus = 6 if p.get("venue") else 0
-    return _sig(p) + 0.25 * (s.get("base", 0) or 0) + 0.5 * (s.get("heat", 0) or 0) + venue_bonus
+    """选片分 = 综合分(同批排名的内容分 + 社区热度,见 pipeline/rank.py)+ 顶会小加成。"""
+    return rank.combo(p) + (4 if p.get("venue") else 0)
 
 
 def _pick_obj(p, deep, domain):
@@ -121,6 +119,9 @@ def _pick_obj(p, deep, domain):
         "domain": domain, "best_route": p.get("best_route"),
         "org": a.get("org", ""), "country": a.get("country", ""),
         "significance": sig, "significance_reason": a.get("significance_reason", ""),
+        "merit": rank.merit(p), "hot": rank.hot(p), "combo": rank.combo(p),
+        "rank_tier": (p.get("rank") or {}).get("tier", ""), "rank_why": (p.get("rank") or {}).get("why", ""),
+        "hf_upvotes": (p.get("signals") or {}).get("hf_upvotes", 0),
         "tier": tier, "tldr": a.get("tldr", ""),
         "deep": deep or {},   # 深度解析(空 = LLM 降级时的占位)
     }
@@ -175,7 +176,7 @@ def main():
 
     # 1) 当日时效窗内、过质量地板、未精选过的候选
     fresh = [p for p in papers
-             if _date_key(p) >= win_cut and _sig(p) >= floor and p["arxiv_id"] not in featured]
+             if _date_key(p) >= win_cut and rank.combo(p) >= floor and p["arxiv_id"] not in featured]
     fresh.sort(key=_pscore, reverse=True)
     picks = fresh[:max_picks]
 
@@ -185,7 +186,7 @@ def main():
         fb_floor = dp.get("sig_floor_fallback", 55)
         chosen = {p["arxiv_id"] for p in picks}
         pool = [p for p in papers
-                if _date_key(p) >= fb_cut and _sig(p) >= fb_floor
+                if _date_key(p) >= fb_cut and rank.combo(p) >= fb_floor
                 and p["arxiv_id"] not in featured and p["arxiv_id"] not in chosen]
         pool.sort(key=_pscore, reverse=True)
         need = min_picks - len(picks)

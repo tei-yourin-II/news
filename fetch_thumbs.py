@@ -5,12 +5,13 @@
 import re
 import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
-from pipeline import config, export, store, thumbs
+from pipeline import config, export, rank, store, thumbs
 
 ARXIV_RE = re.compile(r"^\d{4}\.\d{4,5}$")
 WORKERS = 8
+CAP = 120
 
 
 def main():
@@ -18,8 +19,12 @@ def main():
     routes = config.enabled_routes(cfg)
     state = store.load()
     papers = [p for p in state["papers"] if ARXIV_RE.match(str(p.get("arxiv_id", "")))]
-    papers.sort(key=lambda p: -(p.get("analysis", {}).get("significance", 0) or 0))
-    todo = [p for p in papers if not p.get("thumb")]
+    # 先抓近 30 天里综合分高的(首页看得到的),每次最多 CAP 篇:
+    # 旧版对全库所有缺图论文按旧分量分排,积压几千篇时一次跑不完,新论文也排不到前面。
+    cut = (datetime.now(timezone.utc) - timedelta(days=30)).strftime("%Y-%m-%d")
+    day = lambda p: (p.get("first_seen") or p.get("published") or "")[:10]
+    papers.sort(key=lambda p: (day(p) >= cut, rank.combo(p)), reverse=True)
+    todo = [p for p in papers if not p.get("thumb")][:CAP]
     print(f"待抓图 {len(todo)} 篇(并发 {WORKERS})")
     lock = threading.Lock()
     done = [0]

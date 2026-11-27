@@ -13,8 +13,8 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
 
 from pipeline import (analyze, config, export, fetch_arxiv, fetch_openalex,
-                      notion_sync, prefilter, quality, relevance, scoring,
-                      signals, store, venue)
+                      fulltext, notion_sync, prefilter, quality, rank, relevance,
+                      scoring, signals, store, venue)
 
 
 def _select_with_floor(papers, dom_fn, floor, total):
@@ -105,7 +105,8 @@ def main():
     print(f"进入深拆解 → {len(survivors)} 篇")
 
     # 4) 信号 + LLM 拆解 + 打分
-    hf_up = signals.fetch_hf_upvotes()
+    hf = signals.fetch_hf_range(cfg.get("heat", {}).get("days", 30))   # 近 30 天「现在」的票数/star
+    hf_up = {k: v["upvotes"] for k, v in hf.items()}
     weights = cfg["scoring"]["weights"]
     gt, pt = cfg["scoring"]["grade_thresholds"], cfg["scoring"]["priority_thresholds"]
     llm_cfg = cfg["llm"]
@@ -120,11 +121,21 @@ def main():
 
     # LLM 拆解:并行调用(DashScope 支持并发,40 篇从串行几分钟压到几十秒)
     to_llm = survivors[:max_llm]
+    # 读全文:只看摘要时模型只能复述作者的自我评价;给它正文才能核对实验
+    if llm_cfg.get("fulltext", True):
+        with ThreadPoolExecutor(max_workers=4) as ex:
+            texts = list(ex.map(lambda p: fulltext.fetch(
+                p["arxiv_id"], llm_cfg.get("fulltext_chars", 40000)), to_llm))
+        for p, t in zip(to_llm, texts):
+            if t:
+                p["_fulltext"] = t
+        print(f"  取到正文 {sum(1 for t in texts if t)}/{len(to_llm)} 篇")
     with ThreadPoolExecutor(max_workers=6) as ex:
         analyses = list(ex.map(lambda p: analyze.analyze(p, llm_cfg), to_llm))
     print(f"  LLM 并行拆解 {len(to_llm)} 篇完成")
     for p in survivors:
         p.pop("_anchors", None)  # 临时字段,别写进 store
+        p.pop("_fulltext", None)
 
     # 4.1) 会议归属富化:OpenAlex 对 arXiv 预印本只给 "arXiv",真正的「录用到 CoRL/RSS」
     #      藏在 arXiv comment 里。对入库的 arXiv 论文小批量拉 comment → 正则识别顶会顶刊。
@@ -138,8 +149,9 @@ def main():
     for i, p in enumerate(survivors):
         a = analyses[i] if i < len(to_llm) else analyze._stub(p)
         p["first_seen"] = p.get("first_seen") or today  # 入库日(今日精选的时效基准)
-        up = p.get("hf_upvotes") or hf_up.get(p["arxiv_id"], 0)
-        heat01 = signals.heat_score(up)
+        h = hf.get(p["arxiv_id"], {})
+        up = max(p.get("hf_upvotes") or 0, h.get("upvotes", 0))
+        heat01 = signals.heat_score(up, h.get("stars", 0))
         # 引用数:OpenAlex 已白送 cited_by_count → 直接用(免 S2 调用);新论文通常≈0,
         # 靠下面每日 _refresh 随论文变老再补。无该字段(HF 兜底来的)则 0。
         cites = p.get("cited_by_count", 0)
@@ -150,7 +162,9 @@ def main():
             a["venue"] = ven
         sc = scoring.compute(p, a, heat01, quality01, weights)
         p["analysis"] = a
-        p["signals"] = {"hf_upvotes": up, "citations": cites, "venue": ven}
+        p["signals"] = {"hf_upvotes": up, "citations": cites, "venue": ven,
+                        "github_stars": h.get("stars", 0), "hf_comments": h.get("comments", 0),
+                        "repo": h.get("repo", ""), "project": h.get("project", "")}
         p["scores"] = sc
         p["grade"] = scoring.grade(sc["total"], gt)
         p["read_priority"] = scoring.priority(sc["base"], pt)
@@ -160,9 +174,20 @@ def main():
 
     # 4.5) 刷新老论文的免费信号(热度/引用),让 bonus 随时间长上来。
     #      只重算信号 + 总分,不重跑贵的 LLM(复用已存的 content/analysis)。
-    refreshed = _refresh_recent(state, hf_up, weights, gt, pt, oc.get("mailto", ""), days=30, cap=40)
+    refreshed = _refresh_recent(state, hf, weights, gt, pt, oc.get("mailto", ""), days=45)
     if refreshed:
         print(f"刷新了 {refreshed} 篇老论文的热度/质量")
+
+    # 4.6) 同批强制排名:今天入库的论文按领域放在一起比,头部限额(见 pipeline/rank.py)
+    rk = cfg.get("rank", {})
+    if rk.get("enabled", True):
+        by_dom = {}
+        for p in records:
+            by_dom.setdefault(dom_fn(p), []).append(p)
+        for d, lst in by_dom.items():
+            n = rank.rank_pool(lst, rk, today)
+            tiers = [p.get("rank", {}).get("tier") for p in lst]
+            print(f"  排名[{d}] {n}/{len(lst)} 篇 → 必读 {tiers.count('S')} / 值得读 {tiers.count('A')}")
 
     # 5) 持久化 + 导出 + Notion
     store.upsert(state, records)
@@ -271,24 +296,33 @@ def _doi_of(p):
     return f"10.48550/arxiv.{aid}" if re.match(r"^\d{4}\.\d{4,5}$", aid) else aid
 
 
-def _refresh_recent(state, hf_up, weights, gt, pt, mailto, days=30, cap=40):
-    """给近 N 天的老论文重算热度/质量信号 + 总分(不动 LLM 拆解)。
-       引用/venue 走 OpenAlex DOI 批量(一发请求),替掉 Semantic Scholar 的逐篇限流。"""
+def _refresh_recent(state, hf, weights, gt, pt, mailto, days=45):
+    """给近 N 天的**全部**老论文重算热度/质量信号 + 总分(不动 LLM 拆解)。
+       热度:hf 是按日期回拉的当前票数/star(论文入库时票数还低,必须回头再刷)。
+       引用:走 OpenAlex DOI 批量(50 篇一发)。旧版只刷库里排最前的 40 篇,新论文永远轮不到。"""
     cutoff = (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y-%m-%d")
     recent = [p for p in state.get("papers", [])
               if (p.get("published", "")[:10] >= cutoff) and p.get("analysis")]
-    recent = recent[:cap]
     if not recent:
         return 0
     qmap = fetch_openalex.fetch_quality_batch([_doi_of(p) for p in recent], mailto)
     n = 0
     for p in recent:
-        q = qmap.get(_doi_of(p), {"citations": 0, "influential_citations": 0, "venue": ""})
-        up = hf_up.get(p["arxiv_id"], p.get("signals", {}).get("hf_upvotes", 0))
-        heat01 = signals.heat_score(up)
-        quality01 = quality.quality_score(q)
+        old = p.get("signals", {}) or {}
+        q = qmap.get(_doi_of(p)) or {"citations": old.get("citations", 0),
+                                     "influential_citations": 0, "venue": ""}
+        h = hf.get(p["arxiv_id"], {})
+        up = max(h.get("upvotes", 0), old.get("hf_upvotes", 0) or 0)
+        stars = max(h.get("stars", 0), old.get("github_stars", 0) or 0)
+        heat01 = signals.heat_score(up, stars)
+        ven = p.get("venue") or old.get("venue", "")       # comment 里识别出的顶会归属优先,别被 "arXiv" 盖掉
+        quality01 = quality.quality_score({"citations": q["citations"], "venue": ven})
         sc = scoring.compute(p, p["analysis"], heat01, quality01, weights)
-        p["signals"] = {"hf_upvotes": up, "citations": q["citations"], "venue": q["venue"]}
+        p["signals"] = {"hf_upvotes": up, "citations": q["citations"], "venue": ven,
+                        "github_stars": stars,
+                        "hf_comments": h.get("comments", old.get("hf_comments", 0)),
+                        "repo": h.get("repo") or old.get("repo", ""),
+                        "project": h.get("project") or old.get("project", "")}
         p["scores"] = sc
         p["grade"] = scoring.grade(sc["total"], gt)
         p["read_priority"] = scoring.priority(sc["base"], pt)

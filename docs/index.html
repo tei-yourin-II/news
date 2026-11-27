@@ -143,6 +143,53 @@
 
   /* ===== 首页精选:本周具身 Top15 + 今日精选 ===== */
   .featwrap{max-width:1200px; margin:0 auto;}
+  /* ===== 近期雷达(首页)===== */
+  .radar{max-width:1240px; margin:0 auto;}
+  .rbar{display:flex; gap:10px 14px; align-items:center; flex-wrap:wrap; margin:2px 0 20px;}
+  .seg{display:inline-flex; border:1px solid var(--line2); border-radius:9px; overflow:hidden;}
+  .seg button{padding:6px 14px; background:none; border:0; color:var(--mut); font-size:12.5px; font-weight:600;}
+  .seg button+button{border-left:1px solid var(--line);}
+  .seg button:hover{color:var(--fg);} .seg button.on{background:var(--card2); color:var(--fg);}
+  .rnote{font-size:11.5px; color:var(--mut);}
+  .rsec{display:flex; align-items:baseline; gap:10px; margin:0 0 11px;}
+  .rsec .t{font-size:16px; font-weight:750;} .rsec .d{font-size:11.5px; color:var(--mut);}
+  .rhero{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(330px,100%),1fr)); gap:12px; margin-bottom:26px;}
+  .hcard{background:var(--card); border:1px solid var(--line2); border-left:3px solid var(--heavy); border-radius:12px;
+         padding:14px 16px; cursor:pointer; transition:.12s;}
+  .hcard:hover{background:var(--card2); transform:translateY(-1px);}
+  .hcard h3{margin:8px 0 6px; font-size:15px; line-height:1.4; font-weight:650;}
+  .hcard .w{font-size:12.5px; color:var(--mut2); line-height:1.55;}
+  .lanes{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-bottom:28px;}
+  @media (max-width:900px){ .lanes{grid-template-columns:1fr;} }
+  .rrow{display:flex; gap:12px; padding:10px 13px; border:1px solid var(--line); border-radius:10px; background:var(--card);
+        cursor:pointer; margin-bottom:7px; transition:.12s;}
+  .rrow:hover{border-color:var(--line2); background:var(--card2);}
+  .rrow .num{width:46px; flex:none; text-align:center; line-height:1; padding-top:2px;}
+  .rrow .num b{font-size:18px; font-weight:800; font-variant-numeric:tabular-nums;}
+  .rrow .num small{display:block; font-size:9.5px; color:var(--mut); margin-top:4px;}
+  .rrow .mid{flex:1; min-width:0;}
+  .rrow .take{font-size:14px; font-weight:650; line-height:1.45; color:var(--fg);}
+  .rtag{border:1px solid var(--line2); border-radius:4px; padding:0 5px; font-size:10.5px; color:var(--mut2);}
+  .rrow .tt2{font-size:11.5px; color:var(--mut); margin-top:2px; line-height:1.4;}
+  .rrow .fact{font-size:12px; color:var(--mut2); margin-top:5px; line-height:1.5;
+              display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;}
+  .rrow .fact i{font-style:normal; font-size:10.5px; font-weight:700; color:var(--qual); margin-right:6px;}
+  .rrow .fact.gap i{color:#c98a5a;}
+  .rrow .rth{width:92px; height:68px; object-fit:cover; border-radius:7px; flex:none; background:#0d0d10; border:1px solid var(--line);}
+  @media (max-width:560px){ .rrow .rth{display:none;} }
+  .rrow .sb{font-size:11.5px; color:var(--mut); margin-top:3px; display:flex; gap:6px 9px; flex-wrap:wrap; align-items:center;}
+  .rrow .why{font-size:12px; color:var(--mut2); margin-top:4px; line-height:1.5;
+             display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;}
+  .pill{display:inline-block; font-size:10.5px; font-weight:700; padding:1px 7px; border-radius:5px; white-space:nowrap;}
+  .pill.S{background:var(--S); color:#0a0a0c;} .pill.A{background:var(--A); color:#0a0a0c;}
+  .pill.hot{background:rgba(224,137,74,.16); color:var(--heavy);}
+  .pill.star{background:rgba(214,168,74,.13); color:var(--gold);}
+  .rmore{display:block; margin:10px auto 30px; padding:7px 18px; border:1px solid var(--line2); border-radius:9px;
+         background:none; color:var(--mut2); font-size:12.5px;}
+  .rmore:hover{color:var(--fg); border-color:var(--accent);}
+  .twoax{display:flex; gap:18px; margin:12px 0 4px; padding:12px 14px; background:var(--card); border:1px solid var(--line); border-radius:11px;}
+  .twoax>div{flex:1; min-width:0;} .twoax b.n{font-size:24px; font-weight:800; font-variant-numeric:tabular-nums;}
+  .twoax .l{font-size:11px; color:var(--mut);} .twoax .x{font-size:12px; color:var(--mut2); margin-top:4px; line-height:1.5;}
   .feat{margin-bottom:30px;}
   /* 周报 hero 头 */
   .feat-h{display:flex; align-items:center; gap:10px 13px; margin:0 0 16px; padding-bottom:13px;
@@ -308,7 +355,7 @@
 <div class="top">
   <span class="brand">🛰️ 情报台 <span>具身·脑机·AI科学</span></span>
   <div class="tabs" id="tabs">
-    <button data-m="home" class="on">🏠 首页</button><button data-m="papers">📄 论文库</button><button data-m="panorama">🌐 全景</button><button data-m="graph">🕸 图谱</button><a class="tablink" href="news.html" title="业界动态:日报/周报 + 出图(含日本信息源)">📰 业界动态 ↗</a>
+    <button data-m="home" class="on">📡 近期</button><button data-m="papers">📄 论文库</button><button data-m="panorama">🌐 全景</button><button data-m="graph">🕸 图谱</button><a class="tablink" href="news.html" title="业界动态:日报/周报 + 出图(含日本信息源)">📰 业界动态 ↗</a>
   </div>
   <span class="grow"></span>
   <span class="stat" id="stat">加载中…</span>
@@ -330,8 +377,8 @@
     <select id="fOrgType"><option value="">全部</option><option value="company">企业</option>
       <option value="university">高校</option><option value="institute">研究机构</option></select></div>
   <div class="grp paperonly"><span class="lb">排序</span>
-    <select id="fSort"><option value="significance">分量</option><option value="base">今日优先</option>
-      <option value="total">总分</option><option value="heat">热度</option><option value="date">最新</option></select></div>
+    <select id="fSort"><option value="combo">综合</option><option value="hot">社区热度</option>
+      <option value="merit">内容</option><option value="date">最新</option><option value="significance">旧分量分</option></select></div>
   <button class="clear-btn paperonly" id="clearFilters" style="display:none">清空筛选</button>
 </div>
 
@@ -353,7 +400,7 @@ const CO={US:'🇺🇸',CN:'🇨🇳',JP:'🇯🇵',EU:'🇪🇺',UK:'🇬🇧',
 const CONAME={US:'美国',CN:'中国',JP:'日本',EU:'欧洲',UK:'英国',KR:'韩国'};
 const OTYPE={company:'企业',university:'高校',institute:'研究机构',mixed:'产学研'};
 const esc=s=>String(s==null?'':s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
-const orgOf=p=>{const o=(p.org||'').trim();return(!o||/^(unknown|未知|n\/a|none)$/i.test(o))?'':o;};
+const orgOf=p=>{const o=(p.org||'').trim().split(/[((;;]/)[0].trim();return(!o||/^(unknown|未知|n\/a|none)/i.test(o))?'':o.slice(0,28);};
 const coOf=p=>{const c=(p.country||'').trim().toUpperCase();return CO[c]?c:'';};
 const tierColor=t=>t==='heavy'?'#e0894a':t==='notable'?'#d6a84a':t==='worth'?'#6f9a8c':'#3a3a42';
 
@@ -371,22 +418,29 @@ function loadJson(name){
     return null;
   });
 }
+// 首页只吃 recent.json(近 30 天,小);data.json(全库,近 30MB)和图谱后台慢慢载,到了再刷新当前页。
+let RECENT={papers:[],latest:''}, DATA_READY=false;
 Promise.all([
-  loadJson('data.json'),
+  loadJson('recent.json'),
   loadJson('progress.json'),
   loadJson('llm_base.json'),
   loadJson('dynamics.json'),
-  loadJson('graph.json'),
   loadJson('news.json'),
   loadJson('daily_picks.json'),
   loadJson('weekly_picks.json'),
-]).then(([d,pg,lb,dy,gr,nw,pk,wk])=>{
-  if(d)DATA=d; if(pg)PROGRESS=pg; if(lb)LLMB=lb;
+]).then(([rc,pg,lb,dy,nw,pk,wk])=>{
+  if(rc){ RECENT=rc; DATA={papers:rc.papers||[], routes:rc.routes||[], count:(rc.papers||[]).length, generated_at:rc.generated_at}; }
+  if(pg)PROGRESS=pg; if(lb)LLMB=lb;
   if(dy){ DYN=dy.companies||[]; AXES=dy.axes||{}; }
-  if(gr)GRAPH=gr; if(nw)NEWS=nw.news||[];
+  if(nw)NEWS=nw.news||[];
   if(pk)PICKS=pk;
   if(wk)WEEKLY=wk;
   init();
+  Promise.all([loadJson('data.json'), loadJson('graph.json')]).then(([d,gr])=>{
+    if(d){ DATA=d; DATA_READY=true; fillCountries(); }
+    if(gr)GRAPH=gr;
+    if(mode!=='home') syncDom();
+  });
 });
 let GRAPH={nodes:[],links:[]}, KG=null, NEWS=[];
 let PICKS={picks_by_date:{},latest:''};
@@ -400,12 +454,16 @@ const TAB_DOMAINS={
   graph:['embodied_ai','bci','ai_science'],
 };
 
+function fillCountries(){
+  const fc=document.getElementById('fCountry'), cur=fc.value;
+  fc.innerHTML='<option value="">全部</option>';
+  [...new Set(DATA.papers.map(coOf).filter(Boolean))].forEach(c=>{
+    const o=document.createElement('option');o.value=c;o.textContent=CONAME[c]||c;fc.appendChild(o);});
+  fc.value=cur;
+}
 function init(){
   document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>setMode(b.dataset.m));
-  // 国家下拉
-  const cset=[...new Set(DATA.papers.map(coOf).filter(Boolean))];
-  const fc=document.getElementById('fCountry');
-  cset.forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=CONAME[c]||c;fc.appendChild(o);});
+  fillCountries();
   ['fTime','fCountry','fOrgType','fSort'].forEach(id=>document.getElementById(id).onchange=renderList);
   document.getElementById('fQuery').oninput=renderList;
   document.getElementById('clearFilters').onclick=resetFilters;
@@ -413,9 +471,11 @@ function init(){
   document.getElementById('scrim').onclick=closeDrawer;
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDrawer();document.getElementById('legend').classList.remove('open');}});
   document.getElementById('legend').innerHTML=`
-    <h4>分量分 (significance 0-100)</h4>
-    <p>挑剔的真实价值分,<b>忽略作者自吹</b>。90+里程碑·75+重磅·60+显著·45+值得看。默认按它排序——重磅论文持续霸榜,直到更重的出现。</p>
-    <h4>五个标签</h4><p>🏠首页=本周具身Top15+今日精选;📄论文库=全部论文+筛选;🌐全景=领域进展+代表玩家;📰动态=要闻;🕸图谱=关系网。领域是二级筛选器。</p>
+    <h4>两条轴</h4>
+    <p><b>社区热度</b>:Hugging Face 点赞 + GitHub star,每天回刷近 30 天全部论文,300 票封顶 100。<br>
+       <b>内容</b>:同一天同领域的论文放在一起让模型排先后,头部限额——<span class="pill S">必读</span> 约 6%、<span class="pill A">值得读</span> 约 20%。读的是 PDF 正文,不是摘要。</p>
+    <h4>综合分</h4><p>两条轴里高的占七成、低的占三成。只有热度或只有内容都能上榜,两样都有的排最前。</p>
+    <h4>五个标签</h4><p>📡近期=社区热度榜 + 内容榜(标「深读」的点开有长篇解析);📄论文库=全部论文+筛选;🌐全景=领域进展+代表玩家;📰动态=要闻;🕸图谱=关系网。领域是二级筛选器。</p>
     <h4>论文分数</h4><p>今日优先(base/60)=该不该今天读;总分(/100)含热度质量,随时间长。</p>`;
   const hm=(location.hash||'').replace('#','');
   if(['home','papers','panorama','news','graph'].includes(hm)) mode=hm;
@@ -437,7 +497,7 @@ function syncDom(){
   if(mode==='papers') buildRouteChips();
 
   // 标题
-  const T={home:'首页 · 本周具身Top15 / 今日精选', papers:'论文库', panorama:'全景', news:'动态', graph:'图谱'};
+  const T={home:'近期雷达', papers:'论文库', panorama:'全景', news:'动态', graph:'图谱'};
   let title=T[mode]||'';
   if(mode==='panorama'||mode==='news'||mode==='graph') title+=' · '+(curDomain==='all'?'全行业':DOMAINS[curDomain]);
   document.getElementById('leftTitle').textContent=title;
@@ -466,7 +526,7 @@ function buildRouteChips(){
   if(!routes.length){ rc.innerHTML='<span class="mut" style="font-size:11.5px">—</span>'; return; }
   routes.forEach(r=>{
     const c=document.createElement('button'); c.className='chip'+(F.route===r.id?' on':'');
-    c.textContent=`${r.name} ${r.count}`;
+    c.textContent=`${routeName(r.id)} ${r.count}`; c.title=r.name;
     c.onclick=()=>{F.route=F.route===r.id?null:r.id; syncDom();};
     rc.appendChild(c);
   });
@@ -564,7 +624,7 @@ function resetFilters(){
   document.getElementById('fTime').value='0';
   document.getElementById('fCountry').value='';
   document.getElementById('fOrgType').value='';
-  document.getElementById('fSort').value='significance';
+  document.getElementById('fSort').value='combo';
   syncDom();
 }
 window.resetFilters=resetFilters;
@@ -593,32 +653,30 @@ function renderList(){
     if(q && !paperText(p).includes(q)) return false;
     return true;
   });
-  ps.sort((a,b)=> sk==='significance'?(b.significance||0)-(a.significance||0)
-    : sk==='date'?daysAgo(a.published)-daysAgo(b.published)
-    : (b.scores?.[sk]||0)-(a.scores?.[sk]||0));
+  ps.sort((a,b)=> sk==='date'?daysAgo(a.published)-daysAgo(b.published) : (b[sk]||0)-(a[sk]||0));
   const list=document.getElementById('list');
   updatePaperMeta(ps.length,all.length);
+  const loading=DATA_READY?'':'<div class="rnote" style="margin:0 0 10px">正在后台载入全库,当前只显示近 30 天…</div>';
   if(!ps.length){ list.innerHTML=`<div class="empty">没有匹配的论文。<br><button class="clear-btn" onclick="resetFilters()">清空筛选</button></div>`; return; }
-  list.innerHTML=`<div class="list">${ps.map(card).join('')}</div>`;
+  list.innerHTML=loading+`<div class="list">${ps.slice(0,600).map(card).join('')}</div>`
+    +(ps.length>600?`<div class="rnote" style="text-align:center;margin:14px">只显示前 600 篇,用筛选或搜索缩小范围</div>`:'');
 }
 function card(p){
   const g=p.grade||'D', s=p.scores||{}, o=orgOf(p), co=coOf(p), sig=p.significance||0;
   return `<div class="pcard" onclick="openDrawer('${p.arxiv_id}')">
     ${p.thumb?`<img class="pthumb" src="${esc(p.thumb)}" loading="lazy" onerror="this.remove()">`:''}
     <div class="row1">
-      <span class="sig" style="color:${tierColor(p.tier)}"><b>${sig}</b><small>分量</small></span>
-      <span class="tierdot" style="background:${tierColor(p.tier)}"></span>
+      <span class="sig" style="color:${comboColor(p)}"><b>${Math.round(p.combo||0)}</b><small>综合</small></span>
+      ${pills(p)}
       ${co?`<span class="flag">${CO[co]}</span>`:''}
       ${o?`<span class="org">${esc(o)}</span>`:''}
       ${p.org_type&&OTYPE[p.org_type]?`<span class="otype">${OTYPE[p.org_type]}</span>`:''}
       <span class="grow"></span>
-      <span class="badge" style="background:${GRADE[g]}" title="等级${g}·今日优先${p.read_priority||'-'}">${g}</span>
     </div>
     <h3>${esc(p.title)}</h3>
     ${p.venue?`<div class="venue">🏆 ${esc(p.venue)}</div>`:''}
-    <div class="tldr">${esc(p.tldr||p.claim||'')}</div>
-    <div class="foot">${esc((p.published||'').slice(0,10))}<span>·</span>优先${s.base||0}<span>·</span>总分${s.total||0}
-      ${p.signals?.hf_upvotes?`<span>· HF▲${p.signals.hf_upvotes}</span>`:''}</div>
+    <div class="tldr">${esc(p.takeaway||p.tldr||p.claim||'')}</div>
+    <div class="foot">${esc((p.published||'').slice(0,10))}<span>·</span>内容 ${Math.round(p.merit||0)}<span>·</span>热度 ${Math.round(p.hot||0)}</div>
   </div>`;
 }
 
@@ -635,14 +693,84 @@ function daysSince(d){ const t=Date.parse((d||'').slice(0,10)); return isNaN(t)?
 function bkTier(peak){ return peak>=85?'heavy':peak>=75?'notable':peak>=60?'worth':'calm'; }
 function bkLabel(peak,n){ return peak>=85?'🔥 重大突破':peak>=75?'⚡ 显著进展':peak>=60?'稳步推进':(n?'近期平静':'暂无新作'); }
 
-// ===== 首页:本周具身 Top15 + 今日精选(精选只在这一处)=====
-function renderHome(){
-  const html=renderFeatured();
-  document.getElementById('stat').textContent=`${DATA.count||0} 篇 · ${DATA.generated_at||''}`;
-  document.getElementById('list').innerHTML=html
-    ? `<div class="featwrap">${html}</div>`
-    : '<div class="empty">精选数据生成中…(daily.py 跑完会出现本周 Top15 + 今日精选)</div>';
+// ===== 首页:近期雷达(热议 / 必读两条轴)+ 本周 Top15 + 今日精选 =====
+const TIERNAME={S:'必读',A:'值得读'};
+const comboColor=p=>(p.combo||0)>=70?'var(--heavy)':(p.combo||0)>=55?'var(--gold)':(p.combo||0)>=40?'#6f9a8c':'var(--mut)';
+function pills(p){
+  const g=p.signals||{};
+  return (TIERNAME[p.rank_tier]?`<span class="pill ${p.rank_tier}">${TIERNAME[p.rank_tier]}</span>`:'')
+    +(g.hf_upvotes?`<span class="pill hot">▲ ${g.hf_upvotes}</span>`:'')
+    +(g.github_stars?`<span class="pill star">★ ${g.github_stars}</span>`:'');
 }
+let RW=7, RDOM='embodied_ai', RALL=false;
+const rdate=p=>(p.first_seen||p.published||'').slice(0,10);
+function dateAdd(iso,n){ const t=new Date(iso+'T00:00:00Z'); t.setUTCDate(t.getUTCDate()+n); return t.toISOString().slice(0,10); }
+// 细分标签用缩写,省地方
+const RSHORT={vla:'VLA',world_model:'WM',whole_body_control:'WBC',dexterous_manipulation:'灵巧手',sim2real_data:'Sim2Real',
+  hardware_unitree:'硬件',bci_neural_decoding:'解码',bci_foundation_models:'神经基模',bci_embodied_robot:'BCI×具身',
+  bci_noninvasive_eeg:'EEG',protein_ai:'蛋白',genomics_ai:'基因',hri:'HRI',llm_agent:'Agent'};
+function routeName(id){ if(RSHORT[id])return RSHORT[id]; const r=(DATA.routes||[]).find(x=>x.id===id); return r?r.name.split(/[ (\/]/)[0]:''; }
+const VTAG={'真突破':'#5fae6f','工程整合':'#6e9bd6','概念包装':'#b0748a','暂时不用看':'#5a5a61'};
+function vtag(p){ const v=(p.verdict||p.one_sentence_verdict||''); const k=Object.keys(VTAG).find(k=>v.includes(k));
+  return k?`<span class="pill" style="background:${VTAG[k]}22;color:${VTAG[k]}">${k}</span>`:''; }
+let DEEP=null;
+function deepOf(id){
+  if(!DEEP){ DEEP={}; Object.values(PICKS.picks_by_date||{}).forEach(l=>l.forEach(k=>{ if(k.deep&&Object.keys(k.deep).length) DEEP[k.arxiv_id]=k.deep; })); }
+  return DEEP[id];
+}
+const noGap=t=>!t||/^(none|无|没有)/i.test(t.trim());
+function rrow(p,lead){
+  const g=p.signals||{}, co=coOf(p), o=orgOf(p);
+  const num= lead==='hot' ? `<b style="color:var(--heavy)">${g.hf_upvotes||0}</b><small>点赞</small>`
+           : lead==='merit' ? `<b style="color:${p.rank_tier==='S'?'var(--S)':'var(--A)'}">${Math.round(p.merit||0)}</b><small>内容</small>`
+           : `<b style="color:${comboColor(p)}">${Math.round(p.combo||0)}</b><small>综合</small>`;
+  const res=(p.headline_result&&!/无量化结果/.test(p.headline_result))?p.headline_result:'';
+  return `<div class="rrow" onclick="openDrawer('${p.arxiv_id}')">
+    <span class="num">${num}</span>
+    ${p.thumb?`<img class="rth" src="${esc(p.thumb)}" loading="lazy" onerror="this.remove()">`:''}
+    <span class="mid">
+      <div class="take">${esc(p.takeaway||p.tldr||p.claim||'')}</div>
+      <div class="tt2">${esc(p.title)}</div>
+      ${res?`<div class="fact"><i>结果</i>${esc(res)}</div>`:(p.evidence_facts?`<div class="fact"><i>证据</i>${esc(p.evidence_facts)}</div>`:'')}
+      ${!noGap(p.hype_gap)?`<div class="fact gap"><i>存疑</i>${esc(p.hype_gap)}</div>`:''}
+      ${lead==='merit'&&p.rank_why?`<div class="fact"><i>排名理由</i>${esc(p.rank_why)}</div>`:''}
+      <div class="sb">${co?CO[co]+' ':''}${o?esc(o):''}<span>${esc(rdate(p).slice(5))}</span>${routeName(p.best_route)?`<span class="rtag">${esc(routeName(p.best_route))}</span>`:''}
+        ${pills(p)}${vtag(p)}${p.venue?`<span class="venue" style="margin:0">🏆 ${esc(p.venue)}</span>`:''}
+        ${deepOf(p.arxiv_id)?'<span class="pill" style="background:#6e9bd622;color:var(--accent)">深读</span>':''}${g.repo?'<span>有代码</span>':''}${p.fulltext?'':'<span title="这篇只读了摘要,证据未核对正文">仅摘要</span>'}</div>
+    </span></div>`;
+}
+function renderHome(){
+  const all=(RECENT.papers||[]).filter(p=>p.domain===RDOM);
+  const latest=RECENT.latest||all.map(rdate).sort().pop()||'';
+  const cut=latest?dateAdd(latest,-(RW-1)):'';
+  const ps=all.filter(p=>rdate(p)>=cut);
+  document.getElementById('stat').textContent=`近 ${RW} 天 ${ps.length} 篇 · 更新于 ${RECENT.generated_at||DATA.generated_at||''}`;
+  const seg=(items,cur,fn)=>`<span class="seg">${items.map(([v,t])=>`<button class="${v===cur?'on':''}" onclick="${fn}(${typeof v==='string'?`'${v}'`:v})">${t}</button>`).join('')}</span>`;
+  let html=`<div class="rbar">
+    ${seg([[1,'今天'],[3,'3 天'],[7,'7 天'],[30,'30 天']],RW,'setRW')}
+    ${seg([['embodied_ai','具身智能'],['bci','脑机接口'],['ai_science','AI×科学']],RDOM,'setRDOM')}
+    <span class="rnote">${latest?`入库截至 ${latest}`:''} · 点 ❔ 看两条轴怎么算</span></div>`;
+  if(!ps.length){
+    html+=`<div class="empty">这个时间窗内没有论文。${LOAD_ISSUES.length?'<br>'+esc(LOAD_ISSUES.join(';')):''}</div>`;
+  }else{
+    const top=p=>p.rank_tier==='S'||p.rank_tier==='A';
+    const hotAll=ps.filter(p=>(p.signals?.hf_upvotes||0)>0).sort((a,b)=>(b.hot-a.hot)||(b.merit-a.merit));
+    const merAll=ps.filter(top).sort((a,b)=>(b.merit-a.merit)||(b.hot-a.hot));
+    const N=RALL?999:10, more=Math.max(hotAll.length,merAll.length)>10;
+    html+=`<div class="lanes">
+      <div><div class="rsec"><span class="t">🔥 社区热度榜</span><span class="d">Hugging Face 点赞 + GitHub star · ${hotAll.length} 篇</span></div>
+        ${hotAll.slice(0,N).map(p=>rrow(p,'hot')).join('')||'<div class="rnote">窗口内还没有上社区榜的论文</div>'}</div>
+      <div><div class="rsec"><span class="t">🧐 内容榜</span><span class="d">读正文、同日同领域放一起排、头部限额 · ${merAll.length} 篇</span></div>
+        ${merAll.slice(0,N).map(p=>rrow(p,'merit')).join('')||'<div class="rnote">窗口内的论文还没排过名</div>'}</div></div>
+      ${more?`<button class="rmore" onclick="toggleRAll()">${RALL?'收起 ▲':'两榜都展开 ▾'}</button>`:''}
+      <div class="rnote" style="text-align:center;margin-bottom:26px">没进这两个榜的论文在「论文库」里,可按综合分 / 时间 / 机构筛。</div>`;
+  }
+  document.getElementById('list').innerHTML=`<div class="radar">${html}</div>`;
+}
+function setRW(n){ RW=n; RALL=false; renderHome(); }
+function setRDOM(d){ RDOM=d; RALL=false; renderHome(); }
+function toggleRAll(){ RALL=!RALL; renderHome(); }
+Object.assign(window,{setRW,setRDOM,toggleRAll});
 
 // ===== 全景 =====
 function renderPanorama(){
@@ -750,10 +878,10 @@ function renderPanoramaLLM(){
 }
 
 // ===== 首页精选:本周具身 Top15(对齐参考图) + 今日精选 =====
-function renderFeatured(){
+function renderFeatured(withWeekly=true){
   let html='';
   // —— 本周具身 Top15 ——
-  const wp=WEEKLY.picks||[];
+  const wp=withWeekly?(WEEKLY.picks||[]):[];
   if(wp.length){
     const wk=WEEKLY.week||{};
     const shown=weeklyExpanded?wp:wp.slice(0,10);
@@ -763,10 +891,10 @@ function renderFeatured(){
       const org=orgOf(p);
       return `<div class="wkitem" onclick="openWeeklyDrawer(${i})">
         <span class="wr">${p.rank||i+1}</span>
-        <span class="wsig" style="color:${tierColor(tier)}"><b>${p.significance||0}</b><small>分量</small></span>
+        <span class="wsig" style="color:${p.combo!=null?comboColor(p):tierColor(tier)}"><b>${p.combo!=null?Math.round(p.combo):(p.significance||0)}</b><small>${p.combo!=null?'综合':'分量'}</small></span>
         <span class="wmid">
           <div class="wtt">${esc(p.title)}</div>
-          <div class="wsub">${flag?flag+' ':''}${org?esc(org):'<span class="mut">—</span>'}<span class="mut">· ${DOMAINS[p.domain]||''}</span></div>
+          <div class="wsub">${flag?flag+' ':''}${org?esc(org):'<span class="mut">—</span>'}${TIERNAME[p.rank_tier]?`<span class="pill ${p.rank_tier}">${TIERNAME[p.rank_tier]}</span>`:''}${p.hf_upvotes?`<span class="pill hot">▲ ${p.hf_upvotes}</span>`:''}</div>
         </span>
         ${p.venue?`<span class="wv">🏆 ${esc(p.venue)}</span>`:''}</div>`;}).join('');
     const vCount=WEEKLY.venue_count||0;
@@ -789,8 +917,8 @@ function renderFeatured(){
       const cards=today.map((pk,i)=>{
         const d=pk.deep||{}, flag=(CO[(pk.country||'').toUpperCase()])||'', org=orgOf(pk);
         return `<div class="pkc" style="border-left-color:${tierColor(pk.tier)}" onclick="openPickDrawer('${latest}',${i})">
-          <div class="pkm"><b style="color:${tierColor(pk.tier)}">${pk.significance||0}</b>
-            <span style="color:var(--mut2)">分量</span>${flag?'· '+flag:''}${org?' '+esc(org):''}
+          <div class="pkm"><b style="color:${tierColor(pk.tier)}">${pk.combo!=null?Math.round(pk.combo):(pk.significance||0)}</b>
+            <span style="color:var(--mut2)">${pk.combo!=null?'综合':'分量'}</span>${flag?'· '+flag:''}${org?' '+esc(org):''}
             <span style="margin-left:auto">${DOMAINS[pk.domain]||''}</span></div>
           <div class="pkhk">${esc(d.hook||pk.title)}</div>
           <div class="pkvd">${esc(d.verdict||pk.tldr||'')}</div></div>`;}).join('');
@@ -905,8 +1033,8 @@ function renderGraph(){
 
 // 论文列表/图谱/全景 → 统一抽屉(薄包装,按 id 查库)
 function openDrawer(id){
-  const p=DATA.papers.find(x=>x.arxiv_id===id); if(!p)return;
-  openPaper(p, {kind:'paper'});
+  const p=DATA.papers.find(x=>x.arxiv_id===id)||(RECENT.papers||[]).find(x=>x.arxiv_id===id); if(!p)return;
+  openPaper(deepOf(id)?Object.assign({},p,{deep:deepOf(id)}):p, {kind:'paper'});
 }
 window.openDrawer=openDrawer;
 
@@ -935,7 +1063,7 @@ function openPaper(p, ctx){
       <div><b style="color:var(--con)">${s.content||0}</b><span>内容/30</span></div>
       <div><b style="color:var(--heat)">${s.heat||0}</b><span>热度/20</span></div>
       <div><b style="color:var(--qual)">${s.quality||0}</b><span>质量/20</span></div></div>
-    <div class="mut" style="font-size:12px">今日优先 <b>${s.base||0}</b>/60 · 总分 <b>${s.total||0}</b>/100 · 新颖度 ${p.novelty||0}/10</div>
+    <div class="mut" style="font-size:12px">旧体系:分量分 <b>${p.significance||0}</b>/100 · 今日优先 <b>${s.base||0}</b>/60 · 总分 <b>${s.total||0}</b>/100${p.fulltext?' · 已读全文':' · 仅读摘要'}</div>
    </details>`:'';
   const d=document.getElementById('drawer');
   d.innerHTML=`<span class="close" onclick="closeDrawer()">✕</span>
@@ -945,8 +1073,18 @@ function openPaper(p, ctx){
     <h2 style="font-size:17px;margin-top:${dp.hook?'4px':'8px'}">${esc(p.title)}</h2>
     ${p.venue?`<div class="venue" style="margin-bottom:8px">🏆 ${esc(p.venue)}</div>`:''}
     <div class="mut" style="font-size:12px">${CO[co]?CO[co]+' '+(CONAME[co]||'')+' · ':''}${o?'🏛️ '+esc(o)+' · ':''}${OTYPE[p.org_type]?OTYPE[p.org_type]+' · ':''}${esc((p.published||'').slice(0,10))} · ${esc(p.arxiv_id)}</div>
-    <div class="sigbig"><span class="n" style="color:${tcol}">${p.significance||0}</span>
-      <span class="x"><b style="color:${tcol}">分量分</b> / 100<br>${esc(p.significance_reason||'')}</span></div>
+    ${p.merit!=null?`<div class="twoax">
+      <div><b class="n" style="color:${p.rank_tier==='S'?'var(--S)':p.rank_tier==='A'?'var(--A)':'var(--mut2)'}">${Math.round(p.merit)}</b>
+        <span class="l"> 内容 ${TIERNAME[p.rank_tier]?`<span class="pill ${p.rank_tier}">${TIERNAME[p.rank_tier]}</span>`:(p.rank_tier?'· 同批未进头部':'· 未参加同批排名')}${p.rank_legacy?' · 由旧分按当月名次换算':''}</span>
+        <div class="x">${esc(p.rank_why||p.significance_reason||'')}</div></div>
+      <div><b class="n" style="color:var(--heavy)">${Math.round(p.hot||0)}</b><span class="l"> 社区热度</span>
+        <div class="x">${(p.signals?.hf_upvotes||p.hf_upvotes)?`HF 点赞 ${p.signals?.hf_upvotes||p.hf_upvotes}`:'没上 HF 每日榜'}${p.signals?.github_stars?` · GitHub ★ ${p.signals.github_stars}`:''}${p.signals?.hf_comments?` · 讨论 ${p.signals.hf_comments}`:''}</div></div></div>`
+    :`<div class="sigbig"><span class="n" style="color:${tcol}">${p.significance||0}</span>
+      <span class="x"><b style="color:${tcol}">分量分</b> / 100<br>${esc(p.significance_reason||'')}</span></div>`}
+    ${sec('💡 为什么要在意',p.takeaway)}
+    ${sec('📏 最硬的一个结果',p.headline_result)}
+    ${sec('🔎 正文里查到的证据',p.evidence_facts)}
+    ${(p.hype_gap&&!/^none$/i.test(p.hype_gap.trim()))?sec('🎈 说法和证据的落差',p.hype_gap):''}
     ${verdict?`<div class="section-t">⚖️ 一句话判断</div><div class="secbody" style="font-weight:600">${esc(verdict)}</div>`:''}
     ${sec('🎯 核心主张',p.claim||p.tldr)}
     ${sec('⚡ 为什么现在值得读',dp.why_now)}
@@ -962,6 +1100,8 @@ function openPaper(p, ctx){
     ${scoreBlock}
     <div style="margin-top:14px">
       <a class="btn" href="${esc(p.url)}" target="_blank">arXiv ↗</a>
+      ${p.signals?.repo?`<a class="btn" href="${esc(p.signals.repo)}" target="_blank">代码 ↗</a>`:''}
+      ${p.signals?.project?`<a class="btn" href="${esc(p.signals.project)}" target="_blank">项目页 ↗</a>`:''}
       ${p.pdf_url?`<a class="btn" href="${esc(p.pdf_url)}" target="_blank">PDF ↗</a>`:''}
       <a class="btn" style="background:#ff2e4d;color:#fff;border-color:#ff2e4d"
          href="xhs_preview.html?id=${encodeURIComponent(p.arxiv_id)}" target="_blank">📕 生成小红书 ↗</a></div>`;

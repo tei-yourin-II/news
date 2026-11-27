@@ -62,7 +62,7 @@ def _page_figure(client, png, model):
     return float(j.get("score", 5)), box
 
 
-def fetch(aid, model="qwen-vl-max", pages=5, zoom=2.0, delay=0.2):
+def fetch(aid, model="qwen3-vl-plus", pages=5, zoom=2.0, delay=0.2):
     """返回 assets/thumbs/<id>.png 或 None。已存在则直接返回。逐页评分,挑最高那张裁剪。"""
     if not ARXIV_RE.match(str(aid or "")):
         return None

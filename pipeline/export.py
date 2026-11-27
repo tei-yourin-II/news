@@ -2,14 +2,19 @@
 import json
 from pathlib import Path
 
-from pipeline import entities
+from datetime import datetime, timedelta, timezone
+
+from pipeline import entities, rank
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "docs" / "data.json"
+RECENT_DAYS = 30
 
 
 def export(state, routes, generated_at):
     papers = state.get("papers", [])
+    _dom = {r["id"]: r.get("domain", "embodied_ai") for r in routes}
+    rank.calibrate_legacy(papers, lambda p: _dom.get(p.get("best_route"), "embodied_ai"))
 
     route_meta = {r["id"]: r for r in routes}
     route_counts = {}
@@ -39,6 +44,16 @@ def export(state, routes, generated_at):
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
+
+    # 首页只需要近期论文:单独导一份小文件先加载(data.json 近 30MB,等它首页要白屏很久)
+    cut = (datetime.now(timezone.utc) - timedelta(days=RECENT_DAYS)).strftime("%Y-%m-%d")
+    day = lambda p: (p.get("first_seen") or p.get("published") or "")[:10]
+    rec = [p for p in data["papers"] if day(p) >= cut and p["source"] not in ("cornerstone", "conference")]
+    recent = {"generated_at": generated_at, "days": RECENT_DAYS,
+              "latest": max((day(p) for p in rec), default=""),
+              "routes": routes_out, "papers": rec}
+    with open(OUT.with_name("recent.json"), "w", encoding="utf-8") as f:
+        json.dump(recent, f, ensure_ascii=False, separators=(",", ":"))
     return OUT
 
 
@@ -81,4 +96,15 @@ def _slim(p, rid_domain=None):
         "reproducibility": a.get("reproducibility", ""),
         "method_components": a.get("method_components", []),
         "signals": p.get("signals", {}),
+        # —— 新排序体系:内容轴(同批强制排名)+ 热度轴(社区)+ 合成 ——
+        "first_seen": p.get("first_seen", ""),
+        "merit": rank.merit(p), "hot": rank.hot(p), "combo": rank.combo(p),
+        "rank_tier": (p.get("rank") or {}).get("tier", ""),
+        "rank_why": (p.get("rank") or {}).get("why", ""),
+        "rank_legacy": bool((p.get("rank") or {}).get("legacy")),
+        "takeaway": a.get("takeaway", ""),
+        "headline_result": a.get("headline_result", ""),
+        "evidence_facts": a.get("evidence_facts", ""),
+        "hype_gap": a.get("hype_gap", ""),
+        "fulltext": bool(a.get("_fulltext")),
     }

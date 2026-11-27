@@ -24,7 +24,7 @@ import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from pipeline import config, store
+from pipeline import config, rank, store
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "docs" / "weekly_picks.json"
@@ -39,19 +39,17 @@ def _sig(p):
 
 
 def _pscore(p):
-    """选片分:significance 主导,base(读价值)/heat(热度)/venue 轻加权。"""
-    s = p.get("scores", {}) or {}
-    venue_bonus = 6 if p.get("venue") else 0
-    return _sig(p) + 0.25 * (s.get("base", 0) or 0) + 0.5 * (s.get("heat", 0) or 0) + venue_bonus
+    """选片分 = 综合分(同批排名的内容分 + 社区热度,见 pipeline/rank.py)+ 顶会小加成。"""
+    return rank.combo(p) + (4 if p.get("venue") else 0)
 
 
-def _card(p, domain, rank):
+def _card(p, domain, pos):
     """周报条目:目录字段 + 详情字段(复用 analysis,排版层直接取用)。"""
     a = p.get("analysis", {}) or {}
     sig = _sig(p)
     tier = "heavy" if sig >= 75 else "notable" if sig >= 60 else "worth"
     return {
-        "rank": rank,
+        "rank": pos,
         "arxiv_id": p["arxiv_id"], "title": p["title"],
         "published": (p.get("published") or "")[:10],
         "url": p.get("url"), "pdf_url": p.get("pdf_url"),
@@ -60,6 +58,9 @@ def _card(p, domain, rank):
         "org": a.get("org", ""), "country": a.get("country", ""),
         "org_type": a.get("org_type", ""),
         "significance": sig, "significance_reason": a.get("significance_reason", ""),
+        "merit": rank.merit(p), "hot": rank.hot(p), "combo": rank.combo(p),
+        "rank_tier": (p.get("rank") or {}).get("tier", ""), "rank_why": (p.get("rank") or {}).get("why", ""),
+        "hf_upvotes": (p.get("signals") or {}).get("hf_upvotes", 0),
         "tier": tier, "grade": p.get("grade", ""),
         "tags": a.get("tags", []),
         # —— 详情卡(对齐参考图「论文详情」的结构化摘要)——

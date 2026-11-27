@@ -105,6 +105,22 @@ llm:
   model: qwen-plus          # 拆解默认 qwen-plus;要更准换 qwen-max,代码版换 qwen3-coder-plus
   base_url: https://dashscope.aliyuncs.com/compatible-mode/v1  # DashScope OpenAI 兼容端点
   max_papers_per_run: 52    # 成本闸:每次最多 LLM 分析多少篇(对齐 keep_top_k)
+  fulltext: true            # 读 PDF 正文再拆解(只看摘要等于复述作者自评);取不到正文的退回摘要
+  fulltext_chars: 40000     # 喂给 LLM 的正文上限(字符;约 1 万 token/篇)
+
+# ---------- 同批强制排名(内容轴)----------
+# 逐篇打的 significance 一半挤在 68~78,排序等于随机。这里把同域同日的论文放一起比,
+# 头部限额:必读 S ≤ 6%(至少 1 篇)、值得读 A ≤ 20%、其余 B。见 pipeline/rank.py。
+rank:
+  enabled: true
+  provider: qwen
+  model: qwen-max           # 一天只有 3 次调用(每领域一次),用最好的
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+
+# ---------- 社区热度(热度轴)----------
+# HF Daily Papers 按日期回拉近 N 天「现在」的点赞 / GitHub star,每天刷新全部近期论文。
+heat:
+  days: 30
 
 # ---------- LLM 初筛(廉价模型批量判相关性 + 分路线)----------
 # 三级漏斗中间层:免费锚点门 → 这里(qwen-turbo 批量初筛)→ 贵的 qwen-plus 深拆解。
@@ -131,8 +147,8 @@ daily_pick:
   fallback_days: 7          # 当日窗内无达标论文时,从最近几天「未精选过」的里补最高分
   min_picks: 1              # 每日至少出几篇(靠 fallback 兜底;实在没有则 0)
   max_picks: 3              # 每日最多出几篇
-  sig_floor: 60             # 质量地板:significance ≥ 此值才够格当日精选
-  sig_floor_fallback: 55    # 兜底补片时放宽到的地板(仍不破质量底线)
+  sig_floor: 60             # 地板:综合分(内容排名+热度)≥ 此值才够格当日精选(≈必读档或社区热议)
+  sig_floor_fallback: 50    # 兜底补片时放宽到的地板(≈值得读档)
   provider: qwen            # 深度解析后端(复用 analyze 的 provider 约定)
   model: qwen-plus          # 只 1-3 篇/天,要更准可换 qwen-max
   base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
