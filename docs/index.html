@@ -143,6 +143,14 @@
 
   /* ===== 首页精选:本周具身 Top15 + 今日精选 ===== */
   .featwrap{max-width:1200px; margin:0 auto;}
+  .brief{background:var(--panel); border:1px solid var(--line2); border-radius:13px; padding:16px 18px 12px; margin-bottom:26px;}
+  .blead{font-size:14px; line-height:1.65; color:var(--fg); margin:0 0 12px;}
+  .bitem{display:flex; gap:12px; padding:9px 0; border-top:1px solid var(--line); cursor:pointer;}
+  .bitem:hover .bt{color:var(--accent);}
+  .bn{width:22px; flex:none; font-weight:800; color:var(--gold); text-align:center;}
+  .bt{font-size:14px; font-weight:650; line-height:1.45;} .bs{font-size:11.5px; color:var(--mut); margin-top:2px;}
+  .bw{font-size:12.5px; color:var(--mut2); margin-top:4px; line-height:1.55;}
+  .bnotes{margin:6px 0 0; padding-left:18px; font-size:12px; color:var(--mut2); line-height:1.7;}
   /* ===== 近期雷达(首页)===== */
   .radar{max-width:1240px; margin:0 auto;}
   .rbar{display:flex; gap:10px 14px; align-items:center; flex-wrap:wrap; margin:2px 0 20px;}
@@ -400,7 +408,7 @@ const CO={US:'🇺🇸',CN:'🇨🇳',JP:'🇯🇵',EU:'🇪🇺',UK:'🇬🇧',
 const CONAME={US:'美国',CN:'中国',JP:'日本',EU:'欧洲',UK:'英国',KR:'韩国'};
 const OTYPE={company:'企业',university:'高校',institute:'研究机构',mixed:'产学研'};
 const esc=s=>String(s==null?'':s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
-const orgOf=p=>{const o=(p.org||'').trim().split(/[((;;]/)[0].trim();return(!o||/^(unknown|未知|n\/a|none)/i.test(o))?'':o.slice(0,28);};
+const orgOf=p=>{const o=(p.org||'').trim().split(/[((;;]/)[0].trim();return(!o||/^(unknown|未知|n\/a|none)/i.test(o))?'':o.slice(0,28)+(p.org_unverified?'?':'');};
 const coOf=p=>{const c=(p.country||'').trim().toUpperCase();return CO[c]?c:'';};
 const tierColor=t=>t==='heavy'?'#e0894a':t==='notable'?'#d6a84a':t==='worth'?'#6f9a8c':'#3a3a42';
 
@@ -419,7 +427,7 @@ function loadJson(name){
   });
 }
 // 首页只吃 recent.json(近 30 天,小);data.json(全库,近 30MB)和图谱后台慢慢载,到了再刷新当前页。
-let RECENT={papers:[],latest:''}, DATA_READY=false;
+let RECENT={papers:[],latest:''}, DATA_READY=false, BRIEF=null;
 Promise.all([
   loadJson('recent.json'),
   loadJson('progress.json'),
@@ -428,7 +436,9 @@ Promise.all([
   loadJson('news.json'),
   loadJson('daily_picks.json'),
   loadJson('weekly_picks.json'),
-]).then(([rc,pg,lb,dy,nw,pk,wk])=>{
+  fetch('brief.json?_='+Date.now()).then(r=>r.ok?r.json():null).catch(()=>null),
+]).then(([rc,pg,lb,dy,nw,pk,wk,bf])=>{
+  if(bf)BRIEF=bf;
   if(rc){ RECENT=rc; DATA={papers:rc.papers||[], routes:rc.routes||[], count:(rc.papers||[]).length, generated_at:rc.generated_at}; }
   if(pg)PROGRESS=pg; if(lb)LLMB=lb;
   if(dy){ DYN=dy.companies||[]; AXES=dy.axes||{}; }
@@ -472,9 +482,9 @@ function init(){
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDrawer();document.getElementById('legend').classList.remove('open');}});
   document.getElementById('legend').innerHTML=`
     <h4>两条轴</h4>
-    <p><b>关注度</b>:各路信号折成"等效票数"再取对数——HF 点赞 1:1、GitHub 20 星≈1 票、被引 1 次≈4 票、顶会录用 +10、口头/亮点 +40~60、最佳论文 +250;300 票封顶 100。每天回刷近 90 天。<br>
-       <b>内容</b>:同一天同领域的论文放在一起让模型排先后,头部限额——<span class="pill S">必读</span> 约 6%、<span class="pill A">值得读</span> 约 20%。读的是 PDF 正文,不是摘要。</p>
-    <h4>综合分</h4><p>两条轴里高的占七成、低的占三成。只有热度或只有内容都能上榜,两样都有的排最前。</p>
+    <p><b>关注度 H</b> = 25·log₂(1 + V/10),不封顶。V 是等效票数:HF 点赞 1:1、GitHub 20 星≈1 票、被引 1 次≈4 票、顶会录用 +10、口头/亮点 +40~60、最佳论文 +250。票数每翻一倍加 25 分:10 票=25,70 票=75,150 票=100,630 票=150。<br>
+       <b>内容 M</b>:同一天同领域的论文放在一起让模型排先后,头部限额——<span class="pill S">必读</span> 约 6%、<span class="pill A">值得读</span> 约 20%。读的是 PDF 正文,不是摘要。</p>
+    <h4>综合分</h4><p>((M³ + H³) / 2) 开三次方。偏向两者里高的那个,所以单看内容或单看关注度突出都能上榜;两样都高的更高;爆款不会被 100 分压平。</p>
     <h4>五个标签</h4><p>📡近期=关注度榜 + 内容榜(标「深读」的点开有长篇解析);📄论文库=全部论文+筛选;🌐全景=领域进展+代表玩家;📰动态=要闻;🕸图谱=关系网。领域是二级筛选器。</p>
     <h4>论文分数</h4><p>今日优先(base/60)=该不该今天读;总分(/100)含热度质量,随时间长。</p>`;
   const hm=(location.hash||'').replace('#','');
@@ -695,7 +705,7 @@ function bkLabel(peak,n){ return peak>=85?'🔥 重大突破':peak>=75?'⚡ 显�
 
 // ===== 首页:近期雷达(热议 / 必读两条轴)+ 本周 Top15 + 今日精选 =====
 const TIERNAME={S:'必读',A:'值得读'};
-const comboColor=p=>(p.combo||0)>=70?'var(--heavy)':(p.combo||0)>=55?'var(--gold)':(p.combo||0)>=40?'#6f9a8c':'var(--mut)';
+const comboColor=p=>(p.combo||0)>=85?'var(--heavy)':(p.combo||0)>=70?'var(--gold)':(p.combo||0)>=40?'#6f9a8c':'var(--mut)';
 function pills(p){
   const g=p.signals||{};
   return (TIERNAME[p.rank_tier]?`<span class="pill ${p.rank_tier}">${TIERNAME[p.rank_tier]}</span>`:'')
@@ -752,6 +762,7 @@ function renderHome(){
     ${seg([[1,'今天'],[3,'3 天'],[7,'7 天'],[30,'30 天']],RW,'setRW')}
     ${seg([['embodied_ai','具身智能'],['bci','脑机接口'],['ai_science','AI×科学']],RDOM,'setRDOM')}
     <span class="rnote">${latest?`入库截至 ${latest}`:''} · 点 ❔ 看两条轴怎么算</span></div>`;
+  html+=briefHtml();
   if(!ps.length){
     html+=`<div class="empty">这个时间窗内没有论文。${LOAD_ISSUES.length?'<br>'+esc(LOAD_ISSUES.join(';')):''}</div>`;
   }else{
@@ -768,6 +779,21 @@ function renderHome(){
       <div class="rnote" style="text-align:center;margin-bottom:26px">没进这两个榜的论文在「论文库」里,可按综合分 / 时间 / 机构筛。</div>`;
   }
   document.getElementById('list').innerHTML=`<div class="radar">${html}</div>`;
+}
+// 每日简报:编辑 agent(Claude 定时任务)写的,docs/brief.json
+function briefHtml(){
+  const b=BRIEF; if(!b||!(b.items||[]).length) return '';
+  const has=id=>(RECENT.papers||[]).some(p=>p.arxiv_id===id)||DATA.papers.some(p=>p.arxiv_id===id);
+  const items=b.items.map((it,i)=>`<div class="bitem" ${has(it.arxiv_id)?`onclick="openDrawer('${esc(it.arxiv_id)}')"`:''}>
+      <span class="bn">${i+1}</span><span><div class="bt">${esc(it.headline||it.title||'')}</div>
+      <div class="bs">${esc(it.title||'')}${it.org?' · '+esc(it.org):''}</div>
+      <div class="bw">${esc(it.why||'')}</div>${it.doubt?`<div class="bw" style="color:#c98a5a">存疑:${esc(it.doubt)}</div>`:''}</span></div>`).join('');
+  const notes=(b.notes||[]).map(n=>`<li>${esc(n)}</li>`).join('');
+  return `<div class="brief"><div class="rsec"><span class="t">🗞️ 编辑简报</span><span class="d">${esc(b.date||'')} · ${esc(b.by||'Claude')}</span>
+      <a class="rnote" style="margin-left:auto;text-decoration:none;border:1px solid var(--line2);border-radius:8px;padding:4px 11px" target="_blank"
+         href="https://github.com/tei-yourin-II/news/edit/main/agent/feedback.md" title="写一行:哪篇有用/没用、哪里排错了。下次简报和调权重会读">✍️ 给反馈</a></div>
+    ${b.lead?`<div class="blead">${esc(b.lead)}</div>`:''}${items}
+    ${notes?`<details class="scoredetail"><summary>编辑手记(分类与权重的调整)</summary><ul class="bnotes">${notes}</ul></details>`:''}</div>`;
 }
 function setRW(n){ RW=n; RALL=false; renderHome(); }
 function setRDOM(d){ RDOM=d; RALL=false; renderHome(); }
@@ -1042,6 +1068,22 @@ window.openDrawer=openDrawer;
 
 // ===== 统一详情抽屉:先讲人话,评分折叠到底部 =====
 // 接受 普通论文 / 今日精选 / 本周精选(字段同源:export 已平铺 analysis;精选另带 deep)
+// 分数明细:把计算式和代入的数摆出来,而不是只给一个分
+function scoreMath(p){
+  if(p.merit==null) return '';
+  const g=p.signals||{}, up=g.hf_upvotes||p.hf_upvotes||0, st=g.github_stars||0, ci=g.citations||0;
+  const W=RECENT.weights||DATA.weights||{votes:{hf_upvote:1,github_star:.05,citation:4,venue_accept:10,awards:{}},heat:{scale:25,half:10},combo:{power:3}};
+  const wv=W.votes, bonus=p.award?((wv.awards||{})[p.award]||0):(p.venue?wv.venue_accept:0);
+  const V=wv.hf_upvote*up+wv.github_star*st+wv.citation*ci+bonus, H=W.heat.scale*Math.log2(1+V/W.heat.half), M=p.merit||0, K=W.combo.power;
+  const f=x=>(Math.round(x*10)/10);
+  return `<details class="scoredetail" open><summary>分数怎么算的</summary>
+    <div class="secbody" style="font-size:12px;line-height:1.9;font-variant-numeric:tabular-nums">
+      <b>等效票数 V</b> = 点赞 ${up}×${wv.hf_upvote} + star ${st}×${wv.github_star} + 引用 ${ci}×${wv.citation} + ${p.award?esc(p.award):(p.venue?'顶会录用':'会议')} ${bonus} = <b>${f(V)}</b>${g.repo_foreign?'<br><span class="mut">(挂的仓库比论文早建很久,star 不计)</span>':''}<br>
+      <b>关注度 H</b> = ${W.heat.scale} × log₂(1 + V÷${W.heat.half}) = <b>${f(H)}</b><br>
+      <b>内容 M</b> = <b>${f(M)}</b>(${p.rank_legacy?'旧分按当月同领域名次换算':(p.rank_tier?'同日同领域排名,'+({S:'必读档 90~100',A:'值得读档 70~89',B:'其余 20~65'}[p.rank_tier]||''):'未排名,用旧分')})<br>
+      <b>综合</b> = ((M^${K} + H^${K}) ÷ 2)^(1/${K}) = <b>${f(Math.pow((M**K+H**K)/2,1/K))}</b>
+      <div class="mut" style="margin-top:4px">系数在 agent/weights.yaml(v${W.version??'-'}),由每日编辑 agent 依据事后验证和你的反馈调整。</div></div></details>`;
+}
 function openPaper(p, ctx){
   ctx=ctx||{};
   const dp=p.deep||{};
@@ -1083,6 +1125,7 @@ function openPaper(p, ctx){
         <div class="x">${[(p.signals?.hf_upvotes||p.hf_upvotes)?`HF 点赞 ${p.signals?.hf_upvotes||p.hf_upvotes}`:'', p.signals?.github_stars?`GitHub ★ ${p.signals.github_stars}`:'', p.signals?.citations?`被引 ${p.signals.citations}`:'', p.award?`${esc(p.venue||'')} ${esc(p.award)}`:(p.venue?`${esc(p.venue)} 录用`:'')].filter(Boolean).join(' · ')||'暂无任何关注度信号'}</div></div></div>`
     :`<div class="sigbig"><span class="n" style="color:${tcol}">${p.significance||0}</span>
       <span class="x"><b style="color:${tcol}">分量分</b> / 100<br>${esc(p.significance_reason||'')}</span></div>`}
+    ${scoreMath(p)}
     ${sec('💡 为什么要在意',p.takeaway)}
     ${sec('📏 最硬的一个结果',p.headline_result)}
     ${sec('🔎 正文里查到的证据',p.evidence_facts)}

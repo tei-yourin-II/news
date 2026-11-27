@@ -105,24 +105,26 @@ def fetch_hf_range(days=30, pause=0.15):
     return out
 
 
-AWARD_VOTES = {"Best Paper": 250, "Best Paper Finalist": 100, "Oral": 60, "Spotlight": 40, "Highlight": 40}
-
-
 def hot_votes(upvotes=0, stars=0, cites=0, venue="", award=""):
-    """把各路关注度折成「等效票数」:HF 点赞 1:1;GitHub 20 星≈1 票;
-    引用 1 次≈4 票(新论文几周内被引很稀罕);顶会录用 +10;口头/亮点 +40~60;最佳论文 +250。
+    """把各路关注度折成「等效票数」V(系数在 agent/weights.yaml):
+    HF 点赞、GitHub star、被引、顶会录用、口头/亮点/最佳论文。
     只用 HF 点赞会漏掉大半个机器人圈(很多好论文根本不上 HF 每日榜)。"""
-    v = (upvotes or 0) + (stars or 0) / 20.0 + 4 * (cites or 0)
+    from .weights import load
+    w = load()["votes"]
+    v = w["hf_upvote"] * (upvotes or 0) + w["github_star"] * (stars or 0) + w["citation"] * (cites or 0)
     if award:
-        v += AWARD_VOTES.get(award, 0)
+        v += w["awards"].get(award, 0)
     elif venue:
-        v += 10
+        v += w["venue_accept"]
     return v
 
 
 def hot_score(upvotes=0, stars=0, cites=0, venue="", award=""):
-    """关注度 0~100(对数标度):等效 10 票≈42,50 票≈69,150 票≈88,300 票封顶。"""
-    return round(100 * min(1.0, math.log1p(hot_votes(upvotes, stars, cites, venue, award)) / math.log1p(300)), 1)
+    """关注度 H = scale·log2(1 + V/half),不封顶(默认 25 和 10:票数每翻一倍 +25,
+    10 票=25,70=75,150=100,630=150)。100 是"很热"的刻度而不是天花板。"""
+    from .weights import load
+    h = load()["heat"]
+    return round(h["scale"] * math.log2(1 + hot_votes(upvotes, stars, cites, venue, award) / h["half"]), 1)
 
 
 def fetch_hf_by_ids(ids, workers=6):
@@ -160,7 +162,8 @@ def find_repo(*texts):
 
 
 def fetch_github_stars(repos, token="", workers=6):
-    """{repo_url: stars}。有 token(GITHUB_TOKEN/GH_TOKEN)额度 5000/时;没有只有 60/时,只查前 50 个。"""
+    """{repo_url: (stars, created_at)}。有 token(GITHUB_TOKEN/GH_TOKEN)额度 5000/时;没有只有 60/时,只查前 50 个。
+    created_at 用来判断这个仓库是不是这篇论文自己的(见 refresh_heat)。"""
     from concurrent.futures import ThreadPoolExecutor
     repos = list(dict.fromkeys(r for r in repos if r))
     if not token:
@@ -176,7 +179,8 @@ def fetch_github_stars(repos, token="", workers=6):
         try:
             req = urllib.request.Request(f"https://api.github.com/repos/{m.group(1)}/{m.group(2)}", headers=h)
             with urllib.request.urlopen(req, timeout=20) as resp:
-                return url, json.loads(resp.read()).get("stargazers_count", 0)
+                d = json.loads(resp.read())
+                return url, (d.get("stargazers_count", 0), (d.get("created_at") or "")[:10])
         except Exception:
             return url, None
     with ThreadPoolExecutor(max_workers=workers) as ex:

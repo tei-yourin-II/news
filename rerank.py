@@ -38,41 +38,49 @@ def _rank_all(pools, rk):
           + (f";未排全: {miss}" if miss else ""))
 
 
-TK_PROMPT = """下面是一篇论文的已有拆解。请补两个字段,只输出 JSON:
-{{"takeaway":"读者为什么要在意,一句大白话,不超过40字:它让什么事第一次能做 / 把什么做便宜做快了多少 / 推翻了什么常识。不许出现方法名、模块名、英文缩写,不许用'提出了''框架''范式';如果其实没什么可在意的,就直说'增量改进:……'",
-"headline_result":"最硬的一个结果,带数字和条件,不超过40字;材料里没有量化结果就写'无量化结果',不许编"}}
+TK_PROMPT = """下面是一篇论文的原文(正文节选或摘要)。只依据这段原文补两个字段,只输出 JSON:
+{{"takeaway":"读者为什么要在意,一句大白话,不超过40字:它让什么事第一次能做 / 把什么做便宜做快了多少 / 推翻了什么常识。不许出现方法名、模块名、英文缩写,不许用'提出了''框架''范式';其实没什么可在意的就直说'增量改进:……'",
+"headline_result":"原文里最硬的一个结果,带数字和条件(真机/仿真、多少次试验),不超过45字。**数字必须是原文里原样出现的**,分清真机和仿真;原文没有量化结果就写'无量化结果'"}}
+严禁编造或换算数字。
 
 标题:{title}
-做了什么:{tldr}
-主张:{claim}
-证据:{facts}
-落差:{gap}"""
+原文:
+{text}"""
 
 
-def _fill_takeaway(papers, llm_cfg):
-    todo = [p for p in papers if not p["analysis"].get("takeaway")]
+def _fill_takeaway(papers, llm_cfg, refill=False):
+    """给缺要点句/结果句的论文补写。原文 = 缓存的正文(有的话)否则摘要;写完逐句做数字核对,
+    对不上的作废(pipeline/grounding.py)。refill=True 时全部重写(修掉旧版凭拆解脑补出的数字)。"""
+    from pipeline import grounding
+    todo = [p for p in papers if refill or not p["analysis"].get("takeaway")]
     client = rank._client(llm_cfg)
     if not todo or client is None:
         return
-    print(f"== 补「为什么要在意」{len(todo)} 篇 ==", flush=True)
+    print(f"== 写「为什么要在意 / 最硬结果」{len(todo)} 篇(带数字核对)==", flush=True)
 
     def one(p):
         a = p["analysis"]
+        full = fulltext.fetch(p["arxiv_id"], 40000) if (
+            fulltext.CACHE and (fulltext.CACHE / f"{p['arxiv_id']}.txt").exists()) else ""
+        src = full or p.get("abstract", "")
+        if not src:
+            a["headline_result"] = ""
+            return 0
         try:
             r = client.chat.completions.create(
-                model=llm_cfg.get("model", "qwen-plus"), max_tokens=300, temperature=0.2,
+                model=llm_cfg.get("model", "qwen-plus"), max_tokens=300, temperature=0,
                 response_format={"type": "json_object"},
-                messages=[{"role": "user", "content": TK_PROMPT.format(
-                    title=p["title"], tldr=a.get("tldr", ""), claim=a.get("claim", ""),
-                    facts=a.get("evidence_facts") or a.get("significance_reason", ""),
-                    gap=a.get("hype_gap", "未核对"))}])
+                messages=[{"role": "user", "content": TK_PROMPT.format(title=p["title"], text=src)}])
             d = analyze._parse_json(r.choices[0].message.content)
-            a["takeaway"], a["headline_result"] = d.get("takeaway", ""), d.get("headline_result", "")
-            return 1
         except Exception:
             return 0
+        a["takeaway"], a["headline_result"] = d.get("takeaway", ""), d.get("headline_result", "")
+        a["_result_src"] = "fulltext" if full else "abstract"
+        return 1 if not grounding.scrub(a, f"{p['title']} {src}") else 0
     with ThreadPoolExecutor(max_workers=8) as ex:
-        print(f"  成功 {sum(ex.map(one, todo))}/{len(todo)}")
+        ok = sum(ex.map(one, todo))
+    print(f"  通过核对 {ok}/{len(todo)};作废的结果句 "
+          f"{sum(1 for p in todo if p['analysis'].get('_headline_rejected') and not p['analysis'].get('headline_result'))}")
 
 
 def main():
@@ -142,7 +150,7 @@ def main():
         print("== 4) 第二轮排名 ==")
         _rank_all(pools, rk)
 
-    _fill_takeaway([p for lst in pools.values() for p in lst], llm_cfg)
+    _fill_takeaway([p for lst in pools.values() for p in lst], llm_cfg, refill="--refill" in sys.argv)
     store.save(state)
     run._finish(state, routes)
     tiers = [(p.get("rank") or {}).get("tier") for lst in pools.values() for p in lst]

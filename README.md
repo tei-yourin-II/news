@@ -20,8 +20,13 @@
 逐篇打的 significance 一半挤在 68~78,排不出先后;只读摘要又只能复述作者自评。现在:
 - **内容轴** `pipeline/rank.py`:LLM 读 PDF 正文(`pipeline/fulltext.py`)拆解后,把**同日同领域**的论文放一起强制排名,头部限额(必读 ≤6% / 值得读 ≤20%)。
 - **热度轴** `pipeline/signals.py`:HF Daily Papers 按日期回拉近 30 天的当前点赞 + GitHub star,每天刷新全部近期论文。
-- **综合分** = 两轴里高的占七成、低的占三成。首页「近期」= 热度榜 + 内容榜(只读 `docs/recent.json`,近 30 天);论文库按综合分,不带时间权重(老论文的旧分按同月同领域名次换算到同一把尺子)。
+- **关注度** H = 25·log2(1+V/10) 不封顶(V=等效票数:点赞 + star/20 + 引用×4 + 会议/奖项加成,见 `refresh_heat.py`);**综合分** = ((M³+H³)/2)^(1/3)。首页「近期」= 热度榜 + 内容榜(只读 `docs/recent.json`,近 30 天);论文库按综合分,不带时间权重(老论文的旧分按同月同领域名次换算到同一把尺子)。
 - `python rerank.py --days 14`:给存量论文回填(幂等,可重跑)。
+
+## 编辑 agent(Claude 定时任务,流水线之上的一层)
+流水线负责量大的粗活;`agent/EDITOR.md` 是每日编辑 agent 的守则:对着正文核对头部论文、写 `docs/brief.json` 简报、
+每周一跑 `retro.py` 做事后验证并在约束内调 `agent/weights.yaml`(改动记 `agent/CHANGELOG.md`)。读者反馈写 `agent/feedback.md`。
+防编造:`pipeline/grounding.py` 核对 LLM 写的结果句,数字在原文里找不到的整句作废;机构只认 PDF 首页署名(`fix_orgs.py` 回填)。
 
 ## 数据产物(docs/*.json)
 | 文件 | 内容 | 生成 | 节奏 |

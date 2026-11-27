@@ -4,7 +4,7 @@ from pathlib import Path
 
 from datetime import datetime, timedelta, timezone
 
-from pipeline import entities, rank
+from pipeline import entities, rank, weights
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "docs" / "data.json"
@@ -36,6 +36,7 @@ def export(state, routes, generated_at):
     rid_domain = {rid: r.get("domain", "embodied_ai") for rid, r in route_meta.items()}
     data = {
         "generated_at": generated_at,
+        "weights": weights.load(),
         "count": len(papers),
         "routes": routes_out,
         "edges": edges,
@@ -49,7 +50,7 @@ def export(state, routes, generated_at):
     cut = (datetime.now(timezone.utc) - timedelta(days=RECENT_DAYS)).strftime("%Y-%m-%d")
     day = lambda p: (p.get("first_seen") or p.get("published") or "")[:10]
     rec = [p for p in data["papers"] if day(p) >= cut and p["source"] not in ("cornerstone", "conference")]
-    recent = {"generated_at": generated_at, "days": RECENT_DAYS,
+    recent = {"generated_at": generated_at, "days": RECENT_DAYS, "weights": weights.load(),
               "latest": max((day(p) for p in rec), default=""),
               "routes": routes_out, "papers": rec}
     with open(OUT.with_name("recent.json"), "w", encoding="utf-8") as f:
@@ -86,6 +87,8 @@ def _slim(p, rid_domain=None):
         "orgs": [o for o, _ in _orgs],                            # 规范全机构(合作)
         "country": _orgs[0][1] if (_orgs and _orgs[0][1] != "unknown") else a.get("country", ""),
         "org_type": a.get("org_type", ""),
+        # 机构是否核实过:pdf=读过正文首页署名;其余是旧版只看摘要时模型按作者名猜的,不可信
+        "org_unverified": a.get("_org_src") != "pdf" and p.get("source") not in ("cornerstone", "conference"),
         "novelty": novelty,
         "significance": sig,
         "significance_reason": a.get("significance_reason", ""),

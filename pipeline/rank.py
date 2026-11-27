@@ -11,6 +11,7 @@ import json
 import os
 
 from . import signals
+from .weights import load as _weights
 from .analyze import _OPENAI_COMPAT, _parse_json, _resolve_key
 
 GROUP = 45          # 一次最多比多少篇(再多 LLM 排不准,拆组)
@@ -22,6 +23,8 @@ PROMPT = """你是具身智能/脑机接口/AI×科学方向的资深编辑,要�
 - 做成了以前做不成的事,且有扎实证据(真机、多任务、有对比和消融);
 - 开了一个别人会跟进的方向,或放出了别人会直接拿去用的模型/数据/系统;
 - 头部团队拿出的有真实证据的工作(只挂名头、没证据的不算)。
+不属于本领域的一律排最后、只能是 B:AI×科学必须真的用了 AI/机器学习方法(纯湿实验、纯动物模型、纯临床研究不算);
+脑机接口必须涉及神经信号解码/接口/神经模型(一般的神经科学实验不算);具身必须和机器人/具身智能体有关。
 要压低的:只有仿真小实验却写得很大、换皮组合、没有新结论的 benchmark、纯设想的立场文章、
 "首次/突破/通用"等词很多但 evidence 里查不到对应事实的。看每篇的「落差」一栏。
 
@@ -68,7 +71,8 @@ def _sig(p):
 
 def _rank_group(client, model, group):
     n = len(group)
-    ns, na = max(1, round(n * 0.06)), max(1, round(n * 0.2))
+    q = _weights()["quota"]
+    ns, na = max(1, round(n * q["S"])), max(1, round(n * q["A"]))
     prompt = PROMPT.format(n=n, ns=ns, na=na,
                            items="\n".join(_item(i, p) for i, p in enumerate(group)))
     resp = client.chat.completions.create(
@@ -79,11 +83,15 @@ def _rank_group(client, model, group):
     ok = lambda xs: [int(x) for x in (xs or []) if str(x).lstrip("-").isdigit() and 0 <= int(x) < n]
     S = list(dict.fromkeys(ok(d.get("S"))))[:ns]
     A = [x for x in dict.fromkeys(ok(d.get("A"))) if x not in S][:na]
+    # 没读过正文的(证据未核对)不进 S,最多到 A 档首位
+    unread = [x for x in S if not (group[x].get("analysis") or {}).get("_fulltext")]
+    S = [x for x in S if x not in unread]
+    A = unread + A
     order = list(dict.fromkeys(ok(d.get("order"))))
     rest = [i for i in sorted(range(n), key=lambda i: -_sig(group[i])) if i not in order]
     order += rest                                   # LLM 漏排的按旧分量分垫在后面
     pos = {x: k for k, x in enumerate(order)}
-    S.sort(key=pos.get); A.sort(key=pos.get)
+    S.sort(key=lambda x: pos.get(x, 999)); A.sort(key=lambda x: pos.get(x, 999))
     B = [x for x in order if x not in S and x not in A]
     why = {str(k): v for k, v in (d.get("why") or {}).items()}
     out = {}
@@ -137,7 +145,8 @@ def calibrate_legacy(papers, dom_of):
     for (month, _), lst in pools.items():
         lst.sort(key=lambda p: (_sig(p), (p.get("scores") or {}).get("content", 0), hot(p)), reverse=True)
         n = len(lst)
-        ns, na = max(1, round(n * 0.06)), max(1, round(n * 0.2))
+        q = _weights()["quota"]
+        ns, na = max(1, round(n * q["S"])), max(1, round(n * q["A"]))
         for k, p in enumerate(lst):
             if k < ns:
                 tier, m = "S", 100 - 10 * k / ns
@@ -173,7 +182,9 @@ def merit(p):
 
 
 def combo(p):
-    """综合 = 内容和热度里高的那个占七成、低的占三成。
-    任何一条轴突出都能上榜,两条都突出的排最前。"""
-    m, h = merit(p), hot(p)
-    return round(0.7 * max(m, h) + 0.3 * min(m, h), 1)
+    """综合 = 内容 M 和关注度 H 的三次幂平均:((M³ + H³) / 2)^(1/3)。
+    非线性:偏向两者里高的那个(单轴突出就能上榜),两轴都高的更高,且随 H 不封顶。
+    例:M=100,H=0 → 79;M=45,H=100 → 82;M=90,H=90 → 90;M=99,H=150 → 129;M=40,H=175 → 139。"""
+    m, h = max(merit(p), 0), max(hot(p), 0)
+    k = _weights()["combo"]["power"]
+    return round(((m ** k + h ** k) / 2) ** (1 / k), 1)

@@ -16,7 +16,7 @@ SYSTEM = """你是科技情报系统的资深论文分析员,覆盖三大领域:
   "tldr": "用一句中文白话讲清这篇到底做了啥、解决什么问题(给完全没读过的人看)",
   "takeaway": "读者为什么要在意,一句大白话,不超过40字:它让什么事第一次能做 / 把什么做便宜做快了多少 / 推翻了什么常识。不许出现方法名、模块名、英文缩写,不许用'提出了''框架''范式'这类词;如果其实没什么可在意的,就直说'增量改进:……'",
   "headline_result": "正文里最硬的一个结果,带数字和条件,不超过40字(如'真机G1上100次试验成功94%');没有量化结果写'无量化结果'",
-  "org": "主要团队/机构(中文简称,如 英伟达/谷歌DeepMind/Meta/斯坦福/伯克利/清华/智元/宇树/银河通用;依据作者名与摘要里的署名判断,多个取最主要的一个;实在判断不了写 unknown)",
+  "org": "主要团队/机构(中文简称)。**只能从给你的文本里读**:正文首页的作者单位/脚注/邮箱域名,或摘要里明写的机构名;多个取第一作者/通讯作者所在的那个。文本里没有出现任何单位信息就写 unknown——**严禁根据作者姓名、研究方向或'像哪家的风格'去猜**",
   "country": "该机构所属国家/地区,从 [US, CN, JP, EU, UK, KR, Other, unknown] 里选一个(美国US/中国CN/日本JP/欧洲EU/英国UK/韩国KR)",
   "org_type": "发布机构类型,从 [company, university, institute, mixed, unknown] 选一个(企业/高校/研究机构/产学研合作/未知)",
   "claim": "论文最核心的一句话主张(中文)",
@@ -134,6 +134,9 @@ def _analyze_openai_compat(paper, llm_cfg, provider):
         data = _parse_json(resp.choices[0].message.content)
         data["_llm"] = llm_cfg.get("model")
         data["_fulltext"] = bool(paper.get("_fulltext"))
+        data["_org_src"] = "pdf" if paper.get("_fulltext") else "abstract"
+        from . import grounding
+        grounding.scrub(data, f"{paper.get('title', '')} {paper.get('abstract', '')} {paper.get('_fulltext', '')}")
         return data
     except Exception as e:
         print(f"  [analyze] {provider} 失败,出占位: {e}")

@@ -28,7 +28,19 @@ def seen_ids(state):
     return {p["arxiv_id"] for p in state.get("papers", [])}
 
 
+def _calibrate(state):
+    """存盘前把没参加过同批排名的老论文按当月同领域名次换算好(rank.calibrate_legacy)并落盘,
+    这样所有读库的脚本(选片/配图/补源/导出)看到的内容分一致,不会有的用换算分、有的用兜底分。"""
+    try:
+        from . import config, rank
+        dom = {r["id"]: r.get("domain", "embodied_ai") for r in config.load_config().get("routes", [])}
+        rank.calibrate_legacy(state.get("papers", []), lambda p: dom.get(p.get("best_route"), "embodied_ai"))
+    except Exception as e:
+        print(f"  [store] 老论文换算跳过: {e}")
+
+
 def save(state):
+    _calibrate(state)
     STORE.parent.mkdir(parents=True, exist_ok=True)
     with open(STORE, "w", encoding="utf-8") as f:
         json.dump(state, f, ensure_ascii=False, indent=2)

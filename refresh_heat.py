@@ -18,6 +18,8 @@ from pathlib import Path
 
 from pipeline import config, export, fetch_arxiv, fetch_openalex, rank, signals, store, venue
 
+from pipeline import weights as _w
+OLD_REPO_DAYS = _w.load()["old_repo_days"]
 ARXIV_RE = re.compile(r"^\d{4}\.\d{4,5}$")
 ROOT = Path(__file__).resolve().parent
 
@@ -88,11 +90,22 @@ def main():
     token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN") or ""
     repos = [p["signals"]["repo"] for p in sorted(recent, key=rank.merit, reverse=True) if p["signals"].get("repo")]
     stars = signals.fetch_github_stars(repos, token)
+    foreign = 0
     for p in recent:
-        st = stars.get(p["signals"].get("repo", ""))
-        if st is not None:
-            p["signals"]["github_stars"] = max(p["signals"].get("github_stars") or 0, st)
-    print(f"  GitHub:{len(set(repos))} 个仓库,查到 {len(stars)} 个" + ("" if token else "(无 token,只查前 50)"))
+        got = stars.get(p["signals"].get("repo", ""))
+        if got is None:
+            continue
+        st, created = got
+        # 仓库比论文早建 OLD_REPO_DAYS 天以上 → 多半是论文里提到的别人的仓库 / 所用框架
+        # (如 Cosmos、lerobot),star 不是这篇挣的,不计。链接保留。
+        pub = (p.get("published") or "")[:10]
+        own = not (created and pub) or created >= (
+            datetime.strptime(pub, "%Y-%m-%d") - timedelta(days=OLD_REPO_DAYS)).strftime("%Y-%m-%d")
+        p["signals"]["github_stars"] = st if own else 0
+        p["signals"]["repo_foreign"] = not own
+        foreign += not own
+    print(f"  GitHub:{len(set(repos))} 个仓库,查到 {len(stars)} 个,其中 {foreign} 篇挂的是早已存在的仓库(star 不计)"
+          + ("" if token else "(无 token,只查前 50)"))
 
     # 5) 引用(run.py 只刷近 45 天;这里把窗口内更老的也补上)
     old = [p for p in recent if (p.get("published") or "")[:10] < (

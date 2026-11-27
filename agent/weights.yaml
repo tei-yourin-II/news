@@ -1,0 +1,33 @@
+# 排序计算式的系数。每日编辑 agent 可以改这个文件(规则见 agent/EDITOR.md),
+# 每次改动必须在 agent/CHANGELOG.md 记一条:改了什么、依据什么证据。
+version: 1
+
+# 等效票数 V = Σ 各路信号 × 系数
+votes:
+  hf_upvote: 1.0          # Hugging Face 点赞
+  github_star: 0.05       # GitHub star(20 星 ≈ 1 票)
+  citation: 4.0           # 被引 1 次
+  venue_accept: 10        # 顶会录用(无更高奖项时)
+  awards:                 # 有奖项时取代 venue_accept
+    Best Paper: 250
+    Best Paper Finalist: 100
+    Oral: 60
+    Spotlight: 40
+    Highlight: 40
+
+# 关注度 H = scale × log2(1 + V / half)
+heat:
+  scale: 25
+  half: 10
+
+# 综合 = ((M^power + H^power) / 2)^(1/power);power 越大越偏向两轴里高的那个
+combo:
+  power: 3
+
+# 内容轴同批排名的头部名额(占当日同领域论文的比例)
+quota:
+  S: 0.06
+  A: 0.20
+
+# 仓库比论文早建这么多天以上,star 不算这篇的
+old_repo_days: 120
