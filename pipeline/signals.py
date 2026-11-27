@@ -105,7 +105,79 @@ def fetch_hf_range(days=30, pause=0.15):
     return out
 
 
-def hot_score(upvotes=0, stars=0):
-    """社区热度 0~100(对数标度):10 票≈42,50 票≈69,150 票≈88,300 票封顶。
-    GitHub star 按 20 星≈1 票折算并入。"""
-    return round(100 * min(1.0, math.log1p((upvotes or 0) + (stars or 0) / 20.0) / math.log1p(300)), 1)
+AWARD_VOTES = {"Best Paper": 250, "Best Paper Finalist": 100, "Oral": 60, "Spotlight": 40, "Highlight": 40}
+
+
+def hot_votes(upvotes=0, stars=0, cites=0, venue="", award=""):
+    """把各路关注度折成「等效票数」:HF 点赞 1:1;GitHub 20 星≈1 票;
+    引用 1 次≈4 票(新论文几周内被引很稀罕);顶会录用 +10;口头/亮点 +40~60;最佳论文 +250。
+    只用 HF 点赞会漏掉大半个机器人圈(很多好论文根本不上 HF 每日榜)。"""
+    v = (upvotes or 0) + (stars or 0) / 20.0 + 4 * (cites or 0)
+    if award:
+        v += AWARD_VOTES.get(award, 0)
+    elif venue:
+        v += 10
+    return v
+
+
+def hot_score(upvotes=0, stars=0, cites=0, venue="", award=""):
+    """关注度 0~100(对数标度):等效 10 票≈42,50 票≈69,150 票≈88,300 票封顶。"""
+    return round(100 * min(1.0, math.log1p(hot_votes(upvotes, stars, cites, venue, award)) / math.log1p(300)), 1)
+
+
+def fetch_hf_by_ids(ids, workers=6):
+    """逐篇查 HF 论文页(没上每日榜的论文也可能有点赞和登记的仓库)。
+    返回 {arxiv_id: {...}},HF 上没有这篇的不在结果里。"""
+    from concurrent.futures import ThreadPoolExecutor
+
+    def one(aid):
+        try:
+            req = urllib.request.Request(f"https://huggingface.co/api/papers/{aid}",
+                                         headers={"User-Agent": "robot-intel/0.1"})
+            with urllib.request.urlopen(req, timeout=20) as resp:
+                d = json.loads(resp.read())
+            return aid, {"upvotes": d.get("upvotes") or 0, "stars": d.get("githubStars") or 0,
+                         "comments": d.get("numComments") or 0, "repo": d.get("githubRepo") or "",
+                         "project": d.get("projectPage") or ""}
+        except Exception:
+            return aid, None
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        return {a: v for a, v in ex.map(one, ids) if v}
+
+
+_REPO = __import__("re").compile(r"github\.com/([A-Za-z0-9_.\-]+)/([A-Za-z0-9_.\-]+)")
+
+
+def find_repo(*texts):
+    """从 comment / 摘要里抠第一个 GitHub 仓库地址(owner/repo)。"""
+    for t in texts:
+        m = _REPO.search(t or "")
+        if m:
+            owner, repo = m.group(1), m.group(2).rstrip(".").removesuffix(".git")
+            if owner.lower() not in ("orgs", "topics", "features") and repo:
+                return f"https://github.com/{owner}/{repo}"
+    return ""
+
+
+def fetch_github_stars(repos, token="", workers=6):
+    """{repo_url: stars}。有 token(GITHUB_TOKEN/GH_TOKEN)额度 5000/时;没有只有 60/时,只查前 50 个。"""
+    from concurrent.futures import ThreadPoolExecutor
+    repos = list(dict.fromkeys(r for r in repos if r))
+    if not token:
+        repos = repos[:50]
+
+    def one(url):
+        m = _REPO.search(url)
+        if not m:
+            return url, None
+        h = {"User-Agent": "robot-intel/0.1", "Accept": "application/vnd.github+json"}
+        if token:
+            h["Authorization"] = f"Bearer {token}"
+        try:
+            req = urllib.request.Request(f"https://api.github.com/repos/{m.group(1)}/{m.group(2)}", headers=h)
+            with urllib.request.urlopen(req, timeout=20) as resp:
+                return url, json.loads(resp.read()).get("stargazers_count", 0)
+        except Exception:
+            return url, None
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        return {u: s for u, s in ex.map(one, repos) if s is not None}

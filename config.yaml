@@ -120,7 +120,9 @@ rank:
 # ---------- 社区热度(热度轴)----------
 # HF Daily Papers 按日期回拉近 N 天「现在」的点赞 / GitHub star,每天刷新全部近期论文。
 heat:
-  days: 30
+  days: 30                  # HF 每日榜回拉天数
+  refresh_days: 90          # refresh_heat.py 补源窗口:HF 逐篇 / arXiv comment(会议·奖项·仓库)/ GitHub star
+  hf_lookup_cap: 1500       # 每天最多逐篇查多少篇 HF(内容分高的先查)
 
 # ---------- LLM 初筛(廉价模型批量判相关性 + 分路线)----------
 # 三级漏斗中间层:免费锚点门 → 这里(qwen-turbo 批量初筛)→ 贵的 qwen-plus 深拆解。

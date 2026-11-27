@@ -377,7 +377,7 @@
     <select id="fOrgType"><option value="">全部</option><option value="company">企业</option>
       <option value="university">高校</option><option value="institute">研究机构</option></select></div>
   <div class="grp paperonly"><span class="lb">排序</span>
-    <select id="fSort"><option value="combo">综合</option><option value="hot">社区热度</option>
+    <select id="fSort"><option value="combo">综合</option><option value="hot">关注度</option>
       <option value="merit">内容</option><option value="date">最新</option><option value="significance">旧分量分</option></select></div>
   <button class="clear-btn paperonly" id="clearFilters" style="display:none">清空筛选</button>
 </div>
@@ -472,10 +472,10 @@ function init(){
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDrawer();document.getElementById('legend').classList.remove('open');}});
   document.getElementById('legend').innerHTML=`
     <h4>两条轴</h4>
-    <p><b>社区热度</b>:Hugging Face 点赞 + GitHub star,每天回刷近 30 天全部论文,300 票封顶 100。<br>
+    <p><b>关注度</b>:各路信号折成"等效票数"再取对数——HF 点赞 1:1、GitHub 20 星≈1 票、被引 1 次≈4 票、顶会录用 +10、口头/亮点 +40~60、最佳论文 +250;300 票封顶 100。每天回刷近 90 天。<br>
        <b>内容</b>:同一天同领域的论文放在一起让模型排先后,头部限额——<span class="pill S">必读</span> 约 6%、<span class="pill A">值得读</span> 约 20%。读的是 PDF 正文,不是摘要。</p>
     <h4>综合分</h4><p>两条轴里高的占七成、低的占三成。只有热度或只有内容都能上榜,两样都有的排最前。</p>
-    <h4>五个标签</h4><p>📡近期=社区热度榜 + 内容榜(标「深读」的点开有长篇解析);📄论文库=全部论文+筛选;🌐全景=领域进展+代表玩家;📰动态=要闻;🕸图谱=关系网。领域是二级筛选器。</p>
+    <h4>五个标签</h4><p>📡近期=关注度榜 + 内容榜(标「深读」的点开有长篇解析);📄论文库=全部论文+筛选;🌐全景=领域进展+代表玩家;📰动态=要闻;🕸图谱=关系网。领域是二级筛选器。</p>
     <h4>论文分数</h4><p>今日优先(base/60)=该不该今天读;总分(/100)含热度质量,随时间长。</p>`;
   const hm=(location.hash||'').replace('#','');
   if(['home','papers','panorama','news','graph'].includes(hm)) mode=hm;
@@ -676,7 +676,7 @@ function card(p){
     <h3>${esc(p.title)}</h3>
     ${p.venue?`<div class="venue">🏆 ${esc(p.venue)}</div>`:''}
     <div class="tldr">${esc(p.takeaway||p.tldr||p.claim||'')}</div>
-    <div class="foot">${esc((p.published||'').slice(0,10))}<span>·</span>内容 ${Math.round(p.merit||0)}<span>·</span>热度 ${Math.round(p.hot||0)}</div>
+    <div class="foot">${esc((p.published||'').slice(0,10))}<span>·</span>内容 ${Math.round(p.merit||0)}<span>·</span>关注度 ${Math.round(p.hot||0)}</div>
   </div>`;
 }
 
@@ -700,7 +700,9 @@ function pills(p){
   const g=p.signals||{};
   return (TIERNAME[p.rank_tier]?`<span class="pill ${p.rank_tier}">${TIERNAME[p.rank_tier]}</span>`:'')
     +(g.hf_upvotes?`<span class="pill hot">▲ ${g.hf_upvotes}</span>`:'')
-    +(g.github_stars?`<span class="pill star">★ ${g.github_stars}</span>`:'');
+    +(g.github_stars?`<span class="pill star">★ ${g.github_stars}</span>`:'')
+    +(g.citations?`<span class="pill star">引 ${g.citations}</span>`:'')
+    +(p.award?`<span class="pill S">🏆 ${esc(p.award)}</span>`:'');
 }
 let RW=7, RDOM='embodied_ai', RALL=false;
 const rdate=p=>(p.first_seen||p.published||'').slice(0,10);
@@ -721,7 +723,7 @@ function deepOf(id){
 const noGap=t=>!t||/^(none|无|没有)/i.test(t.trim());
 function rrow(p,lead){
   const g=p.signals||{}, co=coOf(p), o=orgOf(p);
-  const num= lead==='hot' ? `<b style="color:var(--heavy)">${g.hf_upvotes||0}</b><small>点赞</small>`
+  const num= lead==='hot' ? `<b style="color:var(--heavy)">${Math.round(p.hot||0)}</b><small>关注度</small>`
            : lead==='merit' ? `<b style="color:${p.rank_tier==='S'?'var(--S)':'var(--A)'}">${Math.round(p.merit||0)}</b><small>内容</small>`
            : `<b style="color:${comboColor(p)}">${Math.round(p.combo||0)}</b><small>综合</small>`;
   const res=(p.headline_result&&!/无量化结果/.test(p.headline_result))?p.headline_result:'';
@@ -754,11 +756,11 @@ function renderHome(){
     html+=`<div class="empty">这个时间窗内没有论文。${LOAD_ISSUES.length?'<br>'+esc(LOAD_ISSUES.join(';')):''}</div>`;
   }else{
     const top=p=>p.rank_tier==='S'||p.rank_tier==='A';
-    const hotAll=ps.filter(p=>(p.signals?.hf_upvotes||0)>0).sort((a,b)=>(b.hot-a.hot)||(b.merit-a.merit));
+    const hotAll=ps.filter(p=>(p.hot||0)>0).sort((a,b)=>(b.hot-a.hot)||(b.merit-a.merit));
     const merAll=ps.filter(top).sort((a,b)=>(b.merit-a.merit)||(b.hot-a.hot));
     const N=RALL?999:10, more=Math.max(hotAll.length,merAll.length)>10;
     html+=`<div class="lanes">
-      <div><div class="rsec"><span class="t">🔥 社区热度榜</span><span class="d">Hugging Face 点赞 + GitHub star · ${hotAll.length} 篇</span></div>
+      <div><div class="rsec"><span class="t">🔥 关注度榜</span><span class="d">HF 点赞 + GitHub star + 引用 + 会议/获奖 · ${hotAll.length} 篇</span></div>
         ${hotAll.slice(0,N).map(p=>rrow(p,'hot')).join('')||'<div class="rnote">窗口内还没有上社区榜的论文</div>'}</div>
       <div><div class="rsec"><span class="t">🧐 内容榜</span><span class="d">读正文、同日同领域放一起排、头部限额 · ${merAll.length} 篇</span></div>
         ${merAll.slice(0,N).map(p=>rrow(p,'merit')).join('')||'<div class="rnote">窗口内的论文还没排过名</div>'}</div></div>
@@ -1077,8 +1079,8 @@ function openPaper(p, ctx){
       <div><b class="n" style="color:${p.rank_tier==='S'?'var(--S)':p.rank_tier==='A'?'var(--A)':'var(--mut2)'}">${Math.round(p.merit)}</b>
         <span class="l"> 内容 ${TIERNAME[p.rank_tier]?`<span class="pill ${p.rank_tier}">${TIERNAME[p.rank_tier]}</span>`:(p.rank_tier?'· 同批未进头部':'· 未参加同批排名')}${p.rank_legacy?' · 由旧分按当月名次换算':''}</span>
         <div class="x">${esc(p.rank_why||p.significance_reason||'')}</div></div>
-      <div><b class="n" style="color:var(--heavy)">${Math.round(p.hot||0)}</b><span class="l"> 社区热度</span>
-        <div class="x">${(p.signals?.hf_upvotes||p.hf_upvotes)?`HF 点赞 ${p.signals?.hf_upvotes||p.hf_upvotes}`:'没上 HF 每日榜'}${p.signals?.github_stars?` · GitHub ★ ${p.signals.github_stars}`:''}${p.signals?.hf_comments?` · 讨论 ${p.signals.hf_comments}`:''}</div></div></div>`
+      <div><b class="n" style="color:var(--heavy)">${Math.round(p.hot||0)}</b><span class="l"> 关注度</span>
+        <div class="x">${[(p.signals?.hf_upvotes||p.hf_upvotes)?`HF 点赞 ${p.signals?.hf_upvotes||p.hf_upvotes}`:'', p.signals?.github_stars?`GitHub ★ ${p.signals.github_stars}`:'', p.signals?.citations?`被引 ${p.signals.citations}`:'', p.award?`${esc(p.venue||'')} ${esc(p.award)}`:(p.venue?`${esc(p.venue)} 录用`:'')].filter(Boolean).join(' · ')||'暂无任何关注度信号'}</div></div></div>`
     :`<div class="sigbig"><span class="n" style="color:${tcol}">${p.significance||0}</span>
       <span class="x"><b style="color:${tcol}">分量分</b> / 100<br>${esc(p.significance_reason||'')}</span></div>`}
     ${sec('💡 为什么要在意',p.takeaway)}

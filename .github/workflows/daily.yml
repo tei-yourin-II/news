@@ -25,6 +25,7 @@ jobs:
       - name: Run daily pipeline
         env:
           QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
+          GITHUB_TOKEN: ${{ github.token }}   # 查 GitHub star 用(只读公开仓库)
         run: python daily.py
 
       - name: Commit results

@@ -157,7 +157,8 @@ def calibrate_legacy(papers, dom_of):
 # ---------- 展示用的两条轴 + 合成 ----------
 def hot(p):
     s = p.get("signals", {}) or {}
-    return signals.hot_score(s.get("hf_upvotes", 0), s.get("github_stars", 0))
+    return signals.hot_score(s.get("hf_upvotes", 0), s.get("github_stars", 0), s.get("citations", 0),
+                             p.get("venue") or s.get("venue", ""), p.get("award", ""))
 
 
 def merit(p):

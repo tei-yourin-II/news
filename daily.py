@@ -7,6 +7,7 @@
 不每天重算 —— 它们只在有新突破/新闻时更新(各自 gen_*.py 脚本,接入 RSS 后由 #7 触发)。
 """
 import run
+import refresh_heat
 import fetch_thumbs
 import progress_update
 import pick_daily
@@ -27,6 +28,8 @@ def _safe(name, fn):
 def main():
     print("=== [1/8] 论文管线(入库即识别新论文会议归属)===")
     run.main()
+    print("=== [1.5] 关注度补源(HF 逐篇 / 会议奖项 / GitHub star)===")
+    _safe("关注度", refresh_heat.main)
     print("=== [2/8] 领域进展门控(大突破才动基石榜)===")
     _safe("门控", progress_update.main)
     print("=== [3/8] 新论文配图 ===")

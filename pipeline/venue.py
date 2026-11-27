@@ -70,6 +70,20 @@ def detect(comment, abstract=""):
     return ""
 
 
+_AWARDS = [("Best Paper", r"best\s+(?:\w+\s+)?paper(?!\s+(?:finalist|nominee|candidate))|outstanding paper"),
+           ("Best Paper Finalist", r"best\s+(?:\w+\s+)?paper\s+(?:finalist|nominee|candidate)|award finalist"),
+           ("Oral", r"\boral\b"), ("Spotlight", r"\bspotlight\b"), ("Highlight", r"\bhighlight\b")]
+
+
+def award(comment):
+    """从 arXiv comment 里识别获奖/口头报告等级。识别不到返回 ""。
+    注意 best paper 常在会后才公布,作者不一定回来改 comment —— 漏掉的可在 awards.yaml 里手工补。"""
+    for name, pat in _AWARDS:
+        if re.search(pat, comment or "", re.I):
+            return name
+    return ""
+
+
 def _match(text):
     for name, pat in _COMPILED:
         if pat.search(text):
